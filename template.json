@@ -46,16 +46,29 @@
     }
   },
   "Item": {
-    "types": ["item"],
+    "types": ["item", "talent", "weapon"],
     "templates": {
       "base": {
         "description": ""
       }
     },
-    "item": {
+    "gear": {
       "templates": ["base"],
       "quantity": 1,
       "weight": 0
+    },
+    "talent": {
+      "templates": ["base"],
+      "quantity": 1,
+      "weight": 0
+    },
+    "weapon": {
+      "templates": ["base"],
+      "quantity": 1,
+      "weight": 0,
+      "reloads": 0,
+      "bonus": 0,
+      "range": "medium"
     }
   }
 }

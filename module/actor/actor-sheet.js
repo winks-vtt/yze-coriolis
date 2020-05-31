@@ -11,7 +11,11 @@ export class yzecoriolisActorSheet extends ActorSheet {
       template: "systems/yzecoriolis/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+      tabs: [{
+        navSelector: ".sheet-tabs",
+        contentSelector: ".sheet-body",
+        initial: "description"
+      }]
     });
   }
 
@@ -24,7 +28,42 @@ export class yzecoriolisActorSheet extends ActorSheet {
     for (let attr of Object.values(data.data.attributes)) {
       attr.isCheckbox = attr.dtype === "Boolean";
     }
+    // prepare items
+    if (this.actor.data.type == 'character') {
+      this._prepareCharacterItems(data);
+    }
     return data;
+  }
+
+  _prepareCharacterItems(sheetData) {
+    const actorData = sheetData.actor;
+
+    // Initialize our containers
+    const gear = [];
+    const talents = [];
+    const weapons = [];
+
+    for (let i of sheetData.items) {
+      let item = i.data;
+      i.img = i.img || DEFAULT_TOKEN;
+      // append to gear
+      if (i.type === 'item') {
+        gear.push(i);
+      }
+      // append to talents
+      if (i.type === "talent") {
+        talents.push(i);
+      }
+
+      // append to weapons
+      if (i.type === "weapon") {
+        weapons.push(i);
+      }
+      // assign and return
+      actorData.gear = gear;
+      actorData.weapons = weapons;
+      actorData.talents = talents;
+    }
   }
 
   /** @override */
@@ -98,7 +137,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
       let roll = new Roll(dataset.roll, this.actor.data.data);
       let label = dataset.label ? `Rolling ${dataset.label}` : '';
       roll.roll().toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        speaker: ChatMessage.getSpeaker({
+          actor: this.actor
+        }),
         flavor: label
       });
     }
