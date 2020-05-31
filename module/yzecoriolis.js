@@ -4,11 +4,12 @@ import { yzecoriolisActorSheet } from "./actor/actor-sheet.js";
 import { yzecoriolisItem } from "./item/item.js";
 import { yzecoriolisItemSheet } from "./item/item-sheet.js";
 
-Hooks.once('init', async function() {
+Hooks.once('init', async function () {
 
   game.yzecoriolis = {
     yzecoriolisActor,
-    yzecoriolisItem
+    yzecoriolisItem,
+    rollItemMacro
   };
 
   /**
@@ -31,7 +32,7 @@ Hooks.once('init', async function() {
   Items.registerSheet("yzecoriolis", yzecoriolisItemSheet, { makeDefault: true });
 
   // If you need to add Handlebars helpers, here are a few useful examples:
-  Handlebars.registerHelper('concat', function() {
+  Handlebars.registerHelper('concat', function () {
     var outStr = '';
     for (var arg in arguments) {
       if (typeof arguments[arg] != 'object') {
@@ -41,7 +42,54 @@ Hooks.once('init', async function() {
     return outStr;
   });
 
-  Handlebars.registerHelper('toLowerCase', function(str) {
+  Handlebars.registerHelper('toLowerCase', function (str) {
     return str.toLowerCase();
   });
 });
+
+Hooks.once('ready', async function () {
+  // wait to register hotbar drop hook on ready so taht modules could register earlier if they want to
+  Hooks.on("hotbarDrop", (bar, data, slot) => createYzeCoriolisMacro(data, slot));
+});
+
+/**
+ * Create a macro from an Item drop
+ * @param  {} data
+ * @param  {} slot
+ */
+async function createYzeCoriolisMacro(data, slot) {
+  if (data.type !== "Item") return;
+  if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned items");
+  const item = data.data;
+
+  // create the macro command
+  const command = `game.yzecoriolis.rollItemMacro("${item.name}");`;
+  let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
+  if (!macro) {
+    macro = await Macro.create({
+      name: item.name,
+      type: "script",
+      mg: item.img,
+      command: command,
+      flags: { "yzecoriolis.itemMacro": true }
+    });
+  }
+  game.user.assignHotbarMacro(macro, slot);
+  return false;
+}
+
+/**
+ * Create a macro from an item drop. Get an existing item macro if it exists. Otherwise create a new one.
+ * @param  {} itemName
+ */
+function rollItemMacro(itemName) {
+  const speaker = ChatMessage.getSpeaker();
+  let actor;
+  if (speaker.token) actor = game.actors.tokens[speaker.token];
+  if (!actor) actor = game.actors.get(speaker.actor);
+  const item = actor ? actor.items.find(i => i.name === itemName) : null;
+  if (!item) return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
+
+  // trigger the item roll
+  return item.roll();
+}

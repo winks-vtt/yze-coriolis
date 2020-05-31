@@ -92,6 +92,18 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
+
+    // drag events for macros
+    if (this.actor.owner) {
+      let handler = ev => this._onDragItemStart(ev);
+      html.find('li.item').each((i, li) => {
+        // ignore for the header row
+        if (li.classList.contains("item-header")) return;
+        // add draggable attribute and drag start listener
+        li.setAttribute("draggable", true);
+        li.addEventListener("dragstart", handler, false);
+      });
+    }
   }
 
   /* -------------------------------------------- */
