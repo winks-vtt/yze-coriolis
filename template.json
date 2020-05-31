@@ -73,11 +73,16 @@
     }
   },
   "Item": {
-    "types": ["item", "talent", "weapon"],
+    "types": ["item", "gear", "talent", "weapon", "skill"],
     "templates": {
       "base": {
         "description": ""
       }
+    },
+    "item": {
+      "templates": ["base"],
+      "quantity": 1,
+      "weight": 0
     },
     "gear": {
       "templates": ["base"],
@@ -104,6 +109,13 @@
       "damage": 0,
       "initiative": 0,
       "range": "medium"
+    },
+    "skill": {
+      "category": "",
+      "attribute": "",
+      "value": 0,
+      "min": 0,
+      "max": 5
     }
   }
 }
