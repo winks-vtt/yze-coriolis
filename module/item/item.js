@@ -13,6 +13,12 @@ export class yzecoriolisItem extends Item {
     const itemData = this.data;
     const actorData = this.actor ? this.actor.data : {};
     const data = itemData.data;
+
+    if (itemData.type === 'character') this._prepareItemData(itemData);
+  }
+
+  _prepareItemData(itemData) {
+    // prep item data?
   }
 
   async roll() {
