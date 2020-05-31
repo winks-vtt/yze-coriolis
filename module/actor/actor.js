@@ -24,7 +24,15 @@ export class yzecoriolisActor extends Actor {
    */
   _prepareCharacterData(actorData) {
     const data = actorData.data;
+    data.hitPoints.max = data.attributes.strength.value + data.attributes.agility.value;
+    data.mindPoints.max = data.attributes.wits.value + data.attributes.empathy.value;
 
+    if (data.hitPoints.value > data.hitPoints.max) {
+      data.hitPoints.value = data.hitPoints.max;
+    }
+    if (data.mindPoints.value > data.mindPoints.max) {
+      data.mindPoints.value = data.mindPoints.max;
+    }
     // Make modifications to data here. For example:
 
     // Loop through ability scores, and add their modifiers to our sheet output.

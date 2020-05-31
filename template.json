@@ -3,8 +3,13 @@
     "types": ["character"],
     "templates": {
       "base": {
-        "health": {
+        "hitPoints": {
           "value": 10,
+          "min": 0,
+          "max": 10
+        },
+        "mindPoints": {
+          "value": 0,
           "min": 0,
           "max": 10
         },
