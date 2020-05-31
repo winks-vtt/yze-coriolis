@@ -45,11 +45,31 @@
     "character": {
       "templates": ["base"],
       "biography": "",
+      "bio": {
+        "background": "",
+        "concept": "",
+        "icon": "",
+        "groupConcept": "",
+        "appearance": {
+          "face": "",
+          "clothing": ""
+        }
+      },
       "experience": {
         "value": 0,
         "min": 0,
         "max": 10
-      }
+      },
+      "reputation": {
+        "value": 0,
+        "min": 0,
+        "max": 10
+      },
+      "relationships": [],
+      "cabin": {
+        "description": ""
+      },
+      "birr": 0
     }
   },
   "Item": {
@@ -62,7 +82,8 @@
     "gear": {
       "templates": ["base"],
       "quantity": 1,
-      "weight": 0
+      "weight": 0,
+      "gearType": ""
     },
     "talent": {
       "templates": ["base"],
@@ -73,8 +94,15 @@
       "templates": ["base"],
       "quantity": 1,
       "weight": 0,
-      "reloads": 0,
+      "comment": "",
+      "reloads": {
+        "value": 0,
+        "min": 0,
+        "max": 6
+      },
       "bonus": 0,
+      "damage": 0,
+      "initiative": 0,
       "range": "medium"
     }
   }

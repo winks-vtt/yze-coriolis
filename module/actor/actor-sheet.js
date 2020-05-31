@@ -40,6 +40,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
     // Initialize our containers
     const gear = [];
+    const armor = [];
     const talents = [];
     const weapons = [];
 
@@ -48,7 +49,11 @@ export class yzecoriolisActorSheet extends ActorSheet {
       i.img = i.img || DEFAULT_TOKEN;
       // append to gear
       if (i.type === 'item') {
-        gear.push(i);
+        if (i.gearType === "armor") {
+          armor.push(i);
+        } else {
+          gear.push(i);
+        }
       }
       // append to talents
       if (i.type === "talent") {
@@ -62,6 +67,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       // assign and return
       actorData.gear = gear;
       actorData.weapons = weapons;
+      actorData.armor = armor;
       actorData.talents = talents;
     }
   }
