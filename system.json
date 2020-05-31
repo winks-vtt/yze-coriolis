@@ -1,23 +1,21 @@
 {
   "name": "yzecoriolis",
   "title": "Year Zero Engine - Coriolis",
-  "description": "The Year Zero Engine - Coriolis system for FoundryVTT!",
-  "version": "1.0.0",
-  "minimumCoreVersion": "0.5.5",
-  "compatibleCoreVersion": "0.5.5",
+  "description": "The Year Zero Engine - Coriolis Edition for FoundryVTT!",
+  "version": "0.0.1",
+  "minimumCoreVersion": "0.6.0",
+  "compatibleCoreVersion": "0.6.0",
   "templateVersion": 2,
   "author": "Winks",
   "esmodules": ["module/yzecoriolis.js"],
   "styles": ["css/yzecoriolis.css"],
   "scripts": [],
   "packs": [],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
-  ],
+  "languages": [{
+    "lang": "en",
+    "name": "English",
+    "path": "lang/en.json"
+  }],
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
