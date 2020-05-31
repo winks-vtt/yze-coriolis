@@ -33,12 +33,11 @@
           use both the "grid" and "grid-Ncol" class where "N" can be any number
           from 1 to 12 and will create that number of columns.  --}}
       <div class="abilities grid grid-3col">
-        {{#each data.abilities as |ability key|}}
+        {{#each data.attributes as |ability key|}}
         <div class="ability flexrow flex-group-center">
-          <label for="data.abilities.{{key}}.value" class="resource-label">{{key}}</label>
-          <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
-          <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod"
-            data-label="{{key}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+          <label for="data.attributes.{{key}}.value" class="resource-label rollable"
+            data-roll="(@attributes.{{key}}.value)d6">{{key}}</label>
+          <input type="text" name="data.attributes.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
         </div>
         {{/each}}
       </div>

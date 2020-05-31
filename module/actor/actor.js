@@ -28,10 +28,10 @@ export class yzecoriolisActor extends Actor {
     // Make modifications to data here. For example:
 
     // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(data.abilities)) {
-      // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 10) / 2);
-    }
+    // for (let [key, attr] of Object.entries(data.attributes)) {
+    //   // Calculate the modifier using d20 rules.
+    //   attr.mod = Math.floor((attr.value - 10) / 2);
+    // }
   }
 
 }
