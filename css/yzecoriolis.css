@@ -196,7 +196,10 @@
   text-decoration: underline;
   text-shadow: none;
 }
-.yzecoriolis.sheet.actor .abilities-item {
+.yzecoriolis.sheet.actor .attributes-list {
+  list-style: none;
+}
+.yzecoriolis.sheet.actor .attribute-item {
   list-style: none;
 }
 .yzecoriolis.sheet.actor .skills-list {

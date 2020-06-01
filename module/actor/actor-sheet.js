@@ -25,9 +25,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
   getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
-    for (let attr of Object.values(data.data.attributes)) {
-      attr.isCheckbox = attr.dtype === "Boolean";
-    }
     // prepare items
     if (this.actor.data.type == 'character') {
       this._prepareCharacterItems(data);
@@ -69,7 +66,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
       actorData.weapons = weapons;
       actorData.armor = armor;
       actorData.talents = talents;
-      actorData.skills = skills;
     }
   }
 

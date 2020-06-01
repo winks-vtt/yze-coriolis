@@ -38,7 +38,7 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="skills">Skills</a>
+    <a class="item" data-tab="stats">Stats</a>
     <a class="item" data-tab="gear">Gear</a>
     <a class="item" data-tab="weapons">Weapons</a>
     <a class="item" data-tab="talents">Talents</a>
@@ -48,26 +48,22 @@
   {{!-- Sheet Body --}}
   <section class="sheet-body">
 
-    {{!-- Biography Tab --}}
-    <div class="tab biography" data-group="primary" data-tab="description">
-      {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
-    </div>
+    {{!-- Stats Tab --}}
+    <div class="tab flexrow" data-group="primary" data-tab="stats">
 
-    {{!-- Skills Tab --}}
-    <div class="tab skills flexrow" data-group="primary" data-tab="skills">
-      {{!-- Attribute Scores --}}
-      {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-          use both the "grid" and "grid-Ncol" class where "N" can be any number
-          from 1 to 12 and will create that number of columns.  --}}
-      <ul class="abilities-list flexrow">
-        {{#each data.attributes as |ability key|}}
-        <li class="ability-item">
+      {{!-- Attributes List --}}
+      <ul class="attributes-list flexrow">
+        {{#each actor.data.attributes as |ability key|}}
+        <li class="attribute-item">
           <label for="data.attributes.{{key}}.value" class="resource-label rollable"
             data-roll="(@attributes.{{key}}.value)d6" data-label="{{key}}">{{key}}</label>
           <input type="text" name="data.attributes.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
         </li>
         {{/each}}
       </ul>
+
+
+      {{!-- Skills List --}}
       <ol class="skills-list">
         <li class="item flexrow item-header">
           <div class="item-image"></div>
@@ -77,82 +73,16 @@
         {{#each actor.data.skills as |item id|}}
         <li class="item flexrow" data-item-id="{{item._id}}">
           <h4 class="item-name">{{getSkillName id}} ({{getAttributeName item.attribute}})</h4>
-          <input type="text" name="data.attributes.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
+          <input type="text" name="data.skills.{{key}}.value" value="{{item.value}}" data-dtype="Number" />
         </li>
         {{/each}}
       </ol>
     </div>
 
-    {{!-- Owned Gear Tab --}}
-    <div class="tab gear" data-group="primary" data-tab="gear">
-      <ol class="items-list">
-        <li class="item flexrow item-header">
-          <div class="item-image"></div>
-          <div class="item-name">Name</div>
-          <div class="item-controls">
-            <a class="item-control item-create" title="Create item" data-type="gear"><i class="fas fa-plus"></i> Add
-              gear</a>
-          </div>
-        </li>
-        {{#each actor.gear as |item id|}}
-        <li class="item flexrow" data-item-id="{{item._id}}">
-          <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
-          <h4 class="item-name">{{item.name}}</h4>
-          <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-          </div>
-        </li>
-        {{/each}}
-      </ol>
+    {{!-- Biography Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="description">
+      {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
     </div>
 
-    {{!-- Owned Weapons Tab --}}
-    <div class="tab weapons" data-group="primary" data-tab="weapons">
-      <ol class="items-list">
-        <li class="item flexrow item-header">
-          <div class="item-image"></div>
-          <div class="item-name">Name</div>
-          <div class="item-controls">
-            <a class="item-control item-create" title="Create item" data-type="weapon"><i class="fas fa-plus"></i> Add
-              weapon</a>
-          </div>
-        </li>
-        {{#each actor.weapons as |item id|}}
-        <li class="item flexrow" data-item-id="{{item._id}}">
-          <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
-          <h4 class="item-name">{{item.name}}</h4>
-          <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-          </div>
-        </li>
-        {{/each}}
-      </ol>
-    </div>
-
-    {{!-- Talents Tab --}}
-    <div class="tab talents" data-group="primary" data-tab="talents">
-      <ol class="items-list">
-        <li class="item flexrow item-header">
-          <div class="item-image"></div>
-          <div class="item-name">Name</div>
-          <div class="item-controls">
-            <a class="item-control item-create" title="Create item" data-type="talent"><i class="fas fa-plus"></i> Add
-              talent</a>
-          </div>
-        </li>
-        {{#each actor.talents as |item id|}}
-        <li class="item flexrow" data-item-id="{{item._id}}">
-          <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
-          <h4 class="item-name">{{item.name}}</h4>
-          <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-          </div>
-        </li>
-        {{/each}}
-      </ol>
-    </div>
   </section>
 </form>

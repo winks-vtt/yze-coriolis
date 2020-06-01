@@ -14,12 +14,12 @@ YZECORIOLIS.attributes = {
     "strength": "YZECORIOLIS.AttrStrength",
     "agility": "YZECORIOLIS.AttrAgility",
     "wits": "YZECORIOLIS.AttrWits",
-    "empathy": "YZECORIOLIS.AttrEmpathy",
+    "empathy": "YZECORIOLIS.AttrEmpathy"
 };
 
 YZECORIOLIS.skillCategories = {
     "general": "YZECORIOLIS.SkillCatGeneral",
-    "advanced": "YZECORIOLIS.SkillCatAdvanced",
+    "advanced": "YZECORIOLIS.SkillCatAdvanced"
 };
 
 // The set of skills that can be trained in coriolis
