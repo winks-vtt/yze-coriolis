@@ -5,8 +5,24 @@
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
             <div class="grid grid-2col">
                 <div class="resource">
+                    <label class="resource-label">Category</label>
+                    <select class="skill-category" name="data.category">
+                        {{#select data.category}}
+                        {{#each config.skillCategories as |label attr|}}
+                        <option value="{{label}}">{{attr}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+                <div class="resource">
                     <label class="resource-label">Attribute</label>
-                    <input type="text" name="data.attribute" value="{{data.attribute}}" data-dtype="String" />
+                    <select class="skill-attribute" name="data.attribute">
+                        {{#select data.attribute}}
+                        {{#each data.attrOptions as |label attr|}}
+                        <option value="{{label}}">{{label}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
                 </div>
             </div>
         </div>
@@ -29,8 +45,6 @@
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
             {{!-- As you add new fields, add them in here! --}}
-            <label class="resource-label">Attribute</label>
-            <input type="text" name="data.attribute" value="{{data.attribute}}" data-dtype="String" />
         </div>
     </section>
 </form>

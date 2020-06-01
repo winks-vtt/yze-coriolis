@@ -1,15 +1,17 @@
 // Import Modules
+import { YZECORIOLIS } from "./config.js";
 import { yzecoriolisActor } from "./actor/actor.js";
 import { yzecoriolisActorSheet } from "./actor/actor-sheet.js";
 import { yzecoriolisItem } from "./item/item.js";
 import { yzecoriolisItemSheet } from "./item/item-sheet.js";
 
 Hooks.once('init', async function () {
-
+  console.log(`Coriolis | Initializing Coriolis\n${YZECORIOLIS.ASCII}`);
   game.yzecoriolis = {
     yzecoriolisActor,
     yzecoriolisItem,
-    rollItemMacro
+    rollItemMacro,
+    config: YZECORIOLIS
   };
 
   /**
@@ -24,6 +26,7 @@ Hooks.once('init', async function () {
   // Define custom Entity classes
   CONFIG.Actor.entityClass = yzecoriolisActor;
   CONFIG.Item.entityClass = yzecoriolisItem;
+  CONFIG.YZECORIOLIS = YZECORIOLIS;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);

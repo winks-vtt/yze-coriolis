@@ -30,6 +30,13 @@ export class yzecoriolisItemSheet extends ItemSheet {
   /** @override */
   getData() {
     const data = super.getData();
+    if (data.item.type === 'skill') {
+      // append attribute options
+      data.data.attrOptions = ['strength', 'agility', 'wits', 'empathy'];
+      data.data.categoryOptions = ['general', 'advanced'];
+      console.log(data);
+    }
+    console.log(data);
     return data;
   }
 
