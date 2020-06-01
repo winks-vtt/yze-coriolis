@@ -1,42 +1,25 @@
 const gulp = require('gulp');
-const prefix = require('gulp-autoprefixer');
-const sourcemaps = require('gulp-sourcemaps');
-const sass = require('gulp-sass');
+const less = require('gulp-less');
+
 
 /* ----------------------------------------- */
-/*  Compile Sass
+/*  Compile Less
 /* ----------------------------------------- */
+const YZECORIOLIS_LESS = ["less/**/*.less", "less/*.less"];
 
-// Small error handler helper function.
-function handleError(err) {
-  console.log(err.toString());
-  this.emit('end');
-}
-
-const SYSTEM_SCSS = ["scss/**/*.scss"];
-function compileScss() {
-  // Configure options for sass output. For example, 'expanded' or 'nested'
-  let options = {
-    outputStyle: 'expanded'
-  };
-  return gulp.src(SYSTEM_SCSS)
-    .pipe(
-      sass(options)
-        .on('error', handleError)
-    )
-    .pipe(prefix({
-      cascade: false
-    }))
+function compileLESS() {
+  return gulp.src("less/yzecoriolis.less")
+    .pipe(less())
     .pipe(gulp.dest("./css"))
 }
-const css = gulp.series(compileScss);
+const css = gulp.series(compileLESS);
 
 /* ----------------------------------------- */
 /*  Watch Updates
 /* ----------------------------------------- */
 
 function watchUpdates() {
-  gulp.watch(SYSTEM_SCSS, css);
+  gulp.watch(YZECORIOLIS_LESS, css);
 }
 
 /* ----------------------------------------- */
@@ -44,7 +27,7 @@ function watchUpdates() {
 /* ----------------------------------------- */
 
 exports.default = gulp.series(
-  compileScss,
+  gulp.parallel(css),
   watchUpdates
 );
 exports.css = css;

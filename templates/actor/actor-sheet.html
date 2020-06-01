@@ -59,16 +59,16 @@
       {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
           use both the "grid" and "grid-Ncol" class where "N" can be any number
           from 1 to 12 and will create that number of columns.  --}}
-      <ul class="abilities flexrow">
+      <ul class="abilities-list flexrow">
         {{#each data.attributes as |ability key|}}
-        <li class="ability">
+        <li class="ability-item">
           <label for="data.attributes.{{key}}.value" class="resource-label rollable"
             data-roll="(@attributes.{{key}}.value)d6" data-label="{{key}}">{{key}}</label>
           <input type="text" name="data.attributes.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
         </li>
         {{/each}}
       </ul>
-      <ol class="items-list">
+      <ol class="skills-list">
         <li class="item flexrow item-header">
           <div class="item-image"></div>
           <div class="item-name">Name</div>
@@ -76,7 +76,6 @@
         </li>
         {{#each actor.data.skills as |item id|}}
         <li class="item flexrow" data-item-id="{{item._id}}">
-          <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
           <h4 class="item-name">{{getSkillName id}} ({{getAttributeName item.attribute}})</h4>
           <input type="text" name="data.attributes.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
         </li>
