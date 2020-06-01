@@ -9,12 +9,12 @@ export class yzecoriolisActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["yzecoriolis", "sheet", "actor"],
       template: "systems/yzecoriolis/templates/actor/actor-sheet.html",
-      width: 600,
-      height: 600,
+      width: 930,
+      height: 770,
       tabs: [{
         navSelector: ".sheet-tabs",
         contentSelector: ".sheet-body",
-        initial: "description"
+        initial: "stats"
       }]
     });
   }
