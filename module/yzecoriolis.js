@@ -95,7 +95,7 @@ Hooks.once("setup", function () {
 
 
 Hooks.once('ready', async function () {
-  // wait to register hotbar drop hook on ready so taht modules could register earlier if they want to
+  // wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createYzeCoriolisMacro(data, slot));
 });
 
