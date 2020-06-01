@@ -32,6 +32,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     if (this.actor.data.type == 'character') {
       this._prepareCharacterItems(data);
     }
+    data.config = CONFIG.YZECORIOLIS;
     return data;
   }
 
@@ -43,10 +44,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const armor = [];
     const talents = [];
     const weapons = [];
-    const skills = {
-      "general": [],
-      "advanced": [],
-    };
     for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
@@ -66,12 +63,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
       // append to weapons
       if (i.type === "weapon") {
         weapons.push(i);
-      }
-      // sort and append skills
-      if (i.type === 'skill') {
-        if (i.data.category != undefined) {
-          skills[i.data.category].push(i);
-        }
       }
       // assign and return
       actorData.gear = gear;

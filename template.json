@@ -39,6 +39,120 @@
             "min": 0,
             "max": 10
           }
+        },
+        "skills": {
+          "dexterity": {
+            "category": "general",
+            "attribute": "agility",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          },
+          "force": {
+            "category": "general",
+            "attribute": "strength",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          },
+          "infiltration": {
+            "category": "general",
+            "attribute": "agility",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          },
+          "manipulation": {
+            "category": "general",
+            "attribute": "empathy",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          },
+          "meleecombat": {
+            "category": "general",
+            "attribute": "strength",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          },
+          "observation": {
+            "category": "general",
+            "attribute": "wits",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          },
+          "rangedcombat": {
+            "category": "general",
+            "attribute": "agility",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          },
+          "survival": {
+            "category": "general",
+            "attribute": "wits",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          },
+          "command": {
+            "category": "advanced",
+            "attribute": "empathy",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          },
+          "culture": {
+            "category": "advanced",
+            "attribute": "empathy",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          },
+          "datadjinn": {
+            "category": "advanced",
+            "attribute": "wits",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          },
+          "medicurgy": {
+            "category": "advanced",
+            "attribute": "wits",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          },
+          "mysticpowers": {
+            "category": "advanced",
+            "attribute": "empathy",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          },
+          "pilot": {
+            "category": "advanced",
+            "attribute": "agility",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          },
+          "science": {
+            "category": "advanced",
+            "attribute": "wits",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          },
+          "technology": {
+            "category": "advanced",
+            "attribute": "wits",
+            "value": 0,
+            "min": 0,
+            "max": 5
+          }
         }
       }
     },

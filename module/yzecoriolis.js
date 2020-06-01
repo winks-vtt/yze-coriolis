@@ -48,6 +48,13 @@ Hooks.once('init', async function () {
   Handlebars.registerHelper('toLowerCase', function (str) {
     return str.toLowerCase();
   });
+
+  Handlebars.registerHelper('getSkillName', function (skillkey) {
+    return CONFIG.YZECORIOLIS.skills[skillkey];
+  })
+  Handlebars.registerHelper('getAttributeName', function (attributeKey) {
+    return CONFIG.YZECORIOLIS.attributes[attributeKey];
+  })
 });
 
 // called after game data is loaded from severs. entities exist
