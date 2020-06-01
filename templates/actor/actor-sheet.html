@@ -69,11 +69,10 @@
           <div class="item-image"></div>
           <div class="item-name">Name</div>
           <div class="item-name">Value</div>
-        </li>
-        {{#each actor.data.skills as |item id|}}
+        </li> {{#each actor.data.skills as |item id|}}
         <li class="item flexrow" data-item-id="{{item._id}}">
           <h4 class="item-name">{{getSkillName id}} ({{getAttributeName item.attribute}})</h4>
-          <input type="text" name="data.skills.{{key}}.value" value="{{item.value}}" data-dtype="Number" />
+          <input type="text" name="data.skills.{{id}}.value" value="{{item.value}}" data-dtype="Number" />
         </li>
         {{/each}}
       </ol>
