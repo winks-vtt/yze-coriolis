@@ -5,12 +5,24 @@
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
             <div class="grid grid-2col">
                 <div class="resource">
-                    <label class="resource-label">Quantity</label>
-                    <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number" />
+                    <label class="resource-label">Category</label>
+                    <select class="skill-category" name="data.category">
+                        {{#select data.category}}
+                        {{#each config.skillCategories as |label category|}}
+                        <option value="{{category}}">{{label}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
                 </div>
                 <div class="resource">
-                    <label class="resource-label">Weight</label>
-                    <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number" />
+                    <label class="resource-label">Attribute</label>
+                    <select class="skill-attribute" name="data.attribute">
+                        {{#select data.attribute}}
+                        {{#each config.attributes as |label attr|}}
+                        <option value="{{attr}}">{{label}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
                 </div>
             </div>
         </div>
@@ -19,7 +31,6 @@
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">Description</a>
-        <a class="item" data-tab="attributes">Attributes</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -30,9 +41,6 @@
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
 
-        {{!-- Attributes Tab --}}
-        <div class="tab attributes" data-group="primary" data-tab="attributes">
-            {{!-- As you add new fields, add them in here! --}}
-        </div>
+
     </section>
 </form>

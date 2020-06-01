@@ -71,7 +71,10 @@ Hooks.once("setup", function () {
   const toLocalize = [
     "attributes",
     "skillCategories",
-    "skills"
+    "skills",
+    "talentCategories",
+    "groupTalentCategories",
+    "talents"
   ];
 
   // exclude sorting from some config values where the order matters.

@@ -41,3 +41,130 @@ YZECORIOLIS.skills = {
     "science": "YZECORIOLIS.SkillScience",
     "technology": "YZECORIOLIS.SkillTechnology"
 };
+
+// Talents
+
+YZECORIOLIS.talentCategories = {
+    "group": "YZECORIOLIS.TalentCatGroup",
+    "icon": "YZECORIOLIS.TalentCatIcon",
+    "general": "YZECORIOLIS.TalentCatGeneral",
+    "Humanite": "YZECORIOLIS.TalentCatHumanite",
+    "cybernetic": "YZECORIOLIS.TalentCatCybernetic",
+    "bionicsculpt": "YZECORIOLIS.TalentCatBionicSculpt",
+    "mysicalpowers": "YZECORIOLIS.TalentCatMysicalPowers"
+};
+
+YZECORIOLIS.groupTalentCategories = {
+    "freeTraders": "YZECORIOLIS.GroupTalentCatFreeTraders",
+    "mercenaries": "YZECORIOLIS.GroupTalentCatMercenaries",
+    "agents": "YZECORIOLIS.GroupTalentCatAgents",
+    "explorers": "YZECORIOLIS.GroupTalentCatExplorers",
+    "pilgrims": "YZECORIOLIS.GroupTalentCatPilgrims"
+};
+
+YZECORIOLIS.talents = {
+    // free traders
+    "anoseforbirr": "YZECORIOLIS.TalentANoseForBirr",
+    "everythingisforsale": "YZECORIOLIS.TalentEverythingIsForSale",
+    "quickestroute": "YZECORIOLIS.TalentQuickestRoute",
+    // mercenaries
+    "assault": "YZECORIOLIS.TalentAssault",
+    "charge": "YZECORIOLIS.TalentCharge",
+    "situationalawareness": "YZECORIOLIS.TalentSituationalAwareness",
+    //agents
+    "afriendineveryport": "YZECORIOLIS.TalentAFriendInEveryPort",
+    "assassinsguild": "YZECORIOLIS.TalentAssassinsGuild",
+    "dancersofahlam": "YZECORIOLIS.TalentDancersOfAhlam",
+    //explorers
+    "seasonedtravelers": "YZECORIOLIS.TalentSeasonedTravelers",
+    "survivors": "YZECORIOLIS.TalentSurvivors",
+    "truthseekers": "YZECORIOLIS.TalentTruthSeekers",
+    //pilgrims
+    "lastlaugh": "YZECORIOLIS.TalentLastLaugh",
+    "mercyoftheicons": "YZECORIOLIS.TalentMercyOfTheIcons",
+    "onelastbirr": "YZECORIOLIS.TalentOneLastBirr",
+
+    //icon talents
+    "iconladyoftears": "YZECORIOLIS.TalentIconLadyOfTears",
+    "icondancer": "YZECORIOLIS.TalentIconDancer",
+    "icongambler": "YZECORIOLIS.TalentIconGambler",
+    "iconmerchant": "YZECORIOLIS.TalentIconMerchant",
+    "icondeckhand": "YZECORIOLIS.TalentIconDeckhand",
+    "icontraveler": "YZECORIOLIS.TalentIconTraveler",
+    "iconmessenger": "YZECORIOLIS.TalentIconMessenger",
+    "iconjudge": "YZECORIOLIS.TalentIconJudge",
+    "iconfacelessone": "YZECORIOLIS.TalentIconFacelessOne",
+
+    //general talents
+    "blessing": "YZECORIOLIS.TalentBlessing",
+    "combatveteran": "YZECORIOLIS.TalentCombatVeteran",
+    "defensive": "YZECORIOLIS.TalentDefensive",
+    "executioner": "YZECORIOLIS.TalentExecutioner",
+    "exospecialist": "YZECORIOLIS.TalentExoSpecialist",
+    "factionstanding": "YZECORIOLIS.TalentFactionStanding",
+    "fieldmedicurg": "YZECORIOLIS.TalentFieldMedicurg",
+    "gearhead": "YZECORIOLIS.TalentGearhead",
+    "intimidating": "YZECORIOLIS.TalentIntimidating",
+    "judgeofcharacter": "YZECORIOLIS.TalentJudgeOfCharacter",
+    "licensed": "YZECORIOLIS.TalentLicensed",
+    "machinegunner": "YZECORIOLIS.TalentMachinegunner",
+    "malicious": "YZECORIOLIS.TalentMalicious",
+    "ninelives": "YZECORIOLIS.TalentNineLives",
+    "pointblank": "YZECORIOLIS.TalentPointBlank",
+    "rapidreload": "YZECORIOLIS.TalentRapidReload",
+    "rugged": "YZECORIOLIS.TalentRugged",
+    "seductive": "YZECORIOLIS.TalentSeductive",
+    "sprinter": "YZECORIOLIS.TalentSprinter",
+    "soothing": "YZECORIOLIS.TalentSoothing",
+    "talismanmaker": "YZECORIOLIS.TalentTalismanMaker",
+    "thehassassinsthrust": "YZECORIOLIS.TalentTheHassassinsThrust",
+    "thirdeye": "YZECORIOLIS.TalentThirdEye",
+    "tough": "YZECORIOLIS.TalentTough",
+    "wealthyfamily": "YZECORIOLIS.TalentWealthyFamily",
+    "zerogtraining": "YZECORIOLIS.TalentZeroGTraining",
+
+    //humanite talents
+    "humanitepheromones": "YZECORIOLIS.TalentHumanitePheromones",
+    "humaniteresistant": "YZECORIOLIS.TalentHumaniteResistant",
+    "humanitewaterbreathing": "YZECORIOLIS.TalentHumaniteWaterBreathing",
+
+    //cybernetic implants
+    "cyberneticacceleratedreflexes": "YZECORIOLIS.TalentCyberneticAcceleratedReflexes",
+    "cyberneticactivesensors": "YZECORIOLIS.TalentCyberneticActiveSensors",
+    "cyberneticbodyarmor": "YZECORIOLIS.TalentCyberneticBodyArmor",
+    "cyberneticbuiltinweapon": "YZECORIOLIS.TalentCyberneticBuiltInWeapon",
+    "cyberneticcomlink": "YZECORIOLIS.TalentCyberneticComLink",
+    "cyberneticcyberneticmuscles": "YZECORIOLIS.TalentCyberneticCyberneticMuscles",
+    "cyberneticendoskeleton": "YZECORIOLIS.TalentCyberneticEndoSkeleton",
+    "cyberneticlanguagemodulator": "YZECORIOLIS.TalentCyberneticLanguageModulator",
+    "cyberneticliedetector": "YZECORIOLIS.TalentCyberneticLieDetector",
+    "cyberneticpassivesensors": "YZECORIOLIS.TalentCyberneticPassiveSensors",
+    "cyberneticservolocks": "YZECORIOLIS.TalentCyberneticServoLocks",
+    "cyberneticskinelectrodes": "YZECORIOLIS.TalentCyberneticSkinElectrodes",
+    "cybernetictargetingscope": "YZECORIOLIS.TalentCyberneticTargetingScope",
+    "cyberneticvoiceamplifier": "YZECORIOLIS.TalentCyberneticVoiceAmplifier",
+    "cyberneticwaterbreathing": "YZECORIOLIS.TalentCyberneticWaterBreathing",
+    "cyberneticweatherproof": "YZECORIOLIS.TalentCyberneticWeatherproof",
+
+    //bionic sculpts
+    "bionicbeautiful": "YZECORIOLIS.TalentBionicBeautiful",
+    "bionicbuiltinweapon": "YZECORIOLIS.TalentBionicBuiltInWeapon",
+    "bionicintelligent": "YZECORIOLIS.TalentBionicIntelligent",
+    "bionicmorph": "YZECORIOLIS.TalentBionicMorph",
+    "bionicnimble": "YZECORIOLIS.TalentBionicNimble",
+    "bionicquick": "YZECORIOLIS.TalentBionicQuick",
+    "bionicregenerate": "YZECORIOLIS.TalentBionicRegenerate",
+
+    //mystical powers
+    "mysticalartificer": "YZECORIOLIS.TalentMysticalArtificer",
+    "mysticalclairvoyant": "YZECORIOLIS.TalentMysticalClairvoyant",
+    "mysticalexorcist": "YZECORIOLIS.TalentMysticalExorcist",
+    "mysticalintuition": "YZECORIOLIS.TalentMysticalIntuition",
+    "mysticalmindreader": "YZECORIOLIS.TalentMysticalMindReader",
+    "mysticalmindwalker": "YZECORIOLIS.TalentMysticalMindWalker",
+    "mysticalprediction": "YZECORIOLIS.TalentMysticalPrediction",
+    "mysticalpremonition": "YZECORIOLIS.TalentMysticalPremonition",
+    "mysticalstop": "YZECORIOLIS.TalentMysticalStop",
+    "mysticaltelekinesis": "YZECORIOLIS.TalentMysticalTelekinesis"
+
+}

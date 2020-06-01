@@ -206,7 +206,9 @@
     },
     "talent": {
       "templates": ["base"],
-      "category": ""
+      "category": "",
+      "cost": 0,
+      "group": ""
     },
     "weapon": {
       "templates": ["base"],
