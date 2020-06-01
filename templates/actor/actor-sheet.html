@@ -66,13 +66,11 @@
       {{!-- Skills List --}}
       <ol class="skills-list">
         <li class="item flexrow item-header">
-          <div class="item-image"></div>
-          <div class="item-name">Name</div>
-          <div class="item-name">Value</div>
         </li> {{#each actor.data.skills as |item id|}}
         <li class="item flexrow" data-item-id="{{item._id}}">
           <h4 class="item-name">{{getSkillName id}} ({{getAttributeName item.attribute}})</h4>
-          <input type="text" name="data.skills.{{id}}.value" value="{{item.value}}" data-dtype="Number" />
+          <input class="skill-input" type="text" name="data.skills.{{id}}.value" value="{{item.value}}"
+            data-dtype="Number" />
         </li>
         {{/each}}
       </ol>

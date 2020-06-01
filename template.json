@@ -22,22 +22,22 @@
           "strength": {
             "value": 0,
             "min": 0,
-            "max": 10
+            "max": 5
           },
           "agility": {
             "value": 0,
             "min": 0,
-            "max": 10
+            "max": 5
           },
           "wits": {
             "value": 0,
             "min": 0,
-            "max": 10
+            "max": 5
           },
           "empathy": {
             "value": 0,
             "min": 0,
-            "max": 10
+            "max": 5
           }
         },
         "skills": {

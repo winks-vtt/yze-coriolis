@@ -24,6 +24,26 @@ export class yzecoriolisActor extends Actor {
    */
   _prepareCharacterData(actorData) {
     const data = actorData.data;
+    // Cap attribute scores
+    for (let [key, attr] of Object.entries(data.attributes)) {
+      if (attr.value > attr.max) {
+        attr.value = attr.max;
+      }
+      if (attr.value < attr.min) {
+        attr.value = attr.min;
+      }
+    }
+
+    //Cap Skill scores
+    for (let [key, skl] of Object.entries(data.skills)) {
+      if (skl.value > skl.max) {
+        skl.value = skl.max;
+      }
+      if (skl.value < skl.min) {
+        skl.value = skl.min;
+      }
+    }
+
     data.hitPoints.max = data.attributes.strength.value + data.attributes.agility.value;
     data.mindPoints.max = data.attributes.wits.value + data.attributes.empathy.value;
 

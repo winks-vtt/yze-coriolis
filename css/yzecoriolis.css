@@ -1,3 +1,47 @@
+/* ----------------------------------------- */
+/*  Flexbox                                  */
+/* ----------------------------------------- */
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.flexrow > * {
+  flex: 1;
+}
+.flexrow .flex1 {
+  flex: 1;
+}
+.flexrow .flex2 {
+  flex: 2;
+}
+.flexrow .flex3 {
+  flex: 3;
+}
+.flexrow .flex4 {
+  flex: 4;
+}
+.flexcol {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.flexcol > * {
+  flex: 1;
+}
+.flexcol .flex1 {
+  flex: 1;
+}
+.flexcol .flex2 {
+  flex: 2;
+}
+.flexcol .flex3 {
+  flex: 3;
+}
+.flexcol .flex4 {
+  flex: 4;
+}
 @font-face {
   font-family: 'Martel';
   font-style: normal;
@@ -197,13 +241,19 @@
   text-shadow: none;
 }
 .yzecoriolis.sheet.actor .attributes-list {
+  flex: 0 0 100%;
   list-style: none;
 }
 .yzecoriolis.sheet.actor .attribute-item {
   list-style: none;
 }
 .yzecoriolis.sheet.actor .skills-list {
+  flex: 0 0 350px;
   list-style: none;
+}
+.yzecoriolis.sheet.actor .skill-input {
+  flex: 0 0 40px;
+  text-align: center;
 }
 .yzecoriolis.sheet.item .item-form {
   font-family: 'Roboto', sans-serif;
