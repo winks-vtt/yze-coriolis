@@ -50,6 +50,32 @@ Hooks.once('init', async function () {
   });
 });
 
+// called after game data is loaded from severs. entities exist
+Hooks.once("setup", function () {
+  // Localize CONFIG objects once up-front
+  const toLocalize = [
+    "attributes",
+    "skillCategories",
+    "skills"
+  ];
+
+  // exclude sorting from some config values where the order matters.
+  const noSort = [];
+
+  for (let o of toLocalize) {
+    const localized = Object.entries(CONFIG.YZECORIOLIS[o]).map(e => {
+      return [e[0], game.i18n.localize(e[1])];
+    });
+    if (!noSort.includes(o)) localized.sort((a, b) => a[1].localeCompare(b[1]));
+    CONFIG.YZECORIOLIS[o] = localized.reduce((obj, e) => {
+      obj[e[0]] = e[1];
+      return obj;
+    }, {});
+  }
+
+});
+
+
 Hooks.once('ready', async function () {
   // wait to register hotbar drop hook on ready so taht modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createYzeCoriolisMacro(data, slot));

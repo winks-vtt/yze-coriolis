@@ -8,8 +8,8 @@
                     <label class="resource-label">Category</label>
                     <select class="skill-category" name="data.category">
                         {{#select data.category}}
-                        {{#each config.skillCategories as |label attr|}}
-                        <option value="{{label}}">{{attr}}</option>
+                        {{#each config.skillCategories as |label category|}}
+                        <option value="{{category}}">{{label}}</option>
                         {{/each}}
                         {{/select}}
                     </select>
@@ -18,8 +18,8 @@
                     <label class="resource-label">Attribute</label>
                     <select class="skill-attribute" name="data.attribute">
                         {{#select data.attribute}}
-                        {{#each data.attrOptions as |label attr|}}
-                        <option value="{{label}}">{{label}}</option>
+                        {{#each config.attributes as |label attr|}}
+                        <option value="{{attr}}">{{label}}</option>
                         {{/each}}
                         {{/select}}
                     </select>

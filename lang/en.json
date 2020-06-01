@@ -1,1 +1,24 @@
-{}
+{
+    "YZECORIOLIS.AttrStrength": "Strength",
+    "YZECORIOLIS.AttrAgility": "Agility",
+    "YZECORIOLIS.AttrWits": "Wits",
+    "YZECORIOLIS.AttrEmpathy": "Empathy",
+    "YZECORIOLIS.SkillCatGeneral": "General",
+    "YZECORIOLIS.SkillCatAdvanced": "Advanced",
+    "YZECORIOLIS.SkillDexterity": "Dexterity",
+    "YZECORIOLIS.SkillForce": "Force",
+    "YZECORIOLIS.SkillInfiltration": "Infiltration",
+    "YZECORIOLIS.SkillManipulation": "Manipulation",
+    "YZECORIOLIS.SkillMeleeCombat": "MeleeCombat",
+    "YZECORIOLIS.SkillObservation": "Observation",
+    "YZECORIOLIS.SkillRangedCombat": "Ranged Combat",
+    "YZECORIOLIS.SkillSurvival": "Survival",
+    "YZECORIOLIS.SkillCommand": "Command",
+    "YZECORIOLIS.SkillCulture": "Culture",
+    "YZECORIOLIS.SkillDataDjinn": "DataDjinn",
+    "YZECORIOLIS.SkillMedicurgy": "Medicurgy",
+    "YZECORIOLIS.SkillMysticPowers": "Mystic Powers",
+    "YZECORIOLIS.SkillPilot": "Pilot",
+    "YZECORIOLIS.SkillScience": "Science",
+    "YZECORIOLIS.SkillTechnology": "Technology"
+}
