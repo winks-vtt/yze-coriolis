@@ -53,13 +53,5 @@ export class yzecoriolisActor extends Actor {
     if (data.mindPoints.value > data.mindPoints.max) {
       data.mindPoints.value = data.mindPoints.max;
     }
-    // Make modifications to data here. For example:
-
-    // Loop through ability scores, and add their modifiers to our sheet output.
-    // for (let [key, attr] of Object.entries(data.attributes)) {
-    //   // Calculate the modifier using d20 rules.
-    //   attr.mod = Math.floor((attr.value - 10) / 2);
-    // }
   }
-
 }

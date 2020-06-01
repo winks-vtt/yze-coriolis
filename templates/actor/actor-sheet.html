@@ -47,6 +47,10 @@
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
+    {{!-- Biography Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="description">
+      {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+    </div>
 
     {{!-- Stats Tab --}}
     <div class="tab flexrow" data-group="primary" data-tab="stats">
@@ -62,22 +66,41 @@
         {{/each}}
       </ul>
 
-      {{!-- Skills List --}}
+      {{!-- General Skills List --}}
       <ol class="skills-list">
+        <li class="item flexrow item-header">
+          <div class="item-name">{{localize "YZECORIOLIS.SkillCatGeneral"}}</div>
+        </li>
         {{#each actor.data.skills as |item id|}}
+        {{#if_eq item.category 'general'}}
         <li class="flexrow" data-item-id="{{item._id}}">
-          <h4 class="item-name">{{getSkillName id}} ({{getAttributeName item.attribute}})</h4>
+          <h4 class="item-name rollable" data-roll="(@attributes.{{item.attribute}}.value + @skills.{{id}}.value)d6"
+            data-label="{{getSkillName id}}">{{getSkillName id}}
+            ({{getAttributeName item.attribute}})</h4>
           <input class="skill-input" type="text" name="data.skills.{{id}}.value" value="{{item.value}}"
             data-dtype="Number" />
         </li>
+        {{/if_eq }}
+        {{/each}}
+      </ol>
+
+      {{!-- Advanced Skills List --}}
+      <ol class="skills-list">
+        <li class="item flexrow item-header">
+          <div class="item-name">{{localize "YZECORIOLIS.SkillCatAdvanced"}}</div>
+        </li>
+        {{#each actor.data.skills as |item id|}}
+        {{#if_eq item.category 'advanced'}}
+        <li class="flexrow" data-item-id="{{item._id}}">
+          <h4 class="item-name rollable" data-roll="(@attributes.{{item.attribute}}.value + @skills.{{id}}.value)d6"
+            data-label="{{getSkillName id}}">{{getSkillName id}}
+            ({{getAttributeName item.attribute}})</h4>
+          <input class="skill-input" type="text" name="data.skills.{{id}}.value" value="{{item.value}}"
+            data-dtype="Number" />
+        </li>
+        {{/if_eq }}
         {{/each}}
       </ol>
     </div>
-
-    {{!-- Biography Tab --}}
-    <div class="tab biography" data-group="primary" data-tab="description">
-      {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
-    </div>
-
   </section>
 </form>
