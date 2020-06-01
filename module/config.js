@@ -48,7 +48,7 @@ YZECORIOLIS.talentCategories = {
     "group": "YZECORIOLIS.TalentCatGroup",
     "icon": "YZECORIOLIS.TalentCatIcon",
     "general": "YZECORIOLIS.TalentCatGeneral",
-    "Humanite": "YZECORIOLIS.TalentCatHumanite",
+    "humanite": "YZECORIOLIS.TalentCatHumanite",
     "cybernetic": "YZECORIOLIS.TalentCatCybernetic",
     "bionicsculpt": "YZECORIOLIS.TalentCatBionicSculpt",
     "mysicalpowers": "YZECORIOLIS.TalentCatMysicalPowers"

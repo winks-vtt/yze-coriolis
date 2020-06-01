@@ -8,22 +8,24 @@
                     <label class="resource-label">Category</label>
                     <select class="skill-category" name="data.category">
                         {{#select data.category}}
-                        {{#each config.skillCategories as |label category|}}
+                        {{#each config.talentCategories as |label category|}}
                         <option value="{{category}}">{{label}}</option>
                         {{/each}}
                         {{/select}}
                     </select>
                 </div>
+                {{#if_eq data.category 'group'}}
                 <div class="resource">
-                    <label class="resource-label">Attribute</label>
+                    <label class="resource-label">Group Concept</label>
                     <select class="skill-attribute" name="data.attribute">
-                        {{#select data.attribute}}
-                        {{#each config.attributes as |label attr|}}
-                        <option value="{{attr}}">{{label}}</option>
+                        {{#select data.group}}
+                        {{#each config.groupTalentCategories as |label groupTalent|}}
+                        <option value="{{groupTalent}}">{{label}}</option>
                         {{/each}}
                         {{/select}}
                     </select>
                 </div>
+                {{/if_eq}}
             </div>
         </div>
     </header>
