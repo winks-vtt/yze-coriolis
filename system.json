@@ -2,7 +2,7 @@
   "name": "yzecoriolis",
   "title": "Year Zero Engine - Coriolis",
   "description": "The Year Zero Engine - Coriolis Edition for FoundryVTT!",
-  "version": "0.0.1",
+  "version": 0.1,
   "minimumCoreVersion": "0.6.0",
   "compatibleCoreVersion": "0.6.1",
   "templateVersion": 2,
@@ -10,7 +10,13 @@
   "esmodules": ["module/yzecoriolis.js"],
   "styles": ["css/yzecoriolis.css"],
   "scripts": [],
-  "packs": [],
+  "packs": [{
+    "name": "talents",
+    "label": "Talents",
+    "system": "yzecoriolis",
+    "path": "./packs/talents.db",
+    "entity": "Item"
+  }],
   "languages": [{
     "lang": "en",
     "name": "English",

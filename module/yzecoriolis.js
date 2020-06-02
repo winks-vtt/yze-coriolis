@@ -1,9 +1,12 @@
 // Import Modules
 import { YZECORIOLIS } from "./config.js";
+import { registerSystemSettings } from "./settings.js";
 import { yzecoriolisActor } from "./actor/actor.js";
 import { yzecoriolisActorSheet } from "./actor/actor-sheet.js";
 import { yzecoriolisItem } from "./item/item.js";
 import { yzecoriolisItemSheet } from "./item/item-sheet.js";
+
+import * as migrations from "./migration.js";
 
 Hooks.once('init', async function () {
   console.log(`Coriolis | Initializing Coriolis\n${YZECORIOLIS.ASCII}`);
@@ -11,7 +14,8 @@ Hooks.once('init', async function () {
     yzecoriolisActor,
     yzecoriolisItem,
     rollItemMacro,
-    config: YZECORIOLIS
+    config: YZECORIOLIS,
+    migrations: migrations
   };
 
   /**
@@ -27,6 +31,9 @@ Hooks.once('init', async function () {
   CONFIG.Actor.entityClass = yzecoriolisActor;
   CONFIG.Item.entityClass = yzecoriolisItem;
   CONFIG.YZECORIOLIS = YZECORIOLIS;
+
+  //Register system settings
+  registerSystemSettings();
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
@@ -95,6 +102,20 @@ Hooks.once("setup", function () {
 
 
 Hooks.once('ready', async function () {
+  // Determine whether a system migration is required and feasible
+  const currentVersion = game.settings.get("yzecoriolis", "systemMigrationVersion");
+  const NEEDS_MIGRATION_VERSION = 0.1;
+  const COMPATIBLE_MIGRATION_VERSION = 0.1;
+  let needMigration = (currentVersion < NEEDS_MIGRATION_VERSION) || (currentVersion === null);
+
+  // Perform the migration
+  if (needMigration && game.user.isGM) {
+    if (currentVersion && (currentVersion < COMPATIBLE_MIGRATION_VERSION)) {
+      ui.notifications.error(`Your Year Zero Engine Coriolis system data is from too old a Foundry version and cannot be reliably migrated to the latest version. The process will be attempted, but errors may occur.`, { permanent: true });
+    }
+    migrations.migrateWorld();
+  }
+
   // wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createYzeCoriolisMacro(data, slot));
 });
