@@ -1,4 +1,10 @@
 {
+    "YZECORIOLIS.MoneyCost": "Cost",
+    "YZECORIOLIS.Birr": "birr",
+    "YZECORIOLIS.GroupConcept": "Group Concept",
+    "YZECORIOLIS.Category": "Category",
+    "YZECORIOLIS.Description": "Description",
+
     "YZECORIOLIS.AttrStrength": "Strength",
     "YZECORIOLIS.AttrAgility": "Agility",
     "YZECORIOLIS.AttrWits": "Wits",
@@ -28,7 +34,7 @@
     "YZECORIOLIS.TalentCatHumanite": "Humanite Talents",
     "YZECORIOLIS.TalentCatCybernetic": "Cybernetic Implants",
     "YZECORIOLIS.TalentCatBionicSculpt": "Bionic Sculpts",
-    "YZECORIOLIS.TalentCatMysicalPowers": "Mysical Powers",
+    "YZECORIOLIS.TalentCatMysticalPowers": "Mystical Powers",
 
     "YZECORIOLIS.GroupTalentCatFreeTraders": "Free Traders",
     "YZECORIOLIS.GroupTalentCatMercenaries": "Mercenaries",

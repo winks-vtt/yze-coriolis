@@ -287,3 +287,19 @@
   flex: 0 0 86px;
   text-align: right;
 }
+.yzecoriolis.sheet.item .sheet-header .talent-category {
+  flex: 0 0 275px;
+}
+.yzecoriolis.sheet.item .sheet-header .cost-input {
+  width: 50px;
+}
+.yzecoriolis.sheet.item .sheet-header .cost-label {
+  font-weight: bold;
+  text-transform: uppercase;
+  flex: 0 0 75px;
+}
+.yzecoriolis.sheet.item .sheet-header .cost-currency-label {
+  font-weight: bold;
+  text-transform: uppercase;
+  flex: 0 0 75px;
+}

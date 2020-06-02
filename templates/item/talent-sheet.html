@@ -1,11 +1,12 @@
 <form class="{{cssClass}}" autocomplete="off">
+    {{log cssClass}}
     <header class="sheet-header">
         <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         <div class="header-fields">
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
             <div class="grid grid-2col">
-                <div class="resource">
-                    <label class="resource-label">Category</label>
+                <div class="resource flexrow talent-category">
+                    <label class="resource-label">{{localize "YZECORIOLIS.Category"}}</label>
                     <select class="skill-category" name="data.category">
                         {{#select data.category}}
                         {{#each config.talentCategories as |label category|}}
@@ -15,10 +16,10 @@
                     </select>
                 </div>
                 {{#if_eq data.category 'group'}}
-                <div class="resource">
-                    <label class="resource-label">Group Concept</label>
+                <div class="resource flexrow">
+                    <label class="resource-label">{{localize "YZECORIOLIS.GroupConcept"}}</label>
                     <select class="skill-attribute" name="data.attribute">
-                        {{#select data.group}}
+                        {{#select data.groupConcept}}
                         {{#each config.talentGroupConceptCategories as |label groupTalent|}}
                         <option value="{{groupTalent}}">{{label}}</option>
                         {{/each}}
@@ -26,20 +27,30 @@
                     </select>
                 </div>
                 {{/if_eq}}
+
+                {{!-- Display the cost if it has any --}}
+                {{#talentHasCost data.category}}
+                <div class="flexrow">
+                    <label class="cost-label flexrow">{{localize "YZECORIOLIS.MoneyCost"}}</label>
+                    <input class="cost-input flexrow" type="text" name="data.cost" value="{{data.cost}}"
+                        data-dtype="Number" />
+                    <label class="cost-currency-label flexrow">{{localize "YZECORIOLIS.Birr"}}</label>
+                </div>
+                {{/talentHasCost}}
             </div>
         </div>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="description">{{localize "YZECORIOLIS.Description"}}</a>
     </nav>
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
 
         {{!-- Description Tab --}}
-        <div class="tab" data-group="primary" data-tab="description">
+        <div class="tab biography" data-group="primary" data-tab="description">
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
 
