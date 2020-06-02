@@ -208,7 +208,7 @@
       "templates": ["base"],
       "category": "",
       "cost": 0,
-      "group": ""
+      "groupConcept": ""
     },
     "weapon": {
       "templates": ["base"],

@@ -19,7 +19,7 @@
                     <label class="resource-label">Group Concept</label>
                     <select class="skill-attribute" name="data.attribute">
                         {{#select data.group}}
-                        {{#each config.groupTalentCategories as |label groupTalent|}}
+                        {{#each config.talentGroupConceptCategories as |label groupTalent|}}
                         <option value="{{groupTalent}}">{{label}}</option>
                         {{/each}}
                         {{/select}}

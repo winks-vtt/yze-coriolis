@@ -60,6 +60,24 @@ export const migrateWorld = async function () {
 /* -------------------------------------------- */
 
 /**
+ * Bootstrap the talent compendium
+ */
+export const bootstrapTalentCompendium = async function () {
+    const talentPack = game.packs.find(p => {
+        return (p.metadata.package === "world") && p.metadata.entity === "Item" && p.metadata.name === "talents";
+    });
+
+    // Load an external JSON data file which contains data for import
+    const response = await fetch("worlds/dev-coriolis/talent-import.json");
+    const content = await response.json();
+
+    const tempItems = await Item.create(content, { temporary: true });
+    for (let t of tempItems) {
+        await talentPack.importEntity(t);
+        console.log(`imported Talent ${t.name} into ${talentPack.collection}`);
+    }
+}
+/**
  * Apply migration rules to all Entities within a single Compendium pack
  * @param pack
  * @return {Promise}

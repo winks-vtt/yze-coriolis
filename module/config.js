@@ -51,10 +51,10 @@ YZECORIOLIS.talentCategories = {
     "humanite": "YZECORIOLIS.TalentCatHumanite",
     "cybernetic": "YZECORIOLIS.TalentCatCybernetic",
     "bionicsculpt": "YZECORIOLIS.TalentCatBionicSculpt",
-    "mysicalpowers": "YZECORIOLIS.TalentCatMysicalPowers"
+    "mysticalpowers": "YZECORIOLIS.TalentCatMysticalPowers"
 };
 
-YZECORIOLIS.groupTalentCategories = {
+YZECORIOLIS.talentGroupConceptCategories = {
     "freeTraders": "YZECORIOLIS.GroupTalentCatFreeTraders",
     "mercenaries": "YZECORIOLIS.GroupTalentCatMercenaries",
     "agents": "YZECORIOLIS.GroupTalentCatAgents",

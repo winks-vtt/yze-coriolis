@@ -6,6 +6,7 @@ import { yzecoriolisActorSheet } from "./actor/actor-sheet.js";
 import { yzecoriolisItem } from "./item/item.js";
 import { yzecoriolisItemSheet } from "./item/item-sheet.js";
 
+import { bootstrapTalentCompendium } from './migration.js';
 import * as migrations from "./migration.js";
 
 Hooks.once('init', async function () {
@@ -80,7 +81,7 @@ Hooks.once("setup", function () {
     "skillCategories",
     "skills",
     "talentCategories",
-    "groupTalentCategories",
+    "talentGroupConceptCategories",
     "talents"
   ];
 
@@ -115,7 +116,7 @@ Hooks.once('ready', async function () {
     }
     migrations.migrateWorld();
   }
-
+  //bootstrapTalentCompendium();
   // wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createYzeCoriolisMacro(data, slot));
 });
