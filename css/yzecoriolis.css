@@ -42,6 +42,9 @@
 .flexcol .flex4 {
   flex: 4;
 }
+.debug {
+  border: 1px solid red;
+}
 @font-face {
   font-family: 'Martel';
   font-style: normal;
@@ -255,6 +258,62 @@
   flex: 0 0 40px;
   text-align: center;
 }
+.yzecoriolis.sheet.item {
+  /* ----------------------------------------- */
+  /*  Sheet Tabs                             */
+  /* ----------------------------------------- */
+}
+.yzecoriolis.sheet.item .sheet-header {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.yzecoriolis.sheet.item .sheet-header .talent-category {
+  flex: 0 0 275px;
+}
+.yzecoriolis.sheet.item .sheet-header .cost-input {
+  width: 50px;
+}
+.yzecoriolis.sheet.item .sheet-header .cost-label {
+  font-weight: bold;
+  text-transform: uppercase;
+  flex: 0 0 75px;
+}
+.yzecoriolis.sheet.item .sheet-header .cost-currency-label {
+  font-weight: bold;
+  text-transform: uppercase;
+  flex: 0 0 75px;
+}
+.yzecoriolis.sheet.item .sheet-tabs {
+  flex: 0;
+}
+.yzecoriolis.sheet.item .sheet-body,
+.yzecoriolis.sheet.item .sheet-body .tab,
+.yzecoriolis.sheet.item .sheet-body .tab .editor {
+  height: 100%;
+}
+.yzecoriolis.sheet.item .tox .tox-editor-container {
+  background: #fff;
+}
+.yzecoriolis.sheet.item .tox .tox-edit-area {
+  padding: 0 8px;
+}
+.yzecoriolis.sheet.item .tabs {
+  height: 40px;
+  border-top: 1px solid #AAA;
+  border-bottom: 1px solid #AAA;
+}
+.yzecoriolis.sheet.item .tabs .item {
+  line-height: 40px;
+  font-weight: bold;
+}
+.yzecoriolis.sheet.item .tabs .item.active {
+  text-decoration: underline;
+  text-shadow: none;
+}
 .yzecoriolis.sheet.item .item-form {
   font-family: 'Roboto', sans-serif;
 }
@@ -286,20 +345,4 @@
 .yzecoriolis.sheet.item .items-list .item-controls {
   flex: 0 0 86px;
   text-align: right;
-}
-.yzecoriolis.sheet.item .sheet-header .talent-category {
-  flex: 0 0 275px;
-}
-.yzecoriolis.sheet.item .sheet-header .cost-input {
-  width: 50px;
-}
-.yzecoriolis.sheet.item .sheet-header .cost-label {
-  font-weight: bold;
-  text-transform: uppercase;
-  flex: 0 0 75px;
-}
-.yzecoriolis.sheet.item .sheet-header .cost-currency-label {
-  font-weight: bold;
-  text-transform: uppercase;
-  flex: 0 0 75px;
 }
