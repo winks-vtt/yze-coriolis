@@ -73,6 +73,10 @@ Hooks.once('init', async function () {
     return CONFIG.YZECORIOLIS.attributes[attributeKey];
   });
 
+  Handlebars.registerHelper('getTalentCategoryName', function (talentCategoryKey) {
+    return CONFIG.YZECORIOLIS.talentCategories[talentCategoryKey];
+  });
+
   Handlebars.registerHelper('talentHasCost', function (talentCategory, opts) {
     if (talentCategory === 'cybernetic' || talentCategory === 'bionicsculpt') {
       return opts.fn(this);
