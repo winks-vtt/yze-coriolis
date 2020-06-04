@@ -71,7 +71,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
       actorData.weapons = weapons;
       actorData.armor = armor;
       actorData.talents = talents;
-      console.log('talent map', talents);
     }
   }
 

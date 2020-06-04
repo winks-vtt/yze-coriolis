@@ -84,3 +84,4 @@
 {"name":"Morph","permission":{"default":0,"BK3ExbprWsU494sH":3},"type":"talent","data":{"description":"","category":"bionicsculpt","cost":0,"groupConcept":""},"flags":{},"img":"icons/svg/mystery-man.svg","_id":"yDrhazT61ssvN2yW"}
 {"name":"Premonition","permission":{"default":0,"BK3ExbprWsU494sH":3},"type":"talent","data":{"description":"","category":"mysticalpowers","cost":0,"groupConcept":""},"flags":{},"img":"icons/svg/mystery-man.svg","_id":"ymZpAYyAnF3CKnyo"}
 {"name":"Judge Of Character","permission":{"default":0,"BK3ExbprWsU494sH":3},"type":"talent","data":{"description":"","category":"general","cost":0,"groupConcept":""},"flags":{},"img":"icons/svg/mystery-man.svg","_id":"zqh95s6Knp32c7eB"}
+{"_id":"ZUILOfAsgXk7HujG","name":"Seasoned Travelers","permission":{"default":0,"BK3ExbprWsU494sH":3},"type":"talent","data":{"description":"","category":"group","cost":0,"groupConcept":"explorers","attribute":"explorers"},"flags":{},"img":"icons/svg/mystery-man.svg"}
