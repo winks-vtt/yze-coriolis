@@ -38,4 +38,28 @@ export class yzecoriolisItem extends Item {
       flavor: label
     });
   }
+
+  getChatData(htmlOptions) {
+    const data = duplicate(this.data.data);
+    const labels = this.labels;
+    console.log('data', data);
+    // Rich text description
+    data.description = TextEditor.enrichHTML(data.description, htmlOptions);
+    console.log('data after ', data);
+
+    // Item type specific properties
+    const props = [];
+    const fn = this[`_${this.data.type}ChatData`];
+    if (fn) fn.bind(this)(data, labels, props);
+
+
+    //TODO: toggle equipped status for normal items.
+
+
+    // Filter properties and return
+    data.properties = props.filter(p => !!p);
+    console.log('data finished ', data);
+    return data;
+
+  }
 }

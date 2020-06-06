@@ -50,7 +50,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
         "items": []
       };
     }
-    console.log(talents);
     const weapons = [];
     for (let i of sheetData.items) {
       let item = i.data;
@@ -83,6 +82,8 @@ export class yzecoriolisActorSheet extends ActorSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
+
+    html.find('.item .item-name h4').click(event => this._onItemSummary(event));
 
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
@@ -169,6 +170,32 @@ export class yzecoriolisActorSheet extends ActorSheet {
         flavor: label
       });
     }
+  }
+
+
+  /**
+   * Handle showing an item's description in the character sheet as an easy fold out.
+   * @private
+   */
+  _onItemSummary(event) {
+    event.preventDefault();
+    let li = $(event.currentTarget).parents(".item");
+    let item = this.actor.getOwnedItem(li.data("item-id"));
+    let chatData = item.getChatData({ secrets: this.actor.owner });
+
+    // Toggle summary
+    if (li.hasClass("expanded")) {
+      let summary = li.children(".item-summary");
+      summary.slideUp(200, () => summary.remove());
+    } else {
+      let div = $(`<div class="item-summary">${chatData.description}</div>`);
+      let props = $(`<div class="item-properties"></div>`);
+      chatData.properties.forEach(p => props.append(`<span class="tag">${p}</span>`));
+      div.append(props);
+      li.append(div.hide());
+      div.slideDown(200);
+    }
+    li.toggleClass("expanded");
   }
 
 }
