@@ -42,9 +42,15 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const talents = {};
 
     for (let k of Object.keys(CONFIG.YZECORIOLIS.talentCategories)) {
-      talents[k] = [];
+      talents[k] = {
+        "dataset": {
+          "type": "talent",
+          "category": k
+        },
+        "items": []
+      };
     }
-
+    console.log(talents);
     const weapons = [];
     for (let i of sheetData.items) {
       let item = i.data;
@@ -59,7 +65,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       }
       // append to talents
       if (i.type === "talent") {
-        talents[item.category].push(i);
+        talents[item.category].items.push(i);
       }
 
       // append to weapons
