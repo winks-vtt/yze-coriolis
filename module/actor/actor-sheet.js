@@ -66,12 +66,12 @@ export class yzecoriolisActorSheet extends ActorSheet {
       if (i.type === "weapon") {
         weapons.push(i);
       }
-      // assign and return
-      actorData.gear = gear;
-      actorData.weapons = weapons;
-      actorData.armor = armor;
-      actorData.talents = talents;
     }
+    // assign and return
+    actorData.gear = gear;
+    actorData.weapons = weapons;
+    actorData.armor = armor;
+    actorData.talents = talents;
   }
 
   /** @override */
