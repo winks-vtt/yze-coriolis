@@ -10,13 +10,7 @@
   "esmodules": ["module/yzecoriolis.js"],
   "styles": ["css/yzecoriolis.css"],
   "scripts": [],
-  "packs": [{
-    "name": "talents",
-    "label": "Talents",
-    "system": "yzecoriolis",
-    "path": "./packs/talents.db",
-    "entity": "Item"
-  }],
+  "packs": [],
   "languages": [{
     "lang": "en",
     "name": "English",
