@@ -42,10 +42,8 @@ export class yzecoriolisItem extends Item {
   getChatData(htmlOptions) {
     const data = duplicate(this.data.data);
     const labels = this.labels;
-    console.log('data', data);
     // Rich text description
     data.description = TextEditor.enrichHTML(data.description, htmlOptions);
-    console.log('data after ', data);
 
     // Item type specific properties
     const props = [];
@@ -58,7 +56,6 @@ export class yzecoriolisItem extends Item {
 
     // Filter properties and return
     data.properties = props.filter(p => !!p);
-    console.log('data finished ', data);
     return data;
 
   }

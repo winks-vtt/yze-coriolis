@@ -162,7 +162,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const actorData = this.actor.data.data;
     if (dataset.roll && this._isValidRoll(dataset.rolltype, actorData, dataset)) {
       let roll = new Roll(dataset.roll, actorData);
-      let label = dataset.label ? `${dataset.label} roll` : '';
+      let label = dataset.label ? `${dataset.label} Roll` : '';
       try {
         roll.roll().toMessage({
           speaker: ChatMessage.getSpeaker({
