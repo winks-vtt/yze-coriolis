@@ -159,19 +159,40 @@ export class yzecoriolisActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
+    const actorData = this.actor.data.data;
+    console.log('dataset', dataset, actorData.attributes, dataset['attributekey']);
 
-    if (dataset.roll) {
-      let roll = new Roll(dataset.roll, this.actor.data.data);
+    let attributeValue = actorData.attributes[dataset.attributekey].value;
+    let skillValue = actorData.skills[dataset.skillkey].value;
+
+    if (dataset.roll && this._isValidRoll(attributeValue, skillValue)) {
+      let roll = new Roll(dataset.roll, actorData);
       let label = dataset.label ? `${dataset.label} roll` : '';
-      roll.roll().toMessage({
-        speaker: ChatMessage.getSpeaker({
-          actor: this.actor
-        }),
-        flavor: label
-      });
+      try {
+        roll.roll().toMessage({
+          speaker: ChatMessage.getSpeaker({
+            actor: this.actor
+          }),
+          flavor: label
+        });
+      } catch (err) {
+        ui.notifications.error(err);
+        throw new Error(err);
+      }
+    } else {
+      ui.notifications.error(new Error(game.i18n.localize('YZECORIOLIS.ErrorsInvalidSkillRoll')));
     }
   }
-
+  /**
+   * Returns true/false if roll they are attempting makes any sense. This isn't enforcing game rules.
+   * This is enforcing input validation so the Roll API doesn't error.
+   * This makes sure the attribute and skill we are rolling for sum to something > 0.
+   * @param  {} attribute numeric value of the attribute we are testing
+   * @param  {} skill numeric value of the skilll we are testing
+   */
+  _isValidRoll(attribute, skill) {
+    return attribute + skill > 0;
+  }
 
   /**
    * Handle showing an item's description in the character sheet as an easy fold out.
