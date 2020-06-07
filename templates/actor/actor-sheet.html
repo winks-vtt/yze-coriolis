@@ -103,17 +103,17 @@
       </ul>
 
       {{!-- Create a header for each skill type --}}
-      <ol class="inventory-list">
-        <li class="inventory-header flexrow">
+      <ol class="stat-list">
+        <li class="skill-header flexrow">
           <h3 class="skill-name flexrow">{{getSkillCategoryName 'general'}}</h3>
         </li>
         {{#each actor.data.skills as |skill id|}}
         {{#if_eq skill.category 'general'}}
-        <li class="item flexrow" data-item-id="{{skill._id}}">
-          <div class="item-name flexrow rollable" data-rolltype="skill" data-attributekey={{skill.attribute}}
+        <li class="skill flexrow" data-item-id="{{skill._id}}">
+          <div class="skill-name flexrow rollable" data-rolltype="skill" data-attributekey={{skill.attribute}}
             data-skillkey={{id}} data-roll="(@attributes.{{skill.attribute}}.value + @skills.{{id}}.value)d6"
             data-label="{{getSkillName id}}">
-            <div class="item-image" style="background-image: url({{skill.img}})"></div>
+            <div class="skill-image" style="background-image: url({{skill.img}})"></div>
             <h4>{{getSkillName id}} ({{getAttributeName skill.attribute}})</h4>
           </div>
           <input class="skill-input" type="text" name="data.skills.{{id}}.value" value="{{skill.value}}"
@@ -122,17 +122,17 @@
         {{/if_eq }}
         {{/each}}
       </ol>
-      <ol class="inventory-list">
-        <li class="inventory-header flexrow">
+      <ol class="stat-list">
+        <li class="skill-header flexrow">
           <h3 class="skill-name flexrow">{{getSkillCategoryName 'advanced'}}</h3>
         </li>
         {{#each actor.data.skills as |skill id|}}
         {{#if_eq skill.category 'advanced'}}
-        <li class="item flexrow" data-item-id="{{skill._id}}">
-          <div class="item-name flexrow rollable"
+        <li class="skill flexrow" data-item-id="{{skill._id}}">
+          <div class="skill-name flexrow rollable"
             data-roll="(@attributes.{{skill.attribute}}.value + @skills.{{id}}.value)d6"
             data-label="{{getSkillName id}}">
-            <div class="item-image" style="background-image: url({{skill.img}})"></div>
+            <div class="skill-image" style="background-image: url({{skill.img}})"></div>
             <h4>{{getSkillName id}} ({{getAttributeName skill.attribute}})</h4>
           </div>
           <input class="skill-input" type="text" name="data.skills.{{id}}.value" value="{{skill.value}}"
