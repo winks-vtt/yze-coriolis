@@ -160,7 +160,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
     const actorData = this.actor.data.data;
-    console.log('dataset', dataset, actorData.attributes, dataset['attributekey']);
     if (dataset.roll && this._isValidRoll(dataset.rolltype, actorData, dataset)) {
       let roll = new Roll(dataset.roll, actorData);
       let label = dataset.label ? `${dataset.label} roll` : '';
