@@ -94,8 +94,8 @@
       <ul class="attributes-list flexrow">
         {{#each actor.data.attributes as |ability key|}}
         <li class="attribute-item">
-          <label for="data.attributes.{{key}}.value" class="resource-label rollable"
-            data-roll="(@attributes.{{key}}.value)d6" data-label="{{key}}">{{key}}</label>
+          <label for="data.attributes.{{key}}.value" class="resource-label rollable" data-rolltype="attribute"
+            data-attributekey={{key}} data-roll="(@attributes.{{key}}.value)d6" data-label="{{key}}">{{key}}</label>
           <input type="text" name="data.attributes.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
         </li>
         {{/each}}
@@ -109,7 +109,7 @@
         {{#each actor.data.skills as |item id|}}
         {{#if_eq item.category 'general'}}
         <li class="flexrow" data-item-id="{{item._id}}">
-          <h4 class="item-name rollable" data-attributekey={{item.attribute}} data-skillkey={{id}}
+          <h4 class="item-name rollable" data-rolltype="skill" data-attributekey={{item.attribute}} data-skillkey={{id}}
             data-roll="(@attributes.{{item.attribute}}.value + @skills.{{id}}.value)d6"
             data-label="{{getSkillName id}}">{{getSkillName id}}
             ({{getAttributeName item.attribute}})</h4>

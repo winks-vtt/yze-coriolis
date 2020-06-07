@@ -161,11 +161,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const dataset = element.dataset;
     const actorData = this.actor.data.data;
     console.log('dataset', dataset, actorData.attributes, dataset['attributekey']);
-
-    let attributeValue = actorData.attributes[dataset.attributekey].value;
-    let skillValue = actorData.skills[dataset.skillkey].value;
-
-    if (dataset.roll && this._isValidRoll(attributeValue, skillValue)) {
+    if (dataset.roll && this._isValidRoll(dataset.rolltype, actorData, dataset)) {
       let roll = new Roll(dataset.roll, actorData);
       let label = dataset.label ? `${dataset.label} roll` : '';
       try {
@@ -186,12 +182,24 @@ export class yzecoriolisActorSheet extends ActorSheet {
   /**
    * Returns true/false if roll they are attempting makes any sense. This isn't enforcing game rules.
    * This is enforcing input validation so the Roll API doesn't error.
-   * This makes sure the attribute and skill we are rolling for sum to something > 0.
+   * This makes sure the rollType we are attempting has the valid data to make the roll.
    * @param  {} attribute numeric value of the attribute we are testing
    * @param  {} skill numeric value of the skilll we are testing
    */
-  _isValidRoll(attribute, skill) {
-    return attribute + skill > 0;
+  _isValidRoll(rollType, actorData, dataset) {
+    let attributeValue = 0;
+    let skillValue = 0;
+    switch (rollType) {
+      case 'skill':
+        attributeValue = actorData.attributes[dataset.attributekey].value;
+        skillValue = actorData.skills[dataset.skillkey].value;
+        return attributeValue + skillValue > 0;
+      case 'attribute':
+        attributeValue = actorData.attributes[dataset.attributekey].value;
+        return attributeValue > 0;
+
+    }
+    return false;
   }
 
   /**
