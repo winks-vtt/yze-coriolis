@@ -69,6 +69,10 @@ Hooks.once('init', async function () {
     return CONFIG.YZECORIOLIS.skills[skillkey];
   });
 
+  Handlebars.registerHelper('getSkillCategoryName', function (skillkey) {
+    return CONFIG.YZECORIOLIS.skillCategories[skillkey];
+  });
+
   Handlebars.registerHelper('getAttributeName', function (attributeKey) {
     return CONFIG.YZECORIOLIS.attributes[attributeKey];
   });

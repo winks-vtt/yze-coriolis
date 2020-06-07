@@ -102,33 +102,34 @@
         {{/each}}
       </ul>
 
-      {{!-- General Skills List --}}
-      <ol class="skills-list">
-        <li class="item flexrow item-header">
-          <div class="item-name">{{localize "YZECORIOLIS.SkillCatGeneral"}}</div>
+      {{!-- Create a header for each skill type --}}
+      <ol class="inventory-list">
+        <li class="inventory-header flexrow">
+          <h3 class="skill-name flexrow">{{getSkillCategoryName 'general'}}</h3>
         </li>
         {{#each actor.data.skills as |item id|}}
         {{#if_eq item.category 'general'}}
-        <li class="flexrow" data-item-id="{{item._id}}">
-          <h4 class="item-name rollable" data-rolltype="skill" data-attributekey={{item.attribute}} data-skillkey={{id}}
-            data-roll="(@attributes.{{item.attribute}}.value + @skills.{{id}}.value)d6"
-            data-label="{{getSkillName id}}">{{getSkillName id}}
-            ({{getAttributeName item.attribute}})</h4>
+        <li class="item flexrow" data-item-id="{{item._id}}">
+          <div class="item-name flexrow rollable" data-rolltype="skill" data-attributekey={{item.attribute}}
+            data-skillkey={{id}} data-roll="(@attributes.{{item.attribute}}.value + @skills.{{id}}.value)d6"
+            data-label="{{getSkillName id}}">
+            <div class="item-image" style="background-image: url({{item.img}})"></div>
+            <h4>{{getSkillName id}} ({{getAttributeName item.attribute}})</h4>
+          </div>
+
           <input class="skill-input" type="text" name="data.skills.{{id}}.value" value="{{item.value}}"
             data-dtype="Number" />
         </li>
         {{/if_eq }}
         {{/each}}
       </ol>
-
-      {{!-- Advanced Skills List --}}
-      <ol class="skills-list">
-        <li class="item flexrow item-header">
-          <div class="item-name">{{localize "YZECORIOLIS.SkillCatAdvanced"}}</div>
+      <ol class="inventory-list">
+        <li class="inventory-header flexrow">
+          <h3 class="skill-name flexrow">{{getSkillCategoryName 'advanced'}}</h3>
         </li>
         {{#each actor.data.skills as |item id|}}
         {{#if_eq item.category 'advanced'}}
-        <li class="flexrow" data-item-id="{{item._id}}">
+        <li class="item flexrow" data-item-id="{{item._id}}">
           <h4 class="item-name rollable" data-roll="(@attributes.{{item.attribute}}.value + @skills.{{id}}.value)d6"
             data-label="{{getSkillName id}}">{{getSkillName id}}
             ({{getAttributeName item.attribute}})</h4>
@@ -138,6 +139,8 @@
         {{/if_eq }}
         {{/each}}
       </ol>
+
+
     </div>
   </section>
 </form>
