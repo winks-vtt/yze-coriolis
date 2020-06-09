@@ -224,6 +224,7 @@
     },
     "gear": {
       "templates": ["gear"],
+      "gearType": "",
       "bonus": 0
     },
     "talent": {

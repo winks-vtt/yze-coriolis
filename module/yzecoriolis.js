@@ -81,6 +81,17 @@ Hooks.once('init', async function () {
     return CONFIG.YZECORIOLIS.talentCategories[talentCategoryKey];
   });
 
+  Handlebars.registerHelper('getGearWeightName', function (gearWeight) {
+    return CONFIG.YZECORIOLIS.gearWeights[gearWeight];
+  });
+
+  Handlebars.registerHelper('getGearName', function (gearName) {
+    return CONFIG.YZECORIOLIS.gearNames[gearName];
+  });
+  Handlebars.registerHelper('getTechTierName', function (tier) {
+    return CONFIG.YZECORIOLIS.techTiers[tier];
+  });
+
   Handlebars.registerHelper('talentHasCost', function (talentCategory, opts) {
     if (talentCategory === 'cybernetic' || talentCategory === 'bionicsculpt') {
       return opts.fn(this);

@@ -10,6 +10,9 @@
     "YZECORIOLIS.Edit": "Edit",
     "YZECORIOLIS.Delete": "Delete",
     "YZECORIOLIS.CreateTalent": "Create Talent",
+    "YZECORIOLIS.CreateGear": "Create Gear",
+    "YZECORIOLIS.TechTier": "Tech Tier",
+    "YZECORIOLIS.Quantity": "Quantity",
 
     "YZECORIOLIS.AttrStrength": "Strength",
     "YZECORIOLIS.AttrAgility": "Agility",

@@ -37,10 +37,19 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const actorData = sheetData.actor;
 
     // Initialize our containers
-    const gear = [];
+    const gear = {};
     const armor = [];
     const talents = {};
 
+    for (let k of Object.keys(CONFIG.YZECORIOLIS.gearWeights)) {
+      gear[k] = {
+        "dataset": {
+          "type": "gear",
+          "weight": k,
+        },
+        "items": []
+      }
+    }
     for (let k of Object.keys(CONFIG.YZECORIOLIS.talentCategories)) {
       talents[k] = {
         "dataset": {
@@ -55,11 +64,12 @@ export class yzecoriolisActorSheet extends ActorSheet {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
       // append to gear
-      if (i.type === 'item') {
+      if (i.type === 'gear') {
         if (i.data.gearType === "armor") {
-          armor.push(i);
+          armor.push(i); // TODO: sort like gear.
         } else {
-          gear.push(i);
+          gear[item.weight].items.push(i);
+          //gear.push(i);
         }
       }
       // append to talents
@@ -77,6 +87,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     actorData.weapons = weapons;
     actorData.armor = armor;
     actorData.talents = talents;
+    console.log('gear', gear);
   }
 
   /** @override */
