@@ -4,13 +4,37 @@
         <div class="header-fields">
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
             <div class="grid grid-2col">
-                <div class="resource">
+                <div class="resource flexrow">
+                    <label class="resource-label">Tech Tier</label>
+                    <select class="gear-category" name="data.techTier">
+                        {{#select data.techTier}}
+                        {{#each config.techTiers as |label techTier|}}
+                        <option value="{{techTier}}">{{label}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+                <div class="resource flexrow">
                     <label class="resource-label">Quantity</label>
                     <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number" />
                 </div>
-                <div class="resource">
+                <div class="resource flexrow">
                     <label class="resource-label">Weight</label>
-                    <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number" />
+                    <select class="weight-category" name="data.weight">
+                        {{#select data.weight}}
+                        {{#each config.gearWeights as |label weight|}}
+                        <option value="{{weight}}">{{label}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+                <div class="resource">
+                    <label class="resource-label">Restricted</label>
+                    <input type="checkbox" name="data.restricted" data-dtype="Boolean" {{checked data.restricted}} />
+                </div>
+                <div class="resource flexrow">
+                    <label class="resource-label">Bonus</label>
+                    <input type="text" name="data.bonus" value="{{data.bonus}}" data-dtype="Number" />
                 </div>
             </div>
         </div>
@@ -19,7 +43,6 @@
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">Description</a>
-        <a class="item" data-tab="attributes">Attributes</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -28,11 +51,6 @@
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-        </div>
-
-        {{!-- Attributes Tab --}}
-        <div class="tab attributes" data-group="primary" data-tab="attributes">
-            {{!-- As you add new fields, add them in here! --}}
         </div>
     </section>
 </form>

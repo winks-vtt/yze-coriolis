@@ -166,5 +166,18 @@ YZECORIOLIS.talents = {
     "mysticalpremonition": "YZECORIOLIS.TalentMysticalPremonition",
     "mysticalstop": "YZECORIOLIS.TalentMysticalStop",
     "mysticaltelekinesis": "YZECORIOLIS.TalentMysticalTelekinesis"
+}
 
+YZECORIOLIS.techTiers = {
+    "P": "YZECORIOLIS.TechTierPrimitive",
+    "O": "YZECORIOLIS.TechTierOrdinary",
+    "A": "YZECORIOLIS.TechTierAdvanced",
+    "F": "YZECORIOLIS.TechTierFaction",
+    "R": "YZECORIOLIS.TechTierPortalBuilderRelic",
+}
+
+YZECORIOLIS.gearWeights = {
+    "L": "YZECORIOLIS.GearWeightLight",
+    "H": "YZECORIOLIS.GearWeightHeavy",
+    "T": "YZECORIOLIS.GearWeightTiny",
 }

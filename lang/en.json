@@ -143,5 +143,15 @@
     "YZECORIOLIS.TalentMysticalPrediction": "Prediction",
     "YZECORIOLIS.TalentMysticalPremonition": "Premonition",
     "YZECORIOLIS.TalentMysticalStop": "Stop",
-    "YZECORIOLIS.TalentMysticalTelekinesis": "Telekinesis"
+    "YZECORIOLIS.TalentMysticalTelekinesis": "Telekinesis",
+
+    "YZECORIOLIS.TechTierPrimitive": "Primitive",
+    "YZECORIOLIS.TechTierOrdinary": "Ordinary",
+    "YZECORIOLIS.TechTierAdvanced": "Advanced",
+    "YZECORIOLIS.TechTierFaction": "Faction",
+    "YZECORIOLIS.TechTierPortalBuilderRelic": "Relic",
+
+    "YZECORIOLIS.GearWeightLight": "Light",
+    "YZECORIOLIS.GearWeightHeavy": "Heavy",
+    "YZECORIOLIS.GearWeightTiny": "Tiny"
 }

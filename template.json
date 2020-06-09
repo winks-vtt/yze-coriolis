@@ -207,6 +207,14 @@
     "templates": {
       "base": {
         "description": ""
+      },
+      "gear": {
+        "description": "",
+        "weight": "",
+        "techTier": "",
+        "cost": 0,
+        "quantity": 0,
+        "restricted": false
       }
     },
     "item": {
@@ -215,10 +223,8 @@
       "weight": 0
     },
     "gear": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0,
-      "gearType": ""
+      "templates": ["gear"],
+      "bonus": 0
     },
     "talent": {
       "templates": ["base"],
@@ -227,9 +233,7 @@
       "groupConcept": ""
     },
     "weapon": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0,
+      "templates": ["gear"],
       "comment": "",
       "reloads": {
         "value": 0,
