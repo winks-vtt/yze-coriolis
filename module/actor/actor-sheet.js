@@ -87,7 +87,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
     actorData.weapons = weapons;
     actorData.armor = armor;
     actorData.talents = talents;
-    console.log('gear', gear);
   }
 
   /** @override */
@@ -108,6 +107,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
       const item = this.actor.getOwnedItem(li.data("itemId"));
       item.sheet.render(true);
     });
+
+    // update gear quantity directly from sheet.
+    html.find('.gear-quantity-input').change(this._onGearQuantityChanged.bind(this));
 
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
@@ -133,7 +135,21 @@ export class yzecoriolisActorSheet extends ActorSheet {
   }
 
   /* -------------------------------------------- */
-
+  /**
+   * Handle changing the quantity of a gear item from the sheet directly.
+   * @param  {} event
+   */
+  async _onGearQuantityChanged(event) {
+    event.preventDefault();
+    const input = event.target;
+    let value = input.value;
+    const li = $(event.currentTarget).parents(".item");
+    const item = this.actor.getOwnedItem(li.data("itemId"));
+    if (value < 0) {
+      value = 0;
+    }
+    return item.update({ 'data.quantity': value });
+  }
   /**
    * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
    * @param {Event} event   The originating click event

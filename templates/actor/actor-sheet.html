@@ -179,8 +179,8 @@
           </div>
 
           <div class="gear-quantity flex-center">
-            <input type="number" step="1" name="gear.data.quantity" value="{{gear.data.quantity}}"
-              data-dtype="Number" />
+            <input class="gear-quantity-input" type="number" step="1" min="0" name="gear.data.quantity"
+              value="{{gear.data.quantity}}" data-dtype="Number" />
           </div>
           <div class="gear-name">
             {{#if_eq gear.data.restricted true}}
