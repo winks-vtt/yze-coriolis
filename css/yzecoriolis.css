@@ -353,6 +353,21 @@
 .yzecoriolis.sheet.actor .inventory-list .item .item-name i.attuned {
   color: #7a7971;
 }
+.yzecoriolis.sheet.actor .inventory-list .item .gear-name {
+  text-align: center;
+}
+.yzecoriolis.sheet.actor .inventory-list .item .gear-quantity input {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  border: 1px solid #7a7971;
+  width: 50px;
+  margin-left: 4px;
+  margin-right: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
 .yzecoriolis.sheet.actor .inventory-list .item .item-uses input {
   width: 24px;
   text-align: center;
@@ -383,6 +398,9 @@
 }
 .yzecoriolis.sheet.actor .inventory-list .inventory-header .item-controls a.item-create {
   flex: 0 0 100%;
+}
+.yzecoriolis.sheet.actor .inventory-list .inventory-header .gear-name {
+  text-align: center;
 }
 .yzecoriolis.sheet.actor .inventory-list .item-detail {
   flex: 0 0 70px;

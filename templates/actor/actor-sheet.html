@@ -152,9 +152,10 @@
         {{#each actor.gear as |gearData weightKey|}}
         {{!-- setup header for a gear weight class--}}
         <li class="inventory-header flexrow">
-          <h3 class="talent-name flexrow">{{getGearWeightName weightKey}}</h3>
-          <div class="talent-name">{{localize "YZECORIOLIS.TechTier"}}</div>
-          <div class="talent-name">{{localize "YZECORIOLIS.Quantity"}}</div>
+          <h3 class="gear-name flexrow">{{getGearWeightName weightKey}}</h3>
+          <div class="gear-name">{{localize "YZECORIOLIS.TechTier"}}</div>
+          <div class="gear-name">{{localize "YZECORIOLIS.Quantity"}}</div>
+          <div class="gear-name">{{localize "YZECORIOLIS.Restricted"}}</div>
           {{#if ../owner}}
           <div class="item-controls">
             <a class="item-control item-create" title='{{localize "YZECORIOLIS.CreateGear"}}'
@@ -173,14 +174,19 @@
             <h4>{{gear.name}}</h4>
           </div>
 
-          <div class="talent-name">
+          <div class="gear-name">
             {{getTechTierName gear.data.techTier}}
           </div>
 
-          <div class="talent-name">
-            <input type="text" name="gear.data.quantity" value="{{gear.data.quantity}}" data-dtype="Number" />
+          <div class="gear-quantity flex-center">
+            <input type="number" step="1" name="gear.data.quantity" value="{{gear.data.quantity}}"
+              data-dtype="Number" />
           </div>
-
+          <div class="gear-name">
+            {{#if_eq gear.data.restricted true}}
+            <i class="fas fa-key"></i>
+            {{/if_eq}}
+          </div>
           <div class="item-controls">
             <a class="item-control item-edit" title="Edit Gear"><i class="fas fa-edit"></i></a>
             <a class="item-control item-delete" title="Delete Gear"><i class="fas fa-trash"></i></a>
