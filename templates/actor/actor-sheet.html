@@ -165,7 +165,6 @@
         <li class="inventory-header flexrow">
           <h3 class="gear-name flexrow">{{getGearWeightName weightKey}}</h3>
           <div class="gear-name">{{localize "YZECORIOLIS.TechTier"}}</div>
-          <div class="gear-name">{{localize "YZECORIOLIS.Weight"}}</div>
           <div class="gear-name">{{localize "YZECORIOLIS.Quantity"}}</div>
           <div class="gear-name">{{localize "YZECORIOLIS.Restricted"}}</div>
           {{#if ../owner}}
@@ -188,10 +187,6 @@
 
           <div class="gear-name">
             {{getTechTierName gear.data.techTier}}
-          </div>
-
-          <div class="gear-name">
-            {{getWeightName gear.data.weight}}
           </div>
 
           <div class="gear-quantity flex-center">
