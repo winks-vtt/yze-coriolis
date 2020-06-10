@@ -88,8 +88,13 @@ Hooks.once('init', async function () {
   Handlebars.registerHelper('getGearName', function (gearName) {
     return CONFIG.YZECORIOLIS.gearNames[gearName];
   });
+
   Handlebars.registerHelper('getTechTierName', function (tier) {
     return CONFIG.YZECORIOLIS.techTiers[tier];
+  });
+
+  Handlebars.registerHelper('getWeightName', function (weight) {
+    return CONFIG.YZECORIOLIS.gearWeights[weight];
   });
 
   Handlebars.registerHelper('talentHasCost', function (talentCategory, opts) {
