@@ -147,7 +147,18 @@
     </div>
 
     {{!-- Gear Tab --}}
-    <div class="tab flexrow" data-group="primary" data-tab="gear">
+    <div class="tab flexcol" data-group="primary" data-tab="gear">
+      {{#with actor.encumbrance}}
+      <div class="encumbrance {{#if encumbered}}encumbered{{/if}}">
+        <span class="encumbrance-bar  {{#if encumbered}}encumbered{{/if}}" style="width:{{percentage}}%"></span>
+        <span class="encumbrance-label">{{value}} / {{max}}</span>
+        <i class="encumbrance-breakpoint encumbrance-33 arrow-up"></i>
+        <i class="encumbrance-breakpoint encumbrance-33 arrow-down"></i>
+        <i class="encumbrance-breakpoint encumbrance-66 arrow-up"></i>
+        <i class="encumbrance-breakpoint encumbrance-66 arrow-down"></i>
+      </div>
+      {{/with}}
+
       <ol class="inventory-list">
         {{#each actor.gear as |gearData weightKey|}}
         {{!-- setup header for a gear weight class--}}
@@ -195,6 +206,8 @@
         {{/each}}
         {{/each}}
       </ol>
+
+
 
     </div>
   </section>

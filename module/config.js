@@ -181,3 +181,10 @@ YZECORIOLIS.gearWeights = {
     "H": "YZECORIOLIS.GearWeightHeavy",
     "T": "YZECORIOLIS.GearWeightTiny",
 }
+
+// We are normalizing the weight distribution so light objects aren't .5 but just 1.
+YZECORIOLIS.gearWeightPoints = {
+    "L": 1,
+    "H": 4,
+    "T": 0,
+}

@@ -40,6 +40,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const gear = {};
     const armor = [];
     const talents = {};
+    let totalWeightPoints = 0;
 
     for (let k of Object.keys(CONFIG.YZECORIOLIS.gearWeights)) {
       gear[k] = {
@@ -67,8 +68,10 @@ export class yzecoriolisActorSheet extends ActorSheet {
       if (i.type === 'gear') {
         if (i.data.gearType === "armor") {
           armor.push(i); // TODO: sort like gear.
+          // TODO: add weight points
         } else {
           gear[item.weight].items.push(i);
+          totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
           //gear.push(i);
         }
       }
@@ -80,6 +83,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       // append to weapons
       if (i.type === "weapon") {
         weapons.push(i);
+        // TODO: add weight points
       }
     }
     // assign and return
@@ -87,6 +91,8 @@ export class yzecoriolisActorSheet extends ActorSheet {
     actorData.weapons = weapons;
     actorData.armor = armor;
     actorData.talents = talents;
+    actorData.encumbrance = this._computeEncumbrance(totalWeightPoints);
+    console.log('actorData', actorData);
   }
 
   /** @override */
@@ -135,6 +141,17 @@ export class yzecoriolisActorSheet extends ActorSheet {
   }
 
   /* -------------------------------------------- */
+
+  _computeEncumbrance(totalWeight) {
+    let enc = {
+      max: 20,
+      value: totalWeight
+    };
+    let pct = (totalWeight / enc.max) * 100;
+    enc.percentage = Math.min(pct, 100);
+    enc.encumbered = pct > 100;
+    return enc;
+  }
   /**
    * Handle changing the quantity of a gear item from the sheet directly.
    * @param  {} event
