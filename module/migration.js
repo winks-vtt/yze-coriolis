@@ -77,6 +77,22 @@ export const bootstrapTalentCompendium = async function () {
         console.log(`imported Talent ${t.name} into ${talentPack.collection}`);
     }
 }
+
+export const bootstrapGearCompendium = async function () {
+    const gearPack = game.packs.find(p => {
+        return (p.metadata.package === "world") && p.metadata.entity === "Item" && p.metadata.name === "gear";
+    });
+
+    // Load an external JSON data file which contains data for import
+    const response = await fetch("modules/coriolis-core-compendiums/imports/gear-imports.json");
+    const content = await response.json();
+
+    const tempItems = await Item.create(content, { temporary: true });
+    for (let t of tempItems) {
+        await gearPack.importEntity(t);
+        console.log(`imported Gear ${t.name} into ${gearPack.collection}`);
+    }
+}
 /**
  * Apply migration rules to all Entities within a single Compendium pack
  * @param pack
