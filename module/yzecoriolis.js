@@ -8,6 +8,7 @@ import { yzecoriolisItemSheet } from "./item/item-sheet.js";
 
 import { bootstrapGearCompendium } from './migration.js';
 import * as migrations from "./migration.js";
+import { ChatMessageYZECoriolis } from "./sidebar/chatmessage.js";
 
 Hooks.once('init', async function () {
   console.log(`Coriolis | Initializing Coriolis\n${YZECORIOLIS.ASCII}`);
@@ -32,7 +33,7 @@ Hooks.once('init', async function () {
   CONFIG.Actor.entityClass = yzecoriolisActor;
   CONFIG.Item.entityClass = yzecoriolisItem;
   CONFIG.YZECORIOLIS = YZECORIOLIS;
-
+  CONFIG.ChatMessage.entityClass = ChatMessageYZECoriolis;
   //Register system settings
   registerSystemSettings();
 
