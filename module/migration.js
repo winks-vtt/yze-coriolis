@@ -79,18 +79,50 @@ export const bootstrapTalentCompendium = async function () {
 }
 
 export const bootstrapGearCompendium = async function () {
-    const gearPack = game.packs.find(p => {
-        return (p.metadata.package === "world") && p.metadata.entity === "Item" && p.metadata.name === "gear";
-    });
+    //await importEveryDayItemsCompendium("Everyday Items", "everyday-items");
+    await importEveryDayItemsCompendium("Medicurgical Technology", "medicurgical-technology");
+    await importEveryDayItemsCompendium("Tools And Spare Parts", "tools-and-spare-parts");
+    await importEveryDayItemsCompendium("Survival and Colonization", "survival-and-colonization");
+    await importEveryDayItemsCompendium("Exos and Vehicles", "exos-and-vehicles");
+    await importEveryDayItemsCompendium("Recon and Infiltration", "recon-and-infiltration");
+    await importEveryDayItemsCompendium("Combat Gear", "combat-gear");
+}
 
+const importEveryDayItemsCompendium = async function (contentKey, compendiumName) {
+    const targetCompendiumObject = getCompendiumForImport(compendiumName);
     // Load an external JSON data file which contains data for import
-    const response = await fetch("modules/coriolis-core-compendiums/imports/gear-imports.json");
+    const response = await fetch("modules/coriolis-core-compendiums/imports/import-coriolis-core-compendium-gear.json");
     const content = await response.json();
+    const gearArray = content[contentKey];
 
-    const tempItems = await Item.create(content, { temporary: true });
+    let preppedGearArray = prepItemsForImport(gearArray);
+    await importItemsIntoCompendium(targetCompendiumObject, preppedGearArray);
+}
+
+const getCompendiumForImport = function (compendiumName) {
+    const comp = game.packs.find(p => {
+        return (p.metadata.package === "world") && p.metadata.entity === "Item" && p.metadata.name === compendiumName;
+    });
+    return comp;
+}
+const prepItemsForImport = function (itemArray) {
+    let itemList = [];
+    for (let t of itemArray) {
+        let tt = { "data": t }
+        tt.name = t.name;
+        tt.type = "gear";
+        delete t.name;
+        itemList.push(tt);
+    }
+    console.log(itemList);
+    return itemList
+}
+
+const importItemsIntoCompendium = async function (targetCompendium, preppedList) {
+    const tempItems = await Item.create(preppedList, { temporary: true });
     for (let t of tempItems) {
-        await gearPack.importEntity(t);
-        console.log(`imported Gear ${t.name} into ${gearPack.collection}`);
+        await targetCompendium.importEntity(t);
+        console.log(`imported Item ${t.name} into ${targetCompendium.collection}`);
     }
 }
 /**
