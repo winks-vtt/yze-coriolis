@@ -157,6 +157,7 @@
     "YZECORIOLIS.TechTierPortalBuilderRelic": "Relic",
 
     "YZECORIOLIS.GearWeightLight": "Light",
+    "YZECORIOLIS.GearWeightNormal": "Normal",
     "YZECORIOLIS.GearWeightHeavy": "Heavy",
     "YZECORIOLIS.GearWeightTiny": "Tiny"
 }

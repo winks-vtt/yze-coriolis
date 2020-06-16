@@ -178,6 +178,7 @@ YZECORIOLIS.techTiers = {
 
 YZECORIOLIS.gearWeights = {
     "L": "YZECORIOLIS.GearWeightLight",
+    "N": "YZECORIOLIS.GearWeightNormal",
     "H": "YZECORIOLIS.GearWeightHeavy",
     "T": "YZECORIOLIS.GearWeightTiny",
 }
@@ -185,6 +186,7 @@ YZECORIOLIS.gearWeights = {
 // We are normalizing the weight distribution so light objects aren't .5 but just 1.
 YZECORIOLIS.gearWeightPoints = {
     "L": 1,
+    "N": 2,
     "H": 4,
     "T": 0,
 }
