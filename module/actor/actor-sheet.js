@@ -25,8 +25,8 @@ export class yzecoriolisActorSheet extends ActorSheet {
   getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
-    // prepare items
     if (this.actor.data.type == 'character') {
+      // prepare items
       this._prepareCharacterItems(data);
     }
     data.config = CONFIG.YZECORIOLIS;
@@ -92,7 +92,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
     actorData.armor = armor;
     actorData.talents = talents;
     actorData.encumbrance = this._computeEncumbrance(totalWeightPoints);
-    console.log('actorData', actorData);
   }
 
   /** @override */
@@ -108,9 +107,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
     html.find('.item-create').click(this._onItemCreate.bind(this));
 
     // Add Critical Injury
-    html.find('.injury-create').click(this._onCritInjuryCreate.bind(this));
+    html.find('.injury-create').click(this._onCriticalInjuryCreate.bind(this));
     // Delete a Critical Injury
-    html.find('.injury-delete').click(this._onCritInjuryDelete.bind(this));
+    html.find('.injury-delete').click(this._onCriticalInjuryDelete.bind(this));
 
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
@@ -200,26 +199,34 @@ export class yzecoriolisActorSheet extends ActorSheet {
     return this.actor.createOwnedItem(itemData);
   }
 
-  _onCritInjuryCreate(event) {
+  _onCriticalInjuryCreate(event) {
     event.preventDefault();
     const name = 'New Critical Injury';
-    let data = duplicate(this.actor.data.data.criticalInjuries);
-    let key = Object.keys(data).length + 1;
-    data["ci" + key] = name;
-    return this.actor.update({ _id: this.actor._id, 'data.criticalInjuries': data });
-
+    let injuries = {};
+    if (this.actor.data.data.criticalInjuries) {
+      injuries = duplicate(this.actor.data.data.criticalInjuries);
+    }
+    let key = Object.keys(injuries).length + 1;
+    injuries['ci' + key] = name;
+    return this.actor.update({ 'data.criticalInjuries': injuries });
   }
 
-  _onCritInjuryDelete(event) {
+  async _onCriticalInjuryDelete(event) {
     const li = $(event.currentTarget).parents(".injury");
-    let data = duplicate(this.actor.data.data.criticalInjuries);
+    let injuries = duplicate(this.actor.data.data.criticalInjuries);
     let targetKey = li.data("itemId");
-    console.log(targetKey);
-    delete data[targetKey];
-    console.log('remaining', data);
-    this.actor.update({ _id: this.actor._id, 'data.criticalInjuries': data });
-    li.slideUp(200, () => this.render(false));
+    delete injuries[targetKey];
+    li.slideUp(200, () => {
+      this.render(false);
+      this._setInjuries(injuries);
+    });
   }
+
+  async _setInjuries(injuries) {
+    await this.actor.update({ "data.criticalInjuries": null });
+    await this.actor.update({ 'data.criticalInjuries': injuries });
+  }
+
   /**
    * Handle clickable rolls.
    * @param {Event} event   The originating click event
@@ -248,6 +255,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       ui.notifications.error(new Error(game.i18n.localize('YZECORIOLIS.ErrorsInvalidSkillRoll')));
     }
   }
+
   /**
    * Returns true/false if roll they are attempting makes any sense. This isn't enforcing game rules.
    * This is enforcing input validation so the Roll API doesn't error.
