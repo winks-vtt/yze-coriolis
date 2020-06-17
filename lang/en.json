@@ -15,6 +15,10 @@
     "YZECORIOLIS.Quantity": "Quantity",
     "YZECORIOLIS.Restricted": "Restricted",
     "YZECORIOLIS.Weight": "Weight",
+    "YZECORIOLIS.CriticalInjuries": "Critical Injuries",
+    "YZECORIOLIS.CreateCriticalInjury": "Add Critical Injury",
+    "YZECORIOLIS.EditCriticalInjury": "Edit Critical Injury",
+    "YZECORIOLIS.DeleteCriticalInjury": "Delete Critical Injury",
 
     "YZECORIOLIS.AttrStrength": "Strength",
     "YZECORIOLIS.AttrAgility": "Agility",

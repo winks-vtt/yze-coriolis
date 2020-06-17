@@ -196,6 +196,7 @@
         "max": 10
       },
       "relationships": [],
+      "criticalInjuries": {},
       "cabin": {
         "description": ""
       },

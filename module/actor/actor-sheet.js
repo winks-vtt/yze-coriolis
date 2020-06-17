@@ -107,6 +107,11 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
 
+    // Add Critical Injury
+    html.find('.injury-create').click(this._onCritInjuryCreate.bind(this));
+    // Delete a Critical Injury
+    html.find('.injury-delete').click(this._onCritInjuryDelete.bind(this));
+
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
@@ -167,6 +172,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     }
     return item.update({ 'data.quantity': value });
   }
+
   /**
    * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
    * @param {Event} event   The originating click event
@@ -194,6 +200,26 @@ export class yzecoriolisActorSheet extends ActorSheet {
     return this.actor.createOwnedItem(itemData);
   }
 
+  _onCritInjuryCreate(event) {
+    event.preventDefault();
+    const name = 'New Critical Injury';
+    let data = duplicate(this.actor.data.data.criticalInjuries);
+    let key = Object.keys(data).length + 1;
+    data["ci" + key] = name;
+    return this.actor.update({ _id: this.actor._id, 'data.criticalInjuries': data });
+
+  }
+
+  _onCritInjuryDelete(event) {
+    const li = $(event.currentTarget).parents(".injury");
+    let data = duplicate(this.actor.data.data.criticalInjuries);
+    let targetKey = li.data("itemId");
+    console.log(targetKey);
+    delete data[targetKey];
+    console.log('remaining', data);
+    this.actor.update({ _id: this.actor._id, 'data.criticalInjuries': data });
+    li.slideUp(200, () => this.render(false));
+  }
   /**
    * Handle clickable rolls.
    * @param {Event} event   The originating click event

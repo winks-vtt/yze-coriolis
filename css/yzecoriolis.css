@@ -277,6 +277,10 @@
   flex: 0 0 40px;
   text-align: center;
 }
+.yzecoriolis.sheet.actor .crit-injuries-list {
+  flex: 0 0 100%;
+  list-style: none;
+}
 .yzecoriolis.sheet.actor .tab.features,
 .yzecoriolis.sheet.actor .tab.inventory,
 .yzecoriolis.sheet.actor .tab.spellbook {
@@ -653,6 +657,117 @@
 }
 .yzecoriolis.sheet.actor .encumbrance.encumbered .arrow-down {
   border-top: 4px solid #000;
+}
+.yzecoriolis.sheet.actor .critical-injury-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 5px;
+  overflow-y: auto;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury {
+  line-height: 30px;
+  padding: 0 2px;
+  border-bottom: 1px solid #c9c7b8;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury:last-child {
+  border-bottom: none;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury .injury-header-name {
+  cursor: pointer;
+  max-height: 30px;
+  overflow: hidden;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury .injury-header-name .injury-image {
+  flex: 0 0 30px;
+  background-size: 30px;
+  margin-right: 5px;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury .injury-header-name h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury .injury-name {
+  text-align: left;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-header {
+  margin: 2px 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+  line-height: 24px;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-header h3 {
+  margin: 0 -5px 0 0;
+  padding-left: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-header .injury-controls a.injury-create {
+  flex: 0 0 100%;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-header .injury-name {
+  text-align: center;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-detail {
+  flex: 0 0 70px;
+  font-size: 12px;
+  color: #7a7971;
+  text-align: center;
+  border-right: 1px solid #c9c7b8;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-detail:last-child {
+  border-right: none;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-detail.injury-action {
+  flex: 0 0 100px;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-weight {
+  flex: 0 0 60px;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-controls {
+  flex: 0 0 44px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  justify-content: flex-end;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-controls > * {
+  flex: 1;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-controls .flex1 {
+  flex: 1;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-controls .flex2 {
+  flex: 2;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-controls .flex3 {
+  flex: 3;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-controls .flex4 {
+  flex: 4;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-controls a {
+  flex: 0 0 22px;
+  font-size: 12px;
+  text-align: center;
+  color: #7a7971;
+}
+.yzecoriolis.sheet.actor .critical-injury-list .injury-summary {
+  flex: 0 0 100%;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 0.25em 0.5em;
+  border-top: 1px solid #c9c7b8;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
