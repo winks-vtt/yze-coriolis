@@ -1,3 +1,5 @@
+import { getID } from '../util.js';
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -201,12 +203,12 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
   _onCriticalInjuryCreate(event) {
     event.preventDefault();
-    const name = 'New Critical Injury';
+    const name = '';
     let injuries = {};
     if (this.actor.data.data.criticalInjuries) {
       injuries = duplicate(this.actor.data.data.criticalInjuries);
     }
-    let key = Object.keys(injuries).length + 1;
+    let key = getID();
     injuries['ci' + key] = name;
     return this.actor.update({ 'data.criticalInjuries': injuries });
   }
@@ -218,8 +220,8 @@ export class yzecoriolisActorSheet extends ActorSheet {
     delete injuries[targetKey];
     li.slideUp(200, () => {
       this.render(false);
-      this._setInjuries(injuries);
     });
+    this._setInjuries(injuries);
   }
 
   async _setInjuries(injuries) {

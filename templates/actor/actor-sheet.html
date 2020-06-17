@@ -162,11 +162,10 @@
         {{#each actor.data.criticalInjuries as |injury ciKey|}}
         <li class="injury flexrow" data-item-id="{{ciKey}}">
           <div class="injury-name">
-            {{injury}}
-          </div class="injury-name">
+            <input type="text" name="data.criticalInjuries.{{ciKey}}" value="{{injury}}"
+              placeholder="{{localize "YZECORIOLIS.CriticalInjury"}}" />
+          </div>
           <div class="injury-controls">
-            <a class="injury-control injury-edit" title={{localize "YZECORIOLIS.EditCriticalInjury"}}><i
-                class="fas fa-edit"></i></a>
             <a class="injury-control injury-delete" title={{localize "YZECORIOLIS.DeleteCriticalInjury"}}><i
                 class="fas fa-trash"></i></a>
           </div>
