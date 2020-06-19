@@ -236,16 +236,19 @@
     },
     "weapon": {
       "templates": ["gear"],
-      "comment": "",
+      "description": "",
       "reloads": {
         "value": 0,
         "min": 0,
         "max": 6
       },
+      "crit": 0,
       "bonus": 0,
       "damage": 0,
       "initiative": 0,
-      "range": "medium"
+      "range": "",
+      "automatic": false,
+      "special": []
     }
   }
 }
