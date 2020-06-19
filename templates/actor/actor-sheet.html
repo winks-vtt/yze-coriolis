@@ -187,6 +187,9 @@
         <i class="encumbrance-breakpoint encumbrance-66 arrow-down"></i>
       </div>
       {{/with}}
+      <div class="inventory-section-header">
+        <li>{{localize "YZECORIOLIS.Gear"}}</li>
+      </div>
 
       <ol class="inventory-list">
         {{#each actor.gear as |gearData weightKey|}}
@@ -235,7 +238,12 @@
         {{/each}}
         {{/each}}
       </ol>
-
+      <div class="inventory-section-header">
+        <li>{{localize "YZECORIOLIS.Weapons"}}</li>
+      </div>
+      <div class="inventory-section-header">
+        <li>{{localize "YZECORIOLIS.Armor"}}</li>
+      </div>
 
 
     </div>

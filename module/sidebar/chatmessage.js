@@ -28,11 +28,12 @@ export class ChatMessageYZECoriolis extends ChatMessage {
 
         // Enrich some data for dice rolls
         if (this.isRoll) {
-
+            console.log('chat message roll!');
             // Render public rolls if they do not already start with valid HTML
             const hasHTMLContent = data.content.slice(0, 1) === "<";
             if (isVisible && !hasHTMLContent) {
                 data.content = await this.roll.render();
+                console.log('chat message content:', data.content);
             }
 
             // Conceal some private roll information

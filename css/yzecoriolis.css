@@ -320,6 +320,19 @@
   margin-left: 8px;
   border-bottom: 2px groove #eeede0;
 }
+.yzecoriolis.sheet.actor .inventory-section-header {
+  list-style: none;
+  flex: 0;
+  margin: 2px 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+  line-height: 24px;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.05rem;
+}
 .yzecoriolis.sheet.actor .inventory-list {
   list-style: none;
   margin: 0;
