@@ -197,3 +197,10 @@ YZECORIOLIS.critTypes = {
     "numeric": "YZECORIOLIS.CritTypeNumeric",
     "custom": "YZECORIOLIS.CritTypeCustom"
 }
+
+YZECORIOLIS.ranges = {
+    "close": "YZECORIOLIS.CloseRange",
+    "short": "YZECORIOLIS.ShortRange",
+    "long": "YZECORIOLIS.LongRange",
+    "extreme": "YZECORIOLIS.ExtremeRange"
+}

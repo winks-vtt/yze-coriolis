@@ -22,6 +22,8 @@
     "YZECORIOLIS.Gear": "Gear",
     "YZECORIOLIS.Weapons": "Weapons",
     "YZECORIOLIS.Armor": "Armor",
+    "YZECORIOLIS.Automatic": "Automatic",
+    "YZECORIOLIS.EffectiveRange": "Effective Range",
     "YZECORIOLIS.CriticalInjuries": "Critical Injuries",
     "YZECORIOLIS.CriticalInjury": "Critical Injury",
     "YZECORIOLIS.CreateCriticalInjury": "Add Critical Injury",
@@ -174,5 +176,10 @@
     "YZECORIOLIS.GearWeightTiny": "Tiny",
 
     "YZECORIOLIS.CritTypeNumeric": "Numeric",
-    "YZECORIOLIS.CritTypeCustom": "Custom"
+    "YZECORIOLIS.CritTypeCustom": "Custom",
+
+    "YZECORIOLIS.CloseRange": "Close Range",
+    "YZECORIOLIS.ShortRange": "Short Range",
+    "YZECORIOLIS.LongRange": "Long Range",
+    "YZECORIOLIS.ExtremeRange": "Extreme Range"
 }
