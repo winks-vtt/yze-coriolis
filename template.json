@@ -246,6 +246,9 @@
         "numericValue": 0,
         "customValue": ""
       },
+      "explosive": false,
+      "blastRadius": "",
+      "blastPower": 0,
       "bonus": 0,
       "damage": 0,
       "initiative": 0,

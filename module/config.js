@@ -166,7 +166,7 @@ YZECORIOLIS.talents = {
     "mysticalpremonition": "YZECORIOLIS.TalentMysticalPremonition",
     "mysticalstop": "YZECORIOLIS.TalentMysticalStop",
     "mysticaltelekinesis": "YZECORIOLIS.TalentMysticalTelekinesis"
-}
+};
 
 YZECORIOLIS.techTiers = {
     "P": "YZECORIOLIS.TechTierPrimitive",
@@ -174,14 +174,14 @@ YZECORIOLIS.techTiers = {
     "A": "YZECORIOLIS.TechTierAdvanced",
     "F": "YZECORIOLIS.TechTierFaction",
     "R": "YZECORIOLIS.TechTierPortalBuilderRelic",
-}
+};
 
 YZECORIOLIS.gearWeights = {
     "L": "YZECORIOLIS.GearWeightLight",
     "N": "YZECORIOLIS.GearWeightNormal",
     "H": "YZECORIOLIS.GearWeightHeavy",
     "T": "YZECORIOLIS.GearWeightTiny",
-}
+};
 
 // We are normalizing the weight distribution so light objects aren't .5 but just 1.
 YZECORIOLIS.gearWeightPoints = {
@@ -189,18 +189,18 @@ YZECORIOLIS.gearWeightPoints = {
     "N": 2,
     "H": 4,
     "T": 0,
-}
+};
 
 // numeric crit types are just the flat dice successes needed to crit.
 // custom typically have some custom property name that would apply to this weapon.
 YZECORIOLIS.critTypes = {
     "numeric": "YZECORIOLIS.CritTypeNumeric",
     "custom": "YZECORIOLIS.CritTypeCustom"
-}
+};
 
 YZECORIOLIS.ranges = {
     "close": "YZECORIOLIS.CloseRange",
     "short": "YZECORIOLIS.ShortRange",
     "long": "YZECORIOLIS.LongRange",
     "extreme": "YZECORIOLIS.ExtremeRange"
-}
+};
