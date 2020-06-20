@@ -252,7 +252,7 @@
       "initiative": 0,
       "range": "",
       "automatic": false,
-      "special": []
+      "special": {}
     }
   }
 }

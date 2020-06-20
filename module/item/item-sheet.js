@@ -1,3 +1,4 @@
+import { getID } from '../util.js';
 /**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
@@ -8,8 +9,8 @@ export class yzecoriolisItemSheet extends ItemSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["yzecoriolis", "sheet", "item"],
-      width: 520,
-      height: 480,
+      width: 770,
+      height: 770,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
     });
   }
@@ -55,5 +56,39 @@ export class yzecoriolisItemSheet extends ItemSheet {
     if (!this.options.editable) return;
 
     // Roll handlers, click handlers, etc. would go here.
+    // Add Inventory Item
+    html.find('.feature-create').click(this._onFeatureCreate.bind(this));
+
+    // // Delete Inventory Item
+    html.find('.feature-delete').click(this._onFeatureDelete.bind(this));
   }
+
+  _onFeatureCreate(event) {
+    event.preventDefault();
+    const name = '';
+    let features = {};
+    if (this.object.data.data.special) {
+      features = duplicate(this.object.data.data.special);
+    }
+    let key = getID();
+    features['si' + key] = name;
+    return this.object.update({ 'data.special': features });
+  }
+
+  _onFeatureDelete(event) {
+    const li = $(event.currentTarget).parents(".special-feature");
+    let features = duplicate(this.object.data.data.special);
+    let targetKey = li.data("itemId");
+    delete features[targetKey];
+    li.slideUp(200, () => {
+      this.render(false);
+    });
+    this._setSpecialFeatures(features);
+  }
+
+  async _setSpecialFeatures(features) {
+    await this.object.update({ "data.special": null });
+    await this.object.update({ 'data.special': features });
+  }
+
 }

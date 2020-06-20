@@ -45,6 +45,48 @@
         }
     }
 
+    .feature-section {
+        flex: 0 0 100%;
+
+        .special-feature-header {
+            margin: 2px 0;
+            padding: 0;
+            background: rgba(0, 0, 0, 0.05);
+            border: @borderGroove;
+            font-weight: bold;
+            line-height: 24px;
+
+            h3 {
+                margin: 0 -5px 0 0;
+                padding-left: 5px;
+                font-size: 13px;
+                font-weight: bold;
+            }
+
+            .feature-controls a.feature-create {
+                flex: 0 0 100%;
+            }
+
+            .feature-name {
+                text-align: center;
+            }
+        }
+
+        // feature Control Buttons
+        .feature-controls {
+            flex: 0 0 44px;
+            .flexrow();
+            justify-content: flex-end;
+
+            a {
+                flex: 0 0 22px;
+                font-size: 12px;
+                text-align: center;
+                color: @colorTan;
+            }
+        }
+    }
+
     .sheet-tabs {
         flex: 0;
     }

@@ -77,6 +77,31 @@
                 </div>
             </div>
         </div>
+        <div class="feature-section flexrow">
+            <ol>
+                <li class="special-feature-header flexrow">
+                    <h3 class="feature-name flexrow">{{localize "YZECORIOLIS.Special"}}</h3>
+                    <div class="feature-controls">
+                        <a class="feature-control feature-create" title='{{localize "YZECORIOLIS.AddFeature"}}'>
+                            <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+                        </a>
+                    </div>
+                </li>
+                {{#each data.special as |feature id|}}
+                <li class="special-feature flexrow" data-item-id="{{id}}">
+                    <div class="feature-name">
+                        <input type="text" name="data.special.{{id}}" value="{{feature}}"
+                            placeholder="{{localize "YZECORIOLIS.Special"}}" />
+                    </div>
+                    <div class="feature-controls">
+                        <a class="feature-control feature-delete" title={{localize "YZECORIOLIS.DeleteFeature"}}><i
+                                class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+
+        </div>
     </header>
 
 
@@ -91,11 +116,6 @@
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-        </div>
-
-        {{!-- Attributes Tab --}}
-        <div class="tab attributes" data-group="primary" data-tab="attributes">
-            {{!-- As you add new fields, add them in here! --}}
         </div>
     </section>
 </form>
