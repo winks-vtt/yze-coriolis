@@ -25,6 +25,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
   /** @override */
   getData() {
+    console.log('fetching data for summary?');
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
     if (this.actor.data.type == 'character') {
@@ -305,6 +306,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     } else {
       let div = $(`<div class="item-summary">${chatData.description}</div>`);
       let props = $(`<div class="item-properties"></div>`);
+      console.log('chatdata', chatData);
       chatData.properties.forEach(p => props.append(`<span class="tag">${p}</span>`));
       div.append(props);
       li.append(div.hide());

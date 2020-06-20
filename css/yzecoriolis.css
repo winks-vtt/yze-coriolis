@@ -392,6 +392,16 @@
 .yzecoriolis.sheet.actor .inventory-list .item .item-properties {
   margin-top: 3px;
 }
+.yzecoriolis.sheet.actor .inventory-list .item .tag {
+  display: inline-block;
+  margin: 0 2px 0 0;
+  padding: 0 3px;
+  font-size: 10px;
+  line-height: 16px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.05);
+}
 .yzecoriolis.sheet.actor .inventory-list .item .item-recharge {
   flex: 0 0 80px;
   text-align: right;
@@ -418,6 +428,7 @@
 }
 .yzecoriolis.sheet.actor .inventory-list .inventory-header .gear-name {
   text-align: center;
+  color: #7a7971;
 }
 .yzecoriolis.sheet.actor .inventory-list .item-detail {
   flex: 0 0 70px;

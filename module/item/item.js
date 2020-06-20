@@ -57,6 +57,13 @@ export class yzecoriolisItem extends Item {
     // Filter properties and return
     data.properties = props.filter(p => !!p);
     return data;
+  }
 
+  _weaponChatData(data, labels, props) {
+    for (let p of Object.values(this.data.data.special)) {
+      props.push(p);
+      console.log('added ', p);
+    }
+    console.log('featching WEAPON chat data', data, labels, props);
   }
 }
