@@ -94,8 +94,13 @@
 
                 <div class="resource numeric-input flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.BlastRadius"}}</label>
-                    <input type="number" min="0" name="data.crit.blastRadius" value="{{data.crit.blastRadius}}"
-                        data-dtype="Number" />
+                    <select class="blast-radius-category" name="data.blastRadius">
+                        {{#select data.blastRadius}}
+                        {{#each config.ranges as |label range|}}
+                        <option value="{{range}}">{{label}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
                 </div>
                 {{/if}}
 
