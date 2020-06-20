@@ -24,6 +24,7 @@
     "YZECORIOLIS.Weight": "Weight",
     "YZECORIOLIS.Gear": "Gear",
     "YZECORIOLIS.Weapons": "Weapons",
+    "YZECORIOLIS.Weapon": "Weapon",
     "YZECORIOLIS.Armor": "Armor",
     "YZECORIOLIS.Automatic": "Automatic",
     "YZECORIOLIS.Special": "Special Features",
@@ -179,8 +180,8 @@
     "YZECORIOLIS.GearWeightHeavy": "Heavy",
     "YZECORIOLIS.GearWeightTiny": "Tiny",
 
-    "YZECORIOLIS.CritTypeNumeric": "Numeric",
-    "YZECORIOLIS.CritTypeCustom": "Custom",
+    "YZECORIOLIS.CritTypeNumeric": "Numeric Crit",
+    "YZECORIOLIS.CritTypeCustom": "Custom Crit",
 
     "YZECORIOLIS.CloseRange": "Close Range",
     "YZECORIOLIS.ShortRange": "Short Range",

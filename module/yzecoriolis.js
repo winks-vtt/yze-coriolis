@@ -66,6 +66,22 @@ Hooks.once('init', async function () {
     }
   });
 
+  Handlebars.registerHelper('if_gt', function (a, b, opts) {
+    if (a > b) {
+      return opts.fn(this);
+    } else {
+      return opts.inverse(this);
+    }
+  });
+
+  Handlebars.registerHelper('if_notEmptyString', function (a, opts) {
+    if (a !== '') {
+      return opts.fn(this);
+    } else {
+      return opts.inverse(this);
+    }
+  });
+
   Handlebars.registerHelper('getSkillName', function (skillkey) {
     return CONFIG.YZECORIOLIS.skills[skillkey];
   });
@@ -96,6 +112,23 @@ Hooks.once('init', async function () {
 
   Handlebars.registerHelper('getWeightName', function (weight) {
     return CONFIG.YZECORIOLIS.gearWeights[weight];
+  });
+
+  Handlebars.registerHelper('getRangeName', function (range) {
+    return CONFIG.YZECORIOLIS.ranges[range];
+  });
+
+  Handlebars.registerHelper('getWeaponCritDisplay', function (critObj) {
+    if (critObj.numericValue > 0 && critObj.customValue !== '') {
+      return `${critObj.numericValue}/${critObj.customValue}`
+    }
+    if (critObj.numericValue > 0) {
+      return `${critObj.numericValue}`;
+    }
+    if (critObj.customValue !== '') {
+      return `${critObj.customValue}`;
+    }
+    return '';
   });
 
   Handlebars.registerHelper('talentHasCost', function (talentCategory, opts) {

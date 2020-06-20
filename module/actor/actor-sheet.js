@@ -42,6 +42,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const gear = {};
     const armor = [];
     const talents = {};
+    const weapons = [];
     let totalWeightPoints = 0;
 
     for (let k of Object.keys(CONFIG.YZECORIOLIS.gearWeights)) {
@@ -62,7 +63,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
         "items": []
       };
     }
-    const weapons = [];
+
     for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
@@ -85,7 +86,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       // append to weapons
       if (i.type === "weapon") {
         weapons.push(i);
-        // TODO: add weight points
+        totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
       }
     }
     // assign and return
