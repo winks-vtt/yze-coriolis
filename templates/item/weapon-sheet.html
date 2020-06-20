@@ -4,22 +4,67 @@
         <div class="header-fields">
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
             <div class="grid grid-2col">
-                <div class="resource">
-                    <label class="resource-label">Quantity</label>
-                    <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number" />
+                <div class="resource flexrow">
+                    <label class="resource-label">{{localize "YZECORIOLIS.TechTier"}}</label>
+                    <select class="gear-category" name="data.techTier">
+                        {{#select data.techTier}}
+                        {{#each config.techTiers as |label techTier|}}
+                        <option value="{{techTier}}">{{label}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+                <div class="resource flexrow">
+                    <label class="resource-label">{{localize "YZECORIOLIS.Weight"}}</label>
+                    <select class="weight-category" name="data.weight">
+                        {{#select data.weight}}
+                        {{#each config.gearWeights as |label weight|}}
+                        <option value="{{weight}}">{{label}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
                 </div>
                 <div class="resource">
-                    <label class="resource-label">Weight</label>
-                    <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number" />
+                    <label class="resource-label">{{localize "YZECORIOLIS.Restricted"}}</label>
+                    <input type="checkbox" name="data.restricted" data-dtype="Boolean" {{checked data.restricted}} />
+                </div>
+                <div class="resource flexrow">
+                    <label class="resource-label">{{localize "YZECORIOLIS.Bonus"}}</label>
+                    <input type="text" name="data.bonus" value="{{data.bonus}}" data-dtype="Number" />
+                </div>
+                <div class="resource flexrow">
+                    <label class="resource-label">{{localize "YZECORIOLIS.Initiative"}}</label>
+                    <input type="text" name="data.initiative" value="{{data.initiative}}" data-dtype="Number" />
+                </div>
+                <div class="resource flexrow">
+                    <label class="resource-label">{{localize "YZECORIOLIS.CritType"}}</label>
+                    <select class="weight-category" name="data.crit.type">
+                        {{#select data.crit.type}}
+                        {{#each config.critTypes as |label critType|}}
+                        <option value="{{critType}}">{{label}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                    {{#if_eq data.crit.type "numeric"}}
+                    <div class="numeric-input">
+                        <input type="number" name="data.crit.value" min="0" value="{{data.crit.value}}"
+                            data-dtype="Number" />
+                    </div>
+                    {{/if_eq}}
+
+                    {{#if_eq data.crit.type "custom"}}
+                    <input type="text" name="data.crit.propertyName" value="{{data.crit.propertyName}}"
+                        data-dtype="String" />
+                    {{/if_eq}}
                 </div>
             </div>
         </div>
     </header>
 
+
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">Description</a>
-        <a class="item" data-tab="attributes">Attributes</a>
     </nav>
 
     {{!-- Sheet Body --}}

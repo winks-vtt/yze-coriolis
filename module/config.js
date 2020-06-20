@@ -190,3 +190,10 @@ YZECORIOLIS.gearWeightPoints = {
     "H": 4,
     "T": 0,
 }
+
+// numeric crit types are just the flat dice successes needed to crit.
+// custom typically have some custom property name that would apply to this weapon.
+YZECORIOLIS.critTypes = {
+    "numeric": "YZECORIOLIS.CritTypeNumeric",
+    "custom": "YZECORIOLIS.CritTypeCustom"
+}

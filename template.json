@@ -242,7 +242,11 @@
         "min": 0,
         "max": 6
       },
-      "crit": 0,
+      "crit": {
+        "type": "",
+        "value": 0,
+        "propertyName": ""
+      },
       "bonus": 0,
       "damage": 0,
       "initiative": 0,

@@ -14,6 +14,10 @@
     "YZECORIOLIS.TechTier": "Tech Tier",
     "YZECORIOLIS.Quantity": "Quantity",
     "YZECORIOLIS.Restricted": "Restricted",
+    "YZECORIOLIS.Bonus": "Bonus",
+    "YZECORIOLIS.Initiative": "Initiative",
+    "YZECORIOLIS.CritType": "Crit Type",
+    "YZECORIOLIS.Crit": "Crit",
     "YZECORIOLIS.Weight": "Weight",
     "YZECORIOLIS.Gear": "Gear",
     "YZECORIOLIS.Weapons": "Weapons",
@@ -167,5 +171,8 @@
     "YZECORIOLIS.GearWeightLight": "Light",
     "YZECORIOLIS.GearWeightNormal": "Normal",
     "YZECORIOLIS.GearWeightHeavy": "Heavy",
-    "YZECORIOLIS.GearWeightTiny": "Tiny"
+    "YZECORIOLIS.GearWeightTiny": "Tiny",
+
+    "YZECORIOLIS.CritTypeNumeric": "Numeric",
+    "YZECORIOLIS.CritTypeCustom": "Custom"
 }

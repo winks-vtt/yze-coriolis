@@ -5,7 +5,7 @@
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
             <div class="grid grid-2col">
                 <div class="resource flexrow">
-                    <label class="resource-label">Tech Tier</label>
+                    <label class="resource-label">{{localize "YZECORIOLIS.TechTier"}}</label>
                     <select class="gear-category" name="data.techTier">
                         {{#select data.techTier}}
                         {{#each config.techTiers as |label techTier|}}
@@ -15,7 +15,7 @@
                     </select>
                 </div>
                 <div class="resource flexrow">
-                    <label class="resource-label">Weight</label>
+                    <label class="resource-label">{{localize "YZECORIOLIS.Weight"}}</label>
                     <select class="weight-category" name="data.weight">
                         {{#select data.weight}}
                         {{#each config.gearWeights as |label weight|}}
@@ -25,11 +25,11 @@
                     </select>
                 </div>
                 <div class="resource">
-                    <label class="resource-label">Restricted</label>
+                    <label class="resource-label">{{localize "YZECORIOLIS.Restricted"}}</label>
                     <input type="checkbox" name="data.restricted" data-dtype="Boolean" {{checked data.restricted}} />
                 </div>
                 <div class="resource flexrow">
-                    <label class="resource-label">Bonus</label>
+                    <label class="resource-label">{{localize "YZECORIOLIS.Bonus"}}</label>
                     <input type="text" name="data.bonus" value="{{data.bonus}}" data-dtype="Number" />
                 </div>
             </div>

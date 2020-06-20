@@ -811,6 +811,18 @@
   text-transform: uppercase;
   flex: 0 0 75px;
 }
+.yzecoriolis.sheet.item .sheet-header .numeric-input input {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  border: 1px solid #7a7971;
+  width: 50px;
+  margin-left: 4px;
+  margin-right: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
 .yzecoriolis.sheet.item .sheet-tabs {
   flex: 0;
 }

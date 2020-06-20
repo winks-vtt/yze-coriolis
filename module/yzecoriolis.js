@@ -119,11 +119,12 @@ Hooks.once("setup", function () {
     "talentGroupConceptCategories",
     "talents",
     "techTiers",
-    "gearWeights"
+    "gearWeights",
+    "critTypes"
   ];
 
   // exclude sorting from some config values where the order matters.
-  const noSort = ['talentCategories', 'techTiers', 'gearWeights'];
+  const noSort = ['talentCategories', 'techTiers', 'gearWeights', 'critTypes'];
 
   for (let o of toLocalize) {
     const localized = Object.entries(CONFIG.YZECORIOLIS[o]).map(e => {
