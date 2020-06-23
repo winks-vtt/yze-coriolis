@@ -62,8 +62,12 @@ export class yzecoriolisItem extends Item {
   _weaponChatData(data, labels, props) {
     for (let p of Object.values(this.data.data.special)) {
       props.push(p);
-      console.log('added ', p);
     }
-    console.log('featching WEAPON chat data', data, labels, props);
+  }
+
+  _armorChatData(data, labels, props) {
+    for (let p of Object.values(this.data.data.special)) {
+      props.push(p);
+    }
   }
 }

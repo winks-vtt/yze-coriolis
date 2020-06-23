@@ -290,8 +290,10 @@
             {{/if_eq}}
           </div>
           <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Weapon"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Delete Weapon"><i class="fas fa-trash"></i></a>
+            <a class="item-control item-edit" title="{{localize "YZECORIOLIS.EditWeapon"}}"><i
+                class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="{{localize "YZECORIOLIS.DeleteWeapon"}}"><i
+                class="fas fa-trash"></i></a>
           </div>
         </li>
         {{/each}}
@@ -312,7 +314,7 @@
           <div class="gear-name">{{localize "YZECORIOLIS.BlastRadius"}}</div>
           {{#if owner}}
           <div class="item-controls">
-            <a class="item-control item-create" title='{{localize "YZECORIOLIS.CreateGear"}}'
+            <a class="item-control item-create" title='{{localize "YZECORIOLIS.CreateExplosive"}}'
               {{#each actor.explosiveDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
               <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
             </a>
@@ -344,8 +346,10 @@
             {{getRangeName explosive.data.blastRadius}}
           </div>
           <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Weapon"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Delete Weapon"><i class="fas fa-trash"></i></a>
+            <a class="item-control item-edit" title="{{localize "YZECORIOLIS.EditExplosive"}}"><i
+                class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="{{localize "YZECORIOLIS.DeleteExplosive"}}"><i
+                class="fas fa-trash"></i></a>
           </div>
         </li>
         {{/each}}
@@ -355,6 +359,42 @@
         <li>{{localize "YZECORIOLIS.Armor"}}</li>
       </div>
 
+      <ol class="inventory-list">
+        {{!-- setup header for a weapon weight class--}}
+        <li class="inventory-header flexrow">
+          <h3 class="gear-name flexrow">{{localize "YZECORIOLIS.Armor"}}</h3>
+          <div class="gear-name">{{localize "YZECORIOLIS.ArmorRating"}}</div>
+          <div class="gear-name">{{localize "YZECORIOLIS.ExtraFeatures"}}</div>
+          {{#if owner}}
+          <div class="item-controls">
+            <a class="item-control item-create" title='{{localize "YZECORIOLIS.CreateArmor"}}'
+              {{#each actor.armorDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+              <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+            </a>
+          </div>
+          {{/if}}
+        </li>
+        {{#each actor.armor as |armor index|}}
+        <li class="item flexrow" data-item-id="{{armor._id}}">
+          <div class="item-name flexrow">
+            <div class="item-image" style="background-image: url({{armor.img}})"></div>
+            <h4>{{armor.name}}</h4>
+          </div>
+          <div class="gear-name">
+            {{armor.data.armorRating}}
+          </div>
+          <div class="gear-name">
+            {{armor.data.extraFeatures}}
+          </div>
+          <div class="item-controls">
+            <a class="item-control item-edit" title="{{localize "YZECORIOLIS.EditArmor"}}"><i
+                class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="{{localize "YZECORIOLIS.DeleteArmor"}}"><i
+                class="fas fa-trash"></i></a>
+          </div>
+        </li>
+        {{/each}}
+      </ol>
 
     </div>
   </section>

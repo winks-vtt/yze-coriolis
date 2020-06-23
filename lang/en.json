@@ -10,8 +10,22 @@
     "YZECORIOLIS.Edit": "Edit",
     "YZECORIOLIS.Delete": "Delete",
     "YZECORIOLIS.CreateTalent": "Create Talent",
+
     "YZECORIOLIS.CreateGear": "Create Gear",
     "YZECORIOLIS.CreateWeapon": "Create Weapon",
+    "YZECORIOLIS.CreateArmor": "Create Armor",
+    "YZECORIOLIS.CreateExplosive": "Create Explosive",
+
+    "YZECORIOLIS.EditGear": "Edit Gear",
+    "YZECORIOLIS.EditWeapon": "Edit Weapon",
+    "YZECORIOLIS.EditArmor": "Edit Armor",
+    "YZECORIOLIS.EditExplosive": "Edit Explosive",
+
+    "YZECORIOLIS.DeleteGear": "Delete Gear",
+    "YZECORIOLIS.DeleteWeapon": "Delete Weapon",
+    "YZECORIOLIS.DeleteArmor": "Delete Armor",
+    "YZECORIOLIS.DeleteExplosive": "Delete Explosive",
+
     "YZECORIOLIS.TechTier": "Tech Tier",
     "YZECORIOLIS.AddFeature": "Add Feature",
     "YZECORIOLIS.DeleteFeature": "Delete Feature",

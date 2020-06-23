@@ -69,8 +69,8 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const weaponDataSet = {
       "type": "weapon",
       "weight": "L",
-      "quantity": 1
-    }
+    };
+
     const explosiveDataSet = {
       "type": "weapon",
       "weight": "L",
@@ -78,6 +78,13 @@ export class yzecoriolisActorSheet extends ActorSheet {
       "explosive": true,
       "blastRadius": "close",
       "blastPower": 1,
+    };
+
+    const armorDataSet = {
+      "type": "armor",
+      "weight": "L",
+      "armorRating": 1,
+      "extraFeatures": 0
     }
 
     for (let i of sheetData.items) {
@@ -109,11 +116,16 @@ export class yzecoriolisActorSheet extends ActorSheet {
     }
     // assign and return
     actorData.gear = gear;
+
     actorData.weapons = weapons;
     actorData.weaponDataSet = weaponDataSet;
+
     actorData.explosives = explosives;
     actorData.explosiveDataSet = explosiveDataSet;
+
     actorData.armor = armor;
+    actorData.armorDataSet = armorDataSet;
+
     actorData.talents = talents;
     actorData.encumbrance = this._computeEncumbrance(totalWeightPoints);
   }
