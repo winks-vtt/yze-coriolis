@@ -204,7 +204,7 @@
     }
   },
   "Item": {
-    "types": ["item", "gear", "talent", "weapon"],
+    "types": ["item", "gear", "talent", "weapon", "armor"],
     "templates": {
       "base": {
         "description": ""
@@ -214,7 +214,7 @@
         "weight": "",
         "techTier": "",
         "cost": 0,
-        "quantity": 0,
+        "quantity": 1,
         "restricted": false
       }
     },
@@ -236,7 +236,6 @@
     },
     "weapon": {
       "templates": ["gear"],
-      "description": "",
       "reloads": {
         "value": 0,
         "min": 0,
@@ -255,6 +254,12 @@
       "range": "",
       "automatic": false,
       "special": {}
+    },
+    "armor": {
+      "templates": ["gear"],
+      "armorRating": 0,
+      "special": {},
+      "extraFeatures": 0
     }
   }
 }

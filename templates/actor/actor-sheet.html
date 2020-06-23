@@ -255,7 +255,8 @@
           <div class="gear-name">{{localize "YZECORIOLIS.Automatic"}}</div>
           {{#if owner}}
           <div class="item-controls">
-            <a class="item-control item-create" title='{{localize "YZECORIOLIS.CreateGear"}}'>
+            <a class="item-control item-create" title='{{localize "YZECORIOLIS.CreateWeapon"}}'
+              {{#each actor.weaponDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
               <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
             </a>
           </div>
@@ -311,7 +312,8 @@
           <div class="gear-name">{{localize "YZECORIOLIS.BlastRadius"}}</div>
           {{#if owner}}
           <div class="item-controls">
-            <a class="item-control item-create" title='{{localize "YZECORIOLIS.CreateGear"}}'>
+            <a class="item-control item-create" title='{{localize "YZECORIOLIS.CreateGear"}}'
+              {{#each actor.explosiveDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
               <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
             </a>
           </div>

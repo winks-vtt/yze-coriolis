@@ -25,7 +25,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
   /** @override */
   getData() {
-    console.log('fetching data for summary?');
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
     if (this.actor.data.type == 'character') {
@@ -52,6 +51,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
         "dataset": {
           "type": "gear",
           "weight": k,
+          "quantity": 1
         },
         "items": []
       }
@@ -66,19 +66,27 @@ export class yzecoriolisActorSheet extends ActorSheet {
       };
     }
 
+    const weaponDataSet = {
+      "type": "weapon",
+      "weight": "L",
+      "quantity": 1
+    }
+    const explosiveDataSet = {
+      "type": "weapon",
+      "weight": "L",
+      "quantity": 1,
+      "explosive": true,
+      "blastRadius": "close",
+      "blastPower": 1,
+    }
+
     for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
       // append to gear
       if (i.type === 'gear') {
-        if (i.data.gearType === "armor") {
-          armor.push(i); // TODO: sort like gear.
-          // TODO: add weight points
-        } else {
-          gear[item.weight].items.push(i);
-          totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
-          //gear.push(i);
-        }
+        gear[item.weight].items.push(i);
+        totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
       }
       // append to talents
       if (i.type === "talent") {
@@ -94,11 +102,17 @@ export class yzecoriolisActorSheet extends ActorSheet {
         }
         totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
       }
+      if (i.type === "armor") {
+        armor.push(i);
+        totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight]; // we assume 1 quantity.
+      }
     }
     // assign and return
     actorData.gear = gear;
     actorData.weapons = weapons;
+    actorData.weaponDataSet = weaponDataSet;
     actorData.explosives = explosives;
+    actorData.explosiveDataSet = explosiveDataSet;
     actorData.armor = armor;
     actorData.talents = talents;
     actorData.encumbrance = this._computeEncumbrance(totalWeightPoints);
@@ -196,6 +210,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const data = duplicate(header.dataset);
     // Initialize a default name.
     const name = `New ${type.capitalize()}`;
+    console.log('dataset', data);
     // Prepare the item object.
     const itemData = {
       name: name,
@@ -306,7 +321,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
     } else {
       let div = $(`<div class="item-summary">${chatData.description}</div>`);
       let props = $(`<div class="item-properties"></div>`);
-      console.log('chatdata', chatData);
       chatData.properties.forEach(p => props.append(`<span class="tag">${p}</span>`));
       div.append(props);
       li.append(div.hide());

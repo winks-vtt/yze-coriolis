@@ -1,0 +1,91 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        <div class="header-fields">
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+            <div class="flexcol flex1">
+
+                <div class="resource flexrow">
+                    <label class="resource-label">{{localize "YZECORIOLIS.TechTier"}}</label>
+                    <select class="gear-category" name="data.techTier">
+                        {{#select data.techTier}}
+                        {{#each config.techTiers as |label techTier|}}
+                        <option value="{{techTier}}">{{label}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+
+                <div class="resource">
+                    <label class="resource-label">{{localize "YZECORIOLIS.Restricted"}}</label>
+                    <input type="checkbox" name="data.restricted" data-dtype="Boolean" {{checked data.restricted}} />
+                </div>
+
+
+                <div class="resource flexrow">
+                    <label class="resource-label">{{localize "YZECORIOLIS.MoneyCost"}}</label>
+                    <input type="text" name="data.cost" value="{{data.cost}}" data-dtype="Number" />
+                </div>
+
+
+                <div class="resource flexrow">
+                    <label class="resource-label">{{localize "YZECORIOLIS.Weight"}}</label>
+                    <select class="weight-category" name="data.weight">
+                        {{#select data.weight}}
+                        {{#each config.gearWeights as |label weight|}}
+                        <option value="{{weight}}">{{label}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+
+                <div class="resource numeric-input flexrow">
+                    <label class="resource-label">{{localize "YZECORIOLIS.ExtraFeatures"}}</label>
+                    <input type="number" min="0" name="data.extraFeatures" value="{{data.extraFeatures}}"
+                        data-dtype="Number" />
+                </div>
+
+            </div>
+        </div>
+        <div class="feature-section flexrow">
+            <ol>
+                <li class="special-feature-header flexrow">
+                    <h3 class="feature-name flexrow">{{localize "YZECORIOLIS.Special"}}</h3>
+                    <div class="feature-controls">
+                        <a class="feature-control feature-create" title='{{localize "YZECORIOLIS.AddFeature"}}'>
+                            <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+                        </a>
+                    </div>
+                </li>
+                {{#each data.special as |feature id|}}
+                <li class="special-feature flexrow" data-item-id="{{id}}">
+                    <div class="feature-name">
+                        <input type="text" name="data.special.{{id}}" value="{{feature}}"
+                            placeholder="{{localize "YZECORIOLIS.Special"}}" />
+                    </div>
+                    <div class="feature-controls">
+                        <a class="feature-control feature-delete" title={{localize "YZECORIOLIS.DeleteFeature"}}><i
+                                class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+
+        </div>
+    </header>
+
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>
