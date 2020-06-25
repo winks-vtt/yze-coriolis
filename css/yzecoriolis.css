@@ -830,6 +830,9 @@
 .yzecoriolis.sheet.actor .biography-list .biography-list-header .biography-controls a.relationship-create {
   flex: 0 0 100%;
 }
+.yzecoriolis.sheet.actor .biography-list .biography-list-header .biography-controls a.meeting-create {
+  flex: 0 0 100%;
+}
 .yzecoriolis.sheet.actor .biography-list .biography-controls {
   flex: 0 0 44px;
   display: flex;

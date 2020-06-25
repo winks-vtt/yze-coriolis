@@ -148,6 +148,12 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // delete relationship
     html.find('.relationship-delete').click(this._onRelationshipDelete.bind(this));
 
+    // Add meeting
+    html.find('.meeting-create').click(this._onMeetingCreate.bind(this));
+
+    // delete meeting
+    html.find('.meeting-delete').click(this._onMeetingDelete.bind(this));
+
     // Add Critical Injury
     html.find('.injury-create').click(this._onCriticalInjuryCreate.bind(this));
     // Delete a Critical Injury
@@ -243,6 +249,38 @@ export class yzecoriolisActorSheet extends ActorSheet {
   async _setRelations(relations) {
     await this.actor.update({ "data.relationships": null });
     await this.actor.update({ 'data.relationships': relations });
+  }
+
+  _onMeetingCreate(event) {
+    event.preventDefault();
+    const meeting = {
+      name: '',
+      concept: '',
+      notes: ''
+    };
+    let meetings = {};
+    if (this.actor.data.data.meetings) {
+      meetings = duplicate(this.actor.data.data.meetings);
+    }
+    let key = getID();
+    meetings['m' + key] = meeting;
+    return this.actor.update({ 'data.meetings': meetings });
+  }
+
+  async _onMeetingDelete(event) {
+    const li = $(event.currentTarget).parents(".meeting");
+    let meetings = duplicate(this.actor.data.data.meetings);
+    let targetKey = li.data("itemId");
+    delete meetings[targetKey];
+    li.slideUp(200, () => {
+      this.render(false);
+    });
+    this._setMeetings(meetings);
+  }
+
+  async _setMeetings(meetings) {
+    await this.actor.update({ "data.meetings": null });
+    await this.actor.update({ 'data.meetings': meetings });
   }
 
   /**

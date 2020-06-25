@@ -178,6 +178,32 @@
           </div>
         </li>
         {{/each}}
+
+        <li class="biography-list-header flexrow">
+          <h3>{{localize "YZECORIOLIS.PeopleMet"}}</h3>
+          <div class="biography-controls flexrow">
+            <a class="biography-control meeting-create" title='{{localize "YZECORIOLIS.AddRelationship"}}'>
+              <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+            </a>
+          </div>
+        </li>
+
+        {{#each actor.data.meetings as |meeting meetKey|}}
+        <li class="meeting flexrow" data-item-id="{{meetKey}}">
+          <div class="meeting-name flexrow">
+            <input type="text" name="data.meetings.{{meetKey}}.name" value="{{meeting.name}}"
+              placeholder="{{localize "YZECORIOLIS.Name"}}" />
+            <input type="text" name="data.meetings.{{meetKey}}.concept" value="{{meeting.concept}}"
+              placeholder="{{localize "YZECORIOLIS.Concept"}}" />
+            <input type="text" name="data.meetings.{{meetKey}}.notes" value="{{meeting.notes}}"
+              placeholder="{{localize "YZECORIOLIS.CharNotes"}}" />
+          </div>
+          <div class="biography-controls flexrow">
+            <a class="biography-control meeting-delete" title={{localize "YZECORIOLIS.RemoveMeeting"}}><i
+                class="fas fa-trash"></i></a>
+          </div>
+        </li>
+        {{/each}}
       </ol>
     </div>
 

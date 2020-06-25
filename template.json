@@ -204,6 +204,7 @@
         "max": 10
       },
       "relationships": {},
+      "meetings": {},
       "criticalInjuries": {},
       "cabin": {
         "description": ""
