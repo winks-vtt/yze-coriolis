@@ -180,9 +180,11 @@
     },
     "character": {
       "templates": ["base"],
-      "biography": "",
+      "notes": "",
       "bio": {
-        "background": "",
+        "origin": "",
+        "upbringing": "",
+        "humanite": false,
         "concept": "",
         "icon": "",
         "groupConcept": "",

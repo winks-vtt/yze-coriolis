@@ -60,16 +60,38 @@
     <a class="item" data-tab="gear">Gear</a>
     <a class="item" data-tab="weapons">Weapons</a>
     <a class="item" data-tab="bio">Bio</a>
+    <a class="item" data-tab="charnotes">{{localize "YZECORIOLIS.CharNotes"}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
     {{!-- Biography Tab --}}
     <div class="tab biography" data-group="primary" data-tab="bio">
-      <div>
-        <h3>Notes</h3>
-        {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+
+      <div class="flexrow  flex-between">
+        <label for="data.bio.origin" class="resource-label">{{localize "YZECORIOLIS.Origin"}}</label>
+        <div class="resource-content">
+          <input type="text" name="data.bio.origin" value="{{data.bio.origin}}" data-dtype="String" />
+        </div>
       </div>
+
+      <div class="flexrow  flex-between">
+        <label for="data.bio.upbringing" class="resource-label">{{localize "YZECORIOLIS.Upbringing"}}</label>
+        <div class="resource-content">
+          <input type="text" name="data.bio.upbringing" value="{{data.bio.upbringing}}" data-dtype="String" />
+        </div>
+      </div>
+
+      <div class="flexrow  flex-between">
+        <label for="data.bio.humanite" class="resource-label">{{localize "YZECORIOLIS.Humanite"}}</label>
+        <div class="resource-content">
+          <input type="checkbox" name="data.bio.humanite" data-dtype="Boolean" {{checked data.bio.humanite}} />
+        </div>
+      </div>
+    </div>
+
+    <div class="tab charnotes" data-group="primary" data-tab="charnotes">
+      {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
     </div>
 
     {{!-- Talents Tab --}}
