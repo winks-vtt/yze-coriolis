@@ -5,9 +5,13 @@
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h1>
-      <div class="resource flex-group-center">
+      <div class="resource grid grid-2col">
         <label for="data.experience.value" class="resource-label">Experience</label>
         <label for="data.experience.value" class="resource-label">{{data.experience.value}} xp</label>
+      </div>
+      <div class="resource grid grid-2col number-input">
+        <label for="data.birr" class="resource-label">{{localize "YZECORIOLIS.Birr"}}</label>
+        <input class="birr" type="number" name="data.birr" value="{{data.birr}}" data-dtype="Number" />
       </div>
       {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
             use both the "grid" and "grid-Ncol" class where "N" can be any number
@@ -32,11 +36,11 @@
             <label for="data.mindPoints.max" class="resource-label" data-dtype="Number">{{data.mindPoints.max}}</label>
           </div>
         </div>
-        <div class="resource flex-group-center">
+        <div class="resource flex-group-center number-input">
           <label for="data.reputation.value" class="resource-label">{{localize "YZECORIOLIS.Reputation"}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input class="number-input" type="number" min="0" name="data.reputation.value"
-              value="{{data.reputation.value}}" data-dtype="Number" />
+            <input type="number" min="0" name="data.reputation.value" value="{{data.reputation.value}}"
+              data-dtype="Number" />
           </div>
         </div>
         <div class="resource flex-group-center">

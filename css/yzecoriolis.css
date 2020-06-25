@@ -208,7 +208,7 @@
   /* Encumbrance Bar */
 }
 .yzecoriolis.sheet.actor .sheet-header {
-  flex: 0 0 215px;
+  flex: 0 0 250px;
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -235,7 +235,7 @@
   height: 100%;
   margin: 0;
 }
-.yzecoriolis.sheet.actor .sheet-header .number-input {
+.yzecoriolis.sheet.actor .sheet-header .number-input input {
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -246,6 +246,9 @@
   margin-right: 4px;
   background: rgba(0, 0, 0, 0.05);
   border-radius: 3px;
+}
+.yzecoriolis.sheet.actor .sheet-header .number-input .birr {
+  width: 150px;
 }
 .yzecoriolis.sheet.actor .sheet-tabs {
   flex: 0;
