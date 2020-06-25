@@ -58,7 +58,6 @@
     <a class="item" data-tab="stats">Stats</a>
     <a class="item" data-tab="talents">Talents</a>
     <a class="item" data-tab="gear">Gear</a>
-    <a class="item" data-tab="weapons">Weapons</a>
     <a class="item" data-tab="bio">Bio</a>
     <a class="item" data-tab="charnotes">{{localize "YZECORIOLIS.CharNotes"}}</a>
   </nav>
@@ -158,6 +157,23 @@
             </a>
           </div>
         </li>
+
+        {{#each actor.data.relationships as |relation relKey|}}
+        <li class="relation flexrow" data-item-id="{{relKey}}">
+          <div class="relation-name flexrow">
+            <input type="text" name="data.relationships.{{relKey}}.name" value="{{relation.name}}"
+              placeholder="{{localize "YZECORIOLIS.Name"}}" />
+            <label for="data.relationships.{{relKey}}.buddy"
+              class="resource-label">{{localize "YZECORIOLIS.Buddy"}}</label>
+            <input type="checkbox" name="data.relationships.{{relKey}}.buddy" data-dtype="Boolean"
+              {{checked relation.buddy}} />
+          </div>
+          <div class="biography-controls flexrow">
+            <a class="biography-control relationship-delete" title={{localize "YZECORIOLIS.RemoveRelationship"}}><i
+                class="fas fa-trash"></i></a>
+          </div>
+        </li>
+        {{/each}}
       </ol>
     </div>
 

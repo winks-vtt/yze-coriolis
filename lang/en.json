@@ -25,6 +25,9 @@
     "YZECORIOLIS.Clothing": "Clothing",
     "YZECORIOLIS.Relationships": "Relationships",
     "YZECORIOLIS.AddRelationship": "Add Relationship",
+    "YZECORIOLIS.RemoveRelationship": "Remove Relationship",
+    "YZECORIOLIS.Name": "Name",
+    "YZECORIOLIS.Buddy": "Buddy",
 
     "YZECORIOLIS.MoneyCost": "Cost",
     "YZECORIOLIS.Birr": "birr",

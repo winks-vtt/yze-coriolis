@@ -142,6 +142,12 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
 
+    // Add relationship
+    html.find('.relationship-create').click(this._onRelationshipCreate.bind(this));
+
+    // delete relationship
+    html.find('.relationship-delete').click(this._onRelationshipDelete.bind(this));
+
     // Add Critical Injury
     html.find('.injury-create').click(this._onCriticalInjuryCreate.bind(this));
     // Delete a Critical Injury
@@ -206,6 +212,37 @@ export class yzecoriolisActorSheet extends ActorSheet {
       value = 0;
     }
     return item.update({ 'data.quantity': value });
+  }
+
+  _onRelationshipCreate(event) {
+    event.preventDefault();
+    const person = {
+      buddy: false,
+      name: 'placeholder'
+    };
+    let relationships = {};
+    if (this.actor.data.data.relationships) {
+      relationships = duplicate(this.actor.data.data.relationships);
+    }
+    let key = getID();
+    relationships['r' + key] = person;
+    return this.actor.update({ 'data.relationships': relationships });
+  }
+
+  async _onRelationshipDelete(event) {
+    const li = $(event.currentTarget).parents(".relation");
+    let relations = duplicate(this.actor.data.data.relationships);
+    let targetKey = li.data("itemId");
+    delete relations[targetKey];
+    li.slideUp(200, () => {
+      this.render(false);
+    });
+    this._setRelations(relations);
+  }
+
+  async _setRelations(relations) {
+    await this.actor.update({ "data.relationships": null });
+    await this.actor.update({ 'data.relationships': relations });
   }
 
   /**
