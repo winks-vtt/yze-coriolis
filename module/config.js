@@ -204,3 +204,15 @@ YZECORIOLIS.ranges = {
     "long": "YZECORIOLIS.LongRange",
     "extreme": "YZECORIOLIS.ExtremeRange"
 };
+
+YZECORIOLIS.icons = {
+    "ladyOfTears": "YZECORIOLIS.IconLadyOfTears",
+    "dancer": "YZECORIOLIS.IconDancer",
+    "gambler": "YZECORIOLIS.IconGambler",
+    "merchant": "YZECORIOLIS.IconMerchant",
+    "deckhand": "YZECORIOLIS.IconDeckhand",
+    "traveler": "YZECORIOLIS.IconTraveler",
+    "messenger": "YZECORIOLIS.IconMessenger",
+    "judge": "YZECORIOLIS.IconJudge",
+    "faceless": "YZECORIOLIS.IconFaceless"
+};

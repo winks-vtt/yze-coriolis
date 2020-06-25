@@ -32,6 +32,23 @@
             <label for="data.mindPoints.max" class="resource-label" data-dtype="Number">{{data.mindPoints.max}}</label>
           </div>
         </div>
+        <div class="resource flex-group-center">
+          <label for="data.reputation.value" class="resource-label">{{localize "YZECORIOLIS.Reputation"}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input class="number-input" type="number" min="0" name="data.reputation.value"
+              value="{{data.reputation.value}}" data-dtype="Number" />
+          </div>
+        </div>
+        <div class="resource flex-group-center">
+          <label for="data.icon" class="resource-label">{{localize "YZECORIOLIS.Icon"}}</label>
+          <select name="data.icon">
+            {{#select data.icon}}
+            {{#each config.icons as |label icon|}}
+            <option value="{{icon}}">{{label}}</option>
+            {{/each}}
+            {{/select}}
+          </select>
+        </div>
       </div>
     </div>
   </header>

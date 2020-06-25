@@ -1,6 +1,18 @@
 {
     "YZECORIOLIS.ErrorsInvalidSkillRoll": "skills or attributes values are not greater than zero",
 
+    "YZECORIOLIS.Reputation": "Reputation",
+    "YZECORIOLIS.Icon": "Icon",
+    "YZECORIOLIS.IconLadyOfTears": "The Lady of Tears",
+    "YZECORIOLIS.IconDancer": "The Dancer",
+    "YZECORIOLIS.IconGambler": "The Gambler",
+    "YZECORIOLIS.IconMerchant": "The Merchant",
+    "YZECORIOLIS.IconDeckhand": "The Deckhand",
+    "YZECORIOLIS.IconTraveler": "The Traveler",
+    "YZECORIOLIS.IconMessenger": "The Messenger",
+    "YZECORIOLIS.IconJudge": "The Judge",
+    "YZECORIOLIS.IconFaceless": "The Faceless",
+
     "YZECORIOLIS.MoneyCost": "Cost",
     "YZECORIOLIS.Birr": "birr",
     "YZECORIOLIS.GroupConcept": "Group Concept",
