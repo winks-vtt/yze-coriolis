@@ -804,6 +804,58 @@
   padding: 0.25em 0.5em;
   border-top: 1px solid #c9c7b8;
 }
+.yzecoriolis.sheet.actor .biography-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 5px;
+  overflow-y: auto;
+}
+.yzecoriolis.sheet.actor .biography-list .biography-list-header {
+  margin: 2px 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+  line-height: 24px;
+}
+.yzecoriolis.sheet.actor .biography-list .biography-list-header h3 {
+  margin: 0 -5px 0 0;
+  padding-left: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.yzecoriolis.sheet.actor .biography-list .biography-list-header .biography-controls a.relationship-create {
+  flex: 0 0 100%;
+}
+.yzecoriolis.sheet.actor .biography-list .biography-controls {
+  flex: 0 0 44px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  justify-content: flex-end;
+}
+.yzecoriolis.sheet.actor .biography-list .biography-controls > * {
+  flex: 1;
+}
+.yzecoriolis.sheet.actor .biography-list .biography-controls .flex1 {
+  flex: 1;
+}
+.yzecoriolis.sheet.actor .biography-list .biography-controls .flex2 {
+  flex: 2;
+}
+.yzecoriolis.sheet.actor .biography-list .biography-controls .flex3 {
+  flex: 3;
+}
+.yzecoriolis.sheet.actor .biography-list .biography-controls .flex4 {
+  flex: 4;
+}
+.yzecoriolis.sheet.actor .biography-list .biography-controls a {
+  flex: 0 0 22px;
+  font-size: 12px;
+  text-align: center;
+  color: #7a7971;
+}
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
   /*  Sheet Tabs                             */

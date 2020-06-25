@@ -40,9 +40,9 @@
           </div>
         </div>
         <div class="resource flex-group-center">
-          <label for="data.icon" class="resource-label">{{localize "YZECORIOLIS.Icon"}}</label>
-          <select name="data.icon">
-            {{#select data.icon}}
+          <label for="data.bio.icon" class="resource-label">{{localize "YZECORIOLIS.Icon"}}</label>
+          <select name="data.bio.icon">
+            {{#select data.bio.icon}}
             {{#each config.icons as |label icon|}}
             <option value="{{icon}}">{{label}}</option>
             {{/each}}
@@ -67,27 +67,98 @@
   <section class="sheet-body">
     {{!-- Biography Tab --}}
     <div class="tab biography" data-group="primary" data-tab="bio">
+      <ol class="biography-list">
+        <li class="biography-list-header">
+          <h3>{{localize "YZECORIOLIS.Background"}}</h3>
+        </li>
 
-      <div class="flexrow  flex-between">
-        <label for="data.bio.origin" class="resource-label">{{localize "YZECORIOLIS.Origin"}}</label>
-        <div class="resource-content">
-          <input type="text" name="data.bio.origin" value="{{data.bio.origin}}" data-dtype="String" />
-        </div>
-      </div>
+        <li>
+          <div class="flexrow  flex-between">
+            <label for="data.bio.origin" class="resource-label">{{localize "YZECORIOLIS.Origin"}}</label>
+            <div class="resource-content">
+              <input type="text" name="data.bio.origin" value="{{data.bio.origin}}" data-dtype="String" />
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="flexrow  flex-between">
+            <label for="data.bio.upbringing" class="resource-label">{{localize "YZECORIOLIS.Upbringing"}}</label>
+            <div class="resource-content">
+              <input type="text" name="data.bio.upbringing" value="{{data.bio.upbringing}}" data-dtype="String" />
+            </div>
+          </div>
+        </li>
 
-      <div class="flexrow  flex-between">
-        <label for="data.bio.upbringing" class="resource-label">{{localize "YZECORIOLIS.Upbringing"}}</label>
-        <div class="resource-content">
-          <input type="text" name="data.bio.upbringing" value="{{data.bio.upbringing}}" data-dtype="String" />
-        </div>
-      </div>
+        <li>
+          <div class="flexrow  flex-between">
+            <label for="data.bio.humanite" class="resource-label">{{localize "YZECORIOLIS.Humanite"}}</label>
+            <div class="resource-content">
+              <input type="checkbox" name="data.bio.humanite" data-dtype="Boolean" {{checked data.bio.humanite}} />
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="flexrow  flex-between">
+            <label for="data.bio.concept" class="resource-label">{{localize "YZECORIOLIS.Concept"}}</label>
+            <div class="resource-content">
+              <input type="text" name="data.bio.concept" value="{{data.bio.concept}}" data-dtype="String" />
+            </div>
+          </div>
+        </li>
 
-      <div class="flexrow  flex-between">
-        <label for="data.bio.humanite" class="resource-label">{{localize "YZECORIOLIS.Humanite"}}</label>
-        <div class="resource-content">
-          <input type="checkbox" name="data.bio.humanite" data-dtype="Boolean" {{checked data.bio.humanite}} />
-        </div>
-      </div>
+        <li>
+          <div class="flexrow  flex-between">
+            <label for="data.bio.groupConcept" class="resource-label">{{localize "YZECORIOLIS.GroupConcept"}}</label>
+            <div class="resource-content">
+              <input type="text" name="data.bio.groupConcept" value="{{data.bio.groupConcept}}" data-dtype="String" />
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="flexrow  flex-between">
+            <label for="data.bio.personalProblem"
+              class="resource-label">{{localize "YZECORIOLIS.PersonalProblem"}}</label>
+            <div class="resource-content">
+              <input type="text" name="data.bio.personalProblem" value="{{data.bio.personalProblem}}"
+                data-dtype="String" />
+            </div>
+          </div>
+        </li>
+
+        <li class="biography-list-header">
+          <h3>{{localize "YZECORIOLIS.Appearance"}}</h3>
+        </li>
+
+        <li>
+          <div class="flexrow  flex-between">
+            <label for="data.bio.appearance.face" class="resource-label">{{localize "YZECORIOLIS.Face"}}</label>
+            <div class="resource-content">
+              <input type="text" name="data.bio.appearance.face" value="{{data.bio.appearance.face}}"
+                data-dtype="String" />
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="flexrow  flex-between">
+            <label for="data.bio.appearance.clothing" class="resource-label">{{localize "YZECORIOLIS.Clothing"}}</label>
+            <div class="resource-content">
+              <input type="text" name="data.bio.appearance.clothing" value="{{data.bio.appearance.clothing}}"
+                data-dtype="String" />
+            </div>
+          </div>
+        </li>
+
+        <li class="biography-list-header flexrow">
+          <h3>{{localize "YZECORIOLIS.Relationships"}}</h3>
+          <div class="biography-controls flexrow">
+            <a class="biography-control relationship-create" title='{{localize "YZECORIOLIS.AddRelationship"}}'>
+              <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+            </a>
+          </div>
+        </li>
+      </ol>
     </div>
 
     <div class="tab charnotes" data-group="primary" data-tab="charnotes">

@@ -13,10 +13,18 @@
     "YZECORIOLIS.IconJudge": "The Judge",
     "YZECORIOLIS.IconFaceless": "The Faceless",
 
+    "YZECORIOLIS.Background": "Background",
     "YZECORIOLIS.CharNotes": "Notes",
     "YZECORIOLIS.Origin": "Origin",
     "YZECORIOLIS.Upbringing": "Upbringing",
     "YZECORIOLIS.Humanite": "Humanite",
+    "YZECORIOLIS.Concept": "Concept",
+    "YZECORIOLIS.PersonalProblem": "Personal Problem",
+    "YZECORIOLIS.Appearance": "Appearance",
+    "YZECORIOLIS.Face": "Face",
+    "YZECORIOLIS.Clothing": "Clothing",
+    "YZECORIOLIS.Relationships": "Relationships",
+    "YZECORIOLIS.AddRelationship": "Add Relationship",
 
     "YZECORIOLIS.MoneyCost": "Cost",
     "YZECORIOLIS.Birr": "birr",
