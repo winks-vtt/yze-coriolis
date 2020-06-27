@@ -9,6 +9,7 @@ import { yzecoriolisItemSheet } from "./item/item-sheet.js";
 import { bootstrapGearCompendium } from './migration.js';
 import * as migrations from "./migration.js";
 import { ChatMessageYZECoriolis } from "./sidebar/chatmessage.js";
+import { preloadHandlerbarsTemplates } from "./templates.js";
 
 Hooks.once('init', async function () {
   console.log(`Coriolis | Initializing Coriolis\n${YZECORIOLIS.ASCII}`);
@@ -36,6 +37,8 @@ Hooks.once('init', async function () {
   CONFIG.ChatMessage.entityClass = ChatMessageYZECoriolis;
   //Register system settings
   registerSystemSettings();
+
+  preloadHandlerbarsTemplates();
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
