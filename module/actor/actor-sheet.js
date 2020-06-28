@@ -1,5 +1,5 @@
 import { getID } from '../util.js';
-
+import { ChatMessageYZECoriolis } from '../sidebar/chatmessage.js';
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -353,12 +353,8 @@ export class yzecoriolisActorSheet extends ActorSheet {
       let roll = new Roll(dataset.roll, actorData);
       let label = dataset.label ? `${dataset.label} Roll` : '';
       try {
-        roll.roll().toMessage({
-          speaker: ChatMessage.getSpeaker({
-            actor: this.actor
-          }),
-          flavor: label
-        });
+        roll.roll();
+        this._displayRoll(roll, label);
       } catch (err) {
         ui.notifications.error(err);
         throw new Error(err);
@@ -390,7 +386,20 @@ export class yzecoriolisActorSheet extends ActorSheet {
     }
     return false;
   }
-
+  /**
+   * @param  {} roll roll object
+   */
+  _displayRoll(roll, label) {
+    let chatData = {}
+    chatData.speaker = ChatMessage.getSpeaker({
+      actor: this.actor
+    });
+    chatData.flavor = label;
+    chatData.user = game.user._id;
+    chatData.type = CONST.CHAT_MESSAGE_TYPES.ROLL;
+    chatData.roll = roll;
+    ChatMessageYZECoriolis.create(chatData, {});
+  }
   /**
    * Handle showing an item's description in the character sheet as an easy fold out.
    * @private
