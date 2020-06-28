@@ -27,18 +27,21 @@ Hooks.once('init', async function () {
    */
   CONFIG.Combat.initiative = {
     formula: "1d10",
-    decimals: 2
+    decimals: 0
   };
+
+  preloadHandlerbarsTemplates();
 
   // Define custom Entity classes
   CONFIG.Actor.entityClass = yzecoriolisActor;
   CONFIG.Item.entityClass = yzecoriolisItem;
   CONFIG.YZECORIOLIS = YZECORIOLIS;
   CONFIG.ChatMessage.entityClass = ChatMessageYZECoriolis;
+  CONFIG.Dice.template = 'systems/yzecoriolis/templates/sidebar/roll.html';
+
   //Register system settings
   registerSystemSettings();
 
-  preloadHandlerbarsTemplates();
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
