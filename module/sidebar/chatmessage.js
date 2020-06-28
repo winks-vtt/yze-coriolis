@@ -6,7 +6,7 @@ export class ChatMessageYZECoriolis extends ChatMessage {
         const data = duplicate(this.data);
         const isWhisper = this.data.whisper.length;
         const isVisible = this.isContentVisible;
-
+        console.log('rendering my custom class', this);
         // Construct message data
         const messageData = {
             message: data,
