@@ -36,7 +36,7 @@ Hooks.once('init', async function () {
   CONFIG.Item.entityClass = yzecoriolisItem;
   CONFIG.YZECORIOLIS = YZECORIOLIS;
   CONFIG.ChatMessage.entityClass = ChatMessageYZECoriolis;
-  CONFIG.Dice.tooltip = 'systems/yzecoriolis/templates/sidebar/dice-results.html';
+
   //Register system settings
   registerSystemSettings();
 
