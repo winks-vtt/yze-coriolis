@@ -8,7 +8,9 @@
             </p>
             <ol class="dice-rolls">
                 {{#each this.rolls}}
-                <li class="roll {{this.classes}}">{{{this.result}}}</li>
+                <li class="roll {{this.classes}}">
+                    {{{this.result}}}
+                </li>
                 {{/each}}
             </ol>
         </div>

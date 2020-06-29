@@ -38,7 +38,6 @@ export class ChatMessageYZECoriolis extends ChatMessage {
         const isVisible = this.isContentVisible;
 
         let mergedData = mergeObject(this.outcome, data);
-        console.log('rendering my custom class', mergedData);
 
         // Construct message data
         const messageData = {
@@ -62,8 +61,6 @@ export class ChatMessageYZECoriolis extends ChatMessage {
 
         // Enrich some data for dice rolls
         if (this.isRoll) {
-            console.log('chat message roll!');
-
             mergedData.content = await renderTemplate('systems/yzecoriolis/templates/sidebar/roll.html', this.outcome);
             //TODO: update rendering
             // Conceal some private roll information
@@ -107,20 +104,20 @@ export class ChatMessageYZECoriolis extends ChatMessage {
                 faces: d.faces,
                 rolls: d.rolls.map(r => {
                     return {
-                        result: d._getTooltip(r.roll),
+                        result: (r.roll === maxRoll) ? d._getTooltip(r.roll) : '&nbsp;',
+                        showNum: r.roll === maxRoll,
                         classes: [
                             d.constructor.name.toLowerCase(),
                             "d" + d.faces,
                             r.rerolled ? "rerolled" : null,
-                            r.exploded ? "exploded" : null,
-                            r.discarded ? "discarded" : null,
-                            (r.roll === minRoll) ? "min" : null,
-                            (r.roll === maxRoll) ? "max" : null
+                            (r.roll === maxRoll) ? "max" : null,
+                            (r.roll === maxRoll) ? "success" : null
                         ].filter(c => c).join(" ")
                     }
                 })
             };
         });
+        console.log('tooltip data', data);
         return data;
     }
 }
