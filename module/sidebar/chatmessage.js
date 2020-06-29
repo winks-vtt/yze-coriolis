@@ -104,13 +104,14 @@ export class ChatMessageYZECoriolis extends ChatMessage {
                 faces: d.faces,
                 rolls: d.rolls.map(r => {
                     return {
-                        result: (r.roll === maxRoll) ? d._getTooltip(r.roll) : '&nbsp;',
+                        result: '&nbsp;',
                         showNum: r.roll === maxRoll,
                         classes: [
                             d.constructor.name.toLowerCase(),
                             "d" + d.faces,
+                            "dice-" + r.roll,
+                            "dice-face",
                             r.rerolled ? "rerolled" : null,
-                            (r.roll === maxRoll) ? "max" : null,
                             (r.roll === maxRoll) ? "success" : null
                         ].filter(c => c).join(" ")
                     }
