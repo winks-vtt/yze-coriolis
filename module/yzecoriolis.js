@@ -199,9 +199,6 @@ Hooks.once('ready', async function () {
   Hooks.on("hotbarDrop", (bar, data, slot) => createYzeCoriolisMacro(data, slot));
 });
 
-Hooks.on('createChatMessage', (chatMsg) => {
-  console.log('msg', chatMsg);
-});
 /**
  * Create a macro from an Item drop
  * @param  {} data
