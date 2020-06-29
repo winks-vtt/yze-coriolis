@@ -6,7 +6,6 @@ async function makeMessage(roll, messageData, { rollMode = null } = {}) {
     messageData = mergeObject({
         user: game.user._id,
         type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-        content: roll.total,
         sound: CONFIG.sounds.dice,
 
     }, messageData);
@@ -52,17 +51,4 @@ function isValidRoll(rollType, actorData, dataset) {
 
     }
     return false;
-}
-
-
-function successes(roll) {
-    let successes = 0;
-    roll.parts.forEach(part => {
-        part.rolls.forEach(r => {
-            if (r.roll === 6) {
-                successes++;
-            }
-        })
-    });
-    return successes;
 }
