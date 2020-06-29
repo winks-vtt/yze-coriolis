@@ -199,6 +199,36 @@ Hooks.once('ready', async function () {
   Hooks.on("hotbarDrop", (bar, data, slot) => createYzeCoriolisMacro(data, slot));
 });
 
+Hooks.once('diceSoNiceReady', (dice3d) => {
+  console.log('dice!');
+  dice3d.addSystem({ id: "yzecoriolis", name: "Coriolis: Third Horizon" }, true);
+  dice3d.addDicePreset({
+    type: "d6",
+    labels: [
+      "systems/yzecoriolis/css/images/dice-1.png",
+      "systems/yzecoriolis/css/images/dice-2.png",
+      "systems/yzecoriolis/css/images/dice-3.png",
+      "systems/yzecoriolis/css/images/dice-4.png",
+      "systems/yzecoriolis/css/images/dice-5.png",
+      "systems/yzecoriolis/css/images/dice-6.png"
+    ],
+    // bumpMaps: [, , , , , , , , , , , , , , , , , , ,
+    //   "systems/archmage/images/nat20_BUMP.png"
+    // ],
+    system: "yzecoriolis"
+  });
+  dice3d.addColorset({
+    name: 'yzecoriolis',
+    description: 'Coriolis Third Horizon',
+    category: 'Colors',
+    foreground: "#FFFFFF",
+    background: "#000000",
+    outline: 'gray',
+    texture: 'none'
+  }, "force");
+
+});
+
 /**
  * Create a macro from an Item drop
  * @param  {} data
