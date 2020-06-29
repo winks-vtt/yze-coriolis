@@ -1,16 +1,48 @@
 
 export class ChatMessageYZECoriolis extends ChatMessage {
 
+    _onCreate(data, options, userId) {
+        super._onCreate(data, options, userId);
+        this.initializeData();
+    }
+    initializeData() {
+        if (this.initialized) {
+            return;
+        }
+        let localRoll = this.roll;
+        this.successes = 0;
+        localRoll.parts.forEach(part => {
+            part.rolls.forEach(r => {
+                if (r.roll === 6) {
+                    this.successes++;
+                }
+            })
+        });
+        this.outcomes = {
+            limitedSuccess: this.successes > 0 && this.successes < 3,
+            criticalSuccess: this.successes >= 3,
+            failure: this.successes === 0,
+        }
+        this.initialized = true;
+    }
+
     async render() {
+        this.initializeData();
+
+        this.outcomes.tooltip = await this.roll.getTooltip();
         // Determine some metadata
         const data = duplicate(this.data);
         const isWhisper = this.data.whisper.length;
         const isVisible = this.isContentVisible;
-        console.log('rendering my custom class', this);
+
+        let mergedData = mergeObject(this.outcomes, data);
+        console.log('rendering my custom class', mergedData);
+
         // Construct message data
         const messageData = {
-            message: data,
+            message: mergedData,
             user: game.user,
+            successes: this.successes,
             author: this.user,
             alias: this.alias,
             cssClass: [
@@ -29,13 +61,9 @@ export class ChatMessageYZECoriolis extends ChatMessage {
         // Enrich some data for dice rolls
         if (this.isRoll) {
             console.log('chat message roll!');
-            // Render public rolls if they do not already start with valid HTML
-            const hasHTMLContent = data.content.slice(0, 1) === "<";
-            if (isVisible && !hasHTMLContent) {
-                data.content = await this.roll.render();
-                console.log('chat message content:', data.content);
-            }
 
+            mergedData.content = await renderTemplate('systems/yzecoriolis/templates/sidebar/roll.html', this.outcomes);
+            //TODO: update rendering
             // Conceal some private roll information
             if (!isVisible) {
                 data.content = await this.roll.render({ isPrivate: !isVisible });

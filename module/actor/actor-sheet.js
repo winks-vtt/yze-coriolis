@@ -1,5 +1,6 @@
 import { getID } from '../util.js';
 import { ChatMessageYZECoriolis } from '../sidebar/chatmessage.js';
+import { coriolisRoll } from '../coriolis-roll.js';
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -348,20 +349,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    const actorData = this.actor.data.data;
-    if (dataset.roll && this._isValidRoll(dataset.rolltype, actorData, dataset)) {
-      let roll = new Roll(dataset.roll, actorData);
-      let label = dataset.label ? `${dataset.label} Roll` : '';
-      try {
-        roll.roll();
-        this._displayRoll(roll, label);
-      } catch (err) {
-        ui.notifications.error(err);
-        throw new Error(err);
-      }
-    } else {
-      ui.notifications.error(new Error(game.i18n.localize('YZECORIOLIS.ErrorsInvalidSkillRoll')));
-    }
+    coriolisRoll(dataset, this.actor);
   }
 
   /**

@@ -1,0 +1,17 @@
+<div class="dice-tooltip">
+    {{#each parts}}
+    <section class="tooltip-part">
+        <div class="dice">
+            <p class="part-formula">
+                {{this.formula}}
+                <span class="part-total">{{this.total}}</span>
+            </p>
+            <ol class="dice-rolls">
+                {{#each this.rolls}}
+                <li class="roll {{this.classes}}">{{{this.result}}}</li>
+                {{/each}}
+            </ol>
+        </div>
+    </section>
+    {{/each}}
+</div>

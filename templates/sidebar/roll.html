@@ -1,16 +1,20 @@
-{{log @root}}
-{{#if formula}}
-<div class="dice-roll">
-    {{#if flavor}}
-    <div class="dice-flavor">{{flavor}}</div>
-    {{/if}}
+<div class="dice-roll yzecoriolis">
+
     <div class="dice-result">
-        <div class="dice-formula">{{formula}}</div>
+        {{#if limitedSuccess}}
+        <h4 class="dice-total limitedSuccess">{{localize "YZECORIOLIS.RollLimitedSucces"}}</h4>
+        {{/if}}
+        {{#if failure}}
+        <h4 class="dice-total criticalfailure">{{localize "YZECORIOLIS.RollFailure"}}</h4>
+        {{/if}}
+        {{#if criticalSuccess}}
+        <h4 class="dice-total criticalSuccess">{{localize "YZECORIOLIS.RollCriticalSucces"}}</h4>
+        {{/if}}
         {{{tooltip}}}
-        <h4 class="dice-total{{#if isCrit}} success{{/if}}{{#if isFumble}} failure{{/if}}">{{total}}</h4>
+        <div class="dice-formula"><i class=" fas fa-chevron-down"></i></div>
     </div>
 </div>
-{{/if}}
+
 
 {{#if hasExtraText}}
 <div class="extra-text gm-sensitive">{{{extraText}}}</div>

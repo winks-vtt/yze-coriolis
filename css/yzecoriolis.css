@@ -1014,3 +1014,12 @@
   flex: 0 0 86px;
   text-align: right;
 }
+.yzecoriolis.dice-roll .limitedSuccess {
+  color: green;
+}
+.yzecoriolis.dice-roll .criticalSuccess {
+  color: greenyellow;
+}
+.yzecoriolis.dice-roll .criticalfailure {
+  color: red;
+}

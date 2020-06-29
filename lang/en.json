@@ -1,6 +1,11 @@
 {
     "YZECORIOLIS.ErrorsInvalidSkillRoll": "skills or attributes values are not greater than zero",
 
+
+    "YZECORIOLIS.RollLimitedSucces": "Limited Success",
+    "YZECORIOLIS.RollCriticalSucces": "Critical Success",
+    "YZECORIOLIS.RollFailure": "Failure",
+
     "YZECORIOLIS.Reputation": "Reputation",
     "YZECORIOLIS.Icon": "Icon",
     "YZECORIOLIS.IconLadyOfTears": "The Lady of Tears",

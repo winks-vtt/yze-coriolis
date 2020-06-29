@@ -5,7 +5,6 @@ import { yzecoriolisActor } from "./actor/actor.js";
 import { yzecoriolisActorSheet } from "./actor/actor-sheet.js";
 import { yzecoriolisItem } from "./item/item.js";
 import { yzecoriolisItemSheet } from "./item/item-sheet.js";
-
 import { bootstrapGearCompendium } from './migration.js';
 import * as migrations from "./migration.js";
 import { ChatMessageYZECoriolis } from "./sidebar/chatmessage.js";
@@ -37,8 +36,7 @@ Hooks.once('init', async function () {
   CONFIG.Item.entityClass = yzecoriolisItem;
   CONFIG.YZECORIOLIS = YZECORIOLIS;
   CONFIG.ChatMessage.entityClass = ChatMessageYZECoriolis;
-  CONFIG.Dice.template = 'systems/yzecoriolis/templates/sidebar/roll.html';
-
+  CONFIG.Dice.tooltip = 'systems/yzecoriolis/templates/sidebar/dice-results.html';
   //Register system settings
   registerSystemSettings();
 
@@ -201,6 +199,9 @@ Hooks.once('ready', async function () {
   Hooks.on("hotbarDrop", (bar, data, slot) => createYzeCoriolisMacro(data, slot));
 });
 
+Hooks.on('createChatMessage', (chatMsg) => {
+  console.log('msg', chatMsg);
+});
 /**
  * Create a macro from an Item drop
  * @param  {} data
