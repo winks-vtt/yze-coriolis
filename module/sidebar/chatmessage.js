@@ -5,23 +5,25 @@ export class ChatMessageYZECoriolis extends ChatMessage {
         super._onCreate(data, options, userId);
         this.initializeData();
     }
+
     initializeData() {
         if (this.initialized) {
             return;
         }
         let localRoll = this.roll;
-        this.successes = 0;
+        let successes = 0;
         localRoll.parts.forEach(part => {
             part.rolls.forEach(r => {
                 if (r.roll === 6) {
-                    this.successes++;
+                    successes++;
                 }
             })
         });
-        this.outcomes = {
-            limitedSuccess: this.successes > 0 && this.successes < 3,
-            criticalSuccess: this.successes >= 3,
-            failure: this.successes === 0,
+        this.outcome = {
+            limitedSuccess: successes > 0 && successes < 3,
+            criticalSuccess: successes >= 3,
+            failure: successes === 0,
+            successes: successes
         }
         this.initialized = true;
     }
@@ -29,20 +31,20 @@ export class ChatMessageYZECoriolis extends ChatMessage {
     async render() {
         this.initializeData();
 
-        this.outcomes.tooltip = await this.roll.getTooltip();
+        this.outcome.tooltip = await renderTemplate('systems/yzecoriolis/templates/sidebar/dice-results.html', this.getTooltipData(this.roll));
         // Determine some metadata
         const data = duplicate(this.data);
         const isWhisper = this.data.whisper.length;
         const isVisible = this.isContentVisible;
 
-        let mergedData = mergeObject(this.outcomes, data);
+        let mergedData = mergeObject(this.outcome, data);
         console.log('rendering my custom class', mergedData);
 
         // Construct message data
         const messageData = {
             message: mergedData,
             user: game.user,
-            successes: this.successes,
+            successes: this.outcome.successes,
             author: this.user,
             alias: this.alias,
             cssClass: [
@@ -62,7 +64,7 @@ export class ChatMessageYZECoriolis extends ChatMessage {
         if (this.isRoll) {
             console.log('chat message roll!');
 
-            mergedData.content = await renderTemplate('systems/yzecoriolis/templates/sidebar/roll.html', this.outcomes);
+            mergedData.content = await renderTemplate('systems/yzecoriolis/templates/sidebar/roll.html', this.outcome);
             //TODO: update rendering
             // Conceal some private roll information
             if (!isVisible) {
@@ -85,5 +87,40 @@ export class ChatMessageYZECoriolis extends ChatMessage {
         // Call a hook for the rendered ChatMessage data
         Hooks.call("renderChatMessage", this, html, messageData);
         return html;
+    }
+
+    getTooltipData(roll) {
+        const data = {
+            formula: roll.formula,
+            total: this.outcome.successes
+        };
+
+        // Prepare dice parts
+        data["parts"] = roll.dice.map(d => {
+            let minRoll = Math.min(...d.sides),
+                maxRoll = Math.max(...d.sides);
+
+            // Generate tooltip data
+            return {
+                formula: d.formula,
+                total: this.outcome.successes,
+                faces: d.faces,
+                rolls: d.rolls.map(r => {
+                    return {
+                        result: d._getTooltip(r.roll),
+                        classes: [
+                            d.constructor.name.toLowerCase(),
+                            "d" + d.faces,
+                            r.rerolled ? "rerolled" : null,
+                            r.exploded ? "exploded" : null,
+                            r.discarded ? "discarded" : null,
+                            (r.roll === minRoll) ? "min" : null,
+                            (r.roll === maxRoll) ? "max" : null
+                        ].filter(c => c).join(" ")
+                    }
+                })
+            };
+        });
+        return data;
     }
 }
