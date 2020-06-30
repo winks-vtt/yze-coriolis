@@ -3,6 +3,7 @@ export class ChatMessageYZECoriolis extends ChatMessage {
 
     _onCreate(data, options, userId) {
         super._onCreate(data, options, userId);
+        console.log(options, data);
         this.initializeData();
     }
 
@@ -12,7 +13,7 @@ export class ChatMessageYZECoriolis extends ChatMessage {
         }
         let localRoll = this.roll;
         let successes = 0;
-        localRoll.parts.forEach(part => {
+        localRoll.dice.forEach(part => {
             part.rolls.forEach(r => {
                 if (r.roll === 6) {
                     successes++;
@@ -23,7 +24,7 @@ export class ChatMessageYZECoriolis extends ChatMessage {
             limitedSuccess: successes > 0 && successes < 3,
             criticalSuccess: successes >= 3,
             failure: successes === 0,
-            successes: successes
+            successes: successes,
         }
         this.initialized = true;
     }

@@ -353,42 +353,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
   }
 
   /**
-   * Returns true/false if roll they are attempting makes any sense. This isn't enforcing game rules.
-   * This is enforcing input validation so the Roll API doesn't error.
-   * This makes sure the rollType we are attempting has the valid data to make the roll.
-   * @param  {} attribute numeric value of the attribute we are testing
-   * @param  {} skill numeric value of the skilll we are testing
-   */
-  _isValidRoll(rollType, actorData, dataset) {
-    let attributeValue = 0;
-    let skillValue = 0;
-    switch (rollType) {
-      case 'skill':
-        attributeValue = actorData.attributes[dataset.attributekey].value;
-        skillValue = actorData.skills[dataset.skillkey].value;
-        return attributeValue + skillValue > 0;
-      case 'attribute':
-        attributeValue = actorData.attributes[dataset.attributekey].value;
-        return attributeValue > 0;
-
-    }
-    return false;
-  }
-  /**
-   * @param  {} roll roll object
-   */
-  _displayRoll(roll, label) {
-    let chatData = {}
-    chatData.speaker = ChatMessage.getSpeaker({
-      actor: this.actor
-    });
-    chatData.flavor = label;
-    chatData.user = game.user._id;
-    chatData.type = CONST.CHAT_MESSAGE_TYPES.ROLL;
-    chatData.roll = roll;
-    ChatMessageYZECoriolis.create(chatData, {});
-  }
-  /**
    * Handle showing an item's description in the character sheet as an easy fold out.
    * @private
    */

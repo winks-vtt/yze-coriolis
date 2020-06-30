@@ -1,5 +1,6 @@
 {
     "YZECORIOLIS.ErrorsInvalidSkillRoll": "skills or attributes values are not greater than zero",
+    "YZECORIOLIS.ErrorsInvalidAdvancedSkillRoll": "advanced skills must have at least a value of 1 to be rolled",
 
 
     "YZECORIOLIS.RollLimitedSucces": "Limited Success",
