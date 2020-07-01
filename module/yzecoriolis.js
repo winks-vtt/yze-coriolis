@@ -200,7 +200,6 @@ Hooks.once('ready', async function () {
 });
 
 Hooks.once('diceSoNiceReady', (dice3d) => {
-  console.log('dice!');
   dice3d.addSystem({ id: "yzecoriolis", name: "Coriolis: Third Horizon" }, true);
   dice3d.addDicePreset({
     type: "d6",
