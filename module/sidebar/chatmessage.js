@@ -119,7 +119,6 @@ export class ChatMessageYZECoriolis extends ChatMessage {
                 })
             };
         });
-        console.log('tooltip data', data);
         return data;
     }
 }
