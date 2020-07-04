@@ -1,4 +1,43 @@
 
+export function coriolisModifierDialog(modifierCallback) {
+    let d = new Dialog({
+        title: game.i18n.localize("YZECORIOLIS.ModifierForRoll"),
+        content: `<p>${game.i18n.localize("YZECORIOLIS.ModifierForRollQuestion")}</p>`,
+        buttons: {
+            threeMinus: {
+                label: "-3",
+                callback: () => modifierCallback(-3)
+            },
+            twoMinus: {
+                label: "-2",
+                callback: () => modifierCallback(-2)
+            },
+            oneMinus: {
+                label: "-1",
+                callback: () => modifierCallback(-1)
+            },
+            zero: {
+                label: "0",
+                callback: () => modifierCallback(0)
+            },
+            onePlus: {
+                label: "+1",
+                callback: () => modifierCallback(1)
+            },
+            twoPlus: {
+                label: "+2",
+                callback: () => modifierCallback(2)
+            },
+            threePlus: {
+                label: "+3",
+                callback: () => modifierCallback(3)
+            }
+        },
+        default: "zero",
+        close: () => { }
+    });
+    d.render(true);
+}
 /**
  * takes in rendering options, rollData and:
  * 1. does the roll

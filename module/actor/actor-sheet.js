@@ -1,5 +1,6 @@
 import { getID } from '../util.js';
 import { coriolisRoll } from '../coriolis-roll.js';
+import { coriolisModifierDialog } from '../coriolis-roll.js';
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -352,7 +353,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const rollData = {
       rollType: dataset.rolltype,
       skillKey: dataset.skillkey,
-      skill: actorData.skills[dataset.skillkey].value,
+      skill: dataset.skillkey ? actorData.skills[dataset.skillkey].value : 0,
       attributeKey: dataset.attributekey,
       attribute: actorData.attributes[dataset.attributekey].value,
       modifier: 0,
@@ -360,7 +361,10 @@ export class yzecoriolisActorSheet extends ActorSheet {
       actor: this.actor
     }
     const chatOptions = this.actor._prepareChatRollOptions('systems/yzecoriolis/templates/sidebar/roll.html', dataset.rolltype);
-    coriolisRoll(chatOptions, rollData);
+    coriolisModifierDialog((modifier) => {
+      rollData.modifier = modifier;
+      coriolisRoll(chatOptions, rollData);
+    });
   }
 
   /**

@@ -3,6 +3,8 @@
     "YZECORIOLIS.ErrorsInvalidAdvancedSkillRoll": "advanced skills must have at least a value of 1 to be rolled",
     "YZECORIOLIS.PrayToIcons": "Pray to the Icons",
     "YZECORIOLIS.PushedRoll": "Pushed Roll",
+    "YZECORIOLIS.ModifierForRoll": "Modifier",
+    "YZECORIOLIS.ModifierForRollQuestion": "Enter the modifier for your roll",
 
 
     "YZECORIOLIS.RollLimitedSucces": "Limited Success",
