@@ -1014,6 +1014,15 @@
   flex: 0 0 86px;
   text-align: right;
 }
+.yzecoriolis.dice-roll .coriolis-results .dice-rolls {
+  list-style: none;
+  padding: 0;
+  overflow: hidden;
+}
+.yzecoriolis.dice-roll .coriolis-results .dice-rolls .roll {
+  line-height: 24px;
+  float: left;
+}
 .yzecoriolis.dice-roll .limitedSuccess {
   color: green;
 }

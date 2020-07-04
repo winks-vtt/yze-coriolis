@@ -351,9 +351,12 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const actorData = this.actor.data.data;
     const rollData = {
       rollType: dataset.rolltype,
+      skillKey: dataset.skillkey,
       skill: actorData.skills[dataset.skillkey].value,
+      attributeKey: dataset.attributekey,
       attribute: actorData.attributes[dataset.attributekey].value,
       modifier: 0,
+      pushed: false,
       actor: this.actor
     }
     const chatOptions = this.actor._prepareChatRollOptions('systems/yzecoriolis/templates/sidebar/roll.html', dataset.rolltype);

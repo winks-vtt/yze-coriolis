@@ -1,5 +1,4 @@
 
-
 /**
  * takes in rendering options, rollData and:
  * 1. does the roll
@@ -26,6 +25,20 @@ export async function coriolisRoll(chatOptions, rollData) {
     const result = evaluateCoriolisRoll(rollData, roll);
     await showChatMessage(chatOptions, result);
 }
+
+export async function coriolisPushRoll(msgOptions, origRollData, origRoll, msgID) {
+    origRollData.pushed = true;
+
+    let totalDice = getTotalDice(origRollData);
+    if (totalDice <= 0) {
+        totalDice = 2; // desparation roll where both will have to be successes to be considered a success.
+    }
+    let roll = new Roll(`${totalDice}d6`);
+    roll.roll();
+    const result = evaluateCoriolisRoll(origRollData, roll);
+    await updateChatMessage(msgOptions, result);
+}
+
 /**
  *
  * returns if this is a valid Roll or not and an error describing why it isn't.
@@ -99,13 +112,13 @@ function getTotalDice(rollData) {
 async function showChatMessage(chatMsgOptions, resultData) {
     let tooltip = await renderTemplate('systems/yzecoriolis/templates/sidebar/dice-results.html', getTooltipData(resultData));
     let chatData = {
-        title: 'Roll',
+        title: getRollTitle(resultData.rollData),
         results: resultData,
         tooltip: tooltip
     };
 
     chatMsgOptions["flags.data"] = {
-        rollData: chatData.rollData
+        results: chatData.results
     };
     return renderTemplate(chatMsgOptions.template, chatData).then(html => {
         chatMsgOptions['content'] = html;
@@ -113,15 +126,49 @@ async function showChatMessage(chatMsgOptions, resultData) {
     });
 }
 
+function getRollTitle(rollData) {
+    let rollName = '';
+    switch (rollData.rollType) {
+        case 'skill':
+            rollName = rollData.skillKey;
+            break;
+        case 'advancedSkill':
+            rollName = rollData.skillKey;
+            break;
+        case 'attribute':
+            rollName = rollData.attributeKey;
+            break;
+    }
+    return `${rollName.capitalize()} Roll`;
+}
+
+async function updateChatMessage(msgOptions, resultData) {
+    let tooltip = await renderTemplate('systems/yzecoriolis/templates/sidebar/dice-results.html', getTooltipData(resultData));
+    let chatData = {
+        title: getRollTitle(resultData.rollData),
+        results: resultData,
+        tooltip: tooltip,
+        flavor: 'Rolling!'
+    };
+
+    return renderTemplate('systems/yzecoriolis/templates/sidebar/roll.html', chatData).then(html => {
+        msgOptions['content'] = html;
+        return msgOptions.update({
+            content: html,
+            ["flags.data"]: { results: chatData.results }
+        }).then(newMsg => {
+            ui.chat.updateMessage(newMsg);
+        });
+    });
+}
 function getTooltipData(results) {
     const data = {
         formula: results.roll.formula,
         total: results.successes
     };
-
     // Prepare dice parts
     data["parts"] = results.roll.dice.map(d => {
-        let maxRoll = Math.max(...d.sides);
+        let maxRoll = CONFIG.YZECORIOLIS.maxRoll;
 
         // Generate tooltip data
         return {
@@ -147,6 +194,15 @@ function getTooltipData(results) {
     return data;
 }
 
+export async function coriolisChatListeners(html) {
+    html.on("click", ".dice-push", ev => {
+        let button = $(ev.currentTarget),
+            messageId = button.parents('.message').attr("data-message-id"),
+            message = game.messages.get(messageId);
+        let results = message.data.flags.data.results;
+        coriolisPushRoll(message, results.rollData, results.roll);
+    })
+}
 /**
  * Add support for the Dice So Nice module
  * @param {Object} roll

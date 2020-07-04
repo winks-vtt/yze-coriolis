@@ -9,6 +9,8 @@ YZECORIOLIS.ASCII = `_______________________________
   \\/_____/ \\/_____/ \\/_/ /_/ \\/_/ \\/_____/ \\/_____/ \\/_/ \\/_____/
 _______________________________`;
 
+YZECORIOLIS.maxRoll = 6;
+
 
 YZECORIOLIS.attributes = {
     "strength": "YZECORIOLIS.AttrStrength",

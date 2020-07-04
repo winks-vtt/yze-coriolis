@@ -89,4 +89,8 @@ export class yzecoriolisActor extends Actor {
 
     return chatOptions
   }
+
+  _prepareRollTitle(rollType) {
+
+  }
 }

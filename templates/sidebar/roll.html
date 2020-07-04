@@ -1,4 +1,5 @@
 <div class="dice-roll yzecoriolis">
+    {{title}}
     <div class="dice-result">
         {{#if results.limitedSuccess}}
         <h4 class="dice-total limitedSuccess">{{localize "YZECORIOLIS.RollLimitedSucces"}}</h4>
@@ -10,11 +11,9 @@
         <h4 class="dice-total criticalSuccess">{{localize "YZECORIOLIS.RollCriticalSucces"}}</h4>
         {{/if}}
         {{{tooltip}}}
-        <div class="dice-formula"><i class=" fas fa-chevron-down"></i></div>
+        <div class="dice-formula dice-push yzecoriolis"><a>{{localize "YZECORIOLIS.PrayToIcons"}}</a></div>
     </div>
 </div>
-<div class="dice-push yzecoriolis"><a>{{localize "YZECORIOLIS.PrayToIcons"}}</a></div>
-
 
 {{#if hasExtraText}}
 <div class="extra-text gm-sensitive">{{{extraText}}}</div>
