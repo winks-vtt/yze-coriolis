@@ -1,97 +1,143 @@
 
-import { ChatMessageYZECoriolis } from './sidebar/chatmessage.js';
 
-async function makeMessage(roll, desparateRoll, messageData, { rollMode = null } = {}) {
-    // Prepare chat data
-    messageData = mergeObject({
-        user: game.user._id,
-        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-        sound: CONFIG.sounds.dice,
-
-    }, messageData);
-    messageData.roll = roll;
-
-    const messageOptions = { rollMode, desparateRoll };
-    return ChatMessageYZECoriolis.create(messageData, messageOptions);
-};
-
-export async function coriolisRoll(dataset, actor) {
-    let actorData = actor.data.data;
+/**
+ * takes in rendering options, rollData and:
+ * 1. does the roll
+ * 2. evaluates the roll
+ * 3. takes the results and shows them in a chat message.
+ * @param  {} chatOptions the options used to display the roll result in chat.
+ * @param  {} rollData contains all data necessary to make a roll in Coriolis.
+ */
+export async function coriolisRoll(chatOptions, rollData) {
     let errorObj = { 'error': 'YZECORIOLIS.ErrorsInvalidSkillRoll' };
-    if (isValidRoll(dataset.rolltype, actorData, dataset, errorObj)) {
-        let diceCount = getTotalDice(dataset.rolltype, actorData, dataset.attributekey, dataset.skillkey);
-        let desparateRoll = false;
-        if (diceCount <= 0) {
-            diceCount = 2;
-            desparateRoll = true;
-        }
-        let roll = new Roll(`${diceCount}d6`);
-        let label = dataset.label ? `${dataset.label} Roll` : '';
-        try {
-            roll.roll();
-            makeMessage(roll, desparateRoll, {
-                speaker: ChatMessage.getSpeaker({
-                    actor: actor
-                }),
-                flavor: label
-            });
-        } catch (err) {
-            ui.notifications.error(err);
-            throw new Error(err);
-        }
-    } else {
+    const isValid = isValidRoll(rollData, errorObj);
+    if (!isValid) {
         ui.notifications.error(new Error(game.i18n.localize(errorObj.error)));
+        return;
     }
-}
 
-function getTotalDice(rollType, actorData, attribute, skill) {
-    let attributeValue = 0;
-    let skillValue = 0;
-    let modifier = 0;  // TODO: account for modifier
-    switch (rollType) {
-        case 'skill':
-            attributeValue = actorData.attributes[attribute].value;
-            skillValue = actorData.skills[skill].value;
-            return attributeValue + skillValue + modifier;
-        case 'advancedSkill':
-            attributeValue = actorData.attributes[attribute].value;
-            skillValue = actorData.skills[skill].value;
-            return attributeValue + skillValue + modifier;
-        case 'attribute':
-            attributeValue = actorData.attributes[attribute].value;
-            return attributeValue + modifier;
-
-    }
-    return 0;
+    const totalDice = getTotalDice(rollData);
+    let roll = new Roll(`${totalDice}d6`);
+    roll.roll();
+    //TODO: dice so nice
+    const result = evaluateCoriolisRoll(rollData, roll);
+    await showChatMessage(chatOptions, result);
 }
 /**
- * Returns true/false if roll they are attempting makes any sense. This isn't enforcing game rules.
- * This is enforcing input validation so the Roll API doesn't error.
- * This makes sure the rollType we are attempting has the valid data to make the roll.
- * @returns true/false and fills the errorObj as a string
+ *
+ * returns if this is a valid Roll or not and an error describing why it isn't.
+ * @param  {} rollData
+ * @param  {} errorObj
+ * @returns true / false
  */
-function isValidRoll(rollType, actorData, dataset, errorObj) {
-    let attributeValue = 0;
-    let skillValue = 0;
+function isValidRoll(rollData, errorObj) {
     // TODO: account for modifier somehow
-    switch (rollType) {
+    const skill = rollData.skill;
+    const attribute = rollData.attribute;
+    switch (rollData.rollType) {
         case 'skill':
-            attributeValue = actorData.attributes[dataset.attributekey].value;
-            skillValue = actorData.skills[dataset.skillkey].value;
-            return attributeValue + skillValue > 0;
+            return attribute + skill > 0;
         case 'advancedSkill':
-            attributeValue = actorData.attributes[dataset.attributekey].value;
-            skillValue = actorData.skills[dataset.skillkey].value;
-            if (skillValue <= 0) {
+            if (skill <= 0) {
                 errorObj.error = 'YZECORIOLIS.ErrorsInvalidAdvancedSkillRoll';
                 return false;
             }
-            return attributeValue + skillValue > 0;
+            return attribute + skill > 0;
         case 'attribute':
-            attributeValue = actorData.attributes[dataset.attributekey].value;
-            return attributeValue > 0;
-
+            return attribute > 0;
     }
     errorObj.error = 'YZECORIOLIS.ErrorsInvalidSkillRoll';
     return false;
+}
+/**
+ * takes the result of the role and associated roll data and returns a result object.
+ * @param  {rollType, skill, attribute, modifier} rollData
+ * @param  {} roll
+ * @returns {limitedSuccess,criticalSuccess,failure, roll, rollData} returns the results plus the initial rollData and roll object in case you wish to push.
+ */
+export function evaluateCoriolisRoll(rollData, roll) {
+    let result = {};
+    let successes = 0;
+    roll.dice.forEach(part => {
+        part.rolls.forEach(r => {
+            if (r.roll === 6) {
+                successes++;
+            }
+        })
+    });
+    result.successes = successes;
+    result.limitedSuccess = successes > 0 && successes < 3;
+    result.criticalSuccess = successes >= 3;
+    result.failure = successes === 0;
+    result.rollData = rollData;
+    result.roll = roll;
+    return result;
+}
+
+function getTotalDice(rollData) {
+    let attributeValue = rollData.attribute;
+    let skillValue = rollData.skill;
+    let modifier = rollData.modifier;  // TODO: account for modifier
+    switch (rollData.rollType) {
+        case 'skill':
+            return attributeValue + skillValue + modifier;
+        case 'advancedSkill':
+            return attributeValue + skillValue + modifier;
+        case 'attribute':
+            return attributeValue + modifier;
+    }
+    return 0;
+}
+
+async function showChatMessage(chatMsgOptions, resultData) {
+    let tooltip = await renderTemplate('systems/yzecoriolis/templates/sidebar/dice-results.html', getTooltipData(resultData));
+    let chatData = {
+        title: 'Roll',
+        results: resultData,
+        tooltip: tooltip
+    };
+
+    chatMsgOptions["flags.data"] = {
+        rollData: chatData.rollData
+    };
+    console.log('msg', chatMsgOptions);
+    return renderTemplate(chatMsgOptions.template, chatData).then(html => {
+        chatMsgOptions['content'] = html;
+        console.log(resultData, chatMsgOptions, html);
+        return ChatMessage.create(chatMsgOptions, false);
+    });
+}
+
+function getTooltipData(results) {
+    const data = {
+        formula: results.roll.formula,
+        total: results.successes
+    };
+
+    // Prepare dice parts
+    data["parts"] = results.roll.dice.map(d => {
+        let maxRoll = Math.max(...d.sides);
+
+        // Generate tooltip data
+        return {
+            formula: d.formula,
+            total: results.successes,
+            faces: d.faces,
+            rolls: d.rolls.map(r => {
+                return {
+                    result: '&nbsp;',
+                    showNum: r.roll === maxRoll,
+                    classes: [
+                        d.constructor.name.toLowerCase(),
+                        "d" + d.faces,
+                        "dice-" + r.roll,
+                        "dice-face",
+                        r.rerolled ? "rerolled" : null,
+                        (r.roll === maxRoll) ? "success" : null
+                    ].filter(c => c).join(" ")
+                }
+            })
+        };
+    });
+    return data;
 }

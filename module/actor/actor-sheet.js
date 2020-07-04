@@ -1,5 +1,4 @@
 import { getID } from '../util.js';
-import { ChatMessageYZECoriolis } from '../sidebar/chatmessage.js';
 import { coriolisRoll } from '../coriolis-roll.js';
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -349,7 +348,16 @@ export class yzecoriolisActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    coriolisRoll(dataset, this.actor);
+    const actorData = this.actor.data.data;
+    const rollData = {
+      rollType: dataset.rolltype,
+      skill: actorData.skills[dataset.skillkey].value,
+      attribute: actorData.attributes[dataset.attributekey].value,
+      modifier: 0,
+      actor: this.actor
+    }
+    const chatOptions = this.actor._prepareChatOptions('systems/yzecoriolis/templates/sidebar/roll.html', dataset.rolltype);
+    coriolisRoll(chatOptions, rollData);
   }
 
   /**
