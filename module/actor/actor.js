@@ -56,35 +56,36 @@ export class yzecoriolisActor extends Actor {
   }
 
   _prepareChatOptions(template, title) {
-    let cardOptions = {
+    let chatOptions = {
       speaker: {
         alias: this.data.token.name,
         actor: this.data._id,
       },
       title: title,
       template: template,
+      rollMode: game.settings.get("core", "rollMode"),
       flags: { img: this.data.token.randomImg ? this.data.img : this.data.token.img }
       // img to be displayed next to the name on the test card - if it's a wildcard img, use the actor image
     }
 
     // If the test is coming from a token sheet
     if (this.token) {
-      cardOptions.speaker.alias = this.token.data.name; // Use the token name instead of the actor name
-      cardOptions.speaker.token = this.token.data._id;
-      cardOptions.speaker.scene = canvas.scene._id
-      cardOptions.flags.img = this.token.data.img; // Use the token image instead of the actor image
+      chatOptions.speaker.alias = this.token.data.name; // Use the token name instead of the actor name
+      chatOptions.speaker.token = this.token.data._id;
+      chatOptions.speaker.scene = canvas.scene._id
+      chatOptions.flags.img = this.token.data.img; // Use the token image instead of the actor image
     }
     else // If a linked actor - use the currently selected token's data if the actor id matches
     {
       let speaker = ChatMessage.getSpeaker()
       if (speaker.actor == this.data._id) {
-        cardOptions.speaker.alias = speaker.alias
-        cardOptions.speaker.token = speaker.token
-        cardOptions.speaker.scene = speaker.scene
-        cardOptions.flags.img = speaker.token ? canvas.tokens.get(speaker.token).data.img : cardOptions.flags.img
+        chatOptions.speaker.alias = speaker.alias
+        chatOptions.speaker.token = speaker.token
+        chatOptions.speaker.scene = speaker.scene
+        chatOptions.flags.img = speaker.token ? canvas.tokens.get(speaker.token).data.img : chatOptions.flags.img
       }
     }
 
-    return cardOptions
+    return chatOptions
   }
 }

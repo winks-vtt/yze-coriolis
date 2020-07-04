@@ -19,7 +19,7 @@ export async function coriolisRoll(chatOptions, rollData) {
     const totalDice = getTotalDice(rollData);
     let roll = new Roll(`${totalDice}d6`);
     roll.roll();
-    //TODO: dice so nice
+    await showDiceSoNice(roll, chatOptions.rollMode);
     const result = evaluateCoriolisRoll(rollData, roll);
     await showChatMessage(chatOptions, result);
 }
@@ -100,10 +100,8 @@ async function showChatMessage(chatMsgOptions, resultData) {
     chatMsgOptions["flags.data"] = {
         rollData: chatData.rollData
     };
-    console.log('msg', chatMsgOptions);
     return renderTemplate(chatMsgOptions.template, chatData).then(html => {
         chatMsgOptions['content'] = html;
-        console.log(resultData, chatMsgOptions, html);
         return ChatMessage.create(chatMsgOptions, false);
     });
 }
@@ -140,4 +138,33 @@ function getTooltipData(results) {
         };
     });
     return data;
+}
+
+/**
+ * Add support for the Dice So Nice module
+ * @param {Object} roll
+ * @param {String} rollMode
+ */
+async function showDiceSoNice(roll, rollMode) {
+    if (game.modules.get("dice-so-nice") && game.modules.get("dice-so-nice").active) {
+        let whisper = null;
+        let blind = false;
+        switch (rollMode) {
+            case "blindroll": //GM only
+                blind = true;
+            case "gmroll": //GM + rolling player
+                let gmList = game.users.filter(user => user.isGM);
+                let gmIDList = [];
+                gmList.forEach(gm => gmIDList.push(gm.data._id));
+                whisper = gmIDList;
+                break;
+            case "roll": //everybody
+                let userList = game.users.filter(user => user.active);
+                let userIDList = [];
+                userList.forEach(user => userIDList.push(user.data._id));
+                whisper = userIDList;
+                break;
+        }
+        await game.dice3d.showForRoll(roll, game.user, true, whisper, blind);
+    }
 }
