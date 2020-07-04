@@ -169,9 +169,14 @@ async function showChatMessage(chatMsgOptions, resultData) {
         canPush: !resultData.pushed
     };
 
+    if (["gmroll", "blindroll"].includes(chatMsgOptions.rollMode)) chatMsgOptions["whisper"] = ChatMessage.getWhisperIDs("GM");
+    if (chatMsgOptions.rollMode === "blindroll") chatMsgOptions["blind"] = true;
+    else if (chatMsgOptions.rollMode === "selfroll") chatMsgOptions["whisper"] = [game.user];
+
     chatMsgOptions["flags.data"] = {
         results: chatData.results
     };
+
     chatMsgOptions.roll = resultData.roll;
     return renderTemplate(chatMsgOptions.template, chatData).then(html => {
         chatMsgOptions['content'] = html;
