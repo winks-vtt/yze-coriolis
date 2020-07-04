@@ -55,7 +55,7 @@ export class yzecoriolisActor extends Actor {
     }
   }
 
-  _prepareChatOptions(template, title) {
+  _prepareChatRollOptions(template, title) {
     let chatOptions = {
       speaker: {
         alias: this.data.token.name,
@@ -64,6 +64,7 @@ export class yzecoriolisActor extends Actor {
       title: title,
       template: template,
       rollMode: game.settings.get("core", "rollMode"),
+      sound: CONFIG.sounds.dice,
       flags: { img: this.data.token.randomImg ? this.data.img : this.data.token.img }
       // img to be displayed next to the name on the test card - if it's a wildcard img, use the actor image
     }

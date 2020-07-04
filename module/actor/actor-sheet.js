@@ -356,7 +356,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       modifier: 0,
       actor: this.actor
     }
-    const chatOptions = this.actor._prepareChatOptions('systems/yzecoriolis/templates/sidebar/roll.html', dataset.rolltype);
+    const chatOptions = this.actor._prepareChatRollOptions('systems/yzecoriolis/templates/sidebar/roll.html', dataset.rolltype);
     coriolisRoll(chatOptions, rollData);
   }
 
