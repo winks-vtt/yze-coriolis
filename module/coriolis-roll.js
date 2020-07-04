@@ -32,6 +32,9 @@ export async function coriolisRoll(chatOptions, rollData) {
  * @param  {} origRoll
  */
 export async function coriolisPushRoll(msgOptions, origRollData, origRoll) {
+    if (origRollData.pushed) {
+        return;
+    }
     origRollData.pushed = true;
     origRoll.dice.forEach(part => {
         part.rolls.forEach(r => {
