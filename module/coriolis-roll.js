@@ -16,7 +16,7 @@ export async function coriolisRoll(chatOptions, rollData) {
         return;
     }
 
-    const totalDice = getTotalDice(rollData);
+    let totalDice = getTotalDice(rollData);
     if (totalDice <= 0) {
         totalDice = 2; // desparation roll where both will have to be successes to be considered a success.
     }
@@ -71,7 +71,7 @@ export function evaluateCoriolisRoll(rollData, roll) {
     let result = {
         desparationRoll: isDesparation,
         successes: successes,
-        limitedSuccess: isDesparation ? succusses === 2 : (successes > 0 && successes < 3),
+        limitedSuccess: isDesparation ? successes === 2 : (successes > 0 && successes < 3),
         criticalSuccess: successes >= 3,
         failure: isDesparation ? successes < 2 : successes === 0,
         rollData: rollData,
