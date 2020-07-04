@@ -25,17 +25,24 @@ export async function coriolisRoll(chatOptions, rollData) {
     const result = evaluateCoriolisRoll(rollData, roll);
     await showChatMessage(chatOptions, result);
 }
-
-export async function coriolisPushRoll(msgOptions, origRollData, origRoll, msgID) {
+/**
+ * handle pushing a roll
+ * @param  {} msgOptions
+ * @param  {} origRollData
+ * @param  {} origRoll
+ */
+export async function coriolisPushRoll(msgOptions, origRollData, origRoll) {
     origRollData.pushed = true;
-
-    let totalDice = getTotalDice(origRollData);
-    if (totalDice <= 0) {
-        totalDice = 2; // desparation roll where both will have to be successes to be considered a success.
-    }
-    let roll = new Roll(`${totalDice}d6`);
-    roll.roll();
-    const result = evaluateCoriolisRoll(origRollData, roll);
+    origRoll.dice.forEach(part => {
+        part.rolls.forEach(r => {
+            if (r.roll !== CONFIG.YZECORIOLIS.maxRoll) {
+                let newDie = new Die(6);
+                newDie.roll(1);
+                r.roll = newDie.results[0];
+            }
+        })
+    });
+    const result = evaluateCoriolisRoll(origRollData, origRoll);
     await updateChatMessage(msgOptions, result);
 }
 
@@ -88,7 +95,8 @@ export function evaluateCoriolisRoll(rollData, roll) {
         criticalSuccess: successes >= 3,
         failure: isDesparation ? successes < 2 : successes === 0,
         rollData: rollData,
-        roll: roll
+        roll: roll,
+        pushed: rollData.pushed
     };
 
     return result;
@@ -114,7 +122,8 @@ async function showChatMessage(chatMsgOptions, resultData) {
     let chatData = {
         title: getRollTitle(resultData.rollData),
         results: resultData,
-        tooltip: tooltip
+        tooltip: tooltip,
+        canPush: !resultData.pushed
     };
 
     chatMsgOptions["flags.data"] = {
@@ -148,6 +157,7 @@ async function updateChatMessage(msgOptions, resultData) {
         title: getRollTitle(resultData.rollData),
         results: resultData,
         tooltip: tooltip,
+        canPush: false
     };
 
     return renderTemplate('systems/yzecoriolis/templates/sidebar/roll.html', chatData).then(html => {

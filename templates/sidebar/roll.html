@@ -11,7 +11,11 @@
         <h4 class="dice-total criticalSuccess">{{localize "YZECORIOLIS.RollCriticalSucces"}}</h4>
         {{/if}}
         {{{tooltip}}}
+        {{#if canPush}}
         <div class="dice-formula dice-push yzecoriolis"><a>{{localize "YZECORIOLIS.PrayToIcons"}}</a></div>
+        {{else}}
+        <div class="dice-formula dice-push yzecoriolis"><em>{{localize "YZECORIOLIS.PushedRoll"}}</em></div>
+        {{/if}}
     </div>
 </div>
 
