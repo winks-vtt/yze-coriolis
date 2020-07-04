@@ -148,7 +148,6 @@ async function updateChatMessage(msgOptions, resultData) {
         title: getRollTitle(resultData.rollData),
         results: resultData,
         tooltip: tooltip,
-        flavor: 'Rolling!'
     };
 
     return renderTemplate('systems/yzecoriolis/templates/sidebar/roll.html', chatData).then(html => {
