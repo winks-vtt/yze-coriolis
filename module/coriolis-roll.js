@@ -42,6 +42,7 @@ export async function coriolisPushRoll(msgOptions, origRollData, origRoll) {
             }
         })
     });
+    await showDiceSoNice(origRoll, msgOptions.rollMode);
     const result = evaluateCoriolisRoll(origRollData, origRoll);
     await updateChatMessage(msgOptions, result);
 }
@@ -129,27 +130,13 @@ async function showChatMessage(chatMsgOptions, resultData) {
     chatMsgOptions["flags.data"] = {
         results: chatData.results
     };
+    chatMsgOptions.roll = resultData.roll;
     return renderTemplate(chatMsgOptions.template, chatData).then(html => {
         chatMsgOptions['content'] = html;
         return ChatMessage.create(chatMsgOptions, false);
     });
 }
 
-function getRollTitle(rollData) {
-    let rollName = '';
-    switch (rollData.rollType) {
-        case 'skill':
-            rollName = rollData.skillKey;
-            break;
-        case 'advancedSkill':
-            rollName = rollData.skillKey;
-            break;
-        case 'attribute':
-            rollName = rollData.attributeKey;
-            break;
-    }
-    return `${rollName.capitalize()} Roll`;
-}
 
 async function updateChatMessage(msgOptions, resultData) {
     let tooltip = await renderTemplate('systems/yzecoriolis/templates/sidebar/dice-results.html', getTooltipData(resultData));
@@ -170,6 +157,24 @@ async function updateChatMessage(msgOptions, resultData) {
         });
     });
 }
+
+
+function getRollTitle(rollData) {
+    let rollName = '';
+    switch (rollData.rollType) {
+        case 'skill':
+            rollName = rollData.skillKey;
+            break;
+        case 'advancedSkill':
+            rollName = rollData.skillKey;
+            break;
+        case 'attribute':
+            rollName = rollData.attributeKey;
+            break;
+    }
+    return `${rollName.capitalize()} Roll`;
+}
+
 function getTooltipData(results) {
     const data = {
         formula: results.roll.formula,
@@ -209,7 +214,7 @@ export async function coriolisChatListeners(html) {
             messageId = button.parents('.message').attr("data-message-id"),
             message = game.messages.get(messageId);
         let results = message.data.flags.data.results;
-        coriolisPushRoll(message, results.rollData, results.roll);
+        coriolisPushRoll(message, results.rollData, message.roll);
     })
 }
 /**
