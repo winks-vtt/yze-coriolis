@@ -17,6 +17,9 @@ export async function coriolisRoll(chatOptions, rollData) {
     }
 
     const totalDice = getTotalDice(rollData);
+    if (totalDice <= 0) {
+        totalDice = 2; // desparation roll where both will have to be successes to be considered a success.
+    }
     let roll = new Roll(`${totalDice}d6`);
     roll.roll();
     await showDiceSoNice(roll, chatOptions.rollMode);
@@ -56,7 +59,6 @@ function isValidRoll(rollData, errorObj) {
  * @returns {limitedSuccess,criticalSuccess,failure, roll, rollData} returns the results plus the initial rollData and roll object in case you wish to push.
  */
 export function evaluateCoriolisRoll(rollData, roll) {
-    let result = {};
     let successes = 0;
     roll.dice.forEach(part => {
         part.rolls.forEach(r => {
@@ -65,12 +67,17 @@ export function evaluateCoriolisRoll(rollData, roll) {
             }
         })
     });
-    result.successes = successes;
-    result.limitedSuccess = successes > 0 && successes < 3;
-    result.criticalSuccess = successes >= 3;
-    result.failure = successes === 0;
-    result.rollData = rollData;
-    result.roll = roll;
+    const isDesparation = getTotalDice(rollData) <= 0;
+    let result = {
+        desparationRoll: isDesparation,
+        successes: successes,
+        limitedSuccess: isDesparation ? succusses === 2 : (successes > 0 && successes < 3),
+        criticalSuccess: successes >= 3,
+        failure: isDesparation ? successes < 2 : successes === 0,
+        rollData: rollData,
+        roll: roll
+    };
+
     return result;
 }
 
