@@ -288,6 +288,12 @@ async function showDiceSoNice(roll, rollMode) {
                 userList.forEach(user => userIDList.push(user.data._id));
                 whisper = userIDList;
                 break;
+            case "selfroll": // only roll to yourself
+                let selfList = game.users.filter(user => user._id === game.user._id);
+                let selfIDList = [];
+                selfList.forEach(user => selfIDList.push(user.data._id));
+                whisper = selfIDList;
+                break;
         }
         await game.dice3d.showForRoll(roll, game.user, true, whisper, blind);
     }
