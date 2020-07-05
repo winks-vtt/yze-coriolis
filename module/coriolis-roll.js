@@ -169,7 +169,7 @@ async function showChatMessage(chatMsgOptions, resultData) {
         canPush: !resultData.pushed
     };
 
-    if (["gmroll", "blindroll"].includes(chatMsgOptions.rollMode)) chatMsgOptions["whisper"] = ChatMessage.getWhisperIDs("GM");
+    if (["gmroll", "blindroll"].includes(chatMsgOptions.rollMode)) chatMsgOptions["whisper"] = ChatMessage.getWhisperRecipients("GM");
     if (chatMsgOptions.rollMode === "blindroll") chatMsgOptions["blind"] = true;
     else if (chatMsgOptions.rollMode === "selfroll") chatMsgOptions["whisper"] = [game.user];
 

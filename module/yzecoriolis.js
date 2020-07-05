@@ -177,10 +177,18 @@ Hooks.once("setup", function () {
 
 });
 
-// Activate chat listeners defined in dice-wfrp4e.js
+// Activate chat listeners for coriolis
 Hooks.on('renderChatLog', (log, html, data) => {
   coriolisChatListeners(html)
 
+});
+
+Hooks.on('renderChatMessage', (app, html, msg) => {
+  // Do not display "Blind" chat cards to non-gm
+  if (html.hasClass("blind") && !game.user.isGM) {
+    html.find(".message-header").remove(); // Remove header so Foundry does not attempt to update its timestamp
+    html.html("").css("display", "none");
+  }
 });
 
 Hooks.once('ready', async function () {
