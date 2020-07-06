@@ -9,6 +9,7 @@ import { bootstrapGearCompendium } from './migration.js';
 import { coriolisChatListeners } from "./coriolis-roll.js";
 import * as migrations from "./migration.js";
 import { preloadHandlerbarsTemplates } from "./templates.js";
+import { addDarknessPoints, spendDarknessPoints } from "./darkness-points.js";
 
 Hooks.once('init', async function () {
   console.log(`Coriolis | Initializing Coriolis\n${YZECORIOLIS.ASCII}`);
@@ -193,6 +194,29 @@ Hooks.on('renderChatMessage', (app, html, msg) => {
   // remove push option from non-authors
   if (!game.user.isGM && msg.message.user !== game.user._id) {
     html.find(".dice-push").remove();
+  }
+});
+
+Hooks.on('getSceneControlButtons', (controls) => {
+  const isGM = game.user.isGM;
+  let group = controls.find(b => b.name == "token")
+  if (isGM) {
+    group.tools.push(
+      {
+        name: "add",
+        title: "YZECORIOLIS.DarknessPointsAdd",
+        icon: "fas fa-plus",
+        buttons: true,
+        onClick: () => { addDarknessPoints(1) }
+      },
+      {
+        name: "substract",
+        title: "YZECORIOLIS.DarknessPointsRemove",
+        icon: "fas fa-minus",
+        buttons: true,
+        onClick: () => { spendDarknessPoints(1) }
+      },
+    );
   }
 });
 

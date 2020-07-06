@@ -6,6 +6,10 @@
     "YZECORIOLIS.ModifierForRoll": "Modifier",
     "YZECORIOLIS.ModifierForRollQuestion": "Enter the modifier for your roll",
 
+    "YZECORIOLIS.DarknessPointsControls": "Darkness Points Controls",
+    "YZECORIOLIS.DarknessPointsAdd": "Add a Darkness Point",
+    "YZECORIOLIS.DarknessPointsRemove": "Remove a Darkness Point",
+
 
     "YZECORIOLIS.RollLimitedSucces": "Limited Success",
     "YZECORIOLIS.RollCriticalSucces": "Critical Success",
