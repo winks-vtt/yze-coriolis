@@ -186,8 +186,9 @@ Hooks.on('renderChatLog', (log, html, data) => {
 Hooks.on('renderChatMessage', (app, html, msg) => {
   // Do not display "Blind" chat cards to non-gm
   if (html.hasClass("blind") && !game.user.isGM) {
-    html.find(".message-header").remove(); // Remove header so Foundry does not attempt to update its timestamp
-    html.html("").css("display", "none");
+    // since the header has timestamp content we'll remove the content instead.
+    // this avoids an NPE when foundry tries to update the timestamps.
+    html.find(".message-content").remove();
   }
 });
 
