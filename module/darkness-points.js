@@ -1,4 +1,4 @@
-
+//TODO: refactor this to use a singleton game item.
 export async function addDarknessPoints(points) {
     let dPoints = getDarknessPoints();
     dPoints.value += 1;
