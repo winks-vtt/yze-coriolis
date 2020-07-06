@@ -190,6 +190,10 @@ Hooks.on('renderChatMessage', (app, html, msg) => {
     // this avoids an NPE when foundry tries to update the timestamps.
     html.find(".message-content").remove();
   }
+  // remove push option from non-authors
+  if (!game.user.isGM && msg.message.user !== game.user._id) {
+    html.find(".dice-push").remove();
+  }
 });
 
 Hooks.once('ready', async function () {
