@@ -200,24 +200,25 @@ Hooks.on('renderChatMessage', (app, html, msg) => {
 Hooks.on('getSceneControlButtons', (controls) => {
   const isGM = game.user.isGM;
   let group = controls.find(b => b.name == "token")
-  if (isGM) {
-    group.tools.push(
-      {
-        name: "add",
-        title: "YZECORIOLIS.DarknessPointsAdd",
-        icon: "fas fa-plus",
-        buttons: true,
-        onClick: () => { addDarknessPoints(1) }
-      },
-      {
-        name: "substract",
-        title: "YZECORIOLIS.DarknessPointsRemove",
-        icon: "fas fa-minus",
-        buttons: true,
-        onClick: () => { spendDarknessPoints(1) }
-      },
-    );
-  }
+  group.tools.push(
+    {
+      name: "add",
+      title: "YZECORIOLIS.DarknessPointsAdd",
+      icon: "fas fa-plus",
+      buttons: true,
+      visible: game.user.isGM,
+      onClick: () => { addDarknessPoints(1) }
+    },
+    {
+      name: "substract",
+      title: "YZECORIOLIS.DarknessPointsRemove",
+      icon: "fas fa-minus",
+      buttons: true,
+      visible: game.user.isGM,
+      onClick: () => { spendDarknessPoints(1) }
+    },
+  );
+
 });
 
 Hooks.once('ready', async function () {
