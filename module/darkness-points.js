@@ -1,37 +1,31 @@
 //TODO: refactor this to use a singleton game item.
 export async function addDarknessPoints(points) {
     let dPoints = getDarknessPoints();
-    dPoints.value += 1;
+    dPoints += points;
     await setDarknessPoints(dPoints);
     console.log('added points', dPoints);
-    showDarknessPoints(dPoints.value);
+    showDarknessPoints(dPoints);
+    //TODO: announceDP
 }
 
 export async function spendDarknessPoints(points) {
     let dPoints = getDarknessPoints();
-    dPoints.value -= 1;
-    if (dPoints.value < 0) {
-        dPoints.value = 0;
+    dPoints -= points;
+    if (dPoints < 0) {
+        dPoints = 0;
     }
     console.log('spent points', dPoints);
     await setDarknessPoints(dPoints);
-    showDarknessPoints(dPoints.value);
+    showDarknessPoints(dPoints);
     //purposefully not announcing the spending of points.
 }
 
 function getDarknessPoints() {
-    let dPoints = game.user.getFlag("yzecoriolis", "darknessPoints");
-    if (!dPoints) {
-        dPoints = {
-            value: 0
-        }
-    }
-    return dPoints;
+    return game.settings.get("yzecoriolis", "darknessPoints");
 }
 
 async function setDarknessPoints(dPoints) {
-    await game.user.unsetFlag("yzecoriolis", "darknessPoints", dPoints);
-    await game.user.setFlag("yzecoriolis", "darknessPoints", dPoints);
+    await game.settings.set("yzecoriolis", "darknessPoints", dPoints);
 }
 /**
  * whispers the current darkness points to the GM.

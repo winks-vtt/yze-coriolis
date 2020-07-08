@@ -11,4 +11,12 @@ export const registerSystemSettings = function () {
         default: 0
     });
 
+    // register the darkness points for the world
+    game.settings.register("yzecoriolis", "darknessPoints", {
+        name: game.i18n.localize('YZECORIOLIS.DarknessPoints'),
+        scope: "world",
+        config: false,
+        type: Number,
+        default: 0
+    });
 };
