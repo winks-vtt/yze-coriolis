@@ -191,7 +191,8 @@
         "appearance": {
           "face": "",
           "clothing": ""
-        }
+        },
+        "crewPosition": ""
       },
       "experience": {
         "value": 0,

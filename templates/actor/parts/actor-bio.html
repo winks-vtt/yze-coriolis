@@ -50,6 +50,7 @@
             </div>
         </li>
 
+
         <li>
             <div class="flexrow  flex-between">
                 <label for="data.bio.personalProblem"
@@ -57,6 +58,22 @@
                 <div class="resource-content">
                     <input type="text" name="data.bio.personalProblem" value="{{data.bio.personalProblem}}"
                         data-dtype="String" />
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="flexrow  flex-between">
+                <label for="data.bio.groupConcept"
+                    class="resource-label">{{localize "YZECORIOLIS.CrewPosition"}}</label>
+                <div class="resource-content">
+                    <select class="skill-category" name="data.bio.crewPosition">
+                        {{#select data.bio.crewPosition}}
+                        {{#each config.crewPositions as |label category|}}
+                        <option value="{{category}}">{{label}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
                 </div>
             </div>
         </li>

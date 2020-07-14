@@ -159,7 +159,8 @@ Hooks.once("setup", function () {
     "gearWeights",
     "critTypes",
     "ranges",
-    "icons"
+    "icons",
+    "crewPositions"
   ];
 
   // exclude sorting from some config values where the order matters.
@@ -224,8 +225,8 @@ Hooks.on('getSceneControlButtons', (controls) => {
 Hooks.once('ready', async function () {
   // Determine whether a system migration is required and feasible
   const currentVersion = game.settings.get("yzecoriolis", "systemMigrationVersion");
-  const NEEDS_MIGRATION_VERSION = 0.3;
-  const COMPATIBLE_MIGRATION_VERSION = 0.3;
+  const NEEDS_MIGRATION_VERSION = 0.4;
+  const COMPATIBLE_MIGRATION_VERSION = 0.4;
   let needMigration = (currentVersion < NEEDS_MIGRATION_VERSION) || (currentVersion === null) || (isNaN(currentVersion));
 
   // Perform the migration

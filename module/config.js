@@ -19,6 +19,14 @@ YZECORIOLIS.attributes = {
     "empathy": "YZECORIOLIS.AttrEmpathy"
 };
 
+YZECORIOLIS.crewPositions = {
+    "captain": "YZECORIOLIS.CrewSpotCaptain",
+    "engineer": "YZECORIOLIS.CrewSpotEngineer",
+    "pilot": "YZECORIOLIS.CrewSpotPilot",
+    "sensorOperator": "YZECORIOLIS.CrewSpotSensorOperator",
+    "gunner": "YZECORIOLIS.CrewSpotGunner"
+};
+
 YZECORIOLIS.skillCategories = {
     "general": "YZECORIOLIS.SkillCatGeneral",
     "advanced": "YZECORIOLIS.SkillCatAdvanced"
