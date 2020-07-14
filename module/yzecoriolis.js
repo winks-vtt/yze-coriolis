@@ -227,7 +227,6 @@ Hooks.once('ready', async function () {
   const NEEDS_MIGRATION_VERSION = 0.3;
   const COMPATIBLE_MIGRATION_VERSION = 0.3;
   let needMigration = (currentVersion < NEEDS_MIGRATION_VERSION) || (currentVersion === null) || (isNaN(currentVersion));
-  console.log("current version", currentVersion, needMigration, game.system.data.version);
 
   // Perform the migration
   if (needMigration && game.user.isGM) {
