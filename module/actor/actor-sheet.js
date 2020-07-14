@@ -356,7 +356,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
    */
   _onToggleItem(event) {
     event.preventDefault();
-    console.log("toggling!");
     const itemId = event.currentTarget.closest(".item").dataset.itemId;
     const item = this.actor.getOwnedItem(itemId);
     const attr = "data.equipped";
