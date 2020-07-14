@@ -73,6 +73,10 @@
     "YZECORIOLIS.DeleteArmor": "Delete Armor",
     "YZECORIOLIS.DeleteExplosive": "Delete Explosive",
 
+    "YZECORIOLIS.EquipWeapon": "Equip Weapon",
+    "YZECORIOLIS.EquipGear": "Equip Gear",
+    "YZECORIOLIS.EquipArmor": "Equip Armor",
+
     "YZECORIOLIS.TechTier": "Tech Tier",
     "YZECORIOLIS.AddFeature": "Add Feature",
     "YZECORIOLIS.DeleteFeature": "Delete Feature",

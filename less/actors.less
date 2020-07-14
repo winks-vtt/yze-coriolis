@@ -337,7 +337,7 @@
 
         // Item Control Buttons
         .item-controls {
-            flex: 0 0 44px;
+            flex: 0 0 80px;
             .flexrow();
             justify-content: flex-end;
 
@@ -346,6 +346,14 @@
                 font-size: 12px;
                 text-align: center;
                 color: @colorTan;
+            }
+
+            .item-toggle {
+                color: @colorBeige;
+
+                &.active {
+                    color: #4b4a44;
+                }
             }
         }
 

@@ -469,7 +469,7 @@
   padding: 0;
 }
 .yzecoriolis.sheet.actor .inventory-list .item-controls {
-  flex: 0 0 44px;
+  flex: 0 0 80px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -496,6 +496,12 @@
   font-size: 12px;
   text-align: center;
   color: #7a7971;
+}
+.yzecoriolis.sheet.actor .inventory-list .item-controls .item-toggle {
+  color: #b5b3a4;
+}
+.yzecoriolis.sheet.actor .inventory-list .item-controls .item-toggle.active {
+  color: #4b4a44;
 }
 .yzecoriolis.sheet.actor .inventory-list .item-summary {
   flex: 0 0 100%;

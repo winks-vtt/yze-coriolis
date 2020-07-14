@@ -91,6 +91,10 @@ export class yzecoriolisActorSheet extends ActorSheet {
     for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
+      // setup equipped status
+      const isActive = getProperty(i.data, "equipped");
+      item.toggleClass = isActive ? "active" : "";
+
       // append to gear
       if (i.type === 'gear') {
         gear[item.weight].items.push(i);
@@ -166,6 +170,10 @@ export class yzecoriolisActorSheet extends ActorSheet {
       const item = this.actor.getOwnedItem(li.data("itemId"));
       item.sheet.render(true);
     });
+
+    // Item State Toggling
+    html.find('.item-toggle').click(this._onToggleItem.bind(this));
+
 
     // update gear quantity directly from sheet.
     html.find('.gear-quantity-input').change(this._onGearQuantityChanged.bind(this));
@@ -338,6 +346,21 @@ export class yzecoriolisActorSheet extends ActorSheet {
   async _setInjuries(injuries) {
     await this.actor.update({ "data.criticalInjuries": null });
     await this.actor.update({ 'data.criticalInjuries': injuries });
+  }
+
+
+  /**
+   * Handle toggling the state of an Owned Item within the Actor
+   * @param {Event} event   The triggering click event
+   * @private
+   */
+  _onToggleItem(event) {
+    event.preventDefault();
+    console.log("toggling!");
+    const itemId = event.currentTarget.closest(".item").dataset.itemId;
+    const item = this.actor.getOwnedItem(itemId);
+    const attr = "data.equipped";
+    return item.update({ [attr]: !getProperty(item.data, attr) });
   }
 
   /**
