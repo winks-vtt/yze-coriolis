@@ -224,9 +224,10 @@ Hooks.on('getSceneControlButtons', (controls) => {
 Hooks.once('ready', async function () {
   // Determine whether a system migration is required and feasible
   const currentVersion = game.settings.get("yzecoriolis", "systemMigrationVersion");
-  const NEEDS_MIGRATION_VERSION = 0.1;
-  const COMPATIBLE_MIGRATION_VERSION = 0.1;
-  let needMigration = (currentVersion < NEEDS_MIGRATION_VERSION) || (currentVersion === null);
+  const NEEDS_MIGRATION_VERSION = 0.3;
+  const COMPATIBLE_MIGRATION_VERSION = 0.3;
+  let needMigration = (currentVersion < NEEDS_MIGRATION_VERSION) || (currentVersion === null) || (isNaN(currentVersion));
+  console.log("current version", currentVersion, needMigration, game.system.data.version);
 
   // Perform the migration
   if (needMigration && game.user.isGM) {

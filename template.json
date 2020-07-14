@@ -224,7 +224,9 @@
         "techTier": "",
         "cost": 0,
         "quantity": 1,
-        "restricted": false
+        "restricted": false,
+        "equipped": false
+
       }
     },
     "item": {
