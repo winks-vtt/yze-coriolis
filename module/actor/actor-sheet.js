@@ -204,8 +204,12 @@ export class yzecoriolisActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   _computeEncumbrance(totalWeight) {
+    // your max is strength * 2.
+    // We are doubling that value so we can avoid having to deal with fractions
+    // for smaller items.
+    const strengthValue = this.actor.data.data.attributes.strength.value * 2 * 2;
     let enc = {
-      max: 20,
+      max: strengthValue,
       value: totalWeight
     };
     let pct = (totalWeight / enc.max) * 100;
@@ -213,6 +217,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     enc.encumbered = pct > 100;
     return enc;
   }
+
   /**
    * Handle changing the quantity of a gear item from the sheet directly.
    * @param  {} event
