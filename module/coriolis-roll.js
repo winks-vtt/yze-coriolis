@@ -100,9 +100,12 @@ function isValidRoll(rollData, errorObj) {
     // TODO: account for modifier somehow
     const skill = rollData.skill;
     const attribute = rollData.attribute;
+    const bonus = rollData.bonus;
     switch (rollData.rollType) {
         case 'skill':
             return attribute + skill > 0;
+        case 'weapon':
+            return attribute + skill + bonus > 0;
         case 'advancedSkill':
             if (skill <= 0) {
                 errorObj.error = 'YZECORIOLIS.ErrorsInvalidAdvancedSkillRoll';
@@ -148,7 +151,8 @@ export function evaluateCoriolisRoll(rollData, roll) {
 function getTotalDice(rollData) {
     let attributeValue = rollData.attribute;
     let skillValue = rollData.skill;
-    let modifier = rollData.modifier;  // TODO: account for modifier
+    let modifier = rollData.modifier;
+    let bonus = rollData.bonus;
     switch (rollData.rollType) {
         case 'skill':
             return attributeValue + skillValue + modifier;
@@ -156,6 +160,8 @@ function getTotalDice(rollData) {
             return attributeValue + skillValue + modifier;
         case 'attribute':
             return attributeValue + modifier;
+        case 'weapon':
+            return attributeValue + skillValue + bonus + modifier;
     }
     return 0;
 }
@@ -207,19 +213,7 @@ async function updateChatMessage(msgOptions, resultData) {
 
 
 function getRollTitle(rollData) {
-    let rollName = '';
-    switch (rollData.rollType) {
-        case 'skill':
-            rollName = rollData.skillKey;
-            break;
-        case 'advancedSkill':
-            rollName = rollData.skillKey;
-            break;
-        case 'attribute':
-            rollName = rollData.attributeKey;
-            break;
-    }
-    return `${rollName.capitalize()} Roll`;
+    return `${rollData.rollTitle} Roll`;
 }
 
 function getTooltipData(results) {
