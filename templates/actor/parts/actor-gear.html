@@ -153,7 +153,9 @@
         {{#each actor.explosives as |explosive index|}}
         <li class="item flexrow" data-item-id="{{explosive._id}}">
             <div class="item-name flexrow">
-                <div class="item-image" style="background-image: url({{explosive.img}})"></div>
+                <div class="item-image rollable" style="background-image: url({{explosive.img}})" data-rolltype="weapon"
+                    data-label="{{explosive.name}}" data-skillkey="rangedcombat" data-attributekey="agility"
+                    data-bonus="{{explosive.data.bonus}}"></div>
                 <h4>{{explosive.name}}</h4>
             </div>
             <div class="gear-name">
