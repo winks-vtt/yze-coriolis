@@ -371,16 +371,14 @@
   background-size: 30px;
   margin-right: 5px;
 }
+.yzecoriolis.sheet.actor .inventory-list .item .item-name .item-image.rollable:hover {
+  background-image: url("icons/reticule.svg") !important;
+  color: #191813;
+}
 .yzecoriolis.sheet.actor .inventory-list .item .item-name h4 {
   margin: 0;
   white-space: nowrap;
   overflow-x: hidden;
-}
-.yzecoriolis.sheet.actor .inventory-list .item .item-name.rollable:hover .item-image {
-  background-image: url("/icons/svg/d20-grey.svg") !important;
-}
-.yzecoriolis.sheet.actor .inventory-list .item .item-name.rollable .item-image:hover {
-  background-image: url("/icons/svg/d20-black.svg") !important;
 }
 .yzecoriolis.sheet.actor .inventory-list .item .item-name i.attuned {
   color: #7a7971;

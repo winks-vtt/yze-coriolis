@@ -202,6 +202,7 @@
 
             // Item Header Name
             .item-name {
+
                 cursor: pointer;
                 max-height: 30px;
                 overflow: hidden;
@@ -210,20 +211,17 @@
                     flex: 0 0 30px;
                     background-size: 30px;
                     margin-right: 5px;
+
+                    &.rollable:hover {
+                        background-image: url("icons/reticule.svg") !important;
+                        color: @colorDark;
+                    }
                 }
 
                 h4 {
                     margin: 0;
                     white-space: nowrap;
                     overflow-x: hidden;
-                }
-
-                &.rollable:hover .item-image {
-                    background-image: url("/icons/svg/d20-grey.svg") !important;
-                }
-
-                &.rollable .item-image:hover {
-                    background-image: url("/icons/svg/d20-black.svg") !important;
                 }
 
                 i.attuned {
