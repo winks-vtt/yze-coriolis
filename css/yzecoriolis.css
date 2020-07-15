@@ -371,9 +371,11 @@
   background-size: 30px;
   margin-right: 5px;
 }
-.yzecoriolis.sheet.actor .inventory-list .item .item-name .item-image.rollable:hover {
+.yzecoriolis.sheet.actor .inventory-list .item .item-name .item-image.weapon.rollable:hover {
   background-image: url("icons/reticule.svg") !important;
-  color: #191813;
+}
+.yzecoriolis.sheet.actor .inventory-list .item .item-name .item-image.armor.rollable:hover {
+  background-image: url("icons/dice-shield.svg") !important;
 }
 .yzecoriolis.sheet.actor .inventory-list .item .item-name h4 {
   margin: 0;

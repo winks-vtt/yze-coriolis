@@ -90,9 +90,9 @@
         {{#each actor.weapons as |weapon index|}}
         <li class="item flexrow" data-item-id="{{weapon._id}}">
             <div class="item-name flexrow">
-                <div class="item-image rollable" style="background-image: url({{weapon.img}})" data-rolltype="weapon"
-                    data-label="{{weapon.name}}" data-skillkey="rangedcombat" data-attributekey="agility"
-                    data-bonus="{{weapon.data.bonus}}">
+                <div class="item-image rollable weapon" style="background-image: url({{weapon.img}})"
+                    data-rolltype="weapon" data-label="{{weapon.name}}" data-skillkey="rangedcombat"
+                    data-attributekey="agility" data-bonus="{{weapon.data.bonus}}">
                 </div>
                 <h4>{{weapon.name}}</h4>
             </div>
@@ -153,9 +153,9 @@
         {{#each actor.explosives as |explosive index|}}
         <li class="item flexrow" data-item-id="{{explosive._id}}">
             <div class="item-name flexrow">
-                <div class="item-image rollable" style="background-image: url({{explosive.img}})" data-rolltype="weapon"
-                    data-label="{{explosive.name}}" data-skillkey="rangedcombat" data-attributekey="agility"
-                    data-bonus="{{explosive.data.bonus}}"></div>
+                <div class="item-image rollable weapon" style="background-image: url({{explosive.img}})"
+                    data-rolltype="weapon" data-label="{{explosive.name}}" data-skillkey="rangedcombat"
+                    data-attributekey="agility" data-bonus="{{explosive.data.bonus}}"></div>
                 <h4>{{explosive.name}}</h4>
             </div>
             <div class="gear-name">
@@ -208,7 +208,8 @@
         {{#each actor.armor as |armor index|}}
         <li class="item flexrow" data-item-id="{{armor._id}}">
             <div class="item-name flexrow">
-                <div class="item-image" style="background-image: url({{armor.img}})"></div>
+                <div class="item-image rollable armor" style="background-image: url({{armor.img}})"
+                    data-rolltype="armor" data-label="{{armor.name}}" data-bonus="{{armor.data.armorRating}}"></div>
                 <h4>{{armor.name}}</h4>
             </div>
             <div class="gear-name">

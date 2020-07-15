@@ -97,7 +97,8 @@ export async function coriolisPushRoll(msgOptions, origRollData, origRoll) {
  * @returns true / false
  */
 function isValidRoll(rollData, errorObj) {
-    // TODO: account for modifier somehow
+    // TODO: account for modifier somehow.
+    // not as straight forward. should I apply modifiers before checking for zero?
     const skill = rollData.skill;
     const attribute = rollData.attribute;
     const bonus = rollData.bonus;
@@ -106,6 +107,8 @@ function isValidRoll(rollData, errorObj) {
             return attribute + skill > 0;
         case 'weapon':
             return attribute + skill + bonus > 0;
+        case 'armor':
+            return bonus >= 0; // should probably always be true?
         case 'advancedSkill':
             if (skill <= 0) {
                 errorObj.error = 'YZECORIOLIS.ErrorsInvalidAdvancedSkillRoll';
@@ -162,6 +165,8 @@ function getTotalDice(rollData) {
             return attributeValue + modifier;
         case 'weapon':
             return attributeValue + skillValue + bonus + modifier;
+        case 'armor':
+            return bonus + modifier;
     }
     return 0;
 }

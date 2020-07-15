@@ -212,9 +212,17 @@
                     background-size: 30px;
                     margin-right: 5px;
 
-                    &.rollable:hover {
-                        background-image: url("icons/reticule.svg") !important;
-                        color: @colorDark;
+                    &.weapon {
+                        &.rollable:hover {
+                            background-image: url("icons/reticule.svg") !important;
+                        }
+                    }
+
+                    &.armor {
+                        &.rollable:hover {
+                            background-image: url("icons/dice-shield.svg") !important;
+
+                        }
                     }
                 }
 

@@ -382,7 +382,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       skillKey: dataset.skillkey,
       skill: dataset.skillkey ? actorData.skills[dataset.skillkey].value : 0,
       attributeKey: dataset.attributekey,
-      attribute: actorData.attributes[dataset.attributekey].value,
+      attribute: dataset.attributekey ? actorData.attributes[dataset.attributekey].value : 0,
       modifier: 0,
       bonus: dataset.bonus ? Number(dataset.bonus) : 0,
       rollTitle: dataset.label,
