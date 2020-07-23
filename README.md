@@ -1,8 +1,8 @@
 # Coriolis The Third Horizon
-An unofficial Foundry VTT system for Free League's Coriolis RPG.
+A Foundry VTT system for Free League's Coriolis RPG.
 
 ## System Status
-The initial goal is to get the system into a state where one could run a Coriolis game in Foundry with basic rolls for stats, weapons, etc. As such, styling for character sheets and such are still a WIP, and there's very little automation implemented at the moment.
+The initial goal is to get the system into a state where one can run a Coriolis game in Foundry with basic rolls for stats, weapons, etc. As such, styling for character sheets and such are still a WIP, and there's very little automation implemented at the moment.
 
 Once playable, I'd like to start updating the styling of sheets, as well as start adding automations to different rules in the system.
 
@@ -29,8 +29,12 @@ Once playable, I'd like to start updating the styling of sheets, as well as star
 - You can increment or decrement darkness points via the tool bar on the left.
 - Whenever a player pushes a roll, 1 DP is added to the DB pool of the GM
 
-## Recommended Modules:
+## Recommended Modules
 - [Dice So Nice]( https://gitlab.com/riccisi/foundryvtt-dice-so-nice)
+
+## Immediate Todos
+- [ ] Update styling of character sheets
+- [ ] Create a Ship character sheet
 
 ## Support
 For questions, feature requests, or bug reports, feel free to contact me on the Foundry Discord (Winks#1731) or open an issue here directly.
