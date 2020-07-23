@@ -2,7 +2,7 @@
 An unofficial Foundry VTT system for Free League's Coriolis RPG.
 
 ## System Status
-The initial goal is to get the system into a state where one could run a Coriolis game in Foundry. As such, styling for character sheets and such are a little rough, and there's very little automation implemented at the moment.
+The initial goal is to get the system into a state where one could run a Coriolis game in Foundry with basic rolls for stats, weapons, etc. As such, styling for character sheets and such are still a WIP, and there's very little automation implemented at the moment.
 
 Once playable, I'd like to start updating the styling of sheets, as well as start adding automations to different rules in the system.
 
@@ -20,8 +20,7 @@ Once playable, I'd like to start updating the styling of sheets, as well as star
 - Can do armor rating rolls
 - Be able to track Darkness Points
 - Track encumbrance in the inventory tab
-- Support for Dice-So-Nice with custom Dice skins
-
+- Support for [Dice So Nice]( https://gitlab.com/riccisi/foundryvtt-dice-so-nice) with custom Dice skins
 
 ## How-Tos
 
