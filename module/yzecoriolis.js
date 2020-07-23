@@ -26,7 +26,7 @@ Hooks.once('init', async function () {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "1d10",
+    formula: "1d6",
     decimals: 0
   };
 
@@ -47,7 +47,10 @@ Hooks.once('init', async function () {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("yzecoriolis", yzecoriolisItemSheet, { makeDefault: true });
 
-  // If you need to add Handlebars helpers, here are a few useful examples:
+  // register turn order changes. Currently it's sorting from high->low so no need to edit atm.
+  //Combat.prototype.setupTurns = setupCoriolisTurns;
+
+
   Handlebars.registerHelper('concat', function () {
     var outStr = '';
     for (var arg in arguments) {
