@@ -1,3 +1,4 @@
+import { addDarknessPoints } from "./darkness-points.js";
 
 export function coriolisModifierDialog(modifierCallback) {
     let d = new Dialog({
@@ -87,6 +88,7 @@ export async function coriolisPushRoll(msgOptions, origRollData, origRoll) {
     await showDiceSoNice(origRoll, msgOptions.rollMode);
     const result = evaluateCoriolisRoll(origRollData, origRoll);
     await updateChatMessage(msgOptions, result);
+    await addDarknessPoints(1);
 }
 
 /**
