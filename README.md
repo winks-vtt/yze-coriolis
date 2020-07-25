@@ -40,6 +40,10 @@ Once playable, I'd like to start updating the styling of sheets, as well as star
 For questions, feature requests, or bug reports, feel free to contact me on the Foundry Discord (Winks#1731) or open an issue here directly.
 
 ## License
-This Foundry VTT system, written by Winks, is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+This Foundry VTT system, written by Winks, is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
+
+Art:
+nav icons: material.io (apache v2)
+bg: NASA Hubble
 
 This work is licensed under [Foundry Virtual Tabletop EULA - Limited License Agreement for module development](https://foundryvtt.com/article/license/).
