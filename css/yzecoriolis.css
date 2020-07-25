@@ -13,8 +13,16 @@
 /*  Sheet Styles                             */
 /* ----------------------------------------- */
 /* ----------------------------------------- */
-/*  Sheet V2 Styles                             */
+/*  Sheet V2 Styles                          */
 /* ----------------------------------------- */
+@font-face {
+  font-family: "Cairo";
+  src: url("fonts/cairo/Cairo-Regular.ttf");
+}
+@font-face {
+  font-family: "Play";
+  src: url("fonts/play/Play-Regular.ttf");
+}
 /* ----------------------------------------- */
 /*  Flexbox                                  */
 /* ----------------------------------------- */
@@ -199,6 +207,9 @@
 }
 .yzecoriolis.sheet.actor {
   /*
+    mixins
+    */
+  /*
     Background & Container
     */
   /*
@@ -210,6 +221,10 @@
   /*
     Header
     */
+}
+.yzecoriolis.sheet.actor .player-text {
+  font-family: "Cairo";
+  color: #FDFF9D;
 }
 .yzecoriolis.sheet.actor .window-content {
   background: linear-gradient(90deg, #000000 30.35%, rgba(0, 0, 0, 0) 100%), url("images/char-sheet-bg.jpg");
@@ -254,6 +269,63 @@
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 4;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 120px 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 20px;
+}
+.yzecoriolis.sheet.actor .sheet-header {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 2px;
+}
+.yzecoriolis.sheet.actor .sheet-header hr {
+  border: 0.5px solid #7182BE;
+}
+.yzecoriolis.sheet.actor .sheet-header .left-bar {
+  align-self: center;
+}
+.yzecoriolis.sheet.actor .sheet-header .right-bar {
+  align-self: center;
+}
+.yzecoriolis.sheet.actor .sheet-header .score-line {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.yzecoriolis.sheet.actor .sheet-header .name-plate {
+  font-family: "Cairo";
+  color: #FDFF9D;
+  font-family: "Play";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 58px;
+  justify-self: center;
+}
+.yzecoriolis.sheet.actor .sheet-header .char-class {
+  color: white;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  border-top: 0.5px solid #7182BE;
+  text-align: center;
+  padding-top: 10px;
+}
+.yzecoriolis.sheet.actor .sheet-body {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */

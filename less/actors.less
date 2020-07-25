@@ -3,6 +3,14 @@
 .yzecoriolis.sheet.actor {
 
     /*
+    mixins
+    */
+    .player-text {
+        font-family: "Cairo";
+        color: @colorPlayerText;
+    }
+
+    /*
     Background & Container
     */
     .window-content {
@@ -65,10 +73,81 @@
         grid-column-end: 3;
         grid-row-start: 1;
         grid-row-end: 4;
+
+        // split between header and main stat blocks
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 120px 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 20px;
     }
 
     /*
     Header
     */
+    .sheet-header {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+
+        hr {
+            border: .5px solid @colorBlue;
+        }
+
+        // 3x2
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 2px;
+
+        .left-bar {
+            align-self: center;
+        }
+
+        .right-bar {
+            align-self: center;
+        }
+
+        .score-line {
+            grid-column-start: 1;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+
+        .name-plate {
+            .player-text();
+            font-family: "Play";
+            font-style: normal;
+            font-weight: normal;
+            font-size: 50px;
+            line-height: 58px;
+
+            justify-self: center;
+        }
+
+        .char-class {
+            color: @colorWhite;
+            grid-column-start: 1;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 3;
+            border-top: .5px solid @colorBlue;
+            text-align: center;
+            padding-top: 10px;
+
+        }
+    }
+
+    .sheet-body {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+
 
 }
