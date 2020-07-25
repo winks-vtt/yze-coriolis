@@ -11,6 +11,7 @@ _______________________________`;
 
 YZECORIOLIS.maxRoll = 6;
 
+YZECORIOLIS.DEFAULT_PLAYER_KEY_ART = 'systems/yzecoriolis/css/images/unknown_player.png';
 
 YZECORIOLIS.attributes = {
     "strength": "YZECORIOLIS.AttrStrength",

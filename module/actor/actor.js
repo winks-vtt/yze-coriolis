@@ -1,3 +1,4 @@
+
 /**
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -25,6 +26,11 @@ export class yzecoriolisActor extends Actor {
   _prepareCharacterData(actorData) {
     const data = actorData.data;
     // Cap attribute scores
+    if (!data.keyArt) {
+      data.keyArt = data.keyArt || CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART;
+    }
+
+
     for (let [key, attr] of Object.entries(data.attributes)) {
       if (attr.value > attr.max) {
         attr.value = attr.max;
