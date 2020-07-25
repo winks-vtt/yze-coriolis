@@ -13,7 +13,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       classes: ["yzecoriolis", "sheet", "actor"],
       template: "systems/yzecoriolis/templates/actor/actor-sheet-v2.html",
       width: 1000,
-      height: 800,
+      height: 810,
       resizable: false,
       tabs: [{
         navSelector: ".sheet-tabs",

@@ -13,6 +13,9 @@
 /*  Sheet Styles                             */
 /* ----------------------------------------- */
 /* ----------------------------------------- */
+/*  Sheet V2 Styles                             */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
 /*  Flexbox                                  */
 /* ----------------------------------------- */
 .flexrow {
@@ -212,7 +215,48 @@
   background: linear-gradient(90deg, #000000 30.35%, rgba(0, 0, 0, 0) 100%), url("images/char-sheet-bg.jpg");
 }
 .yzecoriolis.sheet.actor .sheet-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2.3fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 0px;
+}
+.yzecoriolis.sheet.actor .key-art-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 20px;
+  width: 278px;
+  height: 760px;
+}
+.yzecoriolis.sheet.actor .key-art-container .character-art {
+  grid-row-start: 1;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  z-index: 1;
+}
+.yzecoriolis.sheet.actor .key-art-container .character-art .vertical-img-container {
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.yzecoriolis.sheet.actor .key-art-container .gradient-overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.635714) 28.12%, #000000 72.92%);
+  border-radius: 0px 0px 10px 10px;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  z-index: 2;
+}
+.yzecoriolis.sheet.actor .key-art-container .always-visible-stats {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  z-index: 3;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
