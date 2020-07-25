@@ -208,6 +208,12 @@
     Header
     */
 }
+.yzecoriolis.sheet.actor .window-content {
+  background: linear-gradient(90deg, #000000 30.35%, rgba(0, 0, 0, 0) 100%), url("images/char-sheet-bg.jpg");
+}
+.yzecoriolis.sheet.actor .sheet-container {
+  display: flex;
+}
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
   /*  Sheet Tabs                             */
