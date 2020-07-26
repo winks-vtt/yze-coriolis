@@ -465,6 +465,8 @@
 .yzecoriolis.sheet.actor .sheet-body .attribute-list .attr-rollable img {
   border: none;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  width: 44px;
+  height: 44px;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
