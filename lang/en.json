@@ -1,5 +1,5 @@
 {
-    "YZECORIOLIS.SheetStats":"Stats",
+    "YZECORIOLIS.SheetStats": "Stats",
 
     "YZECORIOLIS.CrewPosition": "Crew Position",
     "YZECORIOLIS.CrewSpotCaptain": "Captain",
@@ -120,8 +120,8 @@
     "YZECORIOLIS.AttrAgility": "Agility",
     "YZECORIOLIS.AttrWits": "Wits",
     "YZECORIOLIS.AttrEmpathy": "Empathy",
-    "YZECORIOLIS.SkillCatGeneral": "General",
-    "YZECORIOLIS.SkillCatAdvanced": "Advanced",
+    "YZECORIOLIS.SkillCatGeneral": "General Skills",
+    "YZECORIOLIS.SkillCatAdvanced": "Advanced Skills",
     "YZECORIOLIS.SkillDexterity": "Dexterity",
     "YZECORIOLIS.SkillForce": "Force",
     "YZECORIOLIS.SkillInfiltration": "Infiltration",

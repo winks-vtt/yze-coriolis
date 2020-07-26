@@ -23,8 +23,8 @@
           <span class="panel-title">{{localize "YZECORIOLIS.SheetStats"}}</span>
           <button class="nav-button"><img class="flip" src="systems/yzecoriolis/css/icons/nav_back.svg"></button>
         </header>
-        <div class="panel flexcol">
-          <ul class="attribute-list  flexrow">
+        <div class="panel">
+          <ul class="attribute-list">
             {{#each actor.data.attributes as |ability key|}}
             <li class="">
               <div class="flexcol attr-item">
@@ -42,9 +42,36 @@
             </li>
             {{/each}}
           </ul>
-          <div class="">skills
 
+          <div class="skills-list-group flexrow">
+            <ol class="single-skill-list">
+              <li class="skill-header">{{getSkillCategoryName 'general'}}</li>
+              {{#each actor.data.skills as |skill id|}}
+              {{#if_eq skill.category 'general'}}
+              <li class="skill fr-basic">
+                <div class="skill-image" style="background-image: url({{skill.img}})"></div>
+                <h4>{{getSkillName id}}</h4>
+                <div class="bg-skill-{{skill.attribute}}"></div>
+                <div class="skill-value-display">
+                  <input class="skill-input" type="text" name="data.skills.{{id}}.value" value="{{skill.value}}"
+                    data-dtype="Number" />
+                </div>
+                {{!-- <div class="skill-name flexrow rollable" data-rolltype="skill" data-attributekey={{skill.attribute}}
+                  data-skillkey={{id}} data-label="{{getSkillName id}}">
+                  <div class="skill-image" style="background-image: url({{skill.img}})"></div>
+                  <h4>{{getSkillName id}} ({{getAttributeName skill.attribute}})</h4>
+                </div>
+                <input class="skill-input" type="text" name="data.skills.{{id}}.value" value="{{skill.value}}"
+                  data-dtype="Number" /> --}}
+              </li>
+              {{/if_eq }}
+              {{/each}}
+            </ol>
+            <ol class="single-skill-list">
+              <li class=" skill-header">{{getSkillCategoryName 'advanced'}}</li>
+            </ol>
           </div>
+
           <div class="">injuries</div>
         </div>
       </div>

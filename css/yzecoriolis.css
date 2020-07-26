@@ -23,9 +23,21 @@
   font-family: "Play";
   src: url("fonts/play/Play-Regular.ttf");
 }
+.animated-hover {
+  transition: 275ms filter ease;
+}
+.animated-hover:hover {
+  filter: brightness(1.5);
+}
 /* ----------------------------------------- */
 /*  Flexbox                                  */
 /* ----------------------------------------- */
+.fr-basic {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
 .flexrow {
   display: flex;
   flex-direction: row;
@@ -395,21 +407,24 @@
   flex: 1;
 }
 .yzecoriolis.sheet.actor .sheet-body .panel {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 .yzecoriolis.sheet.actor .sheet-body .attribute-list {
   list-style: none;
   padding: 0px;
   justify-content: space-around;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: row;
 }
 .yzecoriolis.sheet.actor .sheet-body .attribute-list .attr-item {
   align-items: center;
   transition: 275ms filter ease;
 }
 .yzecoriolis.sheet.actor .sheet-body .attribute-list .attr-item:hover {
-  filter: brightness(1.4);
+  filter: brightness(1.5);
 }
 .yzecoriolis.sheet.actor .sheet-body .attribute-list .attr-block {
   border: 3px solid #7182BE;
@@ -471,6 +486,108 @@
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   width: 44px;
   height: 44px;
+}
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group {
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group ol {
+  list-style: none;
+  padding: 0px;
+}
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill-header {
+  font-family: "Cairo";
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill {
+  transition: 275ms filter ease;
+  background: rgba(19, 27, 53, 0.25);
+  border-radius: 3px;
+  align-items: center;
+  margin-bottom: 2px;
+  padding: 2px;
+}
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill:hover {
+  filter: brightness(1.5);
+}
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill h4 {
+  font-family: "Cairo";
+  color: white;
+  color: #7182BE;
+  font-weight: bold;
+  font-size: 14px;
+  flex: 1;
+  margin: 0px;
+}
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .skill-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 30px;
+  height: 30px;
+  flex-basis: 30px;
+  margin-right: 5px;
+}
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .skill-image:hover {
+  background-image: url("icons/rolling-dices.svg") !important;
+}
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .attr-tag-helper {
+  height: 30px;
+  flex-basis: 30px;
+  background-size: 30px;
+  flex-basis: 80px;
+}
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .bg-skill-wits {
+  height: 30px;
+  flex-basis: 30px;
+  background-size: 30px;
+  flex-basis: 80px;
+  background-repeat: no-repeat;
+  background-image: url("icons/skill-tag-wits.svg");
+  background-position: center center;
+  background-clip: padding-box;
+}
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .bg-skill-strength {
+  height: 30px;
+  flex-basis: 30px;
+  background-size: 30px;
+  flex-basis: 80px;
+  background-repeat: no-repeat;
+  background-image: url("icons/skill-tag-strength.svg");
+  background-position: center center;
+  background-clip: padding-box;
+  background-size: 25px;
+}
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .bg-skill-empathy {
+  height: 30px;
+  flex-basis: 30px;
+  background-size: 30px;
+  flex-basis: 80px;
+  background-repeat: no-repeat;
+  background-image: url("icons/skill-tag-empathy.svg");
+  background-position: center center;
+  background-clip: padding-box;
+}
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .bg-skill-agility {
+  height: 30px;
+  flex-basis: 30px;
+  background-size: 30px;
+  flex-basis: 80px;
+  background-repeat: no-repeat;
+  background-image: url("icons/skill-tag-agility.svg");
+  background-position: center center;
+  background-clip: padding-box;
+}
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .skill-value-display {
+  flex-basis: 45px;
+}
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .skill-input {
+  font-weight: bold;
+  font-size: 18px;
+  height: 25px;
+  text-align: center;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */

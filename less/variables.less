@@ -55,9 +55,26 @@
 @letterSpacing: 0.755em;
 @letterSpacingSmaller: .2em;
 
+.animated-hover {
+    transition: 275ms filter ease;
+
+    &:hover {
+        filter: brightness(1.5);
+    }
+}
+
+
+
 /* ----------------------------------------- */
 /*  Flexbox                                  */
 /* ----------------------------------------- */
+
+.fr-basic {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
 
 .flexrow {
     display: flex;
