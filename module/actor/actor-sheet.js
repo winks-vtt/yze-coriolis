@@ -141,7 +141,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     super.activateListeners(html);
 
     // hook up scalable input fields
-    
+
 
     html.find('.item .item-name h4').click(event => this._onItemSummary(event));
 
@@ -331,13 +331,16 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
   _onCriticalInjuryCreate(event) {
     event.preventDefault();
-    const name = '';
+    const critData = {
+      name: '',
+      description: ''
+    }
     let injuries = {};
     if (this.actor.data.data.criticalInjuries) {
       injuries = duplicate(this.actor.data.data.criticalInjuries);
     }
     let key = getID();
-    injuries['ci' + key] = name;
+    injuries['ci' + key] = critData;
     return this.actor.update({ 'data.criticalInjuries': injuries });
   }
 

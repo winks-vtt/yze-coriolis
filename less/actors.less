@@ -250,6 +250,8 @@
             justify-content: space-around;
             margin-top: 10px;
             margin-bottom: 0px;
+
+
             display: flex;
             flex-direction: row;
 
@@ -423,6 +425,56 @@
                     font-size: 18px;
                     height: 25px;
                     text-align: center;
+                }
+            }
+        }
+
+        .critical-injuries-list {
+            list-style: none;
+            padding: 0px;
+            align-items: center;
+            margin: 0 10px;
+
+            .crit-header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                h4 {
+                    .data-text();
+                    font-size: 14px;
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+            }
+
+            .injury {
+                align-items: center;
+            }
+
+            .crit-controls {
+                .data-text();
+                font-size: 14px;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            .injury-display {
+                .player-text();
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 18px;
+
+                &.description {
+                    flex-basis: 40px;
+                }
+
+                .injury-input {
+                    font-weight: bold;
+                    font-size: 18px;
+                    height: 25px;
+                    text-align: center;
+                    border: 1px solid @colorBlue;
                 }
             }
         }

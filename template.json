@@ -215,7 +215,7 @@
     }
   },
   "Item": {
-    "types": ["item", "gear", "talent", "weapon", "armor"],
+    "types": ["item", "gear", "talent", "weapon", "armor", "injury"],
     "templates": {
       "base": {
         "description": ""
@@ -273,6 +273,9 @@
       "armorRating": 0,
       "special": {},
       "extraFeatures": 0
+    },
+    "injury": {
+      "templates": ["base"]
     }
   }
 }

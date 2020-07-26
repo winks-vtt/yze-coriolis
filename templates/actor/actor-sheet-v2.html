@@ -86,7 +86,34 @@
             </ol>
           </div>
 
-          <div class="">injuries</div>
+          <ul class="critical-injuries-list">
+            <li class="crit-header">
+              <h4>{{localize "YZECORIOLIS.CriticalInjuries"}}</h4>
+              {{#if owner}}
+              <div class="crit-controls">
+                <a class="injury-create" title='{{localize "YZECORIOLIS.CreateCriticalInjury"}}'>
+                  <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+                </a>
+              </div>
+              {{/if}}
+            </li>
+            {{#each actor.data.criticalInjuries as |injury ciKey|}}
+            <li class="injury flexrow">
+              <div class="injury-display">
+                <input class="injury-input" type="text" name="data.criticalInjuries.{{ciKey}}.name"
+                  value="{{injury.name}}" placeholder="{{localize "YZECORIOLIS.CriticalInjury"}}" />
+              </div>
+              <div class="injury-display description">
+                <input class="injury-input" type="text" name="data.criticalInjuries.{{ciKey}}.description"
+                  value="{{injury.description}}" placeholder="{{localize "YZECORIOLIS.Description"}}" />
+              </div>
+              <div class="crit-controls">
+                <a class="injury-delete" title={{localize "YZECORIOLIS.DeleteCriticalInjury"}}><i
+                    class="fas fa-trash"></i></a>
+              </div>
+            </li>
+            {{/each}}
+          </ul>
         </div>
       </div>
     </div>

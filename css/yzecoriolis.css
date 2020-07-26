@@ -598,6 +598,51 @@
   height: 25px;
   text-align: center;
 }
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list {
+  list-style: none;
+  padding: 0px;
+  align-items: center;
+  margin: 0 10px;
+}
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-header h4 {
+  font-family: "Cairo";
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury {
+  align-items: center;
+}
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-controls {
+  font-family: "Cairo";
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury-display {
+  font-family: "Cairo";
+  color: #FDFF9D;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 18px;
+}
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury-display.description {
+  flex-basis: 40px;
+}
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury-display .injury-input {
+  font-weight: bold;
+  font-size: 18px;
+  height: 25px;
+  text-align: center;
+  border: 1px solid #7182BE;
+}
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
   /*  Sheet Tabs                             */
