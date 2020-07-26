@@ -247,7 +247,7 @@
 }
 .yzecoriolis.sheet.actor .sheet-container {
   display: grid;
-  grid-template-columns: 1fr 2.3fr;
+  grid-template-columns: 1fr 2.2fr;
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 20px;
@@ -287,9 +287,9 @@
   grid-row-end: 4;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 120px 1fr;
+  grid-template-rows: 98px 1fr;
   grid-column-gap: 10px;
-  grid-row-gap: 35px;
+  grid-row-gap: 15px;
 }
 .yzecoriolis.sheet.actor .sheet-header {
   grid-column-start: 1;
@@ -316,7 +316,7 @@
   grid-column-end: 4;
 }
 .yzecoriolis.sheet.actor .sheet-header .name-plate .char-name-input {
-  height: 86px;
+  height: 50px;
   text-transform: uppercase;
 }
 .yzecoriolis.sheet.actor .sheet-header .char-class {
