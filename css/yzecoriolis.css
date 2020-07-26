@@ -328,6 +328,11 @@
   text-align: center;
   padding-top: 10px;
 }
+.yzecoriolis.sheet.actor .sheet-header .char-class .char-class-input {
+  font-size: 18px;
+  text-transform: uppercase;
+  height: 32px;
+}
 .yzecoriolis.sheet.actor .sheet-body {
   grid-column-start: 1;
   grid-column-end: 2;
