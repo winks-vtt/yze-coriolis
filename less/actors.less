@@ -245,6 +245,12 @@
 
             .attr-item {
                 align-items: center;
+
+                transition: 275ms filter ease;
+
+                &:hover {
+                    filter: brightness(1.4);
+                }
             }
 
             .attr-block {
@@ -305,6 +311,7 @@
             }
 
             .attr-rollable {
+
                 img {
                     border: none;
                     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));

@@ -406,6 +406,10 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .attribute-list .attr-item {
   align-items: center;
+  transition: 275ms filter ease;
+}
+.yzecoriolis.sheet.actor .sheet-body .attribute-list .attr-item:hover {
+  filter: brightness(1.4);
 }
 .yzecoriolis.sheet.actor .sheet-body .attribute-list .attr-block {
   border: 3px solid #7182BE;
