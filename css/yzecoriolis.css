@@ -413,7 +413,46 @@
   border-radius: 3px;
   background-color: rgba(19, 27, 53, 0.25);
   flex-basis: 70px;
+  height: 70px;
   width: 116px;
+}
+.yzecoriolis.sheet.actor .sheet-body .attribute-list .bg-wits {
+  background-repeat: no-repeat;
+  background-image: url("icons/icon-wits-bg.svg");
+  background-position: center center;
+  background-clip: padding-box;
+}
+.yzecoriolis.sheet.actor .sheet-body .attribute-list .bg-strength {
+  background-repeat: no-repeat;
+  background-image: url("icons/icon-strength-bg.svg");
+  background-position: center center;
+  background-clip: padding-box;
+}
+.yzecoriolis.sheet.actor .sheet-body .attribute-list .bg-empathy {
+  background-repeat: no-repeat;
+  background-image: url("icons/icon-empathy-bg.svg");
+  background-position: center center;
+  background-clip: padding-box;
+}
+.yzecoriolis.sheet.actor .sheet-body .attribute-list .bg-agility {
+  background-repeat: no-repeat;
+  background-image: url("icons/icon-agility-bg.svg");
+  background-position: center center;
+  background-clip: padding-box;
+}
+.yzecoriolis.sheet.actor .sheet-body .attribute-list .attr-num-display {
+  font-family: "Cairo";
+  color: #FDFF9D;
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 60px;
+}
+.yzecoriolis.sheet.actor .sheet-body .attribute-list .attr-num-display .attr-input {
+  font-weight: bold;
+  font-size: 48px;
+  height: 50px;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
 }
 .yzecoriolis.sheet.actor .sheet-body .attribute-list .attr-name {
   font-family: "Cairo";

@@ -28,8 +28,11 @@
             {{#each actor.data.attributes as |ability key|}}
             <li class="">
               <div class="flexcol attr-item">
-                <div class="attr-block">
-                  <div class="attr-bg">block</div>
+                <div class="attr-block bg-{{key}}">
+                  <div class="attr-num-display">
+                    <input class="attr-input" type="text" name="data.attributes.{{key}}.value" value="{{ability.value}}"
+                      data-dtype="Number" placeholder="0" />
+                  </div>
                 </div>
                 <div class="attr-name">{{getAttributeName key}}</div>
                 <div class="attr-rollable"><img src="systems/yzecoriolis/css/icons/rolling-dices.svg"></div>

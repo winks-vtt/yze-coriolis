@@ -253,8 +253,47 @@
                 border-radius: 3px;
                 background-color: rgba(19, 27, 53, 0.25);
                 flex-basis: 70px; // height since this is in a column
+                height: 70px; // not sure why i have to enable both...!?
                 width: 116px;
+            }
 
+            .bg-attr(@image) {
+                background-repeat: no-repeat;
+                background-image: url(@image);
+                background-position: center center;
+                background-clip: padding-box;
+            }
+
+            .bg-wits {
+                .bg-attr("icons/icon-wits-bg.svg");
+            }
+
+            .bg-strength {
+                .bg-attr("icons/icon-strength-bg.svg");
+            }
+
+            .bg-empathy {
+                .bg-attr("icons/icon-empathy-bg.svg");
+
+            }
+
+            .bg-agility {
+                .bg-attr("icons/icon-agility-bg.svg");
+            }
+
+            .attr-num-display {
+                .player-text();
+                font-size: 48px;
+                font-weight: bold;
+                line-height: 60px;
+
+                .attr-input {
+                    font-weight: bold;
+                    font-size: 48px;
+                    height: 50px;
+                    text-align: center;
+                    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+                }
             }
 
             .attr-name {
