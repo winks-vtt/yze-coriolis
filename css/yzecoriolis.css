@@ -222,8 +222,14 @@
     Header
     */
 }
-.yzecoriolis.sheet.actor input[type="text"] {
+.yzecoriolis.sheet.actor .player-text {
+  font-family: "Cairo";
   color: #FDFF9D;
+}
+.yzecoriolis.sheet.actor input[type="text"] {
+  font-family: "Cairo";
+  color: #FDFF9D;
+  font-family: "Play";
   box-shadow: none;
   border: none;
   font-size: 50px;
@@ -296,7 +302,6 @@
   border: 0.5px solid #7182BE;
 }
 .yzecoriolis.sheet.actor .sheet-header .name-plate {
-  font-family: "Play";
   font-style: normal;
   font-weight: normal;
   font-size: 50px;
@@ -306,8 +311,15 @@
   grid-column-start: 1;
   grid-column-end: 4;
 }
+.yzecoriolis.sheet.actor .sheet-header .name-plate .char-name-input {
+  height: 86px;
+  text-transform: uppercase;
+}
 .yzecoriolis.sheet.actor .sheet-header .char-class {
-  color: white;
+  font-family: "Cairo";
+  color: #FDFF9D;
+  font-family: "Play";
+  font-size: 18px;
   grid-column-start: 1;
   grid-column-end: 4;
   grid-row-start: 2;
@@ -315,10 +327,6 @@
   border-top: 0.5px solid #7182BE;
   text-align: center;
   padding-top: 10px;
-}
-.yzecoriolis.sheet.actor .sheet-header .char-name-input {
-  height: 86px;
-  text-transform: uppercase;
 }
 .yzecoriolis.sheet.actor .sheet-body {
   grid-column-start: 1;

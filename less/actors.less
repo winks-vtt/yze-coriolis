@@ -5,13 +5,14 @@
     /*
     mixins
     */
-    .player-text() {
+    .player-text {
         font-family: "Cairo";
         color: @colorPlayerText;
     }
 
     input[type="text"] {
-        color: @colorPlayerText;
+        .player-text();
+        font-family: "Play";
         box-shadow: none;
         border: none;
         font-size: 50px;
@@ -120,7 +121,6 @@
                 font-family: "Play";
             }
 
-            font-family: "Play";
             font-style: normal;
             font-weight: normal;
             font-size: 50px;
@@ -130,10 +130,18 @@
             text-align: center;
             grid-column-start: 1;
             grid-column-end: 4;
+
+            // would be nice to auto-resize the height of the input box.
+            .char-name-input {
+                height: 86px;
+                text-transform: uppercase;
+            }
         }
 
         .char-class {
-            color: @colorWhite;
+            .player-text();
+            font-family: "Play";
+            font-size: 18px;
             grid-column-start: 1;
             grid-column-end: 4;
             grid-row-start: 2;
@@ -144,11 +152,7 @@
 
         }
 
-        // would be nice to auto-resize the height of the input box.
-        .char-name-input {
-            height: 86px;
-            text-transform: uppercase;
-        }
+
     }
 
     .sheet-body {
