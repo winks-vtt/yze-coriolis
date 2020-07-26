@@ -35,7 +35,9 @@
                   </div>
                 </div>
                 <div class="attr-name">{{getAttributeName key}}</div>
-                <div class="attr-rollable"><img src="systems/yzecoriolis/css/icons/rolling-dices.svg"></div>
+                <div class="attr-rollable  rollable" data-rolltype="attribute" data-attributekey={{key}}
+                  data-roll="(@attributes.{{key}}.value)d6" data-label="{{getAttributeName key}}"><img
+                    src="systems/yzecoriolis/css/icons/rolling-dices.svg"></div>
               </div>
             </li>
             {{/each}}
