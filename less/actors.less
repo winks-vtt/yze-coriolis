@@ -232,6 +232,46 @@
         .panel {
             flex: 1;
         }
+
+        /*-------------------------------------*/
+        /* Attributes List*/
+        /*-------------------------------------*/
+        .attribute-list {
+            list-style: none;
+            padding: 0px;
+            justify-content: space-around;
+            margin-top: 15px;
+            margin-bottom: 15px;
+
+            .attr-item {
+                align-items: center;
+            }
+
+            .attr-block {
+                border: 3px solid @colorBlue;
+                box-sizing: border-box;
+                border-radius: 3px;
+                background-color: rgba(19, 27, 53, 0.25);
+                flex-basis: 70px; // height since this is in a column
+                width: 116px;
+
+            }
+
+            .attr-name {
+                .data-text();
+                font-size: 14px;
+                letter-spacing: @letterSpacingSmaller;
+                text-transform: uppercase;
+                color: @colorBlue;
+            }
+
+            .attr-rollable {
+                img {
+                    border: none;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                }
+            }
+        }
     }
 
 
