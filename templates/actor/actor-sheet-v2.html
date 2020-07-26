@@ -49,9 +49,13 @@
               {{#each actor.data.skills as |skill id|}}
               {{#if_eq skill.category 'general'}}
               <li class="skill fr-basic">
-                <div class="skill-image" style="background-image: url({{skill.img}})"></div>
-                <h4>{{getSkillName id}}</h4>
-                <div class="bg-skill-{{skill.attribute}}"></div>
+                <div class="fr-basic rollable flex1" data-rolltype="skill" data-attributekey={{skill.attribute}}
+                  data-skillkey={{id}} data-label="{{getSkillName id}}">
+                  <div class="skill-image" style="background-image: url({{skill.img}})"></div>
+                  <h4>{{getSkillName id}}</h4>
+                  <div class="bg-skill-{{skill.attribute}}"></div>
+                </div>
+
                 <div class="skill-value-display">
                   <input class="skill-input" type="text" name="data.skills.{{id}}.value" value="{{skill.value}}"
                     data-dtype="Number" />

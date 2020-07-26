@@ -513,6 +513,9 @@
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill:hover {
   filter: brightness(1.5);
 }
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .rollable:hover {
+  text-shadow: 0 0 5px orangered;
+}
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill h4 {
   font-family: "Cairo";
   color: white;
