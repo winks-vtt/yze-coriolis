@@ -10,6 +10,11 @@
         color: @colorPlayerText;
     }
 
+    .data-text {
+        font-family: "Cairo";
+        color: @colorWhite;
+    }
+
     input[type="text"] {
         .player-text();
         font-family: "Play";
@@ -190,6 +195,7 @@
                 border: none;
                 margin: 0px;
                 box-shadow: none;
+                cursor: pointer;
 
                 &:hover {
                     background-color: lighten(@colorBlue, 20%);
@@ -211,7 +217,13 @@
                 }
             }
 
-            span {
+            .panel-title {
+                .data-text();
+                letter-spacing: @letterSpacing;
+                text-transform: uppercase;
+                font-size: 18px;
+                line-height: 19px;
+                font-weight: bold;
                 text-align: center;
                 flex: 1;
             }

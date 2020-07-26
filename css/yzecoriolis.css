@@ -226,6 +226,10 @@
   font-family: "Cairo";
   color: #FDFF9D;
 }
+.yzecoriolis.sheet.actor .data-text {
+  font-family: "Cairo";
+  color: white;
+}
 .yzecoriolis.sheet.actor input[type="text"] {
   font-family: "Cairo";
   color: #FDFF9D;
@@ -360,6 +364,7 @@
   border: none;
   margin: 0px;
   box-shadow: none;
+  cursor: pointer;
 }
 .yzecoriolis.sheet.actor .sheet-body header .nav-button:hover {
   background-color: #b7c0de;
@@ -375,7 +380,14 @@
   transform: scaleX(-1);
   margin-left: 2px;
 }
-.yzecoriolis.sheet.actor .sheet-body header span {
+.yzecoriolis.sheet.actor .sheet-body header .panel-title {
+  font-family: "Cairo";
+  color: white;
+  letter-spacing: 0.755em;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 19px;
+  font-weight: bold;
   text-align: center;
   flex: 1;
 }
