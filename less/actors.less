@@ -326,6 +326,12 @@
                 padding: 0px;
             }
 
+            .single-skill-list {
+
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
             justify-content: space-around;
             margin-bottom: 15px;
 
@@ -346,32 +352,37 @@
 
 
                 .rollable {
-
                     &:hover {
                         text-shadow: 0 0 5px @colorOrangeShadow;
+
+                        // we trigger this here so we have a bigger hit area
+                        .skill-image {
+                            background-image: url("icons/rolling-dices.svg");
+                            background-size: 30px;
+                        }
                     }
+
                 }
 
                 h4 {
                     .data-text();
                     color: @colorBlue;
                     font-weight: bold;
-                    font-size: 14px;
+                    font-size: 16px;
                     flex: 1;
                     margin: 0px;
                 }
 
                 .skill-image {
+                    transition: 275ms background-size ease;
                     background-position: center center;
                     background-repeat: no-repeat;
-                    background-size: 30px;
+                    background-size: 0px;
                     height: 30px;
                     flex-basis: 30px;
                     margin-right: 5px;
 
-                    &:hover {
-                        background-image: url("icons/rolling-dices.svg") !important;
-                    }
+
                 }
 
                 .attr-tag-helper {
