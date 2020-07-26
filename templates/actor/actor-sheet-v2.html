@@ -1,21 +1,17 @@
 <form class="{{cssClass}}" autocomplete="off">
   <div class="sheet-container">
     <div class="key-art-container">
-      <img class="vertical-img" src="{{data.keyArt}}" data-edit="keyArt" title="{{actor.name}}">
+      <img class="vertical-img" src="{{data.keyArt}}" data-edit="data.keyArt" title="{{actor.name}}">
     </div>
     <div class="gradient-overlay"></div>
     <div class="always-visible-stats"></div>
     <div class="char-content-wrapper">
       <header class="sheet-header">
-        <div class="left-bar">
-          <hr>
-        </div>
+
         <header class="name-plate">
-          <span class="player-text">{{actor.name}}</span>
+          <input class="player-text char-name-input" name="name" type="text" value="{{actor.name}}"
+            placeholder={{localize "YZECORIOLIS.Name"}} />
         </header>
-        <div class="right-bar">
-          <hr>
-        </div>
 
         <div class="char-class">TRAILBLAZER</div>
       </header>

@@ -140,6 +140,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
+    // hook up scalable input fields
+    
+
     html.find('.item .item-name h4').click(event => this._onItemSummary(event));
 
     // Everything below here is only needed if the sheet is editable
