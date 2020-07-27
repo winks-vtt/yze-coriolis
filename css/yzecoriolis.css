@@ -35,8 +35,11 @@
 .fr-basic {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-start;
+}
+.fr-basic .flex1 {
+  flex: 1;
 }
 .flexrow {
   display: flex;
@@ -241,6 +244,12 @@
 .yzecoriolis.sheet.actor .data-text {
   font-family: "Cairo";
   color: white;
+}
+.yzecoriolis.sheet.actor .line-item-entry {
+  background: rgba(19, 27, 53, 0.25);
+  border-radius: 3px;
+  padding: 2px;
+  margin-bottom: 2px;
 }
 .yzecoriolis.sheet.actor input[type="text"] {
   font-family: "Cairo";
@@ -489,7 +498,6 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group {
   justify-content: space-around;
-  margin-bottom: 15px;
 }
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group ol {
   list-style: none;
@@ -510,9 +518,10 @@
   transition: 275ms filter ease;
   background: rgba(19, 27, 53, 0.25);
   border-radius: 3px;
-  align-items: center;
-  margin-bottom: 2px;
   padding: 2px;
+  margin-bottom: 2px;
+  align-items: center;
+  height: 30px;
 }
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill:hover {
   filter: brightness(1.5);
@@ -545,13 +554,13 @@
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .attr-tag-helper {
   height: 30px;
   flex-basis: 30px;
-  background-size: 30px;
+  background-size: 25px;
   flex-basis: 80px;
 }
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .bg-skill-wits {
   height: 30px;
   flex-basis: 30px;
-  background-size: 30px;
+  background-size: 25px;
   flex-basis: 80px;
   background-repeat: no-repeat;
   background-image: url("icons/skill-tag-wits.svg");
@@ -561,18 +570,18 @@
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .bg-skill-strength {
   height: 30px;
   flex-basis: 30px;
-  background-size: 30px;
+  background-size: 25px;
   flex-basis: 80px;
   background-repeat: no-repeat;
   background-image: url("icons/skill-tag-strength.svg");
   background-position: center center;
   background-clip: padding-box;
-  background-size: 25px;
+  background-size: 20px;
 }
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .bg-skill-empathy {
   height: 30px;
   flex-basis: 30px;
-  background-size: 30px;
+  background-size: 25px;
   flex-basis: 80px;
   background-repeat: no-repeat;
   background-image: url("icons/skill-tag-empathy.svg");
@@ -582,7 +591,7 @@
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .bg-skill-agility {
   height: 30px;
   flex-basis: 30px;
-  background-size: 30px;
+  background-size: 25px;
   flex-basis: 80px;
   background-repeat: no-repeat;
   background-image: url("icons/skill-tag-agility.svg");
@@ -618,30 +627,50 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury {
   align-items: center;
+  background: rgba(19, 27, 53, 0.25);
+  border-radius: 3px;
+  padding: 2px;
+  margin-bottom: 2px;
+  height: 26px;
 }
-.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-controls {
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-add-controls {
   font-family: "Cairo";
   color: white;
   font-size: 14px;
   text-align: center;
   text-transform: uppercase;
+  padding-right: 2px;
+}
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-controls {
+  flex: 0 0 80px;
+  color: #7182BE;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 5px;
+}
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-controls .crit-control-widget {
+  flex-basis: 20px;
+  text-align: right;
 }
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury-display {
   font-family: "Cairo";
   color: #FDFF9D;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
-  line-height: 18px;
+  color: #FFA903;
 }
-.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury-display.description {
-  flex-basis: 40px;
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury-description {
+  color: #7182BE;
+  flex: 0 0 400px;
+  width: 400px;
 }
-.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury-display .injury-input {
-  font-weight: bold;
-  font-size: 18px;
-  height: 25px;
-  text-align: center;
-  border: 1px solid #7182BE;
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury-description span {
+  white-space: nowrap !important;
+}
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury-description p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */

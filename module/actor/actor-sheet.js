@@ -46,6 +46,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const talents = {};
     const weapons = [];
     const explosives = [];
+    const injuries = [];
     let totalWeightPoints = 0;
 
     for (let k of Object.keys(CONFIG.YZECORIOLIS.gearWeights)) {
@@ -89,6 +90,10 @@ export class yzecoriolisActorSheet extends ActorSheet {
       "extraFeatures": 0
     }
 
+    const injuryDataSet = {
+      "type": "injury"
+    }
+
     for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
@@ -119,6 +124,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
         armor.push(i);
         totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight]; // we assume 1 quantity.
       }
+      if (i.type === "injury") {
+        injuries.push(i);
+      }
     }
     // assign and return
     actorData.gear = gear;
@@ -134,6 +142,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
     actorData.talents = talents;
     actorData.encumbrance = this._computeEncumbrance(totalWeightPoints);
+
+    actorData.injuries = injuries;
+    actorData.injuryDataSet = injuryDataSet;
   }
 
   /** @override */
@@ -187,6 +198,8 @@ export class yzecoriolisActorSheet extends ActorSheet {
       const li = $(ev.currentTarget).parents(".item");
       this.actor.deleteOwnedItem(li.data("itemId"));
       li.slideUp(200, () => this.render(false));
+
+      console.log("deleted?", li.data("itemId"));
     });
 
     // Rollable abilities.
@@ -309,6 +322,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
   _onItemCreate(event) {
     event.preventDefault();
     const header = event.currentTarget;
+    console.log('header', header.dataset.type);
     // Get the type of item to create.
     const type = header.dataset.type;
     // Grab any data associated with this control.
