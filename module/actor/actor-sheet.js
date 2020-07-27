@@ -16,8 +16,8 @@ export class yzecoriolisActorSheet extends ActorSheet {
       height: 800,
       resizable: false,
       tabs: [{
-        navSelector: ".sheet-tabs",
-        contentSelector: ".sheet-body",
+        navSelector: ".navigation",
+        contentSelector: ".sheet-panels",
         initial: "stats"
       }]
     });

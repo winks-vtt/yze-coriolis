@@ -1,5 +1,9 @@
 {
     "YZECORIOLIS.SheetStats": "Stats",
+    "YZECORIOLIS.SheetTalents": "Talents",
+    "YZECORIOLIS.SheetItems": "Items",
+    "YZECORIOLIS.SheetBio": "Bio",
+    "YZECORIOLIS.SheetNotes": "Notes",
 
     "YZECORIOLIS.CrewPosition": "Crew Position",
     "YZECORIOLIS.CrewSpotCaptain": "Captain",

@@ -16,6 +16,11 @@
         color: @colorWhite;
     }
 
+    .data-text-bold {
+        font-family: "Cairo-Bold";
+        color: @colorWhite;
+    }
+
     .line-item-entry {
         background: rgba(19, 27, 53, 0.25);
         border-radius: 3px;
@@ -186,53 +191,40 @@
         display: flex;
         flex-direction: column;
 
-        header {
+        .navigation {
 
             padding: 2px;
             display: flex;
             flex-direction: row;
             border-radius: 5px 5px 0px 0px;
             height: 24px;
+            border: none;
             background-color: @colorBlueTransparent;
             justify-content: space-between;
 
-            .nav-button {
-                background-color: @colorBlue;
-                width: 22px;
-                height: 20px;
-                padding: 0px;
-                border: none;
-                margin: 0px;
-                box-shadow: none;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: lighten(@colorBlue, 20%);
-                }
-
-                img {
-                    border: none;
-                    vertical-align: middle;
-
-                    height: 14px;
-                    margin-bottom: 6px;
-                    margin-left: -2px;
-
-                }
-
-                .flip {
-                    transform: scaleX(-1);
-                    margin-left: 2px;
-                }
+            .item.active {
+                text-decoration: none;
+                color: @colorWhite;
             }
 
-            .panel-title {
-                .data-text();
-                letter-spacing: @letterSpacing;
+            .nav-link {
+                .data-text-bold();
+                text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
+                color: @colorBlue;
+                transition: text-shadow 275ms ease;
+
+                &.selected {
+                    color: @colorWhite;
+                    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35);
+                }
+
+                &:hover {
+                    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35);
+                }
+
                 text-transform: uppercase;
                 font-size: 18px;
                 line-height: 19px;
-                font-weight: bold;
                 text-align: center;
                 flex: 1;
             }
@@ -241,6 +233,16 @@
         .panel {
             display: flex;
             flex-direction: column;
+
+            // since I rolled my own nav from scratch and didn't utilize flexrow/flexcol
+            // I needed to recognize when a panel should be hidden.
+            &.tab[data-tab] {
+                display: none;
+            }
+
+            &.tab[data-tab].active {
+                display: flex;
+            }
         }
 
         .bg-attr(@image) {
