@@ -324,7 +324,7 @@
   grid-row-gap: 2px;
 }
 .yzecoriolis.sheet.actor .sheet-header hr {
-  border: 0.5px solid #7182BE;
+  border: 0.5px solid #9FB0ED;
 }
 .yzecoriolis.sheet.actor .sheet-header .name-plate {
   font-style: normal;
@@ -349,7 +349,7 @@
   grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 3;
-  border-top: 0.5px solid #7182BE;
+  border-top: 0.5px solid #9FB0ED;
   text-align: center;
   padding-top: 10px;
 }
@@ -381,7 +381,7 @@
   justify-content: space-between;
 }
 .yzecoriolis.sheet.actor .sheet-body header .nav-button {
-  background-color: #7182BE;
+  background-color: #9FB0ED;
   width: 22px;
   height: 20px;
   padding: 0px;
@@ -391,7 +391,7 @@
   cursor: pointer;
 }
 .yzecoriolis.sheet.actor .sheet-body header .nav-button:hover {
-  background-color: #b7c0de;
+  background-color: #f5f7fd;
 }
 .yzecoriolis.sheet.actor .sheet-body header .nav-button img {
   border: none;
@@ -436,7 +436,7 @@
   filter: brightness(1.5);
 }
 .yzecoriolis.sheet.actor .sheet-body .attribute-list .attr-block {
-  border: 3px solid #7182BE;
+  border: 3px solid #9FB0ED;
   box-sizing: border-box;
   border-radius: 3px;
   background-color: rgba(19, 27, 53, 0.25);
@@ -488,7 +488,7 @@
   font-size: 14px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #7182BE;
+  color: #9FB0ED;
 }
 .yzecoriolis.sheet.actor .sheet-body .attribute-list .attr-rollable img {
   border: none;
@@ -536,7 +536,7 @@
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill h4 {
   font-family: "Cairo";
   color: white;
-  color: #7182BE;
+  color: #9FB0ED;
   font-weight: bold;
   font-size: 16px;
   flex: 1;
@@ -609,6 +609,9 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list {
   list-style: none;
+  overflow-y: auto;
+  max-height: 146px;
+  height: 146px;
   padding: 0px;
   align-items: center;
   margin: 0 10px;
@@ -643,7 +646,7 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-controls {
   flex: 0 0 80px;
-  color: #7182BE;
+  color: #9FB0ED;
   display: flex;
   justify-content: flex-end;
   margin-right: 5px;
@@ -660,7 +663,7 @@
   color: #FFA903;
 }
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury-description {
-  color: #7182BE;
+  color: #9FB0ED;
   flex: 0 0 400px;
   width: 400px;
 }

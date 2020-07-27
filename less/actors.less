@@ -193,7 +193,7 @@
             flex-direction: row;
             border-radius: 5px 5px 0px 0px;
             height: 24px;
-            background-color: @colorBlueLight;
+            background-color: @colorBlueTransparent;
             justify-content: space-between;
 
             .nav-button {
@@ -437,6 +437,9 @@
 
         .critical-injuries-list {
             list-style: none;
+            overflow-y: auto;
+            max-height: 146px;
+            height: 146px;
             padding: 0px;
             align-items: center;
             margin: 0 10px;
