@@ -48,7 +48,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
     for (let i = 0; i < maxRad; i++) {
       radArray.push(i < rad ? true : false);
     }
-    console.log('rad', radArray);
     actorData.radiationBlocks = radArray;
   }
 
@@ -194,6 +193,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Delete a Critical Injury
     html.find('.injury-delete').click(this._onCriticalInjuryDelete.bind(this));
 
+    html.find('.radiation').click(this._onClickRadiation.bind(this));
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
@@ -264,6 +264,25 @@ export class yzecoriolisActorSheet extends ActorSheet {
       value = 0;
     }
     return item.update({ 'data.quantity': value });
+  }
+
+  _onClickRadiation(event) {
+    event.preventDefault();
+    const header = event.currentTarget;
+    // Get the type of item to create.
+    const index = Number(header.dataset.index);
+    // Grab any data associated with this control.
+    const currentRad = this.actor.data.data.radiation.value;
+    const minRad = this.actor.data.data.radiation.min;
+    const maxRad = this.actor.data.data.radiation.max;
+    let newRad = Math.max(minRad, Math.min(maxRad, index + 1));
+    // one edge case:
+    // if our rad is exactly 1 and we are clicking on that one, the use is probably trying to clear it.
+    // so we'll set newRad to zero in that case specifically.
+    if (index === 0 && currentRad === 1) {
+      newRad = 0;
+    }
+    return this.actor.update({ 'data.radiation.value': newRad });
   }
 
   _onRelationshipCreate(event) {
@@ -337,7 +356,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
   _onItemCreate(event) {
     event.preventDefault();
     const header = event.currentTarget;
-    console.log('header', header.dataset.type);
     // Get the type of item to create.
     const type = header.dataset.type;
     // Grab any data associated with this control.

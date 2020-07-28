@@ -35,9 +35,9 @@
           <div class="radiation-bar fr-basic">
             {{#each actor.radiationBlocks as |on index|}}
             {{#if on}}
-            <div class="radiation on"></div>
+            <div class="radiation on" data-index={{index}}></div>
             {{else}}
-            <div class="radiation off"></div>
+            <div class="radiation off" data-index={{index}}></div>
             {{/if}}
             {{/each}}
           </div>
