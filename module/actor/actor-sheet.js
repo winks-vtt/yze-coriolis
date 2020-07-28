@@ -208,13 +208,13 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
     // radiation editing
     html.find('.radiation').click(this._onClickBarSegment.bind(this));
-    html.find('.radiation').mouseenter(this._onHoverRadiationIn.bind(this));
-    html.find('.radiation-bar').mouseleave(this._onHoverRadiationOut.bind(this));
+    html.find('.radiation').mouseenter(onHoverBarSegmentIn);
+    html.find('.radiation-bar').mouseleave(onHoverBarOut);
 
     // xp editing
     html.find('.xp').click(this._onClickBarSegment.bind(this));
-    html.find('.xp').mouseenter(this._onHoverXPIn.bind(this));
-    html.find('.xp-bar').mouseleave(this._onHoverXPOut.bind(this));
+    html.find('.xp').mouseenter(onHoverBarSegmentIn);
+    html.find('.xp-bar').mouseleave(onHoverBarOut);
 
 
     // Update Inventory Item
@@ -304,41 +304,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
     update[targetField] = newRad;
     return this.actor.update(update);
   }
-
-  _onHoverRadiationIn(event) {
-    event.preventDefault();
-    const header = event.currentTarget;
-    onHoverBarSegmentIn(header, this.actor.data.data.radiation.value, '.radiation-bar', '.radiation');
-  }
-
-
-  _onHoverRadiationOut(event) {
-    event.preventDefault();
-    onHoverBarOut(event.currentTarget, '.radiation');
-  }
-
-  _onClickXP(event) {
-    event.preventDefault();
-    const header = event.currentTarget;
-    // Get the type of item to create.
-    const index = Number(header.dataset.index);
-    // Grab any data associated with this control.
-    const xpObj = this.actor.data.data.experience;
-    let newXP = computeNewBarValue(index, xpObj.value, xpObj.min, xpObj.max);
-    return this.actor.update({ 'data.experience.value': newXP });
-  }
-
-  _onHoverXPIn(event) {
-    event.preventDefault();
-    const header = event.currentTarget;
-    onHoverBarSegmentIn(header, this.actor.data.data.experience.value, '.xp-bar', '.xp');
-  }
-
-  _onHoverXPOut(event) {
-    event.preventDefault();
-    onHoverBarOut(event.currentTarget, '.xp');
-  }
-
 
   _onRelationshipCreate(event) {
     event.preventDefault();

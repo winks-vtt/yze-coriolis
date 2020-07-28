@@ -11,11 +11,16 @@ export function computeNewBarValue(clickedIndex, currentValue, min, max) {
     return Math.max(min, Math.min(max, targetIndex));
 }
 
-export function onHoverBarSegmentIn(target, currentValue, barClass, segmentClass) {
+export function onHoverBarSegmentIn(event) {
+    event.preventDefault();
+    const header = event.currentTarget;
+    const barClass = '.bar';
+    const segmentClass = '.bar-segment';
+    const currentValue = Number(header.dataset.current);
     // Get the type of item to create.
-    const hoverIndex = Number(target.dataset.index);
+    const hoverIndex = Number(header.dataset.index);
     let increase = hoverIndex >= currentValue;
-    let barElement = $(target).parents(barClass);
+    let barElement = $(header).parents(barClass);
     barElement.find(segmentClass).each((i, div) => {
         let bar = $(div);
         const increaseClass = 'hover-to-increase';
@@ -36,8 +41,9 @@ export function onHoverBarSegmentIn(target, currentValue, barClass, segmentClass
     });
 }
 
-export function onHoverBarOut(target, segmentClass) {
-    $(target).find(segmentClass).each((i, div) => {
+export function onHoverBarOut(event) {
+    event.preventDefault();
+    $(event.currentTarget).find('.bar-segment').each((i, div) => {
         let bar = $(div);
         bar.removeClass('hover-to-increase');
         bar.removeClass('hover-to-decrease');

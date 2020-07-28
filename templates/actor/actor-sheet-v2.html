@@ -32,15 +32,15 @@
         </li>
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.Radiation"}}</div>
-          <div class="radiation-bar fr-basic">
+          <div class="bar radiation-bar fr-basic">
             {{#each actor.radiationBlocks as |on index|}}
             {{#with ../data as | data |}}
             {{#if on}}
-            <div class="radiation on" data-name="data.radiation.value" data-index={{index}}
+            <div class="bar-segment radiation on" data-name="data.radiation.value" data-index={{index}}
               data-current={{data.radiation.value}} data-min={{data.radiation.min}} data-max={{data.radiation.max}}>
             </div>
             {{else}}
-            <div class="radiation off" data-name="data.radiation.value" data-index={{index}}
+            <div class="bar-segment radiation off" data-name="data.radiation.value" data-index={{index}}
               data-current={{data.radiation.value}} data-min={{data.radiation.min}} data-max={{data.radiation.max}}>
             </div>
             {{/if}}
@@ -52,15 +52,15 @@
         </li>
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.Experience"}}</div>
-          <div class="xp-bar fr-basic">
+          <div class="bar xp-bar fr-basic">
             {{#each actor.xpBlocks as |on index|}}
             {{#with ../data as | data |}}
             {{#if on}}
-            <div class="xp on" data-name="data.experience.value" data-index={{index}}
+            <div class="bar-segment xp on" data-name="data.experience.value" data-index={{index}}
               data-current={{data.experience.value}} data-min={{data.experience.min}} data-max={{data.experience.max}}>
             </div>
             {{else}}
-            <div class="xp off" data-name="data.experience.value" data-index={{index}}
+            <div class="bar-segment xp off" data-name="data.experience.value" data-index={{index}}
               data-current={{data.experience.value}} data-min={{data.experience.min}} data-max={{data.experience.max}}>
             </div>
             {{/if}}
