@@ -36,11 +36,11 @@
             {{#each actor.radiationBlocks as |on index|}}
             {{#with ../data as | data |}}
             {{#if on}}
-            <div class="bar-segment radiation on" data-name="data.radiation.value" data-index={{index}}
+            <div class="bar-segment on" data-name="data.radiation.value" data-index={{index}}
               data-current={{data.radiation.value}} data-min={{data.radiation.min}} data-max={{data.radiation.max}}>
             </div>
             {{else}}
-            <div class="bar-segment radiation off" data-name="data.radiation.value" data-index={{index}}
+            <div class="bar-segment off" data-name="data.radiation.value" data-index={{index}}
               data-current={{data.radiation.value}} data-min={{data.radiation.min}} data-max={{data.radiation.max}}>
             </div>
             {{/if}}
@@ -56,11 +56,11 @@
             {{#each actor.xpBlocks as |on index|}}
             {{#with ../data as | data |}}
             {{#if on}}
-            <div class="bar-segment xp on" data-name="data.experience.value" data-index={{index}}
+            <div class="bar-segment on" data-name="data.experience.value" data-index={{index}}
               data-current={{data.experience.value}} data-min={{data.experience.min}} data-max={{data.experience.max}}>
             </div>
             {{else}}
-            <div class="bar-segment xp off" data-name="data.experience.value" data-index={{index}}
+            <div class="bar-segment off" data-name="data.experience.value" data-index={{index}}
               data-current={{data.experience.value}} data-min={{data.experience.min}} data-max={{data.experience.max}}>
             </div>
             {{/if}}
@@ -71,20 +71,35 @@
         </li>
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.Reputation"}}</div>
-          <div class="number">
-            <input class="input-value" type="text" name="data.reputation.value" value="{{data.reputation.value}}"
-              data-dtype="Number" />
+          <div class="bar rep-bar fr-basic">
+            {{#each actor.repBlocks as |on index|}}
+            {{#with ../data as | data |}}
+            {{#if on}}
+            <div class="bar-segment on" data-name="data.reputation.value" data-index={{index}}
+              data-current={{data.reputation.value}} data-min={{data.reputation.min}} data-max={{data.reputation.max}}>
+            </div>
+            {{else}}
+            <div class="bar-segment off" data-name="data.reputation.value" data-index={{index}}
+              data-current={{data.reputation.value}} data-min={{data.reputation.min}} data-max={{data.reputation.max}}>
+            </div>
+            {{/if}}
+            {{/with}}
+            {{/each}}
+            <span class="bar-value">{{data.reputation.value}}</span>
           </div>
         </li>
         <li class="entry flexrow">
-          <span class="capitalize">{{localize "YZECORIOLIS.Birr"}}</span>
+          <div class="capitalize stat-label">{{localize "YZECORIOLIS.Birr"}}</div>
           <div class="number">
             <input class="input-value" type="text" name="data.birr" value="{{data.birr}}" data-dtype="Number" />
           </div>
         </li>
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.Icon"}}</div>
-          <span>placeholder</span>
+          <div class="number">
+            <input class="input-value" placeholder={{localize "YZECORIOLIS.Icon"}} type="text" name="data.bio.icon"
+              value="{{data.bio.icon}}" data-dtype="String" />
+          </div>
         </li>
       </ol>
     </div>

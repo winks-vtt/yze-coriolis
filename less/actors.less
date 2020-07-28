@@ -187,14 +187,12 @@
                     font-size: 16px;
                 }
 
-                //--- radiation bar----//
-                .radiation-bar {
+                .bar-styling-helper(@fillCol, @decreaseCol) {
                     justify-content: space-between;
                     align-items: center;
                     .bar-bg();
 
-                    .radiation {
-                        //border: 1px solid @colorWhite;
+                    .bar-segment {
                         border-radius: 2px;
                         box-sizing: border-box;
                         width: 10px;
@@ -207,22 +205,22 @@
 
                     .hover-to-decrease {
                         // need important flag to override the current fill when decreasing.
-                        background-color: @colorRadiationDecreaseFill  !important;
+                        background-color: @decreaseCol  !important;
                     }
 
                     .hover-to-increase {
-                        border: 1px solid @colorRadiationFill;
+                        border: 1px solid @fillCol;
                     }
 
-                    .radiation.on {
-                        background-color: @colorRadiationFill;
+                    .bar-segment.on {
+                        background-color: @fillCol;
 
                         &:hover {
                             transform: scale(1.1);
                         }
                     }
 
-                    .radiation.off {
+                    .bar-segment.off {
                         background-color: @colorBlack;
 
                         &:hover {
@@ -231,48 +229,18 @@
                     }
                 }
 
+                //--- radiation bar----//
+                .radiation-bar {
+                    .bar-styling-helper(@colorRadiationFill, @colorRadiationDecreaseFill);
+                }
+
                 //--XP bar--//
                 .xp-bar {
-                    justify-content: space-between;
-                    align-items: center;
-                    .bar-bg();
+                    .bar-styling-helper(@colorXPFill, @colorXPDecreaseFill);
+                }
 
-                    .xp {
-                        //border: 1px solid @colorWhite;
-                        border-radius: 2px;
-                        box-sizing: border-box;
-                        width: 10px;
-                        height: 17px;
-                        margin: 3.5px 0px;
-                        background-color: @colorBlack;
-                        transition: background-color 275ms ease,
-                            border 275ms ease;
-                    }
-
-                    .hover-to-decrease {
-                        // need important flag to override the current fill when decreasing.
-                        background-color: @colorXPDecreaseFill  !important;
-                    }
-
-                    .hover-to-increase {
-                        border: 1px solid @colorXPFill;
-                    }
-
-                    .xp.on {
-                        background-color: @colorXPFill;
-
-                        &:hover {
-                            transform: scale(1.1);
-                        }
-                    }
-
-                    .xp.off {
-                        background-color: @colorBlack;
-
-                        &:hover {
-                            transform: scale(1.1);
-                        }
-                    }
+                .rep-bar {
+                    .bar-styling-helper(@colorRepFill, @colorRepDecreaseFill);
                 }
             }
         }

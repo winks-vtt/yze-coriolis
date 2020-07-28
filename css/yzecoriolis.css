@@ -417,7 +417,7 @@
   background-color: rgba(113, 130, 190, 0.35);
   height: 27px;
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .radiation {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment {
   border-radius: 2px;
   box-sizing: border-box;
   width: 10px;
@@ -432,16 +432,16 @@
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .hover-to-increase {
   border: 1px solid #B1C343;
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .radiation.on {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment.on {
   background-color: #B1C343;
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .radiation.on:hover {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment.on:hover {
   transform: scale(1.1);
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .radiation.off {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment.off {
   background-color: #000000;
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .radiation.off:hover {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment.off:hover {
   transform: scale(1.1);
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar {
@@ -453,7 +453,7 @@
   background-color: rgba(113, 130, 190, 0.35);
   height: 27px;
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .xp {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment {
   border-radius: 2px;
   box-sizing: border-box;
   width: 10px;
@@ -468,16 +468,52 @@
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .hover-to-increase {
   border: 1px solid #603FA7;
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .xp.on {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment.on {
   background-color: #603FA7;
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .xp.on:hover {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment.on:hover {
   transform: scale(1.1);
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .xp.off {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment.off {
   background-color: #000000;
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .xp.off:hover {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment.off:hover {
+  transform: scale(1.1);
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar {
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 5px 0px 5px;
+  border: 1px solid #A4A4A4;
+  border-radius: 5px;
+  background-color: rgba(113, 130, 190, 0.35);
+  height: 27px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment {
+  border-radius: 2px;
+  box-sizing: border-box;
+  width: 10px;
+  height: 17px;
+  margin: 3.5px 0px;
+  background-color: #000000;
+  transition: background-color 275ms ease, border 275ms ease;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .hover-to-decrease {
+  background-color: #732D3E !important;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .hover-to-increase {
+  border: 1px solid #CF4264;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment.on {
+  background-color: #CF4264;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment.on:hover {
+  transform: scale(1.1);
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment.off {
+  background-color: #000000;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment.off:hover {
   transform: scale(1.1);
 }
 .yzecoriolis.sheet.actor .char-content-wrapper {

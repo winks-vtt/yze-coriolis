@@ -52,14 +52,25 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
     // xp blocks
     const xp = actorData.data.experience.value;
+
     const maxXP = actorData.data.experience.max;
     const xpArray = [];
     for (let i = 0; i < maxXP; i++) {
       xpArray.push(i < xp ? true : false);
     }
 
+
+    // rep blocks
+    const rep = actorData.data.reputation.value;
+    const maxRep = actorData.data.reputation.max;
+    const repArray = [];
+    for (let i = 0; i < maxRep; i++) {
+      repArray.push(i < rep ? true : false);
+    }
+
     actorData.radiationBlocks = radArray;
     actorData.xpBlocks = xpArray;
+    actorData.repBlocks = repArray;
 
 
   }
@@ -207,15 +218,16 @@ export class yzecoriolisActorSheet extends ActorSheet {
     html.find('.injury-delete').click(this._onCriticalInjuryDelete.bind(this));
 
     // radiation editing
-    html.find('.radiation').click(this._onClickBarSegment.bind(this));
-    html.find('.radiation').mouseenter(onHoverBarSegmentIn);
-    html.find('.radiation-bar').mouseleave(onHoverBarOut);
+    html.find('.bar-segment').click(this._onClickBarSegment.bind(this));
+    html.find('.bar-segment').mouseenter(onHoverBarSegmentIn);
+    html.find('.bar').mouseleave(onHoverBarOut);
 
     // xp editing
     html.find('.xp').click(this._onClickBarSegment.bind(this));
     html.find('.xp').mouseenter(onHoverBarSegmentIn);
     html.find('.xp-bar').mouseleave(onHoverBarOut);
 
+    // reputation editing
 
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
