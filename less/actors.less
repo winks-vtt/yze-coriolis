@@ -176,10 +176,14 @@
                         width: 10px;
                         height: 17px;
                         margin: 3.5px 0px;
+                        background-color: @colorBlack;
+                        transition: background-color 275ms ease,
+                            border 275ms ease;
                     }
 
                     .hover-to-decrease {
-                        background-color: @colorRadiationDecreaseFill;
+                        // need important flag to override the current fill when decreasing.
+                        background-color: @colorRadiationDecreaseFill  !important;
                     }
 
                     .hover-to-increase {
@@ -190,15 +194,16 @@
                         background-color: @colorRadiationFill;
 
                         &:hover {
-                            .hover-to-decrease();
+                            transform: scale(1.1);
                         }
+
                     }
 
                     .radiation.off {
-                        background-color: black;
+                        background-color: @colorBlack;
 
                         &:hover {
-                            .hover-to-increase();
+                            transform: scale(1.1);
                         }
                     }
                 }

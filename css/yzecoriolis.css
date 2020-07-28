@@ -401,9 +401,11 @@
   width: 10px;
   height: 17px;
   margin: 3.5px 0px;
+  background-color: #000000;
+  transition: background-color 275ms ease, border 275ms ease;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .hover-to-decrease {
-  background-color: #44482C;
+  background-color: #44482C !important;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .hover-to-increase {
   border: 1px solid #B1C343;
@@ -412,13 +414,13 @@
   background-color: #B1C343;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .radiation.on:hover {
-  background-color: #44482C;
+  transform: scale(1.1);
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .radiation.off {
-  background-color: black;
+  background-color: #000000;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .radiation.off:hover {
-  border: 1px solid #B1C343;
+  transform: scale(1.1);
 }
 .yzecoriolis.sheet.actor .char-content-wrapper {
   grid-column-start: 2;

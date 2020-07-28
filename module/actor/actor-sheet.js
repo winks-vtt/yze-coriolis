@@ -194,6 +194,8 @@ export class yzecoriolisActorSheet extends ActorSheet {
     html.find('.injury-delete').click(this._onCriticalInjuryDelete.bind(this));
 
     html.find('.radiation').click(this._onClickRadiation.bind(this));
+    html.find('.radiation').mouseenter(this._onHoverRadiationIn.bind(this));
+    html.find('.radiation-bar').mouseleave(this._onHoverRadiationOut.bind(this));
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
@@ -275,15 +277,54 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const currentRad = this.actor.data.data.radiation.value;
     const minRad = this.actor.data.data.radiation.min;
     const maxRad = this.actor.data.data.radiation.max;
-    let newRad = Math.max(minRad, Math.min(maxRad, index + 1));
-    // one edge case:
-    // if our rad is exactly 1 and we are clicking on that one, the use is probably trying to clear it.
-    // so we'll set newRad to zero in that case specifically.
-    if (index === 0 && currentRad === 1) {
-      newRad = 0;
+    let targetIndex = index;
+    // cover the case of filling up the bar completely.
+    if (targetIndex >= currentRad) {
+      targetIndex += 1;
     }
+    let newRad = Math.max(minRad, Math.min(maxRad, targetIndex));
     return this.actor.update({ 'data.radiation.value': newRad });
   }
+
+  _onHoverRadiationIn(event) {
+    event.preventDefault();
+    const header = event.currentTarget;
+    // Get the type of item to create.
+    const hoverIndex = Number(header.dataset.index);
+    const currentRad = this.actor.data.data.radiation.value;
+    let increase = hoverIndex >= currentRad;
+    let radBarElement = $(header).parents(".radiation-bar");
+    radBarElement.find('.radiation').each((i, div) => {
+      let bar = $(div);
+      const increaseClass = 'hover-to-increase';
+      const decreaseClass = 'hover-to-decrease';
+      bar.removeClass(increaseClass);
+      bar.removeClass(decreaseClass);
+      // only alter the bars that are empty between the end of our 'filled' bars
+      // and our hover index
+      if (increase && i <= hoverIndex && i >= currentRad) {
+        bar.addClass(increaseClass);
+      }
+
+      // only alter bars that are filled between the end of our 'filled bars'
+      // and our hover index
+      if (!increase && i >= hoverIndex && i < currentRad) {
+        bar.addClass(decreaseClass);
+      }
+    });
+  }
+
+
+  _onHoverRadiationOut(event) {
+    event.preventDefault();
+    $(event.currentTarget).find('.radiation').each((i, div) => {
+      let bar = $(div);
+      bar.removeClass('hover-to-increase');
+      bar.removeClass('hover-to-decrease');
+    });
+  }
+
+
 
   _onRelationshipCreate(event) {
     event.preventDefault();
