@@ -32,11 +32,16 @@ export class yzecoriolisActorSheet extends ActorSheet {
     if (this.actor.data.type == 'character') {
       // prepare items
       this._prepareCharacterItems(data);
+      this._prepCharacterRadiation(data);
     }
     data.config = CONFIG.YZECORIOLIS;
     return data;
   }
 
+  _prepCharacterRadiation(sheetData) {
+    const actorData = sheetData.actor;
+    console.log(actorData);
+  }
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor;
 

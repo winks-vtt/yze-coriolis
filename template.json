@@ -18,6 +18,11 @@
           "min": 0,
           "max": 10
         },
+        "radiation": {
+          "value": 0,
+          "min": 0,
+          "max": 10
+        },
         "reputation": {
           "value": 0,
           "min": 0,
@@ -175,6 +180,7 @@
             "max": 5
           }
         }
+
       }
     },
     "character": {
@@ -193,16 +199,6 @@
           "clothing": ""
         },
         "crewPosition": ""
-      },
-      "experience": {
-        "value": 0,
-        "min": 0,
-        "max": 10
-      },
-      "reputation": {
-        "value": 0,
-        "min": 0,
-        "max": 10
       },
       "relationships": {},
       "meetings": {},
