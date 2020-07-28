@@ -207,12 +207,12 @@ export class yzecoriolisActorSheet extends ActorSheet {
     html.find('.injury-delete').click(this._onCriticalInjuryDelete.bind(this));
 
     // radiation editing
-    html.find('.radiation').click(this._onClickRadiation.bind(this));
+    html.find('.radiation').click(this._onClickBarSegment.bind(this));
     html.find('.radiation').mouseenter(this._onHoverRadiationIn.bind(this));
     html.find('.radiation-bar').mouseleave(this._onHoverRadiationOut.bind(this));
 
     // xp editing
-    html.find('.xp').click(this._onClickXP.bind(this));
+    html.find('.xp').click(this._onClickBarSegment.bind(this));
     html.find('.xp').mouseenter(this._onHoverXPIn.bind(this));
     html.find('.xp-bar').mouseleave(this._onHoverXPOut.bind(this));
 
@@ -289,15 +289,20 @@ export class yzecoriolisActorSheet extends ActorSheet {
     return item.update({ 'data.quantity': value });
   }
 
-  _onClickRadiation(event) {
+  _onClickBarSegment(event) {
     event.preventDefault();
-    const header = event.currentTarget;
+    const targetSegment = event.currentTarget;
     // Get the type of item to create.
-    const index = Number(header.dataset.index);
+    const index = Number(targetSegment.dataset.index);
+    const curValue = Number(targetSegment.dataset.current);
+    const minValue = Number(targetSegment.dataset.min);
+    const maxValue = Number(targetSegment.dataset.max);
+    const targetField = targetSegment.dataset.name;
     // Grab any data associated with this control.
-    const radObj = this.actor.data.data.radiation;
-    let newRad = computeNewBarValue(index, radObj.value, radObj.min, radObj.max);
-    return this.actor.update({ 'data.radiation.value': newRad });
+    let newRad = computeNewBarValue(index, curValue, minValue, maxValue);
+    let update = {};
+    update[targetField] = newRad;
+    return this.actor.update(update);
   }
 
   _onHoverRadiationIn(event) {
