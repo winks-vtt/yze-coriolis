@@ -178,12 +178,28 @@
                         margin: 3.5px 0px;
                     }
 
+                    .hover-to-decrease {
+                        background-color: @colorRadiationDecreaseFill;
+                    }
+
+                    .hover-to-increase {
+                        border: 1px solid @colorRadiationFill;
+                    }
+
                     .radiation.on {
                         background-color: @colorRadiationFill;
+
+                        &:hover {
+                            .hover-to-decrease();
+                        }
                     }
 
                     .radiation.off {
                         background-color: black;
+
+                        &:hover {
+                            .hover-to-increase();
+                        }
                     }
                 }
             }
