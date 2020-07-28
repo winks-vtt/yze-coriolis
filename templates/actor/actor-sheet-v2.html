@@ -7,7 +7,7 @@
     <div class="always-visible-stats">
       <ol class="perma-stats-list">
         <li class="entry flexrow">
-          <span>{{localize "YZECORIOLIS.HitPoints"}} ({{data.hitPoints.max}})</span>
+          <div class="stat-label">{{localize "YZECORIOLIS.HitPoints"}} ({{data.hitPoints.max}})</div>
           <div class="hp-bar">
             <div class="bg"></div>
             <div class="fill" style="--width-percentage: {{percentcss data.hitPoints.value data.hitPoints.max}}%;">
@@ -19,7 +19,7 @@
           </div>
         </li>
         <li class="entry flexrow">
-          <span>{{localize "YZECORIOLIS.MindPoints"}} ({{data.mindPoints.max}})</span>
+          <div class="stat-label">{{localize "YZECORIOLIS.MindPoints"}} ({{data.mindPoints.max}})</div>
           <div class="mind-bar">
             <div class="bg"></div>
             <div class="fill" style="--width-percentage: {{percentcss data.mindPoints.value data.mindPoints.max}}%;">
@@ -31,7 +31,7 @@
           </div>
         </li>
         <li class="entry flexrow">
-          <span>{{localize "YZECORIOLIS.Radiation"}}</span>
+          <div class="stat-label">{{localize "YZECORIOLIS.Radiation"}}</div>
           <div class="radiation-bar fr-basic">
             {{#each actor.radiationBlocks as |on index|}}
             {{#if on}}
@@ -40,14 +40,24 @@
             <div class="radiation off" data-index={{index}}></div>
             {{/if}}
             {{/each}}
+            <span class="bar-value">{{data.radiation.value}}</span>
           </div>
         </li>
         <li class="entry flexrow">
-          <span>XP</span>
-          <span>3</span>
+          <div class="stat-label">{{localize "YZECORIOLIS.Experience"}}</div>
+          <div class="xp-bar fr-basic">
+            {{#each actor.xpBlocks as |on index|}}
+            {{#if on}}
+            <div class="xp on" data-index={{index}}></div>
+            {{else}}
+            <div class="xp off" data-index={{index}}></div>
+            {{/if}}
+            {{/each}}
+            <span class="bar-value">{{data.experience.value}}</span>
+          </div>
         </li>
         <li class="entry flexrow">
-          <span>{{localize "YZECORIOLIS.Reputation"}}</span>
+          <div class="stat-label">{{localize "YZECORIOLIS.Reputation"}}</div>
           <div class="number">
             <input class="input-value" type="text" name="data.reputation.value" value="{{data.reputation.value}}"
               data-dtype="Number" />
@@ -60,7 +70,7 @@
           </div>
         </li>
         <li class="entry flexrow">
-          <span>{{localize "YZECORIOLIS.Icon"}}</span>
+          <div class="stat-label">{{localize "YZECORIOLIS.Icon"}}</div>
           <span>placeholder</span>
         </li>
       </ol>

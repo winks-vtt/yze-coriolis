@@ -48,7 +48,19 @@ export class yzecoriolisActorSheet extends ActorSheet {
     for (let i = 0; i < maxRad; i++) {
       radArray.push(i < rad ? true : false);
     }
+
+    // xp blocks
+    const xp = actorData.data.experience.value;
+    const maxXP = actorData.data.experience.max;
+    const xpArray = [];
+    for (let i = 0; i < maxXP; i++) {
+      xpArray.push(i < xp ? true : false);
+    }
+
     actorData.radiationBlocks = radArray;
+    actorData.xpBlocks = xpArray;
+
+
   }
 
   _prepareCharacterItems(sheetData) {
@@ -193,9 +205,17 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Delete a Critical Injury
     html.find('.injury-delete').click(this._onCriticalInjuryDelete.bind(this));
 
+    // radiation editing
     html.find('.radiation').click(this._onClickRadiation.bind(this));
     html.find('.radiation').mouseenter(this._onHoverRadiationIn.bind(this));
     html.find('.radiation-bar').mouseleave(this._onHoverRadiationOut.bind(this));
+
+    // xp editing
+    html.find('.xp').click(this._onClickXP.bind(this));
+    html.find('.xp').mouseenter(this._onHoverXPIn.bind(this));
+    html.find('.xp-bar').mouseleave(this._onHoverXPOut.bind(this));
+
+
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
@@ -324,6 +344,61 @@ export class yzecoriolisActorSheet extends ActorSheet {
     });
   }
 
+  _onClickXP(event) {
+    event.preventDefault();
+    const header = event.currentTarget;
+    // Get the type of item to create.
+    const index = Number(header.dataset.index);
+    // Grab any data associated with this control.
+    const currentRad = this.actor.data.data.experience.value;
+    const minRad = this.actor.data.data.experience.min;
+    const maxRad = this.actor.data.data.experience.max;
+    let targetIndex = index;
+    // cover the case of filling up the bar completely.
+    if (targetIndex >= currentRad) {
+      targetIndex += 1;
+    }
+    let newRad = Math.max(minRad, Math.min(maxRad, targetIndex));
+    return this.actor.update({ 'data.experience.value': newRad });
+  }
+
+  _onHoverXPIn(event) {
+    event.preventDefault();
+    const header = event.currentTarget;
+    // Get the type of item to create.
+    const hoverIndex = Number(header.dataset.index);
+    const currentRad = this.actor.data.data.experience.value;
+    let increase = hoverIndex >= currentRad;
+    let radBarElement = $(header).parents(".xp-bar");
+    radBarElement.find('.xp').each((i, div) => {
+      let bar = $(div);
+      const increaseClass = 'hover-to-increase';
+      const decreaseClass = 'hover-to-decrease';
+      bar.removeClass(increaseClass);
+      bar.removeClass(decreaseClass);
+      // only alter the bars that are empty between the end of our 'filled' bars
+      // and our hover index
+      if (increase && i <= hoverIndex && i >= currentRad) {
+        bar.addClass(increaseClass);
+      }
+
+      // only alter bars that are filled between the end of our 'filled bars'
+      // and our hover index
+      if (!increase && i >= hoverIndex && i < currentRad) {
+        bar.addClass(decreaseClass);
+      }
+    });
+  }
+
+
+  _onHoverXPOut(event) {
+    event.preventDefault();
+    $(event.currentTarget).find('.xp').each((i, div) => {
+      let bar = $(div);
+      bar.removeClass('hover-to-increase');
+      bar.removeClass('hover-to-decrease');
+    });
+  }
 
 
   _onRelationshipCreate(event) {
