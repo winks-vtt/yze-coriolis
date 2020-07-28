@@ -65,6 +65,7 @@ Hooks.once('init', async function () {
     return str.toLowerCase();
   });
 
+
   Handlebars.registerHelper('if_eq', function (a, b, opts) {
     if (a === b) {
       return opts.fn(this);
@@ -137,6 +138,14 @@ Hooks.once('init', async function () {
     }
     return '';
   });
+
+  Handlebars.registerHelper('percentcss', function (a, b) {
+    if (b <= 0) {
+      return 0;
+    }
+    return (a / b) * 100;
+  });
+
 
   Handlebars.registerHelper('talentHasCost', function (talentCategory, opts) {
     if (talentCategory === 'cybernetic' || talentCategory === 'bionicsculpt') {

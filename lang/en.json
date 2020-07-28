@@ -5,6 +5,10 @@
     "YZECORIOLIS.SheetBio": "Bio",
     "YZECORIOLIS.SheetNotes": "Notes",
 
+    "YZECORIOLIS.HitPoints": "Hit Points",
+    "YZECORIOLIS.MindPoints": "Mind Points",
+    "YZECORIOLIS.Radiation": "Radiation",
+
     "YZECORIOLIS.CrewPosition": "Crew Position",
     "YZECORIOLIS.CrewSpotCaptain": "Captain",
     "YZECORIOLIS.CrewSpotEngineer": "Engineer",
@@ -28,6 +32,7 @@
     "YZECORIOLIS.RollLimitedSucces": "Limited Success",
     "YZECORIOLIS.RollCriticalSucces": "Critical Success",
     "YZECORIOLIS.RollFailure": "Failure",
+
 
     "YZECORIOLIS.Reputation": "Reputation",
     "YZECORIOLIS.Icon": "Icon",

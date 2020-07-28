@@ -4,7 +4,54 @@
       <img class="vertical-img" src="{{data.keyArt}}" data-edit="data.keyArt" title="{{actor.name}}">
     </div>
     <div class="gradient-overlay"></div>
-    <div class="always-visible-stats"></div>
+    <div class="always-visible-stats">
+      <ol class="perma-stats-list">
+        <li class="entry flexrow">
+          <span>{{localize "YZECORIOLIS.HitPoints"}} ({{data.hitPoints.max}})</span>
+          <div class="hp-bar">
+            <div class="bg"></div>
+            <div class="fill" style="--width-percentage: {{percentcss data.hitPoints.value data.hitPoints.max}}%;">
+            </div>
+            <div class="number">
+              <input class="input-value" type="text" name="data.hitPoints.value" value="{{data.hitPoints.value}}"
+                data-dtype="Number" />
+            </div>
+          </div>
+        </li>
+        <li class="entry flexrow">
+          <span>{{localize "YZECORIOLIS.MindPoints"}} ({{data.mindPoints.max}})</span>
+          <div class="mind-bar">
+            <div class="bg"></div>
+            <div class="fill" style="--width-percentage: {{percentcss data.mindPoints.value data.mindPoints.max}}%;">
+            </div>
+            <div class="number">
+              <input class="input-value" type="text" name="data.mindPoints.value" value="{{data.mindPoints.value}}"
+                data-dtype="Number" />
+            </div>
+          </div>
+        </li>
+        <li class="entry flexrow">
+          <span>{{localize "YZECORIOLIS.Radiation"}}</span>
+          <span>placeholder</span>
+        </li>
+        <li class="entry flexrow">
+          <span>XP</span>
+          <span>placeholder</span>
+        </li>
+        <li class="entry flexrow">
+          <span>{{localize "YZECORIOLIS.Reputation"}}</span>
+          <span>placeholder</span>
+        </li>
+        <li class="entry flexrow">
+          <span class="capitalize">{{localize "YZECORIOLIS.Birr"}}</span>
+          <span>placeholder</span>
+        </li>
+        <li class="entry flexrow">
+          <span>{{localize "YZECORIOLIS.Icon"}}</span>
+          <span>placeholder</span>
+        </li>
+      </ol>
+    </div>
     <div class="char-content-wrapper">
       <header class="sheet-header">
 

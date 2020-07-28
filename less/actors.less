@@ -95,6 +95,79 @@
         grid-row-start: 3;
         grid-row-end: 4;
         z-index: 3;
+
+
+        .perma-stats-list {
+            color: @colorGray;
+            list-style: none;
+            padding: 0px;
+
+            .entry {
+                .data-text();
+                color: @colorGray;
+                font-size: 15px;
+                margin-left: 13px;
+                margin-right: 13px;
+                align-items: center;
+
+                .capitalize {
+                    text-transform: capitalize;
+                }
+
+                .hp-bar-helper(@fgcol, @bgcol) {
+                    line-height: 19px;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr;
+                    border: 1px solid #FFFFFF;
+                    border-radius: 3px;
+
+                    .bg {
+                        grid-column-start: 1;
+                        grid-column-end: 2;
+                        grid-row-start: 1;
+                        grid-row-end: 2;
+                        border-radius: 3px;
+                        background-color: @bgcol;
+                    }
+
+                    .fill {
+                        grid-column-start: 1;
+                        grid-column-end: 2;
+                        grid-row-start: 1;
+                        grid-row-end: 2;
+                        border-radius: 3px 0px 0px 3px;
+                        background-color: @fgcol;
+                        width: var(--width-percentage);
+                    }
+
+                    .number {
+                        color: @colorPlayerText;
+                        grid-column-start: 1;
+                        grid-column-end: 2;
+                        grid-row-start: 1;
+                        grid-row-end: 2;
+                        text-align: center;
+
+                        .input-value {
+                            .data-text();
+                            font-size: 15px;
+                            color: @colorPlayerText;
+                            height: 18px;
+
+                        }
+                    }
+                }
+
+                .hp-bar {
+                    .hp-bar-helper(@colorGreen, @colorBlood);
+                }
+
+                .mind-bar {
+                    .hp-bar-helper(@colorPaleBlue, @colorDarkerBlue);
+                }
+            }
+        }
     }
 
     /*
@@ -332,6 +405,9 @@
             }
         }
 
+        /*-------------------------------------*/
+        /* Skills List*/
+        /*-------------------------------------*/
         .skills-list-group {
             ol {
 
@@ -437,6 +513,10 @@
             }
         }
 
+
+        /*-------------------------------------*/
+        /* Critical Injuries*/
+        /*-------------------------------------*/
         .critical-injuries-list {
             list-style: none;
             overflow-y: auto;
@@ -510,7 +590,4 @@
             }
         }
     }
-
-
-
 }

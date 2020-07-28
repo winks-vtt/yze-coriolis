@@ -309,6 +309,103 @@
   grid-row-end: 4;
   z-index: 3;
 }
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list {
+  color: #E5E5E5;
+  list-style: none;
+  padding: 0px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry {
+  font-family: "Cairo";
+  color: white;
+  color: #E5E5E5;
+  font-size: 15px;
+  margin-left: 13px;
+  margin-right: 13px;
+  align-items: center;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .capitalize {
+  text-transform: capitalize;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar {
+  line-height: 19px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  border: 1px solid #FFFFFF;
+  border-radius: 3px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bg {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  border-radius: 3px;
+  background-color: #5C0000;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .fill {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  border-radius: 3px 0px 0px 3px;
+  background-color: #125C00;
+  width: var(--width-percentage);
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .number {
+  color: #FDFF9D;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  text-align: center;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .number .input-value {
+  font-family: "Cairo";
+  color: white;
+  font-size: 15px;
+  color: #FDFF9D;
+  height: 18px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar {
+  line-height: 19px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  border: 1px solid #FFFFFF;
+  border-radius: 3px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bg {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  border-radius: 3px;
+  background-color: #081F43;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .fill {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  border-radius: 3px 0px 0px 3px;
+  background-color: #3F82A7;
+  width: var(--width-percentage);
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .number {
+  color: #FDFF9D;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  text-align: center;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .number .input-value {
+  font-family: "Cairo";
+  color: white;
+  font-size: 15px;
+  color: #FDFF9D;
+  height: 18px;
+}
 .yzecoriolis.sheet.actor .char-content-wrapper {
   grid-column-start: 2;
   grid-column-end: 3;
@@ -377,6 +474,12 @@
   flex-direction: column;
   /*-------------------------------------*/
   /* Attributes List*/
+  /*-------------------------------------*/
+  /*-------------------------------------*/
+  /* Skills List*/
+  /*-------------------------------------*/
+  /*-------------------------------------*/
+  /* Critical Injuries*/
   /*-------------------------------------*/
 }
 .yzecoriolis.sheet.actor .sheet-body .navigation {
