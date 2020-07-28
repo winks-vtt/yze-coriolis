@@ -165,6 +165,27 @@
                 .mind-bar {
                     .hp-bar-helper(@colorPaleBlue, @colorDarkerBlue);
                 }
+
+                .radiation-bar {
+                    justify-content: space-between;
+
+                    .radiation {
+                        border: 1px solid @colorWhite;
+                        border-radius: 2px;
+                        box-sizing: border-box;
+                        width: 10px;
+                        height: 17px;
+                        margin: 3.5px 0px;
+                    }
+
+                    .radiation.on {
+                        background-color: @colorRadiationFill;
+                    }
+
+                    .radiation.off {
+                        background-color: black;
+                    }
+                }
             }
         }
     }

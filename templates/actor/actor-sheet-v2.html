@@ -32,7 +32,15 @@
         </li>
         <li class="entry flexrow">
           <span>{{localize "YZECORIOLIS.Radiation"}}</span>
-          <span>placeholder</span>
+          <div class="radiation-bar fr-basic">
+            {{#each actor.radiationBlocks as |on index|}}
+            {{#if on}}
+            <div class="radiation on"></div>
+            {{else}}
+            <div class="radiation off"></div>
+            {{/if}}
+            {{/each}}
+          </div>
         </li>
         <li class="entry flexrow">
           <span>XP</span>

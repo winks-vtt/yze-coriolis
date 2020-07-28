@@ -391,6 +391,23 @@
   background-color: #3F82A7;
   width: var(--width-percentage);
 }
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar {
+  justify-content: space-between;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .radiation {
+  border: 1px solid white;
+  border-radius: 2px;
+  box-sizing: border-box;
+  width: 10px;
+  height: 17px;
+  margin: 3.5px 0px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .radiation.on {
+  background-color: #B1C343;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .radiation.off {
+  background-color: black;
+}
 .yzecoriolis.sheet.actor .char-content-wrapper {
   grid-column-start: 2;
   grid-column-end: 3;

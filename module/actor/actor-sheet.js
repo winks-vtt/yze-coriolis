@@ -32,16 +32,26 @@ export class yzecoriolisActorSheet extends ActorSheet {
     if (this.actor.data.type == 'character') {
       // prepare items
       this._prepareCharacterItems(data);
-      this._prepCharacterRadiation(data);
+      this._prepCharacterStats(data);
     }
     data.config = CONFIG.YZECORIOLIS;
     return data;
   }
 
-  _prepCharacterRadiation(sheetData) {
+  _prepCharacterStats(sheetData) {
     const actorData = sheetData.actor;
-    console.log(actorData);
+
+    // radiation blocks
+    const rad = actorData.data.radiation.value;
+    const maxRad = actorData.data.radiation.max;
+    const radArray = [];
+    for (let i = 0; i < maxRad; i++) {
+      radArray.push(i < rad ? true : false);
+    }
+    console.log('rad', radArray);
+    actorData.radiationBlocks = radArray;
   }
+
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor;
 
