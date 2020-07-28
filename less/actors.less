@@ -114,6 +114,22 @@
                     text-transform: capitalize;
                 }
 
+                .number {
+                    color: @colorPlayerText;
+                    grid-column-start: 1;
+                    grid-column-end: 2;
+                    grid-row-start: 1;
+                    grid-row-end: 2;
+                    text-align: center;
+
+                    .input-value {
+                        .data-text();
+                        font-size: 15px;
+                        color: @colorPlayerText;
+                        height: 18px;
+                    }
+                }
+
                 .hp-bar-helper(@fgcol, @bgcol) {
                     line-height: 19px;
                     display: grid;
@@ -139,23 +155,6 @@
                         border-radius: 3px 0px 0px 3px;
                         background-color: @fgcol;
                         width: var(--width-percentage);
-                    }
-
-                    .number {
-                        color: @colorPlayerText;
-                        grid-column-start: 1;
-                        grid-column-end: 2;
-                        grid-row-start: 1;
-                        grid-row-end: 2;
-                        text-align: center;
-
-                        .input-value {
-                            .data-text();
-                            font-size: 15px;
-                            color: @colorPlayerText;
-                            height: 18px;
-
-                        }
                     }
                 }
 
