@@ -318,54 +318,20 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Get the type of item to create.
     const index = Number(header.dataset.index);
     // Grab any data associated with this control.
-    const currentRad = this.actor.data.data.experience.value;
-    const minRad = this.actor.data.data.experience.min;
-    const maxRad = this.actor.data.data.experience.max;
-    let targetIndex = index;
-    // cover the case of filling up the bar completely.
-    if (targetIndex >= currentRad) {
-      targetIndex += 1;
-    }
-    let newRad = Math.max(minRad, Math.min(maxRad, targetIndex));
-    return this.actor.update({ 'data.experience.value': newRad });
+    const xpObj = this.actor.data.data.experience;
+    let newXP = computeNewBarValue(index, xpObj.value, xpObj.min, xpObj.max);
+    return this.actor.update({ 'data.experience.value': newXP });
   }
 
   _onHoverXPIn(event) {
     event.preventDefault();
     const header = event.currentTarget;
-    // Get the type of item to create.
-    const hoverIndex = Number(header.dataset.index);
-    const currentRad = this.actor.data.data.experience.value;
-    let increase = hoverIndex >= currentRad;
-    let radBarElement = $(header).parents(".xp-bar");
-    radBarElement.find('.xp').each((i, div) => {
-      let bar = $(div);
-      const increaseClass = 'hover-to-increase';
-      const decreaseClass = 'hover-to-decrease';
-      bar.removeClass(increaseClass);
-      bar.removeClass(decreaseClass);
-      // only alter the bars that are empty between the end of our 'filled' bars
-      // and our hover index
-      if (increase && i <= hoverIndex && i >= currentRad) {
-        bar.addClass(increaseClass);
-      }
-
-      // only alter bars that are filled between the end of our 'filled bars'
-      // and our hover index
-      if (!increase && i >= hoverIndex && i < currentRad) {
-        bar.addClass(decreaseClass);
-      }
-    });
+    onHoverBarSegmentIn(header, this.actor.data.data.experience.value, '.xp-bar', '.xp');
   }
-
 
   _onHoverXPOut(event) {
     event.preventDefault();
-    $(event.currentTarget).find('.xp').each((i, div) => {
-      let bar = $(div);
-      bar.removeClass('hover-to-increase');
-      bar.removeClass('hover-to-decrease');
-    });
+    onHoverBarOut(event.currentTarget, '.xp');
   }
 
 
