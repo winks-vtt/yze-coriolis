@@ -1,6 +1,7 @@
 import { getID } from '../util.js';
 import { coriolisRoll } from '../coriolis-roll.js';
 import { coriolisModifierDialog } from '../coriolis-roll.js';
+import { computeNewBarValue, onHoverBarSegmentIn, onHoverBarOut } from './databar.js';
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -294,54 +295,21 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Get the type of item to create.
     const index = Number(header.dataset.index);
     // Grab any data associated with this control.
-    const currentRad = this.actor.data.data.radiation.value;
-    const minRad = this.actor.data.data.radiation.min;
-    const maxRad = this.actor.data.data.radiation.max;
-    let targetIndex = index;
-    // cover the case of filling up the bar completely.
-    if (targetIndex >= currentRad) {
-      targetIndex += 1;
-    }
-    let newRad = Math.max(minRad, Math.min(maxRad, targetIndex));
+    const radObj = this.actor.data.data.radiation;
+    let newRad = computeNewBarValue(index, radObj.value, radObj.min, radObj.max);
     return this.actor.update({ 'data.radiation.value': newRad });
   }
 
   _onHoverRadiationIn(event) {
     event.preventDefault();
     const header = event.currentTarget;
-    // Get the type of item to create.
-    const hoverIndex = Number(header.dataset.index);
-    const currentRad = this.actor.data.data.radiation.value;
-    let increase = hoverIndex >= currentRad;
-    let radBarElement = $(header).parents(".radiation-bar");
-    radBarElement.find('.radiation').each((i, div) => {
-      let bar = $(div);
-      const increaseClass = 'hover-to-increase';
-      const decreaseClass = 'hover-to-decrease';
-      bar.removeClass(increaseClass);
-      bar.removeClass(decreaseClass);
-      // only alter the bars that are empty between the end of our 'filled' bars
-      // and our hover index
-      if (increase && i <= hoverIndex && i >= currentRad) {
-        bar.addClass(increaseClass);
-      }
-
-      // only alter bars that are filled between the end of our 'filled bars'
-      // and our hover index
-      if (!increase && i >= hoverIndex && i < currentRad) {
-        bar.addClass(decreaseClass);
-      }
-    });
+    onHoverBarSegmentIn(header, this.actor.data.data.radiation.value, '.radiation-bar', '.radiation');
   }
 
 
   _onHoverRadiationOut(event) {
     event.preventDefault();
-    $(event.currentTarget).find('.radiation').each((i, div) => {
-      let bar = $(div);
-      bar.removeClass('hover-to-increase');
-      bar.removeClass('hover-to-decrease');
-    });
+    onHoverBarOut(event.currentTarget, '.radiation');
   }
 
   _onClickXP(event) {
