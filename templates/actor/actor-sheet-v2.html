@@ -7,27 +7,41 @@
     <div class="always-visible-stats">
       <ol class="perma-stats-list">
         <li class="entry flexrow">
-          <div class="stat-label">{{localize "YZECORIOLIS.HitPoints"}} ({{data.hitPoints.max}})</div>
-          <div class="hp-bar">
-            <div class="bg"></div>
-            <div class="fill" style="--width-percentage: {{percentcss data.hitPoints.value data.hitPoints.max}}%;">
+          <div class="stat-label">{{localize "YZECORIOLIS.HitPoints"}}</div>
+          <div class="bar hp-bar fr-basic">
+            {{#each actor.hpBlocks as |on index|}}
+            {{#with ../data as | data |}}
+            {{#if on}}
+            <div class="bar-segment on" data-name="data.hitPoints.value" data-index={{index}}
+              data-current={{data.hitPoints.value}} data-min={{data.hitPoints.min}} data-max={{data.hitPoints.max}}>
             </div>
-            <div class="number">
-              <input class="input-value" type="text" name="data.hitPoints.value" value="{{data.hitPoints.value}}"
-                data-dtype="Number" />
+            {{else}}
+            <div class="bar-segment off" data-name="data.hitPoints.value" data-index={{index}}
+              data-current={{data.hitPoints.value}} data-min={{data.hitPoints.min}} data-max={{data.hitPoints.max}}>
             </div>
+            {{/if}}
+            {{/with}}
+            {{/each}}
+            <span class="bar-value">{{data.hitPoints.value}}</span>
           </div>
         </li>
         <li class="entry flexrow">
-          <div class="stat-label">{{localize "YZECORIOLIS.MindPoints"}} ({{data.mindPoints.max}})</div>
-          <div class="mind-bar">
-            <div class="bg"></div>
-            <div class="fill" style="--width-percentage: {{percentcss data.mindPoints.value data.mindPoints.max}}%;">
+          <div class="stat-label">{{localize "YZECORIOLIS.MindPoints"}}</div>
+          <div class="bar mind-bar fr-basic">
+            {{#each actor.mindBlocks as |on index|}}
+            {{#with ../data as | data |}}
+            {{#if on}}
+            <div class="bar-segment on" data-name="data.mindPoints.value" data-index={{index}}
+              data-current={{data.mindPoints.value}} data-min={{data.mindPoints.min}} data-max={{data.mindPoints.max}}>
             </div>
-            <div class="number">
-              <input class="input-value" type="text" name="data.mindPoints.value" value="{{data.mindPoints.value}}"
-                data-dtype="Number" />
+            {{else}}
+            <div class="bar-segment off" data-name="data.mindPoints.value" data-index={{index}}
+              data-current={{data.mindPoints.value}} data-min={{data.mindPoints.min}} data-max={{data.mindPoints.max}}>
             </div>
+            {{/if}}
+            {{/with}}
+            {{/each}}
+            <span class="bar-value">{{data.mindPoints.value}}</span>
           </div>
         </li>
         <li class="entry flexrow">
@@ -44,7 +58,6 @@
               data-current={{data.radiation.value}} data-min={{data.radiation.min}} data-max={{data.radiation.max}}>
             </div>
             {{/if}}
-
             {{/with}}
             {{/each}}
             <span class="bar-value">{{data.radiation.value}}</span>

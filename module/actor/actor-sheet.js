@@ -1,7 +1,7 @@
 import { getID } from '../util.js';
 import { coriolisRoll } from '../coriolis-roll.js';
 import { coriolisModifierDialog } from '../coriolis-roll.js';
-import { computeNewBarValue, onHoverBarSegmentIn, onHoverBarOut } from './databar.js';
+import { computeNewBarValue, onHoverBarSegmentIn, onHoverBarOut, prepDataBarBlocks } from './databar.js';
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -41,39 +41,17 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
   _prepCharacterStats(sheetData) {
     const actorData = sheetData.actor;
+    const data = actorData.data;
 
-    // radiation blocks
-    const rad = actorData.data.radiation.value;
-    const maxRad = actorData.data.radiation.max;
-    const radArray = [];
-    for (let i = 0; i < maxRad; i++) {
-      radArray.push(i < rad ? true : false);
-    }
-
-    // xp blocks
-    const xp = actorData.data.experience.value;
-
-    const maxXP = actorData.data.experience.max;
-    const xpArray = [];
-    for (let i = 0; i < maxXP; i++) {
-      xpArray.push(i < xp ? true : false);
-    }
-
-
-    // rep blocks
-    const rep = actorData.data.reputation.value;
-    const maxRep = actorData.data.reputation.max;
-    const repArray = [];
-    for (let i = 0; i < maxRep; i++) {
-      repArray.push(i < rep ? true : false);
-    }
-
-    actorData.radiationBlocks = radArray;
-    actorData.xpBlocks = xpArray;
-    actorData.repBlocks = repArray;
-
-
+    actorData.radiationBlocks = prepDataBarBlocks(data.radiation.value, data.radiation.max);
+    actorData.xpBlocks = prepDataBarBlocks(data.experience.value, data.experience.max);;
+    actorData.repBlocks = prepDataBarBlocks(data.reputation.value, data.reputation.max);
+    actorData.hpBlocks = prepDataBarBlocks(data.hitPoints.value, data.hitPoints.max);
+    actorData.mindBlocks = prepDataBarBlocks(data.mindPoints.value, data.mindPoints.max);
   }
+
+
+
 
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor;

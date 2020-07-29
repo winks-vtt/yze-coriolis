@@ -50,3 +50,11 @@ export function onHoverBarOut(event) {
     });
 
 }
+
+export function prepDataBarBlocks(value, max) {
+    const dataBlockArray = [];
+    for (let i = 0; i < max; i++) {
+        dataBlockArray.push(i < value ? true : false);
+    }
+    return dataBlockArray;
+}

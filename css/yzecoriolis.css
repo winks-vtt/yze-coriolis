@@ -346,56 +346,6 @@
   color: #FDFF9D;
   height: 18px;
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar {
-  line-height: 25px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  border: 1px solid #A4A4A4;
-  border-radius: 5px;
-}
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bg {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  border-radius: 5px;
-  background-color: #5C0000;
-}
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .fill {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  border-radius: 5px 0px 0px 5px;
-  background-color: #125C00;
-  width: var(--width-percentage);
-}
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar {
-  line-height: 25px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  border: 1px solid #A4A4A4;
-  border-radius: 5px;
-}
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bg {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  border-radius: 5px;
-  background-color: #081F43;
-}
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .fill {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  border-radius: 5px 0px 0px 5px;
-  background-color: #3F82A7;
-  width: var(--width-percentage);
-}
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .bar-bg {
   padding: 0px 5px 0px 5px;
   border: 1px solid #A4A4A4;
@@ -420,9 +370,9 @@
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment {
   border-radius: 2px;
   box-sizing: border-box;
-  width: 10px;
+  flex: 1 1 10px;
   height: 17px;
-  margin: 3.5px 0px;
+  margin: 3.5px 1px;
   background-color: #000000;
   transition: background-color 275ms ease, border 275ms ease;
 }
@@ -436,13 +386,13 @@
   background-color: #B1C343;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment.on:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment.off {
   background-color: #000000;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment.off:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar {
   justify-content: space-between;
@@ -456,9 +406,9 @@
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment {
   border-radius: 2px;
   box-sizing: border-box;
-  width: 10px;
+  flex: 1 1 10px;
   height: 17px;
-  margin: 3.5px 0px;
+  margin: 3.5px 1px;
   background-color: #000000;
   transition: background-color 275ms ease, border 275ms ease;
 }
@@ -472,13 +422,13 @@
   background-color: #603FA7;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment.on:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment.off {
   background-color: #000000;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment.off:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar {
   justify-content: space-between;
@@ -492,9 +442,9 @@
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment {
   border-radius: 2px;
   box-sizing: border-box;
-  width: 10px;
+  flex: 1 1 10px;
   height: 17px;
-  margin: 3.5px 0px;
+  margin: 3.5px 1px;
   background-color: #000000;
   transition: background-color 275ms ease, border 275ms ease;
 }
@@ -508,13 +458,85 @@
   background-color: #CF4264;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment.on:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment.off {
   background-color: #000000;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment.off:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar {
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 5px 0px 5px;
+  border: 1px solid #A4A4A4;
+  border-radius: 5px;
+  background-color: rgba(113, 130, 190, 0.35);
+  height: 27px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-segment {
+  border-radius: 2px;
+  box-sizing: border-box;
+  flex: 1 1 10px;
+  height: 17px;
+  margin: 3.5px 1px;
+  background-color: #000000;
+  transition: background-color 275ms ease, border 275ms ease;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .hover-to-decrease {
+  background-color: #5C0000 !important;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .hover-to-increase {
+  border: 1px solid #125C00;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-segment.on {
+  background-color: #125C00;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-segment.on:hover {
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-segment.off {
+  background-color: #000000;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-segment.off:hover {
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar {
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 5px 0px 5px;
+  border: 1px solid #A4A4A4;
+  border-radius: 5px;
+  background-color: rgba(113, 130, 190, 0.35);
+  height: 27px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-segment {
+  border-radius: 2px;
+  box-sizing: border-box;
+  flex: 1 1 10px;
+  height: 17px;
+  margin: 3.5px 1px;
+  background-color: #000000;
+  transition: background-color 275ms ease, border 275ms ease;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .hover-to-decrease {
+  background-color: #081F43 !important;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .hover-to-increase {
+  border: 1px solid #3F82A7;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-segment.on {
+  background-color: #3F82A7;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-segment.on:hover {
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-segment.off {
+  background-color: #000000;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-segment.off:hover {
+  transform: scale(1.05);
 }
 .yzecoriolis.sheet.actor .char-content-wrapper {
   grid-column-start: 2;

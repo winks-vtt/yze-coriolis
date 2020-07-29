@@ -136,42 +136,6 @@
                     }
                 }
 
-                .hp-bar-helper(@fgcol, @bgcol) {
-                    line-height: 25px;
-                    display: grid;
-                    grid-template-columns: 1fr;
-                    grid-template-rows: 1fr;
-                    border: 1px solid @colorBarOutline;
-                    border-radius: 5px;
-
-                    .bg {
-                        grid-column-start: 1;
-                        grid-column-end: 2;
-                        grid-row-start: 1;
-                        grid-row-end: 2;
-                        border-radius: 5px;
-                        background-color: @bgcol;
-                    }
-
-                    .fill {
-                        grid-column-start: 1;
-                        grid-column-end: 2;
-                        grid-row-start: 1;
-                        grid-row-end: 2;
-                        border-radius: 5px 0px 0px 5px;
-                        background-color: @fgcol;
-                        width: var(--width-percentage);
-                    }
-                }
-
-                .hp-bar {
-                    .hp-bar-helper(@colorGreen, @colorBlood);
-                }
-
-                .mind-bar {
-                    .hp-bar-helper(@colorPaleBlue, @colorDarkerBlue);
-                }
-
                 //bar helpers
                 .bar-bg {
                     padding: 0px 5px 0px 5px;
@@ -195,9 +159,9 @@
                     .bar-segment {
                         border-radius: 2px;
                         box-sizing: border-box;
-                        width: 10px;
+                        flex: 1 1 10px;
                         height: 17px;
-                        margin: 3.5px 0px;
+                        margin: 3.5px 1px;
                         background-color: @colorBlack;
                         transition: background-color 275ms ease,
                             border 275ms ease;
@@ -216,7 +180,7 @@
                         background-color: @fillCol;
 
                         &:hover {
-                            transform: scale(1.1);
+                            transform: scale(1.05);
                         }
                     }
 
@@ -224,23 +188,30 @@
                         background-color: @colorBlack;
 
                         &:hover {
-                            transform: scale(1.1);
+                            transform: scale(1.05);
                         }
                     }
                 }
 
-                //--- radiation bar----//
+
                 .radiation-bar {
                     .bar-styling-helper(@colorRadiationFill, @colorRadiationDecreaseFill);
                 }
 
-                //--XP bar--//
                 .xp-bar {
                     .bar-styling-helper(@colorXPFill, @colorXPDecreaseFill);
                 }
 
                 .rep-bar {
                     .bar-styling-helper(@colorRepFill, @colorRepDecreaseFill);
+                }
+
+                .hp-bar {
+                    .bar-styling-helper(@colorGreen, @colorBlood);
+                }
+
+                .mind-bar {
+                    .bar-styling-helper(@colorPaleBlue, @colorDarkerBlue);
                 }
             }
         }
