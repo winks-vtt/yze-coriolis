@@ -75,7 +75,10 @@
     "YZECORIOLIS.Add": "Add",
     "YZECORIOLIS.Edit": "Edit",
     "YZECORIOLIS.Delete": "Delete",
+
     "YZECORIOLIS.CreateTalent": "Create Talent",
+    "YZECORIOLIS.EditTalent": "Edit Talent",
+    "YZECORIOLIS.DeleteTalent": "Delete Talent",
 
     "YZECORIOLIS.CreateGear": "Create Gear",
     "YZECORIOLIS.CreateWeapon": "Create Weapon",

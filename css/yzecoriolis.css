@@ -24,6 +24,10 @@
   src: url("fonts/cairo/Cairo-Bold.ttf");
 }
 @font-face {
+  font-family: "Cairo-SemiBold";
+  src: url("fonts/cairo/Cairo-SemiBold.ttf");
+}
+@font-face {
   font-family: "Play";
   src: url("fonts/play/Play-Regular.ttf");
 }
@@ -253,11 +257,18 @@
   font-family: "Cairo-Bold";
   color: white;
 }
+.yzecoriolis.sheet.actor .data-text-semibold {
+  font-family: "Cairo-SemiBold";
+  color: white;
+}
 .yzecoriolis.sheet.actor .line-item-entry {
   background: rgba(19, 27, 53, 0.25);
   border-radius: 3px;
   padding: 2px;
   margin-bottom: 2px;
+}
+.yzecoriolis.sheet.actor .darkBlue.faded {
+  color: #7182BE;
 }
 .yzecoriolis.sheet.actor .hover-header-buttons {
   transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
@@ -625,7 +636,7 @@
   /* Critical Injuries*/
   /*-------------------------------------*/
   /*-------------------------------------*/
-  /* Skills List*/
+  /* Talent List*/
   /*-------------------------------------*/
 }
 .yzecoriolis.sheet.actor .sheet-body .navigation {
@@ -905,7 +916,7 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-controls {
   flex: 0 0 80px;
-  color: #9FB0ED;
+  color: #7182BE;
   display: flex;
   justify-content: flex-end;
   margin-right: 5px;
@@ -945,7 +956,9 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list {
   list-style: none;
-  padding: 0px;
+  overflow-y: auto;
+  max-height: 580px;
+  padding: 0 5px 0 0;
   margin-top: 24px;
   margin-left: 32px;
   margin-right: 32px;
@@ -958,6 +971,10 @@
   height: 24px;
   margin-bottom: 5px;
   align-content: center;
+  margin-top: 20px;
+}
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-category-header:first-of-type {
+  margin-top: 0px;
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent-category-name {
   font-size: 14px;
@@ -982,6 +999,57 @@
   text-shadow: 0 0 5px orangered;
   color: white;
   transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-widget.faded {
+  color: #7182BE;
+}
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent {
+  align-items: center;
+  font-family: "Cairo";
+  color: white;
+  margin-bottom: 2px;
+}
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-bg {
+  background-color: rgba(19, 27, 53, 0.78);
+  border-radius: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  flex: 0 0 100%;
+}
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-bg:hover {
+  animation: flicker 275ms;
+}
+@keyframes flicker {
+  0% {
+    background-color: rgba(32, 46, 91, 0.78);
+  }
+  100% {
+    background-color: rgba(19, 27, 53, 0.78);
+  }
+}
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-name {
+  font-family: "Cairo-SemiBold";
+  color: white;
+  color: #FFA903;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 275ms ease;
+}
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-name:hover {
+  transform: translateX(5px);
+}
+.yzecoriolis.sheet.actor .sheet-body .talent-list .expanded {
+  height: auto;
+}
+.yzecoriolis.sheet.actor .sheet-body .talent-list .item-summary {
+  background-color: rgba(19, 27, 53, 0.78);
+  border-radius: 3px;
+  flex: 0 0 570px;
+  margin-top: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 2px;
+  margin-left: 25px;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */

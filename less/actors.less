@@ -21,11 +21,23 @@
         color: @colorWhite;
     }
 
+    .data-text-semibold {
+        font-family: "Cairo-SemiBold";
+        color: @colorWhite;
+    }
+
     .line-item-entry {
         background: rgba(19, 27, 53, 0.25);
         border-radius: 3px;
         padding: 2px;
         margin-bottom: 2px;
+    }
+
+    .darkBlue {
+
+        &.faded {
+            color: @colorDarkBlue;
+        }
     }
 
     .hover-header-buttons {
@@ -626,7 +638,7 @@
 
             .crit-controls {
                 flex: 0 0 80px;
-                color: @colorBlue;
+                color: @colorDarkBlue;
                 display: flex;
                 justify-content: flex-end;
                 margin-right: 5px;
@@ -663,12 +675,14 @@
         }
 
         /*-------------------------------------*/
-        /* Skills List*/
+        /* Talent List*/
         /*-------------------------------------*/
 
         .talent-list {
             list-style: none;
-            padding: 0px;
+            overflow-y: auto;
+            max-height: 580px;
+            padding: 0 5px 0 0;
             margin-top: 24px;
             margin-left: 32px;
             margin-right: 32px;
@@ -680,6 +694,11 @@
                 height: 24px;
                 margin-bottom: 5px;
                 align-content: center;
+                margin-top: 20px;
+
+                &:first-of-type {
+                    margin-top: 0px;
+                }
             }
 
             .talent-category-name {
@@ -694,14 +713,76 @@
                 margin-top: 2px;
                 text-align: right;
                 margin-right: 7px;
-
             }
 
             .talent-control-widget {
                 color: @colorBlue;
                 .hover-header-buttons();
+
+                .darkBlue();
             }
 
+            .talent {
+                align-items: center;
+                .data-text();
+                color: @colorWhite;
+                margin-bottom: 2px;
+            }
+
+            .flicker-anim(@fromCol, @toCol) {
+                @keyframes flicker {
+                    0% {
+                        background-color: @fromCol
+                    }
+
+                    100% {
+                        background-color: @toCol
+                    }
+                }
+            }
+
+
+
+            .talent-bg {
+                background-color: @colorItemEntryBG;
+                border-radius: 3px;
+                padding-left: 5px;
+                padding-right: 5px;
+                flex: 0 0 100%;
+
+                &:hover {
+                    .flicker-anim(lighten(@colorItemEntryBG, 10%), @colorItemEntryBG);
+                    animation: flicker 275ms;
+                }
+            }
+
+            .talent-name {
+                .data-text-semibold();
+                color: @colorOrange;
+                font-size: 15px;
+                cursor: pointer;
+                transition: transform 275ms ease;
+
+                &:hover {
+                    transform: translateX(5px);
+                }
+            }
+
+            .expanded {
+                height: auto;
+            }
+
+
+            .item-summary {
+                background-color: @colorItemEntryBG;
+                border-radius: 3px;
+                flex: 0 0 570px;
+                margin-top: 2px;
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-bottom: 2px;
+                margin-left: 25px;
+            }
         }
     }
 }
