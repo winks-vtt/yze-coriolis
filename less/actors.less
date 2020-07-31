@@ -27,16 +27,27 @@
     }
 
     .line-item-entry {
-        background: rgba(19, 27, 53, 0.25);
+        background: @colorStatItemEntryBG;
         border-radius: 3px;
         padding: 2px;
         margin-bottom: 2px;
     }
 
     .darkBlue {
-
         &.faded {
             color: @colorDarkBlue;
+        }
+    }
+
+    .flicker-anim(@fromCol, @toCol) {
+        @keyframes flicker {
+            0% {
+                background-color: @fromCol
+            }
+
+            100% {
+                background-color: @toCol
+            }
         }
     }
 
@@ -713,13 +724,20 @@
                 margin-top: 2px;
                 text-align: right;
                 margin-right: 7px;
+                display: flex;
+                justify-content: flex-end;
             }
 
             .talent-control-widget {
-                color: @colorBlue;
+                color: @colorDarkBlue;
+                flex-basis: 20px;
                 .hover-header-buttons();
+            }
 
-                .darkBlue();
+            .talent-control-add-widget {
+                .talent-control-widget();
+                color: @colorBlue;
+                flex-basis: 60px;
             }
 
             .talent {
@@ -729,30 +747,19 @@
                 margin-bottom: 2px;
             }
 
-            .flicker-anim(@fromCol, @toCol) {
-                @keyframes flicker {
-                    0% {
-                        background-color: @fromCol
-                    }
-
-                    100% {
-                        background-color: @toCol
-                    }
-                }
-            }
-
-
-
             .talent-bg {
-                background-color: @colorItemEntryBG;
+                background-color: @colorStatItemEntryBG;
+
                 border-radius: 3px;
                 padding-left: 5px;
                 padding-right: 5px;
                 flex: 0 0 100%;
 
+                .flicker-anim(lighten(@colorStatItemEntryBG, 30%), @colorStatItemEntryBG);
+
                 &:hover {
-                    .flicker-anim(lighten(@colorItemEntryBG, 10%), @colorItemEntryBG);
-                    animation: flicker 275ms;
+                    animation: flicker 1.2s;
+                    animation-fill-mode: forwards;
                 }
             }
 
@@ -772,9 +779,8 @@
                 height: auto;
             }
 
-
             .item-summary {
-                background-color: @colorItemEntryBG;
+                background-color: @colorStatItemEntryBG;
                 border-radius: 3px;
                 flex: 0 0 570px;
                 margin-top: 2px;

@@ -262,7 +262,7 @@
   color: white;
 }
 .yzecoriolis.sheet.actor .line-item-entry {
-  background: rgba(19, 27, 53, 0.25);
+  background: rgba(19, 27, 53, 0.45);
   border-radius: 3px;
   padding: 2px;
   margin-bottom: 2px;
@@ -779,7 +779,7 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill {
   transition: 275ms filter ease;
-  background: rgba(19, 27, 53, 0.25);
+  background: rgba(19, 27, 53, 0.45);
   border-radius: 3px;
   padding: 2px;
   margin-bottom: 2px;
@@ -899,7 +899,7 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury {
   align-items: center;
-  background: rgba(19, 27, 53, 0.25);
+  background: rgba(19, 27, 53, 0.45);
   border-radius: 3px;
   padding: 2px;
   margin-bottom: 2px;
@@ -987,9 +987,12 @@
   margin-top: 2px;
   text-align: right;
   margin-right: 7px;
+  display: flex;
+  justify-content: flex-end;
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-widget {
-  color: #9FB0ED;
+  color: #7182BE;
+  flex-basis: 20px;
   transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-widget a:hover {
@@ -1000,8 +1003,20 @@
   color: white;
   transform: scale(1.05);
 }
-.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-widget.faded {
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-add-widget {
   color: #7182BE;
+  flex-basis: 20px;
+  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+  color: #9FB0ED;
+  flex-basis: 60px;
+}
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-add-widget a:hover {
+  text-shadow: none;
+}
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-add-widget:hover {
+  text-shadow: 0 0 5px orangered;
+  color: white;
+  transform: scale(1.05);
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent {
   align-items: center;
@@ -1010,22 +1025,23 @@
   margin-bottom: 2px;
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent-bg {
-  background-color: rgba(19, 27, 53, 0.78);
+  background-color: rgba(19, 27, 53, 0.45);
   border-radius: 3px;
   padding-left: 5px;
   padding-right: 5px;
   flex: 0 0 100%;
 }
-.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-bg:hover {
-  animation: flicker 275ms;
-}
 @keyframes flicker {
   0% {
-    background-color: rgba(32, 46, 91, 0.78);
+    background-color: rgba(59, 84, 166, 0.45);
   }
   100% {
-    background-color: rgba(19, 27, 53, 0.78);
+    background-color: rgba(19, 27, 53, 0.45);
   }
+}
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-bg:hover {
+  animation: flicker 1.2s;
+  animation-fill-mode: forwards;
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent-name {
   font-family: "Cairo-SemiBold";
@@ -1042,7 +1058,7 @@
   height: auto;
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .item-summary {
-  background-color: rgba(19, 27, 53, 0.78);
+  background-color: rgba(19, 27, 53, 0.45);
   border-radius: 3px;
   flex: 0 0 570px;
   margin-top: 2px;

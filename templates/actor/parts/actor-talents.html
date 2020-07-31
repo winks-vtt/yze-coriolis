@@ -7,7 +7,7 @@
 
             {{#if ../owner}}
             <div class="talent-controls">
-                <a class="talent-control-widget item-create" title='{{localize "YZECORIOLIS.CreateTalent"}}'
+                <a class="talent-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateTalent"}}'
                     {{#each talentData.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                     <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                 </a>
@@ -18,7 +18,7 @@
         {{!-- show talent for each category --}}
         {{#each talentData.items as |talent id|}}
         <li class="talent item flexrow" data-item-id="{{talent._id}}">
-            <div class="talent-bg flexrow">
+            <div class="talent-bg flickering flexrow">
                 <div class="talent-name expandable-info flexrow">
                     <span>{{talent.name}}</span>
                 </div>
