@@ -1,13 +1,13 @@
- <div class="tab talents" data-group="primary" data-tab="talents">
-     <ol class="inventory-list">
+ <div class="tab panel" data-group="primary" data-tab="talents">
+     <ol class="talent-list">
          {{#each actor.talents as |talentData categoryKey|}}
          {{!-- setup header for a talent category--}}
-         <li class="inventory-header flexrow">
-             <h3 class="talent-name flexrow">{{getTalentCategoryName categoryKey}}</h3>
+         <li class=" talent-category-header flexrow">
+             <h3 class="talent-category-name flexrow">{{getTalentCategoryName categoryKey}}</h3>
 
              {{#if ../owner}}
-             <div class="item-controls">
-                 <a class="item-control item-create" title='{{localize "YZECORIOLIS.CreateTalent"}}'
+             <div class="talent-controls">
+                 <a class="talent-control-widget item-create" title='{{localize "YZECORIOLIS.CreateTalent"}}'
                      {{#each talentData.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                      <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                  </a>

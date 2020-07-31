@@ -66,7 +66,7 @@
             <h4>{{localize "YZECORIOLIS.CriticalInjuries"}}</h4>
             {{#if owner}}
             <div class="crit-add-controls">
-                <a class="item-create" title='{{localize "YZECORIOLIS.CreateCriticalInjury"}}'
+                <a class="crit-control-widget item-create" title='{{localize "YZECORIOLIS.CreateCriticalInjury"}}'
                     {{#each actor.injuryDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                     <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                 </a>

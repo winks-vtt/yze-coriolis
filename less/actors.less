@@ -28,6 +28,21 @@
         margin-bottom: 2px;
     }
 
+    .hover-header-buttons {
+        transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+
+        a {
+            &:hover {
+                text-shadow: none;
+            }
+        }
+
+        &:hover {
+            text-shadow: 0 0 5px @colorOrangeShadow;
+            color: @colorWhite;
+            transform: scale(1.05);
+        }
+    }
 
     input[type="text"] {
         .player-text();
@@ -577,6 +592,12 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+                border-radius: 3px;
+                background-color: @colorBlueTransparent;
+                margin-bottom: 5px;
+                height: 24px;
+                padding-left: 5px;
+                padding-right: 5px;
 
                 h4 {
                     .data-text();
@@ -598,6 +619,9 @@
                 text-align: center;
                 text-transform: uppercase;
                 padding-right: 2px;
+                color: @colorBlue;
+
+
             }
 
             .crit-controls {
@@ -606,11 +630,12 @@
                 display: flex;
                 justify-content: flex-end;
                 margin-right: 5px;
+            }
 
-                .crit-control-widget {
-                    flex-basis: 20px;
-                    text-align: right;
-                }
+            .crit-control-widget {
+                flex-basis: 20px;
+                text-align: right;
+                .hover-header-buttons();
             }
 
             .injury-display {
@@ -635,6 +660,48 @@
                     text-overflow: ellipsis;
                 }
             }
+        }
+
+        /*-------------------------------------*/
+        /* Skills List*/
+        /*-------------------------------------*/
+
+        .talent-list {
+            list-style: none;
+            padding: 0px;
+            margin-top: 24px;
+            margin-left: 32px;
+            margin-right: 32px;
+
+            .talent-category-header {
+                .data-text();
+                border-radius: 3px;
+                background-color: @colorBlueTransparent;
+                height: 24px;
+                margin-bottom: 5px;
+                align-content: center;
+            }
+
+            .talent-category-name {
+                font-size: 14px;
+                margin: 0px 0px 0px 5px;
+                text-transform: uppercase;
+            }
+
+            .talent-controls {
+                text-transform: uppercase;
+                flex: 0 0 60px;
+                margin-top: 2px;
+                text-align: right;
+                margin-right: 7px;
+
+            }
+
+            .talent-control-widget {
+                color: @colorBlue;
+                .hover-header-buttons();
+            }
+
         }
     }
 }
