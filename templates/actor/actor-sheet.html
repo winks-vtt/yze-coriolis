@@ -1,90 +1,153 @@
-<form class="{{cssClass}} flexcol" autocomplete="off">
-
-  {{!-- Sheet Header --}}
-  <header class="sheet-header">
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
-    <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h1>
-      <div class="resource grid grid-2col">
-        <label for="data.experience.value" class="resource-label">Experience</label>
-        <label for="data.experience.value" class="resource-label">{{data.experience.value}} xp</label>
-      </div>
-      <div class="resource grid grid-2col number-input">
-        <label for="data.birr" class="resource-label">{{localize "YZECORIOLIS.Birr"}}</label>
-        <input class="birr" type="number" name="data.birr" value="{{data.birr}}" data-dtype="Number" />
-      </div>
-      {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-            use both the "grid" and "grid-Ncol" class where "N" can be any number
-            from 1 to 12 and will create that number of columns.  --}}
-      <div class="resources grid grid-2col">
-        {{!-- "flex-group-center" is also defined in the _grid.scss file
-              and it will add a small amount of padding, a border, and will
-              center all of its child elements content and text. --}}
-        <div class="resource flex-group-center">
-          <label for="data.hitPoints.value" class="resource-label">Health</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number" />
-            <span> / </span>
-            <label for="data.hitPoints.max" class="resource-label" data-dtype="Number">{{data.hitPoints.max}}</label>
-          </div>
-        </div>
-        <div class="resource flex-group-center">
-          <label for="data.mindPoints.value" class="resource-label">Mind Points</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.mindPoints.value" value="{{data.mindPoints.value}}" data-dtype="Number" />
-            <span> / </span>
-            <label for="data.mindPoints.max" class="resource-label" data-dtype="Number">{{data.mindPoints.max}}</label>
-          </div>
-        </div>
-        <div class="resource flex-group-center number-input">
-          <label for="data.reputation.value" class="resource-label">{{localize "YZECORIOLIS.Reputation"}}</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="number" min="0" name="data.reputation.value" value="{{data.reputation.value}}"
-              data-dtype="Number" />
-          </div>
-        </div>
-        <div class="resource flex-group-center">
-          <label for="data.bio.icon" class="resource-label">{{localize "YZECORIOLIS.Icon"}}</label>
-          <select name="data.bio.icon">
-            {{#select data.bio.icon}}
-            {{#each config.icons as |label icon|}}
-            <option value="{{icon}}">{{label}}</option>
+<form class="{{cssClass}}" autocomplete="off">
+  <div class="sheet-container">
+    <div class="key-art-container">
+      <img class="vertical-img" src="{{data.keyArt}}" data-edit="data.keyArt" title="{{actor.name}}">
+    </div>
+    <div class="gradient-overlay"></div>
+    <div class="always-visible-stats">
+      <ol class="perma-stats-list">
+        <li class="entry flexrow">
+          <div class="stat-label">{{localize "YZECORIOLIS.HitPoints"}}</div>
+          <div class="bar hp-bar fr-basic">
+            {{#each actor.hpBlocks as |on index|}}
+            {{#with ../data as | data |}}
+            {{#if on}}
+            <div class="bar-segment on" data-name="data.hitPoints.value" data-index={{index}}
+              data-current={{data.hitPoints.value}} data-min={{data.hitPoints.min}} data-max={{data.hitPoints.max}}>
+            </div>
+            {{else}}
+            <div class="bar-segment off" data-name="data.hitPoints.value" data-index={{index}}
+              data-current={{data.hitPoints.value}} data-min={{data.hitPoints.min}} data-max={{data.hitPoints.max}}>
+            </div>
+            {{/if}}
+            {{/with}}
             {{/each}}
-            {{/select}}
-          </select>
+            <span class="bar-value">{{data.hitPoints.value}}</span>
+          </div>
+        </li>
+        <li class="entry flexrow">
+          <div class="stat-label">{{localize "YZECORIOLIS.MindPoints"}}</div>
+          <div class="bar mind-bar fr-basic">
+            {{#each actor.mindBlocks as |on index|}}
+            {{#with ../data as | data |}}
+            {{#if on}}
+            <div class="bar-segment on" data-name="data.mindPoints.value" data-index={{index}}
+              data-current={{data.mindPoints.value}} data-min={{data.mindPoints.min}} data-max={{data.mindPoints.max}}>
+            </div>
+            {{else}}
+            <div class="bar-segment off" data-name="data.mindPoints.value" data-index={{index}}
+              data-current={{data.mindPoints.value}} data-min={{data.mindPoints.min}} data-max={{data.mindPoints.max}}>
+            </div>
+            {{/if}}
+            {{/with}}
+            {{/each}}
+            <span class="bar-value">{{data.mindPoints.value}}</span>
+          </div>
+        </li>
+        <li class="entry flexrow">
+          <div class="stat-label">{{localize "YZECORIOLIS.Radiation"}}</div>
+          <div class="bar radiation-bar fr-basic">
+            {{#each actor.radiationBlocks as |on index|}}
+            {{#with ../data as | data |}}
+            {{#if on}}
+            <div class="bar-segment on" data-name="data.radiation.value" data-index={{index}}
+              data-current={{data.radiation.value}} data-min={{data.radiation.min}} data-max={{data.radiation.max}}>
+            </div>
+            {{else}}
+            <div class="bar-segment off" data-name="data.radiation.value" data-index={{index}}
+              data-current={{data.radiation.value}} data-min={{data.radiation.min}} data-max={{data.radiation.max}}>
+            </div>
+            {{/if}}
+            {{/with}}
+            {{/each}}
+            <span class="bar-value">{{data.radiation.value}}</span>
+          </div>
+        </li>
+        <li class="entry flexrow">
+          <div class="stat-label">{{localize "YZECORIOLIS.Experience"}}</div>
+          <div class="bar xp-bar fr-basic">
+            {{#each actor.xpBlocks as |on index|}}
+            {{#with ../data as | data |}}
+            {{#if on}}
+            <div class="bar-segment on" data-name="data.experience.value" data-index={{index}}
+              data-current={{data.experience.value}} data-min={{data.experience.min}} data-max={{data.experience.max}}>
+            </div>
+            {{else}}
+            <div class="bar-segment off" data-name="data.experience.value" data-index={{index}}
+              data-current={{data.experience.value}} data-min={{data.experience.min}} data-max={{data.experience.max}}>
+            </div>
+            {{/if}}
+            {{/with}}
+            {{/each}}
+            <span class="bar-value">{{data.experience.value}}</span>
+          </div>
+        </li>
+        <li class="entry flexrow">
+          <div class="stat-label">{{localize "YZECORIOLIS.Reputation"}}</div>
+          <div class="bar rep-bar fr-basic">
+            {{#each actor.repBlocks as |on index|}}
+            {{#with ../data as | data |}}
+            {{#if on}}
+            <div class="bar-segment on" data-name="data.reputation.value" data-index={{index}}
+              data-current={{data.reputation.value}} data-min={{data.reputation.min}} data-max={{data.reputation.max}}>
+            </div>
+            {{else}}
+            <div class="bar-segment off" data-name="data.reputation.value" data-index={{index}}
+              data-current={{data.reputation.value}} data-min={{data.reputation.min}} data-max={{data.reputation.max}}>
+            </div>
+            {{/if}}
+            {{/with}}
+            {{/each}}
+            <span class="bar-value">{{data.reputation.value}}</span>
+          </div>
+        </li>
+        <li class="entry flexrow">
+          <div class="capitalize stat-label">{{localize "YZECORIOLIS.Birr"}}</div>
+          <div class="number">
+            <input class="input-value" type="text" name="data.birr" value="{{data.birr}}" data-dtype="Number" />
+          </div>
+        </li>
+        <li class="entry flexrow">
+          <div class="stat-label">{{localize "YZECORIOLIS.Icon"}}</div>
+          <div class="number">
+            <input class="input-value" placeholder={{localize "YZECORIOLIS.Icon"}} type="text" name="data.bio.icon"
+              value="{{data.bio.icon}}" data-dtype="String" />
+          </div>
+        </li>
+      </ol>
+    </div>
+    <div class="char-content-wrapper">
+      <header class="sheet-header">
+
+        <header class="name-plate">
+          <input class="char-name-input" name="name" type="text" value="{{actor.name}}"
+            placeholder="{{localize "YZECORIOLIS.Name"}}" />
+        </header>
+        <div class="char-class">
+          <input class="char-class-input" name="data.bio.concept" type="text" value="{{data.bio.concept}}"
+            placeholder="{{localize "YZECORIOLIS.Concept"}}" />
         </div>
+      </header>
+      <div class="sheet-body">
+        <nav class="navigation tabs" data-group="primary">
+          <a class="item nav-link active" data-tab="stats">{{localize "YZECORIOLIS.SheetStats"}}</a>
+          <a class="item nav-link" data-tab="talents">{{localize "YZECORIOLIS.SheetTalents"}}</a>
+          <a class="item nav-link" data-tab="gear">{{localize "YZECORIOLIS.SheetItems"}}</a>
+          <a class="item nav-link" data-tab="bio">{{localize "YZECORIOLIS.SheetBio"}}</a>
+          <a class="item nav-link" data-tab="charnotes">{{localize "YZECORIOLIS.CharNotes"}}</a>
+        </nav>
+
+        <section class="sheet-panels">
+          {{!-- Stats Tab --}}
+          {{> "systems/yzecoriolis/templates/actor/parts/actor-stats.html"}}
+
+
+          <div class="tab panel" data-group="primary" data-tab="talents">1</div>
+          <div class="tab panel" data-group="primary" data-tab="gear">2</div>
+          <div class="tab panel" data-group="primary" data-tab="bio">3</div>
+          <div class="tab panel" data-group="primary" data-tab="charnotes">4</div>
+        </section>
       </div>
     </div>
-  </header>
-
-  {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="stats">Stats</a>
-    <a class="item" data-tab="talents">Talents</a>
-    <a class="item" data-tab="gear">Gear</a>
-    <a class="item" data-tab="bio">Bio</a>
-    <a class="item" data-tab="charnotes">{{localize "YZECORIOLIS.CharNotes"}}</a>
-  </nav>
-
-  {{!-- Sheet Body --}}
-  <section class="sheet-body">
-    {{!-- Biography Tab --}}
-    {{> "systems/yzecoriolis/templates/actor/parts/actor-bio.html"}}
-
-
-    <div class="tab charnotes" data-group="primary" data-tab="charnotes">
-      {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
-    </div>
-
-    {{!-- Talents Tab --}}
-    {{> "systems/yzecoriolis/templates/actor/parts/actor-talents.html"}}
-
-
-    {{!-- Stats Tab --}}
-    {{> "systems/yzecoriolis/templates/actor/parts/actor-stats.html"}}
-
-
-    {{!-- Gear Tab --}}
-    {{> "systems/yzecoriolis/templates/actor/parts/actor-gear.html"}}
-  </section>
+  </div>
 </form>

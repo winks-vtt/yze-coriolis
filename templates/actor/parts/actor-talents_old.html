@@ -1,0 +1,33 @@
+ <div class="tab talents" data-group="primary" data-tab="talents">
+     <ol class="inventory-list">
+         {{#each actor.talents as |talentData categoryKey|}}
+         {{!-- setup header for a talent category--}}
+         <li class="inventory-header flexrow">
+             <h3 class="talent-name flexrow">{{getTalentCategoryName categoryKey}}</h3>
+
+             {{#if ../owner}}
+             <div class="item-controls">
+                 <a class="item-control item-create" title='{{localize "YZECORIOLIS.CreateTalent"}}'
+                     {{#each talentData.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                     <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+                 </a>
+             </div>
+             {{/if}}
+
+         </li>
+         {{!-- show talent for each category --}}
+         {{#each talentData.items as |talent id|}}
+         <li class="item flexrow" data-item-id="{{talent._id}}">
+             <div class="item-name flexrow rollable">
+                 <div class="item-image" style="background-image: url({{talent.img}})"></div>
+                 <h4>{{talent.name}}</h4>
+             </div>
+             <div class="item-controls">
+                 <a class="item-control item-edit" title="Edit Talent"><i class="fas fa-edit"></i></a>
+                 <a class="item-control item-delete" title="Delete Talent"><i class="fas fa-trash"></i></a>
+             </div>
+         </li>
+         {{/each}}
+         {{/each}}
+     </ol>
+ </div>
