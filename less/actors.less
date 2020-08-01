@@ -80,6 +80,13 @@
         }
     }
 
+    input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: textfield;
+        appearance: textfield;
+        margin: 0;
+    }
+
     /*
     Background & Container
     */
@@ -890,6 +897,16 @@
 
             .gear-bg {
                 .item-bg();
+            }
+
+            .gear-quantity-input {
+                .player-text();
+                font-size: 14px;
+                box-shadow: none;
+                border: none;
+                background-color: @colorTransparent;
+                text-align: center;
+                width: 50px;
             }
         }
     }

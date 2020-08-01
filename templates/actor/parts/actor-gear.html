@@ -29,14 +29,11 @@
                 <div class="gear-row-data">
                     {{getTechTierName gear.data.techTier}}
                 </div>
-                <div class="gear-row-data">
-                    {{gear.data.quantity}}
-                </div>
 
-                {{!-- <div class="gear-quantity flex-center">
-                <input class="gear-quantity-input" type="number" step="1" min="0" name="gear.data.quantity"
-                    value="{{gear.data.quantity}}" data-dtype="Number" />
-                </div> --}}
+                <div class="gear-row-data">
+                    <input class="gear-quantity-input" type="number" step="1" min="0" name="gear.data.quantity"
+                        value="{{gear.data.quantity}}" data-dtype="Number" />
+                </div>
                 <div class="gear-row-data">
                     {{#if_eq gear.data.restricted true}}
                     <i class="fas fa-key gear-restricted"></i>

@@ -293,6 +293,12 @@
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #7B7C4C;
 }
+.yzecoriolis.sheet.actor input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  margin: 0;
+}
 .yzecoriolis.sheet.actor .window-content {
   background: linear-gradient(90deg, #000000 30.35%, rgba(0, 0, 0, 0) 100%), url("images/char-sheet-bg.jpg");
 }
@@ -1291,6 +1297,16 @@
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-bg:hover {
   animation: flicker 1.2s;
   animation-fill-mode: forwards;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-quantity-input {
+  font-family: "Cairo";
+  color: #FDFF9D;
+  font-size: 14px;
+  box-shadow: none;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  text-align: center;
+  width: 50px;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
