@@ -730,9 +730,13 @@
             justify-content: flex-end;
         }
 
-        .item-control-widget {
+        .item-status-icon {
             color: @colorDarkBlue;
             flex-basis: 20px;
+        }
+
+        .item-control-widget {
+            .item-status-icon();
             .hover-header-buttons();
         }
 
@@ -740,6 +744,59 @@
             .item-control-widget();
             color: @colorBlue;
             flex-basis: 60px;
+        }
+
+        .item-entry {
+            align-items: center;
+            .data-text();
+            color: @colorWhite;
+            margin-bottom: 2px;
+        }
+
+        .item-entry-name {
+            .data-text-semibold();
+            color: @colorOrange;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 275ms ease;
+
+            &:hover {
+                transform: translateX(5px);
+            }
+        }
+
+        .item-bg {
+            background-color: @colorStatItemEntryBG;
+
+            border-radius: 3px;
+            padding-left: 5px;
+            padding-right: 5px;
+            flex: 0 0 100%;
+
+            .flicker-anim(lighten(@colorStatItemEntryBG, 30%), @colorStatItemEntryBG);
+
+            &:hover {
+                animation: flicker 1.2s;
+                animation-fill-mode: forwards;
+            }
+        }
+
+        .item-summary {
+
+            flex: 0 0 100%;
+            margin-top: 2px;
+            padding-bottom: 2px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .item-summary-wrapper {
+            background-color: @colorStatItemEntryBG;
+            border-radius: 3px;
+            flex: 0 0 570px;
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-left: 25px;
         }
 
         /*-------------------------------------*/
@@ -770,53 +827,19 @@
             }
 
             .talent {
-                align-items: center;
-                .data-text();
-                color: @colorWhite;
-                margin-bottom: 2px;
+                .item-entry();
             }
 
             .talent-bg {
-                background-color: @colorStatItemEntryBG;
-
-                border-radius: 3px;
-                padding-left: 5px;
-                padding-right: 5px;
-                flex: 0 0 100%;
-
-                .flicker-anim(lighten(@colorStatItemEntryBG, 30%), @colorStatItemEntryBG);
-
-                &:hover {
-                    animation: flicker 1.2s;
-                    animation-fill-mode: forwards;
-                }
+                .item-bg();
             }
 
             .talent-name {
-                .data-text-semibold();
-                color: @colorOrange;
-                font-size: 15px;
-                cursor: pointer;
-                transition: transform 275ms ease;
-
-                &:hover {
-                    transform: translateX(5px);
-                }
+                .item-entry-name();
             }
 
             .expanded {
                 height: auto;
-            }
-
-            .item-summary {
-                background-color: @colorStatItemEntryBG;
-                border-radius: 3px;
-                flex: 0 0 570px;
-                margin-top: 2px;
-                padding-left: 15px;
-                padding-right: 15px;
-                padding-bottom: 2px;
-                margin-left: 25px;
             }
         }
 
@@ -829,6 +852,10 @@
 
             .gear-category-name {
                 .category-column-name();
+
+                &.center {
+                    text-align: center;
+                }
             }
 
             .gear-controls {
@@ -841,6 +868,28 @@
 
             .gear-control-add-widget {
                 .item-control-add-widget();
+            }
+
+            .gear-restricted {
+                .item-status-icon();
+            }
+
+            .gear {
+                .item-entry();
+            }
+
+            .gear-name {
+                .item-entry-name();
+            }
+
+            .gear-row-data {
+                .data-text();
+                font-size: 14px;
+                text-align: center;
+            }
+
+            .gear-bg {
+                .item-bg();
             }
         }
     }

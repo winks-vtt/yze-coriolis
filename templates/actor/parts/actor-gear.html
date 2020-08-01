@@ -3,10 +3,10 @@
         {{!-- setup header for Gear--}}
         <li class="gear-category-header flexrow">
             <span class="gear-category-name">{{localize "YZECORIOLIS.Gear"}}</span>
-            <h3 class="gear-category-name">{{localize "YZECORIOLIS.Weight"}}</h3>
-            <div class="gear-category-name">{{localize "YZECORIOLIS.TechTier"}}</div>
-            <div class="gear-category-name">{{localize "YZECORIOLIS.Quantity"}}</div>
-            <div class="gear-category-name">{{localize "YZECORIOLIS.Restricted"}}</div>
+            <h3 class="gear-category-name center">{{localize "YZECORIOLIS.Weight"}}</h3>
+            <div class="gear-category-name center">{{localize "YZECORIOLIS.TechTier"}}</div>
+            <div class="gear-category-name center">{{localize "YZECORIOLIS.Quantity"}}</div>
+            <div class="gear-category-name center">{{localize "YZECORIOLIS.Restricted"}}</div>
             {{#if owner}}
             <div class="gear-controls">
                 <a class="gear-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateGear"}}'
@@ -16,31 +16,38 @@
             </div>
             {{/if}}
         </li>
-        {{#each actor.gear as |gearData index|}}
-        <li class="item flexrow" data-item-id="{{gear._id}}">
-            <div class="item-name flexrow">
-                <div class="item-image" style="background-image: url({{gear.img}})"></div>
-                <h4>{{gear.name}}</h4>
-            </div>
+        {{#each actor.gear as |gear index|}}
+        <li class="gear item flexrow" data-item-id="{{gear._id}}">
+            <div class="gear-bg flickering flexrow">
+                <div class="gear-name expandable-info flexrow">
+                    <span>{{gear.name}}</span>
+                </div>
+                <div class="gear-row-data">
+                    {{getGearWeightName gear.data.weight}}
+                </div>
 
-            <div class="gear-name">
-                {{getTechTierName gear.data.techTier}}
-            </div>
+                <div class="gear-row-data">
+                    {{getTechTierName gear.data.techTier}}
+                </div>
+                <div class="gear-row-data">
+                    {{gear.data.quantity}}
+                </div>
 
-            <div class="gear-quantity flex-center">
+                {{!-- <div class="gear-quantity flex-center">
                 <input class="gear-quantity-input" type="number" step="1" min="0" name="gear.data.quantity"
                     value="{{gear.data.quantity}}" data-dtype="Number" />
-            </div>
-            <div class="gear-name">
-                {{#if_eq gear.data.restricted true}}
-                <i class="fas fa-key"></i>
-                {{/if_eq}}
-            </div>
-            <div class="item-controls">
-                <a class="item-control item-toggle {{gear.data.toggleClass}}"
-                    title='{{localize "YZECORIOLIS.EquipGear"}}'><i class="fas fa-shield-alt"></i></a>
-                <a class="item-control item-edit" title="Edit Gear"><i class="fas fa-edit"></i></a>
-                <a class="item-control item-delete" title="Delete Gear"><i class="fas fa-trash"></i></a>
+                </div> --}}
+                <div class="gear-row-data">
+                    {{#if_eq gear.data.restricted true}}
+                    <i class="fas fa-key gear-restricted"></i>
+                    {{/if_eq}}
+                </div>
+                <div class="gear-controls">
+                    <a class="gear-control-widget item-toggle {{gear.data.toggleClass}}"
+                        title='{{localize "YZECORIOLIS.EquipGear"}}'><i class="fas fa-shield-alt"></i></a>
+                    <a class="gear-control-widget item-edit" title="Edit Gear"><i class="fas fa-edit"></i></a>
+                    <a class="gear-control-widget item-delete" title="Delete Gear"><i class="fas fa-trash"></i></a>
+                </div>
             </div>
         </li>
         {{/each}}

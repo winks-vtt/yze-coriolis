@@ -115,7 +115,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
       // append to gear
       if (i.type === 'gear') {
-        gear.items.push(i);
+        gear.push(i);
         totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
       }
       // append to talents
@@ -465,7 +465,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       let summary = li.children(".item-summary");
       summary.slideUp(200, () => { summary.remove() });
     } else {
-      let div = $(`<div class="item-summary">${chatData.description}</div>`);
+      let div = $(`<div class="item-summary"><div class="item-summary-wrapper">${chatData.description}</div></div>`);
       let props = $(`<div class="item-properties"></div>`);
       chatData.properties.forEach(p => props.append(`<span class="tag">${p}</span>`));
       div.append(props);

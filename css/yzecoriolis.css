@@ -993,6 +993,10 @@
   display: flex;
   justify-content: flex-end;
 }
+.yzecoriolis.sheet.actor .sheet-body .item-status-icon {
+  color: #7182BE;
+  flex-basis: 20px;
+}
 .yzecoriolis.sheet.actor .sheet-body .item-control-widget {
   color: #7182BE;
   flex-basis: 20px;
@@ -1020,6 +1024,57 @@
   text-shadow: 0 0 5px orangered;
   color: white;
   transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .sheet-body .item-entry {
+  align-items: center;
+  font-family: "Cairo";
+  color: white;
+  margin-bottom: 2px;
+}
+.yzecoriolis.sheet.actor .sheet-body .item-entry-name {
+  font-family: "Cairo-SemiBold";
+  color: white;
+  color: #FFA903;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 275ms ease;
+}
+.yzecoriolis.sheet.actor .sheet-body .item-entry-name:hover {
+  transform: translateX(5px);
+}
+.yzecoriolis.sheet.actor .sheet-body .item-bg {
+  background-color: rgba(19, 27, 53, 0.45);
+  border-radius: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  flex: 0 0 100%;
+}
+@keyframes flicker {
+  0% {
+    background-color: rgba(59, 84, 166, 0.45);
+  }
+  100% {
+    background-color: rgba(19, 27, 53, 0.45);
+  }
+}
+.yzecoriolis.sheet.actor .sheet-body .item-bg:hover {
+  animation: flicker 1.2s;
+  animation-fill-mode: forwards;
+}
+.yzecoriolis.sheet.actor .sheet-body .item-summary {
+  flex: 0 0 100%;
+  margin-top: 2px;
+  padding-bottom: 2px;
+  display: flex;
+  justify-content: flex-end;
+}
+.yzecoriolis.sheet.actor .sheet-body .item-summary-wrapper {
+  background-color: rgba(19, 27, 53, 0.45);
+  border-radius: 3px;
+  flex: 0 0 570px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 25px;
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list {
   list-style: none;
@@ -1124,16 +1179,6 @@
 .yzecoriolis.sheet.actor .sheet-body .talent-list .expanded {
   height: auto;
 }
-.yzecoriolis.sheet.actor .sheet-body .talent-list .item-summary {
-  background-color: rgba(19, 27, 53, 0.45);
-  border-radius: 3px;
-  flex: 0 0 570px;
-  margin-top: 2px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 2px;
-  margin-left: 25px;
-}
 .yzecoriolis.sheet.actor .sheet-body .gear-list {
   list-style: none;
   overflow-y: auto;
@@ -1160,6 +1205,9 @@
   font-size: 14px;
   margin: 0px 0px 0px 5px;
   text-transform: uppercase;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-category-name.center {
+  text-align: center;
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-controls {
   text-transform: uppercase;
@@ -1197,6 +1245,52 @@
   text-shadow: 0 0 5px orangered;
   color: white;
   transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-restricted {
+  color: #7182BE;
+  flex-basis: 20px;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear {
+  align-items: center;
+  font-family: "Cairo";
+  color: white;
+  margin-bottom: 2px;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-name {
+  font-family: "Cairo-SemiBold";
+  color: white;
+  color: #FFA903;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 275ms ease;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-name:hover {
+  transform: translateX(5px);
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-row-data {
+  font-family: "Cairo";
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-bg {
+  background-color: rgba(19, 27, 53, 0.45);
+  border-radius: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  flex: 0 0 100%;
+}
+@keyframes flicker {
+  0% {
+    background-color: rgba(59, 84, 166, 0.45);
+  }
+  100% {
+    background-color: rgba(19, 27, 53, 0.45);
+  }
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-bg:hover {
+  animation: flicker 1.2s;
+  animation-fill-mode: forwards;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
