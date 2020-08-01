@@ -2,7 +2,7 @@
     <ol class="gear-list">
         {{!-- setup header for Gear--}}
         <li class="gear-category-header flexrow">
-            <span class="gear-category-name">{{localize "YZECORIOLIS.Gear"}}</span>
+            <span class="gear-category-name first">{{localize "YZECORIOLIS.Gear"}}</span>
             <h3 class="gear-category-name center">{{localize "YZECORIOLIS.Weight"}}</h3>
             <div class="gear-category-name center">{{localize "YZECORIOLIS.TechTier"}}</div>
             <div class="gear-category-name center">{{localize "YZECORIOLIS.Quantity"}}</div>
@@ -20,6 +20,7 @@
         <li class="gear item flexrow" data-item-id="{{gear._id}}">
             <div class="gear-bg {{gear.data.toggleClass}} flickering flexrow">
                 <div class="gear-name expandable-info flexrow">
+                    <div class="gear-img-container"><img class="gear-img" src="{{gear.img}}"> </div>
                     <span>{{gear.name}}</span>
                 </div>
                 <div class="gear-row-data">

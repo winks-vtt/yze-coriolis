@@ -1215,6 +1215,9 @@
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-category-name.center {
   text-align: center;
 }
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-category-name.first {
+  flex: 1.5;
+}
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-controls {
   text-transform: uppercase;
   flex: 0 0 60px;
@@ -1269,6 +1272,8 @@
   font-size: 15px;
   cursor: pointer;
   transition: transform 275ms ease;
+  flex: 1.5 0 0;
+  align-items: center;
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-name:hover {
   transform: translateX(5px);
@@ -1285,6 +1290,9 @@
   padding-left: 5px;
   padding-right: 5px;
   flex: 0 0 100%;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 @keyframes flicker {
   0% {
@@ -1326,6 +1334,21 @@
 .yzecoriolis.sheet.actor .sheet-body .gear-list .item-toggle.equipped {
   color: #FFA903;
   transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-img-container {
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 22px;
+  background-color: orangered;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-img {
+  width: 35px;
+  height: 35px;
+  border: none;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */

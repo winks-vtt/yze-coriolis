@@ -865,6 +865,10 @@
                 &.center {
                     text-align: center;
                 }
+
+                &.first {
+                    flex: 1.5;
+                }
             }
 
             .gear-controls {
@@ -889,6 +893,8 @@
 
             .gear-name {
                 .item-entry-name();
+                flex: 1.5 0 0;
+                align-items: center;
             }
 
             .gear-row-data {
@@ -899,6 +905,9 @@
 
             .gear-bg {
                 .item-bg();
+                align-items: center;
+                padding-top: 5px;
+                padding-bottom: 5px;
 
                 &.equipped {
                     background-color: @colorEquipBG;
@@ -927,6 +936,24 @@
                     color: @colorOrange;
                     transform: scale(1.05);
                 }
+            }
+
+
+            .gear-img-container {
+                height: 42px;
+                flex: 0 0 42px;
+                border-radius: 22px;
+                background-color: @colorOrangeShadow;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 5px;
+            }
+
+            .gear-img {
+                width: 35px;
+                height: 35px;
+                border: none;
             }
 
         }
