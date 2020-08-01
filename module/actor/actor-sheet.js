@@ -111,7 +111,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       i.img = i.img || DEFAULT_TOKEN;
       // setup equipped status
       const isActive = getProperty(i.data, "equipped");
-      item.toggleClass = isActive ? "active" : "";
+      item.toggleClass = isActive ? "equipped" : "";
 
       // append to gear
       if (i.type === 'gear') {
@@ -418,6 +418,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const itemId = event.currentTarget.closest(".item").dataset.itemId;
     const item = this.actor.getOwnedItem(itemId);
     const attr = "data.equipped";
+    console.log("equipping");
     return item.update({ [attr]: !getProperty(item.data, attr) });
   }
 

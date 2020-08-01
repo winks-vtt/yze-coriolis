@@ -1298,6 +1298,21 @@
   animation: flicker 1.2s;
   animation-fill-mode: forwards;
 }
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-bg.equipped {
+  background-color: rgba(19, 27, 53, 0.75);
+}
+@keyframes flicker {
+  0% {
+    background-color: rgba(59, 84, 166, 0.75);
+  }
+  100% {
+    background-color: rgba(19, 27, 53, 0.75);
+  }
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-bg.equipped:hover {
+  animation: flicker 1.2s;
+  animation-fill-mode: forwards;
+}
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-quantity-input {
   font-family: "Cairo";
   color: #FDFF9D;
@@ -1307,6 +1322,10 @@
   background-color: rgba(0, 0, 0, 0);
   text-align: center;
   width: 50px;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .item-toggle.equipped {
+  color: #FFA903;
+  transform: scale(1.05);
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */

@@ -18,7 +18,7 @@
         </li>
         {{#each actor.gear as |gear index|}}
         <li class="gear item flexrow" data-item-id="{{gear._id}}">
-            <div class="gear-bg flickering flexrow">
+            <div class="gear-bg {{gear.data.toggleClass}} flickering flexrow">
                 <div class="gear-name expandable-info flexrow">
                     <span>{{gear.name}}</span>
                 </div>

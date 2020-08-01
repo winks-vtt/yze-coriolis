@@ -80,6 +80,8 @@
         }
     }
 
+    // Don't show spinners on number inputs. Not ideal. Would like to indicate
+    // that scrolling is possible on some fields in a future update.
     input[type=number]::-webkit-inner-spin-button {
         -webkit-appearance: none;
         -moz-appearance: textfield;
@@ -897,6 +899,16 @@
 
             .gear-bg {
                 .item-bg();
+
+                &.equipped {
+                    background-color: @colorEquipBG;
+                    .flicker-anim(lighten(@colorEquipBG, 30%), @colorEquipBG);
+
+                    &:hover {
+                        animation: flicker 1.2s;
+                        animation-fill-mode: forwards;
+                    }
+                }
             }
 
             .gear-quantity-input {
@@ -908,6 +920,15 @@
                 text-align: center;
                 width: 50px;
             }
+
+            .item-toggle {
+
+                &.equipped {
+                    color: @colorOrange;
+                    transform: scale(1.05);
+                }
+            }
+
         }
     }
 }
