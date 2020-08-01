@@ -418,7 +418,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const itemId = event.currentTarget.closest(".item").dataset.itemId;
     const item = this.actor.getOwnedItem(itemId);
     const attr = "data.equipped";
-    console.log("equipping");
     return item.update({ [attr]: !getProperty(item.data, attr) });
   }
 
