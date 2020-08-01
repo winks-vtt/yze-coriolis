@@ -686,10 +686,9 @@
         }
 
         /*-------------------------------------*/
-        /* Talent List*/
+        /* List Mixins */
         /*-------------------------------------*/
-
-        .talent-list {
+        .vertical-list {
             list-style: none;
             overflow-y: auto;
             max-height: 580px;
@@ -698,46 +697,76 @@
             margin-left: 32px;
             margin-right: 32px;
 
-            .talent-category-header {
-                .data-text();
-                border-radius: 3px;
-                background-color: @colorBlueTransparent;
-                height: 24px;
-                margin-bottom: 5px;
-                align-content: center;
-                margin-top: 20px;
+        }
 
-                &:first-of-type {
-                    margin-top: 0px;
-                }
+        .category-header {
+            .data-text();
+            border-radius: 3px;
+            background-color: @colorBlueTransparent;
+            height: 24px;
+            margin-bottom: 5px;
+            align-content: center;
+            margin-top: 20px;
+
+            &:first-of-type {
+                margin-top: 0px;
+            }
+        }
+
+        .category-column-name {
+            font-size: 14px;
+            margin: 0px 0px 0px 5px;
+            text-transform: uppercase;
+        }
+
+
+        .item-list-controls {
+            text-transform: uppercase;
+            flex: 0 0 60px;
+            margin-top: 2px;
+            text-align: right;
+            margin-right: 7px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .item-control-widget {
+            color: @colorDarkBlue;
+            flex-basis: 20px;
+            .hover-header-buttons();
+        }
+
+        .item-control-add-widget {
+            .item-control-widget();
+            color: @colorBlue;
+            flex-basis: 60px;
+        }
+
+        /*-------------------------------------*/
+        /* Talent List */
+        /*-------------------------------------*/
+
+        .talent-list {
+            .vertical-list();
+
+            .talent-category-header {
+                .category-header();
             }
 
             .talent-category-name {
-                font-size: 14px;
-                margin: 0px 0px 0px 5px;
-                text-transform: uppercase;
+                .category-column-name();
             }
 
             .talent-controls {
-                text-transform: uppercase;
-                flex: 0 0 60px;
-                margin-top: 2px;
-                text-align: right;
-                margin-right: 7px;
-                display: flex;
-                justify-content: flex-end;
+                .item-list-controls();
             }
 
             .talent-control-widget {
-                color: @colorDarkBlue;
-                flex-basis: 20px;
-                .hover-header-buttons();
+                .item-control-widget();
             }
 
             .talent-control-add-widget {
-                .talent-control-widget();
-                color: @colorBlue;
-                flex-basis: 60px;
+                .item-control-add-widget();
             }
 
             .talent {
@@ -788,6 +817,30 @@
                 padding-right: 15px;
                 padding-bottom: 2px;
                 margin-left: 25px;
+            }
+        }
+
+        .gear-list {
+            .vertical-list();
+
+            .gear-category-header {
+                .category-header();
+            }
+
+            .gear-category-name {
+                .category-column-name();
+            }
+
+            .gear-controls {
+                .item-list-controls();
+            }
+
+            .gear-control-widget {
+                .item-control-widget();
+            }
+
+            .gear-control-add-widget {
+                .item-control-add-widget();
             }
         }
     }

@@ -57,7 +57,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const actorData = sheetData.actor;
 
     // Initialize our containers
-    const gear = {};
+    const gear = [];
     const armor = [];
     const talents = {};
     const weapons = [];
@@ -65,16 +65,12 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const injuries = [];
     let totalWeightPoints = 0;
 
-    for (let k of Object.keys(CONFIG.YZECORIOLIS.gearWeights)) {
-      gear[k] = {
-        "dataset": {
-          "type": "gear",
-          "weight": k,
-          "quantity": 1
-        },
-        "items": []
-      }
+    const gearDataSet = {
+      "type": "gear",
+      "weight": "L",
+      "quantity": 1
     }
+
     for (let k of Object.keys(CONFIG.YZECORIOLIS.talentCategories)) {
       talents[k] = {
         "dataset": {
@@ -119,7 +115,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
       // append to gear
       if (i.type === 'gear') {
-        gear[item.weight].items.push(i);
+        gear.items.push(i);
         totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
       }
       // append to talents
@@ -146,6 +142,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     }
     // assign and return
     actorData.gear = gear;
+    actorData.gearDataset = gearDataSet;
 
     actorData.weapons = weapons;
     actorData.weaponDataSet = weaponDataSet;

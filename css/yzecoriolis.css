@@ -636,7 +636,10 @@
   /* Critical Injuries*/
   /*-------------------------------------*/
   /*-------------------------------------*/
-  /* Talent List*/
+  /* List Mixins */
+  /*-------------------------------------*/
+  /*-------------------------------------*/
+  /* Talent List */
   /*-------------------------------------*/
 }
 .yzecoriolis.sheet.actor .sheet-body .navigation {
@@ -954,6 +957,70 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.yzecoriolis.sheet.actor .sheet-body .vertical-list {
+  list-style: none;
+  overflow-y: auto;
+  max-height: 580px;
+  padding: 0 5px 0 0;
+  margin-top: 24px;
+  margin-left: 32px;
+  margin-right: 32px;
+}
+.yzecoriolis.sheet.actor .sheet-body .category-header {
+  font-family: "Cairo";
+  color: white;
+  border-radius: 3px;
+  background-color: rgba(113, 130, 190, 0.44);
+  height: 24px;
+  margin-bottom: 5px;
+  align-content: center;
+  margin-top: 20px;
+}
+.yzecoriolis.sheet.actor .sheet-body .category-header:first-of-type {
+  margin-top: 0px;
+}
+.yzecoriolis.sheet.actor .sheet-body .category-column-name {
+  font-size: 14px;
+  margin: 0px 0px 0px 5px;
+  text-transform: uppercase;
+}
+.yzecoriolis.sheet.actor .sheet-body .item-list-controls {
+  text-transform: uppercase;
+  flex: 0 0 60px;
+  margin-top: 2px;
+  text-align: right;
+  margin-right: 7px;
+  display: flex;
+  justify-content: flex-end;
+}
+.yzecoriolis.sheet.actor .sheet-body .item-control-widget {
+  color: #7182BE;
+  flex-basis: 20px;
+  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+}
+.yzecoriolis.sheet.actor .sheet-body .item-control-widget a:hover {
+  text-shadow: none;
+}
+.yzecoriolis.sheet.actor .sheet-body .item-control-widget:hover {
+  text-shadow: 0 0 5px orangered;
+  color: white;
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .sheet-body .item-control-add-widget {
+  color: #7182BE;
+  flex-basis: 20px;
+  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+  color: #9FB0ED;
+  flex-basis: 60px;
+}
+.yzecoriolis.sheet.actor .sheet-body .item-control-add-widget a:hover {
+  text-shadow: none;
+}
+.yzecoriolis.sheet.actor .sheet-body .item-control-add-widget:hover {
+  text-shadow: 0 0 5px orangered;
+  color: white;
+  transform: scale(1.05);
+}
 .yzecoriolis.sheet.actor .sheet-body .talent-list {
   list-style: none;
   overflow-y: auto;
@@ -1066,6 +1133,70 @@
   padding-right: 15px;
   padding-bottom: 2px;
   margin-left: 25px;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list {
+  list-style: none;
+  overflow-y: auto;
+  max-height: 580px;
+  padding: 0 5px 0 0;
+  margin-top: 24px;
+  margin-left: 32px;
+  margin-right: 32px;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-category-header {
+  font-family: "Cairo";
+  color: white;
+  border-radius: 3px;
+  background-color: rgba(113, 130, 190, 0.44);
+  height: 24px;
+  margin-bottom: 5px;
+  align-content: center;
+  margin-top: 20px;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-category-header:first-of-type {
+  margin-top: 0px;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-category-name {
+  font-size: 14px;
+  margin: 0px 0px 0px 5px;
+  text-transform: uppercase;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-controls {
+  text-transform: uppercase;
+  flex: 0 0 60px;
+  margin-top: 2px;
+  text-align: right;
+  margin-right: 7px;
+  display: flex;
+  justify-content: flex-end;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-control-widget {
+  color: #7182BE;
+  flex-basis: 20px;
+  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-control-widget a:hover {
+  text-shadow: none;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-control-widget:hover {
+  text-shadow: 0 0 5px orangered;
+  color: white;
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-control-add-widget {
+  color: #7182BE;
+  flex-basis: 20px;
+  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+  color: #9FB0ED;
+  flex-basis: 60px;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-control-add-widget a:hover {
+  text-shadow: none;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-control-add-widget:hover {
+  text-shadow: 0 0 5px orangered;
+  color: white;
+  transform: scale(1.05);
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */

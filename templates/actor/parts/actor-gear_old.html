@@ -1,22 +1,38 @@
-<div class="tab panel" data-group="primary" data-tab="gear">
-    <ol class="gear-list">
-        {{!-- setup header for Gear--}}
-        <li class="gear-category-header flexrow">
-            <span class="gear-category-name">{{localize "YZECORIOLIS.Gear"}}</span>
-            <h3 class="gear-category-name">{{localize "YZECORIOLIS.Weight"}}</h3>
-            <div class="gear-category-name">{{localize "YZECORIOLIS.TechTier"}}</div>
-            <div class="gear-category-name">{{localize "YZECORIOLIS.Quantity"}}</div>
-            <div class="gear-category-name">{{localize "YZECORIOLIS.Restricted"}}</div>
-            {{#if owner}}
-            <div class="gear-controls">
-                <a class="gear-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateGear"}}'
-                    {{#each actor.gearDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+<div class="tab flexcol" data-group="primary" data-tab="gear">
+    {{#with actor.encumbrance}}
+    <div class="encumbrance {{#if encumbered}}encumbered{{/if}}">
+        <span class="encumbrance-bar  {{#if encumbered}}encumbered{{/if}}" style="width:{{percentage}}%"></span>
+        <span class="encumbrance-label">{{value}} / {{max}}</span>
+        <i class="encumbrance-breakpoint encumbrance-33 arrow-up"></i>
+        <i class="encumbrance-breakpoint encumbrance-33 arrow-down"></i>
+        <i class="encumbrance-breakpoint encumbrance-66 arrow-up"></i>
+        <i class="encumbrance-breakpoint encumbrance-66 arrow-down"></i>
+    </div>
+    {{/with}}
+    <div class="inventory-section-header">
+        <li>{{localize "YZECORIOLIS.Gear"}}</li>
+    </div>
+
+    <ol class="inventory-list">
+        {{#each actor.gear as |gearData weightKey|}}
+        {{!-- setup header for a gear weight class--}}
+        <li class="inventory-header flexrow">
+            <h3 class="gear-name flexrow">{{getGearWeightName weightKey}}</h3>
+            <div class="gear-name">{{localize "YZECORIOLIS.TechTier"}}</div>
+            <div class="gear-name">{{localize "YZECORIOLIS.Quantity"}}</div>
+            <div class="gear-name">{{localize "YZECORIOLIS.Restricted"}}</div>
+            {{#if ../owner}}
+            <div class="item-controls">
+                <a class="item-control item-create" title='{{localize "YZECORIOLIS.CreateGear"}}'
+                    {{#each gearData.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                     <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                 </a>
             </div>
             {{/if}}
+
         </li>
-        {{#each actor.gear as |gearData index|}}
+        {{!-- show gear for each weight --}}
+        {{#each gearData.items as |gear id|}}
         <li class="item flexrow" data-item-id="{{gear._id}}">
             <div class="item-name flexrow">
                 <div class="item-image" style="background-image: url({{gear.img}})"></div>
@@ -43,6 +59,7 @@
                 <a class="item-control item-delete" title="Delete Gear"><i class="fas fa-trash"></i></a>
             </div>
         </li>
+        {{/each}}
         {{/each}}
     </ol>
 
