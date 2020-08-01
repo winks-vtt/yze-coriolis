@@ -142,7 +142,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     }
     // assign and return
     actorData.gear = gear;
-    actorData.gearDataset = gearDataSet;
+    actorData.gearDataSet = gearDataSet;
 
     actorData.weapons = weapons;
     actorData.weaponDataSet = weaponDataSet;
