@@ -762,16 +762,21 @@
             margin-bottom: 2px;
         }
 
-        .item-entry-name {
-            .data-text-semibold();
-            color: @colorOrange;
-            font-size: 15px;
-            cursor: pointer;
+        .item-entry-name-rollover {
             transition: transform 275ms ease;
 
             &:hover {
                 transform: translateX(5px);
             }
+
+        }
+
+        .item-entry-name {
+            .data-text-semibold();
+            color: @colorOrange;
+            font-size: 15px;
+            cursor: pointer;
+
         }
 
         .item-bg {
@@ -845,6 +850,7 @@
 
             .talent-name {
                 .item-entry-name();
+                .item-entry-name-rollover();
             }
 
             .expanded {
@@ -867,7 +873,7 @@
                 }
 
                 &.first {
-                    flex: 1.5;
+                    flex: 2.5;
                 }
             }
 
@@ -893,8 +899,12 @@
 
             .gear-name {
                 .item-entry-name();
-                flex: 1.5 0 0;
+                flex: 2.5 0 0;
                 align-items: center;
+
+                .expandable-info {
+                    .item-entry-name-rollover();
+                }
             }
 
             .gear-row-data {

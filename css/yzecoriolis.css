@@ -1037,16 +1037,18 @@
   color: white;
   margin-bottom: 2px;
 }
+.yzecoriolis.sheet.actor .sheet-body .item-entry-name-rollover {
+  transition: transform 275ms ease;
+}
+.yzecoriolis.sheet.actor .sheet-body .item-entry-name-rollover:hover {
+  transform: translateX(5px);
+}
 .yzecoriolis.sheet.actor .sheet-body .item-entry-name {
   font-family: "Cairo-SemiBold";
   color: white;
   color: #FFA903;
   font-size: 15px;
   cursor: pointer;
-  transition: transform 275ms ease;
-}
-.yzecoriolis.sheet.actor .sheet-body .item-entry-name:hover {
-  transform: translateX(5px);
 }
 .yzecoriolis.sheet.actor .sheet-body .item-bg {
   background-color: rgba(19, 27, 53, 0.45);
@@ -1216,7 +1218,7 @@
   text-align: center;
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-category-name.first {
-  flex: 1.5;
+  flex: 2.5;
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-controls {
   text-transform: uppercase;
@@ -1271,11 +1273,13 @@
   color: #FFA903;
   font-size: 15px;
   cursor: pointer;
-  transition: transform 275ms ease;
-  flex: 1.5 0 0;
+  flex: 2.5 0 0;
   align-items: center;
 }
-.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-name:hover {
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-name .expandable-info {
+  transition: transform 275ms ease;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-name .expandable-info:hover {
   transform: translateX(5px);
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-row-data {

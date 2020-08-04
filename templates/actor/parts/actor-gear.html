@@ -19,11 +19,10 @@
         {{#each actor.gear as |gear index|}}
         <li class="gear item flexrow" data-item-id="{{gear._id}}">
             <div class="gear-bg {{gear.data.toggleClass}} flickering flexrow">
-                <div class="gear-name expandable-info flexrow">
+                <div class="gear-name flexrow">
                     <div class="gear-img-container" style="background-image: url({{gear.img}})">
-                        {{!-- <img class="gear-img" src="{{gear.img}}"> --}}
                     </div>
-                    <span>{{gear.name}}</span>
+                    <span class="expandable-info">{{gear.name}}</span>
                 </div>
                 <div class="gear-row-data">
                     {{getGearWeightName gear.data.weight}}
