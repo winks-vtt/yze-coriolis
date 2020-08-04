@@ -1084,6 +1084,19 @@
   padding-right: 15px;
   margin-left: 25px;
 }
+.yzecoriolis.sheet.actor .sheet-body .item-properties {
+  flex: 1;
+  margin-bottom: 5px;
+}
+.yzecoriolis.sheet.actor .sheet-body .item-properties .tag {
+  font-family: "Cairo";
+  color: white;
+  font-size: 12px;
+  border-radius: 3px;
+  border: 1px solid #9FB0ED;
+  padding: 0 5px 0 5px;
+  margin-right: 10px;
+}
 .yzecoriolis.sheet.actor .sheet-body .talent-list {
   list-style: none;
   overflow-y: auto;
@@ -1195,6 +1208,9 @@
   margin-top: 24px;
   margin-left: 32px;
   margin-right: 32px;
+  margin-left: 15px;
+  margin-right: 15px;
+  max-height: 570px;
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-category-header {
   font-family: "Cairo";
@@ -1349,6 +1365,13 @@
   justify-content: center;
   align-items: center;
   margin-right: 5px;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-img-container.rollable {
+  transition: background-image 275ms ease, transform 275ms ease;
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-img-container.rollable:hover {
+  background-image: url('icons/rolling-dices-orange.svg') !important;
+  transform: scale(1.05);
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-img {
   width: 35px;

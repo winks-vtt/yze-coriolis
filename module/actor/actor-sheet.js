@@ -469,10 +469,12 @@ export class yzecoriolisActorSheet extends ActorSheet {
       let summary = li.children(".item-summary");
       summary.slideUp(200, () => { summary.remove() });
     } else {
-      let div = $(`<div class="item-summary"><div class="item-summary-wrapper">${chatData.description}</div></div>`);
+      let div = $(`<div class="item-summary"><div class="item-summary-wrapper"><div>${chatData.description}</div></div></div>`);
       let props = $(`<div class="item-properties"></div>`);
       chatData.properties.forEach(p => props.append(`<span class="tag">${p}</span>`));
-      div.append(props);
+
+      $(div).find(".item-summary-wrapper").append(props);
+      // div.append(props);
       li.append(div.hide());
       div.slideDown(200);
     }

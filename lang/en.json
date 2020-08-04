@@ -117,10 +117,11 @@
     "YZECORIOLIS.Automatic": "Automatic",
     "YZECORIOLIS.Explosive": "Explosive",
     "YZECORIOLIS.Explosives": "Explosives",
-    "YZECORIOLIS.BlastPower": "Blast Power",
-    "YZECORIOLIS.BlastRadius": "Blast Radius",
+    "YZECORIOLIS.BlastPower": "Power",
+    "YZECORIOLIS.BlastRadius": "Radius",
     "YZECORIOLIS.Special": "Special Features",
     "YZECORIOLIS.EffectiveRange": "Effective Range",
+    "YZECORIOLIS.Range": "Range",
     "YZECORIOLIS.CriticalInjuries": "Critical Injuries",
     "YZECORIOLIS.CriticalInjury": "Critical Injury",
     "YZECORIOLIS.CreateCriticalInjury": "Add Critical Injury",
@@ -277,8 +278,8 @@
     "YZECORIOLIS.CritTypeNumeric": "Numeric Crit",
     "YZECORIOLIS.CritTypeCustom": "Custom Crit",
 
-    "YZECORIOLIS.CloseRange": "Close Range",
-    "YZECORIOLIS.ShortRange": "Short Range",
-    "YZECORIOLIS.LongRange": "Long Range",
-    "YZECORIOLIS.ExtremeRange": "Extreme Range"
+    "YZECORIOLIS.CloseRange": "Close",
+    "YZECORIOLIS.ShortRange": "Short",
+    "YZECORIOLIS.LongRange": "Long",
+    "YZECORIOLIS.ExtremeRange": "Extreme"
 }

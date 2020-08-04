@@ -813,6 +813,22 @@
             margin-left: 25px;
         }
 
+        .item-properties {
+            flex: 1;
+            margin-bottom: 5px;
+
+            .tag {
+                .data-text();
+                font-size: 12px;
+                border-radius: 3px;
+                border: 1px solid @colorBlue;
+                padding: 0 5px 0 5px;
+                margin-right: 10px;
+            }
+        }
+
+
+
         /*-------------------------------------*/
         /* Talent List */
         /*-------------------------------------*/
@@ -860,6 +876,9 @@
 
         .gear-list {
             .vertical-list();
+            margin-left: 15px;
+            margin-right: 15px;
+            max-height: 570px;
 
             .gear-category-header {
                 .category-header();
@@ -953,14 +972,21 @@
                 height: 42px;
                 flex: 0 0 42px;
                 border-radius: 22px;
-                //background-color: @colorOrangeShadow;
-                //background-size: 35px 35px;
                 background-repeat: no-repeat;
                 background-position: center;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 margin-right: 5px;
+
+                &.rollable {
+                    transition: background-image 275ms ease, transform 275ms ease;
+
+                    &:hover {
+                        background-image: url('icons/rolling-dices-orange.svg') !important;
+                        transform: scale(1.05);
+                    }
+                }
             }
 
             .gear-img {
@@ -968,7 +994,6 @@
                 height: 35px;
                 border: none;
             }
-
         }
     }
 }
