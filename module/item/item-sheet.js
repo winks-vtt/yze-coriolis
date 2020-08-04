@@ -1,3 +1,4 @@
+
 import { getID } from '../util.js';
 /**
  * Extend the basic ItemSheet with some very simple modifications

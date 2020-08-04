@@ -277,7 +277,7 @@
   text-shadow: none;
 }
 .yzecoriolis.sheet.actor .hover-header-buttons:hover {
-  text-shadow: 0 0 5px orangered;
+  text-shadow: 0 0 5px #FF4500;
   color: white;
   transform: scale(1.05);
 }
@@ -799,7 +799,7 @@
   filter: brightness(1.5);
 }
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .rollable:hover {
-  text-shadow: 0 0 5px orangered;
+  text-shadow: 0 0 5px #FF4500;
 }
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .rollable:hover .skill-image {
   background-image: url("icons/rolling-dices.svg");
@@ -939,7 +939,7 @@
   text-shadow: none;
 }
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-control-widget:hover {
-  text-shadow: 0 0 5px orangered;
+  text-shadow: 0 0 5px #FF4500;
   color: white;
   transform: scale(1.05);
 }
@@ -1012,7 +1012,7 @@
   text-shadow: none;
 }
 .yzecoriolis.sheet.actor .sheet-body .item-control-widget:hover {
-  text-shadow: 0 0 5px orangered;
+  text-shadow: 0 0 5px #FF4500;
   color: white;
   transform: scale(1.05);
 }
@@ -1027,7 +1027,7 @@
   text-shadow: none;
 }
 .yzecoriolis.sheet.actor .sheet-body .item-control-add-widget:hover {
-  text-shadow: 0 0 5px orangered;
+  text-shadow: 0 0 5px #FF4500;
   color: white;
   transform: scale(1.05);
 }
@@ -1127,7 +1127,7 @@
   text-shadow: none;
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-widget:hover {
-  text-shadow: 0 0 5px orangered;
+  text-shadow: 0 0 5px #FF4500;
   color: white;
   transform: scale(1.05);
 }
@@ -1142,7 +1142,7 @@
   text-shadow: none;
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-add-widget:hover {
-  text-shadow: 0 0 5px orangered;
+  text-shadow: 0 0 5px #FF4500;
   color: white;
   transform: scale(1.05);
 }
@@ -1236,7 +1236,7 @@
   text-shadow: none;
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-control-widget:hover {
-  text-shadow: 0 0 5px orangered;
+  text-shadow: 0 0 5px #FF4500;
   color: white;
   transform: scale(1.05);
 }
@@ -1251,7 +1251,7 @@
   text-shadow: none;
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-control-add-widget:hover {
-  text-shadow: 0 0 5px orangered;
+  text-shadow: 0 0 5px #FF4500;
   color: white;
   transform: scale(1.05);
 }
@@ -1339,7 +1339,8 @@
   height: 42px;
   flex: 0 0 42px;
   border-radius: 22px;
-  background-color: orangered;
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
