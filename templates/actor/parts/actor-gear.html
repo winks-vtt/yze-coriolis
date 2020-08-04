@@ -122,9 +122,9 @@
             <div class="gear-category-name first">{{localize "YZECORIOLIS.Explosives"}}</div>
             <div class="gear-category-name center">{{localize "YZECORIOLIS.Bonus"}}</div>
             <div class="gear-category-name center">{{localize "YZECORIOLIS.Initiative"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.BlastPower"}}</div>
             <div class="gear-category-name center">{{localize "YZECORIOLIS.Damage"}}</div>
             <div class="gear-category-name center">{{localize "YZECORIOLIS.Crit"}}</div>
+            <div class="gear-category-name center">{{localize "YZECORIOLIS.BlastPower"}}</div>
             <div class="gear-category-name center">{{localize "YZECORIOLIS.BlastRadius"}}</div>
             {{#if owner}}
             <div class="gear-controls">
@@ -152,15 +152,15 @@
                 <div class="gear-row-data">
                     {{explosive.data.initiative}}
                 </div>
-
-                <div class="gear-row-data">
-                    {{explosive.data.blastPower}}
-                </div>
                 <div class="gear-row-data">
                     {{explosive.data.damage}}
                 </div>
+
                 <div class="gear-row-data">
                     {{getWeaponCritDisplay explosive.data.crit}}
+                </div>
+                <div class="gear-row-data">
+                    {{explosive.data.blastPower}}
                 </div>
                 <div class="gear-row-data">
                     {{getRangeName explosive.data.blastRadius}}
