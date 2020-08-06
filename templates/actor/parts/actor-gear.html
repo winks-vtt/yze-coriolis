@@ -1,224 +1,234 @@
 <div class="tab panel" data-group="primary" data-tab="gear">
-    <ol class="gear-list">
-        {{!-- setup header for Gear--}}
-        <li class="gear-category-header flexrow">
-            <div class="gear-category-name first">{{localize "YZECORIOLIS.Gear"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.Weight"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.TechTier"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.Quantity"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.Restricted"}}</div>
-            {{#if owner}}
-            <div class="gear-controls">
-                <a class="gear-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateGear"}}'
-                    {{#each actor.gearDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
-                    <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
-                </a>
-            </div>
-            {{/if}}
-        </li>
-        {{#each actor.gear as |gear index|}}
-        <li class="gear item flexrow" data-item-id="{{gear._id}}">
-            <div class="gear-bg {{gear.data.toggleClass}} flickering flexrow">
-                <div class="gear-name flexrow">
-                    <div class="gear-img-container" style="background-image: url({{gear.img}})">
-                    </div>
-                    <span class="expandable-info">{{gear.name}}</span>
-                </div>
-                <div class="gear-row-data">
-                    {{getGearWeightName gear.data.weight}}
-                </div>
-
-                <div class="gear-row-data">
-                    {{getTechTierName gear.data.techTier}}
-                </div>
-
-                <div class="gear-row-data">
-                    <input class="gear-quantity-input" type="number" step="1" min="0" name="gear.data.quantity"
-                        value="{{gear.data.quantity}}" data-dtype="Number" />
-                </div>
-                <div class="gear-row-data">
-                    {{#if_eq gear.data.restricted true}}
-                    <i class="fas fa-key gear-restricted"></i>
-                    {{/if_eq}}
-                </div>
+    <div class="gear-wrapper">
+        <ol class="gear-list">
+            {{!-- setup header for Gear--}}
+            <li class="gear-category-header flexrow">
+                <div class="gear-category-name first">{{localize "YZECORIOLIS.Gear"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.Weight"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.TechTier"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.Quantity"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.Restricted"}}</div>
+                {{#if owner}}
                 <div class="gear-controls">
-                    <a class="gear-control-widget item-toggle {{gear.data.toggleClass}}"
-                        title='{{localize "YZECORIOLIS.EquipGear"}}'><i class="fas fa-shield-alt"></i></a>
-                    <a class="gear-control-widget item-edit" title="Edit Gear"><i class="fas fa-edit"></i></a>
-                    <a class="gear-control-widget item-delete" title="Delete Gear"><i class="fas fa-trash"></i></a>
+                    <a class="gear-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateGear"}}'
+                        {{#each actor.gearDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                        <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+                    </a>
                 </div>
-            </div>
-        </li>
-        {{/each}}
-
-        {{!-- setup header for Weapons--}}
-        <li class="gear-category-header flexrow">
-            <div class="gear-category-name first">{{localize "YZECORIOLIS.Weapons"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.Bonus"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.Initiative"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.Damage"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.Crit"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.Range"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.Automatic"}}</div>
-            {{#if owner}}
-            <div class="gear-controls">
-                <a class="gear-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateWeapon"}}'
-                    {{#each actor.weaponDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
-                    <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
-                </a>
-            </div>
-            {{/if}}
-        </li>
-
-
-        {{#each actor.weapons as |weapon index|}}
-        <li class="gear item flexrow" data-item-id="{{weapon._id}}">
-            <div class="gear-bg {{weapon.data.toggleClass}} flickering flexrow">
-                <div class="gear-name flexrow">
-                    <div class="gear-img-container rollable" style="background-image: url({{weapon.img}})"
-                        data-rolltype="weapon" data-label="{{weapon.name}}" data-skillkey="rangedcombat"
-                        data-attributekey="agility" data-bonus="{{weapon.data.bonus}}">
+                {{/if}}
+            </li>
+            {{#each actor.gear as |gear index|}}
+            <li class="gear item flexrow" data-item-id="{{gear._id}}">
+                <div class="gear-bg {{gear.data.toggleClass}} flickering flexrow">
+                    <div class="gear-name flexrow">
+                        <div class="gear-img-container" style="background-image: url({{gear.img}})">
+                        </div>
+                        <span class="expandable-info">{{gear.name}}</span>
                     </div>
-                    <span class="expandable-info">{{weapon.name}}</span>
-                </div>
-                <div class="gear-row-data">
-                    {{weapon.data.bonus}}
-                </div>
-
-                <div class="gear-row-data">
-                    {{weapon.data.initiative}}
-                </div>
-
-                <div class="gear-row-data">
-                    {{weapon.data.damage}}
-                </div>
-                <div class="gear-row-data">
-                    {{getWeaponCritDisplay weapon.data.crit}}
-                </div>
-                <div class="gear-row-data">
-                    {{getRangeName weapon.data.range}}
-                </div>
-
-                <div class="gear-row-data">
-                    {{#if_eq weapon.data.automatic true}}
-                    <i class="fas fa-check"></i>
-                    {{/if_eq}}
-                </div>
-
-                <div class="gear-controls">
-                    <a class="gear-control-widget item-toggle {{weapon.data.toggleClass}}"
-                        title='{{localize "YZECORIOLIS.EquipWeapon"}}'><i class="fas fa-shield-alt"></i></a>
-                    <a class="gear-control-widget item-edit" title="{{localize "YZECORIOLIS.EditWeapon"}}"><i
-                            class="fas fa-edit"></i></a>
-                    <a class="gear-control-widget item-delete" title="{{localize "YZECORIOLIS.DeleteWeapon"}}"><i
-                            class="fas fa-trash"></i></a>
-                </div>
-            </div>
-        </li>
-        {{/each}}
-
-        {{!-- setup header for Explosives--}}
-        <li class="gear-category-header flexrow">
-            <div class="gear-category-name first">{{localize "YZECORIOLIS.Explosives"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.Bonus"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.Initiative"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.Damage"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.Crit"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.BlastPower"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.BlastRadius"}}</div>
-            {{#if owner}}
-            <div class="gear-controls">
-                <a class="gear-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateExplosive"}}'
-                    {{#each actor.explosiveDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
-                    <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
-                </a>
-            </div>
-            {{/if}}
-        </li>
-        {{#each actor.explosives as |explosive index|}}
-        <li class="gear item flexrow" data-item-id="{{explosive._id}}">
-            <div class="gear-bg {{explosive.data.toggleClass}} flickering flexrow">
-                <div class="gear-name flexrow">
-                    <div class="gear-img-container rollable" style="background-image: url({{explosive.img}})"
-                        data-rolltype="weapon" data-label="{{explosive.name}}" data-skillkey="rangedcombat"
-                        data-attributekey="agility" data-bonus="{{explosive.data.bonus}}">
+                    <div class="gear-row-data">
+                        {{getGearWeightName gear.data.weight}}
                     </div>
-                    <span class="expandable-info">{{explosive.name}}</span>
-                </div>
-                <div class="gear-row-data">
-                    {{explosive.data.bonus}}
-                </div>
 
-                <div class="gear-row-data">
-                    {{explosive.data.initiative}}
-                </div>
-                <div class="gear-row-data">
-                    {{explosive.data.damage}}
-                </div>
-
-                <div class="gear-row-data">
-                    {{getWeaponCritDisplay explosive.data.crit}}
-                </div>
-                <div class="gear-row-data">
-                    {{explosive.data.blastPower}}
-                </div>
-                <div class="gear-row-data">
-                    {{getRangeName explosive.data.blastRadius}}
-                </div>
-
-                <div class="gear-controls">
-                    <a class="gear-control-widget item-toggle {{explosive.data.toggleClass}}"
-                        title='{{localize "YZECORIOLIS.EquipGear"}}'><i class="fas fa-shield-alt"></i></a>
-                    <a class="gear-control-widget item-edit" title="{{localize "YZECORIOLIS.EditExplosive"}}"><i
-                            class="fas fa-edit"></i></a>
-                    <a class="gear-control-widget item-delete" title="{{localize "YZECORIOLIS.DeleteExplosive"}}"><i
-                            class="fas fa-trash"></i></a>
-                </div>
-            </div>
-        </li>
-        {{/each}}
-
-
-        {{!-- setup header for Armor--}}
-        <li class="gear-category-header flexrow">
-            <div class="gear-category-name first">{{localize "YZECORIOLIS.Armor"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.ArmorRating"}}</div>
-            <div class="gear-category-name center">{{localize "YZECORIOLIS.ExtraFeatures"}}</div>
-            {{#if owner}}
-            <div class="gear-controls">
-                <a class="gear-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateArmor"}}'
-                    {{#each actor.armorDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
-                    <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
-                </a>
-            </div>
-            {{/if}}
-        </li>
-        {{#each actor.armor as |armor index|}}
-        <li class="gear item flexrow" data-item-id="{{armor._id}}">
-            <div class="gear-bg {{armor.data.toggleClass}} flickering flexrow">
-                <div class="gear-name flexrow">
-                    <div class="gear-img-container rollable" style="background-image: url({{armor.img}})"
-                        data-rolltype="armor" data-label="{{armor.name}}" data-bonus="{{armor.data.armorRating}}">
+                    <div class="gear-row-data">
+                        {{getTechTierName gear.data.techTier}}
                     </div>
-                    <span class="expandable-info">{{armor.name}}</span>
-                </div>
-                <div class="gear-row-data">
-                    {{armor.data.armorRating}}
-                </div>
-                <div class="gear-row-data">
-                    {{armor.data.extraFeatures}}
-                </div>
 
-                <div class="gear-controls">
-                    <a class="gear-control-widget item-toggle {{armor.data.toggleClass}}"
-                        title='{{localize "YZECORIOLIS.EquipArmor"}}'><i class="fas fa-shield-alt"></i></a>
-                    <a class="gear-control-widget item-edit" title="{{localize "YZECORIOLIS.EditArmor"}}"><i
-                            class="fas fa-edit"></i></a>
-                    <a class="gear-control-widget item-delete" title="{{localize "YZECORIOLIS.DeleteArmor"}}"><i
-                            class="fas fa-trash"></i></a>
+                    <div class="gear-row-data">
+                        <input class="gear-quantity-input" type="number" step="1" min="0" name="gear.data.quantity"
+                            value="{{gear.data.quantity}}" data-dtype="Number" />
+                    </div>
+                    <div class="gear-row-data">
+                        {{#if_eq gear.data.restricted true}}
+                        <i class="fas fa-key gear-restricted"></i>
+                        {{/if_eq}}
+                    </div>
+                    <div class="gear-controls">
+                        <a class="gear-control-widget item-toggle {{gear.data.toggleClass}}"
+                            title='{{localize "YZECORIOLIS.EquipGear"}}'><i class="fas fa-shield-alt"></i></a>
+                        <a class="gear-control-widget item-edit" title="Edit Gear"><i class="fas fa-edit"></i></a>
+                        <a class="gear-control-widget item-delete" title="Delete Gear"><i class="fas fa-trash"></i></a>
+                    </div>
                 </div>
+            </li>
+            {{/each}}
+
+            {{!-- setup header for Weapons--}}
+            <li class="gear-category-header flexrow">
+                <div class="gear-category-name first">{{localize "YZECORIOLIS.Weapons"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.Bonus"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.Initiative"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.Damage"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.Crit"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.Range"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.Automatic"}}</div>
+                {{#if owner}}
+                <div class="gear-controls">
+                    <a class="gear-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateWeapon"}}'
+                        {{#each actor.weaponDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                        <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+                    </a>
+                </div>
+                {{/if}}
+            </li>
+
+
+            {{#each actor.weapons as |weapon index|}}
+            <li class="gear item flexrow" data-item-id="{{weapon._id}}">
+                <div class="gear-bg {{weapon.data.toggleClass}} flickering flexrow">
+                    <div class="gear-name flexrow">
+                        <div class="gear-img-container rollable" style="background-image: url({{weapon.img}})"
+                            data-rolltype="weapon" data-label="{{weapon.name}}" data-skillkey="rangedcombat"
+                            data-attributekey="agility" data-bonus="{{weapon.data.bonus}}">
+                        </div>
+                        <span class="expandable-info">{{weapon.name}}</span>
+                    </div>
+                    <div class="gear-row-data">
+                        {{weapon.data.bonus}}
+                    </div>
+
+                    <div class="gear-row-data">
+                        {{weapon.data.initiative}}
+                    </div>
+
+                    <div class="gear-row-data">
+                        {{weapon.data.damage}}
+                    </div>
+                    <div class="gear-row-data">
+                        {{getWeaponCritDisplay weapon.data.crit}}
+                    </div>
+                    <div class="gear-row-data">
+                        {{getRangeName weapon.data.range}}
+                    </div>
+
+                    <div class="gear-row-data">
+                        {{#if_eq weapon.data.automatic true}}
+                        <i class="fas fa-check"></i>
+                        {{/if_eq}}
+                    </div>
+
+                    <div class="gear-controls">
+                        <a class="gear-control-widget item-toggle {{weapon.data.toggleClass}}"
+                            title='{{localize "YZECORIOLIS.EquipWeapon"}}'><i class="fas fa-shield-alt"></i></a>
+                        <a class="gear-control-widget item-edit" title="{{localize "YZECORIOLIS.EditWeapon"}}"><i
+                                class="fas fa-edit"></i></a>
+                        <a class="gear-control-widget item-delete" title="{{localize "YZECORIOLIS.DeleteWeapon"}}"><i
+                                class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+
+            {{!-- setup header for Explosives--}}
+            <li class="gear-category-header flexrow">
+                <div class="gear-category-name first">{{localize "YZECORIOLIS.Explosives"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.Bonus"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.Initiative"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.Damage"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.Crit"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.BlastPower"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.BlastRadius"}}</div>
+                {{#if owner}}
+                <div class="gear-controls">
+                    <a class="gear-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateExplosive"}}'
+                        {{#each actor.explosiveDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                        <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+                    </a>
+                </div>
+                {{/if}}
+            </li>
+            {{#each actor.explosives as |explosive index|}}
+            <li class="gear item flexrow" data-item-id="{{explosive._id}}">
+                <div class="gear-bg {{explosive.data.toggleClass}} flickering flexrow">
+                    <div class="gear-name flexrow">
+                        <div class="gear-img-container rollable" style="background-image: url({{explosive.img}})"
+                            data-rolltype="weapon" data-label="{{explosive.name}}" data-skillkey="rangedcombat"
+                            data-attributekey="agility" data-bonus="{{explosive.data.bonus}}">
+                        </div>
+                        <span class="expandable-info">{{explosive.name}}</span>
+                    </div>
+                    <div class="gear-row-data">
+                        {{explosive.data.bonus}}
+                    </div>
+
+                    <div class="gear-row-data">
+                        {{explosive.data.initiative}}
+                    </div>
+                    <div class="gear-row-data">
+                        {{explosive.data.damage}}
+                    </div>
+
+                    <div class="gear-row-data">
+                        {{getWeaponCritDisplay explosive.data.crit}}
+                    </div>
+                    <div class="gear-row-data">
+                        {{explosive.data.blastPower}}
+                    </div>
+                    <div class="gear-row-data">
+                        {{getRangeName explosive.data.blastRadius}}
+                    </div>
+
+                    <div class="gear-controls">
+                        <a class="gear-control-widget item-toggle {{explosive.data.toggleClass}}"
+                            title='{{localize "YZECORIOLIS.EquipGear"}}'><i class="fas fa-shield-alt"></i></a>
+                        <a class="gear-control-widget item-edit" title="{{localize "YZECORIOLIS.EditExplosive"}}"><i
+                                class="fas fa-edit"></i></a>
+                        <a class="gear-control-widget item-delete" title="{{localize "YZECORIOLIS.DeleteExplosive"}}"><i
+                                class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+
+
+            {{!-- setup header for Armor--}}
+            <li class="@colorOrange flexrow">
+                <div class="gear-category-name first">{{localize "YZECORIOLIS.Armor"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.ArmorRating"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.ExtraFeatures"}}</div>
+                {{#if owner}}
+                <div class="gear-controls">
+                    <a class="gear-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateArmor"}}'
+                        {{#each actor.armorDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                        <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+                    </a>
+                </div>
+                {{/if}}
+            </li>
+            {{#each actor.armor as |armor index|}}
+            <li class="gear item flexrow" data-item-id="{{armor._id}}">
+                <div class="gear-bg {{armor.data.toggleClass}} flickering flexrow">
+                    <div class="gear-name flexrow">
+                        <div class="gear-img-container rollable" style="background-image: url({{armor.img}})"
+                            data-rolltype="armor" data-label="{{armor.name}}" data-bonus="{{armor.data.armorRating}}">
+                        </div>
+                        <span class="expandable-info">{{armor.name}}</span>
+                    </div>
+                    <div class="gear-row-data">
+                        {{armor.data.armorRating}}
+                    </div>
+                    <div class="gear-row-data">
+                        {{armor.data.extraFeatures}}
+                    </div>
+
+                    <div class="gear-controls">
+                        <a class="gear-control-widget item-toggle {{armor.data.toggleClass}}"
+                            title='{{localize "YZECORIOLIS.EquipArmor"}}'><i class="fas fa-shield-alt"></i></a>
+                        <a class="gear-control-widget item-edit" title="{{localize "YZECORIOLIS.EditArmor"}}"><i
+                                class="fas fa-edit"></i></a>
+                        <a class="gear-control-widget item-delete" title="{{localize "YZECORIOLIS.DeleteArmor"}}"><i
+                                class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </ol>
+        {{#with actor.encumbrance}}
+        <div class="encumbrance-bar {{#if encumbered}}encumbered{{/if}}">
+            <div class="encumbrance-fill  {{#if encumbered}}encumbered{{/if}}" style="width:{{percentage}}%"></div>
+            <div class="encumbrance-data">
+                <span class="encumbrance-label">{{localize "YZECORIOLIS.Encumbrance"}}: {{value}} / {{max}}</span>
             </div>
-        </li>
-        {{/each}}
-    </ol>
+        </div>
+        {{/with}}
+    </div>
 </div>

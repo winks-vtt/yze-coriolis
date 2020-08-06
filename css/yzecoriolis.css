@@ -647,6 +647,9 @@
   /*-------------------------------------*/
   /* Talent List */
   /*-------------------------------------*/
+  /*-------------------------------------*/
+  /* Item List */
+  /*-------------------------------------*/
 }
 .yzecoriolis.sheet.actor .sheet-body .navigation {
   padding: 2px;
@@ -1200,6 +1203,12 @@
 .yzecoriolis.sheet.actor .sheet-body .talent-list .expanded {
   height: auto;
 }
+.yzecoriolis.sheet.actor .sheet-body .gear-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 600px;
+}
 .yzecoriolis.sheet.actor .sheet-body .gear-list {
   list-style: none;
   overflow-y: auto;
@@ -1377,6 +1386,39 @@
   width: 35px;
   height: 35px;
   border: none;
+}
+.yzecoriolis.sheet.actor .sheet-body .encumbrance-bar {
+  background-color: rgba(19, 27, 53, 0.85);
+  border-radius: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.yzecoriolis.sheet.actor .sheet-body .encumbrance-bar .encumbrance-fill {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  background-color: #3F82A7;
+  border-radius: 5px 0px 0px 5px;
+}
+.yzecoriolis.sheet.actor .sheet-body .encumbrance-bar .encumbrance-fill.encumbered {
+  border-radius: 5px;
+  background-color: #FF4500;
+}
+.yzecoriolis.sheet.actor .sheet-body .encumbrance-bar .encumbrance-data {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  font-family: "Cairo";
+  color: white;
+  padding-left: 10px;
+}
+.yzecoriolis.sheet.actor .sheet-body .encumbrance-bar.encumbered {
+  border: 1px solid white;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */

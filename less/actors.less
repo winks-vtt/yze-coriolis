@@ -874,6 +874,18 @@
             }
         }
 
+
+
+        /*-------------------------------------*/
+        /* Item List */
+        /*-------------------------------------*/
+        .gear-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 600px;
+        }
+
         .gear-list {
             .vertical-list();
             margin-left: 15px;
@@ -993,6 +1005,45 @@
                 width: 35px;
                 height: 35px;
                 border: none;
+            }
+        }
+
+        .encumbrance-bar {
+            background-color: @colorEncumbranceBG;
+            border-radius: 5px;
+            margin-left: 15px;
+            margin-right: 15px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+
+            .encumbrance-fill {
+                grid-row-start: 1;
+                grid-row-end: 2;
+                grid-column-start: 1;
+                grid-column-end: 2;
+                background-color: @colorEncumbranceFill;
+                border-radius: 5px 0px 0px 5px;
+
+                &.encumbered {
+                    border-radius: 5px;
+                    background-color: @colorOrangeShadow;
+                }
+            }
+
+            .encumbrance-data {
+                grid-row-start: 1;
+                grid-row-end: 2;
+                grid-column-start: 1;
+                grid-column-end: 2;
+                .data-text();
+                padding-left: 10px;
+
+            }
+
+            &.encumbered {
+                border: 1px solid @colorWhite;
+                ;
             }
         }
     }
