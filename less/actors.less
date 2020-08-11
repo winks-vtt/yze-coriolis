@@ -1043,7 +1043,48 @@
 
             &.encumbered {
                 border: 1px solid @colorWhite;
-                ;
+            }
+        }
+
+
+        .bio-stats {
+            padding: 0 5px 0 0;
+            margin-top: 24px;
+            margin-left: 15px;
+            margin-right: 15px;
+
+            .bio-category-header {
+                .category-header();
+                text-align: center;
+            }
+
+            .bio-category-name {
+                .category-column-name();
+            }
+
+            .bio-block {
+                background-color: @colorStatItemEntryBG;
+                border-radius: 3px;
+                border: 1px solid @colorDarkBlue;
+                display: flex;
+                flex-direction: column;
+                flex: 0 0 49%;
+                margin-bottom: 12px;
+
+                .bio-block-title {
+                    .data-text();
+                    color: @colorDarkBlue;
+                    text-transform: uppercase;
+                }
+
+                .bio-block-data {
+                    .player-text();
+                }
+
+            }
+
+            .bio-block-list {
+                justify-content: space-between;
             }
         }
     }

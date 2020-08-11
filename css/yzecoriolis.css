@@ -1420,6 +1420,53 @@
 .yzecoriolis.sheet.actor .sheet-body .encumbrance-bar.encumbered {
   border: 1px solid white;
 }
+.yzecoriolis.sheet.actor .sheet-body .bio-stats {
+  padding: 0 5px 0 0;
+  margin-top: 24px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-category-header {
+  font-family: "Cairo";
+  color: white;
+  border-radius: 3px;
+  background-color: rgba(113, 130, 190, 0.44);
+  height: 24px;
+  margin-bottom: 5px;
+  align-content: center;
+  margin-top: 20px;
+  text-align: center;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-category-header:first-of-type {
+  margin-top: 0px;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-category-name {
+  font-size: 14px;
+  margin: 0px 0px 0px 5px;
+  text-transform: uppercase;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block {
+  background-color: rgba(19, 27, 53, 0.45);
+  border-radius: 3px;
+  border: 1px solid #7182BE;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 49%;
+  margin-bottom: 12px;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-block-title {
+  font-family: "Cairo";
+  color: white;
+  color: #7182BE;
+  text-transform: uppercase;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-block-data {
+  font-family: "Cairo";
+  color: #FDFF9D;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block-list {
+  justify-content: space-between;
+}
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
   /*  Sheet Tabs                             */
