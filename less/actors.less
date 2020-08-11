@@ -11,6 +11,11 @@
         color: @colorPlayerText;
     }
 
+    .player-text-bold {
+        font-family: "Cairo-Bold";
+        color: @colorPlayerText;
+    }
+
     .data-text {
         font-family: "Cairo";
         color: @colorWhite;
@@ -1070,15 +1075,19 @@
                 flex-direction: column;
                 flex: 0 0 49%;
                 margin-bottom: 12px;
+                align-items: center;
 
                 .bio-block-title {
                     .data-text();
+                    letter-spacing: 0.2em;
                     color: @colorDarkBlue;
                     text-transform: uppercase;
                 }
 
                 .bio-block-data {
-                    .player-text();
+                    .player-text-bold();
+                    font-size: 20px;
+                    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
                 }
 
             }

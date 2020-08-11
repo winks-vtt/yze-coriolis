@@ -249,6 +249,10 @@
   font-family: "Cairo";
   color: #FDFF9D;
 }
+.yzecoriolis.sheet.actor .player-text-bold {
+  font-family: "Cairo-Bold";
+  color: #FDFF9D;
+}
 .yzecoriolis.sheet.actor .data-text {
   font-family: "Cairo";
   color: white;
@@ -1453,16 +1457,20 @@
   flex-direction: column;
   flex: 0 0 49%;
   margin-bottom: 12px;
+  align-items: center;
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-block-title {
   font-family: "Cairo";
   color: white;
+  letter-spacing: 0.2em;
   color: #7182BE;
   text-transform: uppercase;
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-block-data {
-  font-family: "Cairo";
+  font-family: "Cairo-Bold";
   color: #FDFF9D;
+  font-size: 20px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block-list {
   justify-content: space-between;
