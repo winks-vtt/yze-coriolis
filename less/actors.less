@@ -1095,6 +1095,26 @@
                     margin-bottom: 8px;
                 }
 
+                .bio-checkbox {
+                    -webkit-appearance: none;
+                    background-color: none;
+                    background: url("icons/checkbox-unchecked.svg") center no-repeat;
+                    background-size: 21px;
+                    width: 22px;
+                    transition: background-color 275ms ease;
+                    border-radius: 3px;
+
+                    &:hover {
+                        background-color: @colorPlaceHolderPlayerText;
+                    }
+
+                    &:checked {
+                        background: url("icons/checkbox-checked.svg") center no-repeat;
+                        background-size: 21px;
+                    }
+
+                }
+
                 .bio-block-data {
                     .player-text-bold();
                     font-size: 20px;

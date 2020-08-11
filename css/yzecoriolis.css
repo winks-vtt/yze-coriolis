@@ -1477,6 +1477,22 @@
   text-align: center;
   margin-bottom: 8px;
 }
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-checkbox {
+  -webkit-appearance: none;
+  background-color: none;
+  background: url("icons/checkbox-unchecked.svg") center no-repeat;
+  background-size: 21px;
+  width: 22px;
+  transition: background-color 275ms ease;
+  border-radius: 3px;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-checkbox:hover {
+  background-color: #7B7C4C;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-checkbox:checked {
+  background: url("icons/checkbox-checked.svg") center no-repeat;
+  background-size: 21px;
+}
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-block-data {
   font-family: "Cairo-Bold";
   color: #FDFF9D;
