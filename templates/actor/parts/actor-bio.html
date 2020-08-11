@@ -31,7 +31,13 @@
             </div>
             <div class="bio-block">
                 <span class="bio-block-title">{{localize "YZECORIOLIS.CrewPosition"}}</span>
-                <span class="bio-block-data">Pilot</span>
+                <select class="skill-category" name="data.bio.crewPosition">
+                    {{#select data.bio.crewPosition}}
+                    {{#each config.crewPositions as |label category|}}
+                    <option value="{{category}}">{{label}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
             </div>
             <div class="bio-block">
                 <span class="bio-block-title">{{localize "YZECORIOLIS.Appearance"}}:

@@ -1467,18 +1467,23 @@
   text-transform: uppercase;
   margin-top: 8px;
 }
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-text {
+  font-size: 20px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-input {
   font-family: "Cairo-Bold";
   color: #FDFF9D;
-  font-size: 20px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-  font-size: 18px;
+  font-size: 20px;
   height: 32px;
   text-align: center;
   margin-bottom: 8px;
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-checkbox {
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-color: none;
   background: url("icons/checkbox-unchecked.svg") center no-repeat;
   background-size: 21px;
@@ -1493,11 +1498,27 @@
   background: url("icons/checkbox-checked.svg") center no-repeat;
   background-size: 21px;
 }
-.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-block-data {
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   font-family: "Cairo-Bold";
   color: #FDFF9D;
   font-size: 20px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  line-height: 25px;
+  width: 280px;
+  height: 35px;
+  padding: 0px 35px 0px 10px;
+  border: none;
+  background: url("icons/drop-down-arrow.svg") 6.4% no-repeat rgba(113, 130, 190, 0.44);
+  background-position: right 0.7em top 50%;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block select:focus {
+  box-shadow: none;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block select option {
+  background-color: rgba(19, 27, 53, 0.78);
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block-list {
   justify-content: space-between;
