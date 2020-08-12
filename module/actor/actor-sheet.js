@@ -290,7 +290,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     event.preventDefault();
     const person = {
       buddy: false,
-      name: 'placeholder'
+      name: ''
     };
     let relationships = {};
     if (this.actor.data.data.relationships) {

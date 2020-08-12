@@ -69,8 +69,8 @@
                 {{/if}}
             </li>
             {{#each actor.data.relationships as |relation relKey|}}
-            <li class="gear flexrow">
-                <div class="gear-bg flexrow">
+            <li class="gear flexrow relation" data-item-id="{{relKey}}">
+                <div class=" gear-bg flexrow">
                     <input class="bio-input relation-name" type="text" name="data.relationships.{{relKey}}.name"
                         value="{{relation.name}}" placeholder="{{localize "YZECORIOLIS.Name"}}" />
                     <div class="flex1 flexrow buddy-box">

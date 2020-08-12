@@ -1464,7 +1464,7 @@
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-input {
-  font-family: "Cairo-Bold";
+  font-family: "Cairo";
   color: #FDFF9D;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
   font-size: 20px;
@@ -1516,7 +1516,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  font-family: "Cairo-Bold";
+  font-family: "Cairo";
   color: #FDFF9D;
   font-size: 20px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
@@ -1538,7 +1538,7 @@
   justify-content: space-between;
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .relations-list {
-  max-height: 270px;
+  max-height: 229px;
   margin: 0px;
   padding: 0px;
 }
