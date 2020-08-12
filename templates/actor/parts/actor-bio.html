@@ -52,5 +52,40 @@
                     value="{{data.bio.appearance.clothing}}" placeholder="{{localize "YZECORIOLIS.Clothing"}}" />
             </div>
         </div>
+
+
+        <ol class="gear-list relations-list">
+            <li class="gear-category-header flexrow">
+                <div class="gear-category-name first">{{localize "YZECORIOLIS.Relationships"}}</div>
+                <div class="gear-category-name center">{{localize "YZECORIOLIS.Buddy"}}</div>
+                {{#if owner}}
+                <div class="gear-controls">
+                    <a class="gear-control-add-widget relationship-create"
+                        title='{{localize "YZECORIOLIS.AddRelationship"}}'
+                        {{#each actor.gearDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                        <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+                    </a>
+                </div>
+                {{/if}}
+            </li>
+            {{#each actor.data.relationships as |relation relKey|}}
+            <li class="gear flexrow">
+                <div class="gear-bg flexrow">
+                    <input class="bio-input relation-name" type="text" name="data.relationships.{{relKey}}.name"
+                        value="{{relation.name}}" placeholder="{{localize "YZECORIOLIS.Name"}}" />
+                    <div class="flex1 flexrow buddy-box">
+                        <input class="bio-checkbox" type="checkbox" name="data.relationships.{{relKey}}.buddy"
+                            data-dtype="Boolean" {{checked relation.buddy}} />
+                    </div>
+                    <div class="biography-controls flexrow">
+                        <a class="bio-control-widget relationship-delete"
+                            title={{localize "YZECORIOLIS.RemoveRelationship"}}><i class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+            </li>
+
+            {{/each}}
+        </ol>
+
     </div>
 </div>

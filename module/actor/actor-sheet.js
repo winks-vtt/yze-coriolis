@@ -371,8 +371,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
       data: data
     };
 
-
-    console.log('item data', itemData);
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.data["type"];
 

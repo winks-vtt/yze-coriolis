@@ -85,6 +85,13 @@
         }
     }
 
+    input[type="checkbox"] {
+        flex: 0 0 22px;
+        width: 20px;
+        height: 20px;
+        margin: 3px 5px;
+    }
+
     // Don't show spinners on number inputs. Not ideal. Would like to indicate
     // that scrolling is possible on some fields in a future update.
     input[type=number]::-webkit-inner-spin-button {
@@ -720,6 +727,7 @@
             height: 24px;
             margin-bottom: 5px;
             align-content: center;
+            align-items: center;
             margin-top: 20px;
 
             &:first-of-type {
@@ -1067,6 +1075,42 @@
                 .category-column-name();
             }
 
+            .bio-text {
+                font-size: 20px;
+                text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+            }
+
+            .bio-input {
+                .player-text-bold();
+                .bio-text();
+                font-size: 20px;
+                height: 25px;
+                text-align: center;
+                margin-bottom: 8px;
+            }
+
+            .bio-checkbox {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                background-color: none;
+                background: url("icons/checkbox-unchecked.svg") center no-repeat;
+                background-size: 21px;
+                width: 22px;
+                transition: background-color 275ms ease;
+                border-radius: 3px;
+
+                &:hover {
+                    background-color: @colorPlaceHolderPlayerText;
+                }
+
+                &:checked {
+                    background: url("icons/checkbox-checked.svg") center no-repeat;
+                    background-size: 21px;
+                }
+
+            }
+
             .bio-block {
 
                 .animated-hover();
@@ -1087,42 +1131,6 @@
                     margin-top: 8px;
                 }
 
-                .bio-text {
-                    font-size: 20px;
-                    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-                }
-
-                .bio-input {
-                    .player-text-bold();
-                    .bio-text();
-                    font-size: 20px;
-                    height: 32px;
-                    text-align: center;
-                    margin-bottom: 8px;
-                }
-
-                .bio-checkbox {
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
-                    appearance: none;
-                    background-color: none;
-                    background: url("icons/checkbox-unchecked.svg") center no-repeat;
-                    background-size: 21px;
-                    width: 22px;
-                    transition: background-color 275ms ease;
-                    border-radius: 3px;
-
-                    &:hover {
-                        background-color: @colorPlaceHolderPlayerText;
-                    }
-
-                    &:checked {
-                        background: url("icons/checkbox-checked.svg") center no-repeat;
-                        background-size: 21px;
-                    }
-
-                }
-
                 select {
                     -webkit-appearance: none;
                     -moz-appearance: none;
@@ -1131,7 +1139,7 @@
                     .bio-text();
                     line-height: 25px;
                     width: 280px;
-                    height: 35px;
+                    height: 25px;
                     padding: 0px 35px 0px 10px;
 
                     border: none;
@@ -1151,6 +1159,36 @@
 
             .bio-block-list {
                 justify-content: space-between;
+            }
+
+            .relations-list {
+                max-height: 270px;
+                margin: 0px;
+                padding: 0px;
+
+                .relation-name {
+                    flex: 2.5 0 0;
+                    text-align: left;
+                    margin-bottom: 0px; //zeroing out margin of input box.
+                }
+            }
+
+            .biography-controls {
+                .item-list-controls();
+                flex: 0 0 20px;
+                justify-content: flex-end;
+                padding-left: 35px;
+            }
+
+            .bio-control-widget {
+                .item-control-widget();
+
+            }
+
+            .buddy-box {
+                justify-items: center;
+                justify-content: center;
+                margin-left: -40px; // for alignment fixing with buddy header.
             }
         }
     }

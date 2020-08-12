@@ -297,6 +297,12 @@
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #7B7C4C;
 }
+.yzecoriolis.sheet.actor input[type="checkbox"] {
+  flex: 0 0 22px;
+  width: 20px;
+  height: 20px;
+  margin: 3px 5px;
+}
 .yzecoriolis.sheet.actor input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   -moz-appearance: textfield;
@@ -987,6 +993,7 @@
   height: 24px;
   margin-bottom: 5px;
   align-content: center;
+  align-items: center;
   margin-top: 20px;
 }
 .yzecoriolis.sheet.actor .sheet-body .category-header:first-of-type {
@@ -1121,6 +1128,7 @@
   height: 24px;
   margin-bottom: 5px;
   align-content: center;
+  align-items: center;
   margin-top: 20px;
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent-category-header:first-of-type {
@@ -1233,6 +1241,7 @@
   height: 24px;
   margin-bottom: 5px;
   align-content: center;
+  align-items: center;
   margin-top: 20px;
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-category-header:first-of-type {
@@ -1438,6 +1447,7 @@
   height: 24px;
   margin-bottom: 5px;
   align-content: center;
+  align-items: center;
   margin-top: 20px;
   text-align: center;
 }
@@ -1448,6 +1458,37 @@
   font-size: 14px;
   margin: 0px 0px 0px 5px;
   text-transform: uppercase;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-text {
+  font-size: 20px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-input {
+  font-family: "Cairo-Bold";
+  color: #FDFF9D;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  font-size: 20px;
+  height: 25px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: none;
+  background: url("icons/checkbox-unchecked.svg") center no-repeat;
+  background-size: 21px;
+  width: 22px;
+  transition: background-color 275ms ease;
+  border-radius: 3px;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-checkbox:hover {
+  background-color: #7B7C4C;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-checkbox:checked {
+  background: url("icons/checkbox-checked.svg") center no-repeat;
+  background-size: 21px;
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block {
   transition: 275ms filter ease;
@@ -1471,37 +1512,6 @@
   text-transform: uppercase;
   margin-top: 8px;
 }
-.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-text {
-  font-size: 20px;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-}
-.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-input {
-  font-family: "Cairo-Bold";
-  color: #FDFF9D;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-  font-size: 20px;
-  height: 32px;
-  text-align: center;
-  margin-bottom: 8px;
-}
-.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-checkbox {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: none;
-  background: url("icons/checkbox-unchecked.svg") center no-repeat;
-  background-size: 21px;
-  width: 22px;
-  transition: background-color 275ms ease;
-  border-radius: 3px;
-}
-.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-checkbox:hover {
-  background-color: #7B7C4C;
-}
-.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-checkbox:checked {
-  background: url("icons/checkbox-checked.svg") center no-repeat;
-  background-size: 21px;
-}
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1512,7 +1522,7 @@
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
   line-height: 25px;
   width: 280px;
-  height: 35px;
+  height: 25px;
   padding: 0px 35px 0px 10px;
   border: none;
   background: url("icons/drop-down-arrow.svg") 6.4% no-repeat rgba(113, 130, 190, 0.44);
@@ -1526,6 +1536,45 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block-list {
   justify-content: space-between;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .relations-list {
+  max-height: 270px;
+  margin: 0px;
+  padding: 0px;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .relations-list .relation-name {
+  flex: 2.5 0 0;
+  text-align: left;
+  margin-bottom: 0px;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .biography-controls {
+  text-transform: uppercase;
+  flex: 0 0 60px;
+  margin-top: 2px;
+  text-align: right;
+  margin-right: 7px;
+  display: flex;
+  flex: 0 0 20px;
+  justify-content: flex-end;
+  padding-left: 35px;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-control-widget {
+  color: #7182BE;
+  flex-basis: 20px;
+  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-control-widget a:hover {
+  text-shadow: none;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-control-widget:hover {
+  text-shadow: 0 0 5px #FF4500;
+  color: white;
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .buddy-box {
+  justify-items: center;
+  justify-content: center;
+  margin-left: -40px;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
