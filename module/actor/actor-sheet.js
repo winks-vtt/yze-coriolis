@@ -109,7 +109,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
     for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
-      console.log('item img', i.img);
       // setup equipped status
       const isActive = getProperty(i.data, "equipped");
       item.toggleClass = isActive ? "equipped" : "";
