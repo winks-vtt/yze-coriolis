@@ -1,0 +1,109 @@
+/* ----------------------------------------- */
+/*  Fonts                                    */
+/* ----------------------------------------- */
+@font-face {
+  font-family: "Nodesto";
+  src: url("fonts/NodestoCapsCondensed.otf");
+}
+.nodesto {
+  font-family: "Nodesto", "Signika", "Palatino Linotype", serif;
+  font-size: 20px;
+}
+/* ----------------------------------------- */
+/*  Sheet Styles                             */
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+/*  Sheet V2 Styles                          */
+/* ----------------------------------------- */
+@font-face {
+  font-family: "Cairo";
+  src: url("fonts/cairo/Cairo-Regular.ttf");
+}
+@font-face {
+  font-family: "Cairo-Bold";
+  src: url("fonts/cairo/Cairo-Bold.ttf");
+}
+@font-face {
+  font-family: "Cairo-SemiBold";
+  src: url("fonts/cairo/Cairo-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Play";
+  src: url("fonts/play/Play-Regular.ttf");
+}
+.animated-hover {
+  transition: 275ms filter ease;
+}
+.animated-hover:hover {
+  filter: brightness(1.5);
+}
+/* ----------------------------------------- */
+/*  Flexbox                                  */
+/* ----------------------------------------- */
+.fr-basic {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+.fr-basic .flex1 {
+  flex: 1;
+}
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.flexrow > * {
+  flex: 1;
+}
+.flexrow .flex1 {
+  flex: 1;
+}
+.flexrow .flex2 {
+  flex: 2;
+}
+.flexrow .flex3 {
+  flex: 3;
+}
+.flexrow .flex4 {
+  flex: 4;
+}
+.flexcol {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.flexcol > * {
+  flex: 1;
+}
+.flexcol .flex1 {
+  flex: 1;
+}
+.flexcol .flex2 {
+  flex: 2;
+}
+.flexcol .flex3 {
+  flex: 3;
+}
+.flexcol .flex4 {
+  flex: 4;
+}
+.debug {
+  border: 1px solid red;
+}
+.editor-content {
+  background-color: rgba(19, 27, 53, 0.45);
+  border-radius: 3px;
+  padding: 5px;
+}
+.mce-content-body {
+  font-family: "Cairo";
+  color: #FDFF9D;
+  background-color: rgba(19, 27, 53, 0.45);
+  padding: 5px;
+}
+.tox-editor-container {
+  border-radius: 3px;
+}

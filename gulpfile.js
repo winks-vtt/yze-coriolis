@@ -8,7 +8,7 @@ const less = require('gulp-less');
 const YZECORIOLIS_LESS = ["less/**/*.less", "less/*.less"];
 
 function compileLESS() {
-  return gulp.src("less/yzecoriolis.less")
+  return gulp.src(["less/yzecoriolis.less", "less/yzecoriolismce.less"])
     .pipe(less())
     .pipe(gulp.dest("./css"))
 }

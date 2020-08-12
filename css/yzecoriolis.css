@@ -1576,6 +1576,26 @@
   justify-content: center;
   margin-left: -40px;
 }
+.yzecoriolis.sheet.actor .charnotes .editor {
+  max-height: 590px;
+  height: 590px;
+  margin: 10px;
+  font-family: "Cairo";
+  color: #FDFF9D;
+}
+.yzecoriolis.sheet.actor .charnotes .editor-edit {
+  display: block;
+  width: 40px;
+  text-align: center;
+  background-color: rgba(19, 27, 53, 0.45);
+  color: #7182BE;
+  border: 1px solid #7182BE;
+  transition: background-color 275ms ease;
+}
+.yzecoriolis.sheet.actor .charnotes .editor-edit:hover {
+  text-shadow: none;
+  background-color: rgba(46, 65, 128, 0.45);
+}
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
   /*  Sheet Tabs                             */

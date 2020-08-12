@@ -1192,4 +1192,28 @@
             }
         }
     }
+
+    .charnotes {
+        .editor {
+            max-height: 590px;
+            height: 590px;
+            margin: 10px;
+            .player-text();
+        }
+
+        .editor-edit {
+            display: block;
+            width: 40px;
+            text-align: center;
+            background-color: @colorStatItemEntryBG;
+            color: @colorDarkBlue;
+            border: 1px solid @colorDarkBlue;
+            transition: background-color 275ms ease;
+
+            &:hover {
+                text-shadow: none;
+                background-color: lighten(@colorStatItemEntryBG, 20%);
+            }
+        }
+    }
 }

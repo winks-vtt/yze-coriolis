@@ -8,7 +8,7 @@
   "templateVersion": 2,
   "author": "Winks",
   "esmodules": ["module/yzecoriolis.js"],
-  "styles": ["css/yzecoriolis.css"],
+  "styles": ["css/yzecoriolis.css", "css/yzecoriolismce.css"],
   "scripts": [],
   "packs": [],
   "languages": [{

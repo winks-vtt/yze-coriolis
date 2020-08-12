@@ -30,6 +30,10 @@ Hooks.once('init', async function () {
     decimals: 0
   };
 
+  // Setup TinyMCE stylings
+  CONFIG.TinyMCE.css.push('systems/yzecoriolis/css/yzecoriolismce.css');
+  console.log('css', CONFIG.TinyMCE.css);
+
   preloadHandlerbarsTemplates();
 
   // Define custom Entity classes
