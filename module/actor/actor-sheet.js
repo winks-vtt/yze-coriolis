@@ -249,6 +249,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
       value: totalWeight
     };
     let pct = (totalWeight / enc.max) * 100;
+    if (totalWeight === 0) {
+      pct = 0;
+    }
     enc.percentage = Math.min(pct, 100);
     enc.encumbered = pct > 100;
     return enc;
