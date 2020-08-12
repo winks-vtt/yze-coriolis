@@ -1450,6 +1450,7 @@
   text-transform: uppercase;
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block {
+  transition: 275ms filter ease;
   background-color: rgba(19, 27, 53, 0.45);
   border-radius: 3px;
   border: 1px solid #7182BE;
@@ -1458,6 +1459,9 @@
   flex: 0 0 49%;
   margin-bottom: 12px;
   align-items: center;
+}
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block:hover {
+  filter: brightness(1.5);
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block .bio-block-title {
   font-family: "Cairo";
