@@ -10,6 +10,7 @@ import { coriolisChatListeners } from "./coriolis-roll.js";
 import * as migrations from "./migration.js";
 import { preloadHandlerbarsTemplates } from "./templates.js";
 import { addDarknessPoints, spendDarknessPoints } from "./darkness-points.js";
+import { setupMCE } from './mce.js';
 
 Hooks.once('init', async function () {
   console.log(`Coriolis | Initializing Coriolis\n${YZECORIOLIS.ASCII}`);
@@ -31,8 +32,7 @@ Hooks.once('init', async function () {
   };
 
   // Setup TinyMCE stylings
-  CONFIG.TinyMCE.css.push('systems/yzecoriolis/css/yzecoriolismce.css');
-  console.log('css', CONFIG.TinyMCE.css);
+  setupMCE();
 
   preloadHandlerbarsTemplates();
 
