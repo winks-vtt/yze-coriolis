@@ -12,6 +12,8 @@ Once playable, I'd like to start updating the styling of sheets, as well as star
 3. In the Manifest URL field paste: `TODO`
 
 ## Features
+![Character Sheet](https://github.com/winks-vtt/yze-coriolis/raw/master/images/char_sheet_preview.png)
+
 - Basic Character sheets for PCs
 - Ability to roll Skills and Attributes
 - Can create Talents, Weapons, Gear, Armor and drag-n-drop onto character sheets.
