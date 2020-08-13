@@ -7,7 +7,7 @@ The system is now in a playable state, with mainly the character sheet being com
 ## Installation
 1. Inside Foundry's Configuration and Setup screen, go to **Game Systems**
 2. Click "Install System"
-3. In the Manifest URL field paste: `TODO`
+3. In the Manifest URL field paste: `https://raw.githubusercontent.com/winks-vtt/yze-coriolis/master/system.json`
 
 ## Features
 ![Character Sheet](https://github.com/winks-vtt/yze-coriolis/raw/master/images/char_sheet_preview.png)
