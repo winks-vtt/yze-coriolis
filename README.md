@@ -2,9 +2,7 @@
 A Foundry VTT system for [Free League's Coriolis RPG](https://frialigan.se/en/games/coriolis-2/).
 
 ## System Status
-The initial goal is to get the system into a state where one can run a Coriolis game in Foundry with basic rolls for stats, weapons, etc. As such, styling for character sheets and such are still a WIP, and there's very little automation implemented at the moment.
-
-Once playable, I'd like to start updating the styling of sheets, as well as start adding automations to different rules in the system.
+The system is now in a playable state, with mainly the character sheet being complete. Stylings for rolls, item sheets, are incomplete but functional. As more mileage is accumlated I'd like to add automations to various systems to help with running a game of Coriolis.
 
 ## Installation
 1. Inside Foundry's Configuration and Setup screen, go to **Game Systems**
@@ -52,12 +50,14 @@ The system comes with placeholder art-work. To change it, click on the upper 3rd
 ## Recommended Modules
 - [Dice So Nice]( https://gitlab.com/riccisi/foundryvtt-dice-so-nice)
 
-## Immediate Todos
-- [ ] Update styling of character sheets
-- [ ] Create a Ship character sheet
+## Todos
+* Create a ship character sheet
+* Update styling of dice rolls in chat log
+* Update styling of supporting item/weapon sheets
 
 ## Support
 For questions, feature requests, or bug reports, feel free to contact me on the Foundry Discord (Winks#1731) or open an issue here directly.
+
 
 ## License
 This Foundry VTT system, written by Winks, is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
