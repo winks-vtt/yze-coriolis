@@ -24,6 +24,11 @@ Once playable, I'd like to start updating the styling of sheets, as well as star
 
 ## How-Tos
 
+### Modifying Rolls
+![Modifying Rolls](https://github.com/winks-vtt/yze-coriolis/raw/master/images/ht_modifier_rolls.gif)
+
+When selecting an attribute or skill, a pop up will request a modifier to any roll coming from the character sheet.
+
 ### Handling Darkness Points
 ![Darkness Points Tools](https://github.com/winks-vtt/yze-coriolis/raw/master/images/dp_bar.png)
 - You can increment or decrement darkness points via the tool bar on the left.
