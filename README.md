@@ -29,6 +29,12 @@ Once playable, I'd like to start updating the styling of sheets, as well as star
 
 When selecting an attribute or skill, a pop up will request a modifier to any roll coming from the character sheet.
 
+### Pushing Rolls
+![Pushing Rolls](https://github.com/winks-vtt/yze-coriolis/raw/master/images/ht_push_rolls.gif)
+
+To push a roll, click on the "pray to the Icons" button under the roll in the chat window
+
+
 ### Handling Darkness Points
 ![Darkness Points Tools](https://github.com/winks-vtt/yze-coriolis/raw/master/images/dp_bar.png)
 - You can increment or decrement darkness points via the tool bar on the left.
