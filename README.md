@@ -58,13 +58,18 @@ The system comes with placeholder art-work. To change it, click on the upper 3rd
 ## Support
 For questions, feature requests, or bug reports, feel free to contact me on the Foundry Discord (Winks#1731) or open an issue here directly.
 
-
-## License
-This Foundry VTT system is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
-
-### Art Credits
+## Art Credits
 - Placeholder character key art: By [Alex Okafor](http://www.paradeofrain.com/) under [CC-BY 3.0](https://creativecommons.org/licenses/by/3.0/).
 - Character sheet icons: by [LORC](https://lorcblog.blogspot.com/) under [CC-BY 3.0](https://creativecommons.org/licenses/by/3.0/).
 - Character Sheet background: NASA Hubble under [Public Domain](https://hubblesite.org/about_us/copyright.php).
 
+## License
+![Year Zero Engine](https://github.com/winks-vtt/yze-coriolis/raw/master/images/YZ_engine_logo.png)
+
+This Foundry VTT system is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
+
 This work is licensed under [Foundry Virtual Tabletop EULA - Limited License Agreement for module development](https://foundryvtt.com/article/license/).
+
+
+
+
