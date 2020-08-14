@@ -1,3 +1,6 @@
+# 0.9
+- Updating licensing
+
 # 0.8
 - Updating licensing
 
