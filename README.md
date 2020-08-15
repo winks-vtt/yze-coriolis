@@ -1,5 +1,5 @@
 # Coriolis The Third Horizon
-A Foundry VTT system for [Free League's Coriolis RPG](https://frialigan.se/en/games/coriolis-2/).
+An UNOFFICIAL system for playing [Coriolis - The Third Horizon](https://frialigan.se/en/games/coriolis-2/) on Foundry VTT, and made available with permission from [Free League](https://frialigan.se/en/startpage/).
 
 ## System Status
 The system is now in a playable state, with mainly the character sheet being complete. Stylings for rolls, item sheets, are incomplete but functional. As more mileage is accumlated I'd like to add automations to various systems to help with running a game of Coriolis.
