@@ -11,11 +11,17 @@
   "styles": ["css/yzecoriolis.css", "css/yzecoriolismce.css"],
   "scripts": [],
   "packs": [],
-  "languages": [{
-    "lang": "en",
-    "name": "English",
-    "path": "lang/en.json"
-  }],
+  "languages": [
+	{
+ 	   "lang": "en",
+  	  "name": "English",
+  	  "path": "lang/en.json"
+ 	 },
+	{
+   	 "lang": "de",
+   	 "name": "Deutsch",
+  	  "path": "lang/de.json"
+  	}],
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
