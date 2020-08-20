@@ -1,3 +1,6 @@
+# 0.92
+- German localization added (thanks to @SesuUisu)
+
 # 0.91
 - Updating readme
 
