@@ -1,3 +1,4 @@
+import { addDarknessPoints } from "./darkness-points.js";
 /**
  * Perform a system migration for the entire World, applying migrations for Actors, Items, and Compendium packs
  * @return {Promise}      A Promise which resolves once the migration is completed
@@ -51,6 +52,9 @@ export const migrateWorld = async function () {
     for (let p of packs) {
         await migrateCompendium(p);
     }
+
+    // migrate Darkness Point System
+    migrateDarknessPoints();
 
     // Set the migration as complete
     game.settings.set("yzecoriolis", "systemMigrationVersion", game.system.data.version);
@@ -255,6 +259,20 @@ export const migrateSceneData = function (scene) {
         })
     };
 };
+
+export const migrateDarknessPoints = async function () {
+    if (!game.user.isGM) {
+        return;
+    }
+    let dpPoints = game.settings.get("yzecoriolis", "darknessPoints");
+    const MIGRATED_VALUE = -42;
+    if (dpPoints !== MIGRATED_VALUE) {
+        await addDarknessPoints(dpPoints);
+        await game.settings.set("yzecoriolis", "darknessPoints", MIGRATED_VALUE);
+        console.log('wat');
+        ui.notifications.info(game.i18n.localize('YZECORIOLIS.MigratedDP'), { permanent: true });
+    }
+}
 
 /* -------------------------------------------- */
 /*  Low level migration utilities

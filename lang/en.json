@@ -282,5 +282,7 @@
     "YZECORIOLIS.CloseRange": "Close",
     "YZECORIOLIS.ShortRange": "Short",
     "YZECORIOLIS.LongRange": "Long",
-    "YZECORIOLIS.ExtremeRange": "Extreme"
+    "YZECORIOLIS.ExtremeRange": "Extreme",
+
+    "YZECORIOLIS.MigratedDP": "Darkness Points System Migrated."
 }
