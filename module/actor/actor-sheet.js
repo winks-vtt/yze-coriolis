@@ -68,13 +68,15 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const gearDataSet = {
       "type": "gear",
       "weight": "L",
-      "quantity": 1
+      "quantity": 1,
+      "defaultname": game.i18n.localize('YZECORIOLIS.NewGear'),
     }
 
     for (let k of Object.keys(CONFIG.YZECORIOLIS.talentCategories)) {
       talents[k] = {
         "dataset": {
           "type": "talent",
+          "defaultname": game.i18n.localize('YZECORIOLIS.NewTalent'),
           "category": k
         },
         "items": []
@@ -84,6 +86,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const weaponDataSet = {
       "type": "weapon",
       "weight": "L",
+      "defaultname": game.i18n.localize('YZECORIOLIS.NewWeapon')
     };
 
     const explosiveDataSet = {
@@ -93,17 +96,20 @@ export class yzecoriolisActorSheet extends ActorSheet {
       "explosive": true,
       "blastRadius": "close",
       "blastPower": 1,
+      "defaultname": game.i18n.localize('YZECORIOLIS.NewExplosive')
     };
 
     const armorDataSet = {
       "type": "armor",
       "weight": "L",
       "armorRating": 1,
-      "extraFeatures": 0
+      "extraFeatures": 0,
+      "defaultname": game.i18n.localize('YZECORIOLIS.NewArmor'),
     }
 
     const injuryDataSet = {
-      "type": "injury"
+      "type": "injury",
+      "defaultname": game.i18n.localize('YZECORIOLIS.NewCriticalInjury'),
     }
 
     for (let i of sheetData.items) {
@@ -364,8 +370,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Grab any data associated with this control.
     const data = duplicate(header.dataset);
     // Initialize a default name.
-    const name = `New ${type.capitalize()}`;
-
+    const name = data.defaultname;// `New ${type.capitalize()}`;
     // Prepare the item object.
     const itemData = {
       name: name,
@@ -375,6 +380,8 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.data["type"];
+    // no need to keep ahold of defaultname after creation.
+    delete itemData.data["defaultname"];
 
     // Finally, create the item!
     return this.actor.createOwnedItem(itemData);

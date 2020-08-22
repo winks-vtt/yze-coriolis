@@ -81,11 +81,17 @@
     "YZECORIOLIS.CreateTalent": "Create Talent",
     "YZECORIOLIS.EditTalent": "Edit Talent",
     "YZECORIOLIS.DeleteTalent": "Delete Talent",
+    "YZECORIOLIS.NewTalent": "New Talent",
 
     "YZECORIOLIS.CreateGear": "Create Gear",
     "YZECORIOLIS.CreateWeapon": "Create Weapon",
     "YZECORIOLIS.CreateArmor": "Create Armor",
     "YZECORIOLIS.CreateExplosive": "Create Explosive",
+
+    "YZECORIOLIS.NewGear": "New Gear",
+    "YZECORIOLIS.NewWeapon": "New Weapon",
+    "YZECORIOLIS.NewArmor": "New Armor",
+    "YZECORIOLIS.NewExplosive": "New Explosive",
 
     "YZECORIOLIS.EditGear": "Edit Gear",
     "YZECORIOLIS.EditWeapon": "Edit Weapon",
@@ -129,6 +135,7 @@
     "YZECORIOLIS.CreateCriticalInjury": "Add Critical Injury",
     "YZECORIOLIS.EditCriticalInjury": "Edit Critical Injury",
     "YZECORIOLIS.DeleteCriticalInjury": "Delete Critical Injury",
+    "YZECORIOLIS.NewCriticalInjury": "New Critical Injury",
     "YZECORIOLIS.ArmorRating": "Armor Rating",
     "YZECORIOLIS.ExtraFeatures": "Extra Features",
 
