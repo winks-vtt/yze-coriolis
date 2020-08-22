@@ -9,7 +9,7 @@ import { bootstrapGearCompendium } from './migration.js';
 import { coriolisChatListeners } from "./coriolis-roll.js";
 import * as migrations from "./migration.js";
 import { preloadHandlerbarsTemplates } from "./templates.js";
-import { addDarknessPoints, spendDarknessPoints } from "./darkness-points.js";
+import { addDarknessPoints, spendDarknessPoints, displayDarknessPoints } from "./darkness-points.js";
 import { setupMCE } from './mce.js';
 
 Hooks.once('init', async function () {
@@ -243,6 +243,14 @@ Hooks.on('getSceneControlButtons', (controls) => {
       visible: game.user.isGM,
       onClick: () => { spendDarknessPoints(1) }
     },
+    {
+      name: "inspect",
+      title: "YZECORIOLIS.DarknessPoints",
+      icon: "fas fa-question",
+      buttons: true,
+      visible: game.user.isGM,
+      onClick: () => { displayDarknessPoints() }
+    }
   );
 
 });

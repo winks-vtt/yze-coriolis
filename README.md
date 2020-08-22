@@ -41,8 +41,9 @@ Weapons, Explosives, and Armor can be rolled in the items tab. You can click on 
 
 ### Handling Darkness Points
 ![Darkness Points Tools](https://github.com/winks-vtt/yze-coriolis/raw/master/images/dp_bar.png)
-- You can increment or decrement darkness points via the tool bar on the left.
-- Whenever a player pushes a roll, 1 DP is added to the DB pool of the GM
+- The GM can increment or decrement darkness points via the tool bar on the left.
+- Whenever a player pushes a roll, 1 DP is added to the DB pool of the GM.
+- The GM can peek at the current darkness points via the "?" button in the tool bar.
 
 ### Updating Character Art
 The system comes with placeholder art-work. To change it, click on the upper 3rd of the art-work to upload a new one. For reference, the placeholder artwork is 604x1488 pixels. The slot is designed for easily dropping in character art from the core rulebook.

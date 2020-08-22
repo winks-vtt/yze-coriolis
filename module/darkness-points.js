@@ -21,6 +21,10 @@ export async function spendDarknessPoints(points) {
     //purposefully not announcing the spending of points publically.
 }
 
+export async function displayDarknessPoints() {
+    await showDarknessPoints(getDarknessPoints());
+}
+
 async function decrementDarknessPoint() {
     for (let userID of game.users.keys()) {
         let dPoints = getDarknessPointsForUserID(userID);
