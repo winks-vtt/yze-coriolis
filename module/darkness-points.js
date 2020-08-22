@@ -1,46 +1,85 @@
-//TODO: refactor this to use a singleton game item.
+// Darkness Points are distributed among user setting flags. Adding DP adds it
+// to the local user flag. removing it removes it from anyone that has DP to
+// remove. Fetching it is summing up all setting flags. Originally, DP was a
+// world setting, but world setting mutations are GM only. If the permissions
+// model in future foundry allows for custom world setting permission, this code
+// could be simplified.
+
 export async function addDarknessPoints(points) {
-    let dPoints = getDarknessPoints();
-    dPoints += points;
-    await setDarknessPoints(dPoints);
-    console.log('added points', dPoints);
-    showDarknessPoints(dPoints);
-    //TODO: announceDP
+    // local user cache
+    let dpObj = getDarknessPointsForUserID(game.user.id);
+    dpObj.value += points;
+    await setDarknessPointsForUser(game.user.id, dpObj);
+    showDarknessPoints(getDarknessPoints());
 }
 
 export async function spendDarknessPoints(points) {
-    let dPoints = getDarknessPoints();
-    dPoints -= points;
-    if (dPoints < 0) {
-        dPoints = 0;
+    for (let i = 0; i < points; i++) {
+        await decrementDarknessPoint();
     }
-    console.log('spent points', dPoints);
-    await setDarknessPoints(dPoints);
-    showDarknessPoints(dPoints);
-    //purposefully not announcing the spending of points.
+    showDarknessPoints(getDarknessPoints());
+    //purposefully not announcing the spending of points publically.
+}
+
+async function decrementDarknessPoint() {
+    for (let userID of game.users.keys()) {
+        let dPoints = getDarknessPointsForUserID(userID);
+        if (dPoints.value > 0) {
+            dPoints.value -= 1;
+            await setDarknessPointsForUser(userID, dPoints);
+            return;
+        }
+    }
+}
+
+function getDarknessPointsForUserID(userID) {
+    let user = game.users.get(userID);
+    let dPoints = user.getFlag("yzecoriolis", "darknessPoints");
+    if (!dPoints) {
+        dPoints = {
+            value: 0
+        }
+    }
+    return dPoints;
+}
+
+async function setDarknessPointsForUser(userID, dPoints) {
+    let user = game.users.get(userID);
+    await user.setFlag("yzecoriolis", "darknessPoints", null);
+    await user.setFlag("yzecoriolis", "darknessPoints", dPoints);
 }
 
 function getDarknessPoints() {
-    return game.settings.get("yzecoriolis", "darknessPoints");
+    let total = 0;
+    for (let userID of game.users.keys()) {
+        let dPoints = getDarknessPointsForUserID(userID);
+        total += dPoints.value;
+    }
+    return total;
 }
 
-async function setDarknessPoints(dPoints) {
-    await game.settings.set("yzecoriolis", "darknessPoints", dPoints);
-}
 /**
  * whispers the current darkness points to the GM.
  * @param  {} totalPoints
  */
 async function showDarknessPoints(totalPoints) {
-    let gmList = game.users.filter(user => user.isGM);
+    // first try to just grab active GMs in the game.
+    let gmList = game.users.filter(user => user.isGM && user.active);
+    // failing that just grab all the GMs in the game.
+    if (gmList.length === 0) {
+        gmList = game.users.filter(user => user.isGM);
+    }
+
+    let gmUser = gmList[0];
+
     let messageData = {
-        user: game.user._id,
-        speaker: ChatMessage.getSpeaker({ user: game.user }),
+        user: gmUser._id,
+        speaker: ChatMessage.getSpeaker({ user: gmUser }),
         whisper: gmList
     };
 
     const dpData = {
-        gmUsername: game.user.name,
+        gmUsername: gmUser.name,
         totalPoints: totalPoints
     };
 
