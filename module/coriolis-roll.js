@@ -5,6 +5,31 @@ export function coriolisModifierDialog(modifierCallback) {
         title: game.i18n.localize("YZECORIOLIS.ModifierForRoll"),
         content: `<p>${game.i18n.localize("YZECORIOLIS.ModifierForRollQuestion")}</p>`,
         buttons: {
+            nineMinus: {
+                label: "-9",
+                callback: () => modifierCallback(-9)
+            },
+            eightMinus: {
+                label: "-8",
+                callback: () => modifierCallback(-8)
+            },
+            sevenMinus: {
+                label: "-7",
+                callback: () => modifierCallback(-7)
+            },
+            sixMinus: {
+                label: "-6",
+                callback: () => modifierCallback(-6)
+            },
+            fiveMinus: {
+                label: "-5",
+                callback: () => modifierCallback(-5)
+            },
+            fourMinus: {
+                label: "-4",
+                callback: () => modifierCallback(-4)
+            },
+
             threeMinus: {
                 label: "-3",
                 callback: () => modifierCallback(-3)
@@ -32,6 +57,30 @@ export function coriolisModifierDialog(modifierCallback) {
             threePlus: {
                 label: "+3",
                 callback: () => modifierCallback(3)
+            },
+            fourPlus: {
+                label: "+4",
+                callback: () => modifierCallback(4)
+            },
+            fivePlus: {
+                label: "+5",
+                callback: () => modifierCallback(5)
+            },
+            sixPlus: {
+                label: "+6",
+                callback: () => modifierCallback(6)
+            },
+            sevenPlus: {
+                label: "+7",
+                callback: () => modifierCallback(7)
+            },
+            eightPlus: {
+                label: "+8",
+                callback: () => modifierCallback(8)
+            },
+            ninePlus: {
+                label: "+9",
+                callback: () => modifierCallback(9)
             }
         },
         default: "zero",
