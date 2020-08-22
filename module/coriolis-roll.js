@@ -218,9 +218,8 @@ async function updateChatMessage(msgOptions, resultData) {
     });
 }
 
-
 function getRollTitle(rollData) {
-    return `${rollData.rollTitle} Roll`;
+    return `${rollData.rollTitle}`;
 }
 
 function getTooltipData(results) {

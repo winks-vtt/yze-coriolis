@@ -97,6 +97,9 @@ Hooks.once('init', async function () {
   Handlebars.registerHelper('getSkillName', function (skillkey) {
     return CONFIG.YZECORIOLIS.skills[skillkey];
   });
+  Handlebars.registerHelper('getSkillRollName', function (skillkey) {
+    return CONFIG.YZECORIOLIS.skillRolls[skillkey];
+  });
 
   Handlebars.registerHelper('getSkillCategoryName', function (skillkey) {
     return CONFIG.YZECORIOLIS.skillCategories[skillkey];
@@ -104,6 +107,10 @@ Hooks.once('init', async function () {
 
   Handlebars.registerHelper('getAttributeName', function (attributeKey) {
     return CONFIG.YZECORIOLIS.attributes[attributeKey];
+  });
+
+  Handlebars.registerHelper('getAttributeRollName', function (attributeKey) {
+    return CONFIG.YZECORIOLIS.attributeRolls[attributeKey];
   });
 
   Handlebars.registerHelper('getTalentCategoryName', function (talentCategoryKey) {
@@ -166,8 +173,10 @@ Hooks.once("setup", function () {
   // Localize CONFIG objects once up-front
   const toLocalize = [
     "attributes",
+    "attributeRolls",
     "skillCategories",
     "skills",
+    "skillRolls",
     "talentCategories",
     "talentGroupConceptCategories",
     "talents",

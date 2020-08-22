@@ -11,7 +11,7 @@
                 </div>
                 <div class="attr-name">{{getAttributeName key}}</div>
                 <div class="attr-rollable  rollable" data-rolltype="attribute" data-attributekey={{key}}
-                    data-roll="(@attributes.{{key}}.value)d6" data-label="{{getAttributeName key}}"><img
+                    data-roll="(@attributes.{{key}}.value)d6" data-label="{{getAttributeRollName key}}"><img
                         src="systems/yzecoriolis/css/icons/rolling-dices.svg"></div>
             </div>
         </li>
@@ -25,7 +25,7 @@
             {{#if_eq skill.category 'general'}}
             <li class="skill fr-basic">
                 <div class="fr-basic rollable flex1" data-rolltype="skill" data-attributekey={{skill.attribute}}
-                    data-skillkey={{id}} data-label="{{getSkillName id}}">
+                    data-skillkey={{id}} data-label="{{getSkillRollName id}}">
                     <div class="skill-image"></div>
                     <h4>{{getSkillName id}}</h4>
                     <div class="bg-skill-{{skill.attribute}}"></div>
@@ -45,7 +45,7 @@
             {{#if_eq skill.category 'advanced'}}
             <li class="skill fr-basic">
                 <div class="fr-basic rollable flex1" data-rolltype="advancedSkill" data-attributekey={{skill.attribute}}
-                    data-skillkey={{id}} data-label="{{getSkillName id}}">
+                    data-skillkey={{id}} data-label="{{getSkillRollName id}}">
                     <div class="skill-image"></div>
                     <h4>{{getSkillName id}}</h4>
                     <div class="bg-skill-{{skill.attribute}}"></div>

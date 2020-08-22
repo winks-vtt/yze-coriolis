@@ -20,6 +20,13 @@ YZECORIOLIS.attributes = {
     "empathy": "YZECORIOLIS.AttrEmpathy"
 };
 
+YZECORIOLIS.attributeRolls = {
+    "strength": "YZECORIOLIS.AttrStrengthRoll",
+    "agility": "YZECORIOLIS.AttrAgilityRoll",
+    "wits": "YZECORIOLIS.AttrWitsRoll",
+    "empathy": "YZECORIOLIS.AttrEmpathyRoll"
+};
+
 YZECORIOLIS.crewPositions = {
     "captain": "YZECORIOLIS.CrewSpotCaptain",
     "engineer": "YZECORIOLIS.CrewSpotEngineer",
@@ -51,6 +58,26 @@ YZECORIOLIS.skills = {
     "pilot": "YZECORIOLIS.SkillPilot",
     "science": "YZECORIOLIS.SkillScience",
     "technology": "YZECORIOLIS.SkillTechnology"
+};
+
+// The the statement that is used when rolling for that skill.
+YZECORIOLIS.skillRolls = {
+    "dexterity": "YZECORIOLIS.SkillDexterityRoll",
+    "force": "YZECORIOLIS.SkillForceRoll",
+    "infiltration": "YZECORIOLIS.SkillInfiltrationRoll",
+    "manipulation": "YZECORIOLIS.SkillManipulationRoll",
+    "meleecombat": "YZECORIOLIS.SkillMeleeCombatRoll",
+    "observation": "YZECORIOLIS.SkillObservationRoll",
+    "rangedcombat": "YZECORIOLIS.SkillRangedCombatRoll",
+    "survival": "YZECORIOLIS.SkillSurvivalRoll",
+    "command": "YZECORIOLIS.SkillCommandRoll",
+    "culture": "YZECORIOLIS.SkillCultureRoll",
+    "datadjinn": "YZECORIOLIS.SkillDataDjinnRoll",
+    "medicurgy": "YZECORIOLIS.SkillMedicurgyRoll",
+    "mysticpowers": "YZECORIOLIS.SkillMysticPowersRoll",
+    "pilot": "YZECORIOLIS.SkillPilotRoll",
+    "science": "YZECORIOLIS.SkillScienceRoll",
+    "technology": "YZECORIOLIS.SkillTechnologyRoll"
 };
 
 // Talents
