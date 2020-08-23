@@ -28,7 +28,7 @@
     "YZECORIOLIS.DarknessPointsControls": "Finsternispunkt-Management",
     "YZECORIOLIS.DarknessPointsAdd": "Finsternispunkt hinzufügen",
     "YZECORIOLIS.DarknessPointsRemove": "Finsternispunkt entfernen",
-    "YZECORIOLIS.DarknessPoints": "Finsternispunkt",
+    "YZECORIOLIS.DarknessPoints": "Finsternispunkte",
 
 
     "YZECORIOLIS.RollLimitedSucces": "Eingeschränkter Erfolg",
@@ -81,11 +81,17 @@
     "YZECORIOLIS.CreateTalent": "Fertigkeit einfügen",
     "YZECORIOLIS.EditTalent": "Fertigkeit anpassen",
     "YZECORIOLIS.DeleteTalent": "Fertigkeit löschen",
+    "YZECORIOLIS.NewTalent": "Neue Fertigkeit",
 
     "YZECORIOLIS.CreateGear": "Ausrüstung einfügen",
     "YZECORIOLIS.CreateWeapon": "Waffe einfügen",
     "YZECORIOLIS.CreateArmor": "Panzerung einfügen",
     "YZECORIOLIS.CreateExplosive": "Sprengstoff einfügen",
+	
+    "YZECORIOLIS.NewGear": "Neue Ausrüstung",
+    "YZECORIOLIS.NewWeapon": "Neue Waffe",
+    "YZECORIOLIS.NewArmor": "Neue Panzerung",
+    "YZECORIOLIS.NewExplosive": "Neuer Sprengstoff",
 
     "YZECORIOLIS.EditGear": "Ausrüstung anpassen",
     "YZECORIOLIS.EditWeapon": "Waffe anpassen",
@@ -129,9 +135,10 @@
     "YZECORIOLIS.CreateCriticalInjury": "Kritische Wunde hinzufügen",
     "YZECORIOLIS.EditCriticalInjury": "Kritische Wunde anpassen",
     "YZECORIOLIS.DeleteCriticalInjury": "Kritische Wunde löschen",
+    "YZECORIOLIS.NewCriticalInjury": "Neue Kritische Wunde",
     "YZECORIOLIS.ArmorRating": "Panzerungswert",
     "YZECORIOLIS.ExtraFeatures": "zus. Merkmale",
-
+	
     "YZECORIOLIS.AttrStrength": "Stärke",
     "YZECORIOLIS.AttrAgility": "Geschicklichkeit",
     "YZECORIOLIS.AttrWits": "Verstand",
@@ -154,6 +161,27 @@
     "YZECORIOLIS.SkillPilot": "Pilot",
     "YZECORIOLIS.SkillScience": "Wissenschaft",
     "YZECORIOLIS.SkillTechnology": "Technologie",
+
+    "YZECORIOLIS.AttrStrengthRoll": "Stärke",
+    "YZECORIOLIS.AttrAgilityRoll": "Geschicklichkeit",
+    "YZECORIOLIS.AttrWitsRoll": "Verstand",
+    "YZECORIOLIS.AttrEmpathyRoll": "Empathie",
+    "YZECORIOLIS.SkillDexterityRoll": "Beweglichkeit",
+    "YZECORIOLIS.SkillForceRoll": "Kraftakt",
+    "YZECORIOLIS.SkillInfiltrationRoll": "Infiltration",
+    "YZECORIOLIS.SkillManipulationRoll": "Manipulation",
+    "YZECORIOLIS.SkillMeleeCombatRoll": "Nahkampf",
+    "YZECORIOLIS.SkillObservationRoll": "Beobachtung",
+    "YZECORIOLIS.SkillRangedCombatRoll": "Fernkampf",
+    "YZECORIOLIS.SkillSurvivalRoll": "Überleben",
+    "YZECORIOLIS.SkillCommandRoll": "Kommandieren",
+    "YZECORIOLIS.SkillCultureRoll": "Kultur",
+    "YZECORIOLIS.SkillDataDjinnRoll": "Datendschinn",
+    "YZECORIOLIS.SkillMedicurgyRoll": "Medikurgie",
+    "YZECORIOLIS.SkillMysticPowersRoll": "Mystik",
+    "YZECORIOLIS.SkillPilotRoll": "Pilot",
+    "YZECORIOLIS.SkillScienceRoll": "Wissenschaft",
+    "YZECORIOLIS.SkillTechnologyRoll": "Technologie",
 
     "YZECORIOLIS.TalentCatGroup": "Gruppentalent",
     "YZECORIOLIS.TalentCatIcon": "Ikonentalente",
@@ -283,5 +311,7 @@
     "YZECORIOLIS.CloseRange": "Nah",
     "YZECORIOLIS.ShortRange": "Kurz",
     "YZECORIOLIS.LongRange": "Weit",
-    "YZECORIOLIS.ExtremeRange": "Extrem"
+    "YZECORIOLIS.ExtremeRange": "Extrem",
+	
+    "YZECORIOLIS.MigratedDP": "Finsternispunkte-System wurde übertragen."
 }
