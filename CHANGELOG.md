@@ -1,3 +1,6 @@
+# 0.94
+- German localization updated (thanks to @SesuUisu)
+
 # 0.93
 - Bug fixed with pushing rolls where darkness points would not be added to if a non-GM player pushed the roll.
 - Fixed Localization issues with item & gear sheets.
