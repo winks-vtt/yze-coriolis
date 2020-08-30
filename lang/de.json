@@ -313,5 +313,23 @@
     "YZECORIOLIS.LongRange": "Weit",
     "YZECORIOLIS.ExtremeRange": "Extrem",
 	
-    "YZECORIOLIS.MigratedDP": "Finsternispunkte-System wurde übertragen."
+    "YZECORIOLIS.MigratedDP": "Finsternispunkte-System wurde übertragen.",
+
+    "YZECORIOLIS.ShipWeapons": "Schiffswaffen",
+    "YZECORIOLIS.ShipFeatures": "Schiffsmerkmale",
+    "YZECORIOLIS.ShipModules": "Schiffsmodule",
+    "YZECORIOLIS.ShipCabin": "Kabinen",
+    "YZECORIOLIS.ShipStasis": "Stasiskammer",
+    "YZECORIOLIS.ShipCargo": "Frachtraum",
+    "YZECORIOLIS.ShipEnergyPoints": "Leistungspunkte",
+    "YZECORIOLIS.ShipHullPoints": "Rumpfpunkte",
+    "YZECORIOLIS.ShipManeuverability": "Manövrierfähigkeit",
+    "YZECORIOLIS.ShipSignature": "Signatur",
+    "YZECORIOLIS.ShipSpeed": "Geschwindigkeit",
+    "YZECORIOLIS.ShipClass": "Klasse & Typ",
+    "YZECORIOLIS.ShipShipyard": "Werft",
+    "YZECORIOLIS.ShipProblem": "Problem",
+    "YZECORIOLIS.ShipDebt": "Schulden",
+    "YZECORIOLIS.ShipModule": "Module",
+    "YZECORIOLIS.Disabled": "Disabled",
 }

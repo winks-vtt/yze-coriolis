@@ -313,5 +313,23 @@
     "YZECORIOLIS.LongRange": "Long",
     "YZECORIOLIS.ExtremeRange": "Extreme",
 
-    "YZECORIOLIS.MigratedDP": "Darkness Points System Migrated."
+    "YZECORIOLIS.MigratedDP": "Darkness Points System Migrated.",
+
+    "YZECORIOLIS.ShipWeapons": "Ship Weapons",
+    "YZECORIOLIS.ShipFeatures": "Ship Features",
+    "YZECORIOLIS.ShipModules": "Ship Modules",
+    "YZECORIOLIS.ShipCabin": "Crew Cabins",
+    "YZECORIOLIS.ShipStasis": "Stasis Chambers",
+    "YZECORIOLIS.ShipCargo": "Cargo Hold",
+    "YZECORIOLIS.ShipEnergyPoints": "Energy Points",
+    "YZECORIOLIS.ShipHullPoints": "Hull Points",
+    "YZECORIOLIS.ShipManeuverability": "Maneuverability",
+    "YZECORIOLIS.ShipSignature": "Signature",
+    "YZECORIOLIS.ShipSpeed": "Speed",  
+    "YZECORIOLIS.ShipClass": "Class & Type",
+    "YZECORIOLIS.ShipShipyard": "Shipyard",
+    "YZECORIOLIS.ShipProblem": "Problem",
+    "YZECORIOLIS.ShipDebt": "Debt",
+    "YZECORIOLIS.ShipModule": "Module",
+    "YZECORIOLIS.Disabled": "Disabled",
 }
