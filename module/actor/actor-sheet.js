@@ -470,7 +470,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
     let li = $(event.currentTarget).parents(".item");
     let item = this.actor.getOwnedItem(li.data("item-id"));
     let chatData = item.getChatData({ secrets: this.actor.owner });
-    console.log("item summary clicked");
     // Toggle summary
     if (li.hasClass("expanded")) {
       let summary = li.children(".item-summary");
