@@ -77,8 +77,10 @@
                 <div class="gear-bg {{weapon.data.toggleClass}} flickering flexrow">
                     <div class="gear-name flexrow">
                         <div class="gear-img-container rollable" style="background-image: url({{weapon.img}})"
-                            data-rolltype="weapon" data-label="{{weapon.name}}" data-skillkey="rangedcombat"
-                            data-attributekey="agility" data-bonus="{{weapon.data.bonus}}">
+                            data-rolltype="weapon" data-label="{{weapon.name}}"
+                            data-skillkey="{{getSkillKeyForWeaponType weapon.data.melee}}"
+                            data-attributekey="{{getAttributeKeyForWeaponType weapon.data.melee}}"
+                            data-bonus="{{weapon.data.bonus}}">
                         </div>
                         <span class="expandable-info">{{weapon.name}}</span>
                     </div>

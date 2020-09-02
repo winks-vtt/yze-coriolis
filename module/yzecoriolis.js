@@ -166,6 +166,23 @@ Hooks.once('init', async function () {
     }
   });
 
+
+  Handlebars.registerHelper('getSkillKeyForWeaponType', function (isMelee) {
+    if (isMelee) {
+      return 'meleecombat'
+    } else {
+      return 'rangedcombat'
+    }
+  });
+
+  Handlebars.registerHelper('getAttributeKeyForWeaponType', function (isMelee) {
+    if (isMelee) {
+      return 'strength'
+    } else {
+      return 'agility'
+    }
+  });
+
 });
 
 // called after game data is loaded from severs. entities exist

@@ -225,6 +225,8 @@ export const migrateItemData = function (item) {
     // add in HP bonus field to existing talents
     if (item.type === 'talent' && !hasProperty(item.data, 'hpBonus')) {
         updateData = { 'data.hpBonus': 0 }
+    } else if (item.type === 'weapon' && !hasProperty(item.data, 'melee')) {
+        updateData = { 'data.melee': false }
     }
     // Remove deprecated fields
     _migrateRemoveDeprecated(item, updateData);
