@@ -239,7 +239,8 @@
       "templates": ["base"],
       "category": "",
       "cost": 0,
-      "groupConcept": ""
+      "groupConcept": "",
+      "hpBonus": ""
     },
     "weapon": {
       "templates": ["gear"],
