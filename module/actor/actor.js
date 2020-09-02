@@ -50,7 +50,8 @@ export class yzecoriolisActor extends Actor {
       }
     }
 
-    data.hitPoints.max = data.attributes.strength.value + data.attributes.agility.value;
+    let hpBonuses = this._prepHPBonuses(data);
+    data.hitPoints.max = data.attributes.strength.value + data.attributes.agility.value + hpBonuses;
     data.mindPoints.max = data.attributes.wits.value + data.attributes.empathy.value;
 
     if (data.hitPoints.value > data.hitPoints.max) {
@@ -98,5 +99,18 @@ export class yzecoriolisActor extends Actor {
 
   _prepareRollTitle(rollType) {
 
+  }
+
+  _prepHPBonuses(data) {
+    // look through talents for any HPBonuses
+    let bonus = 0;
+    for (let t of this.data.items) {
+      if (t.type !== 'talent') {
+        continue
+      }
+      const tData = t.data;
+      bonus += tData.hpBonus
+    }
+    return bonus;
   }
 }
