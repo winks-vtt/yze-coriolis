@@ -1,5 +1,5 @@
 # 0.95
-- Added support for HP Bonuses in Talents
+- Added support for HP bonuses in Talents. Talent items now have an HP Bonus field.
 - Added proper support for Melee weapons. Weapon items now have a melee checkbox. It will now roll the correct skill+attributes for melee combat.
 
 # 0.94
