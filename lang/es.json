@@ -21,7 +21,7 @@
     "YZECORIOLIS.ErrorsInvalidSkillRoll": "Los valores de las habilidades o atributos no son mayores de cero",
     "YZECORIOLIS.ErrorsInvalidAdvancedSkillRoll": "Las habilidades avanzadas deben tener al menos un valor de 1 para ser lanzadas",
     "YZECORIOLIS.PrayToIcons": "Rezar a los Iconos",
-    "YZECORIOLIS.PushedRoll": "Forzar Tirada",
+    "YZECORIOLIS.PushedRoll": "Tirada Forzada",
     "YZECORIOLIS.ModifierForRoll": "Modificador",
     "YZECORIOLIS.ModifierForRollQuestion": "Introduzca el modificador para su tirada",
 
