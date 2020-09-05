@@ -18,7 +18,6 @@ export const migrateWorld = async function () {
             console.error(err);
         }
     }
-
     // Migrate World Items
     for (let i of game.items.entities) {
         try {
@@ -222,8 +221,13 @@ function cleanActorData(actorData) {
  * @param item
  */
 export const migrateItemData = function (item) {
-    const updateData = {};
-
+    let updateData = {};
+    // add in HP bonus field to existing talents
+    if (item.type === 'talent' && !hasProperty(item.data, 'hpBonus')) {
+        updateData = { 'data.hpBonus': 0 }
+    } else if (item.type === 'weapon' && !hasProperty(item.data, 'melee')) {
+        updateData = { 'data.melee': false }
+    }
     // Remove deprecated fields
     _migrateRemoveDeprecated(item, updateData);
 

@@ -239,7 +239,8 @@
       "templates": ["base"],
       "category": "",
       "cost": 0,
-      "groupConcept": ""
+      "groupConcept": "",
+      "hpBonus": ""
     },
     "weapon": {
       "templates": ["gear"],
@@ -260,7 +261,8 @@
       "initiative": 0,
       "range": "",
       "automatic": false,
-      "special": {}
+      "special": {},
+      "melee": false
     },
     "armor": {
       "templates": ["gear"],

@@ -85,6 +85,11 @@
                     <input type="checkbox" name="data.explosive" data-dtype="Boolean" {{checked data.explosive}} />
                 </div>
 
+                <div class="resource">
+                    <label class="resource-label">{{localize "YZECORIOLIS.Melee"}}</label>
+                    <input type="checkbox" name="data.melee" data-dtype="Boolean" {{checked data.melee}} />
+                </div>
+
                 {{#if data.explosive}}
                 <div class="resource numeric-input flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.BlastPower"}}</label>

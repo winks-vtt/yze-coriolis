@@ -166,6 +166,23 @@ Hooks.once('init', async function () {
     }
   });
 
+
+  Handlebars.registerHelper('getSkillKeyForWeaponType', function (isMelee) {
+    if (isMelee) {
+      return 'meleecombat'
+    } else {
+      return 'rangedcombat'
+    }
+  });
+
+  Handlebars.registerHelper('getAttributeKeyForWeaponType', function (isMelee) {
+    if (isMelee) {
+      return 'strength'
+    } else {
+      return 'agility'
+    }
+  });
+
 });
 
 // called after game data is loaded from severs. entities exist
@@ -258,7 +275,7 @@ Hooks.on('getSceneControlButtons', (controls) => {
 Hooks.once('ready', async function () {
   // Determine whether a system migration is required and feasible
   const currentVersion = game.settings.get("yzecoriolis", "systemMigrationVersion");
-  const NEEDS_MIGRATION_VERSION = 0.92;
+  const NEEDS_MIGRATION_VERSION = 0.95;
   const COMPATIBLE_MIGRATION_VERSION = 0.4;
   let needMigration = (currentVersion < NEEDS_MIGRATION_VERSION) || (currentVersion === null) || (isNaN(currentVersion));
 

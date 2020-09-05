@@ -313,5 +313,8 @@
     "YZECORIOLIS.LongRange": "Long",
     "YZECORIOLIS.ExtremeRange": "Extreme",
 
-    "YZECORIOLIS.MigratedDP": "Darkness Points System Migrated."
+    "YZECORIOLIS.MigratedDP": "Darkness Points System Migrated.",
+    "YZECORIOLIS.HPBonus": "HP Bonus",
+    "YZECORIOLIS.Melee": "Melee"
+
 }
