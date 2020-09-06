@@ -1,3 +1,6 @@
+# 0.96
+- Fixed a templating bug with HP Bonuses in talents that would cause the HP Bar to become too large.
+
 # 0.95
 - Added support for HP bonuses in Talents. Talent items now have an HP Bonus field.
 - Added proper support for Melee weapons. Weapon items now have a melee checkbox. It will now roll the correct skill+attributes for melee combat.

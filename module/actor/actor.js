@@ -109,7 +109,7 @@ export class yzecoriolisActor extends Actor {
         continue
       }
       const tData = t.data;
-      bonus += tData.hpBonus
+      bonus += Number(tData.hpBonus)
     }
     return bonus;
   }

@@ -240,7 +240,7 @@
       "category": "",
       "cost": 0,
       "groupConcept": "",
-      "hpBonus": ""
+      "hpBonus": 0
     },
     "weapon": {
       "templates": ["gear"],

@@ -228,6 +228,10 @@ export const migrateItemData = function (item) {
     } else if (item.type === 'weapon' && !hasProperty(item.data, 'melee')) {
         updateData = { 'data.melee': false }
     }
+    // fix string contamination of talents' hpBonus fields
+    if (item.type === 'talent' && hasProperty(item.data, 'hpBonus')) {
+        updateData = { 'data.hpBonus': Number(item.data.hpBonus) }
+    }
     // Remove deprecated fields
     _migrateRemoveDeprecated(item, updateData);
 
