@@ -313,5 +313,8 @@
     "YZECORIOLIS.LongRange": "Weit",
     "YZECORIOLIS.ExtremeRange": "Extrem",
 	
-    "YZECORIOLIS.MigratedDP": "Finsternispunkte-System wurde übertragen."
+    "YZECORIOLIS.MigratedDP": "Finsternispunkte-System wurde übertragen.",
+    "YZECORIOLIS.HPBonus": "TP Bonus",
+    "YZECORIOLIS.Melee": "Nahkampf"
+	
 }
