@@ -17,7 +17,7 @@
                 {{#if_eq data.category 'group'}}
                 <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.GroupConcept"}}</label>
-                    <select class="skill-attribute" name="data.attribute">
+                    <select class="skill-attribute" name="data.groupConcept">
                         {{#select data.groupConcept}}
                         {{#each config.talentGroupConceptCategories as |label groupTalent|}}
                         <option value="{{groupTalent}}">{{label}}</option>
