@@ -1,3 +1,8 @@
+# 0.97
+- Added Spanish Localization (thanks to @krakenSummoner)
+- Updated German localization (thanks to @SesuUisu)
+- Fixed actor browser icon not updating when updating the token art.
+
 # 0.96
 - Fixed a templating bug with HP Bonuses in talents that would cause the HP Bar to become too large.
 
