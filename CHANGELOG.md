@@ -1,5 +1,5 @@
 # 0.97
-- Added Spanish Localization (thanks to @krakenSummoner)
+- Added Spanish localization (thanks to @krakenSummoner)
 - Updated German localization (thanks to @SesuUisu)
 - Fixed actor browser icon not updating when updating the token art.
 - Fixed issue with group concept dropdown not saving when modifying Group Talents
