@@ -172,11 +172,17 @@ export const migrateCompendium = async function (pack) {
  * @return {Object}       The updateData to apply
  */
 export const migrateActorData = function (actor) {
-    const updateData = {};
+    let updateData = {};
 
     // Remove deprecated fields
     _migrateRemoveDeprecated(actor, updateData);
 
+    // fix token art
+    if (actor.img === DEFAULT_TOKEN && hasProperty(actor, 'token.img')) {
+        if (actor.img !== actor.token.img) {
+            updateData['img'] = actor.token.img;
+        }
+    }
     // Migrate Owned Items
     if (!actor.items) return updateData;
     let hasItemUpdates = false;
