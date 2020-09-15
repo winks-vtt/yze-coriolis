@@ -87,7 +87,7 @@
     "YZECORIOLIS.CreateWeapon": "Waffe einfügen",
     "YZECORIOLIS.CreateArmor": "Panzerung einfügen",
     "YZECORIOLIS.CreateExplosive": "Sprengstoff einfügen",
-	
+
     "YZECORIOLIS.NewGear": "Neue Ausrüstung",
     "YZECORIOLIS.NewWeapon": "Neue Waffe",
     "YZECORIOLIS.NewArmor": "Neue Panzerung",
@@ -138,7 +138,7 @@
     "YZECORIOLIS.NewCriticalInjury": "Neue Kritische Wunde",
     "YZECORIOLIS.ArmorRating": "Panzerungswert",
     "YZECORIOLIS.ExtraFeatures": "zus. Merkmale",
-	
+
     "YZECORIOLIS.AttrStrength": "Stärke",
     "YZECORIOLIS.AttrAgility": "Geschicklichkeit",
     "YZECORIOLIS.AttrWits": "Verstand",
@@ -304,6 +304,7 @@
     "YZECORIOLIS.GearWeightNormal": "Normal",
     "YZECORIOLIS.GearWeightHeavy": "Schwer",
     "YZECORIOLIS.GearWeightTiny": "Winzig",
+    "YZECORIOLIS.GearWeightZero": "-",
 
     "YZECORIOLIS.CritTypeNumeric": "Krit-Wert",
     "YZECORIOLIS.CritTypeCustom": "Krit-Art",
@@ -312,9 +313,9 @@
     "YZECORIOLIS.ShortRange": "Kurz",
     "YZECORIOLIS.LongRange": "Weit",
     "YZECORIOLIS.ExtremeRange": "Extrem",
-	
+
     "YZECORIOLIS.MigratedDP": "Finsternispunkte-System wurde übertragen.",
     "YZECORIOLIS.HPBonus": "TP Bonus",
     "YZECORIOLIS.Melee": "Nahkampf"
-	
+
 }

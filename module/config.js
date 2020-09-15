@@ -211,7 +211,7 @@ YZECORIOLIS.techTiers = {
     "O": "YZECORIOLIS.TechTierOrdinary",
     "A": "YZECORIOLIS.TechTierAdvanced",
     "F": "YZECORIOLIS.TechTierFaction",
-    "R": "YZECORIOLIS.TechTierPortalBuilderRelic",
+    "R": "YZECORIOLIS.TechTierPortalBuilderRelic"
 };
 
 YZECORIOLIS.gearWeights = {
@@ -219,6 +219,7 @@ YZECORIOLIS.gearWeights = {
     "N": "YZECORIOLIS.GearWeightNormal",
     "H": "YZECORIOLIS.GearWeightHeavy",
     "T": "YZECORIOLIS.GearWeightTiny",
+    "Z": "YZECORIOLIS.GearWeightZero"
 };
 
 // We are normalizing the weight distribution so light objects aren't .5 but just 1.
@@ -227,6 +228,7 @@ YZECORIOLIS.gearWeightPoints = {
     "N": 2,
     "H": 4,
     "T": 0,
+    "Z": 0
 };
 
 // numeric crit types are just the flat dice successes needed to crit.

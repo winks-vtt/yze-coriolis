@@ -9,7 +9,7 @@
     "YZECORIOLIS.MindPoints": "Puntos de Mente",
     "YZECORIOLIS.Radiation": "Radiación",
     "YZECORIOLIS.Experience": "Experiencia",
-    "YZECORIOLIS.Encumbrance": "Carga", 
+    "YZECORIOLIS.Encumbrance": "Carga",
 
     "YZECORIOLIS.CrewPosition": "Puesto de Tripulación",
     "YZECORIOLIS.CrewSpotCaptain": "Capitán",
@@ -304,6 +304,7 @@
     "YZECORIOLIS.GearWeightNormal": "Normal",
     "YZECORIOLIS.GearWeightHeavy": "Pesados",
     "YZECORIOLIS.GearWeightTiny": "Diminutos",
+    "YZECORIOLIS.GearWeightZero": "-",
 
     "YZECORIOLIS.CritTypeNumeric": "Numeric Crit",
     "YZECORIOLIS.CritTypeCustom": "Custom Crit",

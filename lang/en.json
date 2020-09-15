@@ -304,6 +304,7 @@
     "YZECORIOLIS.GearWeightNormal": "Normal",
     "YZECORIOLIS.GearWeightHeavy": "Heavy",
     "YZECORIOLIS.GearWeightTiny": "Tiny",
+    "YZECORIOLIS.GearWeightZero": "-",
 
     "YZECORIOLIS.CritTypeNumeric": "Numeric Crit",
     "YZECORIOLIS.CritTypeCustom": "Custom Crit",
