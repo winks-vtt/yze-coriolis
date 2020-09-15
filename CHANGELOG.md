@@ -1,3 +1,8 @@
+# 0.98
+- Custom icons for gear using pngs are now sized correctly
+- Added a 'Zero' weight category to gear. You can now select '-' instead of Tiny to ignore any encumbrance calculations.
+- Encumbrance values are now scaled correctly to reflect current ruleset. (ie, Heavy = 2, Normal = 1, Light = 0.5)
+
 # 0.97
 - Added Spanish localization (thanks to @krakenSummoner)
 - Updated German localization (thanks to @SesuUisu)
