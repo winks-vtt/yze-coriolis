@@ -246,15 +246,19 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
   _computeEncumbrance(totalWeight) {
     // your max is strength * 2.
-    // We are doubling that value so we can avoid having to deal with fractions
+    // We are doubling that value so we can avoid having to deal with fractions & floats
     // for smaller items.
+    // totalWeight already has the doubling factored in.
     const strengthValue = this.actor.data.data.attributes.strength.value * 2 * 2;
+
+    // for display purposes we'll halve everything so that encumbrance makes
+    // sense to users that are familiar with the rules.
     let enc = {
-      max: strengthValue,
-      value: totalWeight
+      max: strengthValue / 2,
+      value: totalWeight / 2
     };
-    let pct = (totalWeight / enc.max) * 100;
-    if (totalWeight === 0) {
+    let pct = (enc.value / enc.max) * 100;
+    if (enc.value === 0) {
       pct = 0;
     }
     enc.percentage = Math.min(pct, 100);
