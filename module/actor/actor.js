@@ -17,36 +17,39 @@ export class yzecoriolisActor extends Actor {
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
-    if (actorData.type === 'character') this._prepareCharacterData(actorData);
+    if (actorData.type === 'character') this._prepareCharacterData(actorData, true);
+    if (actorData.type === 'npc') this._prepareCharacterData(actorData, false);
   }
 
   /**
    * Prepare Character type specific data
    */
-  _prepareCharacterData(actorData) {
+  _prepareCharacterData(actorData, capCharPoints) {
     const data = actorData.data;
-    // Cap attribute scores
     if (!data.keyArt) {
       data.keyArt = data.keyArt || CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART;
     }
 
 
-    for (let [key, attr] of Object.entries(data.attributes)) {
-      if (attr.value > attr.max) {
-        attr.value = attr.max;
+    if (capCharPoints) {
+      // Cap attribute scores
+      for (let [key, attr] of Object.entries(data.attributes)) {
+        if (attr.value > attr.max) {
+          attr.value = attr.max;
+        }
+        if (attr.value < attr.min) {
+          attr.value = attr.min;
+        }
       }
-      if (attr.value < attr.min) {
-        attr.value = attr.min;
-      }
-    }
 
-    //Cap Skill scores
-    for (let [key, skl] of Object.entries(data.skills)) {
-      if (skl.value > skl.max) {
-        skl.value = skl.max;
-      }
-      if (skl.value < skl.min) {
-        skl.value = skl.min;
+      //Cap Skill scores
+      for (let [key, skl] of Object.entries(data.skills)) {
+        if (skl.value > skl.max) {
+          skl.value = skl.max;
+        }
+        if (skl.value < skl.min) {
+          skl.value = skl.min;
+        }
       }
     }
 

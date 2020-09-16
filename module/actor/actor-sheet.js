@@ -30,7 +30,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
   getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
-    if (this.actor.data.type == 'character') {
+    if (this.actor.data.type === 'character' || this.actor.data.type === 'npc') {
       // prepare items
       this._prepareCharacterItems(data);
       this._prepCharacterStats(data);

@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character"],
+    "types": ["character", "npc"],
     "templates": {
       "base": {
         "hitPoints": {
@@ -179,33 +179,36 @@
             "min": 0,
             "max": 5
           }
-        }
+        },
+        "notes": "",
+        "bio": {
+          "origin": "",
+          "upbringing": "",
+          "humanite": false,
+          "concept": "",
+          "icon": "",
+          "groupConcept": "",
+          "personalProblem": "",
+          "appearance": {
+            "face": "",
+            "clothing": ""
+          },
+          "crewPosition": ""
+        },
+        "relationships": {},
+        "meetings": {},
+        "cabin": {
+          "description": ""
+        },
+        "birr": 0,
+        "keyArt": ""
       }
     },
     "character": {
-      "templates": ["base"],
-      "notes": "",
-      "bio": {
-        "origin": "",
-        "upbringing": "",
-        "humanite": false,
-        "concept": "",
-        "icon": "",
-        "groupConcept": "",
-        "personalProblem": "",
-        "appearance": {
-          "face": "",
-          "clothing": ""
-        },
-        "crewPosition": ""
-      },
-      "relationships": {},
-      "meetings": {},
-      "cabin": {
-        "description": ""
-      },
-      "birr": 0,
-      "keyArt": ""
+      "templates": ["base"]
+    },
+    "npc": {
+      "templates": ["base"]
     }
   },
   "Item": {
