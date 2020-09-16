@@ -2,7 +2,7 @@
   "name": "yzecoriolis",
   "title": "Year Zero Engine - Coriolis",
   "description": "The Year Zero Engine - Coriolis System for Foundry VTT.",
-  "version": 0.98,
+  "version": 0.99,
   "minimumCoreVersion": "0.6.0",
   "compatibleCoreVersion": "0.6.6",
   "templateVersion": 2,
@@ -33,5 +33,5 @@
   "secondaryTokenAttribute": "power",
   "url": "",
   "manifest": "https://raw.githubusercontent.com/winks-vtt/yze-coriolis/master/system.json",
-  "download": "https://github.com/winks-vtt/yze-coriolis/archive/v0.98.zip"
+  "download": "https://github.com/winks-vtt/yze-coriolis/archive/v0.99.zip"
 }

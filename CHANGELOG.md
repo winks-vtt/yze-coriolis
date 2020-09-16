@@ -1,3 +1,8 @@
+# 0.99
+- Added support for NPC sheets. These sheets are identical to proper character
+  sheets except the caps are lifted for attributes and skills, allowing you to
+  have NPCs with attributes and skills that are higher than 5.
+
 # 0.98
 - Custom icons for gear using pngs are now sized correctly
 - Added a 'Zero' weight category to gear. You can now select '-' instead of Tiny to ignore any encumbrance calculations.
