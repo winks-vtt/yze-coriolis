@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "npc"],
+    "types": ["character", "npc", "ship"],
     "templates": {
       "base": {
         "hitPoints": {
@@ -209,10 +209,40 @@
     },
     "npc": {
       "templates": ["base"]
+    },
+    "ship": {
+      "class": "I",
+      "shipyard": "",
+      "shipType": "",
+      "manueverability": {
+        "value": 0,
+        "min": 0,
+        "max": 25
+      },
+      "speed": {
+        "value": 0,
+        "min": 0,
+        "max": 25
+      },
+      "signature": {
+        "value": 0,
+        "min": 0,
+        "max": 25
+      },
+      "armor": {
+        "value": 0,
+        "min": 0,
+        "max": 25
+      },
+      "cost": {
+        "value": 0,
+        "balance": 0,
+        "paidOff": 0
+      }
     }
   },
   "Item": {
-    "types": ["item", "gear", "talent", "weapon", "armor", "injury"],
+    "types": ["item", "gear", "talent", "weapon", "armor", "injury", "shipProblem"],
     "templates": {
       "base": {
         "description": ""
@@ -274,6 +304,9 @@
       "extraFeatures": 0
     },
     "injury": {
+      "templates": ["base"]
+    },
+    "shipProblem": {
       "templates": ["base"]
     }
   }
