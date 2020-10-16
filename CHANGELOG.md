@@ -1,3 +1,6 @@
+# 0.100
+- Updated Spanish localization to fix word wrapping in skills section of character sheets. (Thanks to @krakenSummoner)
+
 # 0.99
 - Added support for NPC sheets. These sheets are identical to proper character
   sheets except the caps are lifted for attributes and skills, allowing you to
