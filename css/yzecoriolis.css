@@ -823,9 +823,10 @@
   color: white;
   color: #9FB0ED;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 13px;
   flex: 1;
   margin: 0px;
+  line-height: 30px;
 }
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .skill-image {
   transition: 275ms background-size ease;
@@ -1141,7 +1142,7 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent-controls {
   text-transform: uppercase;
-  flex: 0 0 60px;
+  flex: 0 0 70px;
   margin-top: 2px;
   text-align: right;
   margin-right: 7px;
@@ -1166,7 +1167,7 @@
   flex-basis: 20px;
   transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
   color: #9FB0ED;
-  flex-basis: 60px;
+  flex-basis: 70px;
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-add-widget a:hover {
   text-shadow: none;
@@ -1260,7 +1261,7 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-controls {
   text-transform: uppercase;
-  flex: 0 0 60px;
+  flex: 0 0 70px;
   margin-top: 2px;
   text-align: right;
   margin-right: 7px;
@@ -1285,7 +1286,7 @@
   flex-basis: 20px;
   transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
   color: #9FB0ED;
-  flex-basis: 60px;
+  flex-basis: 70px;
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-control-add-widget a:hover {
   text-shadow: none;
