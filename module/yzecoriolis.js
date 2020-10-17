@@ -3,6 +3,7 @@ import { YZECORIOLIS } from "./config.js";
 import { registerSystemSettings } from "./settings.js";
 import { yzecoriolisActor } from "./actor/actor.js";
 import { yzecoriolisActorSheet } from "./actor/actor-sheet.js";
+import { yzecoriolisShipSheet } from "./actor/ship-sheet.js";
 import { yzecoriolisItem } from "./item/item.js";
 import { yzecoriolisItemSheet } from "./item/item-sheet.js";
 import { bootstrapGearCompendium } from './migration.js';
@@ -47,9 +48,27 @@ Hooks.once('init', async function () {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("yzecoriolis", yzecoriolisActorSheet, { makeDefault: true });
+  Actors.registerSheet("yzecoriolis", yzecoriolisActorSheet, {
+    types: ["character"],
+    makeDefault: true,
+    label: "YZECORIOLIS.SheetClassCharacter"
+  });
+  Actors.registerSheet("yzecoriolis", yzecoriolisActorSheet, {
+    types: ["npc"],
+    makeDefault: true,
+    label: "YZECORIOLIS.SheetClassNPC"
+  });
+  Actors.registerSheet("yzecoriolis", yzecoriolisShipSheet, {
+    types: ["ship"],
+    makeDefault: true,
+    label: "YZECORIOLIS.SheetClassShip"
+  });
+
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("yzecoriolis", yzecoriolisItemSheet, { makeDefault: true });
+  Items.registerSheet("yzecoriolis", yzecoriolisItemSheet, {
+    makeDefault: true,
+    label: "SheetClassItem"
+  });
 
   // register turn order changes. Currently it's sorting from high->low so no need to edit atm.
   //Combat.prototype.setupTurns = setupCoriolisTurns;
