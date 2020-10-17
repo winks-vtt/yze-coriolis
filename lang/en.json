@@ -316,6 +316,10 @@
 
     "YZECORIOLIS.MigratedDP": "Darkness Points System Migrated.",
     "YZECORIOLIS.HPBonus": "HP Bonus",
-    "YZECORIOLIS.Melee": "Melee"
+    "YZECORIOLIS.Melee": "Melee",
 
+    "YZECORIOLIS.SheetClassCharacter": "Coriolis Character Sheet",
+    "YZECORIOLIS.SheetClassNPC": "Coriolis NPC Sheet",
+    "YZECORIOLIS.SheetClassShip": "Coriolis Ship Sheet",
+    "YZECORIOLIS.SheetClassItem": "Coriolis Item Sheet"
 }
