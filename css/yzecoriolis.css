@@ -228,12 +228,21 @@
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
+.yzecoriolis.sheet.actor.character {
+  /*
+    Background & Container
+    */
+}
+.yzecoriolis.sheet.actor.character .window-content {
+  background: linear-gradient(90deg, #000000 30.35%, rgba(0, 0, 0, 0) 100%), url("images/char-sheet-bg.jpg");
+}
+.yzecoriolis.sheet.actor.ship .window-content {
+  background: url("images/ship-sheet-bg.jpg");
+  background-size: cover;
+}
 .yzecoriolis.sheet.actor {
   /*
     mixins
-    */
-  /*
-    Background & Container
     */
   /*
     Key Art
@@ -243,6 +252,9 @@
     */
   /*
     Header
+    */
+  /*
+        ==========================Ship Sheet Stylings==========================
     */
 }
 .yzecoriolis.sheet.actor .player-text {
@@ -308,9 +320,6 @@
   -moz-appearance: textfield;
   appearance: textfield;
   margin: 0;
-}
-.yzecoriolis.sheet.actor .window-content {
-  background: linear-gradient(90deg, #000000 30.35%, rgba(0, 0, 0, 0) 100%), url("images/char-sheet-bg.jpg");
 }
 .yzecoriolis.sheet.actor .sheet-container {
   display: grid;

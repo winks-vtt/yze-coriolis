@@ -11,7 +11,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["yzecoriolis", "sheet", "actor"],
+      classes: ["yzecoriolis", "sheet", "actor", "character"],
       template: "systems/yzecoriolis/templates/actor/actor-sheet.html",
       width: 1000,
       height: 800,

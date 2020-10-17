@@ -1,7 +1,22 @@
 @import "./variables.less";
 
-.yzecoriolis.sheet.actor {
+.yzecoriolis.sheet.actor.character {
+ /*
+    Background & Container
+    */
+    .window-content {
+        background: linear-gradient(90deg, #000000 30.35%, rgba(0, 0, 0, 0) 100%),
+            url("images/char-sheet-bg.jpg");
+    }
+}
+.yzecoriolis.sheet.actor.ship {
+    .window-content {
+        background: url("images/ship-sheet-bg.jpg");
+        background-size: cover;
+    }
+}
 
+.yzecoriolis.sheet.actor {
 
     /*
     mixins
@@ -101,13 +116,7 @@
         margin: 0;
     }
 
-    /*
-    Background & Container
-    */
-    .window-content {
-        background: linear-gradient(90deg, #000000 30.35%, rgba(0, 0, 0, 0) 100%),
-            url("images/char-sheet-bg.jpg");
-    }
+
 
     .sheet-container {
         display: grid;
@@ -1217,5 +1226,14 @@
                 background-color: lighten(@colorStatItemEntryBG, 20%);
             }
         }
+    }
+
+
+
+    /*
+        ==========================Ship Sheet Stylings==========================
+    */
+    .ship {
+
     }
 }

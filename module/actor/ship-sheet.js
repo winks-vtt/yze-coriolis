@@ -7,7 +7,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["yzecoriolis", "sheet", "actor"],
+            classes: ["yzecoriolis", "sheet", "actor", "ship"],
             template: "systems/yzecoriolis/templates/actor/ship-sheet.html",
             width: 1200,
             height: 828,
@@ -22,6 +22,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
 
     getData() {
         const data = super.getData();
+
         data.config = CONFIG.YZECORIOLIS;
         return data;
     }
