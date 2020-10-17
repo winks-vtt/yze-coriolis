@@ -1007,7 +1007,7 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .item-list-controls {
   text-transform: uppercase;
-  flex: 0 0 60px;
+  flex: 0 0 70px;
   margin-top: 2px;
   text-align: right;
   margin-right: 7px;
@@ -1036,7 +1036,7 @@
   flex-basis: 20px;
   transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
   color: #9FB0ED;
-  flex-basis: 60px;
+  flex-basis: 70px;
 }
 .yzecoriolis.sheet.actor .sheet-body .item-control-add-widget a:hover {
   text-shadow: none;
@@ -1551,7 +1551,7 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .biography-controls {
   text-transform: uppercase;
-  flex: 0 0 60px;
+  flex: 0 0 70px;
   margin-top: 2px;
   text-align: right;
   margin-right: 7px;
