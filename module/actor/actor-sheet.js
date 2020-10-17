@@ -3,7 +3,7 @@ import { coriolisRoll } from '../coriolis-roll.js';
 import { coriolisModifierDialog } from '../coriolis-roll.js';
 import { computeNewBarValue, onHoverBarSegmentIn, onHoverBarOut, prepDataBarBlocks } from './databar.js';
 /**
- * Extend the basic ActorSheet with some very simple modifications
+ * Extend the basic ActorSheet for a basic Coriolis character
  * @extends {ActorSheet}
  */
 export class yzecoriolisActorSheet extends ActorSheet {

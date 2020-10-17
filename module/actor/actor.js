@@ -12,8 +12,6 @@ export class yzecoriolisActor extends Actor {
     super.prepareData();
 
     const actorData = this.data;
-    const data = actorData.data;
-    const flags = actorData.flags;
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
@@ -100,11 +98,8 @@ export class yzecoriolisActor extends Actor {
     return chatOptions
   }
 
-  _prepareRollTitle(rollType) {
-
-  }
-
   _prepHPBonuses(data) {
+    // TODO: use param or get rid of it.
     // look through talents for any HPBonuses
     let bonus = 0;
     for (let t of this.data.items) {
