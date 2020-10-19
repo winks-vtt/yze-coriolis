@@ -1234,6 +1234,28 @@
         ==========================Ship Sheet Stylings==========================
     */
     .ship {
+         .sheet-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, 1fr);
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+        }
+        /*
+        Key Art
+        */
+        .key-art-container {
+            grid-column-start: 1;
+            grid-column-end: 2;
+
+            grid-row-start: 1;
+            grid-row-end: 2;
+
+            .ship-img {
+                border: 1px solid #ffffff;
+                box-sizing: border-box;
+            }
+        }
 
     }
 }
