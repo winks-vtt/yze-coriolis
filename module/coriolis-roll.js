@@ -126,11 +126,11 @@ export async function coriolisPushRoll(msgOptions, origRollData, origRoll) {
     }
     origRollData.pushed = true;
     origRoll.dice.forEach(part => {
-        part.rolls.forEach(r => {
-            if (r.roll !== CONFIG.YZECORIOLIS.maxRoll) {
+        part.results.forEach(r => {
+            if (r.result !== CONFIG.YZECORIOLIS.maxRoll) {
                 let newDie = new Die(6);
                 newDie.roll(1);
-                r.roll = newDie.results[0];
+                r.result = newDie.results[0].result;
             }
         })
     });
@@ -180,9 +180,10 @@ function isValidRoll(rollData, errorObj) {
  */
 export function evaluateCoriolisRoll(rollData, roll) {
     let successes = 0;
+    let maxRoll = CONFIG.YZECORIOLIS.maxRoll;
     roll.dice.forEach(part => {
-        part.rolls.forEach(r => {
-            if (r.roll === 6) {
+        part.results.forEach(r => {
+            if (r.result === maxRoll) {
                 successes++;
             }
         })
@@ -279,23 +280,22 @@ function getTooltipData(results) {
     // Prepare dice parts
     data["parts"] = results.roll.dice.map(d => {
         let maxRoll = CONFIG.YZECORIOLIS.maxRoll;
-
         // Generate tooltip data
         return {
             formula: d.formula,
             total: results.successes,
             faces: d.faces,
-            rolls: d.rolls.map(r => {
+            rolls: d.results.map(r => {
                 return {
                     result: '&nbsp;',
-                    showNum: r.roll === maxRoll,
+                    showNum: r.result === maxRoll,
                     classes: [
                         d.constructor.name.toLowerCase(),
                         "d" + d.faces,
-                        "dice-" + r.roll,
+                        "dice-" + r.result,
                         "dice-face",
                         r.rerolled ? "rerolled" : null,
-                        (r.roll === maxRoll) ? "success" : null
+                        (r.result === maxRoll) ? "success" : null
                     ].filter(c => c).join(" ")
                 }
             })
