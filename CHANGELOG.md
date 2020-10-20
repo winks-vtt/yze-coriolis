@@ -1,3 +1,6 @@
+# 1.0
+- Updated versioning to fix updating as well as prepare for Foundry 0.7.x
+
 # 0.100
 - Updated Spanish localization to fix word wrapping in skills section of character sheets. (Thanks to @krakenSummoner)
 
