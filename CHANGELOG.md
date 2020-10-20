@@ -1,3 +1,7 @@
+# 0.102
+- Fixed compatbility with 0.7.4 dice rolling API.
+- Fixed missing dice images in chat window when making rolls or pushing rolls
+
 # 0.101
 - Updated versioning to fix updating as well as prepare for Foundry 0.7.x
 
