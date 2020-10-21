@@ -321,5 +321,7 @@
     "YZECORIOLIS.SheetClassCharacter": "Coriolis Character Sheet",
     "YZECORIOLIS.SheetClassNPC": "Coriolis NPC Sheet",
     "YZECORIOLIS.SheetClassShip": "Coriolis Ship Sheet",
-    "YZECORIOLIS.SheetClassItem": "Coriolis Item Sheet"
+    "YZECORIOLIS.SheetClassItem": "Coriolis Item Sheet",
+
+    "YZECORIOLIS.ShipType": "Ship Type"
 }

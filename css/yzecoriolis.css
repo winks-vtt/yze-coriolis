@@ -1649,6 +1649,12 @@
   grid-row-end: 2;
   z-index: 2;
 }
+.yzecoriolis.sheet.actor .ship .key-art-overlay .char-name-input {
+  text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+}
+.yzecoriolis.sheet.actor .ship .key-art-overlay .name-input-spacer {
+  margin-top: 10px;
+}
 .yzecoriolis.sheet.actor .ship .stats-container {
   grid-column-start: 1;
   grid-column-end: 2;

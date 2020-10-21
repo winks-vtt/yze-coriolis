@@ -5,8 +5,11 @@
                 <img class="ship-img" src={{data.keyArt}} title="{{actor.name}}">
             </div>
             <div class="key-art-overlay">
-                <input class="char-name-input" name="name" type="text" value="{{actor.name}}"
+                <input class="char-name-input" name="data.shipType" type="text" value="{{data.shipType}}"
+                    placeholder="{{localize "YZECORIOLIS.ShipType"}}" />
+                <input class="char-name-input name-input-spacer" name="name" type="text" value="{{actor.name}}"
                     placeholder="{{localize "YZECORIOLIS.Name"}}" />
+
             </div>
             <div class="stats-container">
 
