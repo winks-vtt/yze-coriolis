@@ -596,6 +596,10 @@
   grid-column-gap: 10px;
   grid-row-gap: 15px;
 }
+.yzecoriolis.sheet.actor .char-name-input {
+  height: 50px;
+  text-transform: uppercase;
+}
 .yzecoriolis.sheet.actor .sheet-header {
   grid-column-start: 1;
   grid-column-end: 2;
@@ -619,10 +623,6 @@
   text-align: center;
   grid-column-start: 1;
   grid-column-end: 4;
-}
-.yzecoriolis.sheet.actor .sheet-header .name-plate .char-name-input {
-  height: 50px;
-  text-transform: uppercase;
 }
 .yzecoriolis.sheet.actor .sheet-header .char-class {
   font-family: "Cairo";
@@ -1631,6 +1631,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  z-index: 1;
 }
 .yzecoriolis.sheet.actor .ship .key-art-container .ship-img {
   flex-shrink: 0;
@@ -1640,6 +1641,13 @@
   border: 1px solid white;
   box-sizing: none;
   border-radius: 3px;
+}
+.yzecoriolis.sheet.actor .ship .key-art-overlay {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  z-index: 2;
 }
 .yzecoriolis.sheet.actor .ship .stats-container {
   grid-column-start: 1;

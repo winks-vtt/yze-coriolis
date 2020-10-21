@@ -302,6 +302,12 @@
         grid-row-gap: 15px;
     }
 
+     // would be nice to auto-resize the height of the input box.
+    .char-name-input {
+        height: 50px;
+        text-transform: uppercase;
+    }
+
     /*
     Header
     */
@@ -337,12 +343,6 @@
             text-align: center;
             grid-column-start: 1;
             grid-column-end: 4;
-
-            // would be nice to auto-resize the height of the input box.
-            .char-name-input {
-                height: 50px;
-                text-transform: uppercase;
-            }
         }
 
         .char-class {
@@ -1254,6 +1254,7 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            z-index: 1;
             .ship-img {
                     flex-shrink: 0;
                     min-width: 100%;
@@ -1263,6 +1264,15 @@
                     box-sizing: none;
                     border-radius: 3px;
             }
+        }
+
+        .key-art-overlay {
+            grid-column-start: 1;
+            grid-column-end: 2;
+
+            grid-row-start: 1;
+            grid-row-end: 2;
+            z-index: 2;
         }
         /*
         Stats Block
