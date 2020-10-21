@@ -1648,12 +1648,29 @@
   grid-row-start: 1;
   grid-row-end: 2;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
 }
 .yzecoriolis.sheet.actor .ship .key-art-overlay .char-name-input {
   text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
 }
 .yzecoriolis.sheet.actor .ship .key-art-overlay .name-input-spacer {
   margin-top: 10px;
+}
+.yzecoriolis.sheet.actor .ship .key-art-overlay .ship-origin-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1 0 0%;
+}
+.yzecoriolis.sheet.actor .ship .key-art-overlay .ship-origin-wrapper .ship-origin-block {
+  flex-basis: 294px;
+  background-color: rgba(19, 27, 53, 0.45);
+  border: 1px solid #7182BE;
+  border-radius: 3px;
+  min-height: 74px;
+  align-self: flex-end;
+  margin-right: 12px;
+  margin-bottom: 12px;
 }
 .yzecoriolis.sheet.actor .ship .stats-container {
   grid-column-start: 1;

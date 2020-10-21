@@ -1273,6 +1273,8 @@
             grid-row-start: 1;
             grid-row-end: 2;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
 
             .char-name-input {
                 text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
@@ -1280,6 +1282,23 @@
 
             .name-input-spacer {
                 margin-top: 10px;
+            }
+
+            .ship-origin-wrapper {
+                display:flex;
+                justify-content: flex-end;
+                flex: 1 0 0%;
+
+                .ship-origin-block{
+                    flex-basis: 294px;
+                    background-color: @colorStatItemEntryBG;
+                    border: 1px solid @colorDarkBlue;
+                    border-radius: 3px;
+                    min-height: 74px;
+                    align-self: flex-end;
+                    margin-right: 12px;
+                    margin-bottom: 12px;
+                }
             }
         }
 
