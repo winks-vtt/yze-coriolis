@@ -10,7 +10,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
             classes: ["yzecoriolis", "sheet", "actor", "ship"],
             template: "systems/yzecoriolis/templates/actor/ship-sheet.html",
             width: 1200,
-            height: 828,
+            height: 880,
             resizable: false,
             tabs: [{
                 navSelector: ".navigation",

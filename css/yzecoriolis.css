@@ -1611,6 +1611,9 @@
   /*
         Key Art
         */
+  /*
+        Stats Block
+        */
 }
 .yzecoriolis.sheet.actor .ship .sheet-container {
   display: grid;
@@ -1624,10 +1627,25 @@
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 .yzecoriolis.sheet.actor .ship .key-art-container .ship-img {
-  border: 1px solid #ffffff;
-  box-sizing: border-box;
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+  max-height: 412px;
+  border: 1px solid white;
+  box-sizing: none;
+  border-radius: 3px;
+}
+.yzecoriolis.sheet.actor .ship .stats-container {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
