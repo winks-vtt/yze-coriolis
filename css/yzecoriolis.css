@@ -228,10 +228,19 @@
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
-.yzecoriolis.sheet.actor .text-blue-1 {
+.yzecoriolis.sheet.actor .blue-1 {
   color: #7182BE;
 }
-.yzecoriolis.sheet.actor .text-shadow-2px {
+.yzecoriolis.sheet.actor .blue-2 {
+  color: rgba(19, 27, 53, 0.45);
+}
+.yzecoriolis.sheet.actor .background-blue-1 {
+  background-color: #7182BE;
+}
+.yzecoriolis.sheet.actor .background-blue-2 {
+  background-color: rgba(19, 27, 53, 0.45);
+}
+.yzecoriolis.sheet.actor .text-shadow-1 {
   text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
 }
 .yzecoriolis.sheet.actor .data-label-1 {
@@ -267,9 +276,14 @@
 .yzecoriolis.sheet.actor .text-upper {
   text-transform: uppercase;
 }
-.yzecoriolis.sheet.actor .br-1px {
+.yzecoriolis.sheet.actor .border-1 {
   border-width: 1px;
+}
+.yzecoriolis.sheet.actor .border-solid {
   border-style: solid;
+}
+.yzecoriolis.sheet.actor .border-blue-1 {
+  border-color: #7182BE;
 }
 .yzecoriolis.sheet.actor .rounded {
   border-radius: 3px;
@@ -280,8 +294,35 @@
 .yzecoriolis.sheet.actor .mg-b {
   margin-bottom: 15px;
 }
+.yzecoriolis.sheet.actor .mg-r {
+  margin-right: 15px;
+}
 .yzecoriolis.sheet.actor .mg-t {
   margin-top: 15px;
+}
+.yzecoriolis.sheet.actor .self-end {
+  align-self: flex-end;
+}
+.yzecoriolis.sheet.actor .justify-end {
+  justify-content: flex-end;
+}
+.yzecoriolis.sheet.actor .min-h-75 {
+  min-height: 75px;
+}
+.yzecoriolis.sheet.actor .flex-basis-294 {
+  flex-basis: 294px;
+}
+.yzecoriolis.sheet.actor .flex {
+  display: flex;
+}
+.yzecoriolis.sheet.actor .flex-basis-0 {
+  flex-basis: 0%;
+}
+.yzecoriolis.sheet.actor .flex-grow {
+  flex-grow: 1;
+}
+.yzecoriolis.sheet.actor .flex-shrink-0 {
+  flex-shrink: 0;
 }
 .yzecoriolis.sheet.actor.character {
   /*
@@ -1711,27 +1752,6 @@
 }
 .yzecoriolis.sheet.actor .ship .key-art-overlay .name-input-spacer {
   margin-top: 10px;
-}
-.yzecoriolis.sheet.actor .ship .key-art-overlay .ship-origin-wrapper {
-  display: flex;
-  justify-content: flex-end;
-  flex: 1 0 0%;
-}
-.yzecoriolis.sheet.actor .ship .key-art-overlay .ship-origin-wrapper .ship-origin-block {
-  flex-basis: 294px;
-  background-color: rgba(19, 27, 53, 0.45);
-  border: 1px solid #7182BE;
-  border-radius: 3px;
-  min-height: 74px;
-  align-self: flex-end;
-  margin-right: 12px;
-  margin-bottom: 12px;
-}
-.yzecoriolis.sheet.actor .ship .key-art-overlay .ship-origin-wrapper .ship-origin-block .origin-line-item {
-  color: #7182BE;
-}
-.yzecoriolis.sheet.actor .ship .key-art-overlay .ship-origin-wrapper .ship-origin-block .origin-class {
-  color: #7182BE;
 }
 .yzecoriolis.sheet.actor .ship .stats-container {
   grid-column-start: 1;

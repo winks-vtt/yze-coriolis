@@ -4,11 +4,23 @@
 .yzecoriolis.sheet.actor {
 
     // colors
-    .text-blue-1 {
+    .blue-1 {
         color: @colorDarkBlue;
     }
 
-    .text-shadow-2px {
+    .blue-2 {
+        color: @colorStatItemEntryBG;
+    }
+
+    .background-blue-1 {
+        background-color: @colorDarkBlue;
+    }
+
+    .background-blue-2 {
+        background-color: @colorStatItemEntryBG;
+    }
+
+    .text-shadow-1 {
         text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
     }
 
@@ -58,9 +70,16 @@
     }
 
     // borders
-    .br-1px {
+    .border-1 {
         border-width: 1px;
+    }
+
+    .border-solid {
         border-style: solid;
+    }
+
+    .border-blue-1 {
+        border-color: @colorDarkBlue;
     }
 
     .rounded {
@@ -76,7 +95,46 @@
         margin-bottom: 15px;
     }
 
+    .mg-r {
+        margin-right: 15px;
+    }
+
     .mg-t {
         margin-top: 15px;
+    }
+
+    //alignments
+    .self-end {
+        align-self: flex-end;
+    }
+
+    .justify-end {
+        justify-content: flex-end;
+    }
+
+    //heights
+    .min-h-75 {
+        min-height: 75px;
+    }
+
+    //flex
+    .flex-basis-294 {
+        flex-basis: 294px;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .flex-basis-0 {
+        flex-basis: 0%;
+    }
+
+    .flex-grow {
+        flex-grow: 1;
+    }
+
+    .flex-shrink-0 {
+        flex-shrink: 0;
     }
 }
