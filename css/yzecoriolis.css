@@ -467,6 +467,18 @@
 .yzecoriolis.sheet.actor .overflow-hidden {
   overflow: hidden;
 }
+.bar-bg {
+  padding: 0px 5px 0px 5px;
+  border: 1px solid #A4A4A4;
+  border-radius: 5px;
+  background-color: rgba(113, 130, 190, 0.35);
+  height: 27px;
+}
+.bar-value {
+  width: 20px;
+  text-align: center;
+  font-size: 16px;
+}
 .yzecoriolis.sheet.actor.character {
   /*
     Background & Container
@@ -495,18 +507,6 @@
   /*
         ==========================Ship Sheet Stylings==========================
     */
-}
-.yzecoriolis.sheet.actor .bar-bg {
-  padding: 0px 5px 0px 5px;
-  border: 1px solid #A4A4A4;
-  border-radius: 5px;
-  background-color: rgba(113, 130, 190, 0.35);
-  height: 27px;
-}
-.yzecoriolis.sheet.actor .bar-value {
-  width: 20px;
-  text-align: center;
-  font-size: 16px;
 }
 .yzecoriolis.sheet.actor .player-text {
   font-family: "Cairo";
