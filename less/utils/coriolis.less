@@ -17,12 +17,24 @@
         color: @colorWhite;
     }
 
+    .gray-1 {
+        color: @colorGray;
+    }
+
+    .gray-2 {
+        color: @colorBarOutline;
+    }
+
     .background-blue-1 {
         background-color: @colorDarkBlue;
     }
 
     .background-blue-2 {
         background-color: @colorStatItemEntryBG;
+    }
+
+    .background-blue-3 {
+        background-color: @colorStatBG;
     }
 
     // input only typography
@@ -52,6 +64,10 @@
     }
 
     // typography
+    .font-cairo {
+        font-family: "Cairo";
+    }
+
     .data-label-1 {
         font-family: "Cairo";
         letter-spacing: 0.2em;
@@ -67,6 +83,10 @@
         font-size: 14px;
     }
 
+    .text-md {
+        font-size: 16px;
+    }
+
     .text-lg {
         font-size: 18px;
     }
@@ -80,6 +100,7 @@
     }
 
     // borders
+
     .border-1 {
         border-width: 1px;
     }
@@ -88,12 +109,25 @@
         border-style: solid;
     }
 
+    .border-base {
+        .border-1();
+        .border-solid();
+    }
+
     .border-blue-1 {
         border-color: @colorDarkBlue;
     }
 
     .border-white-1 {
         border-color: @colorWhite;
+    }
+
+    .border-gray-1 {
+        border-color: @colorGray;
+    }
+
+    .border-gray-2 {
+        border-color: @colorBarOutline;
     }
 
     .rounded {
@@ -119,6 +153,27 @@
 
     .mg-t-sm {
         margin-top: 10px;
+    }
+
+    .mg-t-xsm {
+        margin-top: 5px;
+    }
+
+    .mg-l-sm {
+        margin-left: 10px;
+    }
+
+    //padding
+    .pl {
+        padding-left: 15px;
+    }
+
+    .pl-sm {
+        padding-left: 10px;
+    }
+
+    .pl-xsm {
+        padding-left: 5px;
     }
 
     //alignments

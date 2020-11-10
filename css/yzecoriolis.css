@@ -285,11 +285,20 @@
 .yzecoriolis.sheet.actor .white-1 {
   color: white;
 }
+.yzecoriolis.sheet.actor .gray-1 {
+  color: #E5E5E5;
+}
+.yzecoriolis.sheet.actor .gray-2 {
+  color: #A4A4A4;
+}
 .yzecoriolis.sheet.actor .background-blue-1 {
   background-color: #7182BE;
 }
 .yzecoriolis.sheet.actor .background-blue-2 {
   background-color: rgba(19, 27, 53, 0.45);
+}
+.yzecoriolis.sheet.actor .background-blue-3 {
+  background-color: rgba(113, 130, 190, 0.35);
 }
 .yzecoriolis.sheet.actor input[type="text"].input-base {
   color: #FDFF9D;
@@ -311,6 +320,9 @@
   font-size: 50px;
   height: 50px;
 }
+.yzecoriolis.sheet.actor .font-cairo {
+  font-family: "Cairo";
+}
 .yzecoriolis.sheet.actor .data-label-1 {
   font-family: "Cairo";
   letter-spacing: 0.2em;
@@ -321,6 +333,9 @@
 }
 .yzecoriolis.sheet.actor .text-base {
   font-size: 14px;
+}
+.yzecoriolis.sheet.actor .text-md {
+  font-size: 16px;
 }
 .yzecoriolis.sheet.actor .text-lg {
   font-size: 18px;
@@ -337,11 +352,21 @@
 .yzecoriolis.sheet.actor .border-solid {
   border-style: solid;
 }
+.yzecoriolis.sheet.actor .border-base {
+  border-width: 1px;
+  border-style: solid;
+}
 .yzecoriolis.sheet.actor .border-blue-1 {
   border-color: #7182BE;
 }
 .yzecoriolis.sheet.actor .border-white-1 {
   border-color: white;
+}
+.yzecoriolis.sheet.actor .border-gray-1 {
+  border-color: #E5E5E5;
+}
+.yzecoriolis.sheet.actor .border-gray-2 {
+  border-color: #A4A4A4;
 }
 .yzecoriolis.sheet.actor .rounded {
   border-radius: 3px;
@@ -360,6 +385,21 @@
 }
 .yzecoriolis.sheet.actor .mg-t-sm {
   margin-top: 10px;
+}
+.yzecoriolis.sheet.actor .mg-t-xsm {
+  margin-top: 5px;
+}
+.yzecoriolis.sheet.actor .mg-l-sm {
+  margin-left: 10px;
+}
+.yzecoriolis.sheet.actor .pl {
+  padding-left: 15px;
+}
+.yzecoriolis.sheet.actor .pl-sm {
+  padding-left: 10px;
+}
+.yzecoriolis.sheet.actor .pl-xsm {
+  padding-left: 5px;
 }
 .yzecoriolis.sheet.actor .self-end {
   align-self: flex-end;
@@ -1799,23 +1839,12 @@
   text-shadow: none;
   background-color: rgba(46, 65, 128, 0.45);
 }
-.yzecoriolis.sheet.actor .ship {
-  /*
-        Stats Block
-        */
-}
 .yzecoriolis.sheet.actor .ship .sheet-container {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
-}
-.yzecoriolis.sheet.actor .ship .stats-container {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 3;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
