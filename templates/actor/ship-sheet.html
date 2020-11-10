@@ -6,10 +6,10 @@
                 <img class="border-1 border-solid border-white-1 rounded flex-shrink-0 box-none min-w-full min-h-full max-h-412"
                     src={{data.keyArt}} title="{{actor.name}}">
             </div>
-            <div class="key-art-overlay">
-                <input class="char-name-input" name="data.shipType" type="text" value="{{data.shipType}}"
-                    placeholder="{{localize "YZECORIOLIS.ShipType"}}" />
-                <input class="char-name-input name-input-spacer" name="name" type="text" value="{{actor.name}}"
+            <div class="col-start-1 col-end-2 row-start-1 row-end-2 z-2 flex flex-dir-col mg-l mg-t">
+                <input class="text-xxl text-upper text-shadow-1" name="data.shipType" type="text"
+                    value="{{data.shipType}}" placeholder="{{localize "YZECORIOLIS.ShipType"}}" />
+                <input class="text-xxl text-upper text-shadow-1 mg-t-sm" name="name" type="text" value="{{actor.name}}"
                     placeholder="{{localize "YZECORIOLIS.Name"}}" />
                 <div class="flex flex-grow flex-shrink-0 flex-basis-0 justify-end">
                     <div
