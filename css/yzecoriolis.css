@@ -1880,6 +1880,37 @@
 .yzecoriolis.sheet.actor .ship .hull-bar .bar-segment.off:hover {
   transform: scale(1.05);
 }
+.yzecoriolis.sheet.actor .ship .ep-bar {
+  justify-content: space-between;
+  align-items: center;
+}
+.yzecoriolis.sheet.actor .ship .ep-bar .bar-segment {
+  border-radius: 2px;
+  box-sizing: border-box;
+  flex: 1 1 10px;
+  height: 17px;
+  margin: 3.5px 1px;
+  background-color: #000000;
+  transition: background-color 275ms ease, border 275ms ease;
+}
+.yzecoriolis.sheet.actor .ship .ep-bar .hover-to-decrease {
+  background-color: #081F43 !important;
+}
+.yzecoriolis.sheet.actor .ship .ep-bar .hover-to-increase {
+  border: 1px solid #3F82A7;
+}
+.yzecoriolis.sheet.actor .ship .ep-bar .bar-segment.on {
+  background-color: #3F82A7;
+}
+.yzecoriolis.sheet.actor .ship .ep-bar .bar-segment.on:hover {
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .ship .ep-bar .bar-segment.off {
+  background-color: #000000;
+}
+.yzecoriolis.sheet.actor .ship .ep-bar .bar-segment.off:hover {
+  transform: scale(1.05);
+}
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
   /*  Sheet Tabs                             */

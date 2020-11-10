@@ -55,8 +55,26 @@
                     </div>
                     {{!-- EP Bar --}}
                     <div
-                        class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm mg-t-xsm">
+                        class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm mg-t-xsm flexrow">
                         <div>Energy Points</div>
+                        <div class="bar ep-bar fr-basic flex7">
+                            {{#each actor.energyBlocks as |on index|}}
+                            {{#with ../data as | data |}}
+                            {{#if on}}
+                            <div class="bar-segment on" data-name="data.energyPoints.value" data-index={{index}}
+                                data-current={{data.energyPoints.value}} data-min={{data.energyPoints.min}}
+                                data-max={{data.energyPoints.max}}>
+                            </div>
+                            {{else}}
+                            <div class="bar-segment off" data-name="data.energyPoints.value" data-index={{index}}
+                                data-current={{data.energyPoints.value}} data-min={{data.energyPoints.min}}
+                                data-max={{data.energyPoints.max}}>
+                            </div>
+                            {{/if}}
+                            {{/with}}
+                            {{/each}}
+                            <span class="bar-value">{{data.energyPoints.value}}</span>
+                        </div>
                     </div>
                     {{!-- Stats --}}
                     <div class="flex1"></div>
