@@ -1,4 +1,5 @@
 @import "./variables.less";
+@import "./utils/coriolis.less";
 
 .yzecoriolis.sheet.actor.character {
  /*
@@ -1298,6 +1299,13 @@
                     align-self: flex-end;
                     margin-right: 12px;
                     margin-bottom: 12px;
+
+                    .origin-line-item {
+                        color: @colorDarkBlue;
+                    }
+                    .origin-class {
+                        color: @colorDarkBlue;
+                    }
                 }
             }
         }

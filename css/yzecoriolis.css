@@ -228,6 +228,61 @@
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
+.yzecoriolis.sheet.actor .text-blue-1 {
+  color: #7182BE;
+}
+.yzecoriolis.sheet.actor .text-shadow-2px {
+  text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+}
+.yzecoriolis.sheet.actor .data-label-1 {
+  font-family: "Cairo";
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.yzecoriolis.sheet.actor input[type="text"].input-base {
+  color: #FDFF9D;
+  font-family: "Play";
+  box-shadow: none;
+  border: none;
+}
+.yzecoriolis.sheet.actor input[type="text"].input-base::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #7B7C4C;
+}
+.yzecoriolis.sheet.actor input[type="text"].text-base {
+  font-size: 14px;
+}
+.yzecoriolis.sheet.actor input[type="text"].text-lg {
+  font-size: 18px;
+}
+.yzecoriolis.sheet.actor .text-base {
+  font-size: 14px;
+}
+.yzecoriolis.sheet.actor .text-lg {
+  font-size: 18px;
+}
+.yzecoriolis.sheet.actor .text-xxl {
+  font-size: 50px;
+}
+.yzecoriolis.sheet.actor .text-upper {
+  text-transform: uppercase;
+}
+.yzecoriolis.sheet.actor .br-1px {
+  border-width: 1px;
+  border-style: solid;
+}
+.yzecoriolis.sheet.actor .rounded {
+  border-radius: 3px;
+}
+.yzecoriolis.sheet.actor .mg-l {
+  margin-left: 15px;
+}
+.yzecoriolis.sheet.actor .mg-b {
+  margin-bottom: 15px;
+}
+.yzecoriolis.sheet.actor .mg-t {
+  margin-top: 15px;
+}
 .yzecoriolis.sheet.actor.character {
   /*
     Background & Container
@@ -1671,6 +1726,12 @@
   align-self: flex-end;
   margin-right: 12px;
   margin-bottom: 12px;
+}
+.yzecoriolis.sheet.actor .ship .key-art-overlay .ship-origin-wrapper .ship-origin-block .origin-line-item {
+  color: #7182BE;
+}
+.yzecoriolis.sheet.actor .ship .key-art-overlay .ship-origin-wrapper .ship-origin-block .origin-class {
+  color: #7182BE;
 }
 .yzecoriolis.sheet.actor .ship .stats-container {
   grid-column-start: 1;

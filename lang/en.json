@@ -323,5 +323,7 @@
     "YZECORIOLIS.SheetClassShip": "Coriolis Ship Sheet",
     "YZECORIOLIS.SheetClassItem": "Coriolis Item Sheet",
 
-    "YZECORIOLIS.ShipType": "Ship Type"
+    "YZECORIOLIS.ShipType": "Ship Type",
+    "YZECORIOLIS.ShipClass": "Class",
+    "YZECORIOLIS.Shipyard": "Shipyard"
 }

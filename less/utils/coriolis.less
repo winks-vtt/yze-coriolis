@@ -1,0 +1,82 @@
+@import "../variables.less";
+
+// utility styles to be used in sheets
+.yzecoriolis.sheet.actor {
+
+    // colors
+    .text-blue-1 {
+        color: @colorDarkBlue;
+    }
+
+    .text-shadow-2px {
+        text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+    }
+
+    // static text
+    .data-label-1 {
+        font-family: "Cairo";
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+    }
+
+    // dynamic text
+    input[type="text"].input-base {
+        color: @colorPlayerText;
+        font-family: "Play";
+        box-shadow: none;
+        border: none;
+
+        &::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: @colorPlaceHolderPlayerText;
+        }
+    }
+
+    input[type="text"].text-base {
+        font-size: 14px;
+    }
+
+    input[type="text"].text-lg {
+        font-size: 18px;
+    }
+
+    // font stylings
+    .text-base {
+        font-size: 14px;
+    }
+
+    .text-lg {
+        font-size: 18px;
+    }
+
+    .text-xxl {
+        font-size: 50px;
+    }
+
+    .text-upper {
+        text-transform: uppercase;
+    }
+
+    // borders
+    .br-1px {
+        border-width: 1px;
+        border-style: solid;
+    }
+
+    .rounded {
+        border-radius: 3px;
+    }
+
+    //margins
+    .mg-l {
+        margin-left: 15px;
+    }
+
+    .mg-b {
+        margin-bottom: 15px;
+    }
+
+    .mg-t {
+        margin-top: 15px;
+    }
+}
