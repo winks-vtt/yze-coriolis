@@ -348,6 +348,63 @@
 .yzecoriolis.sheet.actor .box-none {
   box-sizing: none;
 }
+.yzecoriolis.sheet.actor .col-start-1 {
+  grid-column-start: 1;
+}
+.yzecoriolis.sheet.actor .col-start-2 {
+  grid-column-start: 2;
+}
+.yzecoriolis.sheet.actor .col-start-3 {
+  grid-column-start: 3;
+}
+.yzecoriolis.sheet.actor .col-start-4 {
+  grid-column-start: 4;
+}
+.yzecoriolis.sheet.actor .col-end-1 {
+  grid-column-end: 1;
+}
+.yzecoriolis.sheet.actor .col-end-2 {
+  grid-column-end: 2;
+}
+.yzecoriolis.sheet.actor .col-end-3 {
+  grid-column-end: 3;
+}
+.yzecoriolis.sheet.actor .col-end-4 {
+  grid-column-end: 4;
+}
+.yzecoriolis.sheet.actor .row-start-1 {
+  grid-row-start: 1;
+}
+.yzecoriolis.sheet.actor .row-start-2 {
+  grid-row-start: 2;
+}
+.yzecoriolis.sheet.actor .row-start-3 {
+  grid-row-start: 3;
+}
+.yzecoriolis.sheet.actor .row-start-4 {
+  grid-row-start: 4;
+}
+.yzecoriolis.sheet.actor .row-end-1 {
+  grid-row-end: 1;
+}
+.yzecoriolis.sheet.actor .row-end-2 {
+  grid-row-end: 2;
+}
+.yzecoriolis.sheet.actor .row-end-3 {
+  grid-row-end: 3;
+}
+.yzecoriolis.sheet.actor .row-end-4 {
+  grid-row-end: 4;
+}
+.yzecoriolis.sheet.actor .z-1 {
+  z-index: 1;
+}
+.yzecoriolis.sheet.actor .z-2 {
+  z-index: 2;
+}
+.yzecoriolis.sheet.actor .z-3 {
+  z-index: 3;
+}
 .yzecoriolis.sheet.actor.character {
   /*
     Background & Container
@@ -447,13 +504,6 @@
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 20px;
-}
-.yzecoriolis.sheet.actor .key-art-container {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 4;
-  z-index: 1;
 }
 .yzecoriolis.sheet.actor .key-art-container .vertical-img {
   border: 1px solid #ffffff;
@@ -1743,15 +1793,10 @@
   grid-row-gap: 10px;
 }
 .yzecoriolis.sheet.actor .ship .key-art-container {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  z-index: 1;
 }
 .yzecoriolis.sheet.actor .ship .key-art-overlay {
   grid-column-start: 1;
