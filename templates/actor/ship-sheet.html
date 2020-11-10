@@ -33,47 +33,47 @@
                     {{!-- HP Bar --}}
                     <div
                         class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm flexrow">
-                        <div>Hull Points</div>
+                        <div class="white-1">Hull Points</div>
                         <div class="bar hull-bar fr-basic flex7">
                             {{#each actor.hullBlocks as |on index|}}
                             {{#with ../data as | data |}}
                             {{#if on}}
-                            <div class="bar-segment on" data-name="data.hullPoints.value" data-index={{index}}
+                            <div class="bar-segment bar-pill on" data-name="data.hullPoints.value" data-index={{index}}
                                 data-current={{data.hullPoints.value}} data-min={{data.hullPoints.min}}
                                 data-max={{data.hullPoints.max}}>
                             </div>
                             {{else}}
-                            <div class="bar-segment off" data-name="data.hullPoints.value" data-index={{index}}
+                            <div class="bar-segment bar-pill off" data-name="data.hullPoints.value" data-index={{index}}
                                 data-current={{data.hullPoints.value}} data-min={{data.hullPoints.min}}
                                 data-max={{data.hullPoints.max}}>
                             </div>
                             {{/if}}
                             {{/with}}
                             {{/each}}
-                            <span class="bar-value">{{data.hullPoints.value}}</span>
+                            <span class="bar-value white-1">{{data.hullPoints.value}}</span>
                         </div>
                     </div>
                     {{!-- EP Bar --}}
                     <div
                         class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm mg-t-xsm flexrow">
-                        <div>Energy Points</div>
+                        <div class="white-1">Energy Points</div>
                         <div class="bar ep-bar fr-basic flex7">
                             {{#each actor.energyBlocks as |on index|}}
                             {{#with ../data as | data |}}
                             {{#if on}}
-                            <div class="bar-segment on" data-name="data.energyPoints.value" data-index={{index}}
-                                data-current={{data.energyPoints.value}} data-min={{data.energyPoints.min}}
-                                data-max={{data.energyPoints.max}}>
+                            <div class="bar-segment bar-pill on" data-name="data.energyPoints.value"
+                                data-index={{index}} data-current={{data.energyPoints.value}}
+                                data-min={{data.energyPoints.min}} data-max={{data.energyPoints.max}}>
                             </div>
                             {{else}}
-                            <div class="bar-segment off" data-name="data.energyPoints.value" data-index={{index}}
-                                data-current={{data.energyPoints.value}} data-min={{data.energyPoints.min}}
-                                data-max={{data.energyPoints.max}}>
+                            <div class="bar-segment bar-pill off" data-name="data.energyPoints.value"
+                                data-index={{index}} data-current={{data.energyPoints.value}}
+                                data-min={{data.energyPoints.min}} data-max={{data.energyPoints.max}}>
                             </div>
                             {{/if}}
                             {{/with}}
                             {{/each}}
-                            <span class="bar-value">{{data.energyPoints.value}}</span>
+                            <span class="bar-value white-1">{{data.energyPoints.value}}</span>
                         </div>
                     </div>
                     {{!-- Stats --}}

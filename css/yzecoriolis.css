@@ -282,6 +282,12 @@
 .yzecoriolis.sheet.actor .blue-2 {
   color: rgba(19, 27, 53, 0.45);
 }
+.yzecoriolis.sheet.actor .blue-3 {
+  color: rgba(113, 130, 190, 0.35);
+}
+.yzecoriolis.sheet.actor .blue-4 {
+  color: #71C0EC;
+}
 .yzecoriolis.sheet.actor .white-1 {
   color: white;
 }
@@ -299,6 +305,9 @@
 }
 .yzecoriolis.sheet.actor .background-blue-3 {
   background-color: rgba(113, 130, 190, 0.35);
+}
+.yzecoriolis.sheet.actor .background-blue-4 {
+  color: #71C0EC;
 }
 .yzecoriolis.sheet.actor input[type="text"].input-base {
   color: #FDFF9D;
@@ -649,8 +658,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-rounded {
   border-radius: 2px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-pill {
+  border-radius: 40px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment {
   box-sizing: border-box;
   flex: 1 1 10px;
   height: 17px;
@@ -685,8 +699,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-rounded {
   border-radius: 2px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-pill {
+  border-radius: 40px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment {
   box-sizing: border-box;
   flex: 1 1 10px;
   height: 17px;
@@ -721,8 +740,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-rounded {
   border-radius: 2px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-pill {
+  border-radius: 40px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment {
   box-sizing: border-box;
   flex: 1 1 10px;
   height: 17px;
@@ -757,8 +781,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-segment {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-rounded {
   border-radius: 2px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-pill {
+  border-radius: 40px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-segment {
   box-sizing: border-box;
   flex: 1 1 10px;
   height: 17px;
@@ -793,8 +822,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-segment {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-rounded {
   border-radius: 2px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-pill {
+  border-radius: 40px;
+}
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-segment {
   box-sizing: border-box;
   flex: 1 1 10px;
   height: 17px;
@@ -1853,8 +1887,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.yzecoriolis.sheet.actor .ship .hull-bar .bar-segment {
+.yzecoriolis.sheet.actor .ship .hull-bar .bar-rounded {
   border-radius: 2px;
+}
+.yzecoriolis.sheet.actor .ship .hull-bar .bar-pill {
+  border-radius: 40px;
+}
+.yzecoriolis.sheet.actor .ship .hull-bar .bar-segment {
   box-sizing: border-box;
   flex: 1 1 10px;
   height: 17px;
@@ -1866,10 +1905,10 @@
   background-color: #5C0000 !important;
 }
 .yzecoriolis.sheet.actor .ship .hull-bar .hover-to-increase {
-  border: 1px solid #125C00;
+  border: 1px solid #40BF20;
 }
 .yzecoriolis.sheet.actor .ship .hull-bar .bar-segment.on {
-  background-color: #125C00;
+  background-color: #40BF20;
 }
 .yzecoriolis.sheet.actor .ship .hull-bar .bar-segment.on:hover {
   transform: scale(1.05);
@@ -1884,8 +1923,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.yzecoriolis.sheet.actor .ship .ep-bar .bar-segment {
+.yzecoriolis.sheet.actor .ship .ep-bar .bar-rounded {
   border-radius: 2px;
+}
+.yzecoriolis.sheet.actor .ship .ep-bar .bar-pill {
+  border-radius: 40px;
+}
+.yzecoriolis.sheet.actor .ship .ep-bar .bar-segment {
   box-sizing: border-box;
   flex: 1 1 10px;
   height: 17px;
@@ -1894,13 +1938,13 @@
   transition: background-color 275ms ease, border 275ms ease;
 }
 .yzecoriolis.sheet.actor .ship .ep-bar .hover-to-decrease {
-  background-color: #081F43 !important;
+  background-color: #2E7197 !important;
 }
 .yzecoriolis.sheet.actor .ship .ep-bar .hover-to-increase {
-  border: 1px solid #3F82A7;
+  border: 1px solid #71C0EC;
 }
 .yzecoriolis.sheet.actor .ship .ep-bar .bar-segment.on {
-  background-color: #3F82A7;
+  background-color: #71C0EC;
 }
 .yzecoriolis.sheet.actor .ship .ep-bar .bar-segment.on:hover {
   transform: scale(1.05);
