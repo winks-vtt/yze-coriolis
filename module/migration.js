@@ -183,6 +183,7 @@ export const migrateActorData = function (actor) {
             updateData['img'] = actor.token.img;
         }
     }
+
     // Migrate Owned Items
     if (!actor.items) return updateData;
     let hasItemUpdates = false;

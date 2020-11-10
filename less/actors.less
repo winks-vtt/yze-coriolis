@@ -21,6 +21,62 @@
 
 .yzecoriolis.sheet.actor {
 
+    .bar-bg {
+        padding: 0px 5px 0px 5px;
+        border: 1px solid @colorBarOutline;
+        border-radius: 5px;
+        background-color: @colorStatBG;
+        height: 27px;
+    }
+
+    .bar-value {
+        width: 20px;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .bar-styling-helper(@fillCol, @decreaseCol) {
+        justify-content: space-between;
+        align-items: center;
+        .bar-bg();
+
+        .bar-segment {
+            border-radius: 2px;
+            box-sizing: border-box;
+            flex: 1 1 10px;
+            height: 17px;
+            margin: 3.5px 1px;
+            background-color: @colorBlack;
+            transition: background-color 275ms ease,
+                border 275ms ease;
+        }
+
+        .hover-to-decrease {
+            // need important flag to override the current fill when decreasing.
+            background-color: @decreaseCol  !important;
+        }
+
+        .hover-to-increase {
+            border: 1px solid @fillCol;
+        }
+
+        .bar-segment.on {
+            background-color: @fillCol;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+
+        .bar-segment.off {
+            background-color: @colorBlack;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
     /*
     mixins
     */
@@ -202,62 +258,6 @@
                 }
 
                 //bar helpers
-                .bar-bg {
-                    padding: 0px 5px 0px 5px;
-                    border: 1px solid @colorBarOutline;
-                    border-radius: 5px;
-                    background-color: @colorStatBG;
-                    height: 27px;
-                }
-
-                .bar-value {
-                    width: 20px;
-                    text-align: center;
-                    font-size: 16px;
-                }
-
-                .bar-styling-helper(@fillCol, @decreaseCol) {
-                    justify-content: space-between;
-                    align-items: center;
-                    .bar-bg();
-
-                    .bar-segment {
-                        border-radius: 2px;
-                        box-sizing: border-box;
-                        flex: 1 1 10px;
-                        height: 17px;
-                        margin: 3.5px 1px;
-                        background-color: @colorBlack;
-                        transition: background-color 275ms ease,
-                            border 275ms ease;
-                    }
-
-                    .hover-to-decrease {
-                        // need important flag to override the current fill when decreasing.
-                        background-color: @decreaseCol  !important;
-                    }
-
-                    .hover-to-increase {
-                        border: 1px solid @fillCol;
-                    }
-
-                    .bar-segment.on {
-                        background-color: @fillCol;
-
-                        &:hover {
-                            transform: scale(1.05);
-                        }
-                    }
-
-                    .bar-segment.off {
-                        background-color: @colorBlack;
-
-                        &:hover {
-                            transform: scale(1.05);
-                        }
-                    }
-                }
-
 
                 .radiation-bar {
                     .bar-styling-helper(@colorRadiationFill, @colorRadiationDecreaseFill);
@@ -1238,6 +1238,10 @@
             grid-template-rows: repeat(2, 1fr);
             grid-column-gap: 10px;
             grid-row-gap: 10px;
+        }
+
+        .hull-bar {
+            .bar-styling-helper(@colorGreen, @colorBlood);
         }
     }
 }

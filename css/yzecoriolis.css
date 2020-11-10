@@ -496,6 +496,18 @@
         ==========================Ship Sheet Stylings==========================
     */
 }
+.yzecoriolis.sheet.actor .bar-bg {
+  padding: 0px 5px 0px 5px;
+  border: 1px solid #A4A4A4;
+  border-radius: 5px;
+  background-color: rgba(113, 130, 190, 0.35);
+  height: 27px;
+}
+.yzecoriolis.sheet.actor .bar-value {
+  width: 20px;
+  text-align: center;
+  font-size: 16px;
+}
 .yzecoriolis.sheet.actor .player-text {
   font-family: "Cairo";
   color: #FDFF9D;
@@ -624,18 +636,6 @@
   font-size: 17px;
   color: #FDFF9D;
   height: 18px;
-}
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .bar-bg {
-  padding: 0px 5px 0px 5px;
-  border: 1px solid #A4A4A4;
-  border-radius: 5px;
-  background-color: rgba(113, 130, 190, 0.35);
-  height: 27px;
-}
-.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .bar-value {
-  width: 20px;
-  text-align: center;
-  font-size: 16px;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar {
   justify-content: space-between;
@@ -1845,6 +1845,42 @@
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
+}
+.yzecoriolis.sheet.actor .ship .hull-bar {
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 5px 0px 5px;
+  border: 1px solid #A4A4A4;
+  border-radius: 5px;
+  background-color: rgba(113, 130, 190, 0.35);
+  height: 27px;
+}
+.yzecoriolis.sheet.actor .ship .hull-bar .bar-segment {
+  border-radius: 2px;
+  box-sizing: border-box;
+  flex: 1 1 10px;
+  height: 17px;
+  margin: 3.5px 1px;
+  background-color: #000000;
+  transition: background-color 275ms ease, border 275ms ease;
+}
+.yzecoriolis.sheet.actor .ship .hull-bar .hover-to-decrease {
+  background-color: #5C0000 !important;
+}
+.yzecoriolis.sheet.actor .ship .hull-bar .hover-to-increase {
+  border: 1px solid #125C00;
+}
+.yzecoriolis.sheet.actor .ship .hull-bar .bar-segment.on {
+  background-color: #125C00;
+}
+.yzecoriolis.sheet.actor .ship .hull-bar .bar-segment.on:hover {
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .ship .hull-bar .bar-segment.off {
+  background-color: #000000;
+}
+.yzecoriolis.sheet.actor .ship .hull-bar .bar-segment.off:hover {
+  transform: scale(1.05);
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */

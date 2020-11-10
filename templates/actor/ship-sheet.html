@@ -32,13 +32,30 @@
                 <div class="flex flex-dir-col">
                     {{!-- HP Bar --}}
                     <div
-                        class="flex-1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm">
-                        <span>Hull Points</span>
+                        class="flex-1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm flexrow">
+                        <div>Hull Points</div>
+                        <div class="bar hull-bar fr-basic">
+                            {{#each actor.hullBlocks as |on index|}}
+                            {{#with ../data as | data |}}
+                            {{#if on}}
+                            <div class="bar-segment on" data-name="data.hullPoints.value" data-index={{index}}
+                                data-current={{data.hullPoints.value}} data-min={{data.hullPoints.min}}
+                                data-max={{data.hullPoints.max}}>
+                            </div>
+                            {{else}}
+                            <div class="bar-segment off" data-name="data.hullPoints.value" data-index={{index}}
+                                data-current={{data.hullPoints.value}} data-min={{data.hullPoints.min}}
+                                data-max={{data.hullPoints.max}}>
+                            </div>
+                            {{/if}}
+                            {{/with}}
+                            {{/each}}
+                        </div>
                     </div>
                     {{!-- EP Bar --}}
                     <div
                         class="flex-1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm mg-t-xsm">
-                        <span>Energy Points</span>
+                        <div>Energy Points</div>
                     </div>
                     {{!-- Stats --}}
                     <div class="flex-1"></div>
