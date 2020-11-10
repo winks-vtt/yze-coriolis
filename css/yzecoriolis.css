@@ -312,6 +312,12 @@
 .yzecoriolis.sheet.actor .justify-end {
   justify-content: flex-end;
 }
+.yzecoriolis.sheet.actor .justify-center {
+  justify-content: center;
+}
+.yzecoriolis.sheet.actor .align-items-center {
+  align-items: center;
+}
 .yzecoriolis.sheet.actor .min-h-75 {
   min-height: 75px;
 }
@@ -404,6 +410,9 @@
 }
 .yzecoriolis.sheet.actor .z-3 {
   z-index: 3;
+}
+.yzecoriolis.sheet.actor .overflow-hidden {
+  overflow: hidden;
 }
 .yzecoriolis.sheet.actor.character {
   /*
@@ -1779,9 +1788,6 @@
 }
 .yzecoriolis.sheet.actor .ship {
   /*
-        Key Art
-        */
-  /*
         Stats Block
         */
 }
@@ -1791,12 +1797,6 @@
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
-}
-.yzecoriolis.sheet.actor .ship .key-art-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
 }
 .yzecoriolis.sheet.actor .ship .key-art-overlay {
   grid-column-start: 1;
