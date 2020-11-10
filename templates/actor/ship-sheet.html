@@ -32,9 +32,9 @@
                 <div class="flex flex-dir-col">
                     {{!-- HP Bar --}}
                     <div
-                        class="flex-1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm flexrow">
+                        class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm flexrow">
                         <div>Hull Points</div>
-                        <div class="bar hull-bar fr-basic">
+                        <div class="bar hull-bar fr-basic flex7">
                             {{#each actor.hullBlocks as |on index|}}
                             {{#with ../data as | data |}}
                             {{#if on}}
@@ -55,11 +55,11 @@
                     </div>
                     {{!-- EP Bar --}}
                     <div
-                        class="flex-1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm mg-t-xsm">
+                        class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm mg-t-xsm">
                         <div>Energy Points</div>
                     </div>
                     {{!-- Stats --}}
-                    <div class="flex-1"></div>
+                    <div class="flex1"></div>
                 </div>
 
             </div>

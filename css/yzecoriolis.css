@@ -431,6 +431,9 @@
 .yzecoriolis.sheet.actor .max-h-412 {
   max-height: 412px;
 }
+.yzecoriolis.sheet.actor .flex7 {
+  flex: 7;
+}
 .yzecoriolis.sheet.actor .flex-basis-294 {
   flex-basis: 294px;
 }
@@ -638,13 +641,13 @@
   height: 18px;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar {
-  justify-content: space-between;
-  align-items: center;
   padding: 0px 5px 0px 5px;
   border: 1px solid #A4A4A4;
   border-radius: 5px;
   background-color: rgba(113, 130, 190, 0.35);
   height: 27px;
+  justify-content: space-between;
+  align-items: center;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment {
   border-radius: 2px;
@@ -674,13 +677,13 @@
   transform: scale(1.05);
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar {
-  justify-content: space-between;
-  align-items: center;
   padding: 0px 5px 0px 5px;
   border: 1px solid #A4A4A4;
   border-radius: 5px;
   background-color: rgba(113, 130, 190, 0.35);
   height: 27px;
+  justify-content: space-between;
+  align-items: center;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment {
   border-radius: 2px;
@@ -710,13 +713,13 @@
   transform: scale(1.05);
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar {
-  justify-content: space-between;
-  align-items: center;
   padding: 0px 5px 0px 5px;
   border: 1px solid #A4A4A4;
   border-radius: 5px;
   background-color: rgba(113, 130, 190, 0.35);
   height: 27px;
+  justify-content: space-between;
+  align-items: center;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment {
   border-radius: 2px;
@@ -746,13 +749,13 @@
   transform: scale(1.05);
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar {
-  justify-content: space-between;
-  align-items: center;
   padding: 0px 5px 0px 5px;
   border: 1px solid #A4A4A4;
   border-radius: 5px;
   background-color: rgba(113, 130, 190, 0.35);
   height: 27px;
+  justify-content: space-between;
+  align-items: center;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-segment {
   border-radius: 2px;
@@ -782,13 +785,13 @@
   transform: scale(1.05);
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar {
-  justify-content: space-between;
-  align-items: center;
   padding: 0px 5px 0px 5px;
   border: 1px solid #A4A4A4;
   border-radius: 5px;
   background-color: rgba(113, 130, 190, 0.35);
   height: 27px;
+  justify-content: space-between;
+  align-items: center;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-segment {
   border-radius: 2px;
@@ -1849,11 +1852,6 @@
 .yzecoriolis.sheet.actor .ship .hull-bar {
   justify-content: space-between;
   align-items: center;
-  padding: 0px 5px 0px 5px;
-  border: 1px solid #A4A4A4;
-  border-radius: 5px;
-  background-color: rgba(113, 130, 190, 0.35);
-  height: 27px;
 }
 .yzecoriolis.sheet.actor .ship .hull-bar .bar-segment {
   border-radius: 2px;
