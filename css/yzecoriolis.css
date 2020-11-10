@@ -234,6 +234,9 @@
 .yzecoriolis.sheet.actor .blue-2 {
   color: rgba(19, 27, 53, 0.45);
 }
+.yzecoriolis.sheet.actor .white-1 {
+  color: white;
+}
 .yzecoriolis.sheet.actor .background-blue-1 {
   background-color: #7182BE;
 }
@@ -285,6 +288,9 @@
 .yzecoriolis.sheet.actor .border-blue-1 {
   border-color: #7182BE;
 }
+.yzecoriolis.sheet.actor .border-white-1 {
+  border-color: white;
+}
 .yzecoriolis.sheet.actor .rounded {
   border-radius: 3px;
 }
@@ -309,6 +315,21 @@
 .yzecoriolis.sheet.actor .min-h-75 {
   min-height: 75px;
 }
+.yzecoriolis.sheet.actor .min-h-full {
+  min-height: 100%;
+}
+.yzecoriolis.sheet.actor .min-w-full {
+  min-width: 100%;
+}
+.yzecoriolis.sheet.actor .max-h-full {
+  max-height: 100%;
+}
+.yzecoriolis.sheet.actor .max-w-full {
+  max-width: 100%;
+}
+.yzecoriolis.sheet.actor .max-h-412 {
+  max-height: 412px;
+}
 .yzecoriolis.sheet.actor .flex-basis-294 {
   flex-basis: 294px;
 }
@@ -323,6 +344,9 @@
 }
 .yzecoriolis.sheet.actor .flex-shrink-0 {
   flex-shrink: 0;
+}
+.yzecoriolis.sheet.actor .box-none {
+  box-sizing: none;
 }
 .yzecoriolis.sheet.actor.character {
   /*
@@ -1728,15 +1752,6 @@
   align-items: center;
   overflow: hidden;
   z-index: 1;
-}
-.yzecoriolis.sheet.actor .ship .key-art-container .ship-img {
-  flex-shrink: 0;
-  min-width: 100%;
-  min-height: 100%;
-  max-height: 412px;
-  border: 1px solid white;
-  box-sizing: none;
-  border-radius: 3px;
 }
 .yzecoriolis.sheet.actor .ship .key-art-overlay {
   grid-column-start: 1;
