@@ -325,5 +325,10 @@
 
     "YZECORIOLIS.ShipType": "Ship Type",
     "YZECORIOLIS.ShipClass": "Class",
-    "YZECORIOLIS.Shipyard": "Shipyard"
+    "YZECORIOLIS.Shipyard": "Shipyard",
+    "YZECORIOLIS.Manueverability": "Manueverability",
+    "YZECORIOLIS.Signature": "Signature",
+    "YZECORIOLIS.Problems": "Problems",
+    "YZECORIOLIS.Cost": "Cost",
+    "YZECORIOLIS.Speed": "Speed"
 }

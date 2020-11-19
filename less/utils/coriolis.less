@@ -57,8 +57,7 @@
         background-color: @colorBlueTransparent;
     }
 
-    // input only typography
-    input[type="text"].input-base {
+    .input-base {
         color: @colorPlayerText;
         font-family: "Play";
         box-shadow: none;
@@ -68,6 +67,15 @@
             /* Chrome, Firefox, Opera, Safari 10.1+ */
             color: @colorPlaceHolderPlayerText;
         }
+    }
+
+    // input only typography
+    input[type="text"].input-base {
+        .input-base();
+    }
+
+    input[type="number"].input-base {
+        .input-base();
     }
 
     input[type="text"].text-base {
@@ -86,6 +94,10 @@
     // typography
     .font-cairo {
         font-family: "Cairo";
+    }
+
+    .capitalize {
+        text-transform: capitalize;
     }
 
     .data-label-1 {
@@ -117,6 +129,10 @@
 
     .text-upper {
         text-transform: uppercase;
+    }
+
+    .text-right {
+        text-align: right;
     }
 
     // borders
@@ -191,6 +207,10 @@
         margin-left: 10px;
     }
 
+    .margin-small {
+        margin: 10px;
+    }
+
     //padding
     .pl {
         padding-left: 15px;
@@ -207,6 +227,10 @@
     //alignments
     .self-end {
         align-self: flex-end;
+    }
+
+    .self-center {
+        align-self: center;
     }
 
     .justify-end {
@@ -306,10 +330,34 @@
         overflow: hidden;
     }
 
+    // compositions
     .basic-panel {
         .background-blue-3();
         .rounded-lg();
         .flex();
         .flex-dir-col();
+    }
+
+    .list-stat-label {
+        .font-cairo();
+        .text-base();
+        .capitalize();
+        .white-1();
+        .self-center();
+    }
+
+    input[type="number"].right-aligned-number-input {
+        .input-base();
+        .text-shadow-1();
+        .text-upper();
+        .text-lg();
+        .text-right();
+    }
+
+
+    .base-list {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
     }
 }
