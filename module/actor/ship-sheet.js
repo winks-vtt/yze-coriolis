@@ -34,7 +34,6 @@ export class yzecoriolisShipSheet extends ActorSheet {
     _prepShipStats(sheetData) {
         const actorData = sheetData.actor;
         const data = actorData.data;
-        console.log('data', actorData);
         actorData.hullBlocks = prepDataBarBlocks(data.hullPoints.value, data.hullPoints.max);
         actorData.energyBlocks = prepDataBarBlocks(data.energyPoints.value, data.energyPoints.max);
     }
