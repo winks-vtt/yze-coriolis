@@ -1155,7 +1155,7 @@
         .editor {
             max-height: 590px;
             height: 590px;
-            margin: 10px;
+            margin: @padding-md;
             .player-text();
         }
 
@@ -1186,8 +1186,18 @@
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: repeat(2, 1fr);
-            grid-column-gap: 10px;
-            grid-row-gap: 10px;
+            grid-column-gap: @padding-md;
+            grid-row-gap: @padding-md;
+        }
+
+        .bottom-half-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(1, 1fr);
+            grid-column-gap: @padding-md;
+            grid-row-gap: @padding-md;
+            min-height: 340px; // TODO: remove this and use flex or grid layout;
+            padding-top: @padding-md;
         }
 
         .hull-bar {

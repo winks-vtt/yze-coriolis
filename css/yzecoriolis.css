@@ -98,35 +98,35 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Martel'), local('Martel-Regular'), url(https://fonts.gstatic.com/s/martel/v5/PN_xRfK9oXHga0XtYQ.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/martel/v5/PN_xRfK9oXHga0XtYQ.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Martel';
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: local('Martel ExtraBold'), local('Martel-ExtraBold'), url(https://fonts.gstatic.com/s/martel/v5/PN_yRfK9oXHga0XVwe4ahQ.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/martel/v5/PN_yRfK9oXHga0XVwe4ahQ.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5vAw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5vAw.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9vAw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9vAw.ttf) format('truetype');
 }
 .resource-label {
   font-weight: bold;
@@ -240,6 +240,12 @@
 .yzecoriolis.sheet.actor .col-start-4 {
   grid-column-start: 4;
 }
+.yzecoriolis.sheet.actor .col-start-5 {
+  grid-column-start: 5;
+}
+.yzecoriolis.sheet.actor .col-start-6 {
+  grid-column-start: 6;
+}
 .yzecoriolis.sheet.actor .col-end-1 {
   grid-column-end: 1;
 }
@@ -251,6 +257,12 @@
 }
 .yzecoriolis.sheet.actor .col-end-4 {
   grid-column-end: 4;
+}
+.yzecoriolis.sheet.actor .col-end-5 {
+  grid-column-end: 5;
+}
+.yzecoriolis.sheet.actor .col-end-6 {
+  grid-column-end: 6;
 }
 .yzecoriolis.sheet.actor .row-start-1 {
   grid-row-start: 1;
@@ -288,6 +300,9 @@
 .yzecoriolis.sheet.actor .blue-4 {
   color: #71C0EC;
 }
+.yzecoriolis.sheet.actor .blue-5 {
+  color: rgba(113, 130, 190, 0.44);
+}
 .yzecoriolis.sheet.actor .white-1 {
   color: white;
 }
@@ -307,7 +322,10 @@
   background-color: rgba(113, 130, 190, 0.35);
 }
 .yzecoriolis.sheet.actor .background-blue-4 {
-  color: #71C0EC;
+  background-color: #71C0EC;
+}
+.yzecoriolis.sheet.actor .background-blue-5 {
+  background-color: rgba(113, 130, 190, 0.44);
 }
 .yzecoriolis.sheet.actor input[type="text"].input-base {
   color: #FDFF9D;
@@ -380,6 +398,12 @@
 .yzecoriolis.sheet.actor .rounded {
   border-radius: 3px;
 }
+.yzecoriolis.sheet.actor .rounded-lg {
+  border-radius: 5px;
+}
+.yzecoriolis.sheet.actor .rounded-top-lg {
+  border-radius: 5px 5px 0px 0px;
+}
 .yzecoriolis.sheet.actor .mg-l {
   margin-left: 15px;
 }
@@ -440,6 +464,9 @@
 .yzecoriolis.sheet.actor .max-h-412 {
   max-height: 412px;
 }
+.yzecoriolis.sheet.actor .h-header {
+  height: 24px;
+}
 .yzecoriolis.sheet.actor .flex7 {
   flex: 7;
 }
@@ -478,6 +505,12 @@
 }
 .yzecoriolis.sheet.actor .overflow-hidden {
   overflow: hidden;
+}
+.yzecoriolis.sheet.actor .basic-panel {
+  background-color: rgba(113, 130, 190, 0.35);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
 }
 .bar-bg {
   padding: 0px 5px 0px 5px;
@@ -1882,6 +1915,15 @@
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
+}
+.yzecoriolis.sheet.actor .ship .bottom-half-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  min-height: 340px;
+  padding-top: 10px;
 }
 .yzecoriolis.sheet.actor .ship .hull-bar {
   justify-content: space-between;

@@ -21,6 +21,10 @@
         color: @colorEPBarFill;
     }
 
+    .blue-5 {
+        color: @colorBlueTransparent;
+    }
+
     .white-1 {
         color: @colorWhite;
     }
@@ -46,7 +50,11 @@
     }
 
     .background-blue-4 {
-        color: @colorEPBarFill;
+        background-color: @colorEPBarFill;
+    }
+
+    .background-blue-5 {
+        background-color: @colorBlueTransparent;
     }
 
     // input only typography
@@ -146,6 +154,14 @@
         border-radius: 3px;
     }
 
+    .rounded-lg {
+        border-radius: 5px;
+    }
+
+    .rounded-top-lg {
+        border-radius: 5px 5px 0px 0px;
+    }
+
     //margins
     .mg-l {
         margin-left: 15px;
@@ -230,6 +246,10 @@
         max-height: 412px;
     }
 
+    .h-header {
+        height: 24px;
+    }
+
     //flex
     .flex7 {
         flex: 7;
@@ -284,5 +304,12 @@
     //overflow
     .overflow-hidden {
         overflow: hidden;
+    }
+
+    .basic-panel {
+        .background-blue-3();
+        .rounded-lg();
+        .flex();
+        .flex-dir-col();
     }
 }
