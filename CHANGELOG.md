@@ -1,3 +1,5 @@
+# 0.103
+- Fixed bug with TinyMCE styling that caused character sheets to not allow editing of notes.
 # 0.102
 - Fixed compatbility with 0.7.4 dice rolling API.
 - Fixed missing dice images in chat window when making rolls or pushing rolls
