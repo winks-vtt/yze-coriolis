@@ -7,7 +7,7 @@ export function setupMCE() {
         // to have any metadata to help me exclude styling. W0o monkey patching!
         let isCharNote = options.target.dataset.edit === 'data.notes';
         if (isCharNote) {
-            let newCSS = CONFIG.TinyMCE.css.slice();
+            let newCSS = CONFIG.TinyMCE.content_css.slice();
             newCSS.push('systems/yzecoriolis/css/yzecoriolismce.css');
             options.content_css = newCSS.map(c => ROUTE_PREFIX ? `/${ROUTE_PREFIX}${c}` : c).join(",");
         }
