@@ -1,3 +1,6 @@
+# 0.104
+- Updated compatibility boundaries
+
 # 0.103
 - Fixed bug with TinyMCE styling that caused character sheets to not allow editing of notes.
 # 0.102
