@@ -98,35 +98,35 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Martel'), local('Martel-Regular'), url(https://fonts.gstatic.com/s/martel/v5/PN_xRfK9oXHga0XtYQ.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/martel/v5/PN_xRfK9oXHga0XtYQ.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Martel';
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: local('Martel ExtraBold'), local('Martel-ExtraBold'), url(https://fonts.gstatic.com/s/martel/v5/PN_yRfK9oXHga0XVwe4ahQ.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/martel/v5/PN_yRfK9oXHga0XVwe4ahQ.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5vAw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5vAw.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9vAw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9vAw.ttf) format('truetype');
 }
 .resource-label {
   font-weight: bold;
@@ -1007,7 +1007,7 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .item-list-controls {
   text-transform: uppercase;
-  flex: 0 0 70px;
+  flex: 0 0 100px;
   margin-top: 2px;
   text-align: right;
   margin-right: 7px;
@@ -1036,7 +1036,7 @@
   flex-basis: 20px;
   transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
   color: #9FB0ED;
-  flex-basis: 70px;
+  flex-basis: 100px;
 }
 .yzecoriolis.sheet.actor .sheet-body .item-control-add-widget a:hover {
   text-shadow: none;
@@ -1142,7 +1142,7 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent-controls {
   text-transform: uppercase;
-  flex: 0 0 70px;
+  flex: 0 0 100px;
   margin-top: 2px;
   text-align: right;
   margin-right: 7px;
@@ -1167,7 +1167,7 @@
   flex-basis: 20px;
   transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
   color: #9FB0ED;
-  flex-basis: 70px;
+  flex-basis: 100px;
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-add-widget a:hover {
   text-shadow: none;
@@ -1261,7 +1261,7 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-controls {
   text-transform: uppercase;
-  flex: 0 0 70px;
+  flex: 0 0 100px;
   margin-top: 2px;
   text-align: right;
   margin-right: 7px;
@@ -1286,7 +1286,7 @@
   flex-basis: 20px;
   transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
   color: #9FB0ED;
-  flex-basis: 70px;
+  flex-basis: 100px;
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-control-add-widget a:hover {
   text-shadow: none;
@@ -1551,7 +1551,7 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .biography-controls {
   text-transform: uppercase;
-  flex: 0 0 70px;
+  flex: 0 0 100px;
   margin-top: 2px;
   text-align: right;
   margin-right: 7px;
