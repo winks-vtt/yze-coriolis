@@ -17,7 +17,10 @@ export class yzecoriolisItem extends Item {
     if (itemData.type === "talent") this._prepareTalentData(itemData);
   }
 
-  _prepareTalentData(itemData) {}
+  // eslint-disable-next-line no-unused-vars
+  _prepareTalentData(itemData) {
+    // TODO: prep talent data
+  }
 
   async roll() {
     // Basic template rendering data

@@ -247,6 +247,7 @@ Hooks.once("setup", function () {
 });
 
 // Activate chat listeners for coriolis
+// eslint-disable-next-line no-unused-vars
 Hooks.on("renderChatLog", (log, html, data) => {
   coriolisChatListeners(html);
 });
