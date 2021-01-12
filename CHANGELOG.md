@@ -1,3 +1,6 @@
+# 0.105
+- Added Swedish localization (Thanks to @Jomblr)
+
 # 0.104
 - Updated compatibility boundaries
 

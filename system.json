@@ -25,6 +25,11 @@
       "lang": "es",
       "name": "Spanish",
       "path": "lang/es.json"
+    },
+    {
+      "lang": "sv",
+      "name": "Swedish",
+      "path": "lang/sv.json"
     }
   ],
   "gridDistance": 5,
@@ -32,6 +37,6 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "url": "",
-  "manifest": "https://raw.githubusercontent.com/winks-vtt/yze-coriolis/master/system.json",
+  "manifest": "https://raw.githubusercontent.com/winks-vtt/yze-coriolis/v1.1/system.json",
   "download": "https://github.com/winks-vtt/yze-coriolis/archive/v1.1.zip"
 }
