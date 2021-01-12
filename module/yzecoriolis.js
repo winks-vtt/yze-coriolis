@@ -265,7 +265,6 @@ Hooks.on("renderChatMessage", (app, html, msg) => {
 });
 
 Hooks.on("getSceneControlButtons", (controls) => {
-  const isGM = game.user.isGM;
   let group = controls.find((b) => b.name == "token");
   group.tools.push(
     {
