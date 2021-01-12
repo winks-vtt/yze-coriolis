@@ -6,7 +6,6 @@ import { yzecoriolisActorSheet } from "./actor/actor-sheet.js";
 import { yzecoriolisShipSheet } from "./actor/ship-sheet.js";
 import { yzecoriolisItem } from "./item/item.js";
 import { yzecoriolisItemSheet } from "./item/item-sheet.js";
-import { bootstrapGearCompendium } from "./migration.js";
 import { coriolisChatListeners } from "./coriolis-roll.js";
 import * as migrations from "./migration.js";
 import { preloadHandlerbarsTemplates } from "./templates.js";
