@@ -256,6 +256,7 @@ export const migrateActorData = function (actor) {
  * @param {Object} actorData    The data object for an Actor
  * @return {Object}             The scrubbed Actor data
  */
+// eslint-disable-next-line no-unused-vars
 function cleanActorData(actorData) {
   // Scrub system data
   const model = game.system.model.Actor[actorData.type];

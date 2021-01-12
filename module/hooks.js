@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 Hooks.on("updateActor", (entity, data, options, userId) => {
   // since the main character sheet edit only updates the key art field, and
   // this size isn't suitable for the actor browser, we hook into the actor
