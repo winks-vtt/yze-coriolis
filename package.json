@@ -7,7 +7,7 @@
     "compile": "gulp css",
     "watch": "gulp",
     "gulp": "gulp",
-    "format": "prettier --write"
+    "format": "prettier --write ."
   },
   "browserslist": [
     "last 3 versions"
