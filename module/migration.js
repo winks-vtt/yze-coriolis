@@ -223,7 +223,7 @@ export const migrateActorData = function (actor) {
   _migrateRemoveDeprecated(actor, updateData);
 
   // fix token art
-  if (actor.img === DEFAULT_TOKEN && hasProperty(actor, "token.img")) {
+  if (actor.img === CONST.DEFAULT_TOKEN && hasProperty(actor, "token.img")) {
     if (actor.img !== actor.token.img) {
       updateData["img"] = actor.token.img;
     }

@@ -72,7 +72,7 @@ export class yzecoriolisItem extends Item {
   _getDefaultToken() {
     let itemType = this.data.type;
     let isExplosive = this.data.data.explosive;
-    let tokenPath = DEFAULT_TOKEN;
+    let tokenPath = CONST.DEFAULT_TOKEN;
     switch (itemType) {
       case "weapon":
         tokenPath = "systems/yzecoriolis/css/icons/weapons-icon.svg";
