@@ -7,7 +7,9 @@
     "compile": "gulp css",
     "watch": "gulp",
     "gulp": "gulp",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint": "eslint --ext .js .",
+    "lint:watch": "esw -w ."
   },
   "browserslist": [
     "last 3 versions"
@@ -25,6 +27,7 @@
   "devDependencies": {
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
+    "eslint-watch": "^7.0.0",
     "prettier": "2.2.1"
   }
 }
