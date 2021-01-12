@@ -346,24 +346,32 @@ async function showDiceSoNice(roll, rollMode) {
     switch (rollMode) {
       case "blindroll": //GM only
         blind = true;
-      case "gmroll": //GM + rolling player
+      // fall through
+      // eslint-disable-next-line no-fallthrough
+      case "gmroll": {
+        //GM + rolling player
         let gmList = game.users.filter((user) => user.isGM);
         let gmIDList = [];
         gmList.forEach((gm) => gmIDList.push(gm.data._id));
         whisper = gmIDList;
         break;
-      case "roll": //everybody
+      }
+      case "roll": {
+        //everybody
         let userList = game.users.filter((user) => user.active);
         let userIDList = [];
         userList.forEach((user) => userIDList.push(user.data._id));
         whisper = userIDList;
         break;
-      case "selfroll": // only roll to yourself
+      }
+      case "selfroll": {
+        // only roll to yourself
         let selfList = game.users.filter((user) => user._id === game.user._id);
         let selfIDList = [];
         selfList.forEach((user) => selfIDList.push(user.data._id));
         whisper = selfIDList;
         break;
+      }
     }
     await game.dice3d.showForRoll(roll, game.user, true, whisper, blind);
   }
