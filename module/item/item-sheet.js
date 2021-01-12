@@ -1,18 +1,22 @@
-
-import { getID } from '../util.js';
+import { getID } from "../util.js";
 /**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
 export class yzecoriolisItemSheet extends ItemSheet {
-
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["yzecoriolis", "sheet", "item"],
       width: 770,
       height: 770,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+      tabs: [
+        {
+          navSelector: ".sheet-tabs",
+          contentSelector: ".sheet-body",
+          initial: "description",
+        },
+      ],
     });
   }
 
@@ -58,22 +62,22 @@ export class yzecoriolisItemSheet extends ItemSheet {
 
     // Roll handlers, click handlers, etc. would go here.
     // Add Inventory Item
-    html.find('.feature-create').click(this._onFeatureCreate.bind(this));
+    html.find(".feature-create").click(this._onFeatureCreate.bind(this));
 
     // // Delete Inventory Item
-    html.find('.feature-delete').click(this._onFeatureDelete.bind(this));
+    html.find(".feature-delete").click(this._onFeatureDelete.bind(this));
   }
 
   _onFeatureCreate(event) {
     event.preventDefault();
-    const name = '';
+    const name = "";
     let features = {};
     if (this.object.data.data.special) {
       features = duplicate(this.object.data.data.special);
     }
     let key = getID();
-    features['si' + key] = name;
-    return this.object.update({ 'data.special': features });
+    features["si" + key] = name;
+    return this.object.update({ "data.special": features });
   }
 
   _onFeatureDelete(event) {
@@ -89,7 +93,6 @@ export class yzecoriolisItemSheet extends ItemSheet {
 
   async _setSpecialFeatures(features) {
     await this.object.update({ "data.special": null });
-    await this.object.update({ 'data.special': features });
+    await this.object.update({ "data.special": features });
   }
-
 }

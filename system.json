@@ -11,7 +11,8 @@
   "styles": ["css/yzecoriolis.css", "css/yzecoriolismce.css"],
   "scripts": [],
   "packs": [],
-  "languages": [{
+  "languages": [
+    {
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"

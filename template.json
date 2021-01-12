@@ -253,7 +253,15 @@
     }
   },
   "Item": {
-    "types": ["item", "gear", "talent", "weapon", "armor", "injury", "shipProblem"],
+    "types": [
+      "item",
+      "gear",
+      "talent",
+      "weapon",
+      "armor",
+      "injury",
+      "shipProblem"
+    ],
     "templates": {
       "base": {
         "description": ""
@@ -266,7 +274,6 @@
         "quantity": 1,
         "restricted": false,
         "equipped": false
-
       }
     },
     "item": {

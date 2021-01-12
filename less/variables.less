@@ -7,13 +7,13 @@
 /* ----------------------------------------- */
 
 @font-face {
-    font-family: "Nodesto";
-    src: url("fonts/NodestoCapsCondensed.otf");
+  font-family: "Nodesto";
+  src: url("fonts/NodestoCapsCondensed.otf");
 }
 
 .nodesto {
-    font-family: "Nodesto", "Signika", "Palatino Linotype", serif;
-    font-size: 20px;
+  font-family: "Nodesto", "Signika", "Palatino Linotype", serif;
+  font-size: 20px;
 }
 
 /* ----------------------------------------- */
@@ -25,7 +25,7 @@
 @colorBeige: #b5b3a4;
 @colorTan: #7a7971;
 @colorOlive: #4b4a44;
-@colorCrimson: #44191A;
+@colorCrimson: #44191a;
 @colorDarkTeal: #193c44;
 @colorBrightRed: rgb(173, 31, 33);
 @borderGroove: 2px groove #eeede0;
@@ -35,17 +35,17 @@
 /*  Sheet V2 Styles                          */
 /* ----------------------------------------- */
 @colorBlack: #000000;
-@colorTransparent: rgba(0, 0, 0, 0.0);
+@colorTransparent: rgba(0, 0, 0, 0);
 @colorWhite: white;
-@colorPlayerText: #FDFF9D;
-@colorPlaceHolderPlayerText: #7B7C4C;
-@colorDarkBlue: #7182BE;
-@colorBlue: #9FB0ED;
+@colorPlayerText: #fdff9d;
+@colorPlaceHolderPlayerText: #7b7c4c;
+@colorDarkBlue: #7182be;
+@colorBlue: #9fb0ed;
 @colorStatBG: rgba(113, 130, 190, 0.35);
 @colorBlueTransparent: rgba(113, 130, 190, 0.44);
-@colorOrange: #FFA903;
-@colorOrangeShadow: #FF4500;
-@colorGray: #E5E5E5;
+@colorOrange: #ffa903;
+@colorOrangeShadow: #ff4500;
+@colorGray: #e5e5e5;
 
 // specific sheet colors
 @colorStatItemEntryBG: rgba(19, 27, 53, 0.45);
@@ -53,125 +53,123 @@
 @colorEquipBorder: rgba(255, 255, 255, 0.25);
 @colorEquipBG: rgba(19, 27, 53, 0.75);
 @colorEncumbranceBG: rgba(19, 27, 53, 0.85);
-@colorEncumbranceFill: #3F82A7;
+@colorEncumbranceFill: #3f82a7;
 
 //bars
-@colorBlood: #5C0000;
-@colorGreen: #125C00;
-@colorDarkerBlue: #081F43;
-@colorPaleBlue: #3F82A7;
-@colorRadiationFill: #B1C343;
-@colorRadiationDecreaseFill: #44482C;
-@colorXPFill: #603FA7;
-@colorXPDecreaseFill: #C7B4EE;
-@colorRepFill: #CF4264;
-@colorRepDecreaseFill: #732D3E;
-@colorBarOutline: #A4A4A4;
-@colorEPBarFill: #71C0EC;
-@colorEPBarDecrease: #2E7197;
-@colorHullPointFill: #40BF20;
+@colorBlood: #5c0000;
+@colorGreen: #125c00;
+@colorDarkerBlue: #081f43;
+@colorPaleBlue: #3f82a7;
+@colorRadiationFill: #b1c343;
+@colorRadiationDecreaseFill: #44482c;
+@colorXPFill: #603fa7;
+@colorXPDecreaseFill: #c7b4ee;
+@colorRepFill: #cf4264;
+@colorRepDecreaseFill: #732d3e;
+@colorBarOutline: #a4a4a4;
+@colorEPBarFill: #71c0ec;
+@colorEPBarDecrease: #2e7197;
+@colorHullPointFill: #40bf20;
 
 @font-face {
-    font-family: "Cairo";
-    src: url("fonts/cairo/Cairo-Regular.ttf")
+  font-family: "Cairo";
+  src: url("fonts/cairo/Cairo-Regular.ttf");
 }
 
 @font-face {
-    font-family: "Cairo-Bold";
-    src: url("fonts/cairo/Cairo-Bold.ttf")
+  font-family: "Cairo-Bold";
+  src: url("fonts/cairo/Cairo-Bold.ttf");
 }
 
 @font-face {
-    font-family: "Cairo-SemiBold";
-    src: url("fonts/cairo/Cairo-SemiBold.ttf")
+  font-family: "Cairo-SemiBold";
+  src: url("fonts/cairo/Cairo-SemiBold.ttf");
 }
 
 @font-face {
-    font-family: "Play";
-    src: url("fonts/play/Play-Regular.ttf")
+  font-family: "Play";
+  src: url("fonts/play/Play-Regular.ttf");
 }
 
 @letterSpacing: 0.755em;
-@letterSpacingSmaller: .2em;
+@letterSpacingSmaller: 0.2em;
 
 .animated-hover {
-    transition: 275ms filter ease;
+  transition: 275ms filter ease;
 
-    &:hover {
-        filter: brightness(1.5);
-    }
+  &:hover {
+    filter: brightness(1.5);
+  }
 }
-
-
 
 /* ----------------------------------------- */
 /*  Flexbox                                  */
 /* ----------------------------------------- */
 
 .fr-basic {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
 
-    .flex1 {
-        flex: 1;
-    }
+  .flex1 {
+    flex: 1;
+  }
 }
 
 .flexrow {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 
-    >* {
-        flex: 1;
-    }
+  > * {
+    flex: 1;
+  }
 
-    .flex1 {
-        flex: 1;
-    }
+  .flex1 {
+    flex: 1;
+  }
 
-    .flex2 {
-        flex: 2;
-    }
+  .flex2 {
+    flex: 2;
+  }
 
-    .flex3 {
-        flex: 3;
-    }
+  .flex3 {
+    flex: 3;
+  }
 
-    .flex4 {
-        flex: 4;
-    }
+  .flex4 {
+    flex: 4;
+  }
 }
 
 .flexcol {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
 
-    >* {
-        flex: 1;
-    }
+  > * {
+    flex: 1;
+  }
 
-    .flex1 {
-        flex: 1;
-    }
+  .flex1 {
+    flex: 1;
+  }
 
-    .flex2 {
-        flex: 2;
-    }
+  .flex2 {
+    flex: 2;
+  }
 
-    .flex3 {
-        flex: 3;
-    }
+  .flex3 {
+    flex: 3;
+  }
 
-    .flex4 {
-        flex: 4;
-    }
+  .flex4 {
+    flex: 4;
+  }
 }
 
 .debug {
-    border: 1px solid red;
+  border: 1px solid red;
 }
