@@ -51,7 +51,7 @@ export class yzecoriolisActor extends Actor {
       });
     }
 
-    let hpBonuses = this._prepHPBonuses(data);
+    let hpBonuses = this._prepHPBonuses();
     data.hitPoints.max =
       data.attributes.strength.value +
       data.attributes.agility.value +
@@ -105,8 +105,7 @@ export class yzecoriolisActor extends Actor {
     return chatOptions;
   }
 
-  _prepHPBonuses(data) {
-    // TODO: use param or get rid of it.
+  _prepHPBonuses() {
     // look through talents for any HPBonuses
     let bonus = 0;
     for (let t of this.data.items) {
