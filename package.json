@@ -27,6 +27,7 @@
   "devDependencies": {
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-foundry-vtt": "0.0.1",
     "eslint-watch": "^7.0.0",
     "prettier": "2.2.1"
   }
