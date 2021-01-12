@@ -23,6 +23,8 @@
     "gulp-sourcemaps": "^2.6.5"
   },
   "devDependencies": {
+    "eslint": "^7.17.0",
+    "eslint-config-prettier": "^7.1.0",
     "prettier": "2.2.1"
   }
 }
