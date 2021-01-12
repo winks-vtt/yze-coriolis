@@ -14,8 +14,6 @@ export class yzecoriolisItem extends Item {
 
     // Get the Item's data
     const itemData = this.data;
-    const actorData = this.actor ? this.actor.data : {};
-    const data = itemData.data;
     if (itemData.type === "talent") this._prepareTalentData(itemData);
   }
 
@@ -23,10 +21,8 @@ export class yzecoriolisItem extends Item {
 
   async roll() {
     // Basic template rendering data
-    const token = this.actor.token;
     const item = this.data;
     const actorData = this.actor ? this.actor.data.data : {};
-    const itemData = item.data;
 
     //TODO: handle the different item types here.
     // Define the roll formula.
