@@ -29,24 +29,26 @@ export class yzecoriolisActor extends Actor {
 
     if (capCharPoints) {
       // Cap attribute scores
-      for (let [key, attr] of Object.entries(data.attributes)) {
+      Object.keys(data.attributes).forEach((k) => {
+        let attr = data.attributes[k];
         if (attr.value > attr.max) {
           attr.value = attr.max;
         }
         if (attr.value < attr.min) {
           attr.value = attr.min;
         }
-      }
+      });
 
       //Cap Skill scores
-      for (let [key, skl] of Object.entries(data.skills)) {
+      Object.keys(data.skills).forEach((k) => {
+        let skl = data.skills[k];
         if (skl.value > skl.max) {
           skl.value = skl.max;
         }
         if (skl.value < skl.min) {
           skl.value = skl.min;
         }
-      }
+      });
     }
 
     let hpBonuses = this._prepHPBonuses(data);
