@@ -8,6 +8,7 @@ export const preloadHandlerbarsTemplates = async function () {
     "systems/yzecoriolis/templates/actor/parts/actor-talents.html",
     "systems/yzecoriolis/templates/actor/parts/actor-stats.html",
     "systems/yzecoriolis/templates/actor/parts/actor-gear.html",
+    "systems/yzecoriolis/templates/actor/parts/ship-crew.html",
   ];
 
   return loadTemplates(templatePaths);
