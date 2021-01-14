@@ -1,138 +1,146 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="ship">
-        <div class="sheet-container">
-            <div
-                class="col-start-1 col-end-2 row-start-1 row-end-2 z-1 flex justify-center align-items-center overflow-hidden">
-                <img class="border-1 border-solid border-white-1 rounded flex-shrink-0 box-none min-w-full min-h-full max-h-412"
-                    src={{data.keyArt}} title="{{actor.name}}">
+  <div class="ship">
+    <div class="sheet-container">
+      <div
+        class="col-start-1 col-end-2 row-start-1 row-end-2 z-1 flex justify-center align-items-center overflow-hidden">
+        <img class="border-1 border-solid border-white-1 rounded flex-shrink-0 box-none min-w-full min-h-full max-h-412"
+          src={{data.keyArt}} title="{{actor.name}}">
+      </div>
+      <div class="col-start-1 col-end-2 row-start-1 row-end-2 z-2 flex flex-dir-col mg-l mg-t">
+        <input class="text-xxl text-upper text-shadow-1" name="data.shipType" type="text"
+          value="{{data.shipType}}" placeholder="{{localize "YZECORIOLIS.ShipType"}}" />
+        <input class="text-xxl text-upper text-shadow-1 mg-t-sm" name="name" type="text" value="{{actor.name}}"
+          placeholder="{{localize "YZECORIOLIS.Name"}}" />
+        <div class="flex flex-grow flex-shrink-0 flex-basis-0 justify-end">
+          <div
+            class="background-blue-2 mg-r mg-b border-1 border-solid border-blue-1 rounded self-end min-h-75 flex-basis-294">
+            <div class="flexrow mg-l mg-t">
+              <span class="data-label-1 text-base blue-1">Class:</span>
+              <input class="input-base text-shadow-1 text-upper text-lg" name="data.class" type="text"
+                value="{{data.class}}" placeholder="{{localize "YZECORIOLIS.ShipClass"}}" />
             </div>
-            <div class="col-start-1 col-end-2 row-start-1 row-end-2 z-2 flex flex-dir-col mg-l mg-t">
-                <input class="text-xxl text-upper text-shadow-1" name="data.shipType" type="text"
-                    value="{{data.shipType}}" placeholder="{{localize "YZECORIOLIS.ShipType"}}" />
-                <input class="text-xxl text-upper text-shadow-1 mg-t-sm" name="name" type="text" value="{{actor.name}}"
-                    placeholder="{{localize "YZECORIOLIS.Name"}}" />
-                <div class="flex flex-grow flex-shrink-0 flex-basis-0 justify-end">
-                    <div
-                        class="background-blue-2 mg-r mg-b border-1 border-solid border-blue-1 rounded self-end min-h-75 flex-basis-294">
-                        <div class="flexrow mg-l mg-t">
-                            <span class="data-label-1 text-base blue-1">Class:</span>
-                            <input class="input-base text-shadow-1 text-upper text-lg" name="data.class" type="text"
-                                value="{{data.class}}" placeholder="{{localize "YZECORIOLIS.ShipClass"}}" />
-                        </div>
-                        <div class="flexrow mg-l mg-b">
-                            <span class="data-label-1 text-base blue-1">Shipyard:</span>
-                            <input class="input-base text-shadow-1 text-upper text-lg" name="data.shipyard" type="text"
-                                value="{{data.shipyard}}" placeholder="{{localize "YZECORIOLIS.Shipyard"}}" />
-                        </div>
-                    </div>
-                </div>
+            <div class="flexrow mg-l mg-b">
+              <span class="data-label-1 text-base blue-1">Shipyard:</span>
+              <input class="input-base text-shadow-1 text-upper text-lg" name="data.shipyard" type="text"
+                value="{{data.shipyard}}" placeholder="{{localize "YZECORIOLIS.Shipyard"}}" />
             </div>
-            <div class="col-start-1 col-end-1 row-start-2 row-end-3">
-                {{!-- bottom half of ship sheet --}}
-                <div class="flex flex-dir-col">
-                    {{!-- HP Bar --}}
-                    <div
-                        class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm flexrow">
-                        <div class="white-1">Hull Points</div>
-                        <div class="bar hull-bar fr-basic flex7">
-                            {{#each actor.hullBlocks as |on index|}}
-                            {{#with ../data as | data |}}
-                            {{#if on}}
-                            <div class="bar-segment bar-pill on" data-name="data.hullPoints.value" data-index={{index}}
-                                data-current={{data.hullPoints.value}} data-min={{data.hullPoints.min}}
-                                data-max={{data.hullPoints.max}}>
-                            </div>
-                            {{else}}
-                            <div class="bar-segment bar-pill off" data-name="data.hullPoints.value" data-index={{index}}
-                                data-current={{data.hullPoints.value}} data-min={{data.hullPoints.min}}
-                                data-max={{data.hullPoints.max}}>
-                            </div>
-                            {{/if}}
-                            {{/with}}
-                            {{/each}}
-                            <span class="bar-value white-1">{{data.hullPoints.value}}</span>
-                        </div>
-                    </div>
-                    {{!-- EP Bar --}}
-                    <div
-                        class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm mg-t-xsm flexrow">
-                        <div class="white-1">Energy Points</div>
-                        <div class="bar ep-bar fr-basic flex7">
-                            {{#each actor.energyBlocks as |on index|}}
-                            {{#with ../data as | data |}}
-                            {{#if on}}
-                            <div class="bar-segment bar-pill on" data-name="data.energyPoints.value"
-                                data-index={{index}} data-current={{data.energyPoints.value}}
-                                data-min={{data.energyPoints.min}} data-max={{data.energyPoints.max}}>
-                            </div>
-                            {{else}}
-                            <div class="bar-segment bar-pill off" data-name="data.energyPoints.value"
-                                data-index={{index}} data-current={{data.energyPoints.value}}
-                                data-min={{data.energyPoints.min}} data-max={{data.energyPoints.max}}>
-                            </div>
-                            {{/if}}
-                            {{/with}}
-                            {{/each}}
-                            <span class="bar-value white-1">{{data.energyPoints.value}}</span>
-                        </div>
-                    </div>
-                    <div class="bottom-half-container">
-                        {{!-- Stats --}}
-                        <div class="col-start-1 col-end-2 row-start-1 row-end-2 basic-panel">
-                            {{!-- Header --}}
-                            <div class="h-header rounded-top-lg background-blue-5"></div>
-                            {{!-- Stat lines --}}
-                            <ol class="base-list">
-                                <li class="flexrow margin-small">
-                                    <div class="font-cairo text-base capitalize white-1 self-center">
-                                        {{localize "YZECORIOLIS.Speed"}}</div>
-                                    <input class="right-aligned-number-input" placeholder="0" type="number"
-                                        name="data.speed.value" value="{{data.speed.value}}" data-dtype="number"
-                                        min={{data.speed.min}} />
-                                </li>
-                                <li class="flexrow margin-small">
-                                    <div class="font-cairo text-base capitalize white-1 self-center">
-                                        {{localize "YZECORIOLIS.Manueverability"}}</div>
-                                    <input class="right-aligned-number-input" placeholder="0" type="number"
-                                        name="data.manueverability.value" value="{{data.manueverability.value}}"
-                                        data-dtype="number" min={{data.manueverability.min}} />
-                                </li>
-                                <li class="flexrow margin-small">
-                                    <div class="font-cairo text-base capitalize white-1 self-center">
-                                        {{localize "YZECORIOLIS.Signature"}}</div>
-                                    <input class="right-aligned-number-input" placeholder="0" type="number"
-                                        name="data.signature.value" value="{{data.signature.value}}" data-dtype="number"
-                                        min={{data.signature.min}} />
-                                </li>
-                                <li class="flexrow margin-small">
-                                    <div class="font-cairo text-base capitalize white-1 self-center">
-                                        {{localize "YZECORIOLIS.Armor"}}</div>
-                                    <input class="right-aligned-number-input" placeholder="0" type="number"
-                                        name="data.armor.value" value="{{data.armor.value}}" data-dtype="number"
-                                        min={{data.armor.min}} />
-                                </li>
-                                <li class="flexrow margin-small">
-                                    <div class="font-cairo text-base capitalize white-1 self-center">
-                                        {{localize "YZECORIOLIS.Cost"}}</div>
-                                    <input class="right-aligned-number-input" placeholder="0" type="number"
-                                        name="data.cost.value" value="{{data.cost.value}}" data-dtype="number"
-                                        min={{data.cost.min}} />
-                                </li>
-                                <li class="flexrow margin-small">
-                                    <div class="font-cairo text-base capitalize white-1 self-center">
-                                        {{localize "YZECORIOLIS.Problems"}}</div>
-                                </li>
-                            </ol>
-                        </div>
-                        {{!-- Ship Sheet Tabs --}}
-                        <div class="col-start-2 col-end-6 row-start-1 row-end-2 basic-panel">
-                            <div class="h-header rounded-top-lg background-blue-5"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+          </div>
         </div>
+      </div>
+      <div class="col-start-1 col-end-1 row-start-2 row-end-3">
+        {{!-- bottom half of ship sheet --}}
+        <div class="flex flex-dir-col">
+          {{!-- HP Bar --}}
+          <div
+            class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm flexrow">
+            <div class="white-1">Hull Points</div>
+            <div class="bar hull-bar fr-basic flex7">
+              {{#each actor.hullBlocks as |on index|}}
+              {{#with ../data as | data |}}
+              {{#if on}}
+              <div class="bar-segment bar-pill on" data-name="data.hullPoints.value" data-index={{index}}
+                data-current={{data.hullPoints.value}} data-min={{data.hullPoints.min}}
+                data-max={{data.hullPoints.max}}>
+              </div>
+              {{else}}
+              <div class="bar-segment bar-pill off" data-name="data.hullPoints.value" data-index={{index}}
+                data-current={{data.hullPoints.value}} data-min={{data.hullPoints.min}}
+                data-max={{data.hullPoints.max}}>
+              </div>
+              {{/if}}
+              {{/with}}
+              {{/each}}
+              <span class="bar-value white-1">{{data.hullPoints.value}}</span>
+            </div>
+          </div>
+          {{!-- EP Bar --}}
+          <div
+            class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm mg-t-xsm flexrow">
+            <div class="white-1">Energy Points</div>
+            <div class="bar ep-bar fr-basic flex7">
+              {{#each actor.energyBlocks as |on index|}}
+              {{#with ../data as | data |}}
+              {{#if on}}
+              <div class="bar-segment bar-pill on" data-name="data.energyPoints.value"
+                data-index={{index}} data-current={{data.energyPoints.value}}
+                data-min={{data.energyPoints.min}} data-max={{data.energyPoints.max}}>
+              </div>
+              {{else}}
+              <div class="bar-segment bar-pill off" data-name="data.energyPoints.value"
+                data-index={{index}} data-current={{data.energyPoints.value}}
+                data-min={{data.energyPoints.min}} data-max={{data.energyPoints.max}}>
+              </div>
+              {{/if}}
+              {{/with}}
+              {{/each}}
+              <span class="bar-value white-1">{{data.energyPoints.value}}</span>
+            </div>
+          </div>
+          <div class="bottom-half-container">
+            {{!-- Stats --}}
+            <div class="col-start-1 col-end-2 row-start-1 row-end-2 basic-panel">
+              {{!-- Header --}}
+              <div class="h-header rounded-top-lg background-blue-5"></div>
+              {{!-- Stat lines --}}
+              <ol class="base-list">
+                <li class="flexrow margin-small">
+                  <div class="font-cairo text-base capitalize white-1 self-center">
+                    {{localize "YZECORIOLIS.Speed"}}</div>
+                  <input class="right-aligned-number-input" placeholder="0" type="number"
+                    name="data.speed.value" value="{{data.speed.value}}" data-dtype="number"
+                    min={{data.speed.min}} />
+                </li>
+                <li class="flexrow margin-small">
+                  <div class="font-cairo text-base capitalize white-1 self-center">
+                    {{localize "YZECORIOLIS.Manueverability"}}</div>
+                  <input class="right-aligned-number-input" placeholder="0" type="number"
+                    name="data.manueverability.value" value="{{data.manueverability.value}}"
+                    data-dtype="number" min={{data.manueverability.min}} />
+                </li>
+                <li class="flexrow margin-small">
+                  <div class="font-cairo text-base capitalize white-1 self-center">
+                    {{localize "YZECORIOLIS.Signature"}}</div>
+                  <input class="right-aligned-number-input" placeholder="0" type="number"
+                    name="data.signature.value" value="{{data.signature.value}}" data-dtype="number"
+                    min={{data.signature.min}} />
+                </li>
+                <li class="flexrow margin-small">
+                  <div class="font-cairo text-base capitalize white-1 self-center">
+                    {{localize "YZECORIOLIS.Armor"}}</div>
+                  <input class="right-aligned-number-input" placeholder="0" type="number"
+                    name="data.armor.value" value="{{data.armor.value}}" data-dtype="number"
+                    min={{data.armor.min}} />
+                </li>
+                <li class="flexrow margin-small">
+                  <div class="font-cairo text-base capitalize white-1 self-center">
+                    {{localize "YZECORIOLIS.Cost"}}</div>
+                  <input class="right-aligned-number-input" placeholder="0" type="number"
+                    name="data.cost.value" value="{{data.cost.value}}" data-dtype="number"
+                    min={{data.cost.min}} />
+                </li>
+                <li class="flexrow margin-small">
+                  <div class="font-cairo text-base capitalize white-1 self-center">
+                    {{localize "YZECORIOLIS.Problems"}}</div>
+                </li>
+              </ol>
+            </div>
+            {{!-- Ship Sheet Tabs --}}
+            <div class="col-start-2 col-end-6 row-start-1 row-end-2 basic-panel">
+              <div class="h-header rounded-top-lg background-blue-5">
+                  <nav class="navigation tabs" data-group="primary">
+                    <a class="item nav-link active" data-tab="stats">{{localize "YZECORIOLIS.SheetStats"}}</a>
+                    <a class="item nav-link" data-tab="talents">{{localize "YZECORIOLIS.SheetTalents"}}</a>
+                    <a class="item nav-link" data-tab="gear">{{localize "YZECORIOLIS.SheetItems"}}</a>
+                    <a class="item nav-link" data-tab="bio">{{localize "YZECORIOLIS.SheetBio"}}</a>
+                    <a class="item nav-link" data-tab="charnotes">{{localize "YZECORIOLIS.CharNotes"}}</a>
+                  </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </div>
 
 </form>
