@@ -193,7 +193,10 @@
             "face": "",
             "clothing": ""
           },
-          "crewPosition": ""
+          "crewPosition": {
+            "position": "",
+            "shipId": ""
+          }
         },
         "relationships": {},
         "meetings": {},

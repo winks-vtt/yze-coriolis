@@ -229,6 +229,20 @@ export const migrateActorData = function (actor) {
     }
   }
 
+  // migrate crew positions to new format moving from a basic string to an
+  // object that holds the position and shipId. a blank id functions as just a
+  // generic 'position' without any ship association.
+  let needsCrewMigration =
+    (actor.type === "character" || actor.type === "npc") &&
+    hasProperty(actor, "data.bio.crewPosition") &&
+    typeof actor.data.bio.crewPosition === "string";
+
+  if (needsCrewMigration) {
+    updateData["data.bio.crewPosition"] = {
+      position: actor.data.bio.crewPosition,
+      shipId: "",
+    };
+  }
   // Migrate Owned Items
   if (!actor.items) return updateData;
   let hasItemUpdates = false;
