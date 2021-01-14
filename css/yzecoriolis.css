@@ -94,44 +94,39 @@
   border: 1px solid red;
 }
 @font-face {
-  font-family: "Martel";
+  font-family: 'Martel';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/martel/v5/PN_xRfK9oXHga0XtYQ.ttf)
-    format("truetype");
+  src: url(https://fonts.gstatic.com/s/martel/v5/PN_xRfK9oXHga0XtYQ.ttf) format('truetype');
 }
 @font-face {
-  font-family: "Martel";
+  font-family: 'Martel';
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/martel/v5/PN_yRfK9oXHga0XVwe4ahQ.ttf)
-    format("truetype");
+  src: url(https://fonts.gstatic.com/s/martel/v5/PN_yRfK9oXHga0XVwe4ahQ.ttf) format('truetype');
 }
 @font-face {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5vAw.ttf)
-    format("truetype");
+  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5vAw.ttf) format('truetype');
 }
 @font-face {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Me5Q.ttf)
-    format("truetype");
+  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
 }
 @font-face {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9vAw.ttf)
-    format("truetype");
+  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9vAw.ttf) format('truetype');
 }
 .resource-label {
   font-weight: bold;
@@ -566,8 +561,7 @@
   font-size: 18px;
   text-align: right;
 }
-.yzecoriolis.sheet.actor
-  input[type="number"].right-aligned-number-input::placeholder {
+.yzecoriolis.sheet.actor input[type="number"].right-aligned-number-input::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #7b7c4c;
 }
@@ -594,8 +588,7 @@
     */
 }
 .yzecoriolis.sheet.actor.character .window-content {
-  background: linear-gradient(90deg, #000000 30.35%, rgba(0, 0, 0, 0) 100%),
-    url("images/char-sheet-bg.jpg");
+  background: linear-gradient(90deg, #000000 30.35%, rgba(0, 0, 0, 0) 100%), url("images/char-sheet-bg.jpg");
 }
 .yzecoriolis.sheet.actor.ship .window-content {
   background: url("images/ship-sheet-bg.jpg");
@@ -695,12 +688,7 @@
   border-radius: 10px;
 }
 .yzecoriolis.sheet.actor .gradient-overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.635714) 28.12%,
-    #000000 72.92%
-  );
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.635714) 28.12%, #000000 72.92%);
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;
@@ -708,12 +696,7 @@
   z-index: 2;
 }
 .yzecoriolis.sheet.actor .always-visible-stats {
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.635714) 28.12%,
-    #000000 72.92%
-  );
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.635714) 28.12%, #000000 72.92%);
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;
@@ -736,25 +719,13 @@
   margin-bottom: 5px;
   align-items: center;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .stat-label {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .stat-label {
   flex: 0 0 120px;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .capitalize {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .capitalize {
   text-transform: capitalize;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .number {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .number {
   color: #fdff9d;
   grid-column-start: 1;
   grid-column-end: 2;
@@ -762,23 +733,14 @@
   grid-row-end: 2;
   text-align: center;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .number
-  .input-value {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .number .input-value {
   font-family: "Cairo";
   color: white;
   font-size: 17px;
   color: #fdff9d;
   height: 18px;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .radiation-bar {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar {
   padding: 0px 5px 0px 5px;
   border: 1px solid #a4a4a4;
   border-radius: 5px;
@@ -787,28 +749,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .radiation-bar
-  .bar-rounded {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-rounded {
   border-radius: 2px;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .radiation-bar
-  .bar-pill {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-pill {
   border-radius: 40px;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .radiation-bar
-  .bar-segment {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment {
   box-sizing: border-box;
   flex: 1 1 10px;
   height: 17px;
@@ -816,59 +763,25 @@
   background-color: #000000;
   transition: background-color 275ms ease, border 275ms ease;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .radiation-bar
-  .hover-to-decrease {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .hover-to-decrease {
   background-color: #44482c !important;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .radiation-bar
-  .hover-to-increase {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .hover-to-increase {
   border: 1px solid #b1c343;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .radiation-bar
-  .bar-segment.on {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment.on {
   background-color: #b1c343;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .radiation-bar
-  .bar-segment.on:hover {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment.on:hover {
   transform: scale(1.05);
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .radiation-bar
-  .bar-segment.off {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment.off {
   background-color: #000000;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .radiation-bar
-  .bar-segment.off:hover {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .radiation-bar .bar-segment.off:hover {
   transform: scale(1.05);
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .xp-bar {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar {
   padding: 0px 5px 0px 5px;
   border: 1px solid #a4a4a4;
   border-radius: 5px;
@@ -877,28 +790,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .xp-bar
-  .bar-rounded {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-rounded {
   border-radius: 2px;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .xp-bar
-  .bar-pill {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-pill {
   border-radius: 40px;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .xp-bar
-  .bar-segment {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment {
   box-sizing: border-box;
   flex: 1 1 10px;
   height: 17px;
@@ -906,59 +804,25 @@
   background-color: #000000;
   transition: background-color 275ms ease, border 275ms ease;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .xp-bar
-  .hover-to-decrease {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .hover-to-decrease {
   background-color: #c7b4ee !important;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .xp-bar
-  .hover-to-increase {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .hover-to-increase {
   border: 1px solid #603fa7;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .xp-bar
-  .bar-segment.on {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment.on {
   background-color: #603fa7;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .xp-bar
-  .bar-segment.on:hover {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment.on:hover {
   transform: scale(1.05);
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .xp-bar
-  .bar-segment.off {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment.off {
   background-color: #000000;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .xp-bar
-  .bar-segment.off:hover {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .xp-bar .bar-segment.off:hover {
   transform: scale(1.05);
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .rep-bar {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar {
   padding: 0px 5px 0px 5px;
   border: 1px solid #a4a4a4;
   border-radius: 5px;
@@ -967,28 +831,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .rep-bar
-  .bar-rounded {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-rounded {
   border-radius: 2px;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .rep-bar
-  .bar-pill {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-pill {
   border-radius: 40px;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .rep-bar
-  .bar-segment {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment {
   box-sizing: border-box;
   flex: 1 1 10px;
   height: 17px;
@@ -996,59 +845,25 @@
   background-color: #000000;
   transition: background-color 275ms ease, border 275ms ease;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .rep-bar
-  .hover-to-decrease {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .hover-to-decrease {
   background-color: #732d3e !important;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .rep-bar
-  .hover-to-increase {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .hover-to-increase {
   border: 1px solid #cf4264;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .rep-bar
-  .bar-segment.on {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment.on {
   background-color: #cf4264;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .rep-bar
-  .bar-segment.on:hover {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment.on:hover {
   transform: scale(1.05);
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .rep-bar
-  .bar-segment.off {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment.off {
   background-color: #000000;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .rep-bar
-  .bar-segment.off:hover {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .rep-bar .bar-segment.off:hover {
   transform: scale(1.05);
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .hp-bar {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar {
   padding: 0px 5px 0px 5px;
   border: 1px solid #a4a4a4;
   border-radius: 5px;
@@ -1057,28 +872,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .hp-bar
-  .bar-rounded {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-rounded {
   border-radius: 2px;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .hp-bar
-  .bar-pill {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-pill {
   border-radius: 40px;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .hp-bar
-  .bar-segment {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-segment {
   box-sizing: border-box;
   flex: 1 1 10px;
   height: 17px;
@@ -1086,59 +886,25 @@
   background-color: #000000;
   transition: background-color 275ms ease, border 275ms ease;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .hp-bar
-  .hover-to-decrease {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .hover-to-decrease {
   background-color: #5c0000 !important;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .hp-bar
-  .hover-to-increase {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .hover-to-increase {
   border: 1px solid #125c00;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .hp-bar
-  .bar-segment.on {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-segment.on {
   background-color: #125c00;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .hp-bar
-  .bar-segment.on:hover {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-segment.on:hover {
   transform: scale(1.05);
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .hp-bar
-  .bar-segment.off {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-segment.off {
   background-color: #000000;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .hp-bar
-  .bar-segment.off:hover {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .hp-bar .bar-segment.off:hover {
   transform: scale(1.05);
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .mind-bar {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar {
   padding: 0px 5px 0px 5px;
   border: 1px solid #a4a4a4;
   border-radius: 5px;
@@ -1147,28 +913,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .mind-bar
-  .bar-rounded {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-rounded {
   border-radius: 2px;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .mind-bar
-  .bar-pill {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-pill {
   border-radius: 40px;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .mind-bar
-  .bar-segment {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-segment {
   box-sizing: border-box;
   flex: 1 1 10px;
   height: 17px;
@@ -1176,52 +927,22 @@
   background-color: #000000;
   transition: background-color 275ms ease, border 275ms ease;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .mind-bar
-  .hover-to-decrease {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .hover-to-decrease {
   background-color: #081f43 !important;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .mind-bar
-  .hover-to-increase {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .hover-to-increase {
   border: 1px solid #3f82a7;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .mind-bar
-  .bar-segment.on {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-segment.on {
   background-color: #3f82a7;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .mind-bar
-  .bar-segment.on:hover {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-segment.on:hover {
   transform: scale(1.05);
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .mind-bar
-  .bar-segment.off {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-segment.off {
   background-color: #000000;
 }
-.yzecoriolis.sheet.actor
-  .always-visible-stats
-  .perma-stats-list
-  .entry
-  .mind-bar
-  .bar-segment.off:hover {
+.yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list .entry .mind-bar .bar-segment.off:hover {
   transform: scale(1.05);
 }
 .yzecoriolis.sheet.actor .char-content-wrapper {
@@ -1408,11 +1129,7 @@
   font-weight: bold;
   line-height: 60px;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .attribute-list
-  .attr-num-display
-  .attr-input {
+.yzecoriolis.sheet.actor .sheet-body .attribute-list .attr-num-display .attr-input {
   font-weight: bold;
   font-size: 48px;
   height: 50px;
@@ -1466,12 +1183,7 @@
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .rollable:hover {
   text-shadow: 0 0 5px #ff4500;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .skills-list-group
-  .skill
-  .rollable:hover
-  .skill-image {
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .rollable:hover .skill-image {
   background-image: url("icons/rolling-dices.svg");
   background-size: 30px;
 }
@@ -1494,11 +1206,7 @@
   flex-basis: 30px;
   margin-right: 5px;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .skills-list-group
-  .skill
-  .attr-tag-helper {
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .attr-tag-helper {
   height: 30px;
   flex-basis: 30px;
   background-size: 25px;
@@ -1514,11 +1222,7 @@
   background-position: center center;
   background-clip: padding-box;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .skills-list-group
-  .skill
-  .bg-skill-strength {
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .bg-skill-strength {
   height: 30px;
   flex-basis: 30px;
   background-size: 25px;
@@ -1529,11 +1233,7 @@
   background-clip: padding-box;
   background-size: 20px;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .skills-list-group
-  .skill
-  .bg-skill-empathy {
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .bg-skill-empathy {
   height: 30px;
   flex-basis: 30px;
   background-size: 25px;
@@ -1543,11 +1243,7 @@
   background-position: center center;
   background-clip: padding-box;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .skills-list-group
-  .skill
-  .bg-skill-agility {
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .bg-skill-agility {
   height: 30px;
   flex-basis: 30px;
   background-size: 25px;
@@ -1557,11 +1253,7 @@
   background-position: center center;
   background-clip: padding-box;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .skills-list-group
-  .skill
-  .skill-value-display {
+.yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .skill-value-display {
   flex-basis: 45px;
 }
 .yzecoriolis.sheet.actor .sheet-body .skills-list-group .skill .skill-input {
@@ -1605,10 +1297,7 @@
   margin-bottom: 2px;
   height: 26px;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .critical-injuries-list
-  .crit-add-controls {
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-add-controls {
   font-family: "Cairo";
   color: white;
   font-size: 14px;
@@ -1624,25 +1313,15 @@
   justify-content: flex-end;
   margin-right: 5px;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .critical-injuries-list
-  .crit-control-widget {
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-control-widget {
   flex-basis: 20px;
   text-align: right;
   transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .critical-injuries-list
-  .crit-control-widget
-  a:hover {
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-control-widget a:hover {
   text-shadow: none;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .critical-injuries-list
-  .crit-control-widget:hover {
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-control-widget:hover {
   text-shadow: 0 0 5px #ff4500;
   color: white;
   transform: scale(1.05);
@@ -1654,26 +1333,15 @@
   font-weight: bold;
   color: #ffa903;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .critical-injuries-list
-  .injury-description {
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury-description {
   color: #9fb0ed;
   flex: 0 0 400px;
   width: 400px;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .critical-injuries-list
-  .injury-description
-  span {
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury-description span {
   white-space: nowrap !important;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .critical-injuries-list
-  .injury-description
-  p {
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury-description p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1833,10 +1501,7 @@
   align-items: center;
   margin-top: 20px;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .talent-list
-  .talent-category-header:first-of-type {
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-category-header:first-of-type {
   margin-top: 0px;
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent-category-name {
@@ -1858,11 +1523,7 @@
   flex-basis: 20px;
   transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .talent-list
-  .talent-control-widget
-  a:hover {
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-widget a:hover {
   text-shadow: none;
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-widget:hover {
@@ -1877,17 +1538,10 @@
   color: #9fb0ed;
   flex-basis: 100px;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .talent-list
-  .talent-control-add-widget
-  a:hover {
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-add-widget a:hover {
   text-shadow: none;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .talent-list
-  .talent-control-add-widget:hover {
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-add-widget:hover {
   text-shadow: 0 0 5px #ff4500;
   color: white;
   transform: scale(1.05);
@@ -1960,10 +1614,7 @@
   align-items: center;
   margin-top: 20px;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .gear-list
-  .gear-category-header:first-of-type {
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-category-header:first-of-type {
   margin-top: 0px;
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-category-name {
@@ -2006,11 +1657,7 @@
   color: #9fb0ed;
   flex-basis: 100px;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .gear-list
-  .gear-control-add-widget
-  a:hover {
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-control-add-widget a:hover {
   text-shadow: none;
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-control-add-widget:hover {
@@ -2040,11 +1687,7 @@
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-name .expandable-info {
   transition: transform 275ms ease;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .gear-list
-  .gear-name
-  .expandable-info:hover {
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-name .expandable-info:hover {
   transform: translateX(5px);
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-row-data {
@@ -2119,10 +1762,7 @@
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-img-container.rollable {
   transition: background-image 275ms ease, transform 275ms ease;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .gear-list
-  .gear-img-container.rollable:hover {
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-img-container.rollable:hover {
   background-image: url("icons/rolling-dices-orange.svg") !important;
   transform: scale(1.05);
 }
@@ -2148,10 +1788,7 @@
   background-color: #3f82a7;
   border-radius: 5px 0px 0px 5px;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .encumbrance-bar
-  .encumbrance-fill.encumbered {
+.yzecoriolis.sheet.actor .sheet-body .encumbrance-bar .encumbrance-fill.encumbered {
   border-radius: 5px;
   background-color: #ff4500;
 }
@@ -2185,10 +1822,7 @@
   margin-top: 20px;
   text-align: center;
 }
-.yzecoriolis.sheet.actor
-  .sheet-body
-  .bio-stats
-  .bio-category-header:first-of-type {
+.yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-category-header:first-of-type {
   margin-top: 0px;
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-category-name {
@@ -2262,8 +1896,7 @@
   height: 25px;
   padding: 0px 35px 0px 10px;
   border: none;
-  background: url("icons/drop-down-arrow.svg") 6.4% no-repeat
-    rgba(113, 130, 190, 0.44);
+  background: url("icons/drop-down-arrow.svg") 6.4% no-repeat rgba(113, 130, 190, 0.44);
   background-position: right 0.7em top 50%;
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block select:focus {
@@ -2480,11 +2113,7 @@
   font-size: 13px;
   font-weight: bold;
 }
-.yzecoriolis.sheet.item
-  .feature-section
-  .special-feature-header
-  .feature-controls
-  a.feature-create {
+.yzecoriolis.sheet.item .feature-section .special-feature-header .feature-controls a.feature-create {
   flex: 0 0 100%;
 }
 .yzecoriolis.sheet.item .feature-section .special-feature-header .feature-name {
