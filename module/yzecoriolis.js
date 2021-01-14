@@ -202,6 +202,63 @@ Hooks.once("init", async function () {
       return "agility";
     }
   });
+
+  Handlebars.registerHelper("getCrewPositionName", function (crewPosition) {
+    let positionName = CONFIG.YZECORIOLIS.crewPositions[crewPosition.position];
+    // for non associated crew, just return position name
+    if (!crewPosition.shipId) {
+      console.log("no ship", crewPosition);
+      return positionName;
+    }
+    // search for ship and grab "ship - crewPosition"
+    let ship = game.actors.get(crewPosition.shipId);
+    if (!ship) {
+      console.log("failed to find ship", crewPosition);
+      return positionName;
+    }
+    console.log("getting position for", crewPosition);
+    return `${ship.data.name} - ${positionName}`;
+  });
+
+  Handlebars.registerHelper("getCrewPositionOptions", function () {
+    const createOption = (label, position, shipId) => {
+      return {
+        label: label,
+        value: {
+          position: position,
+          shipId: shipId,
+        },
+      };
+    };
+
+    let options = [];
+    // options for without a ship association
+    let baseOptions = Object.keys(CONFIG.YZECORIOLIS.crewPositions).map((c) => {
+      return createOption(CONFIG.YZECORIOLIS.crewPositions[c], c, "");
+    });
+
+    options.push(...baseOptions);
+
+    // create options for all other ships in the world.
+    // TODO: should have to handle permissions/visibility here?
+    for (let e of game.actors.entities) {
+      let actorRootData = e.data;
+      if (actorRootData.type === "ship") {
+        console.log("ship", actorRootData);
+        options.push(
+          ...baseOptions.map((bo) => {
+            return createOption(
+              `${actorRootData.name} - ${bo.label}`,
+              bo.value.position,
+              actorRootData._id
+            );
+          })
+        );
+      }
+    }
+    console.log("returing options for crew positions", options);
+    return options;
+  });
 });
 
 // called after game data is loaded from severs. entities exist
@@ -307,7 +364,7 @@ Hooks.once("ready", async function () {
     "yzecoriolis",
     "systemMigrationVersion"
   );
-  const NEEDS_MIGRATION_VERSION = 1.1;
+  const NEEDS_MIGRATION_VERSION = 1.3;
   const COMPATIBLE_MIGRATION_VERSION = 0.4;
   let needMigration =
     currentVersion < NEEDS_MIGRATION_VERSION ||
