@@ -328,5 +328,10 @@
   "YZECORIOLIS.Signature": "Signature",
   "YZECORIOLIS.Problems": "Problems",
   "YZECORIOLIS.Cost": "Cost",
-  "YZECORIOLIS.Speed": "Speed"
+  "YZECORIOLIS.Speed": "Speed",
+  "YZECORIOLIS.Crew": "Crew",
+  "YZECORIOLIS.Features": "Features",
+  "YZECORIOLIS.Modules": "Modules",
+  "YZECORIOLIS.CriticalDamage": "Critical Damage",
+  "YZECORIOLIS.Notes": "Notes"
 }
