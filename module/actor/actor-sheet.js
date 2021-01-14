@@ -72,6 +72,8 @@ export class yzecoriolisActorSheet extends ActorSheet {
       data.mindPoints.value,
       data.mindPoints.max
     );
+
+    //TODO: build hash map of selectable crew positions
   }
 
   _prepareCharacterItems(sheetData) {
