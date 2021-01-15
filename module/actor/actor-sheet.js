@@ -336,7 +336,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
         // force a rerender of the old ship, if any
         if (oldShipId) {
           let oldShip = game.actors.get(oldShipId);
-          oldShip.render();
+          if (oldShip) {
+            oldShip.render();
+          }
         }
       });
   }
