@@ -322,7 +322,23 @@ export class yzecoriolisActorSheet extends ActorSheet {
   async _onCrewPositionChanged(event) {
     event.preventDefault();
     const crewSelection = JSON.parse(event.target.value);
-    return this.actor.update({ "data.bio.crewPosition": crewSelection });
+    let oldShipId = this.actor.data.data.bio.crewPosition.shipId;
+    return this.actor
+      .update({ "data.bio.crewPosition": crewSelection })
+      .then(() => {
+        // force a rerender of the new ship
+        if (crewSelection.shipId) {
+          let ship = game.actors.get(crewSelection.shipId);
+          if (ship) {
+            ship.render();
+          }
+        }
+        // force a rerender of the old ship, if any
+        if (oldShipId) {
+          let oldShip = game.actors.get(oldShipId);
+          oldShip.render();
+        }
+      });
   }
 
   _onClickBarSegment(event) {

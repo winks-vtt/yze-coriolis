@@ -20,3 +20,27 @@ Hooks.on("updateActor", (entity, data, options, userId) => {
     }
   }
 });
+
+// eslint-disable-next-line no-unused-vars
+Hooks.on("deleteActor", (entity, options, userId) => {
+  if (entity.data.type === "ship") {
+    rerenderAllCrew();
+  }
+});
+
+// eslint-disable-next-line no-unused-vars
+Hooks.on("createActor", (entity, options, userId) => {
+  if (entity.data.type === "ship") {
+    rerenderAllCrew();
+  }
+});
+
+function rerenderAllCrew() {
+  // re render all characters/npcs to update their crew position drop downs.
+  for (let e of game.actors.entities) {
+    let rootData = e.data;
+    if (rootData.type === "character" || rootData.type === "npc") {
+      e.render();
+    }
+  }
+}
