@@ -50,34 +50,34 @@ export class yzecoriolisActorSheet extends ActorSheet {
   }
 
   _prepCharacterStats(sheetData) {
-    const actorData = sheetData.actor;
-    const data = actorData.data;
+    const sheetActor = sheetData.actor;
+    const data = sheetActor.data;
 
-    actorData.radiationBlocks = prepDataBarBlocks(
+    sheetActor.radiationBlocks = prepDataBarBlocks(
       data.radiation.value,
       data.radiation.max
     );
-    actorData.xpBlocks = prepDataBarBlocks(
+    sheetActor.xpBlocks = prepDataBarBlocks(
       data.experience.value,
       data.experience.max
     );
-    actorData.repBlocks = prepDataBarBlocks(
+    sheetActor.repBlocks = prepDataBarBlocks(
       data.reputation.value,
       data.reputation.max
     );
-    actorData.hpBlocks = prepDataBarBlocks(
+    sheetActor.hpBlocks = prepDataBarBlocks(
       data.hitPoints.value,
       data.hitPoints.max
     );
-    actorData.mindBlocks = prepDataBarBlocks(
+    sheetActor.mindBlocks = prepDataBarBlocks(
       data.mindPoints.value,
       data.mindPoints.max
     );
 
-    actorData.crewOptions = buildCrewOptionsArray();
+    sheetActor.crewOptions = buildCrewOptionsArray();
     // we augment the sheet with our 'current' option so that the selection menu
     // can be driven by it.
-    actorData.currentCrewOption = JSON.stringify(data.bio.crewPosition);
+    sheetActor.currentCrewOption = JSON.stringify(data.bio.crewPosition);
   }
 
   _prepareCharacterItems(sheetData) {
