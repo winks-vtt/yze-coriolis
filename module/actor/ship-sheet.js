@@ -62,7 +62,6 @@ export class yzecoriolisShipSheet extends ActorSheet {
         }
       }
     }
-    console.log("crew", sheetActor.crew);
   }
 
   /** @override */

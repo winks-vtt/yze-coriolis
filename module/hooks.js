@@ -1,3 +1,5 @@
+import { resetCrewForShip } from "./actor/crew.js";
+
 // eslint-disable-next-line no-unused-vars
 Hooks.on("updateActor", (entity, data, options, userId) => {
   // since the main character sheet edit only updates the key art field, and
@@ -24,7 +26,9 @@ Hooks.on("updateActor", (entity, data, options, userId) => {
 // eslint-disable-next-line no-unused-vars
 Hooks.on("deleteActor", (entity, options, userId) => {
   if (entity.data.type === "ship") {
-    rerenderAllCrew();
+    resetCrewForShip(entity._id).then(() => {
+      rerenderAllCrew();
+    });
   }
 });
 

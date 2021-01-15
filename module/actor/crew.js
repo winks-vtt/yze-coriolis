@@ -42,3 +42,22 @@ export function buildCrewOptionsArray() {
   }
   return options;
 }
+
+// resetCrewForShip takes all crew from current ship and blanks out their IDs.
+export async function resetCrewForShip(shipId) {
+  // There's a potential race here if we have multiple GMs, but since the end
+  // result is the same I'm not worried about trying to figure out which one
+  // should do the update call.
+  if (!game.user.isGM) {
+    return;
+  }
+  for (let e of game.actors.entities) {
+    let charData = e.data;
+    if (charData.type === "character" || charData.type === "npc") {
+      if (charData.data.bio.crewPosition.shipId === shipId) {
+        await e.update({ "data.bio.crewPosition.shipId": "" });
+      }
+    }
+  }
+  return null;
+}
