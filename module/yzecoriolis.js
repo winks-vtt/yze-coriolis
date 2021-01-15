@@ -219,46 +219,6 @@ Hooks.once("init", async function () {
     console.log("getting position for", crewPosition);
     return `${ship.data.name} - ${positionName}`;
   });
-
-  Handlebars.registerHelper("getCrewPositionOptions", function () {
-    const createOption = (label, position, shipId) => {
-      return {
-        label: label,
-        value: {
-          position: position,
-          shipId: shipId,
-        },
-      };
-    };
-
-    let options = [];
-    // options for without a ship association
-    let baseOptions = Object.keys(CONFIG.YZECORIOLIS.crewPositions).map((c) => {
-      return createOption(CONFIG.YZECORIOLIS.crewPositions[c], c, "");
-    });
-
-    options.push(...baseOptions);
-
-    // create options for all other ships in the world.
-    // TODO: should have to handle permissions/visibility here?
-    for (let e of game.actors.entities) {
-      let actorRootData = e.data;
-      if (actorRootData.type === "ship") {
-        console.log("ship", actorRootData);
-        options.push(
-          ...baseOptions.map((bo) => {
-            return createOption(
-              `${actorRootData.name} - ${bo.label}`,
-              bo.value.position,
-              actorRootData._id
-            );
-          })
-        );
-      }
-    }
-    console.log("returing options for crew positions", options);
-    return options;
-  });
 });
 
 // called after game data is loaded from severs. entities exist

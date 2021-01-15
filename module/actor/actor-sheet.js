@@ -7,6 +7,7 @@ import {
   onHoverBarOut,
   prepDataBarBlocks,
 } from "./databar.js";
+import { buildCrewOptionsArray } from "./crew.js";
 /**
  * Extend the basic ActorSheet for a basic Coriolis character
  * @extends {ActorSheet}
@@ -34,18 +35,18 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
   /** @override */
   getData() {
-    const data = super.getData();
-    data.dtypes = ["String", "Number", "Boolean"];
+    const sheetData = super.getData();
+    sheetData.dtypes = ["String", "Number", "Boolean"];
     if (
       this.actor.data.type === "character" ||
       this.actor.data.type === "npc"
     ) {
       // prepare items
-      this._prepareCharacterItems(data);
-      this._prepCharacterStats(data);
+      this._prepareCharacterItems(sheetData);
+      this._prepCharacterStats(sheetData);
     }
-    data.config = CONFIG.YZECORIOLIS;
-    return data;
+    sheetData.config = CONFIG.YZECORIOLIS;
+    return sheetData;
   }
 
   _prepCharacterStats(sheetData) {
@@ -73,7 +74,10 @@ export class yzecoriolisActorSheet extends ActorSheet {
       data.mindPoints.max
     );
 
-    //TODO: build hash map of selectable crew positions
+    actorData.crewOptions = buildCrewOptionsArray();
+    // we augment the sheet with our 'current' option so that the selection menu
+    // can be driven by it.
+    actorData.currentCrewOption = JSON.stringify(data.bio.crewPosition);
   }
 
   _prepareCharacterItems(sheetData) {
@@ -269,6 +273,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
         li.addEventListener("dragstart", handler, false);
       });
     }
+
+    // handle crew position changes
+    html.find(".crew-position").change(this._onCrewPositionChanged.bind(this));
   }
 
   /* -------------------------------------------- */
@@ -310,6 +317,12 @@ export class yzecoriolisActorSheet extends ActorSheet {
       value = 0;
     }
     return item.update({ "data.quantity": value });
+  }
+
+  async _onCrewPositionChanged(event) {
+    event.preventDefault();
+    const crewSelection = JSON.parse(event.target.value);
+    return this.actor.update({ "data.bio.crewPosition": crewSelection });
   }
 
   _onClickBarSegment(event) {

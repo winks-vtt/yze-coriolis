@@ -31,10 +31,10 @@
             </div>
             <div class="bio-block">
                 <span class="bio-block-title">{{localize "YZECORIOLIS.CrewPosition"}}</span>
-                <select class="skill-category" name="data.bio.crewPosition">
-                    {{#select data.bio.crewPosition}}
-                    {{#each (getCrewPositionOptions) as |option|}}
-                    <option value="{{option.value}}">{{option.label}}</option>
+                <select class="skill-category crew-position">
+                    {{#select actor.currentCrewOption}}
+                    {{#each actor.crewOptions as |option|}}
+                    <option value="{{option.key}}">{{option.label}}</option>
                     {{/each}}
                     {{/select}}
                 </select>
