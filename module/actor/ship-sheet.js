@@ -38,16 +38,31 @@ export class yzecoriolisShipSheet extends ActorSheet {
   }
 
   _prepShipStats(sheetData) {
-    const actorData = sheetData.actor;
-    const data = actorData.data;
-    actorData.hullBlocks = prepDataBarBlocks(
+    const sheetActor = sheetData.actor;
+    const data = sheetActor.data;
+    sheetActor.hullBlocks = prepDataBarBlocks(
       data.hullPoints.value,
       data.hullPoints.max
     );
-    actorData.energyBlocks = prepDataBarBlocks(
+
+    sheetActor.energyBlocks = prepDataBarBlocks(
       data.energyPoints.value,
       data.energyPoints.max
     );
+
+    // pull in any relevant crew.
+    sheetActor.crew = [];
+    const shipId = sheetActor._id;
+    for (let e of game.actors.entities) {
+      let rootData = e.data;
+      if (rootData.type === "character" || rootData.type === "npc") {
+        const crewShipId = rootData.data.bio.crewPosition.shipId;
+        if (shipId === crewShipId) {
+          sheetActor.crew.push(rootData);
+        }
+      }
+    }
+    console.log("crew", sheetActor.crew);
   }
 
   /** @override */

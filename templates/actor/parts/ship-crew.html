@@ -1,3 +1,5 @@
 <div class="tab crew" data-group="primary" data-tab="crew">
-  <span>hi</span>
+  {{#each actor.crew as |crew|}}
+  <span>{{crew.name}}</span>
+  {{/each}}
 </div>
