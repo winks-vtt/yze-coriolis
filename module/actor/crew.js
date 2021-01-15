@@ -27,14 +27,14 @@ export function buildCrewOptionsArray() {
   // create options for all other ships in the world.
   // TODO: should have to handle permissions/visibility here?
   for (let e of game.actors.entities) {
-    let actorRootData = e.data;
-    if (actorRootData.type === "ship") {
+    let shipData = e.data;
+    if (shipData.type === "ship") {
       options.push(
         ...baseOptions.map((bo) => {
           return createOption(
-            `${actorRootData.name} - ${bo.label}`,
+            `${shipData.name} - ${bo.label}`,
             bo.value.position,
-            actorRootData._id
+            shipData._id
           );
         })
       );
