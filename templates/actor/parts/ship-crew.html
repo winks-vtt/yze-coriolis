@@ -2,12 +2,19 @@
   <div class="hStack hStack-10">
     {{#each actor.crew as |crew|}}
     <div class="crew-card vStack vStack-4">
-      <div class="crew-portrait flex6 rounded border-base border-gray-2">
-        <div class="crew-data">
-          <div>{{crew.name}}</div>
-          <div>{{getCrewPositionNameBasic crew.data.bio.crewPosition}}</div>
-          <div>9</div>
-          <div>Command</div>
+      <div class="crew-portrait flex6 flexcol rounded border-base border-gray-2">
+        <div class="display-grid flex1">
+          <div class="col-start-1 col-end-2 row-start-1 row-end-2 crew-portrait"
+          style="background-image: url({{crew.data.keyArt}})">
+          </div>
+          <div class="col-start-1 col-end-2 row-start-1 row-end-2">
+            <div class="crew-data vStack vStack-4 vStackCentered">
+              <div>{{crew.name}}</div>
+              <div>{{getCrewPositionNameBasic crew.data.bio.crewPosition}}</div>
+              <div>9</div>
+              <div>Command</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="crew-ep-container">
