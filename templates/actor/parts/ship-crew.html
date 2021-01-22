@@ -1,9 +1,19 @@
-<div class="tab crew" data-group="primary" data-tab="crew">
-  {{#each actor.crew as |crew|}}
-  <div class="crew-container">
-    <div>
-    {{crew.name}}
+<div class="tab crew crew-panel" data-group="primary" data-tab="crew">
+  <div class="flexrow">
+    {{#each actor.crew as |crew|}}
+    <div class="crew-card flex1">
+      <div class="crew-portrait">
+        <div class="crew-data">
+          <div>{{crew.name}}</div>
+          <div>{{getCrewPositionNameBasic crew.data.bio.crewPosition}}</div>
+          <div>9</div>
+          <div>Command</div>
+        </div>
+      </div>
+      <div class="crew-ep-container">
+
+      </div>
     </div>
+    {{/each}}
   </div>
-  {{/each}}
 </div>
