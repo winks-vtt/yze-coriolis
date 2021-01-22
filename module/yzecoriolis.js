@@ -203,6 +203,26 @@ Hooks.once("init", async function () {
     }
   });
 
+  // returns just the position without the ship name.
+  Handlebars.registerHelper(
+    "getCrewPositionNameBasic",
+    function (crewPosition) {
+      let positionName =
+        CONFIG.YZECORIOLIS.crewPositions[crewPosition.position];
+      // for non associated crew, just return position name
+      if (!crewPosition.shipId) {
+        return positionName;
+      }
+      // search for ship and grab "ship - crewPosition"
+      let ship = game.actors.get(crewPosition.shipId);
+      if (!ship) {
+        console.warn("failed to find ship", crewPosition);
+        return positionName;
+      }
+      return `${positionName}`;
+    }
+  );
+
   Handlebars.registerHelper("getCrewPositionName", function (crewPosition) {
     let positionName = CONFIG.YZECORIOLIS.crewPositions[crewPosition.position];
     // for non associated crew, just return position name
@@ -213,10 +233,9 @@ Hooks.once("init", async function () {
     // search for ship and grab "ship - crewPosition"
     let ship = game.actors.get(crewPosition.shipId);
     if (!ship) {
-      console.log("failed to find ship", crewPosition);
+      console.warn("failed to find ship", crewPosition);
       return positionName;
     }
-    console.log("getting position for", crewPosition);
     return `${ship.data.name} - ${positionName}`;
   });
 });

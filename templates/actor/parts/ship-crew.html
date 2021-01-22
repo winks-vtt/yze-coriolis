@@ -1,8 +1,8 @@
 <div class="tab crew crew-panel" data-group="primary" data-tab="crew">
-  <div class="flexrow">
+  <div class="hStack hStack-10">
     {{#each actor.crew as |crew|}}
-    <div class="crew-card flex1">
-      <div class="crew-portrait">
+    <div class="crew-card vStack vStack-4">
+      <div class="crew-portrait flex6 rounded border-base border-gray-2">
         <div class="crew-data">
           <div>{{crew.name}}</div>
           <div>{{getCrewPositionNameBasic crew.data.bio.crewPosition}}</div>
@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="crew-ep-container">
-
+        TODO: EP bar
       </div>
     </div>
     {{/each}}

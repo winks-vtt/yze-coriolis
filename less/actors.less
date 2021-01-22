@@ -1171,20 +1171,37 @@
       .bar-styling-helper(@colorEPBarFill, @colorEPBarDecrease);
     }
 
-    .crew-container {
+    .crew-card {
       // TODO: try to not hardcode this sizing.
       width: 170px;
       height: 290px;
-      background-color: red;
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: repeat(2, 1fr);
+      flex-basis: 170px;
+      flex-grow: 0;
+
+
+      .crew-portrait {
+        // grid-column-start: 1;
+        // grid-column-end: 2;
+        // grid-row-start: 1;
+        // grid-row-end: 2;
+      }
+
+      .crew-ep-container {
+        // grid-column-start: 1;
+        // grid-column-end: 2;
+        // grid-row-start: 2;
+        // grid-row-end: 3;
+        background-color: blue;
+      }
+
+      .crew-data {
+        display: grid;
+      }
     }
 
-    .crew {
+    .crew-panel {
       padding-left: 10px;
       padding-top: 14px;
     }
-    
   }
 }

@@ -514,6 +514,9 @@
 .yzecoriolis.sheet.actor .flex7 {
   flex: 7;
 }
+.yzecoriolis.sheet.actor .flex6 {
+  flex: 6;
+}
 .yzecoriolis.sheet.actor .flex-basis-294 {
   flex-basis: 294px;
 }
@@ -534,6 +537,102 @@
 }
 .yzecoriolis.sheet.actor .flex-dir-col {
   flex-direction: column;
+}
+.yzecoriolis.sheet.actor .hStack {
+  display: flex;
+  align-items: flex-start;
+}
+.yzecoriolis.sheet.actor .hStack > *:first-child {
+  margin-left: 0;
+}
+.yzecoriolis.sheet.actor .hStack-0 > * {
+  margin-left: 0;
+}
+.yzecoriolis.sheet.actor .hStack-4 > * {
+  margin-left: 4px;
+}
+.yzecoriolis.sheet.actor .hStack-8 > * {
+  margin-left: 8px;
+}
+.yzecoriolis.sheet.actor .hStack-10 > * {
+  margin-left: 10px;
+}
+.yzecoriolis.sheet.actor .hStack-12 > * {
+  margin-left: 12px;
+}
+.yzecoriolis.sheet.actor .hStack-16 > * {
+  margin-left: 16px;
+}
+.yzecoriolis.sheet.actor .hStack-24 > * {
+  margin-left: 24px;
+}
+.yzecoriolis.sheet.actor .hStack-32 > * {
+  margin-left: 32px;
+}
+.yzecoriolis.sheet.actor .hStack-48 > * {
+  margin-left: 48px;
+}
+.yzecoriolis.sheet.actor .hStack-64 > * {
+  margin-left: 64px;
+}
+.yzecoriolis.sheet.actor .hStack-96 > * {
+  margin-left: 96px;
+}
+.yzecoriolis.sheet.actor .hStack-160 > * {
+  margin-left: 160px;
+}
+.yzecoriolis.sheet.actor .hStack-240 > * {
+  margin-left: 240px;
+}
+.yzecoriolis.sheet.actor .hStackVertical {
+  align-items: center;
+}
+.yzecoriolis.sheet.actor .vStack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.yzecoriolis.sheet.actor .vStack:only-child {
+  height: 100%;
+}
+.yzecoriolis.sheet.actor .vStack > *:first-child {
+  margin-top: 0;
+}
+.yzecoriolis.sheet.actor .vStack-0 > * {
+  margin-top: 0;
+}
+.yzecoriolis.sheet.actor .vStack-4 > * {
+  margin-top: 4px;
+}
+.yzecoriolis.sheet.actor .vStack-8 > * {
+  margin-top: 8px;
+}
+.yzecoriolis.sheet.actor .vStack-12 > * {
+  margin-top: 12px;
+}
+.yzecoriolis.sheet.actor .vStack-16 > * {
+  margin-top: 16px;
+}
+.yzecoriolis.sheet.actor .vStack-24 > * {
+  margin-top: 24px;
+}
+.yzecoriolis.sheet.actor .vStack-32 > * {
+  margin-top: 32px;
+}
+.yzecoriolis.sheet.actor .vStack-48 > * {
+  margin-top: 48px;
+}
+.yzecoriolis.sheet.actor .vStack-64 > * {
+  margin-top: 64px;
+}
+.yzecoriolis.sheet.actor .vStack-96 > * {
+  margin-top: 96px;
+}
+.yzecoriolis.sheet.actor .vStack-160 > * {
+  margin-top: 160px;
+}
+.yzecoriolis.sheet.actor .vStack-240 > * {
+  margin-top: 240px;
 }
 .yzecoriolis.sheet.actor .box-none {
   box-sizing: none;
@@ -2086,15 +2185,19 @@
 .yzecoriolis.sheet.actor .ship .ep-bar .bar-segment.off:hover {
   transform: scale(1.05);
 }
-.yzecoriolis.sheet.actor .ship .crew-container {
+.yzecoriolis.sheet.actor .ship .crew-card {
   width: 170px;
   height: 290px;
-  background-color: red;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  flex-basis: 170px;
+  flex-grow: 0;
 }
-.yzecoriolis.sheet.actor .ship .crew {
+.yzecoriolis.sheet.actor .ship .crew-card .crew-ep-container {
+  background-color: blue;
+}
+.yzecoriolis.sheet.actor .ship .crew-card .crew-data {
+  display: grid;
+}
+.yzecoriolis.sheet.actor .ship .crew-panel {
   padding-left: 10px;
   padding-top: 14px;
 }
