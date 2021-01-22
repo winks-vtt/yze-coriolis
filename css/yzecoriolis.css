@@ -323,6 +323,114 @@
 .yzecoriolis.sheet.actor .row-end-4 {
   grid-row-end: 4;
 }
+.hStack {
+  display: flex;
+  align-items: flex-start;
+}
+.hStack > *:first-child {
+  margin-left: 0;
+}
+.hStack-0 > * {
+  margin-left: 0;
+}
+.hStack-4 > * {
+  margin-left: 4px;
+}
+.hStack-8 > * {
+  margin-left: 8px;
+}
+.hStack-10 > * {
+  margin-left: 10px;
+}
+.hStack-12 > * {
+  margin-left: 12px;
+}
+.hStack-16 > * {
+  margin-left: 16px;
+}
+.hStack-24 > * {
+  margin-left: 24px;
+}
+.hStack-32 > * {
+  margin-left: 32px;
+}
+.hStack-48 > * {
+  margin-left: 48px;
+}
+.hStack-64 > * {
+  margin-left: 64px;
+}
+.hStack-96 > * {
+  margin-left: 96px;
+}
+.hStack-160 > * {
+  margin-left: 160px;
+}
+.hStack-240 > * {
+  margin-left: 240px;
+}
+.hStackVertical {
+  align-items: center;
+}
+.vStack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.vStackCentered {
+  align-items: center;
+}
+.vStackCentered > * {
+  justify-self: center;
+}
+.vStack:only-child {
+  height: 100%;
+}
+.vStack > *:first-child {
+  margin-top: 0;
+}
+.vStack-0 > * {
+  margin-top: 0;
+}
+.vStack-4 > * {
+  margin-top: 4px;
+}
+.vStack-8 > * {
+  margin-top: 8px;
+}
+.vStack-12 > * {
+  margin-top: 12px;
+}
+.vStack-16 > * {
+  margin-top: 16px;
+}
+.vStack-24 > * {
+  margin-top: 24px;
+}
+.vStack-32 > * {
+  margin-top: 32px;
+}
+.vStack-48 > * {
+  margin-top: 48px;
+}
+.vStack-64 > * {
+  margin-top: 64px;
+}
+.vStack-96 > * {
+  margin-top: 96px;
+}
+.vStack-160 > * {
+  margin-top: 160px;
+}
+.vStack-240 > * {
+  margin-top: 240px;
+}
+.yzecoriolis.sheet.actor .black-opacity-25 {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.yzecoriolis.sheet.actor .black-opacity-35 {
+  background-color: rgba(0, 0, 0, 0.35);
+}
 .yzecoriolis.sheet.actor .blue-1 {
   color: #7182be;
 }
@@ -408,6 +516,9 @@
 .yzecoriolis.sheet.actor .font-cairo {
   font-family: "Cairo";
 }
+.yzecoriolis.sheet.actor .font-play {
+  font-family: "Play";
+}
 .yzecoriolis.sheet.actor .font-cairo-bold {
   font-family: "Cairo-Bold";
 }
@@ -428,6 +539,9 @@
 .yzecoriolis.sheet.actor .text-shadow-2 {
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
 }
+.yzecoriolis.sheet.actor .text-shadow-3 {
+  text-shadow: 1px 1px 0px #000000;
+}
 .yzecoriolis.sheet.actor .text-base {
   font-size: 14px;
 }
@@ -437,14 +551,24 @@
 .yzecoriolis.sheet.actor .text-lg {
   font-size: 18px;
 }
+.yzecoriolis.sheet.actor .text-xlg {
+  font-size: 20px;
+}
 .yzecoriolis.sheet.actor .text-xxl {
   font-size: 50px;
+}
+.yzecoriolis.sheet.actor .text-84 {
+  font-size: 84px;
+  line-height: 84px;
 }
 .yzecoriolis.sheet.actor .text-upper {
   text-transform: uppercase;
 }
 .yzecoriolis.sheet.actor .text-right {
   text-align: right;
+}
+.yzecoriolis.sheet.actor .text-center {
+  text-align: center;
 }
 .yzecoriolis.sheet.actor .border-1 {
   border-width: 1px;
@@ -510,6 +634,12 @@
 .yzecoriolis.sheet.actor .pl-xsm {
   padding-left: 5px;
 }
+.yzecoriolis.sheet.actor .pt-60 {
+  padding-top: 60px;
+}
+.yzecoriolis.sheet.actor .pb-10 {
+  padding-bottom: 10px;
+}
 .yzecoriolis.sheet.actor .self-end {
   align-self: flex-end;
 }
@@ -540,6 +670,9 @@
 .yzecoriolis.sheet.actor .max-w-full {
   max-width: 100%;
 }
+.yzecoriolis.sheet.actor .height-full {
+  height: 100%;
+}
 .yzecoriolis.sheet.actor .max-h-412 {
   max-height: 412px;
 }
@@ -564,6 +697,9 @@
 .yzecoriolis.sheet.actor .flex-grow {
   flex-grow: 1;
 }
+.yzecoriolis.sheet.actor .flex-no-grow {
+  flex-grow: 0;
+}
 .yzecoriolis.sheet.actor .flex-shrink-0 {
   flex-shrink: 0;
 }
@@ -573,107 +709,8 @@
 .yzecoriolis.sheet.actor .flex-dir-col {
   flex-direction: column;
 }
-.yzecoriolis.sheet.actor .hStack {
-  display: flex;
-  align-items: flex-start;
-}
-.yzecoriolis.sheet.actor .hStack > *:first-child {
-  margin-left: 0;
-}
-.yzecoriolis.sheet.actor .hStack-0 > * {
-  margin-left: 0;
-}
-.yzecoriolis.sheet.actor .hStack-4 > * {
-  margin-left: 4px;
-}
-.yzecoriolis.sheet.actor .hStack-8 > * {
-  margin-left: 8px;
-}
-.yzecoriolis.sheet.actor .hStack-10 > * {
-  margin-left: 10px;
-}
-.yzecoriolis.sheet.actor .hStack-12 > * {
-  margin-left: 12px;
-}
-.yzecoriolis.sheet.actor .hStack-16 > * {
-  margin-left: 16px;
-}
-.yzecoriolis.sheet.actor .hStack-24 > * {
-  margin-left: 24px;
-}
-.yzecoriolis.sheet.actor .hStack-32 > * {
-  margin-left: 32px;
-}
-.yzecoriolis.sheet.actor .hStack-48 > * {
-  margin-left: 48px;
-}
-.yzecoriolis.sheet.actor .hStack-64 > * {
-  margin-left: 64px;
-}
-.yzecoriolis.sheet.actor .hStack-96 > * {
-  margin-left: 96px;
-}
-.yzecoriolis.sheet.actor .hStack-160 > * {
-  margin-left: 160px;
-}
-.yzecoriolis.sheet.actor .hStack-240 > * {
-  margin-left: 240px;
-}
-.yzecoriolis.sheet.actor .hStackVertical {
-  align-items: center;
-}
-.yzecoriolis.sheet.actor .vStack {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.yzecoriolis.sheet.actor .vStackCentered {
-  justify-content: center;
-}
-.yzecoriolis.sheet.actor .vStackCentered > * {
-  justify-self: center;
-}
-.yzecoriolis.sheet.actor .vStack:only-child {
-  height: 100%;
-}
-.yzecoriolis.sheet.actor .vStack > *:first-child {
-  margin-top: 0;
-}
-.yzecoriolis.sheet.actor .vStack-0 > * {
-  margin-top: 0;
-}
-.yzecoriolis.sheet.actor .vStack-4 > * {
-  margin-top: 4px;
-}
-.yzecoriolis.sheet.actor .vStack-8 > * {
-  margin-top: 8px;
-}
-.yzecoriolis.sheet.actor .vStack-12 > * {
-  margin-top: 12px;
-}
-.yzecoriolis.sheet.actor .vStack-16 > * {
-  margin-top: 16px;
-}
-.yzecoriolis.sheet.actor .vStack-24 > * {
-  margin-top: 24px;
-}
-.yzecoriolis.sheet.actor .vStack-32 > * {
-  margin-top: 32px;
-}
-.yzecoriolis.sheet.actor .vStack-48 > * {
-  margin-top: 48px;
-}
-.yzecoriolis.sheet.actor .vStack-64 > * {
-  margin-top: 64px;
-}
-.yzecoriolis.sheet.actor .vStack-96 > * {
-  margin-top: 96px;
-}
-.yzecoriolis.sheet.actor .vStack-160 > * {
-  margin-top: 160px;
-}
-.yzecoriolis.sheet.actor .vStack-240 > * {
-  margin-top: 240px;
+.yzecoriolis.sheet.actor .flex-end {
+  justify-content: flex-end;
 }
 .yzecoriolis.sheet.actor .box-none {
   box-sizing: none;
@@ -2234,14 +2271,11 @@
 }
 .yzecoriolis.sheet.actor .ship .crew-card .crew-portrait {
   max-height: 269px;
-  background-position: -131px -41px;
-  background-size: 250%;
+  background-position: -77px -15px;
+  background-size: 180%;
 }
 .yzecoriolis.sheet.actor .ship .crew-card .crew-ep-container {
   background-color: blue;
-}
-.yzecoriolis.sheet.actor .ship .crew-card .crew-data {
-  display: grid;
 }
 .yzecoriolis.sheet.actor .ship .crew-panel {
   padding-left: 10px;

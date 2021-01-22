@@ -7,12 +7,16 @@
           <div class="col-start-1 col-end-2 row-start-1 row-end-2 crew-portrait"
           style="background-image: url({{crew.data.keyArt}})">
           </div>
+          <div class="col-start-1 col-end-2 row-start-1 row-end-2 black-opacity-35">
+          </div>
           <div class="col-start-1 col-end-2 row-start-1 row-end-2">
-            <div class="crew-data vStack vStack-4 vStackCentered">
-              <div>{{crew.name}}</div>
-              <div>{{getCrewPositionNameBasic crew.data.bio.crewPosition}}</div>
-              <div>9</div>
-              <div>Command</div>
+            <div class="flexcol height-full">
+              <div class="vStack vStack-4 vStackCentered">
+                <div class="font-play white-1 upper-case text-xlg text-shadow-3">{{getCrewPositionNameBasic crew.data.bio.crewPosition}}</div>
+                <div class="font-play white-1 upper-case text-base text-shadow-3">{{crew.name}}</div>
+              </div>
+              <div class="pt-60 font-cairo-bold white-1 text-84 text-shadow-3 text-center">9</div>
+              <div class="pb-10 flex-no-grow font-play white-1 upper-case text-base text-shadow-3 text-center">{{getShipRollForPosition crew.data.bio.crewPosition}}</div>
             </div>
           </div>
         </div>

@@ -238,6 +238,11 @@ Hooks.once("init", async function () {
     }
     return `${ship.data.name} - ${positionName}`;
   });
+
+  Handlebars.registerHelper("getShipRollForPosition", function (crewPosition) {
+    const skill = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
+    return CONFIG.YZECORIOLIS.skills[skill];
+  });
 });
 
 // called after game data is loaded from severs. entities exist

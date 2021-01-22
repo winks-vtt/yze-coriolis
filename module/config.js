@@ -36,6 +36,14 @@ YZECORIOLIS.crewPositions = {
   gunner: "YZECORIOLIS.CrewSpotGunner",
 };
 
+YZECORIOLIS.crewRolls = {
+  captain: "command",
+  engineer: "technology",
+  pilot: "pilot",
+  sensorOperator: "datadjinn",
+  gunner: "rangedcombat",
+};
+
 YZECORIOLIS.skillCategories = {
   general: "YZECORIOLIS.SkillCatGeneral",
   advanced: "YZECORIOLIS.SkillCatAdvanced",
