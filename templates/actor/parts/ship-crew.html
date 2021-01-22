@@ -1,5 +1,9 @@
 <div class="tab crew" data-group="primary" data-tab="crew">
   {{#each actor.crew as |crew|}}
-  <span>{{crew.name}}</span>
+  <div class="crew-container">
+    <div>
+    {{crew.name}}
+    </div>
+  </div>
   {{/each}}
 </div>

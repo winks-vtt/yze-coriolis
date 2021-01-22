@@ -2086,6 +2086,18 @@
 .yzecoriolis.sheet.actor .ship .ep-bar .bar-segment.off:hover {
   transform: scale(1.05);
 }
+.yzecoriolis.sheet.actor .ship .crew-container {
+  width: 170px;
+  height: 290px;
+  background-color: red;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.yzecoriolis.sheet.actor .ship .crew {
+  padding-left: 10px;
+  padding-top: 14px;
+}
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
   /*  Sheet Tabs                             */
