@@ -1,88 +1,22 @@
 import { addDarknessPoints } from "./darkness-points.js";
 
 export function coriolisModifierDialog(modifierCallback) {
+
+    let rollModifierRange = game.settings.get("yzecoriolis", "rollModifierRange");
+
+    let bb = {}
+    for(let i = (rollModifierRange *-1) ; i<=rollModifierRange; i++){
+        bb["b"+i] = {
+            label: ""+i,
+            callback: () => modifierCallback(i)
+        }
+    }
+
+
     let d = new Dialog({
         title: game.i18n.localize("YZECORIOLIS.ModifierForRoll"),
         content: `<p>${game.i18n.localize("YZECORIOLIS.ModifierForRollQuestion")}</p>`,
-        buttons: {
-            nineMinus: {
-                label: "-9",
-                callback: () => modifierCallback(-9)
-            },
-            eightMinus: {
-                label: "-8",
-                callback: () => modifierCallback(-8)
-            },
-            sevenMinus: {
-                label: "-7",
-                callback: () => modifierCallback(-7)
-            },
-            sixMinus: {
-                label: "-6",
-                callback: () => modifierCallback(-6)
-            },
-            fiveMinus: {
-                label: "-5",
-                callback: () => modifierCallback(-5)
-            },
-            fourMinus: {
-                label: "-4",
-                callback: () => modifierCallback(-4)
-            },
-
-            threeMinus: {
-                label: "-3",
-                callback: () => modifierCallback(-3)
-            },
-            twoMinus: {
-                label: "-2",
-                callback: () => modifierCallback(-2)
-            },
-            oneMinus: {
-                label: "-1",
-                callback: () => modifierCallback(-1)
-            },
-            zero: {
-                label: "0",
-                callback: () => modifierCallback(0)
-            },
-            onePlus: {
-                label: "+1",
-                callback: () => modifierCallback(1)
-            },
-            twoPlus: {
-                label: "+2",
-                callback: () => modifierCallback(2)
-            },
-            threePlus: {
-                label: "+3",
-                callback: () => modifierCallback(3)
-            },
-            fourPlus: {
-                label: "+4",
-                callback: () => modifierCallback(4)
-            },
-            fivePlus: {
-                label: "+5",
-                callback: () => modifierCallback(5)
-            },
-            sixPlus: {
-                label: "+6",
-                callback: () => modifierCallback(6)
-            },
-            sevenPlus: {
-                label: "+7",
-                callback: () => modifierCallback(7)
-            },
-            eightPlus: {
-                label: "+8",
-                callback: () => modifierCallback(8)
-            },
-            ninePlus: {
-                label: "+9",
-                callback: () => modifierCallback(9)
-            }
-        },
+        buttons: bb ,
         default: "zero",
         close: () => { }
     });
