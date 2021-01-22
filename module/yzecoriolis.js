@@ -277,8 +277,14 @@ Hooks.once('ready', async function () {
   const currentVersion = game.settings.get("yzecoriolis", "systemMigrationVersion");
   const NEEDS_MIGRATION_VERSION = 0.97;
   const COMPATIBLE_MIGRATION_VERSION = 0.4;
-  let needMigration = (currentVersion < NEEDS_MIGRATION_VERSION) || (currentVersion === null) || (isNaN(currentVersion));
 
+  let currentMinorMajorVersion = (""+currentVersion).split // v 0.105 becomes [0, 105]
+  let needsMigrationMajorMinorVersion = (""+NEEDS_MIGRATION_VERSION).split  // becomes [0, 97]
+
+  let needMigration = (currentVersion === null) || (isNaN(currentVersion)) || (currentMinorMajorVersion[0] < needsMigrationMajorMinorVersion[0]) ||
+  (currentMinorMajorVersion[0] == needsMigrationMajorMinorVersion[0] && currentMinorMajorVersion[1] < needsMigrationMajorMinorVersion[1])
+
+  
   // Perform the migration
   if (needMigration && game.user.isGM) {
     if (currentVersion && (currentVersion < COMPATIBLE_MIGRATION_VERSION)) {
