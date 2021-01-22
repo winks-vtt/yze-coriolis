@@ -122,7 +122,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       // append to gear
       if (i.type === 'gear') {
         gear.push(i);
-        totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
+        if(isActive)totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
       }
       // append to talents
       if (i.type === "talent") {
@@ -136,11 +136,11 @@ export class yzecoriolisActorSheet extends ActorSheet {
         } else {
           weapons.push(i);
         }
-        totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
+        if(isActive)totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
       }
       if (i.type === "armor") {
         armor.push(i);
-        totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight]; // we assume 1 quantity.
+        if(isActive)totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight]; // we assume 1 quantity.
       }
       if (i.type === "injury") {
         injuries.push(i);
