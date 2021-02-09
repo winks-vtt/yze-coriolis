@@ -337,7 +337,7 @@ async function createYzeCoriolisMacro(data, slot) {
     macro = await Macro.create({
       name: item.name,
       type: "script",
-      mg: item.img,
+      img: item.img,
       command: command,
       flags: { "yzecoriolis.itemMacro": true }
     });
