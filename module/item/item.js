@@ -1,4 +1,4 @@
-
+import { coriolisRoll, coriolisModifierDialog } from '../coriolis-roll.js';
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -30,15 +30,25 @@ export class yzecoriolisItem extends Item {
     const item = this.data;
     const actorData = this.actor ? this.actor.data.data : {};
     const itemData = item.data;
-
-    //TODO: handle the different item types here.
-    // Define the roll formula.
-    let roll = new Roll('d20+@abilities.str.mod', actorData);
-    let label = `Rolling ${item.name}`;
-    // Roll and send to chat.
-    roll.roll().toMessage({
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: label
+    const skillKey = getSkillKeyForWeaponType(itemData.melee);
+    const attributeKey = getAttributeKeyForWeaponType(itemData.melee);
+    const rollType = getRollType(item.type);
+    const rollData = {
+      rollType: rollType,
+      skillKey: skillKey,
+      skill: skillKey ? actorData.skills[skillKey].value : 0,
+      attributeKey: attributeKey,
+      attribute: attributeKey ? actorData.attributes[attributeKey].value : 0,
+      modifier: 0,
+      bonus: itemData.bonus ? Number(itemData.bonus) : 0,
+      rollTitle: item.name,
+      pushed: false,
+      actor: this.actor
+    }
+    const chatOptions = this.actor._prepareChatRollOptions('systems/yzecoriolis/templates/sidebar/roll.html', rollType);
+    coriolisModifierDialog((modifier) => {
+      rollData.modifier = modifier;
+      coriolisRoll(chatOptions, rollData);
     });
   }
 
@@ -95,4 +105,30 @@ export class yzecoriolisItem extends Item {
     }
     return tokenPath;
   }
+}
+
+
+export const getSkillKeyForWeaponType = (isMelee) => {
+  if (isMelee) {
+    return 'meleecombat'
+  } else {
+    return 'rangedcombat'
+  }
+}
+
+export const getAttributeKeyForWeaponType = (isMelee) => {
+  if (isMelee) {
+    return 'strength'
+  } else {
+    return 'agility'
+  }
+}
+
+export const getRollType = (itemType) => {
+  if (itemType === 'weapon') {
+    return 'weapon'
+  } else if (itemType === 'armor') {
+    return 'armor'
+  }
+  return 'weapon'
 }
