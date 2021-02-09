@@ -25,7 +25,8 @@ export class yzecoriolisItem extends Item {
   }
 
   async roll() {
-    // Basic template rendering data
+    //TODO: Should refactor this a bit so both sheet and macros share the same
+    //code path.
     const token = this.actor.token;
     const item = this.data;
     const actorData = this.actor ? this.actor.data.data : {};
@@ -33,6 +34,10 @@ export class yzecoriolisItem extends Item {
     const skillKey = getSkillKeyForWeaponType(itemData.melee);
     const attributeKey = getAttributeKeyForWeaponType(itemData.melee);
     const rollType = getRollType(item.type);
+    let bonus = itemData.bonus ? Number(itemData.bonus) : 0;
+    if (rollType === 'armor') {
+      bonus = itemData.armorRating;
+    }
     const rollData = {
       rollType: rollType,
       skillKey: skillKey,
@@ -40,7 +45,7 @@ export class yzecoriolisItem extends Item {
       attributeKey: attributeKey,
       attribute: attributeKey ? actorData.attributes[attributeKey].value : 0,
       modifier: 0,
-      bonus: itemData.bonus ? Number(itemData.bonus) : 0,
+      bonus: bonus,
       rollTitle: item.name,
       pushed: false,
       actor: this.actor
