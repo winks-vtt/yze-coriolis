@@ -231,7 +231,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
     // drag events for macros
     if (this.actor.owner) {
-      let handler = ev => this._onDragItemStart(ev);
+      let handler = ev => this._onDragStart(ev);
       html.find('li.item').each((i, li) => {
         // ignore for the header row
         if (li.classList.contains("item-header")) return;
