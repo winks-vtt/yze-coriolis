@@ -116,4 +116,20 @@ export class yzecoriolisActor extends Actor {
     }
     return bonus;
   }
+
+  /** @override */
+  static async create(data, options = {}) {
+    data.token = data.token || {};
+    if (data.type === "character" || data.type === "npc") {
+      mergeObject(data.token, {
+        vision: true,
+        dimSight: 30,
+        brightSight: 0,
+        actorLink: true,
+        disposition: 1
+      }, { overwrite: false });
+    }
+    return super.create(data, options);
+  }
+
 }
