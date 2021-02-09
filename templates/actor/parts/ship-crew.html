@@ -22,7 +22,24 @@
         </div>
       </div>
       <div class="crew-ep-container">
-        TODO: EP bar
+        <div class="bar ep-bar fr-basic flex7">
+        {{#each crew.energyBlocks as |on index|}}
+          {{#with ../data as | data |}}
+          {{#if on}}
+          <div class="bar-segment bar-pill on" data-name="data.energyPoints.value"
+            data-index={{index}} data-current={{data.energyPoints.value}}
+            data-min={{data.energyPoints.min}} data-max={{data.energyPoints.max}}>
+          </div>
+          {{else}}
+          <div class="bar-segment bar-pill off" data-name="data.energyPoints.value"
+            data-index={{index}} data-current={{data.energyPoints.value}}
+            data-min={{data.energyPoints.min}} data-max={{data.energyPoints.max}}>
+          </div>
+          {{/if}}
+          {{/with}}
+        {{/each}}
+          <span class="bar-value white-1">{{data.energyPoints.value}}</span>
+        </div>
       </div>
     </div>
     {{/each}}

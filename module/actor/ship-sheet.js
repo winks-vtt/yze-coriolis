@@ -58,7 +58,12 @@ export class yzecoriolisShipSheet extends ActorSheet {
       if (rootData.type === "character" || rootData.type === "npc") {
         const crewShipId = rootData.data.bio.crewPosition.shipId;
         if (shipId === crewShipId) {
-          sheetActor.crew.push(rootData);
+          const crewCopy = { ...rootData };
+          crewCopy.energyBlocks = prepDataBarBlocks(
+            data.energyPoints.value,
+            data.energyPoints.max
+          );
+          sheetActor.crew.push(crewCopy);
         }
       }
     }
