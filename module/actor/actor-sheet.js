@@ -255,8 +255,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
       const li = $(ev.currentTarget).parents(".item");
       this.actor.deleteOwnedItem(li.data("itemId"));
       li.slideUp(200, () => this.render(false));
-
-      console.log("deleted?", li.data("itemId"));
     });
 
     // Rollable abilities.

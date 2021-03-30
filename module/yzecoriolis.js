@@ -7,6 +7,10 @@ import { yzecoriolisShipSheet } from "./actor/ship-sheet.js";
 import { yzecoriolisItem } from "./item/item.js";
 import { yzecoriolisItemSheet } from "./item/item-sheet.js";
 import { coriolisChatListeners } from "./coriolis-roll.js";
+import {
+  getAttributeKeyForWeaponType,
+  getSkillKeyForWeaponType,
+} from "./item/item.js";
 import * as migrations from "./migration.js";
 import { preloadHandlerbarsTemplates } from "./templates.js";
 import {
@@ -188,19 +192,11 @@ Hooks.once("init", async function () {
   });
 
   Handlebars.registerHelper("getSkillKeyForWeaponType", function (isMelee) {
-    if (isMelee) {
-      return "meleecombat";
-    } else {
-      return "rangedcombat";
-    }
+     return getSkillKeyForWeaponType(isMelee);
   });
 
   Handlebars.registerHelper("getAttributeKeyForWeaponType", function (isMelee) {
-    if (isMelee) {
-      return "strength";
-    } else {
-      return "agility";
-    }
+    return getAttributeKeyForWeaponType(isMelee);
   });
 
   // returns just the position without the ship name.
@@ -413,6 +409,7 @@ Hooks.once("diceSoNiceReady", (dice3d) => {
  * @param  {} slot
  */
 async function createYzeCoriolisMacro(data, slot) {
+  console.log("creating macro for...", data.type);
   if (data.type !== "Item") return;
   if (!("data" in data))
     return ui.notifications.warn(
@@ -429,7 +426,7 @@ async function createYzeCoriolisMacro(data, slot) {
     macro = await Macro.create({
       name: item.name,
       type: "script",
-      mg: item.img,
+      img: item.img,
       command: command,
       flags: { "yzecoriolis.itemMacro": true },
     });
@@ -447,12 +444,25 @@ function rollItemMacro(itemName) {
   let actor;
   if (speaker.token) actor = game.actors.tokens[speaker.token];
   if (!actor) actor = game.actors.get(speaker.actor);
-  const item = actor ? actor.items.find((i) => i.name === itemName) : null;
-  if (!item)
+
+  if (!actor) {
+    return ui.notifications.warn(
+      game.i18n.localize("YZECORIOLIS.ErrorsNoActorSelectedForMacro")
+    );
+  }
+  // Get matching items
+  const items = actor ? actor.items.filter((i) => i.name === itemName) : [];
+  if (items.length > 1) {
+    ui.notifications.warn(
+      `Your controlled Actor ${actor.name} has more than one Item with name ${itemName}. The first matched item will be chosen.`
+    );
+  } else if (items.length === 0) {
     return ui.notifications.warn(
       `Your controlled Actor does not have an item named ${itemName}`
     );
+  }
+  const item = items[0];
 
-  // trigger the item roll
+  // Trigger the item roll
   return item.roll();
 }

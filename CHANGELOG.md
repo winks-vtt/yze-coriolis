@@ -1,3 +1,12 @@
+# 1.3
+
+- Fixed Armor rolls from macro hotbars.
+
+# 1.2
+
+- Added defaults to new characters. When creating a character the token will automatically link the actor data and setup vision.
+- Fixed macro hotbar support for rollable items.
+
 # 0.105
 
 - Added Swedish localization (Thanks to @Jomblr)
