@@ -10,6 +10,7 @@ YZECORIOLIS.ASCII = `_______________________________
 _______________________________`;
 
 YZECORIOLIS.maxRoll = 6;
+YZECORIOLIS.MaxEPTokensPerShip = 50;
 
 YZECORIOLIS.DEFAULT_PLAYER_KEY_ART =
   "systems/yzecoriolis/css/images/unknown_player.png";

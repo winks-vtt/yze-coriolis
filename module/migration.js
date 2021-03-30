@@ -5,6 +5,7 @@ import {
   getItemsByType,
   getOwnedItemsByType,
 } from "./util.js";
+import { createBlankEPToken } from "./item/ep-token.js";
 /**
  * Perform a system migration for the entire World, applying migrations for Actors, Items, and Compendium packs
  * @return {Promise}      A Promise which resolves once the migration is completed
@@ -372,16 +373,8 @@ const migrateShipEPTokens = async function () {
       continue;
     }
     for (let i = 0; i < createCount; i++) {
-      const tokenData = {
-        name: getID(),
-        type: "energyPointToken",
-        data: {
-          active: false,
-          holder: s.id,
-        },
-      };
       console.create("creating missing EP tokens for ships");
-      await s.createOwnedItem(tokenData);
+      await createBlankEPToken(s);
     }
   }
 };

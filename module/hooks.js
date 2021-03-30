@@ -1,4 +1,5 @@
 import { resetCrewForShip } from "./actor/crew.js";
+import { createBlankEPToken } from "./item/ep-token.js";
 
 // eslint-disable-next-line no-unused-vars
 Hooks.on("updateActor", (entity, data, options, userId) => {
@@ -33,9 +34,10 @@ Hooks.on("deleteActor", (entity, options, userId) => {
 });
 
 // eslint-disable-next-line no-unused-vars
-Hooks.on("createActor", (entity, options, userId) => {
+Hooks.on("createActor", async (entity, options, userId) => {
   if (entity.data.type === "ship") {
     rerenderAllCrew();
+    await createEPTokensForShip(entity);
   }
 });
 
@@ -46,5 +48,11 @@ function rerenderAllCrew() {
     if (rootData.type === "character" || rootData.type === "npc") {
       e.render();
     }
+  }
+}
+
+async function createEPTokensForShip(entity) {
+  for (let i = 0; i < CONFIG.YZECORIOLIS.MaxEPTokensPerShip; i++) {
+    await createBlankEPToken(entity);
   }
 }
