@@ -192,7 +192,7 @@ Hooks.once("init", async function () {
   });
 
   Handlebars.registerHelper("getSkillKeyForWeaponType", function (isMelee) {
-     return getSkillKeyForWeaponType(isMelee);
+    return getSkillKeyForWeaponType(isMelee);
   });
 
   Handlebars.registerHelper("getAttributeKeyForWeaponType", function (isMelee) {
