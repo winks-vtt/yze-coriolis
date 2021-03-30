@@ -59,10 +59,10 @@ export const migrateWorld = async function () {
   }
 
   // migrate Darkness Point System
-  migrateDarknessPoints();
+  await migrateDarknessPoints();
 
   // Set the migration as complete
-  game.settings.set(
+  await game.settings.set(
     "yzecoriolis",
     "systemMigrationVersion",
     game.system.data.version
@@ -243,6 +243,7 @@ export const migrateActorData = function (actor) {
       shipId: "",
     };
   }
+
   // Migrate Owned Items
   if (!actor.items) return updateData;
   let hasItemUpdates = false;
