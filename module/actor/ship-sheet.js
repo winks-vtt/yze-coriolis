@@ -66,7 +66,6 @@ export class yzecoriolisShipSheet extends ActorSheet {
           data.energyPoints.max
         );
         sheetActor.crew.push(crewCopy);
-        console.log(crewCopy);
       }
     }
   }
@@ -95,16 +94,6 @@ export class yzecoriolisShipSheet extends ActorSheet {
     const targetField = targetSegment.dataset.name;
     // Grab any data associated with this control.
     let newRad = computeNewBarValue(index, curValue, minValue, maxValue);
-    console.log(
-      "clicked on segment",
-      targetSegment,
-      targetField,
-      newRad,
-      index,
-      curValue,
-      minValue,
-      maxValue
-    );
     let update = {};
     update[targetField] = newRad;
     return this.actor.update(update);

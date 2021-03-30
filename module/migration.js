@@ -353,7 +353,6 @@ const migrateDarknessPoints = async function () {
   if (dpPoints !== MIGRATED_VALUE) {
     await addDarknessPoints(dpPoints);
     await game.settings.set("yzecoriolis", "darknessPoints", MIGRATED_VALUE);
-    console.log("wat");
     ui.notifications.info(game.i18n.localize("YZECORIOLIS.MigratedDP"), {
       permanent: true,
     });

@@ -363,7 +363,6 @@ Hooks.once("ready", async function () {
     currentVersion === null ||
     isNaN(currentVersion);
 
-  console.log("migrate?", needMigration);
   // Perform the migration
   if (needMigration && game.user.isGM) {
     if (currentVersion && currentVersion < COMPATIBLE_MIGRATION_VERSION) {
@@ -422,7 +421,6 @@ Hooks.once("diceSoNiceReady", (dice3d) => {
  * @param  {} slot
  */
 async function createYzeCoriolisMacro(data, slot) {
-  console.log("creating macro for...", data.type);
   if (data.type !== "Item") return;
   if (!("data" in data))
     return ui.notifications.warn(

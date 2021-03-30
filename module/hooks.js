@@ -46,7 +46,7 @@ function rerenderAllCrew() {
   for (let e of game.actors.entities) {
     let rootData = e.data;
     if (rootData.type === "character" || rootData.type === "npc") {
-      e.render();
+      e.render(true);
     }
   }
 }
