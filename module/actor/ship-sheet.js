@@ -86,10 +86,10 @@ export class yzecoriolisShipSheet extends ActorSheet {
     event.preventDefault();
     const targetSegment = event.currentTarget;
     // Get the type of item to create.
-    const index = Number(targetSegment.dataset.index);
-    const curValue = Number(targetSegment.dataset.current);
-    const minValue = Number(targetSegment.dataset.min);
-    const maxValue = Number(targetSegment.dataset.max);
+    const index = Number(targetSegment.dataset.index) || 0;
+    const curValue = Number(targetSegment.dataset.current) || 0;
+    const minValue = Number(targetSegment.dataset.min) || 0;
+    const maxValue = Number(targetSegment.dataset.max) || 0;
     const targetField = targetSegment.dataset.name;
     // Grab any data associated with this control.
     let newRad = computeNewBarValue(index, curValue, minValue, maxValue);
