@@ -6,60 +6,60 @@
 // could be simplified.
 
 export async function addDarknessPoints(points) {
-    // local user cache
-    let dpObj = getDarknessPointsForUserID(game.user.id);
-    dpObj.value += points;
-    await setDarknessPointsForUser(game.user.id, dpObj);
-    showDarknessPoints(getDarknessPoints());
+  // local user cache
+  let dpObj = getDarknessPointsForUserID(game.user.id);
+  dpObj.value += points;
+  await setDarknessPointsForUser(game.user.id, dpObj);
+  showDarknessPoints(getDarknessPoints());
 }
 
 export async function spendDarknessPoints(points) {
-    for (let i = 0; i < points; i++) {
-        await decrementDarknessPoint();
-    }
-    showDarknessPoints(getDarknessPoints());
-    //purposefully not announcing the spending of points publically.
+  for (let i = 0; i < points; i++) {
+    await decrementDarknessPoint();
+  }
+  showDarknessPoints(getDarknessPoints());
+  //purposefully not announcing the spending of points publically.
 }
 
 export async function displayDarknessPoints() {
-    await showDarknessPoints(getDarknessPoints());
+  await showDarknessPoints(getDarknessPoints());
 }
 
 async function decrementDarknessPoint() {
-    for (let userID of game.users.keys()) {
-        let dPoints = getDarknessPointsForUserID(userID);
-        if (dPoints.value > 0) {
-            dPoints.value -= 1;
-            await setDarknessPointsForUser(userID, dPoints);
-            return;
-        }
+  for (let userID of game.users.keys()) {
+    let dPoints = getDarknessPointsForUserID(userID);
+    if (dPoints.value > 0) {
+      dPoints.value -= 1;
+      await setDarknessPointsForUser(userID, dPoints);
+      return;
     }
+  }
 }
 
 function getDarknessPointsForUserID(userID) {
-    let user = game.users.get(userID);
-    let dPoints = user.getFlag("yzecoriolis", "darknessPoints");
-    if (!dPoints) {
-        dPoints = {
-            value: 0
-        }
-    }
-    return dPoints;
+  let user = game.users.get(userID);
+  let dPoints = user.getFlag("yzecoriolis", "darknessPoints");
+  if (!dPoints) {
+    dPoints = {
+      value: 0,
+    };
+  }
+  return dPoints;
 }
 
 async function setDarknessPointsForUser(userID, dPoints) {
-    let user = game.users.get(userID);
-    await user.setFlag("yzecoriolis", "darknessPoints", null);
-    await user.setFlag("yzecoriolis", "darknessPoints", dPoints);
+  let user = game.users.get(userID);
+  await user.setFlag("yzecoriolis", "darknessPoints", null);
+  await user.setFlag("yzecoriolis", "darknessPoints", dPoints);
 }
 
 function getDarknessPoints() {
-    let total = 0;
-    for (let userID of game.users.keys()) {
-        let dPoints = getDarknessPointsForUserID(userID);
-        total += dPoints.value;
-    }
-    return total;
+  let total = 0;
+  for (let userID of game.users.keys()) {
+    let dPoints = getDarknessPointsForUserID(userID);
+    total += dPoints.value;
+  }
+  return total;
 }
 
 /**
@@ -67,26 +67,29 @@ function getDarknessPoints() {
  * @param  {} totalPoints
  */
 async function showDarknessPoints(totalPoints) {
-    // first try to just grab active GMs in the game.
-    let gmList = game.users.filter(user => user.isGM && user.active);
-    // failing that just grab all the GMs in the game.
-    if (gmList.length === 0) {
-        gmList = game.users.filter(user => user.isGM);
-    }
+  // first try to just grab active GMs in the game.
+  let gmList = game.users.filter((user) => user.isGM && user.active);
+  // failing that just grab all the GMs in the game.
+  if (gmList.length === 0) {
+    gmList = game.users.filter((user) => user.isGM);
+  }
 
-    let gmUser = gmList[0];
+  let gmUser = gmList[0];
 
-    let messageData = {
-        user: gmUser._id,
-        speaker: ChatMessage.getSpeaker({ user: gmUser }),
-        whisper: gmList
-    };
+  let messageData = {
+    user: gmUser._id,
+    speaker: ChatMessage.getSpeaker({ user: gmUser }),
+    whisper: gmList,
+  };
 
-    const dpData = {
-        gmUsername: gmUser.name,
-        totalPoints: totalPoints
-    };
+  const dpData = {
+    gmUsername: gmUser.name,
+    totalPoints: totalPoints,
+  };
 
-    messageData.content = await renderTemplate('systems/yzecoriolis/templates/sidebar/darkness-points-chat.html', dpData);
-    return ChatMessage.create(messageData);
+  messageData.content = await renderTemplate(
+    "systems/yzecoriolis/templates/sidebar/darkness-points-chat.html",
+    dpData
+  );
+  return ChatMessage.create(messageData);
 }

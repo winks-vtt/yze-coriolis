@@ -1,10 +1,8 @@
-
 /**
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
 export class yzecoriolisActor extends Actor {
-
   /**
    * Augment the basic actor data with additional dynamic data.
    */
@@ -17,8 +15,9 @@ export class yzecoriolisActor extends Actor {
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
-    if (actorData.type === 'character') this._prepareCharacterData(actorData, true);
-    if (actorData.type === 'npc') this._prepareCharacterData(actorData, false);
+    if (actorData.type === "character")
+      this._prepareCharacterData(actorData, true);
+    if (actorData.type === "npc") this._prepareCharacterData(actorData, false);
   }
 
   /**
@@ -29,7 +28,6 @@ export class yzecoriolisActor extends Actor {
     if (!data.keyArt) {
       data.keyArt = data.keyArt || CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART;
     }
-
 
     if (capCharPoints) {
       // Cap attribute scores
@@ -54,8 +52,12 @@ export class yzecoriolisActor extends Actor {
     }
 
     let hpBonuses = this._prepHPBonuses(data);
-    data.hitPoints.max = data.attributes.strength.value + data.attributes.agility.value + hpBonuses;
-    data.mindPoints.max = data.attributes.wits.value + data.attributes.empathy.value;
+    data.hitPoints.max =
+      data.attributes.strength.value +
+      data.attributes.agility.value +
+      hpBonuses;
+    data.mindPoints.max =
+      data.attributes.wits.value + data.attributes.empathy.value;
 
     if (data.hitPoints.value > data.hitPoints.max) {
       data.hitPoints.value = data.hitPoints.max;
@@ -75,44 +77,45 @@ export class yzecoriolisActor extends Actor {
       template: template,
       rollMode: game.settings.get("core", "rollMode"),
       sound: CONFIG.sounds.dice,
-      flags: { img: this.data.token.randomImg ? this.data.img : this.data.token.img }
+      flags: {
+        img: this.data.token.randomImg ? this.data.img : this.data.token.img,
+      },
       // img to be displayed next to the name on the test card - if it's a wildcard img, use the actor image
-    }
+    };
 
     // If the test is coming from a token sheet
     if (this.token) {
       chatOptions.speaker.alias = this.token.data.name; // Use the token name instead of the actor name
       chatOptions.speaker.token = this.token.data._id;
-      chatOptions.speaker.scene = canvas.scene._id
+      chatOptions.speaker.scene = canvas.scene._id;
       chatOptions.flags.img = this.token.data.img; // Use the token image instead of the actor image
-    }
-    else // If a linked actor - use the currently selected token's data if the actor id matches
-    {
-      let speaker = ChatMessage.getSpeaker()
+    } // If a linked actor - use the currently selected token's data if the actor id matches
+    else {
+      let speaker = ChatMessage.getSpeaker();
       if (speaker.actor == this.data._id) {
-        chatOptions.speaker.alias = speaker.alias
-        chatOptions.speaker.token = speaker.token
-        chatOptions.speaker.scene = speaker.scene
-        chatOptions.flags.img = speaker.token ? canvas.tokens.get(speaker.token).data.img : chatOptions.flags.img
+        chatOptions.speaker.alias = speaker.alias;
+        chatOptions.speaker.token = speaker.token;
+        chatOptions.speaker.scene = speaker.scene;
+        chatOptions.flags.img = speaker.token
+          ? canvas.tokens.get(speaker.token).data.img
+          : chatOptions.flags.img;
       }
     }
 
-    return chatOptions
+    return chatOptions;
   }
 
-  _prepareRollTitle(rollType) {
-
-  }
+  _prepareRollTitle(rollType) {}
 
   _prepHPBonuses(data) {
     // look through talents for any HPBonuses
     let bonus = 0;
     for (let t of this.data.items) {
-      if (t.type !== 'talent') {
-        continue
+      if (t.type !== "talent") {
+        continue;
       }
       const tData = t.data;
-      bonus += Number(tData.hpBonus)
+      bonus += Number(tData.hpBonus);
     }
     return bonus;
   }
@@ -121,15 +124,18 @@ export class yzecoriolisActor extends Actor {
   static async create(data, options = {}) {
     data.token = data.token || {};
     if (data.type === "character" || data.type === "npc") {
-      mergeObject(data.token, {
-        vision: true,
-        dimSight: 30,
-        brightSight: 0,
-        actorLink: true,
-        disposition: 1
-      }, { overwrite: false });
+      mergeObject(
+        data.token,
+        {
+          vision: true,
+          dimSight: 30,
+          brightSight: 0,
+          actorLink: true,
+          disposition: 1,
+        },
+        { overwrite: false }
+      );
     }
     return super.create(data, options);
   }
-
 }

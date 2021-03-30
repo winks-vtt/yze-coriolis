@@ -1,4 +1,4 @@
-import { coriolisRoll, coriolisModifierDialog } from '../coriolis-roll.js';
+import { coriolisRoll, coriolisModifierDialog } from "../coriolis-roll.js";
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -17,12 +17,10 @@ export class yzecoriolisItem extends Item {
     const itemData = this.data;
     const actorData = this.actor ? this.actor.data : {};
     const data = itemData.data;
-    if (itemData.type === 'talent') this._prepareTalentData(itemData);
+    if (itemData.type === "talent") this._prepareTalentData(itemData);
   }
 
-  _prepareTalentData(itemData) {
-
-  }
+  _prepareTalentData(itemData) {}
 
   async roll() {
     //TODO: Should refactor this a bit so both sheet and macros share the same
@@ -35,7 +33,7 @@ export class yzecoriolisItem extends Item {
     const attributeKey = getAttributeKeyForWeaponType(itemData.melee);
     const rollType = getRollType(item.type);
     let bonus = itemData.bonus ? Number(itemData.bonus) : 0;
-    if (rollType === 'armor') {
+    if (rollType === "armor") {
       bonus = itemData.armorRating;
     }
     const rollData = {
@@ -48,9 +46,12 @@ export class yzecoriolisItem extends Item {
       bonus: bonus,
       rollTitle: item.name,
       pushed: false,
-      actor: this.actor
-    }
-    const chatOptions = this.actor._prepareChatRollOptions('systems/yzecoriolis/templates/sidebar/roll.html', rollType);
+      actor: this.actor,
+    };
+    const chatOptions = this.actor._prepareChatRollOptions(
+      "systems/yzecoriolis/templates/sidebar/roll.html",
+      rollType
+    );
     coriolisModifierDialog((modifier) => {
       rollData.modifier = modifier;
       coriolisRoll(chatOptions, rollData);
@@ -68,12 +69,10 @@ export class yzecoriolisItem extends Item {
     const fn = this[`_${this.data.type}ChatData`];
     if (fn) fn.bind(this)(data, labels, props);
 
-
     //TODO: toggle equipped status for normal items.
 
-
     // Filter properties and return
-    data.properties = props.filter(p => !!p);
+    data.properties = props.filter((p) => !!p);
     return data;
   }
 
@@ -89,51 +88,49 @@ export class yzecoriolisItem extends Item {
     }
   }
 
-
   _getDefaultToken() {
     let itemType = this.data.type;
     let isExplosive = this.data.data.explosive;
     let tokenPath = DEFAULT_TOKEN;
     switch (itemType) {
-      case 'weapon':
-        tokenPath = 'systems/yzecoriolis/css/icons/weapons-icon.svg'
+      case "weapon":
+        tokenPath = "systems/yzecoriolis/css/icons/weapons-icon.svg";
         if (isExplosive) {
-          tokenPath = 'systems/yzecoriolis/css/icons/explosion-icon.svg'
+          tokenPath = "systems/yzecoriolis/css/icons/explosion-icon.svg";
         }
         break;
-      case 'armor':
-        tokenPath = 'systems/yzecoriolis/css/icons/armor-icon.svg'
+      case "armor":
+        tokenPath = "systems/yzecoriolis/css/icons/armor-icon.svg";
         break;
-      case 'gear':
-        tokenPath = 'systems/yzecoriolis/css/icons/gear-icon.svg'
+      case "gear":
+        tokenPath = "systems/yzecoriolis/css/icons/gear-icon.svg";
         break;
     }
     return tokenPath;
   }
 }
 
-
 export const getSkillKeyForWeaponType = (isMelee) => {
   if (isMelee) {
-    return 'meleecombat'
+    return "meleecombat";
   } else {
-    return 'rangedcombat'
+    return "rangedcombat";
   }
-}
+};
 
 export const getAttributeKeyForWeaponType = (isMelee) => {
   if (isMelee) {
-    return 'strength'
+    return "strength";
   } else {
-    return 'agility'
+    return "agility";
   }
-}
+};
 
 export const getRollType = (itemType) => {
-  if (itemType === 'weapon') {
-    return 'weapon'
-  } else if (itemType === 'armor') {
-    return 'armor'
+  if (itemType === "weapon") {
+    return "weapon";
+  } else if (itemType === "armor") {
+    return "armor";
   }
-  return 'weapon'
-}
+  return "weapon";
+};
