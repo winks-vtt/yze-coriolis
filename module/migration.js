@@ -1,4 +1,10 @@
 import { addDarknessPoints } from "./darkness-points.js";
+import {
+  getActorsByType,
+  getID,
+  getItemsByType,
+  getOwnedItemsByType,
+} from "./util.js";
 /**
  * Perform a system migration for the entire World, applying migrations for Actors, Items, and Compendium packs
  * @return {Promise}      A Promise which resolves once the migration is completed
@@ -60,6 +66,8 @@ export const migrateWorld = async function () {
 
   // migrate Darkness Point System
   await migrateDarknessPoints();
+
+  await migrateShipEPTokens();
 
   // Set the migration as complete
   await game.settings.set(
@@ -335,7 +343,7 @@ export const migrateSceneData = function (scene) {
   };
 };
 
-export const migrateDarknessPoints = async function () {
+const migrateDarknessPoints = async function () {
   if (!game.user.isGM) {
     return;
   }
@@ -348,6 +356,33 @@ export const migrateDarknessPoints = async function () {
     ui.notifications.info(game.i18n.localize("YZECORIOLIS.MigratedDP"), {
       permanent: true,
     });
+  }
+};
+
+const migrateShipEPTokens = async function () {
+  if (!game.user.isGM) {
+    return;
+  }
+  const ships = getActorsByType("ship");
+  const MAX_TOKENS = 50;
+  for (let s of ships) {
+    const shipTokens = getOwnedItemsByType(s.data, "energyPointToken");
+    const createCount = MAX_TOKENS - shipTokens.length;
+    if (createCount <= 0) {
+      continue;
+    }
+    for (let i = 0; i < createCount; i++) {
+      const tokenData = {
+        name: getID(),
+        type: "energyPointToken",
+        data: {
+          active: false,
+          holder: s.id,
+        },
+      };
+      console.create("creating missing EP tokens for ships");
+      await s.createOwnedItem(tokenData);
+    }
   }
 };
 

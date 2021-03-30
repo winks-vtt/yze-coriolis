@@ -4,3 +4,19 @@ export const getID = function () {
   // after the decimal.
   return "_" + Math.random().toString(36).substr(2, 9);
 };
+
+export const getItemsByType = (itemType) => {
+  return game.items.entities.filter((item) => {
+    return item.data.type === itemType;
+  });
+};
+
+export const getOwnedItemsByType = (actor, itemType) => {
+  return actor.items.filter((item) => item.type === itemType);
+};
+
+export const getActorsByType = (actorType) => {
+  return game.actors.entities.filter((a) => {
+    return a.data.type === actorType;
+  });
+};

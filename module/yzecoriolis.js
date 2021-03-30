@@ -363,6 +363,7 @@ Hooks.once("ready", async function () {
     currentVersion === null ||
     isNaN(currentVersion);
 
+  console.log("migrate?", needMigration);
   // Perform the migration
   if (needMigration && game.user.isGM) {
     if (currentVersion && currentVersion < COMPATIBLE_MIGRATION_VERSION) {
@@ -371,7 +372,7 @@ Hooks.once("ready", async function () {
         { permanent: true }
       );
     }
-    migrations.migrateWorld();
+    await migrations.migrateWorld();
   }
   //bootstrapTalentCompendium();
   //bootstrapGearCompendium();
