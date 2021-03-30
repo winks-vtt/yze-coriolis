@@ -263,7 +263,8 @@
       "weapon",
       "armor",
       "injury",
-      "shipProblem"
+      "shipProblem",
+      "energyPointToken"
     ],
     "templates": {
       "base": {
@@ -329,6 +330,10 @@
     },
     "shipProblem": {
       "templates": ["base"]
+    },
+    "energyPointToken": {
+      "active": false,
+      "holder": ""
     }
   }
 }

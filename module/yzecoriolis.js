@@ -52,6 +52,18 @@ Hooks.once("init", async function () {
   //Register system settings
   registerSystemSettings();
 
+  // Some item types are internal only and shouldn't be user-created,
+  // such as EP tokens.
+  game.system.entityTypes.Item = [
+    "item",
+    "gear",
+    "talent",
+    "weapon",
+    "armor",
+    "injury",
+    "shipProblem",
+  ];
+
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("yzecoriolis", yzecoriolisActorSheet, {
