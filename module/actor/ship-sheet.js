@@ -1,3 +1,4 @@
+import { getActiveEPTokens, setActiveEPTokens } from "../item/ep-token.js";
 import {
   computeNewBarValue,
   onHoverBarSegmentIn,
@@ -45,8 +46,10 @@ export class yzecoriolisShipSheet extends ActorSheet {
       data.hullPoints.max
     );
 
+    const activeTokens = getActiveEPTokens(this.actor);
+    console.log("tokens", activeTokens);
     sheetActor.energyBlocks = prepDataBarBlocks(
-      data.energyPoints.value,
+      activeTokens.length,
       data.energyPoints.max
     );
 
@@ -83,7 +86,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     html.find(".bar").mouseleave(onHoverBarOut);
   }
 
-  _onClickBarSegment(event) {
+  async _onClickBarSegment(event) {
     event.preventDefault();
     const targetSegment = event.currentTarget;
     // Get the type of item to create.
@@ -93,9 +96,11 @@ export class yzecoriolisShipSheet extends ActorSheet {
     const maxValue = Number(targetSegment.dataset.max) || 0;
     const targetField = targetSegment.dataset.name;
     // Grab any data associated with this control.
-    let newRad = computeNewBarValue(index, curValue, minValue, maxValue);
+    let newBarValue = computeNewBarValue(index, curValue, minValue, maxValue);
     let update = {};
-    update[targetField] = newRad;
-    return this.actor.update(update);
+    update[targetField] = newBarValue;
+
+    await this.actor.update(update);
+    return setActiveEPTokens(this.actor);
   }
 }
