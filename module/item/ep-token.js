@@ -28,7 +28,7 @@ const getEPTokens = (shipEntity) => {
 /**
  * @param  {Actor} shipEntity
  */
-export const getActiveEPTokens = (shipEntity) => {
+const getActiveEPTokens = (shipEntity) => {
   const tokens = getEPTokens(shipEntity);
   return tokens.filter((t) => t.data.active === true) || [];
 };
@@ -74,4 +74,13 @@ export const setActiveEPTokens = async (shipEntity, activeCount) => {
     newActiveTokens.push(tk);
   }
   await refreshedShip.updateEmbeddedEntity("OwnedItem", newActiveTokens);
+};
+
+/**
+ * @param  {Actor} shipEntity
+ * @returns the amount of active EP tokens that are currently held by the ship.
+ */
+export const shipEPCount = (shipEntity) => {
+  const activeTokens = getActiveEPTokens(shipEntity);
+  return activeTokens.filter((a) => a.data.holder === shipEntity.id).length;
 };

@@ -1,4 +1,4 @@
-import { getActiveEPTokens, setActiveEPTokens } from "../item/ep-token.js";
+import { setActiveEPTokens, shipEPCount } from "../item/ep-token.js";
 import {
   computeNewBarValue,
   onHoverBarSegmentIn,
@@ -46,15 +46,15 @@ export class yzecoriolisShipSheet extends ActorSheet {
       data.hullPoints.max
     );
 
-    const activeTokens = getActiveEPTokens(this.actor);
+    const shipTokenCount = shipEPCount(this.actor);
     sheetActor.energyBlocks = prepDataBarBlocks(
-      activeTokens.length,
+      shipTokenCount,
       data.energyPoints.max
     );
 
     // since energy points are a derived value and not a stored value, we need to expose it as a field
     // for the template, unlike the more simple hull points.
-    sheetActor.currentShipEP = activeTokens.length;
+    sheetActor.currentShipEP = shipTokenCount;
 
     // pull in any relevant crew.
     sheetActor.crew = [];
