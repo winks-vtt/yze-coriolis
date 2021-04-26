@@ -12,7 +12,7 @@ export const getItemsByType = (itemType) => {
 };
 
 export const getOwnedItemsByType = (actor, itemType) => {
-  return actor.items.filter((item) => item.type === itemType);
+  return actor.data.items.filter((item) => item.type === itemType);
 };
 
 export const getActorsByType = (actorType) => {

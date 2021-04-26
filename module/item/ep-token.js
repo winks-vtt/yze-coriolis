@@ -4,6 +4,8 @@ import { getID, getOwnedItemsByType } from "../util.js";
  * @param  {Actor} shipEntity
  */
 export const createBlankEPToken = async (shipEntity) => {
+  // oddly, foundry's data format maps to name and type being at the root object
+  // and all other fields being shoveled into the data object.
   const tokenData = {
     name: "epk" + getID(),
     type: "energyPointToken",
@@ -56,15 +58,18 @@ export const resetAllEPTokens = async (shipEntity) => {
  */
 export const setActiveEPTokens = async (shipEntity, activeCount) => {
   await resetAllEPTokens(shipEntity);
-  // TODO: should probably grab a fresh copy of the ship entity? not sure.
-  const tokens = getEPTokens(shipEntity);
+  const refreshedShip = game.actors.get(shipEntity.id);
+  const tokens = getEPTokens(refreshedShip);
   const newActiveTokens = [];
   for (let i = 0; i < activeCount; ++i) {
-    const tk = tokens[i];
-    tk.data.active = true;
-    tk.data.holder = shipEntity.id;
+    const tk = {
+      _id: tokens[i]._id,
+      data: {
+        active: true,
+        holder: refreshedShip.id,
+      },
+    };
     newActiveTokens.push(tk);
   }
-
-  return await shipEntity.updateEmbeddedEntity("OwnedItem", newActiveTokens);
+  await refreshedShip.updateEmbeddedEntity("OwnedItem", newActiveTokens);
 };

@@ -47,7 +47,6 @@ export class yzecoriolisShipSheet extends ActorSheet {
     );
 
     const activeTokens = getActiveEPTokens(this.actor);
-    console.log("tokens", activeTokens);
     sheetActor.energyBlocks = prepDataBarBlocks(
       activeTokens.length,
       data.energyPoints.max
@@ -81,26 +80,41 @@ export class yzecoriolisShipSheet extends ActorSheet {
     if (!this.options.editable) return;
 
     // databar editing
-    html.find(".bar-segment").click(this._onClickBarSegment.bind(this));
+    html
+      .find(".hull-bar-segment")
+      .click(this._onClickHullBarSegment.bind(this));
+    html.find(".ep-bar-segment").click(this._onClickEPBarSegment.bind(this));
     html.find(".bar-segment").mouseenter(onHoverBarSegmentIn);
     html.find(".bar").mouseleave(onHoverBarOut);
   }
 
-  async _onClickBarSegment(event) {
+  async _onClickEPBarSegment(event) {
+    event.preventDefault();
+    // when the EP bar is clicked, do the standard data fetching, but activate the correct EPTokens
+    const newBarValue = this.getNewBarValue(event);
+    await setActiveEPTokens(this.actor, newBarValue);
+  }
+
+  async _onClickHullBarSegment(event) {
     event.preventDefault();
     const targetSegment = event.currentTarget;
-    // Get the type of item to create.
+    const newBarValue = this.getNewBarValue(event);
+
+    const targetField = targetSegment.dataset.name;
+    let update = {};
+    update[targetField] = newBarValue;
+    await this.actor.update(update);
+  }
+
+  getNewBarValue(event) {
+    event.preventDefault();
+    const targetSegment = event.currentTarget;
+    // Get the bar segment data
     const index = Number(targetSegment.dataset.index) || 0;
     const curValue = Number(targetSegment.dataset.current) || 0;
     const minValue = Number(targetSegment.dataset.min) || 0;
     const maxValue = Number(targetSegment.dataset.max) || 0;
-    const targetField = targetSegment.dataset.name;
     // Grab any data associated with this control.
-    let newBarValue = computeNewBarValue(index, curValue, minValue, maxValue);
-    let update = {};
-    update[targetField] = newBarValue;
-
-    await this.actor.update(update);
-    return setActiveEPTokens(this.actor);
+    return computeNewBarValue(index, curValue, minValue, maxValue);
   }
 }

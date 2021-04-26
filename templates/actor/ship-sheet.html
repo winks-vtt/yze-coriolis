@@ -38,12 +38,12 @@
               {{#each actor.hullBlocks as |on index|}}
               {{#with ../data as | data |}}
               {{#if on}}
-              <div class="bar-segment bar-pill on" data-name="data.hullPoints.value" data-index={{index}}
+              <div class="hull-bar-segment bar-segment bar-pill on" data-name="data.hullPoints.value" data-index={{index}}
                 data-current={{data.hullPoints.value}} data-min={{data.hullPoints.min}}
                 data-max={{data.hullPoints.max}}>
               </div>
               {{else}}
-              <div class="bar-segment bar-pill off" data-name="data.hullPoints.value" data-index={{index}}
+              <div class="hull-bar-segment bar-segment bar-pill off" data-name="data.hullPoints.value" data-index={{index}}
                 data-current={{data.hullPoints.value}} data-min={{data.hullPoints.min}}
                 data-max={{data.hullPoints.max}}>
               </div>
@@ -61,12 +61,12 @@
               {{#each actor.energyBlocks as |on index|}}
               {{#with ../data as | data |}}
               {{#if on}}
-              <div class="bar-segment bar-pill on" data-name="data.energyPoints.value"
+              <div class="ep-bar-segment bar-segment bar-pill on" data-name="data.energyPoints.value"
                 data-index={{index}} data-current={{data.energyPoints.value}}
                 data-min={{data.energyPoints.min}} data-max={{data.energyPoints.max}}>
               </div>
               {{else}}
-              <div class="bar-segment bar-pill off" data-name="data.energyPoints.value"
+              <div class="ep-bar-segment bar-segment bar-pill off" data-name="data.energyPoints.value"
                 data-index={{index}} data-current={{data.energyPoints.value}}
                 data-min={{data.energyPoints.min}} data-max={{data.energyPoints.max}}>
               </div>
