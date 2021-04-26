@@ -9,9 +9,9 @@
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.HitPoints"}}</div>
           <div class="bar hp-bar fr-basic">
-            {{#each actor.hpBlocks as |on index|}}
+            {{#each actor.hpBlocks as |hpBlock index|}}
             {{#with ../data as | data |}}
-            {{#if on}}
+            {{#if hpBlock.on}}
             <div class="bar-segment bar-rounded on" data-name="data.hitPoints.value" data-index={{index}}
               data-current={{data.hitPoints.value}} data-min={{data.hitPoints.min}} data-max={{data.hitPoints.max}}>
             </div>
@@ -28,9 +28,9 @@
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.MindPoints"}}</div>
           <div class="bar mind-bar fr-basic">
-            {{#each actor.mindBlocks as |on index|}}
+            {{#each actor.mindBlocks as |mBlock index|}}
             {{#with ../data as | data |}}
-            {{#if on}}
+            {{#if mBlock.on}}
             <div class="bar-segment bar-rounded on" data-name="data.mindPoints.value" data-index={{index}}
               data-current={{data.mindPoints.value}} data-min={{data.mindPoints.min}} data-max={{data.mindPoints.max}}>
             </div>
@@ -47,9 +47,9 @@
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.Radiation"}}</div>
           <div class="bar radiation-bar fr-basic">
-            {{#each actor.radiationBlocks as |on index|}}
+            {{#each actor.radiationBlocks as |rBlock index|}}
             {{#with ../data as | data |}}
-            {{#if on}}
+            {{#if rBlock.on}}
             <div class="bar-segment bar-rounded on" data-name="data.radiation.value" data-index={{index}}
               data-current={{data.radiation.value}} data-min={{data.radiation.min}} data-max={{data.radiation.max}}>
             </div>
@@ -66,9 +66,9 @@
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.Experience"}}</div>
           <div class="bar xp-bar fr-basic">
-            {{#each actor.xpBlocks as |on index|}}
+            {{#each actor.xpBlocks as |xBlock index|}}
             {{#with ../data as | data |}}
-            {{#if on}}
+            {{#if xBlock.on}}
             <div class="bar-segment bar-rounded on" data-name="data.experience.value" data-index={{index}}
               data-current={{data.experience.value}} data-min={{data.experience.min}} data-max={{data.experience.max}}>
             </div>
@@ -85,9 +85,9 @@
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.Reputation"}}</div>
           <div class="bar rep-bar fr-basic">
-            {{#each actor.repBlocks as |on index|}}
+            {{#each actor.repBlocks as |repBlock index|}}
             {{#with ../data as | data |}}
-            {{#if on}}
+            {{#if repBlock.on}}
             <div class="bar-segment bar-rounded on" data-name="data.reputation.value" data-index={{index}}
               data-current={{data.reputation.value}} data-min={{data.reputation.min}} data-max={{data.reputation.max}}>
             </div>

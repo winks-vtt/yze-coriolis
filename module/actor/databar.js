@@ -54,7 +54,16 @@ export function onHoverBarOut(event) {
 export function prepDataBarBlocks(value, max) {
   const dataBlockArray = [];
   for (let i = 0; i < max; i++) {
-    dataBlockArray.push(i < value ? true : false);
+    const block = {
+      on: i < value ? true : false,
+      // metadata included for ease of use
+      // in templates
+      index: i,
+      current: value,
+      min: 0,
+      max: max,
+    };
+    dataBlockArray.push(block);
   }
   return dataBlockArray;
 }
