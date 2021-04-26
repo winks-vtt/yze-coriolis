@@ -6,12 +6,16 @@ import {
   setCrewEPCount,
   crewHasTokens,
 } from "../item/ep-token.js";
+import { getActorById, getActorEntityById } from "../util.js";
 import {
   computeNewBarValue,
   onHoverBarSegmentIn,
   onHoverBarOut,
   prepDataBarBlocks,
 } from "./databar.js";
+
+import { coriolisRoll } from "../coriolis-roll.js";
+import { coriolisModifierDialog } from "../coriolis-roll.js";
 
 /**
  * Extend the basic ActorSheet for a basic Coriolis ship sheet
@@ -97,6 +101,9 @@ export class yzecoriolisShipSheet extends ActorSheet {
       .click(this._onClickCrewBarSegment.bind(this));
     html.find(".bar-segment").mouseenter(onHoverBarSegmentIn);
     html.find(".bar").mouseleave(onHoverBarOut);
+
+    // crew portrait rolling
+    html.find(".crew-portrait").click(this._onClickCrewPortrait.bind(this));
   }
 
   async _onClickEPBarSegment(event) {
@@ -140,5 +147,40 @@ export class yzecoriolisShipSheet extends ActorSheet {
     const maxValue = Number(targetSegment.dataset.max) || 0;
     // Grab any data associated with this control.
     return computeNewBarValue(index, curValue, minValue, maxValue);
+  }
+
+  async _onClickCrewPortrait(event) {
+    event.preventDefault();
+    const targetPortrait = event.currentTarget;
+    const crewId = targetPortrait.dataset.crew;
+    const crewmate = getActorById(crewId);
+    const crewEntity = getActorEntityById(crewId);
+    const crewPosition = crewmate.data.bio.crewPosition;
+    const skillKey = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
+    const attributeKey = crewmate.data.skills[skillKey].attribute;
+
+    // create a skill roll based off the crew's position.
+    const rollData = {
+      rollType: crewmate.data.skills[skillKey].category,
+      skillKey: skillKey,
+      skill: skillKey ? crewmate.data.skills[skillKey].value : 0,
+      attributeKey: attributeKey,
+      attribute: attributeKey
+        ? crewmate.data.attributes[attributeKey].value
+        : 0,
+      modifier: 0,
+      rollTitle: CONFIG.YZECORIOLIS.skillRolls[skillKey],
+      pushed: false,
+      actor: crewEntity,
+    };
+
+    const chatOptions = crewEntity._prepareChatRollOptions(
+      "systems/yzecoriolis/templates/sidebar/roll.html",
+      "skill"
+    );
+    coriolisModifierDialog((modifier) => {
+      rollData.modifier = modifier;
+      coriolisRoll(chatOptions, rollData);
+    });
   }
 }

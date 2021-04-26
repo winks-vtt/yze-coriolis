@@ -2,7 +2,7 @@
   <div class="hStack hStack-10">
     {{#each actor.crew as |crew|}}
     <div class="crew-card vStack vStack-4">
-      <div class="crew-portrait flex6 flexcol rounded border-base border-gray-2">
+      <div class="crew-portrait flex6 flexcol rounded border-base border-gray-2" data-crew={{crew._id}}>
         <div class="display-grid flex1">
           <div class="col-start-1 col-end-2 row-start-1 row-end-2 crew-portrait"
           style="background-image: url({{crew.data.keyArt}})">

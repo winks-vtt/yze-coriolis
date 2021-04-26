@@ -33,3 +33,17 @@ export const getActorById = (actorId) => {
   }
   return actor.data;
 };
+
+/**
+ * @param  {String} actorId
+ * @returns the Actor Entity object for actorId. Not meant for general use.
+ * Prefer to use getActorById when possible.
+ */
+export const getActorEntityById = (actorId) => {
+  const actor = game.actors.get(actorId);
+  if (!actor) {
+    console.warn("actor not found with ID: ", actorId);
+    return null;
+  }
+  return actor;
+};
