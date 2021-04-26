@@ -156,18 +156,18 @@ function isValidRoll(rollData, errorObj) {
   const attribute = rollData.attribute;
   const bonus = rollData.bonus;
   switch (rollData.rollType) {
-    case "skill":
+    case "general": // general skills
       return attribute + skill > 0;
-    case "weapon":
-      return attribute + skill + bonus > 0;
-    case "armor":
-      return bonus >= 0; // should probably always be true?
-    case "advancedSkill":
+    case "advanced": // advanced skills
       if (skill <= 0) {
         errorObj.error = "YZECORIOLIS.ErrorsInvalidAdvancedSkillRoll";
         return false;
       }
       return attribute + skill > 0;
+    case "weapon":
+      return attribute + skill + bonus > 0;
+    case "armor":
+      return bonus >= 0; // should probably always be true?
     case "attribute":
       return attribute > 0;
   }
@@ -213,9 +213,9 @@ function getTotalDice(rollData) {
   let modifier = rollData.modifier;
   let bonus = rollData.bonus;
   switch (rollData.rollType) {
-    case "skill":
+    case "general":
       return attributeValue + skillValue + modifier;
-    case "advancedSkill":
+    case "advanced":
       return attributeValue + skillValue + modifier;
     case "attribute":
       return attributeValue + modifier;
