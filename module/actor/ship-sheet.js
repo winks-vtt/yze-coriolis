@@ -52,6 +52,10 @@ export class yzecoriolisShipSheet extends ActorSheet {
       data.energyPoints.max
     );
 
+    // since energy points are a derived value and not a stored value, we need to expose it as a field
+    // for the template, unlike the more simple hull points.
+    sheetActor.currentShipEP = activeTokens.length;
+
     // pull in any relevant crew.
     sheetActor.crew = [];
     const shipId = sheetActor._id;

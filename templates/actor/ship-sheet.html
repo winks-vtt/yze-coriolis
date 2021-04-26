@@ -35,9 +35,9 @@
             class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm flexrow">
             <div class="white-1">Hull Points</div>
             <div class="bar hull-bar fr-basic flex7">
-              {{#each actor.hullBlocks as |on index|}}
+              {{#each actor.hullBlocks as |hBlock index|}}
               {{#with ../data as | data |}}
-              {{#if on}}
+              {{#if hBlock.on}}
               <div class="hull-bar-segment bar-segment bar-pill on" data-name="data.hullPoints.value" data-index={{index}}
                 data-current={{data.hullPoints.value}} data-min={{data.hullPoints.min}}
                 data-max={{data.hullPoints.max}}>
@@ -58,22 +58,22 @@
             class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm mg-t-xsm flexrow">
             <div class="white-1">Energy Points</div>
             <div class="bar ep-bar fr-basic flex7">
-              {{#each actor.energyBlocks as |on index|}}
+              {{#each actor.energyBlocks as |eBlock index|}}
               {{#with ../data as | data |}}
-              {{#if on}}
+              {{#if eBlock.on}}
               <div class="ep-bar-segment bar-segment bar-pill on" data-name="data.energyPoints.value"
-                data-index={{index}} data-current={{data.energyPoints.value}}
-                data-min={{data.energyPoints.min}} data-max={{data.energyPoints.max}}>
+                data-index={{index}} data-current={{eBlock.current}}
+                data-min={{eBlock.min}} data-max={{eBlock.max}}>
               </div>
               {{else}}
               <div class="ep-bar-segment bar-segment bar-pill off" data-name="data.energyPoints.value"
-                data-index={{index}} data-current={{data.energyPoints.value}}
-                data-min={{data.energyPoints.min}} data-max={{data.energyPoints.max}}>
+                data-index={{index}} data-current={{eBlock.current}}
+                data-min={{eBlock.min}} data-max={{eBlock.max}}>
               </div>
               {{/if}}
               {{/with}}
               {{/each}}
-              <span class="bar-value white-1">{{data.energyPoints.value}}</span>
+              <span class="bar-value white-1">{{actor.currentShipEP}}</span>
             </div>
           </div>
           <div class="bottom-half-container">
