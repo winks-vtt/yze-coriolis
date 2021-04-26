@@ -18,4 +18,12 @@ export const registerSystemSettings = function () {
     type: Number,
     default: 0,
   });
+
+  game.settings.register("yzecoriolis", "maxEPTokensAllowed", {
+    name: game.i18n.localize("YZECORIOLIS.SettingMaxEnergyPoints"),
+    scope: "world",
+    config: true,
+    type: Number,
+    default: 10,
+  });
 };

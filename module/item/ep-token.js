@@ -94,3 +94,10 @@ export const crewEPCount = (shipEntity, crewId) => {
   const activeTokens = getActiveEPTokens(shipEntity);
   return activeTokens.filter((a) => a.data.holder === crewId).length;
 };
+
+/**
+ * returns the maximum allowed EP Tokens a user or ship can hold.
+ */
+export const getMaxAllowedEPTokens = () => {
+  return game.settings.get("yzecoriolis", "maxEPTokensAllowed");
+};

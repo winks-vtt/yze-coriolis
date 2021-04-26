@@ -2,6 +2,7 @@ import {
   setActiveEPTokens,
   shipEPCount,
   crewEPCount,
+  getMaxAllowedEPTokens,
 } from "../item/ep-token.js";
 import {
   computeNewBarValue,
@@ -50,11 +51,9 @@ export class yzecoriolisShipSheet extends ActorSheet {
       data.hullPoints.max
     );
 
+    const maxTokens = getMaxAllowedEPTokens();
     const shipTokenCount = shipEPCount(this.actor);
-    sheetActor.energyBlocks = prepDataBarBlocks(
-      shipTokenCount,
-      data.energyPoints.max
-    );
+    sheetActor.energyBlocks = prepDataBarBlocks(shipTokenCount, maxTokens);
 
     // since energy points are a derived value and not a stored value, we need to expose it as a field
     // for the template, unlike the more simple hull points.
@@ -72,10 +71,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
         }
         const charEPCount = crewEPCount(this.actor, rootData.id);
         const crewCopy = { ...rootData };
-        crewCopy.energyBlocks = prepDataBarBlocks(
-          charEPCount,
-          data.energyPoints.max
-        );
+        crewCopy.energyBlocks = prepDataBarBlocks(charEPCount, maxTokens);
         crewCopy.currentEP = charEPCount;
         sheetActor.crew.push(crewCopy);
       }
