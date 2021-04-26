@@ -778,6 +778,9 @@
   transition: color 275ms ease;
   text-decoration: none;
 }
+.yzecoriolis.sheet.actor .cursor-pointer {
+  cursor: pointer;
+}
 .bar-bg {
   padding: 0px 5px 0px 5px;
   border: 1px solid #a4a4a4;
@@ -2273,6 +2276,44 @@
   max-height: 269px;
   background-position: -77px -15px;
   background-size: 180%;
+}
+.yzecoriolis.sheet.actor .ship .crew-card .crew-roll-number {
+  transition: transform 275ms ease, color 275ms ease, text-shadow 275ms ease;
+}
+.yzecoriolis.sheet.actor .ship .crew-card .crew-roll-number-hover {
+  transform: translateY(-3px) scale(1.1);
+  color: #041126;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+.yzecoriolis.sheet.actor .ship .crew-card .roll-glow {
+  position: relative;
+  top: -20px;
+  background-repeat: no-repeat;
+  background-image: url("icons/roll-glow.svg");
+  background-position: center center;
+  background-size: contain;
+  transform: scale(2.5);
+  opacity: 0%;
+  pointer-events: none;
+}
+@keyframes rollGlowAnim {
+  0% {
+    opacity: 10%;
+    transform: scale(2.5, 2.5);
+  }
+  50% {
+    opacity: 100%;
+    transform: scale(2.5, 3);
+  }
+  100% {
+    opacity: 10%;
+    transform: scale(2.5, 2.5);
+  }
+}
+.yzecoriolis.sheet.actor .ship .crew-card .roll-glow-animated {
+  animation-name: rollGlowAnim;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
 .yzecoriolis.sheet.actor .ship .crew-panel {
   padding-left: 10px;
