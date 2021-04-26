@@ -61,12 +61,12 @@
               {{#each actor.energyBlocks as |eBlock index|}}
               {{#with ../data as | data |}}
               {{#if eBlock.on}}
-              <div class="ep-bar-segment bar-segment bar-pill on" data-name="data.energyPoints.value"
+              <div class="ep-bar-segment bar-segment bar-pill on"
                 data-index={{index}} data-current={{eBlock.current}}
                 data-min={{eBlock.min}} data-max={{eBlock.max}}>
               </div>
               {{else}}
-              <div class="ep-bar-segment bar-segment bar-pill off" data-name="data.energyPoints.value"
+              <div class="ep-bar-segment bar-segment bar-pill off"
                 data-index={{index}} data-current={{eBlock.current}}
                 data-min={{eBlock.min}} data-max={{eBlock.max}}>
               </div>

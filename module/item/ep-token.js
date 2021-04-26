@@ -57,6 +57,8 @@ export const resetAllEPTokens = async (shipEntity) => {
  * @param  {Number} activeCount
  */
 export const setActiveEPTokens = async (shipEntity, activeCount) => {
+  // TODO: try to collapse this reset + set into a single API call to possibly
+  // avoid double renders.
   await resetAllEPTokens(shipEntity);
   const refreshedShip = game.actors.get(shipEntity.id);
   const tokens = getEPTokens(refreshedShip);
