@@ -3,6 +3,7 @@ import {
   shipEPCount,
   crewEPCount,
   getMaxAllowedEPTokens,
+  setCrewEPCount,
 } from "../item/ep-token.js";
 import {
   computeNewBarValue,
@@ -69,7 +70,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
         if (shipId !== crewShipId) {
           continue;
         }
-        const charEPCount = crewEPCount(this.actor, rootData.id);
+        const charEPCount = crewEPCount(this.actor, rootData._id);
         const crewCopy = { ...rootData };
         crewCopy.energyBlocks = prepDataBarBlocks(charEPCount, maxTokens);
         crewCopy.currentEP = charEPCount;
@@ -90,6 +91,9 @@ export class yzecoriolisShipSheet extends ActorSheet {
       .find(".hull-bar-segment")
       .click(this._onClickHullBarSegment.bind(this));
     html.find(".ep-bar-segment").click(this._onClickEPBarSegment.bind(this));
+    html
+      .find(".crew-bar-segment")
+      .click(this._onClickCrewBarSegment.bind(this));
     html.find(".bar-segment").mouseenter(onHoverBarSegmentIn);
     html.find(".bar").mouseleave(onHoverBarOut);
   }
@@ -99,6 +103,14 @@ export class yzecoriolisShipSheet extends ActorSheet {
     // when the EP bar is clicked, do the standard data fetching, but activate the correct EPTokens
     const newBarValue = this.getNewBarValue(event);
     await setActiveEPTokens(this.actor, newBarValue);
+  }
+
+  async _onClickCrewBarSegment(event) {
+    event.preventDefault();
+    const targetSegment = event.currentTarget;
+    const crewId = targetSegment.dataset.crew;
+    const newBarValue = this.getNewBarValue(event);
+    await setCrewEPCount(this.actor, crewId, newBarValue);
   }
 
   async _onClickHullBarSegment(event) {

@@ -25,13 +25,13 @@
         <div class="bar ep-bar fr-basic flex7">
         {{#each crew.energyBlocks as |cBlock index|}}
           {{#if cBlock.on}}
-          <div class="bar-segment bar-pill on"
-            data-index={{index}} data-current={{cBlock.current}}
+          <div class="crew-bar-segment bar-segment bar-pill on"
+            data-index={{index}} data-current={{cBlock.current}} data-crew={{crew._id}}
             data-min={{cBlock.min}} data-max={{cBlock.max}}>
           </div>
           {{else}}
-          <div class="bar-segment bar-pill off"
-            data-index={{index}} data-current={{cBlock.current}}
+          <div class="crew-bar-segment bar-segment bar-pill off"
+            data-index={{index}} data-current={{cBlock.current}} data-crew={{crew._id}}
             data-min={{cBlock.min}} data-max={{cBlock.max}}>
           </div>
           {{/if}}

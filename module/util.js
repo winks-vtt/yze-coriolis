@@ -20,3 +20,7 @@ export const getActorsByType = (actorType) => {
     return a.data.type === actorType;
   });
 };
+
+export const getActorById = (actorId) => {
+  return game.actors.get(actorId);
+};
