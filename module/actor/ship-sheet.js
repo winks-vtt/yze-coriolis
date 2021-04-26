@@ -104,6 +104,14 @@ export class yzecoriolisShipSheet extends ActorSheet {
 
     // crew portrait rolling
     html.find(".crew-portrait").click(this._onClickCrewPortrait.bind(this));
+
+    // crew portrait hovering flourishes
+    html
+      .find(".crew-portrait")
+      .mouseenter(this._onHoverInCrewPortrait.bind(this));
+    html
+      .find(".crew-portrait")
+      .mouseleave(this._onHoverOutCrewPortrait.bind(this));
   }
 
   async _onClickEPBarSegment(event) {
@@ -182,5 +190,24 @@ export class yzecoriolisShipSheet extends ActorSheet {
       rollData.modifier = modifier;
       coriolisRoll(chatOptions, rollData);
     });
+  }
+
+  _onHoverInCrewPortrait(event) {
+    event.preventDefault();
+    // make the number animate
+    const portraitDiv = event.currentTarget;
+    $(portraitDiv).find(".crew-roll-number").addClass("crew-roll-number-hover");
+    $(portraitDiv).find(".roll-glow").addClass("roll-glow-animated");
+  }
+
+  _onHoverOutCrewPortrait(event) {
+    event.preventDefault();
+    // make the number animation reset.
+    const portraitDiv = event.currentTarget;
+    $(portraitDiv)
+      .find(".crew-roll-number")
+      .removeClass("crew-roll-number-hover");
+
+    $(portraitDiv).find(".roll-glow").removeClass("roll-glow-animated");
   }
 }
