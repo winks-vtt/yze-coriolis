@@ -84,3 +84,13 @@ export const shipEPCount = (shipEntity) => {
   const activeTokens = getActiveEPTokens(shipEntity);
   return activeTokens.filter((a) => a.data.holder === shipEntity.id).length;
 };
+/**
+ * @param  {} shipEntity
+ * @param  {} crewId ID of crew
+ * @returns the amount of active EP tokens that are currently held by this crew
+ * member
+ */
+export const crewEPCount = (shipEntity, crewId) => {
+  const activeTokens = getActiveEPTokens(shipEntity);
+  return activeTokens.filter((a) => a.data.holder === crewId).length;
+};

@@ -1,4 +1,8 @@
-import { setActiveEPTokens, shipEPCount } from "../item/ep-token.js";
+import {
+  setActiveEPTokens,
+  shipEPCount,
+  crewEPCount,
+} from "../item/ep-token.js";
 import {
   computeNewBarValue,
   onHoverBarSegmentIn,
@@ -66,11 +70,13 @@ export class yzecoriolisShipSheet extends ActorSheet {
         if (shipId !== crewShipId) {
           continue;
         }
+        const charEPCount = crewEPCount(this.actor, rootData.id);
         const crewCopy = { ...rootData };
         crewCopy.energyBlocks = prepDataBarBlocks(
-          data.energyPoints.value,
+          charEPCount,
           data.energyPoints.max
         );
+        crewCopy.currentEP = charEPCount;
         sheetActor.crew.push(crewCopy);
       }
     }
