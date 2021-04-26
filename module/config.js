@@ -37,6 +37,7 @@ YZECORIOLIS.crewPositions = {
   gunner: "YZECORIOLIS.CrewSpotGunner",
 };
 
+// maps crew positions to skill rolls
 YZECORIOLIS.crewRolls = {
   captain: "command",
   engineer: "technology",
