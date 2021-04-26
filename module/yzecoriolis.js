@@ -19,6 +19,7 @@ import {
   displayDarknessPoints,
 } from "./darkness-points.js";
 import { setupMCE } from "./mce.js";
+import { getActorById } from "./util.js";
 
 Hooks.once("init", async function () {
   console.log(`Coriolis | Initializing Coriolis\n${YZECORIOLIS.ASCII}`);
@@ -247,9 +248,19 @@ Hooks.once("init", async function () {
     return `${ship.data.name} - ${positionName}`;
   });
 
-  Handlebars.registerHelper("getShipRollForPosition", function (crewPosition) {
-    const skill = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
-    return CONFIG.YZECORIOLIS.skills[skill];
+  Handlebars.registerHelper(
+    "getShipRollNameForPosition",
+    function (crewPosition) {
+      const skill = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
+      return CONFIG.YZECORIOLIS.skills[skill];
+    }
+  );
+
+  Handlebars.registerHelper("getShipRollValueForPosition", function (crewId) {
+    const crew = getActorById(crewId);
+    const crewPosition = crew.data.bio.crewPosition;
+    const skillKey = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
+    return crew.data.skills[skillKey].value;
   });
 });
 
@@ -373,8 +384,12 @@ Hooks.once("ready", async function () {
     }
     await migrations.migrateWorld();
   }
+  // TODO: delete this.
+  migrations.shipTokenHelper();
+
   //bootstrapTalentCompendium();
   //bootstrapGearCompendium();
+
   // wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) =>
     createYzeCoriolisMacro(data, slot)
