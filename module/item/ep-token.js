@@ -1,4 +1,4 @@
-import { getID, getOwnedItemsByType, getActorById } from "../util.js";
+import { getID, getOwnedItemsByType } from "../util.js";
 
 /**
  * @param  {Actor} shipEntity
@@ -26,6 +26,7 @@ const getEPTokens = (shipEntity) => {
 };
 
 /**
+ * Returns the active tokens on the ship, regardless of holder.
  * @param  {Actor} shipEntity
  */
 const getActiveEPTokens = (shipEntity) => {
@@ -34,46 +35,27 @@ const getActiveEPTokens = (shipEntity) => {
 };
 
 /**
- * Takes all active tokens and deactives them. Then sets their holders back to
- * ship ID.
- * @param  {Actor} shipEntity
- */
-export const resetAllEPTokens = async (shipEntity) => {
-  const activeTokens = getActiveEPTokens(shipEntity);
-  activeTokens.map((t) => {
-    t.data.active = false;
-    t.data.holder = shipEntity.id;
-  });
-
-  if (activeTokens.length === 0) {
-    return null;
-  }
-
-  return await shipEntity.updateEmbeddedEntity("OwnedItem", activeTokens);
-};
-
-/**
+ * Sets the active number of tokens for the ship. Side effect is all tokens that
+ * are currently assigned to crew members are returned to the ship.
  * @param  {Actor} shipEntity
  * @param  {Number} activeCount
  */
 export const setActiveEPTokens = async (shipEntity, activeCount) => {
-  // TODO: try to collapse this reset + set into a single API call to possibly
-  // avoid double renders.
-  await resetAllEPTokens(shipEntity);
-  const refreshedShip = getActorById(shipEntity.id);
-  const tokens = getEPTokens(refreshedShip);
-  const newActiveTokens = [];
+  const allTokens = getEPTokens(shipEntity);
+  // first turn of all tokens and set their holder to ship.
+  const newActiveTokens = allTokens.map((at) => ({
+    _id: at._id,
+    data: {
+      active: false,
+      holder: shipEntity.id,
+    },
+  }));
+
+  // activate a select amount of tokens.
   for (let i = 0; i < activeCount; ++i) {
-    const tk = {
-      _id: tokens[i]._id,
-      data: {
-        active: true,
-        holder: refreshedShip.id,
-      },
-    };
-    newActiveTokens.push(tk);
+    newActiveTokens[i].data.active = true;
   }
-  await refreshedShip.updateEmbeddedEntity("OwnedItem", newActiveTokens);
+  await shipEntity.updateEmbeddedEntity("OwnedItem", newActiveTokens);
 };
 
 /**
@@ -83,34 +65,6 @@ export const setActiveEPTokens = async (shipEntity, activeCount) => {
 export const shipEPCount = (shipEntity) => {
   const activeTokens = getActiveEPTokens(shipEntity);
   return activeTokens.filter((a) => a.data.holder === shipEntity.id).length;
-};
-
-/**
- * @param  {} shipEntity
- * @returns all active tokens that are assigned to the ship.
- */
-const getShipTokens = (shipEntity) => {
-  const activeTokens = getActiveEPTokens(shipEntity);
-  return activeTokens.filter((a) => a.data.holder === shipEntity.id);
-};
-
-/**
- * Takes the tokens assigned to this crew member and re-assigns them back to the ship.
- * @param  {} shipEntity
- * @param  {} crewId
- */
-export const restoreCrewEPTokensToShip = async (shipEntity, crewId) => {
-  const activeTokens = getActiveEPTokens(shipEntity);
-  const crewTokens = activeTokens.filter((a) => a.data.holder === crewId);
-  const updatedData = crewTokens.map((ct) => {
-    return {
-      _id: ct._id,
-      data: {
-        holder: shipEntity.id,
-      },
-    };
-  });
-  await shipEntity.updateEmbeddedEntity("OwnedItem", updatedData);
 };
 
 /**
@@ -133,21 +87,25 @@ export const crewEPCount = (shipEntity, crewId) => {
  * @param  {Number} count
  */
 export const setCrewEPCount = async (shipEntity, crewId, count) => {
-  await restoreCrewEPTokensToShip(shipEntity, crewId);
-  const shipTokenCount = shipEPCount(shipEntity);
-  const allowedCount = Math.min(count, shipTokenCount);
-  const shipTokens = getShipTokens(shipEntity);
-  const updatedTokens = [];
+  // first take any tokens owned by this crew member and return them to the
+  // ship.
+  const activeTokens = getActiveEPTokens(shipEntity);
+  const updateData = activeTokens.map((at) => ({
+    _id: at._id,
+    data: {
+      holder: at.data.holder === crewId ? shipEntity.id : at.data.holder,
+    },
+  }));
+  // move count amount of tokens from ship to crewId but if it's higher than
+  // available, just move what's available.
+  const shipTokens = updateData.filter(
+    (ud) => ud.data.holder === shipEntity.id
+  );
+  const allowedCount = Math.min(count, shipTokens.length);
   for (let i = 0; i < allowedCount; i++) {
-    const t = shipTokens[i];
-    updatedTokens.push({
-      _id: t._id,
-      data: {
-        holder: crewId,
-      },
-    });
+    shipTokens[i].data.holder = crewId;
   }
-  await shipEntity.updateEmbeddedEntity("OwnedItem", updatedTokens);
+  await shipEntity.updateEmbeddedEntity("OwnedItem", updateData);
 };
 
 /**
