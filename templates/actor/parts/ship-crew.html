@@ -2,7 +2,7 @@
   <div class="hStack hStack-10">
     {{#each actor.crew as |crew|}}
     <div class="crew-card vStack vStack-4">
-      <div class="crew-portrait flex6 flexcol rounded border-base border-gray-2" data-crew={{crew._id}}>
+      <div class="crew-portrait flex6 flexcol rounded border-base border-gray-2 cursor-pointer" data-crew={{crew._id}}>
         <div class="display-grid flex1">
           <div class="col-start-1 col-end-2 row-start-1 row-end-2 crew-portrait"
           style="background-image: url({{crew.data.keyArt}})">
@@ -15,8 +15,14 @@
                 <div class="font-play white-1 upper-case text-xlg text-shadow-3">{{getCrewPositionNameBasic crew.data.bio.crewPosition}}</div>
                 <div class="font-play white-1 upper-case text-base text-shadow-3">{{crew.name}}</div>
               </div>
-              <div class="pt-60 font-cairo-bold white-1 text-84 text-shadow-3 text-center">{{getShipRollValueForPosition crew._id}}</div>
-              <div class="pb-10 flex-no-grow font-play white-1 upper-case text-base text-shadow-3 text-center">{{getShipRollNameForPosition crew.data.bio.crewPosition}}</div>
+              <div class="pt-60 font-cairo-bold white-1 text-84 text-shadow-3 text-center">
+                <div class="display-grid">
+                  {{!-- Glow div --}}
+                  <div class="roll-glow col-start-1 col-end-2 row-start-1 row-end-2 z-1"></div>
+                  <div class=" crew-roll-number col-start-1 col-end-2 row-start-1 row-end-2 z-2">{{getShipRollValueForPosition crew._id}}</div>
+                </div>
+              </div>
+              <div class="pb-10 flex-no-grow font-play white-1 upper-case text-base text-shadow-3 text-center z-2">{{getShipRollNameForPosition crew.data.bio.crewPosition}}</div>
             </div>
           </div>
         </div>
