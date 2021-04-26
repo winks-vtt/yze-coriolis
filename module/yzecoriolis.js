@@ -384,8 +384,6 @@ Hooks.once("ready", async function () {
     }
     await migrations.migrateWorld();
   }
-  // TODO: delete this.
-  migrations.shipTokenHelper();
 
   //bootstrapTalentCompendium();
   //bootstrapGearCompendium();

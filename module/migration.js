@@ -361,13 +361,13 @@ const migrateShipEPTokens = async function () {
   const ships = getActorsByType("ship");
   const MAX_TOKENS = 50;
   for (let s of ships) {
-    const shipTokens = getOwnedItemsByType(s.data, "energyPointToken");
+    const shipTokens = getOwnedItemsByType(s, "energyPointToken");
     const createCount = MAX_TOKENS - shipTokens.length;
     if (createCount <= 0) {
       continue;
     }
     for (let i = 0; i < createCount; i++) {
-      console.create("creating missing EP tokens for ships");
+      console.log("creating missing EP tokens for ships");
       await createBlankEPToken(s);
     }
   }
