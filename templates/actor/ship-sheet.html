@@ -59,7 +59,6 @@
             <div class="white-1">Energy Points</div>
             <div class="bar ep-bar fr-basic flex7">
               {{#each actor.energyBlocks as |eBlock index|}}
-              {{#with ../data as | data |}}
               {{#if eBlock.on}}
               <div class="ep-bar-segment bar-segment bar-pill on"
                 data-index={{index}} data-current={{eBlock.current}}
@@ -71,7 +70,6 @@
                 data-min={{eBlock.min}} data-max={{eBlock.max}}>
               </div>
               {{/if}}
-              {{/with}}
               {{/each}}
               <span class="bar-value white-1">{{actor.currentShipEP}}</span>
             </div>

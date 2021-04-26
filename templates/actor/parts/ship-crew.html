@@ -24,7 +24,6 @@
       <div class="crew-ep-container">
         <div class="bar ep-bar fr-basic flex7">
         {{#each crew.energyBlocks as |cBlock index|}}
-          {{#with ../data as | data |}}
           {{#if cBlock.on}}
           <div class="bar-segment bar-pill on"
             data-index={{index}} data-current={{cBlock.current}}
@@ -36,7 +35,6 @@
             data-min={{cBlock.min}} data-max={{cBlock.max}}>
           </div>
           {{/if}}
-          {{/with}}
         {{/each}}
           <span class="bar-value white-1">{{crew.currentEP}}</span>
         </div>
