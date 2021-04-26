@@ -3,6 +3,7 @@
 @import "./utils/databar.less";
 
 .yzecoriolis.sheet.actor.character {
+
   /*
     Background & Container
     */
@@ -20,6 +21,7 @@
 }
 
 .yzecoriolis.sheet.actor {
+
   /*
     mixins
     */
@@ -138,12 +140,10 @@
   }
 
   .gradient-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.635714) 28.12%,
-      @colorBlack 72.92%
-    );
+    background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.635714) 28.12%,
+        @colorBlack 72.92%);
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 2;
@@ -152,12 +152,10 @@
   }
 
   .always-visible-stats {
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.635714) 28.12%,
-      @colorBlack 72.92%
-    );
+    background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.635714) 28.12%,
+        @colorBlack 72.92%);
 
     grid-column-start: 1;
     grid-column-end: 2;
@@ -1070,8 +1068,7 @@
           padding: 0px 35px 0px 10px;
 
           border: none;
-          background: url("icons/drop-down-arrow.svg") 96% / 15% no-repeat
-            @colorBlueTransparent;
+          background: url("icons/drop-down-arrow.svg") 96% / 15% no-repeat @colorBlueTransparent;
           background-position: right 0.7em top 50%;
 
           &:focus {
@@ -1192,13 +1189,13 @@
         // grid-row-end: 2;
       }
 
-      .crew-ep-container {
-        // grid-column-start: 1;
-        // grid-column-end: 2;
-        // grid-row-start: 2;
-        // grid-row-end: 3;
-        background-color: blue;
-      }
+      // .crew-ep-container {
+      //   // grid-column-start: 1;
+      //   // grid-column-end: 2;
+      //   // grid-row-start: 2;
+      //   // grid-row-end: 3;
+      //   // background-color: blue;
+      // }
     }
 
     .crew-panel {
