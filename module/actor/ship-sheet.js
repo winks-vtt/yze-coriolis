@@ -4,6 +4,7 @@ import {
   crewEPCount,
   getMaxAllowedEPTokens,
   setCrewEPCount,
+  crewHasTokens,
 } from "../item/ep-token.js";
 import {
   computeNewBarValue,
@@ -102,6 +103,11 @@ export class yzecoriolisShipSheet extends ActorSheet {
     event.preventDefault();
     // when the EP bar is clicked, do the standard data fetching, but activate the correct EPTokens
     const newBarValue = this.getNewBarValue(event);
+    if (crewHasTokens(this.actor)) {
+      ui.notifications.info(
+        game.i18n.localize("YZECORIOLIS.EnergyPointsReset")
+      );
+    }
     await setActiveEPTokens(this.actor, newBarValue);
   }
 

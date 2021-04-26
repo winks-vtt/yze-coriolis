@@ -68,8 +68,8 @@ export const shipEPCount = (shipEntity) => {
 };
 
 /**
- * @param  {} shipEntity
- * @param  {} crewId ID of crew
+ * @param  {Actor} shipEntity
+ * @param  {String} crewId ID of crew
  * @returns the amount of active EP tokens that are currently held by this crew
  * member
  */
@@ -108,6 +108,14 @@ export const setCrewEPCount = async (shipEntity, crewId, count) => {
   await shipEntity.updateEmbeddedEntity("OwnedItem", updateData);
 };
 
+/**
+ * @param  {Actor} shipEntity
+ * @returns true/false if any crew are currently holding tokens
+ */
+export const crewHasTokens = (shipEntity) => {
+  const activeTokens = getActiveEPTokens(shipEntity);
+  return activeTokens.filter((a) => a.data.holder !== shipEntity.id).length > 0;
+};
 /**
  * returns the maximum allowed EP Tokens a user or ship can hold.
  */

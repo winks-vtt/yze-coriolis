@@ -336,6 +336,8 @@
   "YZECORIOLIS.CriticalDamage": "Critical Damage",
   "YZECORIOLIS.Notes": "Notes",
 
-  "YZECORIOLIS.SettingMaxEnergyPoints": "Maximum Allowed Energy Points"
+  "YZECORIOLIS.SettingMaxEnergyPoints": "Maximum Allowed Energy Points",
+
+  "YZECORIOLIS.EnergyPointsReset": "Energy Points assigned to crew returned to ship reactor."
 
 }
