@@ -161,13 +161,19 @@ export class yzecoriolisShipSheet extends ActorSheet {
     event.preventDefault();
     const targetPortrait = event.currentTarget;
     const crewId = targetPortrait.dataset.crew;
+    const crewEntity = getActorEntityById(crewId);
 
     // For rolling on the ship sheet, the user who owns that actor can roll on
     // the ship sheet. The GM can also roll any actor.
     const isGM = game.user.isGM;
     const targetActor = getActorById(game.user.data.character);
 
-    const isRollingForOwnActor = targetActor?._id === crewId;
+    // you are either the character, or you own a character (in the case you may
+    // be running two different characters at the same time in a session)
+    const isRollingForOwnActor =
+      targetActor?._id === crewId ||
+      crewEntity.permission === CONST.ENTITY_PERMISSIONS.OWNER;
+
     if (!isGM && !isRollingForOwnActor) {
       ui.notifications.error(
         "You do not have permissions to roll for this actor"
@@ -176,7 +182,6 @@ export class yzecoriolisShipSheet extends ActorSheet {
     }
 
     const crewmate = getActorById(crewId);
-    const crewEntity = getActorEntityById(crewId);
     const crewPosition = crewmate.data.bio.crewPosition;
     const skillKey = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
     const attributeKey = crewmate.data.skills[skillKey].attribute;
