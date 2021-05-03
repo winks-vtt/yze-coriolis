@@ -22,6 +22,8 @@ Hooks.on("updateActor", (entity, data, options, userId) => {
       }
     }
   }
+
+  rerenderAllShips();
 });
 
 // eslint-disable-next-line no-unused-vars
@@ -51,6 +53,15 @@ function rerenderAllCrew() {
   }
 }
 
+function rerenderAllShips() {
+  // re render all ships to update their crew tabs.
+  for (let e of game.actors.entities) {
+    let rootData = e.data;
+    if (rootData.type === "ship") {
+      e.render(true);
+    }
+  }
+}
 async function createEPTokensForShip(entity) {
   for (let i = 0; i < CONFIG.YZECORIOLIS.MaxEPTokensPerShip; i++) {
     await createBlankEPToken(entity);
