@@ -330,6 +330,7 @@
     "shipModule": {
       "templates": ["gear"],
       "bonus": 0,
+      "enabled": false,
       "damage": 0,
       "range": "",
       "crit": {
