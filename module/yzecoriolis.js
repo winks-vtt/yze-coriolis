@@ -54,7 +54,7 @@ Hooks.once("init", async function () {
   registerSystemSettings();
 
   // Some item types are internal only and shouldn't be user-created,
-  // such as EP tokens.
+  // such as EP tokens, so they are left out of this list.
   game.system.entityTypes.Item = [
     "item",
     "gear",
@@ -63,6 +63,7 @@ Hooks.once("init", async function () {
     "armor",
     "injury",
     "shipProblem",
+    "shipModule",
   ];
 
   // Register sheet application classes
@@ -285,6 +286,7 @@ Hooks.once("setup", function () {
     "ranges",
     "icons",
     "crewPositions",
+    "shipModuleTypes",
   ];
 
   // exclude sorting from some config values where the order matters.

@@ -259,7 +259,8 @@
       "armor",
       "injury",
       "shipProblem",
-      "energyPointToken"
+      "energyPointToken",
+      "shipModule"
     ],
     "templates": {
       "base": {
@@ -325,6 +326,18 @@
     },
     "shipProblem": {
       "templates": ["base"]
+    },
+    "shipModule": {
+      "templates": ["gear"],
+      "bonus": 0,
+      "damage": 0,
+      "range": "",
+      "crit": {
+        "numericValue": 0,
+        "customValue": ""
+      },
+      "category": "",
+      "special": {}
     },
     "energyPointToken": {
       "active": false,

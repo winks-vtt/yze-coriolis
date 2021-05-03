@@ -268,3 +268,10 @@ YZECORIOLIS.icons = {
   judge: "YZECORIOLIS.IconJudge",
   faceless: "YZECORIOLIS.IconFaceless",
 };
+
+// General types are just either required or optional modules.
+// Weapon types are a sub-category of modules that actually house weaponry.
+YZECORIOLIS.shipModuleTypes = {
+  general: "YZECORIOLIS.ShipModuleGeneral",
+  weapon: "YZECORIOLIS.ShipModuleWeaponry",
+};

@@ -340,6 +340,9 @@
 
   "YZECORIOLIS.EnergyPointsReset": "Energy Points previously assigned to crew returned to ship reactor.",
   "YZECORIOLIS.InvalidEPPermissions": "You do not have permission to change ship EP distribution.",
-  "YZECORIOLIS.InvalidCrewRollPermissions": "You do not have permissions to roll for this actor on this ship."
+  "YZECORIOLIS.InvalidCrewRollPermissions": "You do not have permissions to roll for this actor on this ship.",
+
+  "YZECORIOLIS.ShipModuleGeneral": "Ship Module",
+  "YZECORIOLIS.ShipModuleWeaponry": "Weapon Module"
 
 }
