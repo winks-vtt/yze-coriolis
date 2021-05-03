@@ -99,7 +99,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     html.find(".ep-bar-segment").click(this._onClickEPBarSegment.bind(this));
     html
       .find(".crew-bar-segment")
-      .click(this._onClickCrewBarSegment.bind(this));
+      .click(this._onClickCrewEPBarSegment.bind(this));
     html.find(".bar-segment").mouseenter(onHoverBarSegmentIn);
     html.find(".bar").mouseleave(onHoverBarOut);
 
@@ -134,8 +134,16 @@ export class yzecoriolisShipSheet extends ActorSheet {
     await setActiveEPTokens(this.actor, newBarValue);
   }
 
-  async _onClickCrewBarSegment(event) {
+  // you can distribute EP to crew mates, but only the engineer and GM can.
+  async _onClickCrewEPBarSegment(event) {
     event.preventDefault();
+    const canChange = canChangeEPForShip(this.actor);
+    if (!canChange) {
+      ui.notifications.error(
+        game.i18n.localize("YZECORIOLIS.InvalidEPPermissions")
+      );
+      return;
+    }
     const targetSegment = event.currentTarget;
     const crewId = targetSegment.dataset.crew;
     const newBarValue = this.getNewBarValue(event);
