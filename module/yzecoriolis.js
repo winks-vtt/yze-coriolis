@@ -260,7 +260,10 @@ Hooks.once("init", async function () {
     const crew = getActorById(crewId);
     const crewPosition = crew.data.bio.crewPosition;
     const skillKey = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
-    return crew.data.skills[skillKey].value;
+    const skillValue = crew.data.skills[skillKey].value;
+    const attribKey = crew.data.skills[skillKey].attribute;
+    const attribValue = crew.data.attributes[attribKey].value;
+    return attribValue + skillValue;
   });
 });
 
