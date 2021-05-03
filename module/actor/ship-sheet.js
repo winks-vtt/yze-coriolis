@@ -83,6 +83,23 @@ export class yzecoriolisShipSheet extends ActorSheet {
         sheetActor.crew.push(crewCopy);
       }
     }
+
+    // have a consistent sort order when displaying ship crews.
+    // TODO: should probably have a set of coriolis constants for these positions.
+    const crewSortingOrder = {
+      captain: 0,
+      engineer: 1,
+      pilot: 2,
+      sensorOperator: 3,
+      gunner: 4,
+    };
+
+    sheetActor.crew = sheetActor.crew.sort((a, b) => {
+      return (
+        crewSortingOrder[a.data.bio.crewPosition.position] -
+        crewSortingOrder[b.data.bio.crewPosition.position]
+      );
+    });
   }
 
   /** @override */
