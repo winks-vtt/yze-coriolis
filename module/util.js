@@ -26,6 +26,9 @@ export const getActorsByType = (actorType) => {
  * @returns the actor data object.
  */
 export const getActorById = (actorId) => {
+  if (!actorId) {
+    return null;
+  }
   const actor = game.actors.get(actorId);
   if (!actor) {
     console.warn("actor not found with ID: ", actorId);
