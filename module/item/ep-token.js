@@ -138,7 +138,7 @@ export const canChangeEPForShip = (shipEntity) => {
     (c) => c.data.bio.crewPosition.position === "engineer"
   );
 
-  for (let e in engineers) {
+  for (let e of engineers) {
     const entity = getActorEntityById(e._id);
     if (entity?.permission === CONST.ENTITY_PERMISSIONS.OWNER) {
       return true;
