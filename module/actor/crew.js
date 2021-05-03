@@ -1,8 +1,8 @@
-// buildCrewOptionsArray returns an array of objects detailing possible crew
-
 import { getActorById } from "../util.js";
 
-// position data that the character sheet can select from.
+// buildCrewOptionsArray returns an array of objects detailing possible crew
+// position data that the character sheet can select from. This does not show
+// any option for a ship the user cannot see.
 export function buildCrewOptionsArray() {
   const createCrewObject = (position, shipId) => {
     return {
@@ -28,9 +28,11 @@ export function buildCrewOptionsArray() {
   options.push(...baseOptions);
 
   // create options for all other ships in the world.
-  // TODO: should have to handle permissions/visibility here?
   for (let e of game.actors.entities) {
     let shipData = e.data;
+    if (e.permission !== CONST.ENTITY_PERMISSIONS.OWNER) {
+      continue;
+    }
     if (shipData.type === "ship") {
       options.push(
         ...baseOptions.map((bo) => {
@@ -74,6 +76,6 @@ export function getCrewForShip(shipId) {
         crewArray.push(actorData);
       }
     }
-}
+  }
   return crewArray;
 }
