@@ -15,7 +15,7 @@ export const getOwnedItemsByType = (actor, itemType) => {
   return actor.data.items.filter((item) => item.type === itemType);
 };
 
-export const getActorsByType = (actorType) => {
+export const getActorEntitiesByType = (actorType) => {
   return game.actors.entities.filter((a) => {
     return a.data.type === actorType;
   });

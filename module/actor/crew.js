@@ -1,4 +1,4 @@
-import { getActorById } from "../util.js";
+import { getActorById, getActorEntitiesByType } from "../util.js";
 
 // buildCrewOptionsArray returns an array of objects detailing possible crew
 // position data that the character sheet can select from. This does not show
@@ -27,23 +27,22 @@ export function buildCrewOptionsArray() {
 
   options.push(...baseOptions);
 
+  const allShips = getActorEntitiesByType("ship");
   // create options for all other ships in the world.
-  for (let e of game.actors.entities) {
+  for (let e of allShips) {
     let shipData = e.data;
     if (e.permission !== CONST.ENTITY_PERMISSIONS.OWNER) {
       continue;
     }
-    if (shipData.type === "ship") {
-      options.push(
-        ...baseOptions.map((bo) => {
-          return createOption(
-            `${shipData.name} - ${bo.label}`,
-            bo.value.position,
-            shipData._id
-          );
-        })
-      );
-    }
+    options.push(
+      ...baseOptions.map((bo) => {
+        return createOption(
+          `${shipData.name} - ${bo.label}`,
+          bo.value.position,
+          shipData._id
+        );
+      })
+    );
   }
   return options;
 }

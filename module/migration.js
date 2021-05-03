@@ -1,5 +1,5 @@
 import { addDarknessPoints } from "./darkness-points.js";
-import { getActorsByType, getOwnedItemsByType } from "./util.js";
+import { getActorEntitiesByType, getOwnedItemsByType } from "./util.js";
 import { createBlankEPToken } from "./item/ep-token.js";
 /**
  * Perform a system migration for the entire World, applying migrations for Actors, Items, and Compendium packs
@@ -358,7 +358,7 @@ const migrateShipEPTokens = async function () {
   if (!game.user.isGM) {
     return;
   }
-  const ships = getActorsByType("ship");
+  const ships = getActorEntitiesByType("ship");
   const MAX_TOKENS = 50;
   for (let s of ships) {
     const shipTokens = getOwnedItemsByType(s, "energyPointToken");
