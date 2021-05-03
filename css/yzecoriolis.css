@@ -2320,6 +2320,12 @@
   padding-right: 10px;
   padding-top: 14px;
 }
+.yzecoriolis.sheet.actor .ship .module-panel {
+  width: 170px;
+  height: 290px;
+  flex-basis: 170px;
+  flex-grow: 0;
+}
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
   /*  Sheet Tabs                             */

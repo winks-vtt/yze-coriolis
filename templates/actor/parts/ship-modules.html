@@ -1,3 +1,9 @@
 <div class="tab crew module-panel" data-group="primary" data-tab="modules">
-  hi
+  <div class="hStack hStack-10">
+    {{#each actor.modules as |module|}}
+      <div class="crew-card vStack vStack-4">
+        <div>{{module.name}}</div>
+      </div>
+    {{/each}}
+  </div>
 </div>

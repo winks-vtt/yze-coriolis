@@ -7,7 +7,11 @@ import {
   crewHasTokens,
   canChangeEPForShip,
 } from "../item/ep-token.js";
-import { getActorById, getActorEntityById } from "../util.js";
+import {
+  getActorById,
+  getActorEntityById,
+  getOwnedItemsByType,
+} from "../util.js";
 import {
   computeNewBarValue,
   onHoverBarSegmentIn,
@@ -100,6 +104,8 @@ export class yzecoriolisShipSheet extends ActorSheet {
         crewSortingOrder[b.data.bio.crewPosition.position]
       );
     });
+
+    sheetActor.modules = getOwnedItemsByType(this.actor, "shipModule");
   }
 
   /** @override */
