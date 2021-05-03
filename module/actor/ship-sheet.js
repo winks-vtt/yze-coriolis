@@ -103,7 +103,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     html.find(".bar").mouseleave(onHoverBarOut);
 
     // crew portrait rolling
-    html.find(".crew-portrait").click(this._onClickCrewPortrait.bind(this));
+    html.find(".crew-portrait").click(this._onRollCrewPosition.bind(this));
 
     // crew portrait hovering flourishes
     html
@@ -157,10 +157,24 @@ export class yzecoriolisShipSheet extends ActorSheet {
     return computeNewBarValue(index, curValue, minValue, maxValue);
   }
 
-  async _onClickCrewPortrait(event) {
+  async _onRollCrewPosition(event) {
     event.preventDefault();
     const targetPortrait = event.currentTarget;
     const crewId = targetPortrait.dataset.crew;
+
+    // For rolling on the ship sheet, the user who owns that actor can roll on
+    // the ship sheet. The GM can also roll any actor.
+    const isGM = game.user.isGM;
+    const targetActor = getActorById(game.user.data.character);
+
+    const isRollingForOwnActor = targetActor?._id === crewId;
+    if (!isGM && !isRollingForOwnActor) {
+      ui.notifications.error(
+        "You do not have permissions to roll for this actor"
+      );
+      return;
+    }
+
     const crewmate = getActorById(crewId);
     const crewEntity = getActorEntityById(crewId);
     const crewPosition = crewmate.data.bio.crewPosition;
