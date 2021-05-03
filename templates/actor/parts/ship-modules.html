@@ -3,6 +3,21 @@
     {{#each actor.modules as |module|}}
       <div class="crew-card vStack vStack-4">
         <div>{{module.name}}</div>
+        <div>
+          {{#if module.data.enabled}}
+          {{localize "YZECORIOLIS.Enabled"}}
+          {{else}}
+          {{localize "YZECORIOLIS.Disabled"}}
+          {{/if}}
+        </div>
+        <div>{{localize "YZECORIOLIS.Bonus"}}: {{module.data.bonus}}</div>
+        <div>{{localize "YZECORIOLIS.Range"}}: {{getRangeName module.data.range}}</div>
+        <div>{{module.data.damage}}</div>
+        {{!-- Need to check if we have numeric or string here for crit  --}}
+        <div>{{module.data.crit.numericValue}}</div>
+        <div>{{getTechTierName module.data.techTier}}</div>
+        <div>Roll</div>
+        <div>Info</div>
       </div>
     {{/each}}
   </div>
