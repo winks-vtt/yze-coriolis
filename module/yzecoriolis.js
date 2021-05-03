@@ -286,12 +286,13 @@ Hooks.once("setup", function () {
     "ranges",
     "icons",
     "crewPositions",
-    "shipModuleTypes",
+    "shipModuleCategories",
   ];
 
   // exclude sorting from some config values where the order matters.
   const noSort = [
     "talentCategories",
+    "shipModuleCategories",
     "techTiers",
     "gearWeights",
     "critTypes",

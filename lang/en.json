@@ -342,7 +342,8 @@
   "YZECORIOLIS.InvalidEPPermissions": "You do not have permission to change ship EP distribution.",
   "YZECORIOLIS.InvalidCrewRollPermissions": "You do not have permissions to roll for this actor on this ship.",
 
-  "YZECORIOLIS.ShipModuleGeneral": "Ship Module",
-  "YZECORIOLIS.ShipModuleWeaponry": "Weapon Module"
+  "YZECORIOLIS.ShipModuleRequired": "Required Module",
+  "YZECORIOLIS.ShipModuleOptional": "Optional Module",
+  "YZECORIOLIS.ShipModuleWeapon": "Weapon Module"
 
 }
