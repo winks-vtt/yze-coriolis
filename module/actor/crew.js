@@ -1,4 +1,7 @@
 // buildCrewOptionsArray returns an array of objects detailing possible crew
+
+import { getActorById } from "../util.js";
+
 // position data that the character sheet can select from.
 export function buildCrewOptionsArray() {
   const createCrewObject = (position, shipId) => {
@@ -60,4 +63,17 @@ export async function resetCrewForShip(shipId) {
     }
   }
   return null;
+}
+
+export function getCrewForShip(shipId) {
+  const crewArray = [];
+  for (let e of game.actors.entities) {
+    const actorData = getActorById(e.id);
+    if (actorData.type === "character" || actorData.type === "npc") {
+      if (actorData.data.bio.crewPosition.shipId === shipId) {
+        crewArray.push(actorData);
+      }
+    }
+}
+  return crewArray;
 }

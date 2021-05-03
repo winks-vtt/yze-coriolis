@@ -1,5 +1,5 @@
-import { getID, getOwnedItemsByType } from "../util.js";
-
+import { getActorEntityById, getID, getOwnedItemsByType } from "../util.js";
+import { getCrewForShip } from "../actor/crew.js";
 /**
  * @param  {Actor} shipEntity
  */
@@ -121,4 +121,28 @@ export const crewHasTokens = (shipEntity) => {
  */
 export const getMaxAllowedEPTokens = () => {
   return game.settings.get("yzecoriolis", "maxEPTokensAllowed");
+};
+
+/**
+ * only GMs and users who are controlling an engineer on the ship can change EP
+ * on a ship.
+ * @param  {Actor} shipEntity
+ * @returns true/false if local user can change EP on a ship sheet.
+ */
+export const canChangeEPForShip = (shipEntity) => {
+  if (game.user.isGM) {
+    return true;
+  }
+  const crewArray = getCrewForShip(shipEntity.id);
+  const engineers = crewArray.filter(
+    (c) => c.data.bio.crewPosition.position === "engineer"
+  );
+
+  for (let e in engineers) {
+    const entity = getActorEntityById(e._id);
+    if (entity?.permission === CONST.ENTITY_PERMISSIONS.OWNER) {
+      return true;
+    }
+  }
+  return false;
 };

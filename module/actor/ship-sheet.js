@@ -5,6 +5,7 @@ import {
   getMaxAllowedEPTokens,
   setCrewEPCount,
   crewHasTokens,
+  canChangeEPForShip,
 } from "../item/ep-token.js";
 import { getActorById, getActorEntityById } from "../util.js";
 import {
@@ -116,6 +117,13 @@ export class yzecoriolisShipSheet extends ActorSheet {
 
   async _onClickEPBarSegment(event) {
     event.preventDefault();
+    const canChange = canChangeEPForShip(this.actor);
+    if (!canChange) {
+      ui.notifications.error(
+        game.i18n.localize("YZECORIOLIS.InvalidEPPermissions")
+      );
+      return;
+    }
     // when the EP bar is clicked, do the standard data fetching, but activate the correct EPTokens
     const newBarValue = this.getNewBarValue(event);
     if (crewHasTokens(this.actor)) {
@@ -166,17 +174,15 @@ export class yzecoriolisShipSheet extends ActorSheet {
     // For rolling on the ship sheet, the user who owns that actor can roll on
     // the ship sheet. The GM can also roll any actor.
     const isGM = game.user.isGM;
-    const targetActor = getActorById(game.user.data.character);
 
-    // you are either the character, or you own a character (in the case you may
+    //  you own a character (in the case you may
     // be running two different characters at the same time in a session)
     const isRollingForOwnActor =
-      targetActor?._id === crewId ||
       crewEntity.permission === CONST.ENTITY_PERMISSIONS.OWNER;
 
     if (!isGM && !isRollingForOwnActor) {
       ui.notifications.error(
-        "You do not have permissions to roll for this actor"
+        game.i18n.localize("YZECORIOLIS.InvalidCrewRollPermissions")
       );
       return;
     }
