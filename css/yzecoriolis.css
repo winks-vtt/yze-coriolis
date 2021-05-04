@@ -653,11 +653,17 @@
 .yzecoriolis.sheet.actor .pl-sm {
   padding-left: 10px;
 }
+.yzecoriolis.sheet.actor .pl-10 {
+  padding-left: 10px;
+}
 .yzecoriolis.sheet.actor .pl-xsm {
   padding-left: 5px;
 }
 .yzecoriolis.sheet.actor .pr-xsm {
   padding-right: 5px;
+}
+.yzecoriolis.sheet.actor .pr-10 {
+  padding-right: 10px;
 }
 .yzecoriolis.sheet.actor .pt-60 {
   padding-top: 60px;
