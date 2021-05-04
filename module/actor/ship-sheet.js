@@ -106,6 +106,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     });
 
     sheetActor.modules = getOwnedItemsByType(this.actor, "shipModule");
+    console.log("mods", sheetActor.modules);
   }
 
   /** @override */
@@ -254,6 +255,11 @@ export class yzecoriolisShipSheet extends ActorSheet {
     const portraitDiv = event.currentTarget;
     $(portraitDiv).find(".crew-roll-number").addClass("crew-roll-number-hover");
     $(portraitDiv).find(".roll-glow").addClass("roll-glow-animated");
+    // brighten the portraits a bit
+    $(portraitDiv)
+      .parent()
+      .find(".crew-portrait")
+      .addClass("crew-portrait-hovered");
   }
 
   _onHoverOutCrewPortrait(event) {
@@ -265,5 +271,9 @@ export class yzecoriolisShipSheet extends ActorSheet {
       .removeClass("crew-roll-number-hover");
 
     $(portraitDiv).find(".roll-glow").removeClass("roll-glow-animated");
+    $(portraitDiv)
+      .parent()
+      .find(".crew-portrait")
+      .removeClass("crew-portrait-hovered");
   }
 }
