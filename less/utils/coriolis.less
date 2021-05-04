@@ -4,6 +4,7 @@
 
 // utility styles to be used in sheets
 .yzecoriolis.sheet.actor {
+
   // colors
   .black-opacity-25 {
     background-color: @colorBlack25;
@@ -37,6 +38,10 @@
     color: @colorBlue;
   }
 
+  .blue-7 {
+    color: @colorItemEntryBG;
+  }
+
   .white-1 {
     color: @colorWhite;
   }
@@ -47,6 +52,10 @@
 
   .gray-2 {
     color: @colorBarOutline;
+  }
+
+  .orange-1 {
+    color: @colorOrange;
   }
 
   .background-blue-1 {
@@ -67,6 +76,10 @@
 
   .background-blue-5 {
     background-color: @colorBlueTransparent;
+  }
+
+  .background-blue-7 {
+    background-color: @colorItemEntryBG;
   }
 
   .input-base {
@@ -272,6 +285,14 @@
     padding-top: 60px;
   }
 
+  .pt-10 {
+    padding-top: 10px;
+  }
+
+  .pt-5 {
+    padding-top: 5px;
+  }
+
   .pb-10 {
     padding-bottom: 10px;
   }
@@ -380,6 +401,11 @@
     box-sizing: none;
   }
 
+  // box shadows
+  .drop-shadow-2 {
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.25);
+  }
+
   // z-indexing
   .z-1 {
     z-index: 1;
@@ -440,10 +466,7 @@
     transition: text-shadow 275ms ease;
     text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
 
-    // &.selected {
-    //   .white-1();
-    //   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35);
-    // }
+
     &:hover {
       text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35);
     }
