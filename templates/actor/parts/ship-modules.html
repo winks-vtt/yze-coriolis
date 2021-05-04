@@ -4,7 +4,7 @@
       <div class="crew-card pt-10 pl-sm">
         <div class="module-panel vStack vStack-4 background-blue-7 rounded drop-shadow-2 pt-5">
           <label class="font-play text-md orange-1 text-center upper-case">{{module.name}}</label>
-          <button class="toggle-ship-module">
+          <button class="toggle-ship-module" data-module={{module._id}}>
             {{#if module.data.enabled}}
             {{localize "YZECORIOLIS.Enabled"}}
             {{else}}

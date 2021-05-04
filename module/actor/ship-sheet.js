@@ -19,6 +19,7 @@ import {
   prepDataBarBlocks,
 } from "./databar.js";
 
+import { toggleShipModule } from "../item/ship-module.js";
 import { coriolisRoll } from "../coriolis-roll.js";
 import { coriolisModifierDialog } from "../coriolis-roll.js";
 
@@ -137,6 +138,10 @@ export class yzecoriolisShipSheet extends ActorSheet {
     html
       .find(".crew-portrait")
       .mouseleave(this._onHoverOutCrewPortrait.bind(this));
+
+    html
+      .find(".toggle-ship-module")
+      .click(this._onClickToggleModule.bind(this));
   }
 
   async _onClickEPBarSegment(event) {
@@ -195,6 +200,13 @@ export class yzecoriolisShipSheet extends ActorSheet {
     const maxValue = Number(targetSegment.dataset.max) || 0;
     // Grab any data associated with this control.
     return computeNewBarValue(index, curValue, minValue, maxValue);
+  }
+
+  async _onClickToggleModule(event) {
+    event.preventDefault();
+    const targetButton = event.currentTarget;
+    const moduleId = targetButton.dataset.module;
+    return toggleShipModule(this.actor, moduleId);
   }
 
   async _onRollCrewPosition(event) {
