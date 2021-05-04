@@ -676,6 +676,9 @@
 .yzecoriolis.sheet.actor .justify-center {
   justify-content: center;
 }
+.yzecoriolis.sheet.actor .justify-space-between {
+  justify-content: space-between;
+}
 .yzecoriolis.sheet.actor .align-items-center {
   align-items: center;
 }
