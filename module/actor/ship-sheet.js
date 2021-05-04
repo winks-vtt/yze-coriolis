@@ -116,7 +116,6 @@ export class yzecoriolisShipSheet extends ActorSheet {
         m.enabledCSS = "enabled";
       }
     }
-    console.log("mods", sheetActor.modules);
   }
 
   /** @override */
