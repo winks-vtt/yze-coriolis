@@ -151,6 +151,24 @@ export class yzecoriolisShipSheet extends ActorSheet {
     html
       .find(".toggle-ship-module")
       .click(this._onClickToggleModule.bind(this));
+
+    html.find(".module-edit").click(this._onClickEditModule.bind(this));
+    html.find(".module-delete").click(this._onClickDeleteModule.bind(this));
+  }
+
+  _onClickEditModule(event) {
+    event.preventDefault();
+    const targetButton = event.currentTarget;
+    const moduleId = targetButton.dataset.module;
+    const item = this.actor.getOwnedItem(moduleId);
+    item.sheet.render(true);
+  }
+
+  async _onClickDeleteModule(event) {
+    event.preventDefault();
+    const targetButton = event.currentTarget;
+    const moduleId = targetButton.dataset.module;
+    this.actor.deleteOwnedItem(moduleId);
   }
 
   async _onClickEPBarSegment(event) {

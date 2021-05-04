@@ -1,4 +1,4 @@
-<div class="tab crew module-panel" data-group="primary" data-tab="modules">
+<div class="tab crew" data-group="primary" data-tab="modules">
   <div class="hStack hStack-10">
     {{#each actor.modules as |module|}}
       <div class="crew-card pt-10 pl-sm">
@@ -16,12 +16,14 @@
               <a
                 class="edit-widget module-edit"
                 title="{{localize "YZECORIOLIS.EditModule"}}"
+                data-module={{module._id}}
               >
                 <i class="fas fa-edit"></i>
               </a>
               <a
                 class="edit-widget module-delete"
                 title="{{localize "YZECORIOLIS.DeleteModule"}}"
+                data-module={{module._id}}
               >
                 <i class="fas fa-trash"></i>
               </a>
