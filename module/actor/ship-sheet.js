@@ -107,6 +107,15 @@ export class yzecoriolisShipSheet extends ActorSheet {
     });
 
     sheetActor.modules = getOwnedItemsByType(this.actor, "shipModule");
+    // for dynamic css just attach css classes to the module we'll inject in
+    // various parts
+    for (let m of sheetActor.modules) {
+      // enabledCSS used for toggle button
+      m.enabledCSS = "";
+      if (m.data.enabled) {
+        m.enabledCSS = "enabled";
+      }
+    }
     console.log("mods", sheetActor.modules);
   }
 

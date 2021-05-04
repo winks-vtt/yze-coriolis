@@ -1256,6 +1256,24 @@
       height: 290px;
       flex-basis: 170px;
       flex-grow: 0;
+
+      .toggle-ship-module-button {
+        border: none;
+        border-radius: 3px;
+        background-color: @colorRadiationRollOverIncrease;
+        color: @colorWhite;
+        font-family: "Cairo";
+        font-size: 14px;
+
+        &:hover {
+          box-shadow: none;
+        }
+
+        &.enabled {
+          background-color: @colorRadiationFill;
+          color: @colorDarkerBlue;
+        }
+      }
     }
   }
 }

@@ -464,6 +464,9 @@
 .yzecoriolis.sheet.actor .orange-1 {
   color: #ffa903;
 }
+.yzecoriolis.sheet.actor .red-1 {
+  color: #8E0707;
+}
 .yzecoriolis.sheet.actor .background-blue-1 {
   background-color: #7182be;
 }
@@ -481,6 +484,9 @@
 }
 .yzecoriolis.sheet.actor .background-blue-7 {
   background-color: rgba(19, 27, 53, 0.78);
+}
+.yzecoriolis.sheet.actor .background-red-1 {
+  background-color: #8E0707;
 }
 .yzecoriolis.sheet.actor .input-base {
   color: #fdff9d;
@@ -642,6 +648,9 @@
 }
 .yzecoriolis.sheet.actor .pl-xsm {
   padding-left: 5px;
+}
+.yzecoriolis.sheet.actor .pr-xsm {
+  padding-right: 5px;
 }
 .yzecoriolis.sheet.actor .pt-60 {
   padding-top: 60px;
@@ -2349,6 +2358,21 @@
   height: 290px;
   flex-basis: 170px;
   flex-grow: 0;
+}
+.yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button {
+  border: none;
+  border-radius: 3px;
+  background-color: #8E0707;
+  color: white;
+  font-family: "Cairo";
+  font-size: 14px;
+}
+.yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button:hover {
+  box-shadow: none;
+}
+.yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button.enabled {
+  background-color: #b1c343;
+  color: #081f43;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
