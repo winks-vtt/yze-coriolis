@@ -1283,6 +1283,24 @@
           }
         }
       }
+
+      .quantity-input {
+        .player-text();
+        font-size: 16px;
+        font-weight: 700;
+        box-shadow: none;
+        border: none;
+        background-color: @colorTransparent;
+        text-align: right;
+        width: 50px;
+        padding: 0px;
+      }
+
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
     }
 
     .edit-widget {

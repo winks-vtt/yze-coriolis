@@ -2403,6 +2403,23 @@
 .yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button.enabled:hover {
   background-color: #c1cf6a;
 }
+.yzecoriolis.sheet.actor .ship .module-panel .quantity-input {
+  font-family: "Cairo";
+  color: #fdff9d;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: none;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  text-align: right;
+  width: 50px;
+  padding: 0px;
+}
+.yzecoriolis.sheet.actor .ship .module-panel input[type=number]::-webkit-inner-spin-button,
+.yzecoriolis.sheet.actor .ship .module-panel input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .yzecoriolis.sheet.actor .ship .edit-widget {
   color: #7182be;
   flex-basis: 20px;

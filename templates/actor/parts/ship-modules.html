@@ -101,6 +101,28 @@
                   {{getWeaponCritDisplay module.data.crit}}
                 </div>
               </div>
+              {{! Quantity }}
+              <div
+                class="hStack justify-space-between white-1 font-cairo text-md"
+              >
+                <div>
+                  {{localize "YZECORIOLIS.Quantity"}}
+                </div>
+                {{! Need to check if we have numeric or string here for crit  }}
+                <div>
+                  {{!-- {{module.data.quantity}} --}}
+                  <input
+                    class="quantity-input"
+                    type="number"
+                    step="1"
+                    min="0"
+                    name="module.data.quantity"
+                    value="{{module.data.quantity}}"
+                    data-dtype="Number"
+                    data-module={{module._id}}
+                  />
+                </div>
+              </div>
             {{/if_eq}}
           </div>
         </div>

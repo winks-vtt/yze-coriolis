@@ -153,6 +153,23 @@ export class yzecoriolisShipSheet extends ActorSheet {
 
     html.find(".module-edit").click(this._onClickEditModule.bind(this));
     html.find(".module-delete").click(this._onClickDeleteModule.bind(this));
+
+    // update gear quantity directly from sheet.
+    html
+      .find(".quantity-input")
+      .change(this._onModuleQuantityChanged.bind(this));
+  }
+
+  async _onModuleQuantityChanged(event) {
+    event.preventDefault();
+    const input = event.target;
+    const moduleId = input.dataset.module;
+    const item = this.actor.getOwnedItem(moduleId);
+    let value = input.value;
+    if (value < 0) {
+      value = 0;
+    }
+    return item.update({ "data.quantity": value });
   }
 
   _onClickEditModule(event) {
