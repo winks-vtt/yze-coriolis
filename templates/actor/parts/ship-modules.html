@@ -43,52 +43,7 @@
               {{localize "YZECORIOLIS.Disabled"}}
             {{/if}}
           </button>
-          <div class="pt-10">
-            {{! Bonus }}
-            <div
-              class="hStack justify-space-between white-1 font-cairo text-md"
-            >
-              <div>
-                {{localize "YZECORIOLIS.Bonus"}}
-              </div>
-              <div>
-                {{module.data.bonus}}
-              </div>
-            </div>
-            {{! Range }}
-            <div
-              class="hStack justify-space-between white-1 font-cairo text-md"
-            >
-              <div>
-                {{localize "YZECORIOLIS.Range"}}
-              </div>
-              <div>
-                {{getRangeName module.data.range}}
-              </div>
-            </div>
-            {{! Damage }}
-            <div
-              class="hStack justify-space-between white-1 font-cairo text-md"
-            >
-              <div>
-                {{localize "YZECORIOLIS.Damage"}}
-              </div>
-              <div>
-                {{module.data.damage}}
-              </div>
-            </div>
-            {{! Critical }}
-            <div
-              class="hStack justify-space-between white-1 font-cairo text-md"
-            >
-              <div>
-                {{localize "YZECORIOLIS.Crit"}}
-              </div>
-              {{! Need to check if we have numeric or string here for crit  }}
-              <div>
-                {{getWeaponCritDisplay module.data.crit}}
-              </div>
-            </div>
+          <div class="pt-10 flex1 vStack vStack-2 pb-10">
             {{! Tech Tier }}
             <div
               class="hStack justify-space-between white-1 font-cairo text-md"
@@ -100,9 +55,56 @@
                 {{getTechTierName module.data.techTier}}
               </div>
             </div>
-            <button>
-              Roll
-            </button>
+            {{! Bonus }}
+            <div
+              class="hStack justify-space-between white-1 font-cairo text-md"
+            >
+              <div>
+                {{localize "YZECORIOLIS.Bonus"}}
+              </div>
+              <div>
+                {{module.data.bonus}}
+              </div>
+            </div>
+            {{#if_eq module.data.category "weapon"}}
+              {{! Range }}
+              <div
+                class="hStack justify-space-between white-1 font-cairo text-md"
+              >
+                <div>
+                  {{localize "YZECORIOLIS.Range"}}
+                </div>
+                <div>
+                  {{getRangeName module.data.range}}
+                </div>
+              </div>
+              {{! Damage }}
+              <div
+                class="hStack justify-space-between white-1 font-cairo text-md"
+              >
+                <div>
+                  {{localize "YZECORIOLIS.Damage"}}
+                </div>
+                <div>
+                  {{module.data.damage}}
+                </div>
+              </div>
+              {{! Critical }}
+              <div
+                class="hStack justify-space-between white-1 font-cairo text-md"
+              >
+                <div>
+                  {{localize "YZECORIOLIS.Crit"}}
+                </div>
+                {{! Need to check if we have numeric or string here for crit  }}
+                <div>
+                  {{getWeaponCritDisplay module.data.crit}}
+                </div>
+              </div>
+              <button class="ship-module-roll-button text-md margin-top-auto">
+                <img src="systems/yzecoriolis/css/icons/rolling-dices.svg" />
+              </button>
+            {{/if_eq}}
           </div>
         </div>
       </div>

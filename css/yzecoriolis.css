@@ -719,6 +719,9 @@
 .yzecoriolis.sheet.actor .h-header {
   height: 24px;
 }
+.yzecoriolis.sheet.actor .flex1 {
+  flex: 1;
+}
 .yzecoriolis.sheet.actor .flex7 {
   flex: 7;
 }
@@ -751,6 +754,9 @@
 }
 .yzecoriolis.sheet.actor .flex-end {
   justify-content: flex-end;
+}
+.yzecoriolis.sheet.actor .margin-top-auto {
+  margin-top: auto;
 }
 .yzecoriolis.sheet.actor .box-none {
   box-sizing: none;
@@ -2396,6 +2402,29 @@
 }
 .yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button.enabled:hover {
   background-color: #c1cf6a;
+}
+.yzecoriolis.sheet.actor .ship .module-panel .ship-module-roll-button {
+  border: none;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  box-shadow: none;
+  transition: 275ms filter ease;
+}
+.yzecoriolis.sheet.actor .ship .module-panel .ship-module-roll-button:hover {
+  filter: brightness(1.5);
+}
+.yzecoriolis.sheet.actor .ship .module-panel .ship-module-roll-button:hover {
+  box-shadow: none;
+}
+.yzecoriolis.sheet.actor .ship .module-panel .ship-module-roll-button:focus {
+  box-shadow: none;
+}
+.yzecoriolis.sheet.actor .ship .module-panel .ship-module-roll-button img {
+  border: none;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  width: 44px;
+  height: 44px;
 }
 .yzecoriolis.sheet.actor .ship .edit-widget {
   color: #7182be;
