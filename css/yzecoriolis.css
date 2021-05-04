@@ -2322,10 +2322,9 @@
   transform: scale(1.05);
 }
 .yzecoriolis.sheet.actor .ship .crew-card {
-  width: 170px;
+  max-width: 200px;
   height: 290px;
-  flex-basis: 170px;
-  flex-grow: 0;
+  flex-grow: 1;
 }
 .yzecoriolis.sheet.actor .ship .crew-card .crew-portrait {
   max-height: 269px;
