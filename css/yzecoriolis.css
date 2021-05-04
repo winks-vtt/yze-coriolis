@@ -2366,13 +2366,20 @@
   color: white;
   font-family: "Cairo";
   font-size: 14px;
+  font-weight: 700;
+  transition: background-color 275ms ease;
+  cursor: pointer;
 }
 .yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button:hover {
   box-shadow: none;
+  background-color: #bf0909;
 }
 .yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button.enabled {
   background-color: #b1c343;
   color: #081f43;
+}
+.yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button.enabled:hover {
+  background-color: #c1cf6a;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */

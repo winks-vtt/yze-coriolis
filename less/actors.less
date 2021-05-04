@@ -1264,14 +1264,23 @@
         color: @colorWhite;
         font-family: "Cairo";
         font-size: 14px;
+        font-weight: 700;
+        transition: background-color 275ms ease;
+        cursor: pointer;
 
         &:hover {
           box-shadow: none;
+          background-color: lighten(@colorRadiationRollOverIncrease, 10%);
         }
 
         &.enabled {
           background-color: @colorRadiationFill;
           color: @colorDarkerBlue;
+
+          &:hover {
+            background-color: lighten(@colorRadiationFill, 10%);
+
+          }
         }
       }
     }
