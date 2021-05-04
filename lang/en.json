@@ -346,6 +346,9 @@
 
   "YZECORIOLIS.ShipModuleRequired": "Required Module",
   "YZECORIOLIS.ShipModuleOptional": "Optional Module",
-  "YZECORIOLIS.ShipModuleWeapon": "Weapon Module"
+  "YZECORIOLIS.ShipModuleWeapon": "Weapon Module",
+  "YZECORIOLIS.EditModule": "Edit Module",
+  "YZECORIOLIS.DeleteModule": "Delete Module"
+
 
 }

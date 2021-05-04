@@ -5,9 +5,28 @@
         <div
           class="module-panel vStack vStack-4 background-blue-7 rounded drop-shadow-2 pt-5 pr-xsm pl-xsm"
         >
-          <label class="font-play text-md orange-1 text-center upper-case">
-            {{module.name}}
-          </label>
+          <div class="hStack justify-space-between">
+            <label
+              title="{{module.name}}"
+              class="font-play text-md orange-1 text-center upper-case min-h-20 white-space-nowrap overflow-ellipsis"
+            >
+              {{module.name}}
+            </label>
+            <div class="hStack justify-end hStack-10">
+              <a
+                class="edit-widget module-edit"
+                title="{{localize "YZECORIOLIS.EditModule"}}"
+              >
+                <i class="fas fa-edit"></i>
+              </a>
+              <a
+                class="edit-widget module-delete"
+                title="{{localize "YZECORIOLIS.DeleteModule"}}"
+              >
+                <i class="fas fa-trash"></i>
+              </a>
+            </div>
+          </div>
           <button
             class="toggle-ship-module toggle-ship-module-button
               {{module.enabledCSS}}"
@@ -64,7 +83,7 @@
             <div
               class="hStack justify-space-between white-1 font-cairo text-md"
             >
-             <div>
+              <div>
                 {{localize "YZECORIOLIS.TechTier"}}
               </div>
               <div>
