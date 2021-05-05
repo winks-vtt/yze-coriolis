@@ -11,6 +11,7 @@ export const preloadHandlerbarsTemplates = async function () {
     "systems/yzecoriolis/templates/actor/parts/actor-gear.html",
     "systems/yzecoriolis/templates/actor/parts/ship-crew.html",
     "systems/yzecoriolis/templates/actor/parts/ship-modules.html",
+    "systems/yzecoriolis/templates/actor/parts/ship-features.html",
   ];
 
   return loadTemplates(templatePaths);
