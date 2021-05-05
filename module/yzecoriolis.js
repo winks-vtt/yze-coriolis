@@ -64,6 +64,7 @@ Hooks.once("init", async function () {
     "injury",
     "shipProblem",
     "shipModule",
+    "shipFeature",
   ];
 
   // Register sheet application classes

@@ -260,7 +260,8 @@
       "injury",
       "shipProblem",
       "energyPointToken",
-      "shipModule"
+      "shipModule",
+      "shipFeature"
     ],
     "templates": {
       "base": {
@@ -339,6 +340,10 @@
       },
       "category": "",
       "special": {}
+    },
+
+    "shipFeature": {
+      "templates": ["gear"]
     },
     "energyPointToken": {
       "active": false,
