@@ -23,10 +23,10 @@
                     <span>{{feature.name}}</span>
                 </div>
                 <div class="feature-controls">
-                    <a class="feature-control-widget faded item-edit" title="{{localize "YZECORIOLIS.ShipEditFeature"}}"><i
+                    <a class="edit-widget faded feature-edit" title="{{localize "YZECORIOLIS.ShipEditFeature"}}" data-feature={{feature._id}}><i
                             class="fas fa-edit"></i></a>
-                    <a class="feature-control-widget faded item-delete"
-                        title="{{localize "YZECORIOLIS.ShipDeleteFeature"}}"><i class="fas fa-trash"></i></a>
+                    <a class="edit-widget faded feature-delete"
+                        title="{{localize "YZECORIOLIS.ShipDeleteFeature"}}" data-feature={{feature._id}}><i class="fas fa-trash"></i></a>
                 </div>
             </div>
         </li>

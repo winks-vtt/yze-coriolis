@@ -161,6 +161,9 @@ export class yzecoriolisShipSheet extends ActorSheet {
     html.find(".module-edit").click(this._onClickEditModule.bind(this));
     html.find(".module-delete").click(this._onClickDeleteModule.bind(this));
 
+    html.find(".feature-edit").click(this._onClickEditFeature.bind(this));
+    html.find(".feature-delete").click(this._onClickDeleteFeature.bind(this));
+
     // update gear quantity directly from sheet.
     html
       .find(".quantity-input")
@@ -192,6 +195,21 @@ export class yzecoriolisShipSheet extends ActorSheet {
     const targetButton = event.currentTarget;
     const moduleId = targetButton.dataset.module;
     this.actor.deleteOwnedItem(moduleId);
+  }
+
+  _onClickEditFeature(event) {
+    event.preventDefault();
+    const targetButton = event.currentTarget;
+    const featureId = targetButton.dataset.feature;
+    const item = this.actor.getOwnedItem(featureId);
+    item.sheet.render(true);
+  }
+
+  async _onClickDeleteFeature(event) {
+    event.preventDefault();
+    const targetButton = event.currentTarget;
+    const featureId = targetButton.dataset.feature;
+    this.actor.deleteOwnedItem(featureId);
   }
 
   async _onClickEPBarSegment(event) {
