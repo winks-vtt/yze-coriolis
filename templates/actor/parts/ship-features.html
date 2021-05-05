@@ -1,36 +1,35 @@
-<div class="tab panel" data-group="primary" data-tab="talents">
-    <ol class="talent-list">
-        {{#each actor.talents as |talentData categoryKey|}}
+<div class="tab panel" data-group="primary" data-tab="features">
+    <ol class="feature-list">
         {{!-- setup header for a talent category--}}
         <li class=" talent-category-header flexrow">
-            <span class="talent-category-name flexrow">{{getTalentCategoryName categoryKey}}</span>
-
+            <span class="talent-category-name flexrow">{{localize "YZECORIOLIS.ShipFeature"}}</span>
             {{#if ../owner}}
             <div class="talent-controls">
-                <a class="talent-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateTalent"}}'
-                    {{#each talentData.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                <a class="talent-control-add-widget item-create" title='{{localize "YZECORIOLIS.ShipCreateFeature"}}'
+                    {{#each actor.features.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                     <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                 </a>
             </div>
             {{/if}}
 
         </li>
-        {{!-- show talent for each category --}}
-        {{#each talentData.items as |talent id|}}
-        <li class="talent item flexrow" data-item-id="{{talent._id}}">
-            <div class="talent-bg flickering flexrow">
-                <div class="talent-name expandable-info flexrow">
-                    <span>{{talent.name}}</span>
+
+
+        {{!-- show each feature --}}
+        {{#each actor.features.items as |feature|}}
+        <li class="feature item flexrow" data-item-id="{{feature._id}}">
+            <div class="feature-bg flickering flexrow">
+                <div class="feature-name expandable-info flexrow">
+                    <span>{{feature.name}}</span>
                 </div>
-                <div class="talent-controls">
-                    <a class="talent-control-widget faded item-edit" title="{{localize "YZECORIOLIS.EditTalent"}}"><i
+                <div class="feature-controls">
+                    <a class="feature-control-widget faded item-edit" title="{{localize "YZECORIOLIS.ShipEditFeature"}}"><i
                             class="fas fa-edit"></i></a>
-                    <a class="talent-control-widget faded item-delete"
-                        title="{{localize "YZECORIOLIS.DeleteTalent"}}"><i class="fas fa-trash"></i></a>
+                    <a class="feature-control-widget faded item-delete"
+                        title="{{localize "YZECORIOLIS.ShipDeleteFeature"}}"><i class="fas fa-trash"></i></a>
                 </div>
             </div>
         </li>
-        {{/each}}
         {{/each}}
     </ol>
 </div>

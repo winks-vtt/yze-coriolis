@@ -349,7 +349,12 @@
   "YZECORIOLIS.ShipModuleOptional": "Optional Module",
   "YZECORIOLIS.ShipModuleWeapon": "Weapon Module",
   "YZECORIOLIS.EditModule": "Edit Module",
-  "YZECORIOLIS.DeleteModule": "Delete Module"
+  "YZECORIOLIS.DeleteModule": "Delete Module",
+  "YZECORIOLIS.ShipFeature": "Ship Feature",
+  "YZECORIOLIS.NewShipFeature": "New Feature",
+  "YZECORIOLIS.ShipEditFeature": "Edit Feature",
+  "YZECORIOLIS.ShipCreateFeature": "Create Feature",
+  "YZECORIOLIS.ShipDeleteFeature": "Delete Feature"
 
 
 }

@@ -116,6 +116,13 @@ export class yzecoriolisShipSheet extends ActorSheet {
         m.enabledCSS = "enabled";
       }
     }
+    sheetActor.features = {
+      dataset: {
+        type: "shipFeature",
+        defaultName: game.i18n.localize("YZECORIOLIS.NewShipFeature"),
+      },
+      items: getOwnedItemsByType(this.actor, "shipFeature"),
+    };
   }
 
   /** @override */
