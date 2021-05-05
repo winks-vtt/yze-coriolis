@@ -165,6 +165,9 @@ export class yzecoriolisShipSheet extends ActorSheet {
     html.find(".feature-edit").click(this._onClickEditFeature.bind(this));
     html.find(".feature-delete").click(this._onClickDeleteFeature.bind(this));
 
+    html
+      .find(".expandable-info")
+      .click((event) => this._onFeatureSummary(event));
     // update gear quantity directly from sheet.
     html
       .find(".quantity-input")
@@ -380,5 +383,33 @@ export class yzecoriolisShipSheet extends ActorSheet {
       .parent()
       .find(".crew-portrait")
       .removeClass("crew-portrait-hovered");
+  }
+
+  /**
+   * Handle showing an item's description in the character sheet as an easy fold out.
+   * @private
+   */
+  _onFeatureSummary(event) {
+    event.preventDefault();
+    const li = $(event.currentTarget).parents(".item");
+    const item = this.actor.getOwnedItem(li.data("item-id"));
+    const chatData = item.getChatData({ secrets: this.actor.owner });
+    // Toggle summary
+    if (li.hasClass("expanded")) {
+      let summary = li.children(".item-summary");
+      summary.slideUp(200, () => {
+        summary.remove();
+      });
+    } else {
+      let div = $(
+        `<div class="item-summary"><div class="item-summary-wrapper"><div>${chatData.description}</div></div></div>`
+      );
+      let props = $(`<div class="item-properties"></div>`);
+
+      $(div).find(".item-summary-wrapper").append(props);
+      li.append(div.hide());
+      div.slideDown(200);
+    }
+    li.toggleClass("expanded");
   }
 }

@@ -311,6 +311,113 @@
     }
   }
 
+  // ======
+  // Shared mixins
+  // ======
+  .category-header {
+    .data-text();
+    border-radius: 3px;
+    background-color: @colorBlueTransparent;
+    height: 24px;
+    margin-bottom: 5px;
+    align-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+    &:first-of-type {
+      margin-top: 0px;
+    }
+  }
+
+  .category-column-name {
+    font-size: 14px;
+    margin: 0px 0px 0px 5px;
+    text-transform: uppercase;
+  }
+
+  .item-list-controls {
+    text-transform: uppercase;
+    flex: 0 0 100px;
+    margin-top: 2px;
+    text-align: right;
+    margin-right: 7px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .item-status-icon {
+    color: @colorDarkBlue;
+    flex-basis: 20px;
+  }
+
+  .item-control-widget {
+    .item-status-icon();
+    .hover-header-buttons();
+  }
+
+  .item-control-add-widget {
+    .item-control-widget();
+    color: @colorBlue;
+    flex-basis: 100px;
+  }
+
+  .item-entry {
+    align-items: center;
+    .data-text();
+    color: @colorWhite;
+    margin-bottom: 2px;
+  }
+
+  .item-entry-name-rollover {
+    transition: transform 275ms ease;
+
+    &:hover {
+      transform: translateX(5px);
+    }
+  }
+
+  .item-entry-name {
+    .data-text-semibold();
+    color: @colorOrange;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .item-bg {
+    background-color: @colorStatItemEntryBG;
+
+    border-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    flex: 0 0 100%;
+
+    .flicker-anim(lighten(@colorStatItemEntryBG, 30%), @colorStatItemEntryBG);
+
+    &:hover {
+      animation: flicker 1.2s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .item-summary {
+    flex: 0 0 100%;
+    margin-top: 2px;
+    padding-bottom: 2px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .item-summary-wrapper {
+    background-color: @colorStatItemEntryBG;
+    border-radius: 3px;
+    flex: 0 0 570px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 25px;
+  }
+
+  // End shared mixins
+
   .sheet-body {
     grid-column-start: 1;
     grid-column-end: 2;
@@ -656,108 +763,6 @@
       margin-top: 24px;
       margin-left: 32px;
       margin-right: 32px;
-    }
-
-    .category-header {
-      .data-text();
-      border-radius: 3px;
-      background-color: @colorBlueTransparent;
-      height: 24px;
-      margin-bottom: 5px;
-      align-content: center;
-      align-items: center;
-      margin-top: 20px;
-
-      &:first-of-type {
-        margin-top: 0px;
-      }
-    }
-
-    .category-column-name {
-      font-size: 14px;
-      margin: 0px 0px 0px 5px;
-      text-transform: uppercase;
-    }
-
-    .item-list-controls {
-      text-transform: uppercase;
-      flex: 0 0 100px;
-      margin-top: 2px;
-      text-align: right;
-      margin-right: 7px;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .item-status-icon {
-      color: @colorDarkBlue;
-      flex-basis: 20px;
-    }
-
-    .item-control-widget {
-      .item-status-icon();
-      .hover-header-buttons();
-    }
-
-    .item-control-add-widget {
-      .item-control-widget();
-      color: @colorBlue;
-      flex-basis: 100px;
-    }
-
-    .item-entry {
-      align-items: center;
-      .data-text();
-      color: @colorWhite;
-      margin-bottom: 2px;
-    }
-
-    .item-entry-name-rollover {
-      transition: transform 275ms ease;
-
-      &:hover {
-        transform: translateX(5px);
-      }
-    }
-
-    .item-entry-name {
-      .data-text-semibold();
-      color: @colorOrange;
-      font-size: 15px;
-      cursor: pointer;
-    }
-
-    .item-bg {
-      background-color: @colorStatItemEntryBG;
-
-      border-radius: 3px;
-      padding-left: 5px;
-      padding-right: 5px;
-      flex: 0 0 100%;
-
-      .flicker-anim(lighten(@colorStatItemEntryBG, 30%), @colorStatItemEntryBG);
-
-      &:hover {
-        animation: flicker 1.2s;
-        animation-fill-mode: forwards;
-      }
-    }
-
-    .item-summary {
-      flex: 0 0 100%;
-      margin-top: 2px;
-      padding-bottom: 2px;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .item-summary-wrapper {
-      background-color: @colorStatItemEntryBG;
-      border-radius: 3px;
-      flex: 0 0 570px;
-      padding-left: 15px;
-      padding-right: 15px;
-      margin-left: 25px;
     }
 
     .item-properties {
@@ -1313,6 +1318,65 @@
       color: @colorDarkBlue;
       flex-basis: 20px;
       .hover-header-buttons();
+    }
+  }
+
+  .feature-list {
+    list-style: none;
+    overflow-y: auto;
+    max-height: 275px;
+    padding: 0 5px 0 0;
+    margin-top: 24px;
+    margin-left: 32px;
+    margin-right: 32px;
+
+    .feature-category-header {
+      .category-header();
+    }
+
+    .feature-category-name {
+      .category-column-name();
+    }
+
+    .feature-controls {
+      .item-list-controls();
+    }
+
+    .feature-control-widget {
+      .item-control-widget();
+    }
+
+    .feature-control-add-widget {
+      .item-control-add-widget();
+    }
+
+    .feature {
+      .item-entry();
+    }
+
+    .feature-bg {
+      .item-bg();
+    }
+
+    .feature-name {
+      .item-entry-name();
+      .item-entry-name-rollover();
+    }
+
+    .feature-row-data {
+      .data-text();
+      font-size: 14px;
+      text-align: center;
+    }
+
+    // override the original wrapper with one that works for the ship feature
+    // list.
+    .item-summary-wrapper {
+      flex: 0 0 850px;
+    }
+
+    .expanded {
+      height: auto;
     }
   }
 }

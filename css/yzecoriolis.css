@@ -1271,6 +1271,119 @@
   text-transform: uppercase;
   height: 32px;
 }
+.yzecoriolis.sheet.actor .category-header {
+  font-family: "Cairo";
+  color: white;
+  border-radius: 3px;
+  background-color: rgba(113, 130, 190, 0.44);
+  height: 24px;
+  margin-bottom: 5px;
+  align-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.yzecoriolis.sheet.actor .category-header:first-of-type {
+  margin-top: 0px;
+}
+.yzecoriolis.sheet.actor .category-column-name {
+  font-size: 14px;
+  margin: 0px 0px 0px 5px;
+  text-transform: uppercase;
+}
+.yzecoriolis.sheet.actor .item-list-controls {
+  text-transform: uppercase;
+  flex: 0 0 100px;
+  margin-top: 2px;
+  text-align: right;
+  margin-right: 7px;
+  display: flex;
+  justify-content: flex-end;
+}
+.yzecoriolis.sheet.actor .item-status-icon {
+  color: #7182be;
+  flex-basis: 20px;
+}
+.yzecoriolis.sheet.actor .item-control-widget {
+  color: #7182be;
+  flex-basis: 20px;
+  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+}
+.yzecoriolis.sheet.actor .item-control-widget a:hover {
+  text-shadow: none;
+}
+.yzecoriolis.sheet.actor .item-control-widget:hover {
+  text-shadow: 0 0 5px #ff4500;
+  color: white;
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .item-control-add-widget {
+  color: #7182be;
+  flex-basis: 20px;
+  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+  color: #9fb0ed;
+  flex-basis: 100px;
+}
+.yzecoriolis.sheet.actor .item-control-add-widget a:hover {
+  text-shadow: none;
+}
+.yzecoriolis.sheet.actor .item-control-add-widget:hover {
+  text-shadow: 0 0 5px #ff4500;
+  color: white;
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .item-entry {
+  align-items: center;
+  font-family: "Cairo";
+  color: white;
+  margin-bottom: 2px;
+}
+.yzecoriolis.sheet.actor .item-entry-name-rollover {
+  transition: transform 275ms ease;
+}
+.yzecoriolis.sheet.actor .item-entry-name-rollover:hover {
+  transform: translateX(5px);
+}
+.yzecoriolis.sheet.actor .item-entry-name {
+  font-family: "Cairo-SemiBold";
+  color: white;
+  color: #ffa903;
+  font-size: 15px;
+  cursor: pointer;
+}
+.yzecoriolis.sheet.actor .item-bg {
+  background-color: rgba(19, 27, 53, 0.45);
+  border-radius: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  flex: 0 0 100%;
+}
+@keyframes flicker {
+  0% {
+    background-color: rgba(59, 84, 166, 0.45);
+  }
+  100% {
+    background-color: rgba(19, 27, 53, 0.45);
+  }
+}
+.yzecoriolis.sheet.actor .item-bg:hover {
+  animation: flicker 1.2s;
+  animation-fill-mode: forwards;
+}
+.yzecoriolis.sheet.actor .item-summary {
+  flex: 0 0 100%;
+  margin-top: 2px;
+  padding-bottom: 2px;
+  display: flex;
+  justify-content: flex-end;
+}
+.yzecoriolis.sheet.actor .item-summary-wrapper {
+  background-color: rgba(19, 27, 53, 0.45);
+  border-radius: 3px;
+  flex: 0 0 570px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 25px;
+}
 .yzecoriolis.sheet.actor .sheet-body {
   grid-column-start: 1;
   grid-column-end: 2;
@@ -1623,119 +1736,6 @@
   margin-top: 24px;
   margin-left: 32px;
   margin-right: 32px;
-}
-.yzecoriolis.sheet.actor .sheet-body .category-header {
-  font-family: "Cairo";
-  color: white;
-  border-radius: 3px;
-  background-color: rgba(113, 130, 190, 0.44);
-  height: 24px;
-  margin-bottom: 5px;
-  align-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
-.yzecoriolis.sheet.actor .sheet-body .category-header:first-of-type {
-  margin-top: 0px;
-}
-.yzecoriolis.sheet.actor .sheet-body .category-column-name {
-  font-size: 14px;
-  margin: 0px 0px 0px 5px;
-  text-transform: uppercase;
-}
-.yzecoriolis.sheet.actor .sheet-body .item-list-controls {
-  text-transform: uppercase;
-  flex: 0 0 100px;
-  margin-top: 2px;
-  text-align: right;
-  margin-right: 7px;
-  display: flex;
-  justify-content: flex-end;
-}
-.yzecoriolis.sheet.actor .sheet-body .item-status-icon {
-  color: #7182be;
-  flex-basis: 20px;
-}
-.yzecoriolis.sheet.actor .sheet-body .item-control-widget {
-  color: #7182be;
-  flex-basis: 20px;
-  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
-}
-.yzecoriolis.sheet.actor .sheet-body .item-control-widget a:hover {
-  text-shadow: none;
-}
-.yzecoriolis.sheet.actor .sheet-body .item-control-widget:hover {
-  text-shadow: 0 0 5px #ff4500;
-  color: white;
-  transform: scale(1.05);
-}
-.yzecoriolis.sheet.actor .sheet-body .item-control-add-widget {
-  color: #7182be;
-  flex-basis: 20px;
-  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
-  color: #9fb0ed;
-  flex-basis: 100px;
-}
-.yzecoriolis.sheet.actor .sheet-body .item-control-add-widget a:hover {
-  text-shadow: none;
-}
-.yzecoriolis.sheet.actor .sheet-body .item-control-add-widget:hover {
-  text-shadow: 0 0 5px #ff4500;
-  color: white;
-  transform: scale(1.05);
-}
-.yzecoriolis.sheet.actor .sheet-body .item-entry {
-  align-items: center;
-  font-family: "Cairo";
-  color: white;
-  margin-bottom: 2px;
-}
-.yzecoriolis.sheet.actor .sheet-body .item-entry-name-rollover {
-  transition: transform 275ms ease;
-}
-.yzecoriolis.sheet.actor .sheet-body .item-entry-name-rollover:hover {
-  transform: translateX(5px);
-}
-.yzecoriolis.sheet.actor .sheet-body .item-entry-name {
-  font-family: "Cairo-SemiBold";
-  color: white;
-  color: #ffa903;
-  font-size: 15px;
-  cursor: pointer;
-}
-.yzecoriolis.sheet.actor .sheet-body .item-bg {
-  background-color: rgba(19, 27, 53, 0.45);
-  border-radius: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  flex: 0 0 100%;
-}
-@keyframes flicker {
-  0% {
-    background-color: rgba(59, 84, 166, 0.45);
-  }
-  100% {
-    background-color: rgba(19, 27, 53, 0.45);
-  }
-}
-.yzecoriolis.sheet.actor .sheet-body .item-bg:hover {
-  animation: flicker 1.2s;
-  animation-fill-mode: forwards;
-}
-.yzecoriolis.sheet.actor .sheet-body .item-summary {
-  flex: 0 0 100%;
-  margin-top: 2px;
-  padding-bottom: 2px;
-  display: flex;
-  justify-content: flex-end;
-}
-.yzecoriolis.sheet.actor .sheet-body .item-summary-wrapper {
-  background-color: rgba(19, 27, 53, 0.45);
-  border-radius: 3px;
-  flex: 0 0 570px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: 25px;
 }
 .yzecoriolis.sheet.actor .sheet-body .item-properties {
   flex: 1;
@@ -2447,6 +2447,119 @@
   text-shadow: 0 0 5px #ff4500;
   color: white;
   transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .feature-list {
+  list-style: none;
+  overflow-y: auto;
+  max-height: 275px;
+  padding: 0 5px 0 0;
+  margin-top: 24px;
+  margin-left: 32px;
+  margin-right: 32px;
+}
+.yzecoriolis.sheet.actor .feature-list .feature-category-header {
+  font-family: "Cairo";
+  color: white;
+  border-radius: 3px;
+  background-color: rgba(113, 130, 190, 0.44);
+  height: 24px;
+  margin-bottom: 5px;
+  align-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.yzecoriolis.sheet.actor .feature-list .feature-category-header:first-of-type {
+  margin-top: 0px;
+}
+.yzecoriolis.sheet.actor .feature-list .feature-category-name {
+  font-size: 14px;
+  margin: 0px 0px 0px 5px;
+  text-transform: uppercase;
+}
+.yzecoriolis.sheet.actor .feature-list .feature-controls {
+  text-transform: uppercase;
+  flex: 0 0 100px;
+  margin-top: 2px;
+  text-align: right;
+  margin-right: 7px;
+  display: flex;
+  justify-content: flex-end;
+}
+.yzecoriolis.sheet.actor .feature-list .feature-control-widget {
+  color: #7182be;
+  flex-basis: 20px;
+  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+}
+.yzecoriolis.sheet.actor .feature-list .feature-control-widget a:hover {
+  text-shadow: none;
+}
+.yzecoriolis.sheet.actor .feature-list .feature-control-widget:hover {
+  text-shadow: 0 0 5px #ff4500;
+  color: white;
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .feature-list .feature-control-add-widget {
+  color: #7182be;
+  flex-basis: 20px;
+  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+  color: #9fb0ed;
+  flex-basis: 100px;
+}
+.yzecoriolis.sheet.actor .feature-list .feature-control-add-widget a:hover {
+  text-shadow: none;
+}
+.yzecoriolis.sheet.actor .feature-list .feature-control-add-widget:hover {
+  text-shadow: 0 0 5px #ff4500;
+  color: white;
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .feature-list .feature {
+  align-items: center;
+  font-family: "Cairo";
+  color: white;
+  margin-bottom: 2px;
+}
+.yzecoriolis.sheet.actor .feature-list .feature-bg {
+  background-color: rgba(19, 27, 53, 0.45);
+  border-radius: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  flex: 0 0 100%;
+}
+@keyframes flicker {
+  0% {
+    background-color: rgba(59, 84, 166, 0.45);
+  }
+  100% {
+    background-color: rgba(19, 27, 53, 0.45);
+  }
+}
+.yzecoriolis.sheet.actor .feature-list .feature-bg:hover {
+  animation: flicker 1.2s;
+  animation-fill-mode: forwards;
+}
+.yzecoriolis.sheet.actor .feature-list .feature-name {
+  font-family: "Cairo-SemiBold";
+  color: white;
+  color: #ffa903;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 275ms ease;
+}
+.yzecoriolis.sheet.actor .feature-list .feature-name:hover {
+  transform: translateX(5px);
+}
+.yzecoriolis.sheet.actor .feature-list .feature-row-data {
+  font-family: "Cairo";
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+.yzecoriolis.sheet.actor .feature-list .item-summary-wrapper {
+  flex: 0 0 850px;
+}
+.yzecoriolis.sheet.actor .feature-list .expanded {
+  height: auto;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */

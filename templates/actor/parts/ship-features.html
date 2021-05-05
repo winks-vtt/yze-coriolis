@@ -1,11 +1,12 @@
 <div class="tab panel" data-group="primary" data-tab="features">
     <ol class="feature-list">
         {{!-- setup header for a talent category--}}
-        <li class=" talent-category-header flexrow">
-            <span class="talent-category-name flexrow">{{localize "YZECORIOLIS.ShipFeature"}}</span>
+        <li class=" feature-category-header flexrow">
+            <span class="feature-category-name flexrow">{{localize "YZECORIOLIS.ShipFeature"}}</span>
+            <span class="feature-category-name flexrow justify-end">{{localize "YZECORIOLIS.MoneyCostIncrease"}}</span>
             {{#if owner}}
-            <div class="talent-controls">
-                <a class="talent-control-add-widget feature-create" title='{{localize "YZECORIOLIS.ShipCreateFeature"}}'
+            <div class="feature-controls">
+                <a class="feature-control-add-widget feature-create" title='{{localize "YZECORIOLIS.ShipCreateFeature"}}'
                     {{#each actor.features.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                     <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                 </a>
@@ -20,7 +21,8 @@
         <li class="feature item flexrow" data-item-id="{{feature._id}}">
             <div class="feature-bg flickering flexrow">
                 <div class="feature-name expandable-info flexrow">
-                    <span>{{feature.name}}</span>
+                    <span class="flexrow">{{feature.name}}</span>
+                    <span class=" feature-row-data flexrow justify-end">{{feature.data.cost}}%</span>
                 </div>
                 <div class="feature-controls">
                     <a class="edit-widget faded feature-edit" title="{{localize "YZECORIOLIS.ShipEditFeature"}}" data-feature={{feature._id}}><i
