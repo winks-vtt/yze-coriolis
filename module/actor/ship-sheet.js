@@ -161,6 +161,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     html.find(".module-edit").click(this._onClickEditModule.bind(this));
     html.find(".module-delete").click(this._onClickDeleteModule.bind(this));
 
+    html.find(".feature-create").click(this._onClickCreateFeature.bind(this));
     html.find(".feature-edit").click(this._onClickEditFeature.bind(this));
     html.find(".feature-delete").click(this._onClickDeleteFeature.bind(this));
 
@@ -195,6 +196,30 @@ export class yzecoriolisShipSheet extends ActorSheet {
     const targetButton = event.currentTarget;
     const moduleId = targetButton.dataset.module;
     this.actor.deleteOwnedItem(moduleId);
+  }
+
+  _onClickCreateFeature(event) {
+    event.preventDefault();
+    const targetButton = event.currentTarget;
+    const type = targetButton.dataset.type;
+    // Grab any data associated with this control.
+    const data = duplicate(targetButton.dataset);
+    // Initialize a default name.
+    const name = data.defaultname;
+    // Prepare the item object.
+    const itemData = {
+      name: name,
+      type: type,
+      data: data,
+    };
+
+    // Remove the type from the dataset since it's in the itemData.type prop.
+    delete itemData.data["type"];
+    // no need to keep ahold of defaultname after creation.
+    delete itemData.data["defaultname"];
+
+    // Finally, create the item!
+    return this.actor.createOwnedItem(itemData);
   }
 
   _onClickEditFeature(event) {
