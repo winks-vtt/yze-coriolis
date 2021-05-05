@@ -433,7 +433,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Grab any data associated with this control.
     const data = duplicate(header.dataset);
     // Initialize a default name.
-    const name = data.defaultname; // `New ${type.capitalize()}`;
+    const name = data.defaultname;
     // Prepare the item object.
     const itemData = {
       name: name,
