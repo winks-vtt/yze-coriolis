@@ -72,6 +72,10 @@ export class yzecoriolisActorSheet extends ActorSheet {
       data.mindPoints.value,
       data.mindPoints.max
     );
+    actorData.actionBlocks = prepDataBarBlocks(
+      data.actionPoints.value,
+      data.actionPoints.max
+    );
   }
 
   _prepareCharacterItems(sheetData) {

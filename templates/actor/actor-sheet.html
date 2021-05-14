@@ -102,6 +102,25 @@
           </div>
         </li>
         <li class="entry flexrow">
+          <div class="stat-label">{{localize "YZECORIOLIS.ActionPoints"}}</div>
+          <div class="bar ap-bar fr-basic">
+            {{#each actor.actionBlocks as |on index|}}
+            {{#with ../data as | data |}}
+            {{#if on}}
+            <div class="bar-segment on" data-name="data.actionPoints.value" data-index={{index}}
+              data-current={{data.actionPoints.value}} data-min={{data.actionPoints.min}} data-max={{data.actionPoints.max}}>
+            </div>
+            {{else}}
+            <div class="bar-segment off" data-name="data.actionPoints.value" data-index={{index}}
+              data-current={{data.actionPoints.value}} data-min={{data.actionPoints.min}} data-max={{data.actionPoints.max}}>
+            </div>
+            {{/if}}
+            {{/with}}
+            {{/each}}
+            <span class="bar-value">{{data.actionPoints.value}}</span>
+          </div>
+        </li>
+        <li class="entry flexrow">
           <div class="capitalize stat-label">{{localize "YZECORIOLIS.Birr"}}</div>
           <div class="number">
             <input class="input-value" type="text" name="data.birr" value="{{data.birr}}" data-dtype="Number" />
