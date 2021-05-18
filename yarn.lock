@@ -57,7 +57,7 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
-"@league-of-foundry-developers/foundry-vtt-types@^0.7.9-5":
+"@league-of-foundry-developers/foundry-vtt-types@^0.7.9-6":
   version "0.7.9-6"
   resolved "https://registry.yarnpkg.com/@league-of-foundry-developers/foundry-vtt-types/-/foundry-vtt-types-0.7.9-6.tgz#02db5044c8cfb377052e054514732dfe542a8f8a"
   integrity sha512-NdLNuzLGTCU8fA94JLUiOHrAMlE8NOa2YA2wc+Q27ljf+ZFPxjhwnp80e8uUryQI4CNb+O0ldPpTXnSAz7AAKA==
