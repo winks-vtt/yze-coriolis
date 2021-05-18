@@ -1,5 +1,21 @@
 import { resetCrewForShip } from "./actor/crew.js";
 import { createBlankEPToken } from "./item/ep-token.js";
+import { displayDarknessPoints } from "./darkness-points.js";
+
+// eslint-disable-next-line no-unused-vars
+Hooks.on("updateUser", (entity, data, options, userId) => {
+  // we avoid any null sets because we are just doing a clearing of the flag
+  // before setting it to a valid value.
+  const isSettingDP =
+    hasProperty(data, "flags.yzecoriolis.darknessPoints") &&
+    data.flags.yzecoriolis.darknessPoints !== null;
+
+  if (options.diff && isSettingDP) {
+    if (game.user.isGM) {
+      displayDarknessPoints();
+    }
+  }
+});
 
 // eslint-disable-next-line no-unused-vars
 Hooks.on("updateActor", (entity, data, options, userId) => {
