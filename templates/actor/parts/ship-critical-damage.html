@@ -5,7 +5,7 @@
             <span class="feature-category-name flexrow">{{localize "YZECORIOLIS.ShipCriticalDamage"}}</span>
             {{#if owner}}
             <div class="feature-controls">
-                <a class="feature-control-add-widget critDamage-create" title='{{localize "YZECORIOLIS.ShipCreateCriticalDamage"}}'
+                <a class="feature-control-add-widget shipItem-create" title='{{localize "YZECORIOLIS.ShipCreateCriticalDamage"}}'
                     {{#each actor.criticalDamages.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                     <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                 </a>
@@ -22,9 +22,9 @@
                     <span class="flexrow">{{critDamage.name}}</span>
                 </div>
                 <div class="feature-controls">
-                    <a class="edit-widget faded critDamage-edit" title="{{localize "YZECORIOLIS.ShipEditCriticalDamage"}}" data-feature={{critDamage._id}}><i
+                    <a class="edit-widget faded shipItem-edit" title="{{localize "YZECORIOLIS.ShipEditCriticalDamage"}}" data-feature={{critDamage._id}}><i
                             class="fas fa-edit"></i></a>
-                    <a class="edit-widget faded critDamage-delete"
+                    <a class="edit-widget faded shipItem-delete"
                         title="{{localize "YZECORIOLIS.ShipDeleteCriticalDamage"}}" data-feature={{critDamage._id}}><i class="fas fa-trash"></i></a>
                 </div>
             </div>

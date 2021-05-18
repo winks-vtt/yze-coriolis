@@ -131,6 +131,14 @@ export class yzecoriolisShipSheet extends ActorSheet {
       },
       items: getOwnedItemsByType(this.actor, "shipCriticalDamage"),
     };
+
+    sheetActor.problems = {
+      dataset: {
+        type: "shipProblem",
+        defaultName: game.i18n.localize("YZECORIOLIS.NewShipProblem"),
+      },
+      items: getOwnedItemsByType(this.actor, "shipProblem"),
+    };
   }
 
   /** @override */
@@ -169,18 +177,10 @@ export class yzecoriolisShipSheet extends ActorSheet {
     html.find(".module-edit").click(this._onClickEditModule.bind(this));
     html.find(".module-delete").click(this._onClickDeleteModule.bind(this));
 
-    // *shipItem involves features and critical damages
-    html.find(".feature-create").click(this._onClickCreateShipItem.bind(this));
-    html.find(".feature-edit").click(this._onClickEditShipItem.bind(this));
-    html.find(".feature-delete").click(this._onClickDeleteShipItem.bind(this));
-
-    html
-      .find(".critDamage-create")
-      .click(this._onClickCreateShipItem.bind(this));
-    html.find(".critDamage-edit").click(this._onClickEditShipItem.bind(this));
-    html
-      .find(".critDamage-delete")
-      .click(this._onClickDeleteShipItem.bind(this));
+    // *shipItem involves features, problems, and critical damages
+    html.find(".shipItem-create").click(this._onClickCreateShipItem.bind(this));
+    html.find(".shipItem-edit").click(this._onClickEditShipItem.bind(this));
+    html.find(".shipItem-delete").click(this._onClickDeleteShipItem.bind(this));
 
     html
       .find(".expandable-info")

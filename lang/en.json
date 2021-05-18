@@ -361,7 +361,13 @@
   "YZECORIOLIS.NewShipCriticalDamage": "New Critical Damage",
   "YZECORIOLIS.ShipEditCriticalDamage": "Edit Critical Damage",
   "YZECORIOLIS.ShipCreateCriticalDamage": "Create Critical Damage",
-  "YZECORIOLIS.ShipDeleteCriticalDamage": "Delete Critical Damage"
+  "YZECORIOLIS.ShipDeleteCriticalDamage": "Delete Critical Damage",
+
+  "YZECORIOLIS.ShipProblem": "Problem",
+  "YZECORIOLIS.NewShipProblem": "New Problem",
+  "YZECORIOLIS.ShipEditProblem": "Edit Problem",
+  "YZECORIOLIS.ShipCreateProblem": "Create Problem",
+  "YZECORIOLIS.ShipDeleteProblem": "Delete Problem"
 
 
 }

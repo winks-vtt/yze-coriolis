@@ -6,7 +6,7 @@
             <span class="feature-category-name flexrow justify-end">{{localize "YZECORIOLIS.MoneyCostIncrease"}}</span>
             {{#if owner}}
             <div class="feature-controls">
-                <a class="feature-control-add-widget feature-create" title='{{localize "YZECORIOLIS.ShipCreateFeature"}}'
+                <a class="feature-control-add-widget shipItem-create" title='{{localize "YZECORIOLIS.ShipCreateFeature"}}'
                     {{#each actor.features.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                     <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                 </a>
@@ -25,9 +25,9 @@
                     <span class=" feature-row-data flexrow justify-end">{{feature.data.cost}}%</span>
                 </div>
                 <div class="feature-controls">
-                    <a class="edit-widget faded feature-edit" title="{{localize "YZECORIOLIS.ShipEditFeature"}}" data-feature={{feature._id}}><i
+                    <a class="edit-widget faded shipItem-edit" title="{{localize "YZECORIOLIS.ShipEditFeature"}}" data-feature={{feature._id}}><i
                             class="fas fa-edit"></i></a>
-                    <a class="edit-widget faded feature-delete"
+                    <a class="edit-widget faded shipItem-delete"
                         title="{{localize "YZECORIOLIS.ShipDeleteFeature"}}" data-feature={{feature._id}}><i class="fas fa-trash"></i></a>
                 </div>
             </div>
