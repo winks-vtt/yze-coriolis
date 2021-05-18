@@ -261,7 +261,8 @@
       "shipProblem",
       "energyPointToken",
       "shipModule",
-      "shipFeature"
+      "shipFeature",
+      "shipCriticalDamage"
     ],
     "templates": {
       "base": {
@@ -328,6 +329,9 @@
     "shipProblem": {
       "templates": ["base"]
     },
+    "shipCriticalDamage": {
+      "templates": ["base"]
+    },
     "shipModule": {
       "templates": ["gear"],
       "bonus": 0,
@@ -341,7 +345,6 @@
       "category": "",
       "special": {}
     },
-
     "shipFeature": {
       "templates": ["gear"]
     },
