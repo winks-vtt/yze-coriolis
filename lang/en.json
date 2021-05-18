@@ -350,11 +350,18 @@
   "YZECORIOLIS.ShipModuleWeapon": "Weapon Module",
   "YZECORIOLIS.EditModule": "Edit Module",
   "YZECORIOLIS.DeleteModule": "Delete Module",
+
   "YZECORIOLIS.ShipFeature": "Ship Feature",
   "YZECORIOLIS.NewShipFeature": "New Feature",
   "YZECORIOLIS.ShipEditFeature": "Edit Feature",
   "YZECORIOLIS.ShipCreateFeature": "Create Feature",
-  "YZECORIOLIS.ShipDeleteFeature": "Delete Feature"
+  "YZECORIOLIS.ShipDeleteFeature": "Delete Feature",
+
+  "YZECORIOLIS.ShipCriticalDamage": "Ship Critical Damage",
+  "YZECORIOLIS.NewShipCriticalDamage": "New Critical Damage",
+  "YZECORIOLIS.ShipEditCriticalDamage": "Edit Critical Damage",
+  "YZECORIOLIS.ShipCreateCriticalDamage": "Create Critical Damage",
+  "YZECORIOLIS.ShipDeleteCriticalDamage": "Delete Critical Damage"
 
 
 }

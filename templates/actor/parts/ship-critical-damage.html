@@ -1,34 +1,31 @@
-<div class="tab panel" data-group="primary" data-tab="features">
+<div class="tab panel" data-group="primary" data-tab="critDamage">
     <ol class="feature-list">
         {{!-- setup header for Critical Damage--}}
-        <li class=" feature-category-header flexrow">
-            <span class="feature-category-name flexrow">{{localize "YZECORIOLIS.ShipFeature"}}</span>
-            <span class="feature-category-name flexrow justify-end">{{localize "YZECORIOLIS.MoneyCostIncrease"}}</span>
+        <li class="feature-category-header flexrow">
+            <span class="feature-category-name flexrow">{{localize "YZECORIOLIS.ShipCriticalDamage"}}</span>
             {{#if owner}}
             <div class="feature-controls">
-                <a class="feature-control-add-widget feature-create" title='{{localize "YZECORIOLIS.ShipCreateFeature"}}'
-                    {{#each actor.features.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                <a class="feature-control-add-widget critDamage-create" title='{{localize "YZECORIOLIS.ShipCreateCriticalDamage"}}'
+                    {{#each actor.criticalDamages.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                     <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                 </a>
             </div>
             {{/if}}
-
         </li>
 
 
-        {{!-- show each feature --}}
-        {{#each actor.features.items as |feature|}}
-        <li class="feature item flexrow" data-item-id="{{feature._id}}">
+        {{!-- show each crit damage --}}
+        {{#each actor.criticalDamages.items as |critDamage|}}
+        <li class="feature item flexrow" data-item-id="{{critDamage._id}}">
             <div class="feature-bg flickering flexrow">
                 <div class="feature-name expandable-info flexrow">
-                    <span class="flexrow">{{feature.name}}</span>
-                    <span class=" feature-row-data flexrow justify-end">{{feature.data.cost}}%</span>
+                    <span class="flexrow">{{critDamage.name}}</span>
                 </div>
                 <div class="feature-controls">
-                    <a class="edit-widget faded feature-edit" title="{{localize "YZECORIOLIS.ShipEditFeature"}}" data-feature={{feature._id}}><i
+                    <a class="edit-widget faded critDamage-edit" title="{{localize "YZECORIOLIS.ShipEditCriticalDamage"}}" data-feature={{critDamage._id}}><i
                             class="fas fa-edit"></i></a>
-                    <a class="edit-widget faded feature-delete"
-                        title="{{localize "YZECORIOLIS.ShipDeleteFeature"}}" data-feature={{feature._id}}><i class="fas fa-trash"></i></a>
+                    <a class="edit-widget faded critDamage-delete"
+                        title="{{localize "YZECORIOLIS.ShipDeleteCriticalDamage"}}" data-feature={{critDamage._id}}><i class="fas fa-trash"></i></a>
                 </div>
             </div>
         </li>

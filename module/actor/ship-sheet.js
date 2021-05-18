@@ -123,6 +123,14 @@ export class yzecoriolisShipSheet extends ActorSheet {
       },
       items: getOwnedItemsByType(this.actor, "shipFeature"),
     };
+
+    sheetActor.criticalDamages = {
+      dataset: {
+        type: "shipCriticalDamage",
+        defaultName: game.i18n.localize("YZECORIOLIS.NewShipCriticalDamage"),
+      },
+      items: getOwnedItemsByType(this.actor, "shipCriticalDamage"),
+    };
   }
 
   /** @override */
@@ -161,13 +169,22 @@ export class yzecoriolisShipSheet extends ActorSheet {
     html.find(".module-edit").click(this._onClickEditModule.bind(this));
     html.find(".module-delete").click(this._onClickDeleteModule.bind(this));
 
-    html.find(".feature-create").click(this._onClickCreateFeature.bind(this));
-    html.find(".feature-edit").click(this._onClickEditFeature.bind(this));
-    html.find(".feature-delete").click(this._onClickDeleteFeature.bind(this));
+    // *shipItem involves features and critical damages
+    html.find(".feature-create").click(this._onClickCreateShipItem.bind(this));
+    html.find(".feature-edit").click(this._onClickEditShipItem.bind(this));
+    html.find(".feature-delete").click(this._onClickDeleteShipItem.bind(this));
+
+    html
+      .find(".critDamage-create")
+      .click(this._onClickCreateShipItem.bind(this));
+    html.find(".critDamage-edit").click(this._onClickEditShipItem.bind(this));
+    html
+      .find(".critDamage-delete")
+      .click(this._onClickDeleteShipItem.bind(this));
 
     html
       .find(".expandable-info")
-      .click((event) => this._onFeatureSummary(event));
+      .click((event) => this._onShipItemSummary(event));
     // update gear quantity directly from sheet.
     html
       .find(".quantity-input")
@@ -201,7 +218,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     this.actor.deleteOwnedItem(moduleId);
   }
 
-  _onClickCreateFeature(event) {
+  _onClickCreateShipItem(event) {
     event.preventDefault();
     const targetButton = event.currentTarget;
     const type = targetButton.dataset.type;
@@ -225,7 +242,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     return this.actor.createOwnedItem(itemData);
   }
 
-  _onClickEditFeature(event) {
+  _onClickEditShipItem(event) {
     event.preventDefault();
     const targetButton = event.currentTarget;
     const featureId = targetButton.dataset.feature;
@@ -233,7 +250,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     item.sheet.render(true);
   }
 
-  async _onClickDeleteFeature(event) {
+  async _onClickDeleteShipItem(event) {
     event.preventDefault();
     const targetButton = event.currentTarget;
     const featureId = targetButton.dataset.feature;
@@ -389,7 +406,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
    * Handle showing an item's description in the character sheet as an easy fold out.
    * @private
    */
-  _onFeatureSummary(event) {
+  _onShipItemSummary(event) {
     event.preventDefault();
     const li = $(event.currentTarget).parents(".item");
     const item = this.actor.getOwnedItem(li.data("item-id"));
