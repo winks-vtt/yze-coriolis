@@ -1,0 +1,37 @@
+<div class="tab panel" data-group="primary" data-tab="features">
+    <ol class="feature-list">
+        {{!-- setup header for Critical Damage--}}
+        <li class=" feature-category-header flexrow">
+            <span class="feature-category-name flexrow">{{localize "YZECORIOLIS.ShipFeature"}}</span>
+            <span class="feature-category-name flexrow justify-end">{{localize "YZECORIOLIS.MoneyCostIncrease"}}</span>
+            {{#if owner}}
+            <div class="feature-controls">
+                <a class="feature-control-add-widget feature-create" title='{{localize "YZECORIOLIS.ShipCreateFeature"}}'
+                    {{#each actor.features.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                    <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+                </a>
+            </div>
+            {{/if}}
+
+        </li>
+
+
+        {{!-- show each feature --}}
+        {{#each actor.features.items as |feature|}}
+        <li class="feature item flexrow" data-item-id="{{feature._id}}">
+            <div class="feature-bg flickering flexrow">
+                <div class="feature-name expandable-info flexrow">
+                    <span class="flexrow">{{feature.name}}</span>
+                    <span class=" feature-row-data flexrow justify-end">{{feature.data.cost}}%</span>
+                </div>
+                <div class="feature-controls">
+                    <a class="edit-widget faded feature-edit" title="{{localize "YZECORIOLIS.ShipEditFeature"}}" data-feature={{feature._id}}><i
+                            class="fas fa-edit"></i></a>
+                    <a class="edit-widget faded feature-delete"
+                        title="{{localize "YZECORIOLIS.ShipDeleteFeature"}}" data-feature={{feature._id}}><i class="fas fa-trash"></i></a>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </ol>
+</div>
