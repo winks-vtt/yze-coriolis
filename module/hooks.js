@@ -48,7 +48,7 @@ function rerenderAllCrew() {
   for (let e of game.actors.entities) {
     let rootData = e.data;
     if (rootData.type === "character" || rootData.type === "npc") {
-      e.render(true);
+      e.render(false);
     }
   }
 }
@@ -58,10 +58,11 @@ function rerenderAllShips() {
   for (let e of game.actors.entities) {
     let rootData = e.data;
     if (rootData.type === "ship") {
-      e.render(true);
+      e.render(false);
     }
   }
 }
+
 async function createEPTokensForShip(entity) {
   for (let i = 0; i < CONFIG.YZECORIOLIS.MaxEPTokensPerShip; i++) {
     await createBlankEPToken(entity);
