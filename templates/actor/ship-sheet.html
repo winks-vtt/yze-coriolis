@@ -141,6 +141,9 @@
                   {{!-- Problems --}}
                   {{> "systems/yzecoriolis/templates/actor/parts/ship-problems.html"}}
                   {{!-- Notes --}}
+                  <div class="tab shipnotes" data-group="primary" data-tab="shipnotes">
+                    {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
+                  </div>
                 </section>
               </div>
             </div>

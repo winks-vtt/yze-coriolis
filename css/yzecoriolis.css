@@ -2561,6 +2561,26 @@
 .yzecoriolis.sheet.actor .feature-list .expanded {
   height: auto;
 }
+.yzecoriolis.sheet.actor .shipnotes .editor {
+  max-height: 280px;
+  height: 280px;
+  margin: 10px;
+  font-family: "Cairo";
+  color: #fdff9d;
+}
+.yzecoriolis.sheet.actor .shipnotes .editor-edit {
+  display: block;
+  width: 40px;
+  text-align: center;
+  background-color: rgba(19, 27, 53, 0.45);
+  color: #7182be;
+  border: 1px solid #7182be;
+  transition: background-color 275ms ease;
+}
+.yzecoriolis.sheet.actor .shipnotes .editor-edit:hover {
+  text-shadow: none;
+  background-color: rgba(46, 65, 128, 0.45);
+}
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
   /*  Sheet Tabs                             */

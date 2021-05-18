@@ -1379,4 +1379,28 @@
       height: auto;
     }
   }
+
+  .shipnotes {
+    .editor {
+      max-height: 280px;
+      height: 280px;
+      margin: @padding-md;
+      .player-text();
+    }
+
+    .editor-edit {
+      display: block;
+      width: 40px;
+      text-align: center;
+      background-color: @colorStatItemEntryBG;
+      color: @colorDarkBlue;
+      border: 1px solid @colorDarkBlue;
+      transition: background-color 275ms ease;
+
+      &:hover {
+        text-shadow: none;
+        background-color: lighten(@colorStatItemEntryBG, 20%);
+      }
+    }
+  }
 }
