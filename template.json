@@ -28,6 +28,11 @@
           "min": 0,
           "max": 10
         },
+        "actionPoints": {
+          "value": 0,
+          "min": 0,
+          "max": 3
+        },
         "attributes": {
           "strength": {
             "value": 0,

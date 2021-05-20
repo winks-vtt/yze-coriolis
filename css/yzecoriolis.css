@@ -812,6 +812,81 @@
   .bar-segment.off:hover {
   transform: scale(1.05);
 }
+.yzecoriolis.sheet.actor
+  .always-visible-stats
+  .perma-stats-list
+  .entry
+  .ap-bar {
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 5px 0px 5px;
+  border: 1px solid #a4a4a4;
+  border-radius: 5px;
+  background-color: rgba(113, 130, 190, 0.35);
+  height: 27px;
+}
+.yzecoriolis.sheet.actor
+  .always-visible-stats
+  .perma-stats-list
+  .entry
+  .ap-bar
+  .bar-segment {
+  border-radius: 2px;
+  box-sizing: border-box;
+  flex: 1 1 10px;
+  height: 17px;
+  margin: 3.5px 1px;
+  background-color: #000000;
+  transition: background-color 275ms ease, border 275ms ease;
+}
+.yzecoriolis.sheet.actor
+  .always-visible-stats
+  .perma-stats-list
+  .entry
+  .ap-bar
+  .hover-to-decrease {
+  background-color: #081f43 !important;
+}
+.yzecoriolis.sheet.actor
+  .always-visible-stats
+  .perma-stats-list
+  .entry
+  .ap-bar
+  .hover-to-increase {
+  border: 1px solid #3f82a7;
+}
+.yzecoriolis.sheet.actor
+  .always-visible-stats
+  .perma-stats-list
+  .entry
+  .ap-bar
+  .bar-segment.on {
+  background-color: #3f82a7;
+}
+.yzecoriolis.sheet.actor
+  .always-visible-stats
+  .perma-stats-list
+  .entry
+  .ap-bar
+  .bar-segment.on:hover {
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor
+  .always-visible-stats
+  .perma-stats-list
+  .entry
+  .ap-bar
+  .bar-segment.off {
+  background-color: #000000;
+}
+.yzecoriolis.sheet.actor
+  .always-visible-stats
+  .perma-stats-list
+  .entry
+  .ap-bar
+  .bar-segment.off:hover {
+  transform: scale(1.05);
+}
 .yzecoriolis.sheet.actor .char-content-wrapper {
   grid-column-start: 2;
   grid-column-end: 3;
