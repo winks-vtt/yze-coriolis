@@ -15,6 +15,9 @@ YZECORIOLIS.MaxEPTokensPerShip = 50; // internal use only for allocating EP toke
 YZECORIOLIS.DEFAULT_PLAYER_KEY_ART =
   "systems/yzecoriolis/css/images/unknown_player.png";
 
+YZECORIOLIS.DEFAULT_SHIP_KEY_ART =
+  "systems/yzecoriolis/css/icons/spaceship-keyart.svg";
+
 YZECORIOLIS.attributes = {
   strength: "YZECORIOLIS.AttrStrength",
   agility: "YZECORIOLIS.AttrAgility",

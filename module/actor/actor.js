@@ -23,9 +23,6 @@ export class yzecoriolisActor extends Actor {
    */
   _prepareCharacterData(actorData, capCharPoints) {
     const data = actorData.data;
-    if (!data.keyArt) {
-      data.keyArt = data.keyArt || CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART;
-    }
 
     if (capCharPoints) {
       // Cap attribute scores
