@@ -839,6 +839,12 @@
 .yzecoriolis.sheet.actor .cursor-pointer {
   cursor: pointer;
 }
+.yzecoriolis.sheet.actor .pointer-events-none {
+  pointer-events: none;
+}
+.yzecoriolis.sheet.actor .pointer-events-all {
+  pointer-events: all;
+}
 .bar-bg {
   padding: 0px 5px 0px 5px;
   border: 1px solid #a4a4a4;

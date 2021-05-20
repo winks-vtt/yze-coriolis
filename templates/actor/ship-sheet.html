@@ -4,22 +4,22 @@
       <div
         class="col-start-1 col-end-2 row-start-1 row-end-2 z-1 flex justify-center align-items-center overflow-hidden">
         <img class="border-1 border-solid border-white-1 rounded flex-shrink-0 box-none min-w-full min-h-full max-h-412"
-          src={{data.keyArt}} title="{{actor.name}}">
+          src={{actor.img}} data-edit="img" title="{{actor.name}}">
       </div>
-      <div class="col-start-1 col-end-2 row-start-1 row-end-2 z-2 flex flex-dir-col mg-l mg-t">
-        <input class="text-xxl text-upper text-shadow-1" name="data.shipType" type="text"
+      <div class="col-start-1 col-end-2 row-start-1 row-end-2 z-2 flex flex-dir-col mg-l mg-t pointer-events-none">
+        <input class="text-xxl text-upper text-shadow-1 pointer-events-all" name="data.shipType" type="text"
           value="{{data.shipType}}" placeholder="{{localize "YZECORIOLIS.ShipType"}}" />
-        <input class="text-xxl text-upper text-shadow-1 mg-t-sm" name="name" type="text" value="{{actor.name}}"
+        <input class="text-xxl text-upper text-shadow-1 mg-t-sm pointer-events-all" name="name" type="text" value="{{actor.name}}"
           placeholder="{{localize "YZECORIOLIS.Name"}}" />
-        <div class="flex flex-grow flex-shrink-0 flex-basis-0 justify-end">
+        <div class="flex flex-grow flex-shrink-0 flex-basis-0 justify-end pointer-events-none">
           <div
             class="background-blue-2 mg-r mg-b border-1 border-solid border-blue-1 rounded self-end min-h-75 flex-basis-294">
-            <div class="flexrow mg-l mg-t">
+            <div class="flexrow mg-l mg-t pointer-events-all">
               <span class="data-label-1 text-base blue-1">Class:</span>
               <input class="input-base text-shadow-1 text-upper text-lg" name="data.class" type="text"
                 value="{{data.class}}" placeholder="{{localize "YZECORIOLIS.ShipClass"}}" />
             </div>
-            <div class="flexrow mg-l mg-b">
+            <div class="flexrow mg-l mg-b pointer-events-all">
               <span class="data-label-1 text-base blue-1">Shipyard:</span>
               <input class="input-base text-shadow-1 text-upper text-lg" name="data.shipyard" type="text"
                 value="{{data.shipyard}}" placeholder="{{localize "YZECORIOLIS.Shipyard"}}" />
