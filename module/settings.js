@@ -26,4 +26,12 @@ export const registerSystemSettings = function () {
     type: Number,
     default: 10,
   });
+
+  game.settings.register("yzecoriolis", "firstLaunch", {
+    name: "Onboarding",
+    scope: "world",
+    config: false,
+    type: Boolean,
+    default: false,
+  });
 };

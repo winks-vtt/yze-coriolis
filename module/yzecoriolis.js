@@ -20,6 +20,10 @@ import {
 } from "./darkness-points.js";
 import { setupMCE } from "./mce.js";
 import { getActorById } from "./util.js";
+import {
+  importShipSheetTutorial,
+  showOnboardingMessage,
+} from "./onboarding.js";
 
 Hooks.once("init", async function () {
   console.log(`Coriolis | Initializing Coriolis\n${YZECORIOLIS.ASCII}`);
@@ -400,6 +404,9 @@ Hooks.once("ready", async function () {
   Hooks.on("hotbarDrop", (bar, data, slot) =>
     createYzeCoriolisMacro(data, slot)
   );
+
+  await importShipSheetTutorial();
+  await showOnboardingMessage();
 });
 
 Hooks.once("diceSoNiceReady", (dice3d) => {
