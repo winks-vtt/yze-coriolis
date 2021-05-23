@@ -1,3 +1,7 @@
+# 1.4.5
+
+- Fixed CSS styling bug with entity links
+
 # 1.4.4
 
 - Updated styling of compendium links in character sheets (Thanks to @jomblr)
