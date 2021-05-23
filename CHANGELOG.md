@@ -1,3 +1,7 @@
+# 1.4.4
+
+- Updated styling of compendium links in character sheets (Thanks to @jomblr)
+
 # 1.4.3
 
 - Added Brazilian Portuguese translations (Thanks to @EstolanoBeu)!
