@@ -59,10 +59,10 @@ export const migrateWorld = async function () {
   }
 
   // migrate Darkness Point System
-  migrateDarknessPoints();
+  await migrateDarknessPoints();
 
   // Set the migration as complete
-  game.settings.set(
+  await game.settings.set(
     "yzecoriolis",
     "systemMigrationVersion",
     game.system.data.version
@@ -223,11 +223,27 @@ export const migrateActorData = function (actor) {
   _migrateRemoveDeprecated(actor, updateData);
 
   // fix token art
-  if (actor.img === DEFAULT_TOKEN && hasProperty(actor, "token.img")) {
+  if (actor.img === CONST.DEFAULT_TOKEN && hasProperty(actor, "token.img")) {
     if (actor.img !== actor.token.img) {
       updateData["img"] = actor.token.img;
     }
   }
+
+  // migrate crew positions to new format moving from a basic string to an
+  // object that holds the position and shipId. a blank id functions as just a
+  // generic 'position' without any ship association.
+  let needsCrewMigration =
+    (actor.type === "character" || actor.type === "npc") &&
+    hasProperty(actor, "data.bio.crewPosition") &&
+    typeof actor.data.bio.crewPosition === "string";
+
+  if (needsCrewMigration) {
+    updateData["data.bio.crewPosition"] = {
+      position: actor.data.bio.crewPosition,
+      shipId: "",
+    };
+  }
+
   // Migrate Owned Items
   if (!actor.items) return updateData;
   let hasItemUpdates = false;
@@ -255,6 +271,7 @@ export const migrateActorData = function (actor) {
  * @param {Object} actorData    The data object for an Actor
  * @return {Object}             The scrubbed Actor data
  */
+// eslint-disable-next-line no-unused-vars
 function cleanActorData(actorData) {
   // Scrub system data
   const model = game.system.model.Actor[actorData.type];
@@ -318,7 +335,7 @@ export const migrateSceneData = function (scene) {
   };
 };
 
-export const migrateDarknessPoints = async function () {
+const migrateDarknessPoints = async function () {
   if (!game.user.isGM) {
     return;
   }
@@ -327,7 +344,6 @@ export const migrateDarknessPoints = async function () {
   if (dpPoints !== MIGRATED_VALUE) {
     await addDarknessPoints(dpPoints);
     await game.settings.set("yzecoriolis", "darknessPoints", MIGRATED_VALUE);
-    console.log("wat");
     ui.notifications.info(game.i18n.localize("YZECORIOLIS.MigratedDP"), {
       permanent: true,
     });

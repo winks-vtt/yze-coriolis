@@ -4,6 +4,8 @@
   "YZECORIOLIS.SheetItems": "Items",
   "YZECORIOLIS.SheetBio": "Bio",
   "YZECORIOLIS.SheetNotes": "Notes",
+  "YZECORIOLIS.Enabled": "Enabled",
+  "YZECORIOLIS.Disabled": "Disabled",
 
   "YZECORIOLIS.HitPoints": "Hit Points",
   "YZECORIOLIS.MindPoints": "Mind Points",
@@ -68,6 +70,7 @@
   "YZECORIOLIS.RemoveMeeting": "Remove Meeting",
 
   "YZECORIOLIS.MoneyCost": "Cost",
+  "YZECORIOLIS.MoneyCostIncrease": "Cost Increase (%)",
   "YZECORIOLIS.Birr": "Birr",
   "YZECORIOLIS.GroupConcept": "Group Concept",
   "YZECORIOLIS.Category": "Category",
@@ -315,5 +318,54 @@
 
   "YZECORIOLIS.MigratedDP": "Darkness Points System Migrated.",
   "YZECORIOLIS.HPBonus": "HP Bonus",
-  "YZECORIOLIS.Melee": "Melee"
+  "YZECORIOLIS.Melee": "Melee",
+
+  "YZECORIOLIS.SheetClassCharacter": "Coriolis Character Sheet",
+  "YZECORIOLIS.SheetClassNPC": "Coriolis NPC Sheet",
+  "YZECORIOLIS.SheetClassShip": "Coriolis Ship Sheet",
+  "YZECORIOLIS.SheetClassItem": "Coriolis Item Sheet",
+
+  "YZECORIOLIS.ShipType": "Ship Type",
+  "YZECORIOLIS.ShipClass": "Class",
+  "YZECORIOLIS.Shipyard": "Shipyard",
+  "YZECORIOLIS.Manueverability": "Manueverability",
+  "YZECORIOLIS.Signature": "Signature",
+  "YZECORIOLIS.Problems": "Problems",
+  "YZECORIOLIS.Cost": "Cost",
+  "YZECORIOLIS.Speed": "Speed",
+  "YZECORIOLIS.Crew": "Crew",
+  "YZECORIOLIS.Features": "Features",
+  "YZECORIOLIS.Modules": "Modules",
+  "YZECORIOLIS.CriticalDamage": "Critical Damage",
+  "YZECORIOLIS.Notes": "Notes",
+
+  "YZECORIOLIS.SettingMaxEnergyPoints": "Maximum Allowed Energy Points",
+
+  "YZECORIOLIS.EnergyPointsReset": "Energy Points previously assigned to crew returned to ship reactor.",
+  "YZECORIOLIS.InvalidEPPermissions": "You do not have permission to change ship EP distribution.",
+  "YZECORIOLIS.InvalidCrewRollPermissions": "You do not have permissions to roll for this actor on this ship.",
+
+  "YZECORIOLIS.ShipModuleRequired": "Required Module",
+  "YZECORIOLIS.ShipModuleOptional": "Optional Module",
+  "YZECORIOLIS.ShipModuleWeapon": "Weapon Module",
+  "YZECORIOLIS.EditModule": "Edit Module",
+  "YZECORIOLIS.DeleteModule": "Delete Module",
+
+  "YZECORIOLIS.ShipFeature": "Feature",
+  "YZECORIOLIS.NewShipFeature": "New Feature",
+  "YZECORIOLIS.ShipEditFeature": "Edit Feature",
+  "YZECORIOLIS.ShipCreateFeature": "Create Feature",
+  "YZECORIOLIS.ShipDeleteFeature": "Delete Feature",
+
+  "YZECORIOLIS.ShipCriticalDamage": "Critical Damage",
+  "YZECORIOLIS.NewShipCriticalDamage": "New Critical Damage",
+  "YZECORIOLIS.ShipEditCriticalDamage": "Edit Critical Damage",
+  "YZECORIOLIS.ShipCreateCriticalDamage": "Create Critical Damage",
+  "YZECORIOLIS.ShipDeleteCriticalDamage": "Delete Critical Damage",
+
+  "YZECORIOLIS.ShipProblem": "Problem",
+  "YZECORIOLIS.NewShipProblem": "New Problem",
+  "YZECORIOLIS.ShipEditProblem": "Edit Problem",
+  "YZECORIOLIS.ShipCreateProblem": "Create Problem",
+  "YZECORIOLIS.ShipDeleteProblem": "Delete Problem"
 }

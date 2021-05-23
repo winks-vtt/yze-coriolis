@@ -7,15 +7,16 @@ import {
   onHoverBarOut,
   prepDataBarBlocks,
 } from "./databar.js";
+import { buildCrewOptionsArray } from "./crew.js";
 /**
- * Extend the basic ActorSheet with some very simple modifications
+ * Extend the basic ActorSheet for a basic Coriolis character
  * @extends {ActorSheet}
  */
 export class yzecoriolisActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["yzecoriolis", "sheet", "actor"],
+      classes: ["yzecoriolis", "sheet", "actor", "character"],
       template: "systems/yzecoriolis/templates/actor/actor-sheet.html",
       width: 1000,
       height: 800,
@@ -34,44 +35,49 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
   /** @override */
   getData() {
-    const data = super.getData();
-    data.dtypes = ["String", "Number", "Boolean"];
+    const sheetData = super.getData();
+    sheetData.dtypes = ["String", "Number", "Boolean"];
     if (
       this.actor.data.type === "character" ||
       this.actor.data.type === "npc"
     ) {
       // prepare items
-      this._prepareCharacterItems(data);
-      this._prepCharacterStats(data);
+      this._prepareCharacterItems(sheetData);
+      this._prepCharacterStats(sheetData);
     }
-    data.config = CONFIG.YZECORIOLIS;
-    return data;
+    sheetData.config = CONFIG.YZECORIOLIS;
+    return sheetData;
   }
 
   _prepCharacterStats(sheetData) {
-    const actorData = sheetData.actor;
-    const data = actorData.data;
+    const sheetActor = sheetData.actor;
+    const data = sheetActor.data;
 
-    actorData.radiationBlocks = prepDataBarBlocks(
+    sheetActor.radiationBlocks = prepDataBarBlocks(
       data.radiation.value,
       data.radiation.max
     );
-    actorData.xpBlocks = prepDataBarBlocks(
+    sheetActor.xpBlocks = prepDataBarBlocks(
       data.experience.value,
       data.experience.max
     );
-    actorData.repBlocks = prepDataBarBlocks(
+    sheetActor.repBlocks = prepDataBarBlocks(
       data.reputation.value,
       data.reputation.max
     );
-    actorData.hpBlocks = prepDataBarBlocks(
+    sheetActor.hpBlocks = prepDataBarBlocks(
       data.hitPoints.value,
       data.hitPoints.max
     );
-    actorData.mindBlocks = prepDataBarBlocks(
+    sheetActor.mindBlocks = prepDataBarBlocks(
       data.mindPoints.value,
       data.mindPoints.max
     );
+
+    sheetActor.crewOptions = buildCrewOptionsArray();
+    // we augment the sheet with our 'current' option so that the selection menu
+    // can be driven by it.
+    sheetActor.currentCrewOption = JSON.stringify(data.bio.crewPosition);
   }
 
   _prepareCharacterItems(sheetData) {
@@ -135,7 +141,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
     for (let i of sheetData.items) {
       let item = i.data;
-      i.img = i.img || DEFAULT_TOKEN;
+      i.img = i.img || CONST.DEFAULT_TOKEN;
       // setup equipped status
       const isActive = getProperty(i.data, "equipped");
       item.toggleClass = isActive ? "equipped" : "";
@@ -265,6 +271,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
         li.addEventListener("dragstart", handler, false);
       });
     }
+
+    // handle crew position changes
+    html.find(".crew-position").change(this._onCrewPositionChanged.bind(this));
   }
 
   /* -------------------------------------------- */
@@ -306,6 +315,30 @@ export class yzecoriolisActorSheet extends ActorSheet {
       value = 0;
     }
     return item.update({ "data.quantity": value });
+  }
+
+  async _onCrewPositionChanged(event) {
+    event.preventDefault();
+    const crewSelection = JSON.parse(event.target.value);
+    let oldShipId = this.actor.data.data.bio.crewPosition.shipId;
+    return this.actor
+      .update({ "data.bio.crewPosition": crewSelection })
+      .then(() => {
+        // force a rerender of the new ship
+        if (crewSelection.shipId) {
+          let ship = game.actors.get(crewSelection.shipId);
+          if (ship) {
+            ship.render();
+          }
+        }
+        // force a rerender of the old ship, if any
+        if (oldShipId) {
+          let oldShip = game.actors.get(oldShipId);
+          if (oldShip) {
+            oldShip.render();
+          }
+        }
+      });
   }
 
   _onClickBarSegment(event) {
@@ -400,7 +433,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Grab any data associated with this control.
     const data = duplicate(header.dataset);
     // Initialize a default name.
-    const name = data.defaultname; // `New ${type.capitalize()}`;
+    const name = data.defaultname;
     // Prepare the item object.
     const itemData = {
       name: name,

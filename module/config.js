@@ -10,9 +10,13 @@ YZECORIOLIS.ASCII = `_______________________________
 _______________________________`;
 
 YZECORIOLIS.maxRoll = 6;
+YZECORIOLIS.MaxEPTokensPerShip = 50; // internal use only for allocating EP token objects
 
 YZECORIOLIS.DEFAULT_PLAYER_KEY_ART =
   "systems/yzecoriolis/css/images/unknown_player.png";
+
+YZECORIOLIS.DEFAULT_SHIP_KEY_ART =
+  "systems/yzecoriolis/css/icons/spaceship-keyart.svg";
 
 YZECORIOLIS.attributes = {
   strength: "YZECORIOLIS.AttrStrength",
@@ -34,6 +38,15 @@ YZECORIOLIS.crewPositions = {
   pilot: "YZECORIOLIS.CrewSpotPilot",
   sensorOperator: "YZECORIOLIS.CrewSpotSensorOperator",
   gunner: "YZECORIOLIS.CrewSpotGunner",
+};
+
+// maps crew positions to skill rolls
+YZECORIOLIS.crewRolls = {
+  captain: "command",
+  engineer: "technology",
+  pilot: "pilot",
+  sensorOperator: "datadjinn",
+  gunner: "rangedcombat",
 };
 
 YZECORIOLIS.skillCategories = {
@@ -257,4 +270,12 @@ YZECORIOLIS.icons = {
   messenger: "YZECORIOLIS.IconMessenger",
   judge: "YZECORIOLIS.IconJudge",
   faceless: "YZECORIOLIS.IconFaceless",
+};
+
+// General types are just either required or optional modules.
+// Weapon types are a sub-category of modules that actually house weaponry.
+YZECORIOLIS.shipModuleCategories = {
+  required: "YZECORIOLIS.ShipModuleRequired",
+  optional: "YZECORIOLIS.ShipModuleOptional",
+  weapon: "YZECORIOLIS.ShipModuleWeapon",
 };

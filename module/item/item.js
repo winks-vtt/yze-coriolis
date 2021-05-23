@@ -15,17 +15,17 @@ export class yzecoriolisItem extends Item {
 
     // Get the Item's data
     const itemData = this.data;
-    const actorData = this.actor ? this.actor.data : {};
-    const data = itemData.data;
     if (itemData.type === "talent") this._prepareTalentData(itemData);
   }
 
-  _prepareTalentData(itemData) {}
+  // eslint-disable-next-line no-unused-vars
+  _prepareTalentData(itemData) {
+    // TODO: prep talent data
+  }
 
   async roll() {
     //TODO: Should refactor this a bit so both sheet and macros share the same
     //code path.
-    const token = this.actor.token;
     const item = this.data;
     const actorData = this.actor ? this.actor.data.data : {};
     const itemData = item.data;
@@ -91,7 +91,7 @@ export class yzecoriolisItem extends Item {
   _getDefaultToken() {
     let itemType = this.data.type;
     let isExplosive = this.data.data.explosive;
-    let tokenPath = DEFAULT_TOKEN;
+    let tokenPath = CONST.DEFAULT_TOKEN;
     switch (itemType) {
       case "weapon":
         tokenPath = "systems/yzecoriolis/css/icons/weapons-icon.svg";

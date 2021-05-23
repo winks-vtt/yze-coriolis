@@ -10,8 +10,6 @@ export class yzecoriolisActor extends Actor {
     super.prepareData();
 
     const actorData = this.data;
-    const data = actorData.data;
-    const flags = actorData.flags;
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
@@ -25,33 +23,32 @@ export class yzecoriolisActor extends Actor {
    */
   _prepareCharacterData(actorData, capCharPoints) {
     const data = actorData.data;
-    if (!data.keyArt) {
-      data.keyArt = data.keyArt || CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART;
-    }
 
     if (capCharPoints) {
       // Cap attribute scores
-      for (let [key, attr] of Object.entries(data.attributes)) {
+      Object.keys(data.attributes).forEach((k) => {
+        let attr = data.attributes[k];
         if (attr.value > attr.max) {
           attr.value = attr.max;
         }
         if (attr.value < attr.min) {
           attr.value = attr.min;
         }
-      }
+      });
 
       //Cap Skill scores
-      for (let [key, skl] of Object.entries(data.skills)) {
+      Object.keys(data.skills).forEach((k) => {
+        let skl = data.skills[k];
         if (skl.value > skl.max) {
           skl.value = skl.max;
         }
         if (skl.value < skl.min) {
           skl.value = skl.min;
         }
-      }
+      });
     }
 
-    let hpBonuses = this._prepHPBonuses(data);
+    let hpBonuses = this._prepHPBonuses();
     data.hitPoints.max =
       data.attributes.strength.value +
       data.attributes.agility.value +
@@ -105,9 +102,7 @@ export class yzecoriolisActor extends Actor {
     return chatOptions;
   }
 
-  _prepareRollTitle(rollType) {}
-
-  _prepHPBonuses(data) {
+  _prepHPBonuses() {
     // look through talents for any HPBonuses
     let bonus = 0;
     for (let t of this.data.items) {

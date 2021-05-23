@@ -156,18 +156,18 @@ function isValidRoll(rollData, errorObj) {
   const attribute = rollData.attribute;
   const bonus = rollData.bonus;
   switch (rollData.rollType) {
-    case "skill":
+    case "general": // general skills
       return attribute + skill > 0;
-    case "weapon":
-      return attribute + skill + bonus > 0;
-    case "armor":
-      return bonus >= 0; // should probably always be true?
-    case "advancedSkill":
+    case "advanced": // advanced skills
       if (skill <= 0) {
         errorObj.error = "YZECORIOLIS.ErrorsInvalidAdvancedSkillRoll";
         return false;
       }
       return attribute + skill > 0;
+    case "weapon":
+      return attribute + skill + bonus > 0;
+    case "armor":
+      return bonus >= 0; // should probably always be true?
     case "attribute":
       return attribute > 0;
   }
@@ -213,9 +213,9 @@ function getTotalDice(rollData) {
   let modifier = rollData.modifier;
   let bonus = rollData.bonus;
   switch (rollData.rollType) {
-    case "skill":
+    case "general":
       return attributeValue + skillValue + modifier;
-    case "advancedSkill":
+    case "advanced":
       return attributeValue + skillValue + modifier;
     case "attribute":
       return attributeValue + modifier;
@@ -346,24 +346,32 @@ async function showDiceSoNice(roll, rollMode) {
     switch (rollMode) {
       case "blindroll": //GM only
         blind = true;
-      case "gmroll": //GM + rolling player
+      // fall through
+      // eslint-disable-next-line no-fallthrough
+      case "gmroll": {
+        //GM + rolling player
         let gmList = game.users.filter((user) => user.isGM);
         let gmIDList = [];
         gmList.forEach((gm) => gmIDList.push(gm.data._id));
         whisper = gmIDList;
         break;
-      case "roll": //everybody
+      }
+      case "roll": {
+        //everybody
         let userList = game.users.filter((user) => user.active);
         let userIDList = [];
         userList.forEach((user) => userIDList.push(user.data._id));
         whisper = userIDList;
         break;
-      case "selfroll": // only roll to yourself
+      }
+      case "selfroll": {
+        // only roll to yourself
         let selfList = game.users.filter((user) => user._id === game.user._id);
         let selfIDList = [];
         selfList.forEach((user) => selfIDList.push(user.data._id));
         whisper = selfIDList;
         break;
+      }
     }
     await game.dice3d.showForRoll(roll, game.user, true, whisper, blind);
   }

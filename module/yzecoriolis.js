@@ -3,9 +3,9 @@ import { YZECORIOLIS } from "./config.js";
 import { registerSystemSettings } from "./settings.js";
 import { yzecoriolisActor } from "./actor/actor.js";
 import { yzecoriolisActorSheet } from "./actor/actor-sheet.js";
+import { yzecoriolisShipSheet } from "./actor/ship-sheet.js";
 import { yzecoriolisItem } from "./item/item.js";
 import { yzecoriolisItemSheet } from "./item/item-sheet.js";
-import { bootstrapGearCompendium } from "./migration.js";
 import { coriolisChatListeners } from "./coriolis-roll.js";
 import {
   getAttributeKeyForWeaponType,
@@ -19,6 +19,11 @@ import {
   displayDarknessPoints,
 } from "./darkness-points.js";
 import { setupMCE } from "./mce.js";
+import { getActorById } from "./util.js";
+import {
+  importShipSheetTutorial,
+  showOnboardingMessage,
+} from "./onboarding.js";
 
 Hooks.once("init", async function () {
   console.log(`Coriolis | Initializing Coriolis\n${YZECORIOLIS.ASCII}`);
@@ -52,14 +57,43 @@ Hooks.once("init", async function () {
   //Register system settings
   registerSystemSettings();
 
+  // Some item types are internal only and shouldn't be user-created,
+  // such as EP tokens, so they are left out of this list.
+  game.system.entityTypes.Item = [
+    "item",
+    "gear",
+    "talent",
+    "weapon",
+    "armor",
+    "injury",
+    "shipProblem",
+    "shipModule",
+    "shipFeature",
+    "shipCriticalDamage",
+  ];
+
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("yzecoriolis", yzecoriolisActorSheet, {
+    types: ["character"],
     makeDefault: true,
+    label: "YZECORIOLIS.SheetClassCharacter",
   });
+  Actors.registerSheet("yzecoriolis", yzecoriolisActorSheet, {
+    types: ["npc"],
+    makeDefault: true,
+    label: "YZECORIOLIS.SheetClassNPC",
+  });
+  Actors.registerSheet("yzecoriolis", yzecoriolisShipSheet, {
+    types: ["ship"],
+    makeDefault: true,
+    label: "YZECORIOLIS.SheetClassShip",
+  });
+
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("yzecoriolis", yzecoriolisItemSheet, {
     makeDefault: true,
+    label: "SheetClassItem",
   });
 
   // register turn order changes. Currently it's sorting from high->low so no need to edit atm.
@@ -184,6 +218,60 @@ Hooks.once("init", async function () {
   Handlebars.registerHelper("getAttributeKeyForWeaponType", function (isMelee) {
     return getAttributeKeyForWeaponType(isMelee);
   });
+
+  // returns just the position without the ship name.
+  Handlebars.registerHelper(
+    "getCrewPositionNameBasic",
+    function (crewPosition) {
+      let positionName =
+        CONFIG.YZECORIOLIS.crewPositions[crewPosition.position];
+      // for non associated crew, just return position name
+      if (!crewPosition.shipId) {
+        return positionName;
+      }
+      // search for ship and grab "ship - crewPosition"
+      let ship = game.actors.get(crewPosition.shipId);
+      if (!ship) {
+        console.warn("failed to find ship", crewPosition);
+        return positionName;
+      }
+      return `${positionName}`;
+    }
+  );
+
+  Handlebars.registerHelper("getCrewPositionName", function (crewPosition) {
+    let positionName = CONFIG.YZECORIOLIS.crewPositions[crewPosition.position];
+    // for non associated crew, just return position name
+    if (!crewPosition.shipId) {
+      console.log("no ship", crewPosition);
+      return positionName;
+    }
+    // search for ship and grab "ship - crewPosition"
+    let ship = game.actors.get(crewPosition.shipId);
+    if (!ship) {
+      console.warn("failed to find ship", crewPosition);
+      return positionName;
+    }
+    return `${ship.data.name} - ${positionName}`;
+  });
+
+  Handlebars.registerHelper(
+    "getShipRollNameForPosition",
+    function (crewPosition) {
+      const skill = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
+      return CONFIG.YZECORIOLIS.skills[skill];
+    }
+  );
+
+  Handlebars.registerHelper("getShipRollValueForPosition", function (crewId) {
+    const crew = getActorById(crewId);
+    const crewPosition = crew.data.bio.crewPosition;
+    const skillKey = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
+    const skillValue = crew.data.skills[skillKey].value;
+    const attribKey = crew.data.skills[skillKey].attribute;
+    const attribValue = crew.data.attributes[attribKey].value;
+    return attribValue + skillValue;
+  });
 });
 
 // called after game data is loaded from severs. entities exist
@@ -204,11 +292,13 @@ Hooks.once("setup", function () {
     "ranges",
     "icons",
     "crewPositions",
+    "shipModuleCategories",
   ];
 
   // exclude sorting from some config values where the order matters.
   const noSort = [
     "talentCategories",
+    "shipModuleCategories",
     "techTiers",
     "gearWeights",
     "critTypes",
@@ -229,6 +319,7 @@ Hooks.once("setup", function () {
 });
 
 // Activate chat listeners for coriolis
+// eslint-disable-next-line no-unused-vars
 Hooks.on("renderChatLog", (log, html, data) => {
   coriolisChatListeners(html);
 });
@@ -247,7 +338,6 @@ Hooks.on("renderChatMessage", (app, html, msg) => {
 });
 
 Hooks.on("getSceneControlButtons", (controls) => {
-  const isGM = game.user.isGM;
   let group = controls.find((b) => b.name == "token");
   group.tools.push(
     {
@@ -289,7 +379,7 @@ Hooks.once("ready", async function () {
     "yzecoriolis",
     "systemMigrationVersion"
   );
-  const NEEDS_MIGRATION_VERSION = 0.97;
+  const NEEDS_MIGRATION_VERSION = 1.3;
   const COMPATIBLE_MIGRATION_VERSION = 0.4;
   let needMigration =
     currentVersion < NEEDS_MIGRATION_VERSION ||
@@ -304,14 +394,19 @@ Hooks.once("ready", async function () {
         { permanent: true }
       );
     }
-    migrations.migrateWorld();
+    await migrations.migrateWorld();
   }
+
   //bootstrapTalentCompendium();
   //bootstrapGearCompendium();
+
   // wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) =>
     createYzeCoriolisMacro(data, slot)
   );
+
+  await importShipSheetTutorial();
+  await showOnboardingMessage();
 });
 
 Hooks.once("diceSoNiceReady", (dice3d) => {
@@ -354,7 +449,6 @@ Hooks.once("diceSoNiceReady", (dice3d) => {
  * @param  {} slot
  */
 async function createYzeCoriolisMacro(data, slot) {
-  console.log("creating macro for...", data.type);
   if (data.type !== "Item") return;
   if (!("data" in data))
     return ui.notifications.warn(

@@ -4,7 +4,7 @@ An UNOFFICIAL system for playing [Coriolis - The Third Horizon](https://frialiga
 
 ## System Status
 
-The system is now in a playable state, with mainly the character sheet being complete. Stylings for rolls, item sheets, are incomplete but functional. As more mileage is accumlated I'd like to add automations to various systems to help with running a game of Coriolis.
+The system is now in a playable state, with the character sheet and ship sheets. Stylings for rolls, item sheets, are incomplete but functional. As more mileage is accumlated I'd like to add automations to various systems to help with running a game of Coriolis.
 
 ## Installation
 
@@ -16,7 +16,8 @@ The system is now in a playable state, with mainly the character sheet being com
 
 ![Character Sheet](https://github.com/winks-vtt/yze-coriolis/raw/master/images/char_sheet_preview.png)
 
-- Basic Character sheets for PCs
+- Character sheets for PCs
+- Ship sheets for crew ships
 - Ability to roll Skills and Attributes
 - Can create Talents, Weapons, Gear, Armor and drag-n-drop onto character sheets.
 - Can click on weapons to roll with bonus modifiers
@@ -64,7 +65,6 @@ The system comes with placeholder art-work. To change it, click on the upper 3rd
 
 ## Todos
 
-- Create a ship character sheet
 - Update styling of dice rolls in chat log
 - Update styling of supporting item/weapon sheets
 

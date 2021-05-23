@@ -1,0 +1,132 @@
+<div class="tab crew" data-group="primary" data-tab="modules">
+  <div class="hStack modules-list">
+    {{#each actor.modules as |module|}}
+      <div class="pt-10 pl-sm">
+        <div
+          class="module-panel vStack vStack-4 background-blue-7 rounded drop-shadow-2 pt-10 pr-10 pl-10"
+        >
+          {{! Module Name }}
+          <div class="hStack hStack-10 justify-space-between">
+            <label
+              title="{{module.name}}"
+              class="font-play text-md orange-1 text-center upper-case min-h-20 white-space-nowrap overflow-ellipsis"
+            >
+              {{module.name}}
+            </label>
+            {{! Controls }}
+            <div class="hStack justify-end hStack-10">
+              <a
+                class="edit-widget module-edit"
+                title="{{localize "YZECORIOLIS.EditModule"}}"
+                data-module={{module._id}}
+              >
+                <i class="fas fa-edit"></i>
+              </a>
+              <a
+                class="edit-widget module-delete"
+                title="{{localize "YZECORIOLIS.DeleteModule"}}"
+                data-module={{module._id}}
+              >
+                <i class="fas fa-trash"></i>
+              </a>
+            </div>
+          </div>
+          {{! Active Toggle }}
+          <button
+            class="toggle-ship-module toggle-ship-module-button
+              {{module.enabledCSS}}"
+            data-module={{module._id}}
+          >
+            {{#if module.data.enabled}}
+              {{localize "YZECORIOLIS.Enabled"}}
+            {{else}}
+              {{localize "YZECORIOLIS.Disabled"}}
+            {{/if}}
+          </button>
+          <div class="pt-10 flex1 vStack vStack-2 pb-10">
+            {{! Tech Tier }}
+            <div
+              class="hStack justify-space-between white-1 font-cairo text-md"
+            >
+              <div>
+                {{localize "YZECORIOLIS.TechTier"}}
+              </div>
+              <div>
+                {{getTechTierName module.data.techTier}}
+              </div>
+            </div>
+            {{! Bonus }}
+            <div
+              class="hStack justify-space-between white-1 font-cairo text-md"
+            >
+              <div>
+                {{localize "YZECORIOLIS.Bonus"}}
+              </div>
+              <div>
+                {{module.data.bonus}}
+              </div>
+            </div>
+            {{#if_eq module.data.category "weapon"}}
+              {{! Range }}
+              <div
+                class="hStack justify-space-between white-1 font-cairo text-md"
+              >
+                <div>
+                  {{localize "YZECORIOLIS.Range"}}
+                </div>
+                <div>
+                  {{getRangeName module.data.range}}
+                </div>
+              </div>
+              {{! Damage }}
+              <div
+                class="hStack justify-space-between white-1 font-cairo text-md"
+              >
+                <div>
+                  {{localize "YZECORIOLIS.Damage"}}
+                </div>
+                <div>
+                  {{module.data.damage}}
+                </div>
+              </div>
+              {{! Critical }}
+              <div
+                class="hStack justify-space-between white-1 font-cairo text-md"
+              >
+                <div>
+                  {{localize "YZECORIOLIS.Crit"}}
+                </div>
+                {{! Need to check if we have numeric or string here for crit  }}
+                <div>
+                  {{getWeaponCritDisplay module.data.crit}}
+                </div>
+              </div>
+              {{! Quantity }}
+              <div
+                class="hStack justify-space-between white-1 font-cairo text-md"
+              >
+                <div>
+                  {{localize "YZECORIOLIS.Quantity"}}
+                </div>
+                {{! Need to check if we have numeric or string here for crit  }}
+                <div>
+                  {{!-- {{module.data.quantity}} --}}
+                  <input
+                    class="quantity-input"
+                    type="number"
+                    step="1"
+                    min="0"
+                    name="module.data.quantity"
+                    value="{{module.data.quantity}}"
+                    data-dtype="Number"
+                    data-module={{module._id}}
+                  />
+                </div>
+              </div>
+            {{/if_eq}}
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

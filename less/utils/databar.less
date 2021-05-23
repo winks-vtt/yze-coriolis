@@ -1,0 +1,62 @@
+@import "../variables.less";
+
+.bar-bg {
+  padding: 0px 5px 0px 5px;
+  border: 1px solid @colorBarOutline;
+  border-radius: 5px;
+  background-color: @colorStatBG;
+  height: 27px;
+}
+
+.bar-value {
+  width: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.bar-styling-helper(@fillCol, @decreaseCol) {
+  justify-content: space-between;
+  align-items: center;
+
+  .bar-rounded {
+    border-radius: 2px;
+  }
+
+  .bar-pill {
+    border-radius: 40px;
+  }
+
+  .bar-segment {
+    box-sizing: border-box;
+    flex: 1 1 10px;
+    height: 17px;
+    margin: 3.5px 1px;
+    background-color: @colorBlack;
+    transition: background-color 275ms ease, border 275ms ease;
+  }
+
+  .hover-to-decrease {
+    // need important flag to override the current fill when decreasing.
+    background-color: @decreaseCol !important;
+  }
+
+  .hover-to-increase {
+    border: 1px solid @fillCol;
+  }
+
+  .bar-segment.on {
+    background-color: @fillCol;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .bar-segment.off {
+    background-color: @colorBlack;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
