@@ -2,10 +2,6 @@
 
 An UNOFFICIAL system for playing [Coriolis - The Third Horizon](https://frialigan.se/en/games/coriolis-2/) on Foundry VTT, and made available with permission from [Free League Publishing](http://freeleaguepublishing.com/).
 
-## System Status
-
-The system is now in a playable state, with the character sheet and ship sheets. Stylings for rolls, item sheets, are incomplete but functional. As more mileage is accumlated I'd like to add automations to various systems to help with running a game of Coriolis.
-
 ## Installation
 
 1. Inside Foundry's Configuration and Setup screen, go to **Game Systems**
