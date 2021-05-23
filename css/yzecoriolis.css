@@ -1421,21 +1421,21 @@
   /* Item List */
   /*-------------------------------------*/
 }
-.yzecoriolis.sheet.actor .sheet-body a.entity-link {
+.yzecoriolis.sheet.actor .sheet-body .item-summary-wrapper a.entity-link {
   background-color: rgba(113, 130, 190, 0.44);
   border: 0px;
   border-radius: 3px;
   padding: 1px 6px;
   transition: color 275ms ease;
 }
-.yzecoriolis.sheet.actor .sheet-body a.entity-link:hover {
+.yzecoriolis.sheet.actor .sheet-body .item-summary-wrapper a.entity-link:hover {
   text-shadow: none;
   color: #ffa903;
 }
-.yzecoriolis.sheet.actor .sheet-body a.entity-link:hover i {
+.yzecoriolis.sheet.actor .sheet-body .item-summary-wrapper a.entity-link:hover i {
   color: #ffa903;
 }
-.yzecoriolis.sheet.actor .sheet-body a i {
+.yzecoriolis.sheet.actor .sheet-body .item-summary-wrapper a i {
   color: white;
   transition: color 275ms ease;
 }
