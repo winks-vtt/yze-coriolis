@@ -1,3 +1,7 @@
+# 1.4.2
+
+- Fixed scaling issues with ship images
+
 # 1.4.1
 
 - Added french translation (Thanks to @Cougy-6185)!
