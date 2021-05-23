@@ -1,3 +1,7 @@
+# 1.4.3
+
+- Added Brazilian Portuguese translations (Thanks to @EstolanoBeu)!
+
 # 1.4.2
 
 - Fixed scaling issues with ship images
