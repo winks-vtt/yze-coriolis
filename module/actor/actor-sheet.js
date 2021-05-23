@@ -21,6 +21,11 @@ export class yzecoriolisActorSheet extends ActorSheet {
       width: 1000,
       height: 800,
       resizable: false,
+      scrollY: [
+        ".gear-wrapper .gear-list",
+        ".talent-list",
+        ".critical-injuries-list",
+      ],
       tabs: [
         {
           navSelector: ".navigation",

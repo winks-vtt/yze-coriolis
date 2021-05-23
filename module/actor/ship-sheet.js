@@ -35,6 +35,12 @@ export class yzecoriolisShipSheet extends ActorSheet {
       template: "systems/yzecoriolis/templates/actor/ship-sheet.html",
       width: 1200,
       height: 880,
+      scrollY: [
+        ".modules-panel .modules-list",
+        ".features-panel .feature-list",
+        ".critical-damage-panel .feature-list",
+        ".problems-panel .feature-list",
+      ],
       resizable: false,
       tabs: [
         {
