@@ -260,6 +260,14 @@ YZECORIOLIS.ranges = {
   extreme: "YZECORIOLIS.ExtremeRange",
 };
 
+YZECORIOLIS.shipWeaponRanges = {
+  close: "YZECORIOLIS.ContactRange",
+  short: "YZECORIOLIS.ShortRange",
+  medium: "YZECORIOLIS.MediumRange",
+  long: "YZECORIOLIS.LongRange",
+  extreme: "YZECORIOLIS.ExtremeRange",
+};
+
 YZECORIOLIS.icons = {
   ladyOfTears: "YZECORIOLIS.IconLadyOfTears",
   dancer: "YZECORIOLIS.IconDancer",

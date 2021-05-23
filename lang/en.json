@@ -312,7 +312,9 @@
   "YZECORIOLIS.CritTypeCustom": "Custom Crit",
 
   "YZECORIOLIS.CloseRange": "Close",
+  "YZECORIOLIS.ContactRange": "Contact",
   "YZECORIOLIS.ShortRange": "Short",
+  "YZECORIOLIS.MediumRange": "Medium",
   "YZECORIOLIS.LongRange": "Long",
   "YZECORIOLIS.ExtremeRange": "Extreme",
 

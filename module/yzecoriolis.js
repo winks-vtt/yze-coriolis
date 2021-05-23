@@ -293,6 +293,7 @@ Hooks.once("setup", function () {
     "icons",
     "crewPositions",
     "shipModuleCategories",
+    "shipWeaponRanges",
   ];
 
   // exclude sorting from some config values where the order matters.
@@ -304,6 +305,7 @@ Hooks.once("setup", function () {
     "critTypes",
     "ranges",
     "icons",
+    "shipWeaponRanges",
   ];
 
   for (let o of toLocalize) {

@@ -41,7 +41,7 @@
                     <label class="resource-label">{{localize "YZECORIOLIS.EffectiveRange"}}</label>
                     <select class="weight-category" name="data.range">
                         {{#select data.range}}
-                        {{#each config.ranges as |label range|}}
+                        {{#each config.shipWeaponRanges as |label range|}}
                         <option value="{{range}}">{{label}}</option>
                         {{/each}}
                         {{/select}}
