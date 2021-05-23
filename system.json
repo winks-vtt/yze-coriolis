@@ -2,7 +2,7 @@
   "name": "yzecoriolis",
   "title": "Year Zero Engine - Coriolis",
   "description": "The Year Zero Engine - Coriolis System for Foundry VTT.",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
@@ -38,6 +38,11 @@
       "path": "lang/sv.json"
     },
     {
+      "lang": "pt-BR",
+      "name": "Brazilian Portuguese",
+      "path": "lang/pt-br.json"
+    },
+    {
       "lang": "fr",
       "name": "French",
       "path": "lang/fr.json"
@@ -48,6 +53,6 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "url": "",
-  "manifest": "https://raw.githubusercontent.com/winks-vtt/yze-coriolis/v1.4.2/system.json",
-  "download": "https://github.com/winks-vtt/yze-coriolis/archive/v1.4.2.zip"
+  "manifest": "https://raw.githubusercontent.com/winks-vtt/yze-coriolis/v1.4.3/system.json",
+  "download": "https://github.com/winks-vtt/yze-coriolis/archive/v1.4.3.zip"
 }
