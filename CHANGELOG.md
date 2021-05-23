@@ -20,11 +20,6 @@
 - Ship sheet functionality is now implemented!
 - Fixed Darkness Points displaying locally to non-GM players after a pushed roll. It is up to the descretion of the GM to display DP to their players if they wish.
 
-# 1.4
-
-- Ship sheet functionality is now implemented!
-- Fixed Darkness Points displaying locally to non-GM players after a pushed roll. It is up to the descretion of the GM to display DP to their players if they wish.
-
 # 1.3
 
 - Fixed Armor rolls from macro hotbars.
