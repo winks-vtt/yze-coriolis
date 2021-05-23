@@ -2,7 +2,7 @@
   "name": "yzecoriolis",
   "title": "Year Zero Engine - Coriolis",
   "description": "The Year Zero Engine - Coriolis System for Foundry VTT.",
-  "version": 1.4,
+  "version": "1.4.1",
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
@@ -10,17 +10,14 @@
   "esmodules": ["module/yzecoriolis.js", "module/hooks.js"],
   "styles": ["css/yzecoriolis.css", "css/yzecoriolismce.css"],
   "scripts": [],
-  "packs": [
-    {
-      "name": "ship_sheet_instructions",
-      "label": "Ship Sheet Instructions",
-      "path": "packs/ship-sheet-instructions.db",
-      "entity": "JournalEntry",
-      "module": "Coriolis"
-    }
-  ],
-  "languages": [
-    {
+  "packs": [{
+    "name": "ship_sheet_instructions",
+    "label": "Ship Sheet Instructions",
+    "path": "packs/ship-sheet-instructions.db",
+    "entity": "JournalEntry",
+    "module": "Coriolis"
+  }],
+  "languages": [{
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
@@ -51,6 +48,6 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "url": "",
-  "manifest": "https://raw.githubusercontent.com/winks-vtt/yze-coriolis/v1.4/system.json",
-  "download": "https://github.com/winks-vtt/yze-coriolis/archive/v1.4.zip"
+  "manifest": "https://raw.githubusercontent.com/winks-vtt/yze-coriolis/v1.4.1/system.json",
+  "download": "https://github.com/winks-vtt/yze-coriolis/archive/v1.4.1.zip"
 }

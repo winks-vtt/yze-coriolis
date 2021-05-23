@@ -1,3 +1,13 @@
+# 1.4.1
+
+- Added french translation (Thanks to @Cougy-6185)!
+- Fixed scroll positions being reset when editing character or ship sheets
+
+# 1.4
+
+- Ship sheet functionality is now implemented!
+- Fixed Darkness Points displaying locally to non-GM players after a pushed roll. It is up to the descretion of the GM to display DP to their players if they wish.
+
 # 1.4
 
 - Ship sheet functionality is now implemented!
