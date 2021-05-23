@@ -1759,6 +1759,15 @@
   padding: 0 5px 0 5px;
   margin-right: 10px;
 }
+.yzecoriolis.sheet.actor .sheet-body a.entity-link {
+  background-color: rgba(113, 130, 190, 0.44);
+  border: 0px;
+  border-radius: 3px;
+  padding: 1px 6px;
+}
+  .yzecoriolis.sheet.actor .sheet-body a.entity-link i {
+  color: #ffffff;
+}
 .yzecoriolis.sheet.actor .sheet-body .talent-list {
   list-style: none;
   overflow-y: auto;
