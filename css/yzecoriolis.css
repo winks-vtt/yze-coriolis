@@ -845,6 +845,9 @@
 .yzecoriolis.sheet.actor .pointer-events-all {
   pointer-events: all;
 }
+.yzecoriolis.sheet.actor .object-fit-cover {
+  object-fit: cover;
+}
 .bar-bg {
   padding: 0px 5px 0px 5px;
   border: 1px solid #a4a4a4;
