@@ -1,3 +1,8 @@
+# 1.4.6
+
+- Added contact and medium range settings for ship weapon modules
+- Fixed manifest URLs so the systems would auto-update
+
 # 1.4.5
 
 - Fixed CSS styling bug with entity links
