@@ -39,6 +39,11 @@
       "lang": "sv",
       "name": "Swedish",
       "path": "lang/sv.json"
+    },
+    {
+      "lang": "fr",
+      "name": "French",
+      "path": "lang/fr.json"
     }
   ],
   "gridDistance": 5,
