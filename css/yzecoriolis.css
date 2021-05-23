@@ -465,7 +465,7 @@
   color: #ffa903;
 }
 .yzecoriolis.sheet.actor .red-1 {
-  color: #8E0707;
+  color: #8e0707;
 }
 .yzecoriolis.sheet.actor .background-blue-1 {
   background-color: #7182be;
@@ -486,7 +486,7 @@
   background-color: rgba(19, 27, 53, 0.78);
 }
 .yzecoriolis.sheet.actor .background-red-1 {
-  background-color: #8E0707;
+  background-color: #8e0707;
 }
 .yzecoriolis.sheet.actor .input-base {
   color: #fdff9d;
@@ -2405,7 +2405,7 @@
 .yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button {
   border: none;
   border-radius: 3px;
-  background-color: #8E0707;
+  background-color: #8e0707;
   color: white;
   font-family: "Cairo";
   font-size: 14px;
@@ -2436,8 +2436,8 @@
   width: 50px;
   padding: 0px;
 }
-.yzecoriolis.sheet.actor .ship .module-panel input[type=number]::-webkit-inner-spin-button,
-.yzecoriolis.sheet.actor .ship .module-panel input[type=number]::-webkit-outer-spin-button {
+.yzecoriolis.sheet.actor .ship .module-panel input[type="number"]::-webkit-inner-spin-button,
+.yzecoriolis.sheet.actor .ship .module-panel input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
