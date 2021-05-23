@@ -63,8 +63,6 @@ export const migrateWorld = async function () {
   // migrate Darkness Point System
   await migrateDarknessPoints();
 
-  await migrateShipEPTokens();
-
   // Set the migration as complete
   await game.settings.set(
     "yzecoriolis",
@@ -351,25 +349,6 @@ const migrateDarknessPoints = async function () {
     ui.notifications.info(game.i18n.localize("YZECORIOLIS.MigratedDP"), {
       permanent: true,
     });
-  }
-};
-
-const migrateShipEPTokens = async function () {
-  if (!game.user.isGM) {
-    return;
-  }
-  const ships = getActorEntitiesByType("ship");
-  const MAX_TOKENS = 50;
-  for (let s of ships) {
-    const shipTokens = getOwnedItemsByType(s, "energyPointToken");
-    const createCount = MAX_TOKENS - shipTokens.length;
-    if (createCount <= 0) {
-      continue;
-    }
-    for (let i = 0; i < createCount; i++) {
-      console.log("creating missing EP tokens for ships");
-      await createBlankEPToken(s);
-    }
   }
 };
 
