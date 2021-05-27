@@ -1,3 +1,7 @@
+# 1.4.7
+
+- Fixed migration system incorrectly detecting a need for migrations due to version number schema changes
+
 # 1.4.6
 
 - Added contact and medium range settings for ship weapon modules
