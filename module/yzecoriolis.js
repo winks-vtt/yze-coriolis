@@ -381,16 +381,18 @@ Hooks.once("ready", async function () {
     "yzecoriolis",
     "systemMigrationVersion"
   );
-  const NEEDS_MIGRATION_VERSION = 1.3;
+  const NEEDS_MIGRATION_VERSION = "1.3";
   const COMPATIBLE_MIGRATION_VERSION = 0.4;
   let needMigration =
-    currentVersion < NEEDS_MIGRATION_VERSION ||
-    currentVersion === null ||
-    isNaN(currentVersion);
+    currentVersion < NEEDS_MIGRATION_VERSION || currentVersion === null;
 
   // Perform the migration
   if (needMigration && game.user.isGM) {
-    if (currentVersion && currentVersion < COMPATIBLE_MIGRATION_VERSION) {
+    if (
+      currentVersion &&
+      currentVersion < COMPATIBLE_MIGRATION_VERSION &&
+      currentVersion !== "0"
+    ) {
       ui.notifications.error(
         `Your Year Zero Engine Coriolis system data is from too old a Foundry version and cannot be reliably migrated to the latest version. The process will be attempted, but errors may occur.`,
         { permanent: true }
