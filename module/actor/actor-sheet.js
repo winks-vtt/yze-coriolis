@@ -146,31 +146,31 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
       // append to gear
       if (i.type === "gear") {
-        gear.push(i);
+        gear.push(i.data);
         totalWeightPoints +=
           CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
       }
       // append to talents
       if (i.type === "talent") {
-        talents[item.category].items.push(i);
+        talents[item.category].items.push(i.data);
       }
 
       // append to weapons and explosives
       if (i.type === "weapon") {
         if (item.explosive) {
-          explosives.push(i);
+          explosives.push(i.data);
         } else {
-          weapons.push(i);
+          weapons.push(i.data);
         }
         totalWeightPoints +=
           CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
       }
       if (i.type === "armor") {
-        armor.push(i);
+        armor.push(i.data);
         totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight]; // we assume 1 quantity.
       }
       if (i.type === "injury") {
-        injuries.push(i);
+        injuries.push(i.data);
       }
     }
     // assign and return

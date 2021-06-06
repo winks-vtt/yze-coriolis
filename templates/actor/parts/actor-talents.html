@@ -17,7 +17,7 @@
         </li>
         {{!-- show talent for each category --}}
         {{#each talentData.items as |talent id|}}
-        <li class="talent item flexrow" data-item-id="{{talent.id}}">
+        <li class="talent item flexrow" data-item-id="{{talent._id}}">
             <div class="talent-bg flickering flexrow">
                 <div class="talent-name expandable-info flexrow">
                     <span>{{talent.name}}</span>

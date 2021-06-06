@@ -18,7 +18,7 @@
                 {{/if}}
             </li>
             {{#each gear as |gear index|}}
-            <li class="gear item flexrow" data-item-id="{{gear.id}}">
+            <li class="gear item flexrow" data-item-id="{{gear._id}}">
                 <div class="gear-bg {{gear.data.toggleClass}} flickering flexrow">
                     <div class="gear-name flexrow">
                         <div class="gear-img-container" style="background-image: url({{gear.img}})">
@@ -73,7 +73,7 @@
 
 
             {{#each weapons as |weapon index|}}
-            <li class="gear item flexrow" data-item-id="{{weapon.id}}">
+            <li class="gear item flexrow" data-item-id="{{weapon._id}}">
                 <div class="gear-bg {{weapon.data.toggleClass}} flickering flexrow">
                     <div class="gear-name flexrow">
                         <div class="gear-img-container rollable" style="background-image: url({{weapon.img}})"
@@ -139,7 +139,7 @@
                 {{/if}}
             </li>
             {{#each explosives as |explosive index|}}
-            <li class="gear item flexrow" data-item-id="{{explosive.id}}">
+            <li class="gear item flexrow" data-item-id="{{explosive._id}}">
                 <div class="gear-bg {{explosive.data.toggleClass}} flickering flexrow">
                     <div class="gear-name flexrow">
                         <div class="gear-img-container rollable" style="background-image: url({{explosive.img}})"
@@ -197,7 +197,7 @@
                 {{/if}}
             </li>
             {{#each armor as |armor index|}}
-            <li class="gear item flexrow" data-item-id="{{armor.id}}">
+            <li class="gear item flexrow" data-item-id="{{armor._id}}">
                 <div class="gear-bg {{armor.data.toggleClass}} flickering flexrow">
                     <div class="gear-name flexrow">
                         <div class="gear-img-container rollable" style="background-image: url({{armor.img}})"
