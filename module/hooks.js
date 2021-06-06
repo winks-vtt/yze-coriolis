@@ -60,17 +60,6 @@ Hooks.on("createActor", async (entity, options, userId) => {
   }
 });
 
-// eslint-disable-next-line no-unused-vars
-Hooks.on("preCreateActor", (data, options, userId) => {
-  //setup default images
-  if (data.type === "ship") {
-    data.img = CONFIG.YZECORIOLIS.DEFAULT_SHIP_KEY_ART;
-  }
-  if (data.type === "character" || data.type === "npc") {
-    data.data = { keyArt: CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART };
-  }
-});
-
 function rerenderAllCrew() {
   // re render all characters/npcs to update their crew position drop downs.
   for (let e of game.actors.entities) {

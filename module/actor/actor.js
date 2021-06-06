@@ -18,6 +18,18 @@ export class yzecoriolisActor extends Actor {
     if (actorData.type === "npc") this._prepareCharacterData(actorData, false);
   }
 
+  async _preCreate(data, options, user) {
+    await super._preCreate(data, options, user);
+    //setup default images
+    if (data.type === "ship") {
+      this.data.update({ img: CONFIG.YZECORIOLIS.DEFAULT_SHIP_KEY_ART });
+    }
+    if (data.type === "character" || data.type === "npc") {
+      this.data.update({
+        "data.keyArt": CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART,
+      });
+    }
+  }
   /**
    * Prepare Character type specific data
    */
