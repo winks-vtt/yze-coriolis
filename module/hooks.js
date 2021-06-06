@@ -62,7 +62,7 @@ Hooks.on("createActor", async (entity, options, userId) => {
 
 function rerenderAllCrew() {
   // re render all characters/npcs to update their crew position drop downs.
-  for (let e of game.actors.entities) {
+  for (let e of game.actors.contents) {
     let rootData = e.data;
     if (rootData.type === "character" || rootData.type === "npc") {
       e.render(false);
@@ -72,7 +72,7 @@ function rerenderAllCrew() {
 
 function rerenderAllShips() {
   // re render all ships to update their crew tabs.
-  for (let e of game.actors.entities) {
+  for (let e of game.actors.contents) {
     let rootData = e.data;
     if (rootData.type === "ship") {
       e.render(false);
