@@ -238,7 +238,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Update Inventory Item
     html.find(".item-edit").click((ev) => {
       const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(li.data("itemId"));
+      const item = this.actor.data.items.get(li.data("itemId"));
       item.sheet.render(true);
     });
 
