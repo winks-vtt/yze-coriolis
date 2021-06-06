@@ -141,7 +141,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     for (let i of actor.items) {
       let item = i.data.data;
       // setup equipped status
-      const isActive = getProperty(i.data, "equipped");
+      const isActive = getProperty(item, "equipped");
       item.toggleClass = isActive ? "equipped" : "";
 
       // append to gear
