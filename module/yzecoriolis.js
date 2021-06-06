@@ -50,8 +50,8 @@ Hooks.once("init", async function () {
   preloadHandlerbarsTemplates();
 
   // Define custom Entity classes
-  CONFIG.Actor.entityClass = yzecoriolisActor;
-  CONFIG.Item.entityClass = yzecoriolisItem;
+  CONFIG.Actor.documentClass = yzecoriolisActor;
+  CONFIG.Item.documentClass = yzecoriolisItem;
   CONFIG.YZECORIOLIS = YZECORIOLIS;
 
   //Register system settings
