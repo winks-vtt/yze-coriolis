@@ -34,10 +34,16 @@ export class yzecoriolisItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
-    const data = super.getData();
-    data.config = CONFIG.YZECORIOLIS;
-    return data;
+  getData(options) {
+    const baseData = super.getData(options);
+    // baseData.config = CONFIG.YZECORIOLIS;
+    const sheetData = {
+      editable: baseData.editable,
+      owner: baseData.item.isOwner,
+      config: CONFIG.YZECORIOLIS,
+      ...baseData.item.data,
+    };
+    return sheetData;
   }
 
   /* -------------------------------------------- */
