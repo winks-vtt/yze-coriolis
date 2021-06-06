@@ -20,14 +20,13 @@ export async function importShipSheetTutorial() {
     try {
       const newVer = "1";
       const journalName = "Ship Sheet Instructions";
-      if (game.journal.getName(journalName) !== null) {
+      const journal = game.journal.getName(journalName);
+      if (journal) {
         if (
-          game.journal.getName(journalName).getFlag("yzecoriolis", "ver") <
-            newVer ||
-          game.journal.getName(journalName).getFlag("yzecoriolis", "ver") ===
-            undefined
+          journal.getFlag("yzecoriolis", "ver") < newVer ||
+          journal.getFlag("yzecoriolis", "ver") === undefined
         ) {
-          await game.journal.getName(journalName).delete();
+          await journal.delete();
           await game.journal.importFromCollection(
             "yzecoriolis.ship_sheet_instructions",
             `0QlMn9tJBwKSZ9a6`
