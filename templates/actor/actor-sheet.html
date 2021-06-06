@@ -1,7 +1,7 @@
 <form class="{{cssClass}}" autocomplete="off">
   <div class="sheet-container">
     <div class="key-art-container col-start-1 col-end-2 row-start-1 row-end-4 z-1">
-      <img class="vertical-img" src="{{actor.data.keyArt}}" data-edit="data.keyArt" title="{{actor.name}}">
+      <img class="vertical-img" src="{{data.keyArt}}" data-edit="data.keyArt" title="{{name}}">
     </div>
     <div class="gradient-overlay"></div>
     <div class="always-visible-stats">
@@ -9,8 +9,8 @@
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.HitPoints"}}</div>
           <div class="bar hp-bar fr-basic">
-            {{#each actorStats.hpBlocks as |hpBlock index|}}
-            {{#with ../actor.data as | data |}}
+            {{#each hpBlocks as |hpBlock index|}}
+            {{#with ../data as | data |}}
             {{#if hpBlock.on}}
             <div class="bar-segment bar-rounded on" data-name="data.hitPoints.value" data-index={{index}}
               data-current={{data.hitPoints.value}} data-min={{data.hitPoints.min}} data-max={{data.hitPoints.max}}>
@@ -28,8 +28,8 @@
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.MindPoints"}}</div>
           <div class="bar mind-bar fr-basic">
-            {{#each actorStats.mindBlocks as |mBlock index|}}
-            {{#with ../actor.data as | data |}}
+            {{#each mindBlocks as |mBlock index|}}
+            {{#with ../data as | data |}}
             {{#if mBlock.on}}
             <div class="bar-segment bar-rounded on" data-name="data.mindPoints.value" data-index={{index}}
               data-current={{data.mindPoints.value}} data-min={{data.mindPoints.min}} data-max={{data.mindPoints.max}}>
@@ -47,8 +47,8 @@
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.Radiation"}}</div>
           <div class="bar radiation-bar fr-basic">
-            {{#each actorStats.radiationBlocks as |rBlock index|}}
-            {{#with ../actor.data as | data |}}
+            {{#each radiationBlocks as |rBlock index|}}
+            {{#with ../data as | data |}}
             {{#if rBlock.on}}
             <div class="bar-segment bar-rounded on" data-name="data.radiation.value" data-index={{index}}
               data-current={{data.radiation.value}} data-min={{data.radiation.min}} data-max={{data.radiation.max}}>
@@ -66,8 +66,8 @@
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.Experience"}}</div>
           <div class="bar xp-bar fr-basic">
-            {{#each actorStats.xpBlocks as |xBlock index|}}
-            {{#with ../actor.data as | data |}}
+            {{#each xpBlocks as |xBlock index|}}
+            {{#with ../data as | data |}}
             {{#if xBlock.on}}
             <div class="bar-segment bar-rounded on" data-name="data.experience.value" data-index={{index}}
               data-current={{data.experience.value}} data-min={{data.experience.min}} data-max={{data.experience.max}}>
@@ -85,8 +85,8 @@
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.Reputation"}}</div>
           <div class="bar rep-bar fr-basic">
-            {{#each actorStats.repBlocks as |repBlock index|}}
-            {{#with ../actor.data as | data |}}
+            {{#each repBlocks as |repBlock index|}}
+            {{#with ../data as | data |}}
             {{#if repBlock.on}}
             <div class="bar-segment bar-rounded on" data-name="data.reputation.value" data-index={{index}}
               data-current={{data.reputation.value}} data-min={{data.reputation.min}} data-max={{data.reputation.max}}>
@@ -120,7 +120,7 @@
       <header class="sheet-header">
 
         <header class="name-plate">
-          <input class="char-name-input" name="name" type="text" value="{{actor.name}}"
+          <input class="char-name-input" name="name" type="text" value="{{name}}"
             placeholder="{{localize "YZECORIOLIS.Name"}}" />
         </header>
         <div class="char-class">

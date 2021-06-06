@@ -41,26 +41,29 @@ export class yzecoriolisActorSheet extends ActorSheet {
   /** @override */
   getData(options) {
     const baseData = super.getData(options);
-    const sheetData = {};
-    sheetData.dtypes = ["String", "Number", "Boolean"];
-    sheetData.actor = baseData.actor.data;
-    console.log("sheet", sheetData, options);
+    let itemData = {};
+    let actorStats = {};
     if (
       this.actor.data.type === "character" ||
       this.actor.data.type === "npc"
     ) {
       // prepare items
-      sheetData.itemData = this._prepareCharacterItems(sheetData);
-      sheetData.actorStats = this._prepCharacterStats(sheetData);
+      itemData = this._prepareCharacterItems(baseData.actor);
+      actorStats = this._prepCharacterStats(baseData.actor.data.data);
     }
+    const sheetData = {
+      dtypes: ["String", "Number", "Boolean"],
+      config: CONFIG.YZECORIOLIS,
+      ...baseData.actor.data,
+      ...itemData,
+      ...actorStats,
+    };
     sheetData.config = CONFIG.YZECORIOLIS;
     return sheetData;
   }
 
-  _prepCharacterStats(sheetData) {
-    const sheetActor = sheetData.actor;
-    const data = sheetActor.data;
-
+  _prepCharacterStats(data) {
+    console.log("data", data);
     const stats = {
       radiationBlocks: prepDataBarBlocks(
         data.radiation.value,
@@ -79,7 +82,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     return stats;
   }
 
-  _prepareCharacterItems(sheetData) {
+  _prepareCharacterItems(actor) {
     // Initialize our containers
     const gear = [];
     const armor = [];
@@ -136,7 +139,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       defaultname: game.i18n.localize("YZECORIOLIS.NewCriticalInjury"),
     };
 
-    for (let i of sheetData.actor.items) {
+    for (let i of actor.items) {
       let item = i.data;
       i.img = i.img || CONST.DEFAULT_TOKEN;
       // setup equipped status
