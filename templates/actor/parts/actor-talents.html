@@ -1,6 +1,6 @@
 <div class="tab panel" data-group="primary" data-tab="talents">
     <ol class="talent-list">
-        {{#each actor.talents as |talentData categoryKey|}}
+        {{#each talents as |talentData categoryKey|}}
         {{!-- setup header for a talent category--}}
         <li class=" talent-category-header flexrow">
             <span class="talent-category-name flexrow">{{getTalentCategoryName categoryKey}}</span>
