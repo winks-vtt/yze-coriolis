@@ -14,7 +14,7 @@ export const createBlankEPToken = async (shipEntity) => {
       holder: shipEntity.id,
     },
   };
-  return await shipEntity.createOwnedItem(tokenData);
+  return await shipEntity.createEmbeddedDocuments("Item", [tokenData]);
 };
 
 /**

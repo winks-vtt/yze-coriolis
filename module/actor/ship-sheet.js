@@ -221,7 +221,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     event.preventDefault();
     const targetButton = event.currentTarget;
     const moduleId = targetButton.dataset.module;
-    this.actor.deleteOwnedItem(moduleId);
+    this.actor.deleteEmbeddedDocuments("Item", [moduleId]);
   }
 
   _onClickCreateShipItem(event) {
@@ -245,7 +245,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     delete itemData.data["defaultname"];
 
     // Finally, create the item!
-    return this.actor.createOwnedItem(itemData);
+    return this.actor.createEmbeddedDocuments("Item", [itemData]);
   }
 
   _onClickEditShipItem(event) {
@@ -260,7 +260,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     event.preventDefault();
     const targetButton = event.currentTarget;
     const featureId = targetButton.dataset.feature;
-    this.actor.deleteOwnedItem(featureId);
+    this.actor.deleteEmbeddedDocuments("Item", [featureId]);
   }
 
   async _onClickEPBarSegment(event) {
