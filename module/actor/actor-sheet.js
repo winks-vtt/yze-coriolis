@@ -266,7 +266,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     html.find(".rollable").click(this._onRoll.bind(this));
 
     // drag events for macros
-    if (this.actor.owner) {
+    if (this.actor.isOwner) {
       let handler = (ev) => this._onDragStart(ev);
       html.find("li.item").each((i, li) => {
         // ignore for the header row
