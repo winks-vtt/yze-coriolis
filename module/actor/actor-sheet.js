@@ -39,8 +39,8 @@ export class yzecoriolisActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
-    const sheetData = super.getData();
+  getData(options) {
+    const sheetData = super.getData(options);
     sheetData.dtypes = ["String", "Number", "Boolean"];
     if (
       this.actor.data.type === "character" ||
