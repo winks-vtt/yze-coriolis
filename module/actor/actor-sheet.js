@@ -310,7 +310,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const input = event.target;
     let value = input.value;
     const li = $(event.currentTarget).parents(".item");
-    const item = this.actor.getOwnedItem(li.data("itemId"));
+    const item = this.actor.items.get(li.data("itemId"));
     if (value < 0) {
       value = 0;
     }
@@ -488,7 +488,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
   _onToggleItem(event) {
     event.preventDefault();
     const itemId = event.currentTarget.closest(".item").dataset.itemId;
-    const item = this.actor.getOwnedItem(itemId);
+    const item = this.actor.items.get(itemId);
     const attr = "data.equipped";
     return item.update({ [attr]: !getProperty(item.data, attr) });
   }
@@ -534,7 +534,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
   _onItemSummary(event) {
     event.preventDefault();
     let li = $(event.currentTarget).parents(".item");
-    let item = this.actor.getOwnedItem(li.data("item-id"));
+    let item = this.actor.items.get(li.data("item-id"));
     let chatData = item.getChatData({ secrets: this.actor.owner });
     // Toggle summary
     if (li.hasClass("expanded")) {

@@ -201,7 +201,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     event.preventDefault();
     const input = event.target;
     const moduleId = input.dataset.module;
-    const item = this.actor.getOwnedItem(moduleId);
+    const item = this.actor.items.get(moduleId);
     let value = input.value;
     if (value < 0) {
       value = 0;
@@ -213,7 +213,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     event.preventDefault();
     const targetButton = event.currentTarget;
     const moduleId = targetButton.dataset.module;
-    const item = this.actor.getOwnedItem(moduleId);
+    const item = this.actor.items.get(moduleId);
     item.sheet.render(true);
   }
 
@@ -252,7 +252,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     event.preventDefault();
     const targetButton = event.currentTarget;
     const featureId = targetButton.dataset.feature;
-    const item = this.actor.getOwnedItem(featureId);
+    const item = this.actor.items.get(featureId);
     item.sheet.render(true);
   }
 
@@ -415,7 +415,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
   _onShipItemSummary(event) {
     event.preventDefault();
     const li = $(event.currentTarget).parents(".item");
-    const item = this.actor.getOwnedItem(li.data("item-id"));
+    const item = this.actor.items.get(li.data("item-id"));
     const chatData = item.getChatData({ secrets: this.actor.owner });
     // Toggle summary
     if (li.hasClass("expanded")) {
