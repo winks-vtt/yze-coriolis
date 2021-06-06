@@ -6,7 +6,7 @@ export const getID = function () {
 };
 
 export const getItemsByType = (itemType) => {
-  return game.items.entities.filter((item) => {
+  return game.items.contents.filter((item) => {
     return item.data.type === itemType;
   });
 };
@@ -20,7 +20,7 @@ export const getOwnedItemById = (actor, itemId) => {
 };
 
 export const getActorEntitiesByType = (actorType) => {
-  return game.actors.entities.filter((a) => {
+  return game.actors.contents.filter((a) => {
     return a.data.type === actorType;
   });
 };
