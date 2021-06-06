@@ -62,7 +62,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
   }
 
   _prepCharacterStats(data) {
-    console.log("data", data);
     const stats = {
       radiationBlocks: prepDataBarBlocks(
         data.radiation.value,
