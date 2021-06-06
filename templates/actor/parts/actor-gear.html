@@ -11,14 +11,14 @@
                 {{#if owner}}
                 <div class="gear-controls">
                     <a class="gear-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateGear"}}'
-                        {{#each actor.gearDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                        {{#each gearDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                         <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                     </a>
                 </div>
                 {{/if}}
             </li>
-            {{#each actor.gear as |gear index|}}
-            <li class="gear item flexrow" data-item-id="{{gear._id}}">
+            {{#each gear as |gear index|}}
+            <li class="gear item flexrow" data-item-id="{{gear.id}}">
                 <div class="gear-bg {{gear.data.toggleClass}} flickering flexrow">
                     <div class="gear-name flexrow">
                         <div class="gear-img-container" style="background-image: url({{gear.img}})">
@@ -64,7 +64,7 @@
                 {{#if owner}}
                 <div class="gear-controls">
                     <a class="gear-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateWeapon"}}'
-                        {{#each actor.weaponDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                        {{#each weaponDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                         <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                     </a>
                 </div>
@@ -72,8 +72,8 @@
             </li>
 
 
-            {{#each actor.weapons as |weapon index|}}
-            <li class="gear item flexrow" data-item-id="{{weapon._id}}">
+            {{#each weapons as |weapon index|}}
+            <li class="gear item flexrow" data-item-id="{{weapon.id}}">
                 <div class="gear-bg {{weapon.data.toggleClass}} flickering flexrow">
                     <div class="gear-name flexrow">
                         <div class="gear-img-container rollable" style="background-image: url({{weapon.img}})"
@@ -132,14 +132,14 @@
                 {{#if owner}}
                 <div class="gear-controls">
                     <a class="gear-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateExplosive"}}'
-                        {{#each actor.explosiveDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                        {{#each explosiveDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                         <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                     </a>
                 </div>
                 {{/if}}
             </li>
-            {{#each actor.explosives as |explosive index|}}
-            <li class="gear item flexrow" data-item-id="{{explosive._id}}">
+            {{#each explosives as |explosive index|}}
+            <li class="gear item flexrow" data-item-id="{{explosive.id}}">
                 <div class="gear-bg {{explosive.data.toggleClass}} flickering flexrow">
                     <div class="gear-name flexrow">
                         <div class="gear-img-container rollable" style="background-image: url({{explosive.img}})"
@@ -190,14 +190,14 @@
                 {{#if owner}}
                 <div class="gear-controls">
                     <a class="gear-control-add-widget item-create" title='{{localize "YZECORIOLIS.CreateArmor"}}'
-                        {{#each actor.armorDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                        {{#each armorDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                         <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                     </a>
                 </div>
                 {{/if}}
             </li>
-            {{#each actor.armor as |armor index|}}
-            <li class="gear item flexrow" data-item-id="{{armor._id}}">
+            {{#each armor as |armor index|}}
+            <li class="gear item flexrow" data-item-id="{{armor.id}}">
                 <div class="gear-bg {{armor.data.toggleClass}} flickering flexrow">
                     <div class="gear-name flexrow">
                         <div class="gear-img-container rollable" style="background-image: url({{armor.img}})"
@@ -224,7 +224,7 @@
             </li>
             {{/each}}
         </ol>
-        {{#with actor.encumbrance}}
+        {{#with encumbrance}}
         <div class="encumbrance-bar {{#if encumbered}}encumbered{{/if}}">
             <div class="encumbrance-fill  {{#if encumbered}}encumbered{{/if}}" style="width:{{percentage}}%"></div>
             <div class="encumbrance-data">
