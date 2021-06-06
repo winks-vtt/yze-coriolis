@@ -40,15 +40,18 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
   /** @override */
   getData(options) {
-    const sheetData = super.getData(options);
+    const baseData = super.getData(options);
+    const sheetData = {};
     sheetData.dtypes = ["String", "Number", "Boolean"];
+    sheetData.actor = baseData.actor.data;
+    console.log("sheet", sheetData, options);
     if (
       this.actor.data.type === "character" ||
       this.actor.data.type === "npc"
     ) {
       // prepare items
-      this._prepareCharacterItems(sheetData);
-      this._prepCharacterStats(sheetData);
+      sheetData.itemData = this._prepareCharacterItems(sheetData);
+      sheetData.actorStats = this._prepCharacterStats(sheetData);
     }
     sheetData.config = CONFIG.YZECORIOLIS;
     return sheetData;
@@ -58,36 +61,25 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const sheetActor = sheetData.actor;
     const data = sheetActor.data;
 
-    sheetActor.radiationBlocks = prepDataBarBlocks(
-      data.radiation.value,
-      data.radiation.max
-    );
-    sheetActor.xpBlocks = prepDataBarBlocks(
-      data.experience.value,
-      data.experience.max
-    );
-    sheetActor.repBlocks = prepDataBarBlocks(
-      data.reputation.value,
-      data.reputation.max
-    );
-    sheetActor.hpBlocks = prepDataBarBlocks(
-      data.hitPoints.value,
-      data.hitPoints.max
-    );
-    sheetActor.mindBlocks = prepDataBarBlocks(
-      data.mindPoints.value,
-      data.mindPoints.max
-    );
+    const stats = {
+      radiationBlocks: prepDataBarBlocks(
+        data.radiation.value,
+        data.radiation.max
+      ),
+      xpBlocks: prepDataBarBlocks(data.experience.value, data.experience.max),
+      repBlocks: prepDataBarBlocks(data.reputation.value, data.reputation.max),
+      hpBlocks: prepDataBarBlocks(data.hitPoints.value, data.hitPoints.max),
+      mindBlocks: prepDataBarBlocks(data.mindPoints.value, data.mindPoints.max),
 
-    sheetActor.crewOptions = buildCrewOptionsArray();
-    // we augment the sheet with our 'current' option so that the selection menu
-    // can be driven by it.
-    sheetActor.currentCrewOption = JSON.stringify(data.bio.crewPosition);
+      // we augment the sheet with our 'current' option so that the selection menu
+      // can be driven by it.
+      crewOptions: buildCrewOptionsArray(),
+      currentCrewOption: JSON.stringify(data.bio.crewPosition),
+    };
+    return stats;
   }
 
   _prepareCharacterItems(sheetData) {
-    const actorData = sheetData.actor;
-
     // Initialize our containers
     const gear = [];
     const armor = [];
@@ -144,7 +136,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       defaultname: game.i18n.localize("YZECORIOLIS.NewCriticalInjury"),
     };
 
-    for (let i of sheetData.items) {
+    for (let i of sheetData.actor.items) {
       let item = i.data;
       i.img = i.img || CONST.DEFAULT_TOKEN;
       // setup equipped status
@@ -181,23 +173,26 @@ export class yzecoriolisActorSheet extends ActorSheet {
       }
     }
     // assign and return
-    actorData.gear = gear;
-    actorData.gearDataSet = gearDataSet;
+    const itemData = {
+      gear: gear,
+      gearDataSet: gearDataSet,
 
-    actorData.weapons = weapons;
-    actorData.weaponDataSet = weaponDataSet;
+      weapons: weapons,
+      weaponDataSet: weaponDataSet,
 
-    actorData.explosives = explosives;
-    actorData.explosiveDataSet = explosiveDataSet;
+      explosives: explosives,
+      explosiveDataSet: explosiveDataSet,
 
-    actorData.armor = armor;
-    actorData.armorDataSet = armorDataSet;
+      armor: armor,
+      armorDataSet: armorDataSet,
 
-    actorData.talents = talents;
-    actorData.encumbrance = this._computeEncumbrance(totalWeightPoints);
+      talents: talents,
+      encumbrance: this._computeEncumbrance(totalWeightPoints),
 
-    actorData.injuries = injuries;
-    actorData.injuryDataSet = injuryDataSet;
+      injuries: injuries,
+      injuryDataSet: injuryDataSet,
+    };
+    return itemData;
   }
 
   /** @override */
