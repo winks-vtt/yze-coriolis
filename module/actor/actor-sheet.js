@@ -52,13 +52,11 @@ export class yzecoriolisActorSheet extends ActorSheet {
       actorStats = this._prepCharacterStats(baseData.actor.data.data);
     }
     const sheetData = {
-      dtypes: ["String", "Number", "Boolean"],
       config: CONFIG.YZECORIOLIS,
       ...baseData.actor.data,
       ...itemData,
       ...actorStats,
     };
-    sheetData.config = CONFIG.YZECORIOLIS;
     return sheetData;
   }
 
