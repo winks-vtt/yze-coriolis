@@ -52,6 +52,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       actorStats = this._prepCharacterStats(baseData.actor.data.data);
     }
     const sheetData = {
+      editable: baseData.editable,
       owner: baseData.actor.isOwner,
       config: CONFIG.YZECORIOLIS,
       ...baseData.actor.data,
