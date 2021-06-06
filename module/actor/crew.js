@@ -55,7 +55,7 @@ export async function resetCrewForShip(shipId) {
   if (!game.user.isGM) {
     return;
   }
-  for (let e of game.actors.entities) {
+  for (let e of game.actors.contents) {
     let charData = e.data;
     if (charData.type === "character" || charData.type === "npc") {
       if (charData.data.bio.crewPosition.shipId === shipId) {
@@ -68,7 +68,7 @@ export async function resetCrewForShip(shipId) {
 
 export function getCrewForShip(shipId) {
   const crewArray = [];
-  for (let e of game.actors.entities) {
+  for (let e of game.actors.contents) {
     const actorData = getActorById(e.id);
     if (actorData.type === "character" || actorData.type === "npc") {
       if (actorData.data.bio.crewPosition.shipId === shipId) {
