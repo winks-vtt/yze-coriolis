@@ -140,7 +140,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
     for (let i of actor.items) {
       let item = i.data;
-      i.img = i.img || CONST.DEFAULT_TOKEN;
       // setup equipped status
       const isActive = getProperty(i.data, "equipped");
       item.toggleClass = isActive ? "equipped" : "";
@@ -448,8 +447,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // no need to keep ahold of defaultname after creation.
     delete itemData.data["defaultname"];
 
-    // Finally, create the item!
-    return this.actor.createOwnedItem(itemData);
+    return this.actor.createEmbeddedDocuments("Item", [itemData]);
   }
 
   _onCriticalInjuryCreate(event) {

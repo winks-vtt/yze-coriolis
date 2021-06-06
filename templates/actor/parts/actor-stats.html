@@ -67,13 +67,13 @@
             {{#if owner}}
             <div class="crit-add-controls">
                 <a class="crit-control-widget item-create" title='{{localize "YZECORIOLIS.CreateCriticalInjury"}}'
-                    {{#each actor.injuryDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                    {{#each injuryDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                     <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                 </a>
             </div>
             {{/if}}
         </li>
-        {{#each actor.injuries as |injury id|}}
+        {{#each injuries as |injury id|}}
         <li class="injury fr-basic item" data-item-id="{{injury._id}}">
             <div class="injury-display flex1">
                 <span>{{injury.name}}</span>
