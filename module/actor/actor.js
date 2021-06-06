@@ -121,7 +121,7 @@ export class yzecoriolisActor extends Actor {
       if (t.type !== "talent") {
         continue;
       }
-      const tData = t.data;
+      const tData = t.data.data;
       bonus += Number(tData.hpBonus);
     }
     return bonus;
