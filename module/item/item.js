@@ -10,7 +10,6 @@ export class yzecoriolisItem extends Item {
   prepareData() {
     // setup a token before calling prepare because the token is also setup
     // lazily inside.
-    if (!this.data.img) this.data.img = this._getDefaultToken();
     super.prepareData();
 
     // Get the Item's data
@@ -21,6 +20,28 @@ export class yzecoriolisItem extends Item {
   // eslint-disable-next-line no-unused-vars
   _prepareTalentData(itemData) {
     // TODO: prep talent data
+  }
+
+  async _preCreate(data, options, user) {
+    await super._preCreate(data, options, user);
+    let itemType = data.type;
+    let isExplosive = this.data.data.explosive;
+    let tokenPath = CONST.DEFAULT_TOKEN;
+    switch (itemType) {
+      case "weapon":
+        tokenPath = "systems/yzecoriolis/css/icons/weapons-icon.svg";
+        if (isExplosive) {
+          tokenPath = "systems/yzecoriolis/css/icons/explosion-icon.svg";
+        }
+        break;
+      case "armor":
+        tokenPath = "systems/yzecoriolis/css/icons/armor-icon.svg";
+        break;
+      case "gear":
+        tokenPath = "systems/yzecoriolis/css/icons/gear-icon.svg";
+        break;
+    }
+    this.data.update({ img: tokenPath });
   }
 
   async roll() {
@@ -86,27 +107,6 @@ export class yzecoriolisItem extends Item {
     for (let p of Object.values(this.data.data.special)) {
       props.push(p);
     }
-  }
-
-  _getDefaultToken() {
-    let itemType = this.data.type;
-    let isExplosive = this.data.data.explosive;
-    let tokenPath = CONST.DEFAULT_TOKEN;
-    switch (itemType) {
-      case "weapon":
-        tokenPath = "systems/yzecoriolis/css/icons/weapons-icon.svg";
-        if (isExplosive) {
-          tokenPath = "systems/yzecoriolis/css/icons/explosion-icon.svg";
-        }
-        break;
-      case "armor":
-        tokenPath = "systems/yzecoriolis/css/icons/armor-icon.svg";
-        break;
-      case "gear":
-        tokenPath = "systems/yzecoriolis/css/icons/gear-icon.svg";
-        break;
-    }
-    return tokenPath;
   }
 }
 
