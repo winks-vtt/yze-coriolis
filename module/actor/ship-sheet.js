@@ -54,9 +54,9 @@ export class yzecoriolisShipSheet extends ActorSheet {
 
   getData(options) {
     const baseData = super.getData(options);
+    let stats = {};
     if (this.actor.data.type === "ship") {
-      console.log("prepping stats", baseData);
-      this._prepShipStats(baseData.actor);
+      stats = this._prepShipStats(baseData.actor);
     }
 
     const sheetData = {
@@ -64,6 +64,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
       owner: baseData.actor.isOwner,
       config: CONFIG.YZECORIOLIS,
       ...baseData.actor.data,
+      ...stats,
     };
     return sheetData;
   }
