@@ -114,7 +114,9 @@ export class yzecoriolisShipSheet extends ActorSheet {
         crewSortingOrder[b.data.bio.crewPosition.position]
       );
     });
-    const modules = getOwnedItemsByType(actor, "shipModule");
+    // to simplify referencing the modules we just take the data layer instead
+    // of the actual document.
+    const modules = getOwnedItemsByType(actor, "shipModule").map((m) => m.data);
     // for dynamic css just attach css classes to the module we'll inject in
     // various parts
     for (let m of modules) {

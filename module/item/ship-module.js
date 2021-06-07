@@ -3,12 +3,12 @@ import { getOwnedItemById } from "../util.js";
 export const toggleShipModule = async (shipEntity, moduleId) => {
   const moduleData = getShipModule(shipEntity, moduleId);
   const updateData = {
-    _id: moduleData._id,
+    _id: moduleData.id,
     data: {
-      enabled: !moduleData.data.enabled,
+      enabled: !moduleData.data.data.enabled,
     },
   };
-  return shipEntity.updateEmbeddedEntity("OwnedItem", updateData);
+  return shipEntity.updateEmbeddedDocuments("Item", [updateData]);
 };
 
 const getShipModule = (shipEntity, moduleId) => {
