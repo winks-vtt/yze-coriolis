@@ -93,7 +93,7 @@ export const setCrewEPCount = async (shipEntity, crewId, count) => {
   // ship.
   const activeTokens = getActiveEPTokens(shipEntity);
   const updateData = activeTokens.map((at) => ({
-    _id: at._id,
+    _id: at.id,
     data: {
       holder:
         at.data.data.holder === crewId ? shipEntity.id : at.data.data.holder,
@@ -108,7 +108,7 @@ export const setCrewEPCount = async (shipEntity, crewId, count) => {
   for (let i = 0; i < allowedCount; i++) {
     shipTokens[i].data.holder = crewId;
   }
-  await shipEntity.updateEmbeddedEntity("OwnedItem", updateData);
+  await shipEntity.updateEmbeddedDocuments("Item", updateData);
 };
 
 /**
