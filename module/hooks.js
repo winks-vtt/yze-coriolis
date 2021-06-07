@@ -45,7 +45,7 @@ Hooks.on("updateActor", (entity, data, options, userId) => {
 // eslint-disable-next-line no-unused-vars
 Hooks.on("deleteActor", (entity, options, userId) => {
   if (entity.data.type === "ship") {
-    resetCrewForShip(entity._id).then(() => {
+    resetCrewForShip(entity.id).then(() => {
       rerenderAllCrew();
     });
   }
