@@ -31,7 +31,7 @@ const getEPTokens = (shipEntity) => {
  */
 const getActiveEPTokens = (shipEntity) => {
   const tokens = getEPTokens(shipEntity);
-  return tokens.filter((t) => t.data.active === true) || [];
+  return tokens.filter((t) => t.data.data.active === true) || [];
 };
 
 /**
@@ -44,7 +44,7 @@ export const setActiveEPTokens = async (shipEntity, activeCount) => {
   const allTokens = getEPTokens(shipEntity);
   // first turn of all tokens and set their holder to ship.
   const newActiveTokens = allTokens.map((at) => ({
-    _id: at._id,
+    _id: at.id,
     data: {
       active: false,
       holder: shipEntity.id,
@@ -55,7 +55,8 @@ export const setActiveEPTokens = async (shipEntity, activeCount) => {
   for (let i = 0; i < activeCount; ++i) {
     newActiveTokens[i].data.active = true;
   }
-  await shipEntity.updateEmbeddedEntity("OwnedItem", newActiveTokens);
+  console.log("active tokens", newActiveTokens);
+  await shipEntity.updateEmbeddedDocuments("Item", newActiveTokens);
 };
 
 /**
@@ -64,7 +65,8 @@ export const setActiveEPTokens = async (shipEntity, activeCount) => {
  */
 export const shipEPCount = (shipEntity) => {
   const activeTokens = getActiveEPTokens(shipEntity);
-  return activeTokens.filter((a) => a.data.holder === shipEntity.id).length;
+  return activeTokens.filter((a) => a.data.data.holder === shipEntity.id)
+    .length;
 };
 
 /**
@@ -75,7 +77,7 @@ export const shipEPCount = (shipEntity) => {
  */
 export const crewEPCount = (shipEntity, crewId) => {
   const activeTokens = getActiveEPTokens(shipEntity);
-  return activeTokens.filter((a) => a.data.holder === crewId).length;
+  return activeTokens.filter((a) => a.data.data.holder === crewId).length;
 };
 
 /**
@@ -93,7 +95,8 @@ export const setCrewEPCount = async (shipEntity, crewId, count) => {
   const updateData = activeTokens.map((at) => ({
     _id: at._id,
     data: {
-      holder: at.data.holder === crewId ? shipEntity.id : at.data.holder,
+      holder:
+        at.data.data.holder === crewId ? shipEntity.id : at.data.data.holder,
     },
   }));
   // move count amount of tokens from ship to crewId but if it's higher than
@@ -114,7 +117,9 @@ export const setCrewEPCount = async (shipEntity, crewId, count) => {
  */
 export const crewHasTokens = (shipEntity) => {
   const activeTokens = getActiveEPTokens(shipEntity);
-  return activeTokens.filter((a) => a.data.holder !== shipEntity.id).length > 0;
+  return (
+    activeTokens.filter((a) => a.data.data.holder !== shipEntity.id).length > 0
+  );
 };
 /**
  * returns the maximum allowed EP Tokens a user or ship can hold.
@@ -135,7 +140,7 @@ export const canChangeEPForShip = (shipEntity) => {
   }
   const crewArray = getCrewForShip(shipEntity.id);
   const engineers = crewArray.filter(
-    (c) => c.data.bio.crewPosition.position === "engineer"
+    (c) => c.data.data.bio.crewPosition.position === "engineer"
   );
 
   for (let e of engineers) {
