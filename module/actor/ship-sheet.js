@@ -52,34 +52,29 @@ export class yzecoriolisShipSheet extends ActorSheet {
     });
   }
 
-  getData() {
-    const data = super.getData();
+  getData(options) {
+    const baseData = super.getData(options);
     if (this.actor.data.type === "ship") {
-      this._prepShipStats(data);
+      console.log("prepping stats", baseData);
+      this._prepShipStats(baseData.actor);
     }
-    data.config = CONFIG.YZECORIOLIS;
-    return data;
+
+    const sheetData = {
+      editable: baseData.editable,
+      owner: baseData.actor.isOwner,
+      config: CONFIG.YZECORIOLIS,
+      ...baseData.actor.data,
+    };
+    return sheetData;
   }
 
-  _prepShipStats(sheetData) {
-    const sheetActor = sheetData.actor;
-    const data = sheetActor.data;
-    sheetActor.hullBlocks = prepDataBarBlocks(
-      data.hullPoints.value,
-      data.hullPoints.max
-    );
-
+  _prepShipStats(actor) {
     const maxTokens = getMaxAllowedEPTokens();
-    const shipTokenCount = shipEPCount(this.actor);
-    sheetActor.energyBlocks = prepDataBarBlocks(shipTokenCount, maxTokens);
-
-    // since energy points are a derived value and not a stored value, we need to expose it as a field
-    // for the template, unlike the more simple hull points.
-    sheetActor.currentShipEP = shipTokenCount;
-
+    const shipTokenCount = shipEPCount(actor);
+    const data = actor.data.data;
     // pull in any relevant crew.
-    sheetActor.crew = [];
-    const shipId = sheetActor._id;
+    let crew = [];
+    const shipId = actor.id;
     for (let e of game.actors.contents) {
       let rootData = e.data;
       if (rootData.type === "character" || rootData.type === "npc") {
@@ -91,7 +86,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
         const crewCopy = { ...rootData };
         crewCopy.energyBlocks = prepDataBarBlocks(charEPCount, maxTokens);
         crewCopy.currentEP = charEPCount;
-        sheetActor.crew.push(crewCopy);
+        crew.push(crewCopy);
       }
     }
 
@@ -105,46 +100,53 @@ export class yzecoriolisShipSheet extends ActorSheet {
       gunner: 4,
     };
 
-    sheetActor.crew = sheetActor.crew.sort((a, b) => {
+    crew = crew.sort((a, b) => {
       return (
         crewSortingOrder[a.data.bio.crewPosition.position] -
         crewSortingOrder[b.data.bio.crewPosition.position]
       );
     });
-
-    sheetActor.modules = getOwnedItemsByType(this.actor, "shipModule");
+    const modules = getOwnedItemsByType(actor, "shipModule");
     // for dynamic css just attach css classes to the module we'll inject in
     // various parts
-    for (let m of sheetActor.modules) {
+    for (let m of modules) {
       // enabledCSS used for toggle button
       m.enabledCSS = "";
       if (m.data.enabled) {
         m.enabledCSS = "enabled";
       }
     }
-    sheetActor.features = {
-      dataset: {
-        type: "shipFeature",
-        defaultName: game.i18n.localize("YZECORIOLIS.NewShipFeature"),
+    const stats = {
+      hullBlocks: prepDataBarBlocks(data.hullPoints.value, data.hullPoints.max),
+      energyBlocks: prepDataBarBlocks(shipTokenCount, maxTokens),
+      // since energy points are a derived value and not a stored value, we need to expose it as a field
+      // for the template, unlike the more simple hull points.
+      currentShipEP: shipTokenCount,
+      crew,
+      modules,
+      features: {
+        dataset: {
+          type: "shipFeature",
+          defaultName: game.i18n.localize("YZECORIOLIS.NewShipFeature"),
+        },
+        items: getOwnedItemsByType(actor, "shipFeature"),
       },
-      items: getOwnedItemsByType(this.actor, "shipFeature"),
-    };
-
-    sheetActor.criticalDamages = {
-      dataset: {
-        type: "shipCriticalDamage",
-        defaultName: game.i18n.localize("YZECORIOLIS.NewShipCriticalDamage"),
+      criticalDamages: {
+        dataset: {
+          type: "shipCriticalDamage",
+          defaultName: game.i18n.localize("YZECORIOLIS.NewShipCriticalDamage"),
+        },
+        items: getOwnedItemsByType(actor, "shipCriticalDamage"),
       },
-      items: getOwnedItemsByType(this.actor, "shipCriticalDamage"),
-    };
-
-    sheetActor.problems = {
-      dataset: {
-        type: "shipProblem",
-        defaultName: game.i18n.localize("YZECORIOLIS.NewShipProblem"),
+      problems: {
+        dataset: {
+          type: "shipProblem",
+          defaultName: game.i18n.localize("YZECORIOLIS.NewShipProblem"),
+        },
+        items: getOwnedItemsByType(actor, "shipProblem"),
       },
-      items: getOwnedItemsByType(this.actor, "shipProblem"),
     };
+    return stats;
   }
 
   /** @override */
