@@ -4,12 +4,12 @@
       <div
         class="col-start-1 col-end-2 row-start-1 row-end-2 z-1 flex justify-center align-items-center overflow-hidden">
         <img class="border-1 border-solid border-white-1 rounded flex-shrink-0 box-none min-w-full min-h-full max-h-412 object-fit-cover"
-          src={{actor.img}} data-edit="img" title="{{actor.name}}">
+          src={{img}} data-edit="img" title="{{name}}">
       </div>
       <div class="col-start-1 col-end-2 row-start-1 row-end-2 z-2 flex flex-dir-col mg-l mg-t pointer-events-none">
         <input class="text-xxl text-upper text-shadow-1 pointer-events-all" name="data.shipType" type="text"
           value="{{data.shipType}}" placeholder="{{localize "YZECORIOLIS.ShipType"}}" />
-        <input class="text-xxl text-upper text-shadow-1 mg-t-sm pointer-events-all" name="name" type="text" value="{{actor.name}}"
+        <input class="text-xxl text-upper text-shadow-1 mg-t-sm pointer-events-all" name="name" type="text" value="{{name}}"
           placeholder="{{localize "YZECORIOLIS.Name"}}" />
         <div class="flex flex-grow flex-shrink-0 flex-basis-0 justify-end pointer-events-none">
           <div
@@ -35,7 +35,7 @@
             class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm flexrow">
             <div class="white-1">Hull Points</div>
             <div class="bar hull-bar fr-basic flex7">
-              {{#each actor.hullBlocks as |hBlock index|}}
+              {{#each hullBlocks as |hBlock index|}}
               {{#with ../data as | data |}}
               {{#if hBlock.on}}
               <div class="hull-bar-segment bar-segment bar-pill on" data-name="data.hullPoints.value" data-index={{index}}
@@ -58,7 +58,7 @@
             class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm mg-t-xsm flexrow">
             <div class="white-1">Energy Points</div>
             <div class="bar ep-bar fr-basic flex7">
-              {{#each actor.energyBlocks as |eBlock index|}}
+              {{#each energyBlocks as |eBlock index|}}
               {{#if eBlock.on}}
               <div class="ep-bar-segment bar-segment bar-pill on"
                 data-index={{index}} data-current={{eBlock.current}}
@@ -71,7 +71,7 @@
               </div>
               {{/if}}
               {{/each}}
-              <span class="bar-value white-1">{{actor.currentShipEP}}</span>
+              <span class="bar-value white-1">{{currentShipEP}}</span>
             </div>
           </div>
           <div class="bottom-half-container">
