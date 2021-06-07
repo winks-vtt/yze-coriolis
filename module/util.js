@@ -16,7 +16,7 @@ export const getOwnedItemsByType = (actor, itemType) => {
 };
 
 export const getOwnedItemById = (actor, itemId) => {
-  return actor.data.items.find((item) => item._id === itemId);
+  return actor.data.items.find((item) => item.id === itemId);
 };
 
 export const getActorEntitiesByType = (actorType) => {
