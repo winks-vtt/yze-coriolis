@@ -55,7 +55,6 @@ Hooks.on("deleteActor", (entity, options, userId) => {
 Hooks.on("createActor", async (entity, options, userId) => {
   if (entity.data.type === "ship") {
     rerenderAllCrew();
-    console.log("creation", entity, options);
     await createEPTokensForShip(entity);
   }
 });

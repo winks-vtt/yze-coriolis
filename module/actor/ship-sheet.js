@@ -55,8 +55,14 @@ export class yzecoriolisShipSheet extends ActorSheet {
   getData(options) {
     const baseData = super.getData(options);
     let stats = {};
-    if (this.actor.data.type === "ship") {
+    if (baseData.actor.data.type === "ship") {
       stats = this._prepShipStats(baseData.actor);
+    }
+
+    const shipImageSet = baseData.actor.getFlag("yzecoriolis", "shipImageSet");
+    let imageCSSClass = ""; // no css class
+    if (shipImageSet) {
+      imageCSSClass = "object-fit-cover";
     }
 
     const sheetData = {
@@ -65,6 +71,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
       config: CONFIG.YZECORIOLIS,
       ...baseData.actor.data,
       ...stats,
+      imageCSSClass,
     };
     return sheetData;
   }
@@ -83,7 +90,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
         if (shipId !== crewShipId) {
           continue;
         }
-        const charEPCount = crewEPCount(this.actor, rootData._id);
+        const charEPCount = crewEPCount(actor, rootData._id);
         const crewCopy = { ...rootData };
         crewCopy.energyBlocks = prepDataBarBlocks(charEPCount, maxTokens);
         crewCopy.currentEP = charEPCount;
