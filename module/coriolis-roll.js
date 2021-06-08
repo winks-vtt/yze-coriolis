@@ -246,7 +246,6 @@ async function showChatMessage(chatMsgOptions, resultData) {
     chatMsgOptions["whisper"] = [game.user];
 
   chatMsgOptions.roll = resultData.roll;
-  chatMsgOptions.type = CONST.CHAT_MESSAGE_TYPES.ROLL;
   const html = await renderTemplate(chatMsgOptions.template, chatData);
   chatMsgOptions["content"] = html;
   const msg = await ChatMessage.create(chatMsgOptions, false);
