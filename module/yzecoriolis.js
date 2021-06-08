@@ -57,22 +57,6 @@ Hooks.once("init", async function () {
   //Register system settings
   registerSystemSettings();
 
-  //TODO: figure out how to whitelist items.
-  // Some item types are internal only and shouldn't be user-created,
-  // such as EP tokens, so they are left out of this list.
-  // game.system.entityTypes.Item = [
-  //   "item",
-  //   "gear",
-  //   "talent",
-  //   "weapon",
-  //   "armor",
-  //   "injury",
-  //   "shipProblem",
-  //   "shipModule",
-  //   "shipFeature",
-  //   "shipCriticalDamage",
-  // ];
-
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("yzecoriolis", yzecoriolisActorSheet, {

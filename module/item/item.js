@@ -108,6 +108,22 @@ export class yzecoriolisItem extends Item {
       props.push(p);
     }
   }
+
+  /**
+   * Foundry doesn't have a built-in way to hide certain item types. This is a
+   * work around.
+   * @override
+   */
+  static async createDialog(data, options) {
+    const hiddenItems = ["energyPointToken", "item"];
+    const original = game.system.entityTypes.Item;
+    game.system.entityTypes.Item = original.filter(
+      (itemType) => !hiddenItems.includes(itemType)
+    );
+    const newItem = super.createDialog(data, options);
+    game.system.entityTypes.Item = original;
+    return newItem;
+  }
 }
 
 export const getSkillKeyForWeaponType = (isMelee) => {
