@@ -91,14 +91,14 @@ export class yzecoriolisItemSheet extends ItemSheet {
     let features = duplicate(this.object.data.data.special);
     let targetKey = li.data("itemId");
     delete features[targetKey];
-    li.slideUp(200, () => {
+    li.slideUp(200, async () => {
+      await this._setSpecialFeatures(features);
       this.render(false);
     });
-    this._setSpecialFeatures(features);
   }
 
   async _setSpecialFeatures(features) {
-    await this.object.update({ "data.special": null });
+    await this.object.update({ "data.special": null }, { render: false });
     await this.object.update({ "data.special": features });
   }
 }

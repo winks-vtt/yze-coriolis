@@ -376,7 +376,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
   }
 
   async _setRelations(relations) {
-    await this.actor.update({ "data.relationships": null });
+    await this.actor.update({ "data.relationships": null }, { render: false });
     await this.actor.update({ "data.relationships": relations });
   }
 
