@@ -7,7 +7,7 @@
             {{#if owner}}
             <div class="feature-controls">
                 <a class="feature-control-add-widget shipItem-create" title='{{localize "YZECORIOLIS.ShipCreateFeature"}}'
-                    {{#each actor.features.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                    {{#each features.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                     <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                 </a>
             </div>
@@ -17,7 +17,7 @@
 
 
         {{!-- show each feature --}}
-        {{#each actor.features.items as |feature|}}
+        {{#each features.items as |feature|}}
         <li class="feature item flexrow" data-item-id="{{feature._id}}">
             <div class="feature-bg flickering flexrow">
                 <div class="feature-name expandable-info flexrow">

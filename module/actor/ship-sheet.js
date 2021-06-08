@@ -139,21 +139,23 @@ export class yzecoriolisShipSheet extends ActorSheet {
           type: "shipFeature",
           defaultName: game.i18n.localize("YZECORIOLIS.NewShipFeature"),
         },
-        items: getOwnedItemsByType(actor, "shipFeature"),
+        items: getOwnedItemsByType(actor, "shipFeature").map((f) => f.data),
       },
       criticalDamages: {
         dataset: {
           type: "shipCriticalDamage",
           defaultName: game.i18n.localize("YZECORIOLIS.NewShipCriticalDamage"),
         },
-        items: getOwnedItemsByType(actor, "shipCriticalDamage"),
+        items: getOwnedItemsByType(actor, "shipCriticalDamage").map(
+          (cd) => cd.data
+        ),
       },
       problems: {
         dataset: {
           type: "shipProblem",
           defaultName: game.i18n.localize("YZECORIOLIS.NewShipProblem"),
         },
-        items: getOwnedItemsByType(actor, "shipProblem"),
+        items: getOwnedItemsByType(actor, "shipProblem").map((p) => p.data),
       },
     };
     return stats;
