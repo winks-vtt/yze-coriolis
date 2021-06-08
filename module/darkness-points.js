@@ -78,7 +78,7 @@ async function showDarknessPoints(totalPoints) {
   let gmUser = gmList[0];
 
   let messageData = {
-    user: gmUser._id,
+    user: gmUser.id,
     speaker: ChatMessage.getSpeaker({ user: gmUser }),
     whisper: gmList,
   };
