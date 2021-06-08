@@ -246,14 +246,12 @@ async function showChatMessage(chatMsgOptions, resultData) {
     chatMsgOptions["whisper"] = [game.user];
 
   chatMsgOptions.roll = resultData.roll;
-  console.log("chatroll", chatMsgOptions.roll);
   chatMsgOptions.type = CONST.CHAT_MESSAGE_TYPES.ROLL;
   const html = await renderTemplate(chatMsgOptions.template, chatData);
   chatMsgOptions["content"] = html;
   const msg = await ChatMessage.create(chatMsgOptions, false);
   // attach the results to the chat message so we can push later if needed.
   await msg.setFlag("yzecoriolis", "results", chatData.results);
-  console.log("msg", msg);
   return msg;
 }
 
