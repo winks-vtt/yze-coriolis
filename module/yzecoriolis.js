@@ -319,7 +319,7 @@ Hooks.on("renderChatMessage", (app, html, msg) => {
     html.find(".message-content").remove();
   }
   // remove push option from non-authors
-  if (!game.user.isGM && msg.message.user !== game.user._id) {
+  if (!game.user.isGM && msg.message.user !== game.user.id) {
     html.find(".dice-push").remove();
   }
 });
