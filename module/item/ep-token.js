@@ -55,7 +55,6 @@ export const setActiveEPTokens = async (shipEntity, activeCount) => {
   for (let i = 0; i < activeCount; ++i) {
     newActiveTokens[i].data.active = true;
   }
-  console.log("active tokens", newActiveTokens);
   await shipEntity.updateEmbeddedDocuments("Item", newActiveTokens);
 };
 
