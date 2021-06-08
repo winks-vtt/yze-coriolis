@@ -118,11 +118,11 @@ export async function coriolisRoll(chatOptions, rollData) {
 }
 /**
  * handle pushing a roll
- * @param  {} msgOptions
+ * @param  {} chatMessage
  * @param  {} origRollData
  * @param  {} origRoll
  */
-export async function coriolisPushRoll(msgOptions, origRollData, origRoll) {
+export async function coriolisPushRoll(chatMessage, origRollData, origRoll) {
   if (origRollData.pushed) {
     return;
   }
@@ -136,9 +136,9 @@ export async function coriolisPushRoll(msgOptions, origRollData, origRoll) {
       }
     });
   });
-  await showDiceSoNice(origRoll, msgOptions.rollMode);
+  await showDiceSoNice(origRoll, chatMessage.rollMode);
   const result = evaluateCoriolisRoll(origRollData, origRoll);
-  await updateChatMessage(msgOptions, result);
+  await updateChatMessage(chatMessage, result);
   await addDarknessPoints(1);
 }
 
@@ -256,7 +256,7 @@ async function showChatMessage(chatMsgOptions, resultData) {
   return msg;
 }
 
-async function updateChatMessage(msgOptions, resultData) {
+async function updateChatMessage(chatMessage, resultData) {
   let tooltip = await renderTemplate(
     "systems/yzecoriolis/templates/sidebar/dice-results.html",
     getTooltipData(resultData)
@@ -272,8 +272,8 @@ async function updateChatMessage(msgOptions, resultData) {
     "systems/yzecoriolis/templates/sidebar/roll.html",
     chatData
   ).then((html) => {
-    msgOptions["content"] = html;
-    return msgOptions
+    chatMessage["content"] = html;
+    return chatMessage
       .update({
         content: html,
         ["flags.data"]: { results: chatData.results },
