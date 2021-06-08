@@ -349,7 +349,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     return this.actor.update(update);
   }
 
-  _onRelationshipCreate(event) {
+  async _onRelationshipCreate(event) {
     event.preventDefault();
     const person = {
       buddy: false,
