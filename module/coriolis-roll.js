@@ -111,7 +111,7 @@ export async function coriolisRoll(chatOptions, rollData) {
     totalDice = 2; // desparation roll where both will have to be successes to be considered a success.
   }
   let roll = new Roll(`${totalDice}d6`);
-  roll.roll();
+  await roll.evaluate({ async: false });
   await showDiceSoNice(roll, chatOptions.rollMode);
   const result = evaluateCoriolisRoll(rollData, roll);
   await showChatMessage(chatOptions, result);
@@ -250,10 +250,10 @@ async function showChatMessage(chatMsgOptions, resultData) {
   };
 
   chatMsgOptions.roll = resultData.roll;
-  return renderTemplate(chatMsgOptions.template, chatData).then((html) => {
-    chatMsgOptions["content"] = html;
-    return ChatMessage.create(chatMsgOptions, false);
-  });
+  const html = await renderTemplate(chatMsgOptions.template, chatData);
+  chatMsgOptions["content"] = html;
+  const msg = await ChatMessage.create(chatMsgOptions, false);
+  return msg;
 }
 
 async function updateChatMessage(msgOptions, resultData) {
