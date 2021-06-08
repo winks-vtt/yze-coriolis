@@ -245,14 +245,15 @@ async function showChatMessage(chatMsgOptions, resultData) {
   else if (chatMsgOptions.rollMode === "selfroll")
     chatMsgOptions["whisper"] = [game.user];
 
-  chatMsgOptions["flags.data"] = {
-    results: chatData.results,
-  };
-
   chatMsgOptions.roll = resultData.roll;
+  console.log("chatroll", chatMsgOptions.roll);
+  chatMsgOptions.type = CONST.CHAT_MESSAGE_TYPES.ROLL;
   const html = await renderTemplate(chatMsgOptions.template, chatData);
   chatMsgOptions["content"] = html;
   const msg = await ChatMessage.create(chatMsgOptions, false);
+  // attach the results to the chat message so we can push later if needed.
+  await msg.setFlag("yzecoriolis", "results", chatData.results);
+  console.log("msg", msg);
   return msg;
 }
 
@@ -327,7 +328,7 @@ export async function coriolisChatListeners(html) {
     let button = $(ev.currentTarget),
       messageId = button.parents(".message").attr("data-message-id"),
       message = game.messages.get(messageId);
-    let results = message.data.flags.data.results;
+    let results = message.getFlag("yzecoriolis", "results");
     coriolisPushRoll(message, results.rollData, message.roll);
   });
 }
