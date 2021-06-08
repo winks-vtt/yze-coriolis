@@ -273,8 +273,11 @@ export class yzecoriolisShipSheet extends ActorSheet {
   async _onClickDeleteShipItem(event) {
     event.preventDefault();
     const targetButton = event.currentTarget;
+    const li = $(targetButton).parents(".item");
     const featureId = targetButton.dataset.feature;
-    this.actor.deleteEmbeddedDocuments("Item", [featureId]);
+    li.slideUp(200, async () => {
+      await this.actor.deleteEmbeddedDocuments("Item", [featureId]);
+    });
   }
 
   async _onClickEPBarSegment(event) {
