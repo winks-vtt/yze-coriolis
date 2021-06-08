@@ -29,7 +29,7 @@ export const getActorEntitiesByType = (actorType) => {
  * @param  {String} actorId
  * @returns the actor data object.
  */
-export const getActorById = (actorId) => {
+export const getActorDataById = (actorId) => {
   if (!actorId) {
     return null;
   }

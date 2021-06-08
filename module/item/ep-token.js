@@ -139,7 +139,7 @@ export const canChangeEPForShip = (shipEntity) => {
   }
   const crewArray = getCrewForShip(shipEntity.id);
   const engineers = crewArray.filter(
-    (c) => c.data.data.bio.crewPosition.position === "engineer"
+    (c) => c.data.bio.crewPosition.position === "engineer"
   );
 
   for (let e of engineers) {

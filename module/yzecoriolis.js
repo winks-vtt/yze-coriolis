@@ -19,7 +19,7 @@ import {
   displayDarknessPoints,
 } from "./darkness-points.js";
 import { setupMCE } from "./mce.js";
-import { getActorById } from "./util.js";
+import { getActorDataById } from "./util.js";
 import {
   importShipSheetTutorial,
   showOnboardingMessage,
@@ -265,7 +265,7 @@ Hooks.once("init", async function () {
   );
 
   Handlebars.registerHelper("getShipRollValueForPosition", function (crewId) {
-    const crew = getActorById(crewId);
+    const crew = getActorDataById(crewId);
     const crewPosition = crew.data.bio.crewPosition;
     const skillKey = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
     const skillValue = crew.data.skills[skillKey].value;

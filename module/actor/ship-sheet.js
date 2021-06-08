@@ -8,7 +8,7 @@ import {
   canChangeEPForShip,
 } from "../item/ep-token.js";
 import {
-  getActorById,
+  getActorDataById,
   getActorEntityById,
   getOwnedItemsByType,
 } from "../util.js";
@@ -364,7 +364,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
       return;
     }
 
-    const crewmate = getActorById(crewId);
+    const crewmate = getActorDataById(crewId);
     const crewPosition = crewmate.data.bio.crewPosition;
     const skillKey = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
     const attributeKey = crewmate.data.skills[skillKey].attribute;

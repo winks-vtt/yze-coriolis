@@ -1,4 +1,4 @@
-import { getActorById, getActorEntitiesByType } from "../util.js";
+import { getActorDataById, getActorEntitiesByType } from "../util.js";
 
 // buildCrewOptionsArray returns an array of objects detailing possible crew
 // position data that the character sheet can select from. This does not show
@@ -69,7 +69,7 @@ export async function resetCrewForShip(shipId) {
 export function getCrewForShip(shipId) {
   const crewArray = [];
   for (let e of game.actors.contents) {
-    const actorData = getActorById(e.id);
+    const actorData = getActorDataById(e.id);
     if (actorData.type === "character" || actorData.type === "npc") {
       if (actorData.data.bio.crewPosition.shipId === shipId) {
         crewArray.push(actorData);
