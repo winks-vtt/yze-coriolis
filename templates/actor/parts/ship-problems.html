@@ -6,7 +6,7 @@
             {{#if owner}}
             <div class="feature-controls">
                 <a class="feature-control-add-widget shipItem-create" title='{{localize "YZECORIOLIS.ShipCreateProblem"}}'
-                    {{#each actor.problems.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                    {{#each problems.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                     <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                 </a>
             </div>
@@ -15,7 +15,7 @@
 
 
         {{!-- show each problem --}}
-        {{#each actor.problems.items as |problem|}}
+        {{#each problems.items as |problem|}}
         <li class="feature item flexrow" data-item-id="{{problem._id}}">
             <div class="feature-bg flickering flexrow">
                 <div class="feature-name expandable-info flexrow">
