@@ -6,7 +6,7 @@
             {{#if owner}}
             <div class="feature-controls">
                 <a class="feature-control-add-widget shipItem-create" title='{{localize "YZECORIOLIS.ShipCreateCriticalDamage"}}'
-                    {{#each actor.criticalDamages.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                    {{#each criticalDamages.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                     <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                 </a>
             </div>
@@ -15,7 +15,7 @@
 
 
         {{!-- show each crit damage --}}
-        {{#each actor.criticalDamages.items as |critDamage|}}
+        {{#each criticalDamages.items as |critDamage|}}
         <li class="feature item flexrow" data-item-id="{{critDamage._id}}">
             <div class="feature-bg flickering flexrow">
                 <div class="feature-name expandable-info flexrow">
