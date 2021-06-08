@@ -226,11 +226,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // delete meeting
     html.find(".meeting-delete").click(this._onMeetingDelete.bind(this));
 
-    // Add Critical Injury
-    html.find(".injury-create").click(this._onCriticalInjuryCreate.bind(this));
-    // Delete a Critical Injury
-    html.find(".injury-delete").click(this._onCriticalInjuryDelete.bind(this));
-
     // databar editing
     html.find(".bar-segment").click(this._onClickBarSegment.bind(this));
     html.find(".bar-segment").mouseenter(onHoverBarSegmentIn);
@@ -254,8 +249,10 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Delete Inventory Item
     html.find(".item-delete").click((ev) => {
       const li = $(ev.currentTarget).parents(".item");
-      this.actor.deleteEmbeddedDocuments("Item", [li.data("itemId")]);
-      li.slideUp(200, () => this.render(false));
+      li.slideUp(200, async () => {
+        await this.actor.deleteEmbeddedDocuments("Item", [li.data("itemId")]);
+        this.render(false);
+      });
     });
 
     // Rollable abilities.
@@ -448,37 +445,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
     delete itemData.data["defaultname"];
 
     return this.actor.createEmbeddedDocuments("Item", [itemData]);
-  }
-
-  _onCriticalInjuryCreate(event) {
-    event.preventDefault();
-    const critData = {
-      name: "",
-      description: "",
-    };
-    let injuries = {};
-    if (this.actor.data.data.criticalInjuries) {
-      injuries = duplicate(this.actor.data.data.criticalInjuries);
-    }
-    let key = getID();
-    injuries["ci" + key] = critData;
-    return this.actor.update({ "data.criticalInjuries": injuries });
-  }
-
-  async _onCriticalInjuryDelete(event) {
-    const li = $(event.currentTarget).parents(".injury");
-    let injuries = duplicate(this.actor.data.data.criticalInjuries);
-    let targetKey = li.data("itemId");
-    delete injuries[targetKey];
-    li.slideUp(200, () => {
-      this.render(false);
-    });
-    this._setInjuries(injuries);
-  }
-
-  async _setInjuries(injuries) {
-    await this.actor.update({ "data.criticalInjuries": null });
-    await this.actor.update({ "data.criticalInjuries": injuries });
   }
 
   /**
