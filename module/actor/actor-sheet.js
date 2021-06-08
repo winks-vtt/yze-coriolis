@@ -245,7 +245,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
       const li = $(ev.currentTarget).parents(".item");
       li.slideUp(200, async () => {
         await this.actor.deleteEmbeddedDocuments("Item", [li.data("itemId")]);
-        this.render(false);
       });
     });
 
@@ -371,7 +370,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
     delete relations[targetKey];
     li.slideUp(200, async () => {
       await this._setRelations(relations);
-      this.render(false);
     });
   }
 

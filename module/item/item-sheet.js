@@ -93,7 +93,6 @@ export class yzecoriolisItemSheet extends ItemSheet {
     delete features[targetKey];
     li.slideUp(200, async () => {
       await this._setSpecialFeatures(features);
-      this.render(false);
     });
   }
 
