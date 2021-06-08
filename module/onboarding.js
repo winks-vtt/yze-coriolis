@@ -1,6 +1,5 @@
 export async function showOnboardingMessage() {
   const triggered = game.settings.get("yzecoriolis", "firstLaunch");
-  console.log("triggered", triggered);
   if (triggered) {
     return;
   }
