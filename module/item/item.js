@@ -26,21 +26,7 @@ export class yzecoriolisItem extends Item {
     await super._preCreate(data, options, user);
     let itemType = data.type;
     let isExplosive = this.data.data.explosive;
-    let tokenPath = CONST.DEFAULT_TOKEN;
-    switch (itemType) {
-      case "weapon":
-        tokenPath = "systems/yzecoriolis/css/icons/weapons-icon.svg";
-        if (isExplosive) {
-          tokenPath = "systems/yzecoriolis/css/icons/explosion-icon.svg";
-        }
-        break;
-      case "armor":
-        tokenPath = "systems/yzecoriolis/css/icons/armor-icon.svg";
-        break;
-      case "gear":
-        tokenPath = "systems/yzecoriolis/css/icons/gear-icon.svg";
-        break;
-    }
+    const tokenPath = getItemDefaultIcon(itemType, isExplosive);
     this.data.update({ img: tokenPath });
   }
 
@@ -148,4 +134,23 @@ export const getRollType = (itemType) => {
     return "armor";
   }
   return "weapon";
+};
+
+export const getItemDefaultIcon = (itemType, isExplosive) => {
+  let tokenPath = CONST.DEFAULT_TOKEN;
+  switch (itemType) {
+    case "weapon":
+      tokenPath = "systems/yzecoriolis/css/icons/weapons-icon.svg";
+      if (isExplosive) {
+        tokenPath = "systems/yzecoriolis/css/icons/explosion-icon.svg";
+      }
+      break;
+    case "armor":
+      tokenPath = "systems/yzecoriolis/css/icons/armor-icon.svg";
+      break;
+    case "gear":
+      tokenPath = "systems/yzecoriolis/css/icons/gear-icon.svg";
+      break;
+  }
+  return tokenPath;
 };
