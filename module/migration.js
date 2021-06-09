@@ -13,7 +13,7 @@ export const migrateWorld = async function () {
   for (let a of game.actors.entities) {
     try {
       const updateData = migrateActorData(a.data);
-      if (!isObjectEmpty(updateData)) {
+      if (!foundry.utils.isObjectEmpty(updateData)) {
         console.log(`Migrating Actor entity ${a.name}`);
         await a.update(updateData, { enforceTypes: false });
       }
@@ -25,7 +25,7 @@ export const migrateWorld = async function () {
   for (let i of game.items.entities) {
     try {
       const updateData = migrateItemData(i.data);
-      if (!isObjectEmpty(updateData)) {
+      if (!foundry.utils.isObjectEmpty(updateData)) {
         console.log(`Migrating Item entity ${i.name}`);
         await i.update(updateData, { enforceTypes: false });
       }
@@ -38,7 +38,7 @@ export const migrateWorld = async function () {
   for (let s of game.scenes.entities) {
     try {
       const updateData = migrateSceneData(s.data);
-      if (!isObjectEmpty(updateData)) {
+      if (!foundry.utils.isObjectEmpty(updateData)) {
         console.log(`Migrating Scene entity ${s.name}`);
         await s.update(updateData, { enforceTypes: false });
       }
@@ -189,7 +189,7 @@ export const migrateCompendium = async function (pack) {
       if (entity === "Item") updateData = migrateItemData(ent.data);
       else if (entity === "Actor") updateData = migrateActorData(ent.data);
       else if (entity === "Scene") updateData = migrateSceneData(ent.data);
-      if (!isObjectEmpty(updateData)) {
+      if (!foundry.utils.isObjectEmpty(updateData)) {
         expandObject(updateData);
         updateData["_id"] = ent._id;
         await pack.updateEntity(updateData);
@@ -252,7 +252,7 @@ export const migrateActorData = function (actor) {
     let itemUpdate = migrateItemData(i);
 
     // Update the Owned Item
-    if (!isObjectEmpty(itemUpdate)) {
+    if (!foundry.utils.isObjectEmpty(itemUpdate)) {
       hasItemUpdates = true;
       return foundry.utils.mergeObject(i, itemUpdate, {
         enforceTypes: false,
