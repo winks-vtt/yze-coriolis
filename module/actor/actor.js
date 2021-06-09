@@ -155,7 +155,7 @@ export class yzecoriolisActor extends Actor {
   static async create(data, options = {}) {
     data.token = data.token || {};
     if (data.type === "character" || data.type === "npc") {
-      mergeObject(
+      foundry.utils.mergeObject(
         data.token,
         {
           vision: true,

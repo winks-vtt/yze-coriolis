@@ -15,7 +15,7 @@ import { buildCrewOptionsArray } from "./crew.js";
 export class yzecoriolisActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["yzecoriolis", "sheet", "actor", "character"],
       template: "systems/yzecoriolis/templates/actor/actor-sheet.html",
       width: 1000,

@@ -30,7 +30,7 @@ import { coriolisModifierDialog } from "../coriolis-roll.js";
 export class yzecoriolisShipSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["yzecoriolis", "sheet", "actor", "ship"],
       template: "systems/yzecoriolis/templates/actor/ship-sheet.html",
       width: 1200,

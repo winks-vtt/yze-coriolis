@@ -6,7 +6,7 @@ import { getID } from "../util.js";
 export class yzecoriolisItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["yzecoriolis", "sheet", "item"],
       width: 770,
       height: 770,
