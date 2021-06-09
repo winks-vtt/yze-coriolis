@@ -1,4 +1,5 @@
 import { addDarknessPoints } from "./darkness-points.js";
+import { getDefaultItemIcon } from "./item/item.js";
 /**
  * Perform a system migration for the entire World, applying migrations for Actors, Items, and Compendium packs
  * @return {Promise}      A Promise which resolves once the migration is completed
@@ -24,7 +25,7 @@ export const migrateWorld = async function () {
   // Migrate World Items
   for (let i of game.items.contents) {
     try {
-      const updateData = migrateItemData(i.data);
+      const updateData = migrateItemData(i.toObject());
       if (!foundry.utils.isObjectEmpty(updateData)) {
         console.log(`Migrating Item entity ${i.name}`);
         await i.update(updateData, { enforceTypes: false });
@@ -219,64 +220,24 @@ export const migrateCompendium = async function (pack) {
 export const migrateActorData = function (actor) {
   let updateData = {};
 
-  // fix token art
-  if (actor.img === CONST.DEFAULT_TOKEN && hasProperty(actor, "token.img")) {
-    if (actor.img !== actor.token.img) {
-      updateData["img"] = actor.token.img;
-    }
-  }
-
-  // migrate crew positions to new format moving from a basic string to an
-  // object that holds the position and shipId. a blank id functions as just a
-  // generic 'position' without any ship association.
-  let needsCrewMigration =
-    (actor.type === "character" || actor.type === "npc") &&
-    hasProperty(actor, "data.bio.crewPosition") &&
-    typeof actor.data.bio.crewPosition === "string";
-
-  if (needsCrewMigration) {
-    updateData["data.bio.crewPosition"] = {
-      position: actor.data.bio.crewPosition,
-      shipId: "",
-    };
-  }
-
   // Migrate Owned Items
   if (!actor.items) return updateData;
-  let hasItemUpdates = false;
-  const items = actor.items.map((i) => {
+  const items = actor.items.reduce((arr, i) => {
     // Migrate the Owned Item
-    let itemUpdate = migrateItemData(i);
+    const itemData = i instanceof CONFIG.Item.documentClass ? i.toObject() : i;
+    let itemUpdate = migrateItemData(itemData);
 
     // Update the Owned Item
     if (!foundry.utils.isObjectEmpty(itemUpdate)) {
-      hasItemUpdates = true;
-      return foundry.utils.mergeObject(i, itemUpdate, {
-        enforceTypes: false,
-        inplace: false,
-      });
-    } else return i;
-  });
-  if (hasItemUpdates) updateData.items = items;
+      itemUpdate._id = itemData._id;
+      arr.push(expandObject(itemUpdate));
+    }
+
+    return arr;
+  }, []);
+  if (items.length > 0) updateData.items = items;
   return updateData;
 };
-
-/* -------------------------------------------- */
-
-/**
- * Scrub an Actor's system data, removing all keys which are not explicitly defined in the system template
- * @param {Object} actorData    The data object for an Actor
- * @return {Object}             The scrubbed Actor data
- */
-// eslint-disable-next-line no-unused-vars
-function cleanActorData(actorData) {
-  // Scrub system data
-  const model = game.system.model.Actor[actorData.type];
-  actorData.data = filterObject(actorData.data, model);
-
-  // Return the scrubbed data
-  return actorData;
-}
 
 /* -------------------------------------------- */
 
@@ -286,17 +247,19 @@ function cleanActorData(actorData) {
  */
 export const migrateItemData = function (item) {
   let updateData = {};
-  // add in HP bonus field to existing talents
-  if (item.type === "talent" && !hasProperty(item.data, "hpBonus")) {
-    updateData = { "data.hpBonus": 0 };
-  } else if (item.type === "weapon" && !hasProperty(item.data, "melee")) {
-    updateData = { "data.melee": false };
-  }
-  // fix string contamination of talents' hpBonus fields
-  if (item.type === "talent" && hasProperty(item.data, "hpBonus")) {
-    updateData = { "data.hpBonus": Number(item.data.hpBonus) };
-  }
 
+  const default_icon = "icons/svg/item-bag.svg";
+  const itemType = item.type;
+  const customIconType =
+    itemType === "weapon" || itemType === "armor" || itemType === "gear";
+  if (item.img === default_icon && customIconType) {
+    updateData = { img: getDefaultItemIcon(itemType, !!item.data.explosive) };
+    console.log(
+      itemType,
+      "should upate to:",
+      getDefaultItemIcon(itemType, !!item.data.explosive)
+    );
+  }
   // Return the migrated update data
   return updateData;
 };
