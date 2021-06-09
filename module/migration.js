@@ -262,11 +262,6 @@ export const migrateItemData = function (item) {
     itemType === "injury";
   if (isUsingDefaultIcon && isTypeWithCustomIcon) {
     updateData = { img: getDefaultItemIcon(itemType, !!item.data.explosive) };
-    console.log(
-      itemType,
-      "should upate to:",
-      getDefaultItemIcon(itemType, !!item.data.explosive)
-    );
   }
   // Return the migrated update data
   return updateData;
