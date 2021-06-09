@@ -251,7 +251,10 @@ export const migrateItemData = function (item) {
   const default_icon = "icons/svg/item-bag.svg";
   const itemType = item.type;
   const customIconType =
-    itemType === "weapon" || itemType === "armor" || itemType === "gear";
+    itemType === "weapon" ||
+    itemType === "armor" ||
+    itemType === "gear" ||
+    itemType === "talent";
   if (item.img === default_icon && customIconType) {
     updateData = { img: getDefaultItemIcon(itemType, !!item.data.explosive) };
     console.log(

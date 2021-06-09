@@ -151,6 +151,8 @@ export const getDefaultItemIcon = (itemType, isExplosive) => {
     case "gear":
       tokenPath = "systems/yzecoriolis/css/icons/gear-icon.svg";
       break;
+    case "talent":
+      tokenPath = "systems/yzecoriolis/css/icons/talent-icon.svg";
   }
   return tokenPath;
 };
