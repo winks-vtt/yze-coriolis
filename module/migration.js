@@ -5,7 +5,7 @@ import { addDarknessPoints } from "./darkness-points.js";
  */
 export const migrateWorld = async function () {
   ui.notifications.info(
-    `Applying Year Zero Engine Coriolis System Migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`,
+    `Applying Coriolis System Migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`,
     { permanent: true }
   );
 
@@ -68,7 +68,7 @@ export const migrateWorld = async function () {
     game.system.data.version
   );
   ui.notifications.info(
-    `Year Zero Engine Coriolis System Migration to version ${game.system.data.version} completed!`,
+    `Coriolis System Migration to version ${game.system.data.version} completed!`,
     { permanent: true }
   );
 };

@@ -1,6 +1,6 @@
-# Coriolis The Third Horizon
+# Coriolis
 
-An UNOFFICIAL system for playing [Coriolis - The Third Horizon](https://frialigan.se/en/games/coriolis-2/) on Foundry VTT, and made available with permission from [Free League Publishing](http://freeleaguepublishing.com/).
+An UNOFFICIAL system for playing [Coriolis](https://frialigan.se/en/games/coriolis-2/) on Foundry VTT, and made available with permission from [Free League Publishing](http://freeleaguepublishing.com/).
 
 ## Installation
 
@@ -75,8 +75,6 @@ For questions, feature requests, or bug reports, feel free to contact me on the 
 - Character Sheet background: NASA Hubble under [Public Domain](https://hubblesite.org/about_us/copyright.php).
 
 ## License
-
-![Year Zero Engine](https://github.com/winks-vtt/yze-coriolis/raw/master/images/YZ_engine_logo.png)
 
 This Foundry VTT system is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
 

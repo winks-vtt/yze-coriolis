@@ -1,7 +1,7 @@
 {
   "name": "yzecoriolis",
-  "title": "Year Zero Engine - Coriolis",
-  "description": "The Year Zero Engine - Coriolis System for Foundry VTT.",
+  "title": "Coriolis",
+  "description": "Coriolis System for Foundry VTT.",
   "version": "1.4.7",
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.7.9",

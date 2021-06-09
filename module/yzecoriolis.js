@@ -379,7 +379,7 @@ Hooks.once("ready", async function () {
       currentVersion !== "0"
     ) {
       ui.notifications.error(
-        `Your Year Zero Engine Coriolis system data is from too old a Foundry version and cannot be reliably migrated to the latest version. The process will be attempted, but errors may occur.`,
+        `Your Coriolis system data is from too old a Foundry version and cannot be reliably migrated to the latest version. The process will be attempted, but errors may occur.`,
         { permanent: true }
       );
     }
