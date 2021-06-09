@@ -219,9 +219,6 @@ export const migrateCompendium = async function (pack) {
 export const migrateActorData = function (actor) {
   let updateData = {};
 
-  // Remove deprecated fields
-  _migrateRemoveDeprecated(actor, updateData);
-
   // fix token art
   if (actor.img === CONST.DEFAULT_TOKEN && hasProperty(actor, "token.img")) {
     if (actor.img !== actor.token.img) {
@@ -299,8 +296,6 @@ export const migrateItemData = function (item) {
   if (item.type === "talent" && hasProperty(item.data, "hpBonus")) {
     updateData = { "data.hpBonus": Number(item.data.hpBonus) };
   }
-  // Remove deprecated fields
-  _migrateRemoveDeprecated(item, updateData);
 
   // Return the migrated update data
   return updateData;
@@ -350,35 +345,5 @@ const migrateDarknessPoints = async function () {
     ui.notifications.info(game.i18n.localize("YZECORIOLIS.MigratedDP"), {
       permanent: true,
     });
-  }
-};
-
-/* -------------------------------------------- */
-/*  Low level migration utilities
-/* -------------------------------------------- */
-
-/* -------------------------------------------- */
-
-/**
- * A general migration to remove all fields from the data model which are flagged with a _deprecated tag
- * @private
- */
-const _migrateRemoveDeprecated = function (ent, updateData) {
-  const flat = flattenObject(ent.data);
-
-  // Identify objects to deprecate
-  const toDeprecate = Object.entries(flat)
-    .filter((e) => e[0].endsWith("_deprecated") && e[1] === true)
-    .map((e) => {
-      let parent = e[0].split(".");
-      parent.pop();
-      return parent.join(".");
-    });
-
-  // Remove them
-  for (let k of toDeprecate) {
-    let parts = k.split(".");
-    parts[parts.length - 1] = "-=" + parts[parts.length - 1];
-    updateData[`data.${parts.join(".")}`] = null;
   }
 };
