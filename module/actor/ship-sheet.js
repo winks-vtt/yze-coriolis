@@ -243,7 +243,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     const targetButton = event.currentTarget;
     const type = targetButton.dataset.type;
     // Grab any data associated with this control.
-    const data = duplicate(targetButton.dataset);
+    const data = foundry.utils.deepClone(targetButton.dataset);
     // Initialize a default name.
     const name = data.defaultname;
     // Prepare the item object.

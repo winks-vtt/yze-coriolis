@@ -79,7 +79,7 @@ export class yzecoriolisItemSheet extends ItemSheet {
     const name = "";
     let features = {};
     if (this.object.data.data.special) {
-      features = duplicate(this.object.data.data.special);
+      features = foundry.utils.deepClone(this.object.data.data.special);
     }
     let key = getID();
     features["si" + key] = name;
@@ -88,7 +88,7 @@ export class yzecoriolisItemSheet extends ItemSheet {
 
   _onFeatureDelete(event) {
     const li = $(event.currentTarget).parents(".special-feature");
-    let features = duplicate(this.object.data.data.special);
+    let features = foundry.utils.deepClone(this.object.data.data.special);
     let targetKey = li.data("itemId");
     delete features[targetKey];
     li.slideUp(200, async () => {

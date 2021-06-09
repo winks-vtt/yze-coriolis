@@ -79,7 +79,7 @@ export class yzecoriolisItem extends Item {
   }
 
   getChatData(htmlOptions) {
-    const data = duplicate(this.data.data);
+    const data = foundry.utils.deepClone(this.data.data);
     const labels = this.labels;
     // Rich text description
     data.description = TextEditor.enrichHTML(data.description, htmlOptions);

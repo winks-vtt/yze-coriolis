@@ -356,7 +356,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
     };
     let relationships = {};
     if (this.actor.data.data.relationships) {
-      relationships = duplicate(this.actor.data.data.relationships);
+      relationships = foundry.utils.deepClone(
+        this.actor.data.data.relationships
+      );
     }
     let key = getID();
     relationships["r" + key] = person;
@@ -365,7 +367,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
   async _onRelationshipDelete(event) {
     const li = $(event.currentTarget).parents(".relation");
-    let relations = duplicate(this.actor.data.data.relationships);
+    let relations = foundry.utils.deepClone(this.actor.data.data.relationships);
     let targetKey = li.data("itemId");
     delete relations[targetKey];
     li.slideUp(200, async () => {
@@ -389,7 +391,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Get the type of item to create.
     const type = header.dataset.type;
     // Grab any data associated with this control.
-    const data = duplicate(header.dataset);
+    const data = foundry.utils.deepClone(header.dataset);
     // Initialize a default name.
     const name = data.defaultname;
     // Prepare the item object.
