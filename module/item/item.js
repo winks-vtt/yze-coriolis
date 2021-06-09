@@ -26,7 +26,7 @@ export class yzecoriolisItem extends Item {
     await super._preCreate(data, options, user);
     let itemType = data.type;
     let isExplosive = this.data.data.explosive;
-    const tokenPath = getItemDefaultIcon(itemType, isExplosive);
+    const tokenPath = getDefaultItemIcon(itemType, isExplosive);
     this.data.update({ img: tokenPath });
   }
 
@@ -136,7 +136,7 @@ export const getRollType = (itemType) => {
   return "weapon";
 };
 
-export const getItemDefaultIcon = (itemType, isExplosive) => {
+export const getDefaultItemIcon = (itemType, isExplosive) => {
   let tokenPath = CONST.DEFAULT_TOKEN;
   switch (itemType) {
     case "weapon":
