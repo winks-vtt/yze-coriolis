@@ -248,14 +248,18 @@ export const migrateActorData = function (actor) {
 export const migrateItemData = function (item) {
   let updateData = {};
 
-  const default_icon = "icons/svg/item-bag.svg";
   const itemType = item.type;
-  const customIconType =
+  const isUsingDefaultIcon = [
+    "icons/svg/item-bag.svg",
+    CONST.DEFAULT_TOKEN,
+  ].includes(item.img);
+
+  const isTypeWithCustomIcon =
     itemType === "weapon" ||
     itemType === "armor" ||
     itemType === "gear" ||
     itemType === "talent";
-  if (item.img === default_icon && customIconType) {
+  if (isUsingDefaultIcon && isTypeWithCustomIcon) {
     updateData = { img: getDefaultItemIcon(itemType, !!item.data.explosive) };
     console.log(
       itemType,
