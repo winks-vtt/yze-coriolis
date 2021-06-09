@@ -10,7 +10,7 @@ export const migrateWorld = async function () {
   );
 
   // Migrate World Actors
-  for (let a of game.actors.entities) {
+  for (let a of game.actors.contents) {
     try {
       const updateData = migrateActorData(a.data);
       if (!foundry.utils.isObjectEmpty(updateData)) {
@@ -22,7 +22,7 @@ export const migrateWorld = async function () {
     }
   }
   // Migrate World Items
-  for (let i of game.items.entities) {
+  for (let i of game.items.contents) {
     try {
       const updateData = migrateItemData(i.data);
       if (!foundry.utils.isObjectEmpty(updateData)) {
@@ -35,7 +35,7 @@ export const migrateWorld = async function () {
   }
 
   // Migrate Actor Override Tokens
-  for (let s of game.scenes.entities) {
+  for (let s of game.scenes.contents) {
     try {
       const updateData = migrateSceneData(s.data);
       if (!foundry.utils.isObjectEmpty(updateData)) {
