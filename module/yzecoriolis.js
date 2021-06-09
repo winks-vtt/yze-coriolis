@@ -367,16 +367,15 @@ Hooks.once("ready", async function () {
     "systemMigrationVersion"
   );
   const NEEDS_MIGRATION_VERSION = "1.3";
-  const COMPATIBLE_MIGRATION_VERSION = 0.4;
+  const COMPATIBLE_MIGRATION_VERSION = "1.4.7";
   let needMigration =
-    currentVersion < NEEDS_MIGRATION_VERSION || currentVersion === null;
+    currentVersion && isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
 
   // Perform the migration
   if (needMigration && game.user.isGM) {
     if (
       currentVersion &&
-      currentVersion < COMPATIBLE_MIGRATION_VERSION &&
-      currentVersion !== "0"
+      isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion)
     ) {
       ui.notifications.error(
         `Your Coriolis system data is from too old a Foundry version and cannot be reliably migrated to the latest version. The process will be attempted, but errors may occur.`,
