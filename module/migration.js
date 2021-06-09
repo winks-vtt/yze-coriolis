@@ -258,7 +258,8 @@ export const migrateItemData = function (item) {
     itemType === "weapon" ||
     itemType === "armor" ||
     itemType === "gear" ||
-    itemType === "talent";
+    itemType === "talent" ||
+    itemType === "injury";
   if (isUsingDefaultIcon && isTypeWithCustomIcon) {
     updateData = { img: getDefaultItemIcon(itemType, !!item.data.explosive) };
     console.log(
