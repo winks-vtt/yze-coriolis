@@ -446,7 +446,7 @@ async function createYzeCoriolisMacro(data, slot) {
 
   // create the macro command
   const command = `game.yzecoriolis.rollItemMacro("${item.name}");`;
-  let macro = game.macros.entities.find(
+  let macro = game.macros.contents.find(
     (m) => m.name === item.name && m.command === command
   );
   if (!macro) {
