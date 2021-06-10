@@ -366,7 +366,7 @@ Hooks.once("ready", async function () {
     "yzecoriolis",
     "systemMigrationVersion"
   );
-  const NEEDS_MIGRATION_VERSION = "1.3";
+  const NEEDS_MIGRATION_VERSION = "2.0.0"; // moving from 0.7.x to 0.8.x compat
   const COMPATIBLE_MIGRATION_VERSION = "1.4.7";
   let needMigration =
     currentVersion &&
