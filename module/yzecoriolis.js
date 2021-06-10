@@ -369,7 +369,9 @@ Hooks.once("ready", async function () {
   const NEEDS_MIGRATION_VERSION = "1.3";
   const COMPATIBLE_MIGRATION_VERSION = "1.4.7";
   let needMigration =
-    currentVersion && isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
+    currentVersion &&
+    isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion) &&
+    currentVersion !== "0"; // zero means we just created a new world.
 
   // Perform the migration
   if (needMigration && game.user.isGM) {
