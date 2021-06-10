@@ -26,20 +26,16 @@ export async function importShipSheetTutorial() {
           journal.getFlag("yzecoriolis", "ver") === undefined
         ) {
           await journal.delete();
-          await game.journal.importFromCompendium(
-            "yzecoriolis.ship_sheet_instructions",
-            `0QlMn9tJBwKSZ9a6`
-          );
+          const pack = game.packs.get("yzecoriolis.ship_sheet_instructions");
+          await game.journal.importFromCompendium(pack, `0QlMn9tJBwKSZ9a6`);
           await game.journal
             .getName(journalName)
             .setFlag("yzecoriolis", "ver", newVer);
           console.log("New version of Coriolis Ship Sheet Instructions.");
         }
       } else {
-        await game.journal.importFromCompendium(
-          "yzecoriolis.ship_sheet_instructions",
-          `0QlMn9tJBwKSZ9a6`
-        );
+        const pack = game.packs.get("yzecoriolis.ship_sheet_instructions");
+        await game.journal.importFromCompendium(pack, `0QlMn9tJBwKSZ9a6`);
         game.journal.getName(journalName).setFlag("yzecoriolis", "ver", newVer);
       }
     } catch (error) {
