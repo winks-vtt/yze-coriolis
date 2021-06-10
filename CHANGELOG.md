@@ -5,6 +5,7 @@ Note: This version is not backwards compatible with 0.7.x, so please create a ba
 - Updated compatibility for Foundry VTT 0.8.6
 - Fixed animations involving removal of items from character and ship sheets
 - Fixed bug with darkness points displaying twice upon decrement
+- Renamed system to 'Coriolis'
 
 # 1.4.7
 
