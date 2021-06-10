@@ -2,9 +2,9 @@
   "name": "yzecoriolis",
   "title": "Coriolis",
   "description": "Coriolis System for Foundry VTT.",
-  "version": "1.4.7",
-  "minimumCoreVersion": "0.7.9",
-  "compatibleCoreVersion": "0.7.9",
+  "version": "2.0.0",
+  "minimumCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "0.8.6",
   "templateVersion": 2,
   "author": "Winks",
   "esmodules": ["module/yzecoriolis.js", "module/hooks.js"],
@@ -54,5 +54,5 @@
   "secondaryTokenAttribute": "power",
   "url": "",
   "manifest": "https://raw.githubusercontent.com/winks-vtt/yze-coriolis/master/system.json",
-  "download": "https://github.com/winks-vtt/yze-coriolis/archive/v1.4.7.zip"
+  "download": "https://github.com/winks-vtt/yze-coriolis/archive/v2.0.0.zip"
 }

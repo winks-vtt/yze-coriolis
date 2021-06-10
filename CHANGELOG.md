@@ -1,3 +1,11 @@
+# 2.0.0
+
+Note: This version is not backwards compatible with 0.7.x, so please create a backup in the event you may need to go back to a previous FVTT version.
+
+- Updated compatibility for Foundry VTT 0.8.6
+- Fixed animations involving removal of items from character and ship sheets
+- Fixed bug with darkness points displaying twice upon decrement
+
 # 1.4.7
 
 - Fixed migration system incorrectly detecting a need for migrations due to version number schema changes
