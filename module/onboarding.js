@@ -26,7 +26,7 @@ export async function importShipSheetTutorial() {
           journal.getFlag("yzecoriolis", "ver") === undefined
         ) {
           await journal.delete();
-          await game.journal.importFromCollection(
+          await game.journal.importFromCompendium(
             "yzecoriolis.ship_sheet_instructions",
             `0QlMn9tJBwKSZ9a6`
           );
@@ -36,7 +36,7 @@ export async function importShipSheetTutorial() {
           console.log("New version of Coriolis Ship Sheet Instructions.");
         }
       } else {
-        await game.journal.importFromCollection(
+        await game.journal.importFromCompendium(
           "yzecoriolis.ship_sheet_instructions",
           `0QlMn9tJBwKSZ9a6`
         );
