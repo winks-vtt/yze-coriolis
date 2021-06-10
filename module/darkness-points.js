@@ -18,7 +18,6 @@ export async function spendDarknessPoints(points) {
   for (let i = 0; i < points; i++) {
     await decrementDarknessPoint();
   }
-  showDarknessPoints(getDarknessPoints());
   //purposefully not announcing the spending of points publically.
 }
 
