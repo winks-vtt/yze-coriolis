@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.8](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.7...v2.0.8) (2021-06-12)
+
+
+### Bug Fixes
+
+* use the write tag in release ([bbd8e45](https://www.github.com/winks-vtt/yze-coriolis/commit/bbd8e45c4f0472725cb65933b7ec599f2f357f84))
+
 ### [2.0.7](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.6...v2.0.7) (2021-06-12)
 
 
