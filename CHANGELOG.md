@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.7](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.6...v2.0.7) (2021-06-12)
+
+
+### Bug Fixes
+
+* attach zip asset to release ([8afbf69](https://www.github.com/winks-vtt/yze-coriolis/commit/8afbf698409e47ec82e1c043e6aa420940cc5c09))
+
 ### [2.0.6](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.5...v2.0.6) (2021-06-12)
 
 
