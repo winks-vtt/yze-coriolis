@@ -23,7 +23,7 @@ jobs:
         with:
           script: |
             const response = await github.pulls.get({
-              pull_number: ${{ steps.release.outputs.pr }},
+              pull_number: ${{ steps.release_pr.outputs.pr }},
               owner: context.repo.owner,
               repo: context.repo.repo
             });
@@ -34,10 +34,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ steps.config.outputs.branch }}
-        if: ${{ steps.release.outputs.pr && !steps.release.outputs.release_created }}
+        if: ${{ steps.release_pr.outputs.pr && !steps.release_pr.outputs.release_created }}
 
       # inject version into environment
-      - if: ${{ steps.release.outputs.pr && !steps.release.outputs.release_created }}
+      - if: ${{ steps.release_pr.outputs.pr && !steps.release_pr.outputs.release_created }}
         run: |
           sys_version=$(cat ./version.txt)
           echo "version: ${sys_version} $(sys_version)"
