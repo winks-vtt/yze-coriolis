@@ -1,9 +1,11 @@
 {
-  "YZECORIOLIS.SheetStats": "Atributos",
+  "YZECORIOLIS.SheetStats": "Habilidades",
   "YZECORIOLIS.SheetTalents": "Talentos",
   "YZECORIOLIS.SheetItems": "Itens",
   "YZECORIOLIS.SheetBio": "Bio",
   "YZECORIOLIS.SheetNotes": "Notas",
+  "YZECORIOLIS.Enabled": "Habilitado",
+  "YZECORIOLIS.Disabled": "Desabilitado",
 
   "YZECORIOLIS.HitPoints": "Pontos de Vida",
   "YZECORIOLIS.MindPoints": "Pontos Mentais",
@@ -18,7 +20,7 @@
   "YZECORIOLIS.CrewSpotSensorOperator": "Operador de Sensor",
   "YZECORIOLIS.CrewSpotGunner": "Artilheiro",
 
-  "YZECORIOLIS.ErrorsInvalidSkillRoll": "valores de perícias ou atributos não são maiores que zero",
+  "YZECORIOLIS.ErrorsInvalidSkillRoll": "Valores de perícias ou atributos não são maiores que zero",
   "YZECORIOLIS.ErrorsInvalidAdvancedSkillRoll": "perícias avançadas requerem valor mínimimo de 1 para serem roladas",
   "YZECORIOLIS.ErrorsNoActorSelectedForMacro": "Nenhum Token de Ator foi selecionado para usar este macro.",
   "YZECORIOLIS.PrayToIcons": "Prece aos Ícones",
@@ -68,6 +70,7 @@
   "YZECORIOLIS.RemoveMeeting": "Remover Encontro",
 
   "YZECORIOLIS.MoneyCost": "Custo",
+  "YZECORIOLIS.MoneyCostIncrease": "Aumento de Custo (%)",
   "YZECORIOLIS.Birr": "Birr",
   "YZECORIOLIS.GroupConcept": "Conceito de Grupo",
   "YZECORIOLIS.Category": "Categoria",
@@ -106,7 +109,7 @@
   "YZECORIOLIS.EquipGear": "Equipar Aparelho",
   "YZECORIOLIS.EquipArmor": "Equipar Armadura",
 
-  "YZECORIOLIS.TechTier": "Ranque de Tecnologia",
+  "YZECORIOLIS.TechTier": "Nív. Tecnologia",
   "YZECORIOLIS.AddFeature": "Add Feature",
   "YZECORIOLIS.DeleteFeature": "Delete Feature",
   "YZECORIOLIS.Quantity": "Quantidade",
@@ -126,7 +129,7 @@
   "YZECORIOLIS.Explosives": "Explosivos",
   "YZECORIOLIS.BlastPower": "Poder",
   "YZECORIOLIS.BlastRadius": "Raio",
-  "YZECORIOLIS.Special": "Características Especiais",
+  "YZECORIOLIS.Special": "Especiais",
   "YZECORIOLIS.EffectiveRange": "Alcance Efetivo",
   "YZECORIOLIS.Range": "Alcance",
   "YZECORIOLIS.CriticalInjuries": "Ferimentos Graves",
@@ -148,7 +151,7 @@
   "YZECORIOLIS.SkillForce": "Força",
   "YZECORIOLIS.SkillInfiltration": "Infiltração",
   "YZECORIOLIS.SkillManipulation": "Manipulação",
-  "YZECORIOLIS.SkillMeleeCombat": "Combate Corpo-a-Corpo",
+  "YZECORIOLIS.SkillMeleeCombat": "Combate Corpo a Corpo",
   "YZECORIOLIS.SkillObservation": "Observação",
   "YZECORIOLIS.SkillRangedCombat": "Combate à Distância",
   "YZECORIOLIS.SkillSurvival": "Sobrevivência",
@@ -169,7 +172,7 @@
   "YZECORIOLIS.SkillForceRoll": "Rolar Força",
   "YZECORIOLIS.SkillInfiltrationRoll": "Rolar Infiltração",
   "YZECORIOLIS.SkillManipulationRoll": "Rolar Manipulação",
-  "YZECORIOLIS.SkillMeleeCombatRoll": "Rolar Corpo-a-Corpo",
+  "YZECORIOLIS.SkillMeleeCombatRoll": "Rolar Corpo a Corpo",
   "YZECORIOLIS.SkillObservationRoll": "Rolar Observação",
   "YZECORIOLIS.SkillRangedCombatRoll": "Rolar Combate à Ditância",
   "YZECORIOLIS.SkillSurvivalRoll": "Rolar Sobrevicência",
@@ -309,11 +312,62 @@
   "YZECORIOLIS.CritTypeCustom": "Crít Person.",
 
   "YZECORIOLIS.CloseRange": "Perto",
+  "YZECORIOLIS.ContactRange": "Contato",
   "YZECORIOLIS.ShortRange": "Curta",
+  "YZECORIOLIS.MediumRange": "Média",
   "YZECORIOLIS.LongRange": "Longa",
   "YZECORIOLIS.ExtremeRange": "Extrema",
 
   "YZECORIOLIS.MigratedDP": "Sistema de Pontos Sombrios Migrado.",
   "YZECORIOLIS.HPBonus": "Bonus de PV",
-  "YZECORIOLIS.Melee": "Corpo-a-Corpo"
+  "YZECORIOLIS.Melee": "Corpo a Corpo"
+  
+  "YZECORIOLIS.SheetClassCharacter": "Ficha de Personagem",
+  "YZECORIOLIS.SheetClassNPC": "Ficha de PdM",
+  "YZECORIOLIS.SheetClassShip": "Ficha de Nave",
+  "YZECORIOLIS.SheetClassItem": "Ficha de Item",
+
+  "YZECORIOLIS.ShipType": "Tipo de Nave",
+  "YZECORIOLIS.ShipClass": "Classe",
+  "YZECORIOLIS.Shipyard": "Estaleiro",
+  "YZECORIOLIS.Manueverability": "Manobrabilidade",
+  "YZECORIOLIS.Signature": "Assinatura",
+  "YZECORIOLIS.Problems": "Problemas",
+  "YZECORIOLIS.Cost": "Custo",
+  "YZECORIOLIS.Speed": "Velocidade",
+  "YZECORIOLIS.Crew": "Tripulação",
+  "YZECORIOLIS.Features": "Recursos",
+  "YZECORIOLIS.Modules": "Módulos",
+  "YZECORIOLIS.CriticalDamage": "Dano Crítico",
+  "YZECORIOLIS.Notes": "Notas",
+
+  "YZECORIOLIS.SettingMaxEnergyPoints": "Pontos de Energia Máximos Permitidos",
+
+  "YZECORIOLIS.EnergyPointsReset": "Pontos de Energia anteriormente assimilados à tripulação retornaram ao reator da nave.",
+  "YZECORIOLIS.InvalidEPPermissions": "Você não possui permissão para mudar a distribuição de PEs da nave.",
+  "YZECORIOLIS.InvalidCrewRollPermissions": "Você não possui permissão para rolar por este ator nesta nave.",
+
+  "YZECORIOLIS.ShipModuleRequired": "Módulo Requerido",
+  "YZECORIOLIS.ShipModuleOptional": "Módulo Opcional",
+  "YZECORIOLIS.ShipModuleWeapon": "Módulo de Arma",
+  "YZECORIOLIS.EditModule": "Editar Módulo",
+  "YZECORIOLIS.DeleteModule": "Remover Módulo",
+
+  "YZECORIOLIS.ShipFeature": "Recurso",
+  "YZECORIOLIS.NewShipFeature": "Novo Recurso",
+  "YZECORIOLIS.ShipEditFeature": "Editar Recurso",
+  "YZECORIOLIS.ShipCreateFeature": "Criar Recurso",
+  "YZECORIOLIS.ShipDeleteFeature": "Remover Recurso",
+
+  "YZECORIOLIS.ShipCriticalDamage": "Dano Crítico",
+  "YZECORIOLIS.NewShipCriticalDamage": "Novo Dano Crítico",
+  "YZECORIOLIS.ShipEditCriticalDamage": "Editar Dano Crítico",
+  "YZECORIOLIS.ShipCreateCriticalDamage": "Criar Dano Crítico",
+  "YZECORIOLIS.ShipDeleteCriticalDamage": "Remover Dano Crítico",
+
+  "YZECORIOLIS.ShipProblem": "Problema",
+  "YZECORIOLIS.NewShipProblem": "Novo Problema",
+  "YZECORIOLIS.ShipEditProblem": "Editar Problema",
+  "YZECORIOLIS.ShipCreateProblem": "Criar Problema",
+  "YZECORIOLIS.ShipDeleteProblem": "Remover Problema"}
 }
