@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.9](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.8...v2.0.9) (2021-06-12)
+
+
+### Bug Fixes
+
+* tag naming ([c59e180](https://www.github.com/winks-vtt/yze-coriolis/commit/c59e18049595fc2df836a349300ad347c1b96bfc))
+
 ### [2.0.8](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.7...v2.0.8) (2021-06-12)
 
 
