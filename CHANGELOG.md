@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.4](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.3...v2.0.4) (2021-06-12)
+
+
+### Bug Fixes
+
+* version calculation for releases ([e1c237e](https://www.github.com/winks-vtt/yze-coriolis/commit/e1c237eeb736354f5c7af3c0efeece297e7d46d4))
+
 ### [2.0.3](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.2...v2.0.3) (2021-06-12)
 
 
