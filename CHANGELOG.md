@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.5](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.4...v2.0.5) (2021-06-12)
+
+
+### Bug Fixes
+
+* use correct var lookup ([828df63](https://www.github.com/winks-vtt/yze-coriolis/commit/828df63f9a24814fc7883328f8f05e37d0a57561))
+
 ### [2.0.4](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.3...v2.0.4) (2021-06-12)
 
 
