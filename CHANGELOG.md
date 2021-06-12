@@ -1,5 +1,14 @@
 # Changelog
 
+### [2.1.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.0...v2.1.1) (2021-06-12)
+
+
+### Bug Fixes
+
+* made coriolis units be based of meters. ([0b2e215](https://www.github.com/winks-vtt/yze-coriolis/commit/0b2e21544b7a07f9b9921e02965247bc675aad24))
+* updated brazilian translations. Thanks @EstolanoBeu! ([fa96fd1](https://www.github.com/winks-vtt/yze-coriolis/commit/fa96fd18aa48fbc887f1cc25b9a472cea5b8ae5e))
+* Updated the Swedish translation. Thanks @KodKoftan ([3ed30c1](https://www.github.com/winks-vtt/yze-coriolis/commit/3ed30c16b9a20b0d776e8f37fa777af7c842d0ed))
+
 ## [2.1.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.10...v2.1.0) (2021-06-12)
 
 ### Features
