@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.3](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.2...v2.0.3) (2021-06-12)
+
+
+### Bug Fixes
+
+* added checkout for zipping artifacts ([0a735bf](https://www.github.com/winks-vtt/yze-coriolis/commit/0a735bfc62f7b913040ce75e796179f7559ab196))
+
 ### [2.0.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.1...v2.0.2) (2021-06-12)
 
 
