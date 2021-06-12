@@ -75,12 +75,24 @@ jobs:
         if: ${{ steps.release_pr.outputs.release_created }}
         run: zip -r ./coriolis.zip LICENSE README.md CHANGELOG.md system.json template.json css/ data/ images/ lang/ lib/ module/ packs/ templates/
 
-      # upload artifacts
-      - name: "📦 Add Artifacts to Release 📦"
+      # upload zip artifact
+      - name: "📦 Add coriolis.zip to Release 📦"
         if: ${{ steps.release_pr.outputs.release_created }}
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: [coriolis.zip][system.json]
+          file: coriolis.zip
+          asset_name: coriolis.zip
+          tag: v${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}
+          overwrite: true
+
+      # upload system manifest
+      - name: "📦 Add system.json to Release 📦"
+        if: ${{ steps.release_pr.outputs.release_created }}
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: system.json
+          asset_name: system.json
           tag: v${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}
           overwrite: true
