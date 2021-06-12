@@ -17,18 +17,30 @@ jobs:
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
           default-branch: feature/automation
 
-      - name: "data out"
-        run: |
-          echo "${{ steps.release_pr.outputs.tag_name }}"
-          echo "${{ steps.release_pr.outputs.version }}"
+      # grab our branch from the above PR
+      - uses: actions/github-script@v3
+        id: config
+        with:
+          script: |
+            const response = await github.pulls.get({
+              pull_number: ${{ steps.release.outputs.pr }},
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+            core.info("🌳 branch 🌳": response.data.head.ref);
+            core.setOutput("branch", response.data.head.ref);
+
+      # checkout PR branch
       - uses: actions/checkout@v2
-      # data test
-      - name: "output test"
-        if: ${{ steps.release_pr.outputs.release_created }}
+        with:
+          ref: ${{ steps.config.outputs.branch }}
+        if: ${{ steps.release.outputs.pr && !steps.release.outputs.release_created }}
+
+      # inject version into environment
+      - if: ${{ steps.release.outputs.pr && !steps.release.outputs.release_created }}
         run: |
-          echo "version is ${{github.event.release.outputs.major}}.${{github.event.release.outputs.minor}}.${{github.event.release.outputs.patch}}"
-          echo "manifest is  https://github.com/${{github.repository}}/releases/latest/download/system.json"
-          echo "download is https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/coriolis.zip"
+          sys_version=$(cat ./version.txt)
+          echo "version: ${sys_version} $(sys_version)"
 
       # Updates the manifest and download URLS in system.json
       - name: Update System.json
@@ -39,3 +51,11 @@ jobs:
           version: ${{github.event.release.outputs.major}}.${{github.event.release.outputs.minor}}.${{github.event.release.outputs.patch}}
           manifest: https://github.com/${{github.repository}}/releases/latest/download/system.json
           download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/system.zip
+
+      # release artifacts
+      - name: "output test"
+        if: ${{ steps.release_pr.outputs.release_created }}
+        run: |
+          echo "version is ${{github.event.release.outputs.major}}.${{github.event.release.outputs.minor}}.${{github.event.release.outputs.patch}}"
+          echo "manifest is  https://github.com/${{github.repository}}/releases/latest/download/system.json"
+          echo "download is https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/coriolis.zip"
