@@ -66,6 +66,11 @@ jobs:
           git push
 
       # In the event we've created an actual release, we need to zip up files and attach them to the release.
+      # checkout release branch
+      - uses: actions/checkout@v2
+        if: ${{ steps.release_pr.outputs.release_created }}
+
+      # zip our assets
       - name: "Create Zipped Artifact"
         if: ${{ steps.release_pr.outputs.release_created }}
         run: zip -r ./coriolis.zip LICENSE README.md CHANGELOG.md system.json template.json css/ data/ images/ lang/ lib/ module/ packs/ templates/
