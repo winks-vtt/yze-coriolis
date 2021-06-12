@@ -27,7 +27,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo
             });
-            core.info("🌳 branch 🌳:" +  response.data.head.ref);
+            core.info("branch:" +  response.data.head.ref);
             core.setOutput("branch", response.data.head.ref);
 
       # checkout PR branch
