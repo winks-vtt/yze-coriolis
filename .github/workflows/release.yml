@@ -81,4 +81,4 @@ jobs:
         run: |
           echo "version is ${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}"
           echo "manifest is https://github.com/${{github.repository}}/releases/latest/download/system.json"
-          echo "download is https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/coriolis.zip"
+          echo "download is https://github.com/${{github.repository}}/releases/download/v${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}/coriolis.zip"
