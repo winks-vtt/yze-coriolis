@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.6](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.5...v2.0.6) (2021-06-12)
+
+
+### Bug Fixes
+
+* calculate corect download URL ([80a3ce6](https://www.github.com/winks-vtt/yze-coriolis/commit/80a3ce6b14439af57f87ec65096e001fe65e94a0))
+
 ### [2.0.5](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.4...v2.0.5) (2021-06-12)
 
 
