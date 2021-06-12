@@ -55,6 +55,11 @@ jobs:
           manifest: https://github.com/${{github.repository}}/releases/latest/download/system.json
           download: https://github.com/${{github.repository}}/releases/download/${{env.sys_version}}/coriolis.zip
 
+      - name: Print System.json
+        if: ${{ steps.release_pr.outputs.pr && !steps.release_pr.outputs.release_created }}
+        run: |
+          cat ./system.json
+
       # release artifacts
       - name: "output test"
         if: ${{ steps.release_pr.outputs.release_created }}
