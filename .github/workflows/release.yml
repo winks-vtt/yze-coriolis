@@ -9,17 +9,21 @@ jobs:
   exploration:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       # Create a release PR
       - uses: GoogleCloudPlatform/release-please-action@v2
-        id: release
+        id: release_pr
         with:
           release-type: simple
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
           default-branch: feature/automation
 
+      - name: "data out"
+        run: |
+          echo "${{ steps.release_pr.outputs.tag_name }}"
+      - uses: actions/checkout@v2
+      # data test
       - name: "output test"
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release_pr.outputs.release_created }}
         run: |
           echo "version is ${{github.event.release.outputs.major}}.${{github.event.release.outputs.minor}}.${{github.event.release.outputs.patch}}"
           echo "manifest is  https://github.com/${{github.repository}}/releases/latest/download/system.json"
@@ -34,4 +38,3 @@ jobs:
           version: ${{github.event.release.outputs.major}}.${{github.event.release.outputs.minor}}.${{github.event.release.outputs.patch}}
           manifest: https://github.com/${{github.repository}}/releases/latest/download/system.json
           download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/system.zip
-        if: ${{ steps.release.outputs.release_created }}
