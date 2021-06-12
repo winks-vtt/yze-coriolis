@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  exploration:
+  create-release:
     runs-on: ubuntu-latest
     steps:
       # Create an initial release PR that changes will be tracked to.
