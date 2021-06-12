@@ -17,12 +17,12 @@ jobs:
           release-type: simple
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
 
-      - name: 'output test'
+      - name: "output test"
         if: ${{ steps.release.outputs.release_created }}
         run: |
-        echo "version is ${{github.event.release.outputs.major}}.${{github.event.release.outputs.minor}}.${{github.event.release.outputs.patch}}"
-        echo "manifest is  https://github.com/${{github.repository}}/releases/latest/download/system.json"
-        echo "download is https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/coriolis.zip"
+          echo "version is ${{github.event.release.outputs.major}}.${{github.event.release.outputs.minor}}.${{github.event.release.outputs.patch}}"
+          echo "manifest is  https://github.com/${{github.repository}}/releases/latest/download/system.json"
+          echo "download is https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/coriolis.zip"
 
       # Updates the manifest and download URLS in system.json
       - name: Update System.json
