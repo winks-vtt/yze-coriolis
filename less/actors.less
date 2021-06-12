@@ -20,6 +20,33 @@
   }
 }
 
+.journal-link {
+  a {
+    &.entity-link {
+      background-color: @colorBlueTransparent;
+      border: 0px;
+      border-radius: 3px;
+      padding: 1px 6px;
+      transition: color 275ms ease;
+
+
+      &:hover {
+        text-shadow: none;
+        color: @colorOrange;
+
+        i {
+          color: @colorOrange;
+        }
+      }
+    }
+
+    i {
+      color: @colorWhite;
+      transition: color 275ms ease;
+    }
+  }
+}
+
 .yzecoriolis.sheet.actor {
 
   /*
@@ -429,32 +456,9 @@
     display: flex;
     flex-direction: column;
 
-    .item-summary-wrapper {
-
-      a {
-        &.entity-link {
-          background-color: @colorBlueTransparent;
-          border: 0px;
-          border-radius: 3px;
-          padding: 1px 6px;
-          transition: color 275ms ease;
-
-
-          &:hover {
-            text-shadow: none;
-            color: @colorOrange;
-
-            i {
-              color: @colorOrange;
-            }
-          }
-        }
-
-        i {
-          color: @colorWhite;
-          transition: color 275ms ease;
-        }
-      }
+    .item-summary-wrapper,
+    .charnotes {
+      .journal-link();
     }
 
     .navigation {
@@ -1403,11 +1407,13 @@
   }
 
   .shipnotes {
+
     .editor {
       max-height: 280px;
       height: 280px;
       margin: @padding-md;
       .player-text();
+      .journal-link();
     }
 
     .editor-edit {

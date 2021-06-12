@@ -872,6 +872,24 @@
   background: url("images/ship-sheet-bg.jpg");
   background-size: cover;
 }
+.journal-link a.entity-link {
+  background-color: rgba(113, 130, 190, 0.44);
+  border: 0px;
+  border-radius: 3px;
+  padding: 1px 6px;
+  transition: color 275ms ease;
+}
+.journal-link a.entity-link:hover {
+  text-shadow: none;
+  color: #ffa903;
+}
+.journal-link a.entity-link:hover i {
+  color: #ffa903;
+}
+.journal-link a i {
+  color: white;
+  transition: color 275ms ease;
+}
 .yzecoriolis.sheet.actor {
   /*
     mixins
@@ -1421,21 +1439,25 @@
   /* Item List */
   /*-------------------------------------*/
 }
-.yzecoriolis.sheet.actor .sheet-body .item-summary-wrapper a.entity-link {
+.yzecoriolis.sheet.actor .sheet-body .item-summary-wrapper a.entity-link,
+.yzecoriolis.sheet.actor .sheet-body .charnotes a.entity-link {
   background-color: rgba(113, 130, 190, 0.44);
   border: 0px;
   border-radius: 3px;
   padding: 1px 6px;
   transition: color 275ms ease;
 }
-.yzecoriolis.sheet.actor .sheet-body .item-summary-wrapper a.entity-link:hover {
+.yzecoriolis.sheet.actor .sheet-body .item-summary-wrapper a.entity-link:hover,
+.yzecoriolis.sheet.actor .sheet-body .charnotes a.entity-link:hover {
   text-shadow: none;
   color: #ffa903;
 }
-.yzecoriolis.sheet.actor .sheet-body .item-summary-wrapper a.entity-link:hover i {
+.yzecoriolis.sheet.actor .sheet-body .item-summary-wrapper a.entity-link:hover i,
+.yzecoriolis.sheet.actor .sheet-body .charnotes a.entity-link:hover i {
   color: #ffa903;
 }
-.yzecoriolis.sheet.actor .sheet-body .item-summary-wrapper a i {
+.yzecoriolis.sheet.actor .sheet-body .item-summary-wrapper a i,
+.yzecoriolis.sheet.actor .sheet-body .charnotes a i {
   color: white;
   transition: color 275ms ease;
 }
@@ -2594,6 +2616,24 @@
   margin: 10px;
   font-family: "Cairo";
   color: #fdff9d;
+}
+.yzecoriolis.sheet.actor .shipnotes .editor a.entity-link {
+  background-color: rgba(113, 130, 190, 0.44);
+  border: 0px;
+  border-radius: 3px;
+  padding: 1px 6px;
+  transition: color 275ms ease;
+}
+.yzecoriolis.sheet.actor .shipnotes .editor a.entity-link:hover {
+  text-shadow: none;
+  color: #ffa903;
+}
+.yzecoriolis.sheet.actor .shipnotes .editor a.entity-link:hover i {
+  color: #ffa903;
+}
+.yzecoriolis.sheet.actor .shipnotes .editor a i {
+  color: white;
+  transition: color 275ms ease;
 }
 .yzecoriolis.sheet.actor .shipnotes .editor-edit {
   display: block;
