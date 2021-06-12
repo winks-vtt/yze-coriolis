@@ -20,6 +20,7 @@ jobs:
       # grab our branch from the above PR
       - uses: actions/github-script@v3
         id: config
+        if: ${{ steps.release_pr.outputs.pr && !steps.release_pr.outputs.release_created }}
         with:
           script: |
             const response = await github.pulls.get({
