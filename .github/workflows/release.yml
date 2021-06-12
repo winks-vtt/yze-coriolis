@@ -20,6 +20,7 @@ jobs:
       - name: "data out"
         run: |
           echo "${{ steps.release_pr.outputs.tag_name }}"
+          echo "${{ steps.release_pr.outputs.version }}"
       - uses: actions/checkout@v2
       # data test
       - name: "output test"
