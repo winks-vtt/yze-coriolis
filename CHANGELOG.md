@@ -1,5 +1,13 @@
 # Changelog
 
+### [2.0.10](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.9...v2.0.10) (2021-06-12)
+
+
+### Bug Fixes
+
+* add system json manifest ([b3a9164](https://www.github.com/winks-vtt/yze-coriolis/commit/b3a9164941af4de14be0cf14b0f84f0aae870f57))
+* add system json manifest as a separate step ([3089976](https://www.github.com/winks-vtt/yze-coriolis/commit/308997645a6d14d01e7cbf79e9ded9096e8413bd))
+
 ### [2.0.9](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.8...v2.0.9) (2021-06-12)
 
 
