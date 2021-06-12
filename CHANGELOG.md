@@ -1,5 +1,14 @@
 # Changelog
 
+### [2.0.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.1...v2.0.2) (2021-06-12)
+
+
+### Bug Fixes
+
+* attempting to get version number from CI ([9c4f78e](https://www.github.com/winks-vtt/yze-coriolis/commit/9c4f78ec8009bdef23ba06fedfe046054a1b445e))
+* more ci updates ([245010a](https://www.github.com/winks-vtt/yze-coriolis/commit/245010a745ed5dcd1aaadf973cc8c03488d90860))
+* this is a test commit ([28a9d8b](https://www.github.com/winks-vtt/yze-coriolis/commit/28a9d8b151480a77d412e8cf465684370dc5ceb9))
+
 ### [2.0.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.0.0...v2.0.1) (2021-06-12)
 
 
