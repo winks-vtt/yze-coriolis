@@ -57,6 +57,7 @@ jobs:
 
       # with the initially opened PR, update our system.json
       - name: "Commit system.json"
+        if: ${{ steps.release_pr.outputs.pr && !steps.release_pr.outputs.release_created }}
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
