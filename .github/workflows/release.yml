@@ -1,0 +1,19 @@
+name: Release
+
+on: [push]
+
+jobs:
+  exploration:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "triggered by ${{ github.event_name }}"
+      - run: echo "on ${{ runner.os }}"
+      - run: echo "name of branch ${{ github.ref }} ${{ github.repository }}"
+
+      - name: checkout repo
+        uses: actions/checkout@v1
+      - run: echo "repo cloned"
+      - name: "list files"
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "job status ${{ job.status }}"
