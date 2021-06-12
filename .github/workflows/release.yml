@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - feature/automation
 
 jobs:
   exploration:
@@ -16,6 +16,7 @@ jobs:
         with:
           release-type: simple
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
+          default-branch: feature/automation
 
       - name: "output test"
         if: ${{ steps.release.outputs.release_created }}
