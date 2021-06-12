@@ -18,7 +18,6 @@ import {
   spendDarknessPoints,
   displayDarknessPoints,
 } from "./darkness-points.js";
-import { setupMCE } from "./mce.js";
 import { getActorDataById } from "./util.js";
 import {
   importShipSheetTutorial,
@@ -45,7 +44,7 @@ Hooks.once("init", async function () {
   };
 
   // Setup TinyMCE stylings
-  setupMCE();
+  CONFIG.TinyMCE.content_css = "systems/yzecoriolis/css/yzecoriolismce.css";
 
   preloadHandlerbarsTemplates();
 
