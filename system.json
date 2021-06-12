@@ -16,17 +16,14 @@
         "css/yzecoriolismce.css"
     ],
     "scripts": [],
-    "packs": [
-        {
-            "name": "ship_sheet_instructions",
-            "label": "Ship Sheet Instructions",
-            "path": "packs/ship-sheet-instructions.db",
-            "entity": "JournalEntry",
-            "module": "Coriolis"
-        }
-    ],
-    "languages": [
-        {
+    "packs": [{
+        "name": "ship_sheet_instructions",
+        "label": "Ship Sheet Instructions",
+        "path": "packs/ship-sheet-instructions.db",
+        "entity": "JournalEntry",
+        "module": "Coriolis"
+    }],
+    "languages": [{
             "lang": "en",
             "name": "English",
             "path": "lang/en.json"
@@ -57,8 +54,8 @@
             "path": "lang/fr.json"
         }
     ],
-    "gridDistance": 5,
-    "gridUnits": "ft",
+    "gridDistance": 1,
+    "gridUnits": "m",
     "primaryTokenAttribute": "health",
     "secondaryTokenAttribute": "power",
     "url": "",
