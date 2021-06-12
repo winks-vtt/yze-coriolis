@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - feature/automation
+      - master
 
 jobs:
   exploration:
@@ -15,7 +15,6 @@ jobs:
         with:
           release-type: simple
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
-          default-branch: feature/automation
           pull-request-title-pattern: ${scope} Release${component} ${version}
 
       # grab our branch from the above PR
