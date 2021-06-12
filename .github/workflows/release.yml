@@ -79,6 +79,6 @@ jobs:
       - name: "📦 Add Artifacts to Release 📦"
         if: ${{ steps.release_pr.outputs.release_created }}
         run: |
-          echo "version is ${{github.event.release.outputs.major}}.${{github.event.release.outputs.minor}}.${{github.event.release.outputs.patch}}"
+          echo "version is ${{steps.release_pr.outputs.outputs.major}}.${{steps.release_pr.outputs.outputs.minor}}.${{github.event.release.outputs.patch}}"
           echo "manifest is  https://github.com/${{github.repository}}/releases/latest/download/system.json"
           echo "download is https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/coriolis.zip"
