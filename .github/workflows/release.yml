@@ -55,6 +55,7 @@ jobs:
           manifest: https://github.com/${{github.repository}}/releases/latest/download/system.json
           download: https://github.com/${{github.repository}}/releases/download/${{env.sys_version}}/coriolis.zip
 
+      # with the initially opened PR, update our system.json
       - name: "Commit system.json"
         run: |
           git config user.name github-actions
@@ -62,6 +63,11 @@ jobs:
           git add system.json
           git commit -m "ci: updated manifest data"
           git push
+
+      # In the event we've created an actual release, we need to zip up files and attach them to the release.
+      - name: "Create Zipped Artifact"
+        if: ${{ steps.release_pr.outputs.release_created }}
+        run: zip -r ./coriolis.zip LICENSE README.md CHANGELOG.md system.json template.json css/ data/ images/ lang/ lib/ module/ packs/ templates/
 
       # upload artifacts
       - name: "📦 Add Artifacts to Release 📦"
