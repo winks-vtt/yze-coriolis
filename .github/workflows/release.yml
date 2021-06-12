@@ -1,13 +1,36 @@
 name: Release
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   exploration:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      # Create a release PR
       - uses: GoogleCloudPlatform/release-please-action@v2
+        id: release
         with:
           release-type: simple
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
-          default-branch: feature/automation
+
+      - name: 'output test'
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+        echo "version is ${{github.event.release.outputs.major}}.${{github.event.release.outputs.minor}}.${{github.event.release.outputs.patch}}"
+        echo "manifest is  https://github.com/${{github.repository}}/releases/latest/download/system.json"
+        echo "download is https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/coriolis.zip"
+
+      # Updates the manifest and download URLS in system.json
+      - name: Update System.json
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: "system.json"
+        env:
+          version: ${{github.event.release.outputs.major}}.${{github.event.release.outputs.minor}}.${{github.event.release.outputs.patch}}
+          manifest: https://github.com/${{github.repository}}/releases/latest/download/system.json
+          download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/system.zip
+        if: ${{ steps.release.outputs.release_created }}
