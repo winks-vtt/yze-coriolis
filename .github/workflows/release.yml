@@ -53,7 +53,7 @@ jobs:
         env:
           version: ${{ env.sys_version }}
           manifest: https://github.com/${{github.repository}}/releases/latest/download/system.json
-          download: https://github.com/${{github.repository}}/releases/download/${{env.sys_version}}/coriolis.zip
+          download: https://github.com/${{github.repository}}/releases/download/v${{env.sys_version}}/coriolis.zip
 
       # with the initially opened PR, update our system.json
       - name: "Commit system.json"
@@ -78,7 +78,17 @@ jobs:
       # upload artifacts
       - name: "📦 Add Artifacts to Release 📦"
         if: ${{ steps.release_pr.outputs.release_created }}
-        run: |
-          echo "version is ${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}"
-          echo "manifest is https://github.com/${{github.repository}}/releases/latest/download/system.json"
-          echo "download is https://github.com/${{github.repository}}/releases/download/v${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}/coriolis.zip"
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: coriolis.zip
+          asset_name: coriolis.zip
+          tag: ${{ github.ref }}
+          overwrite: true
+
+      # - name: "📦 Add Artifacts to Release 📦"
+      #   if: ${{ steps.release_pr.outputs.release_created }}
+      #   run: |
+      #     echo "version is ${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}"
+      #     echo "manifest is https://github.com/${{github.repository}}/releases/latest/download/system.json"
+      #     echo "download is https://github.com/${{github.repository}}/releases/download/v${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}/coriolis.zip"
