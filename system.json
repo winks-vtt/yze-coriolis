@@ -1,58 +1,67 @@
 {
-  "name": "yzecoriolis",
-  "title": "Coriolis",
-  "description": "Coriolis System for Foundry VTT.",
-  "version": "2.0.1",
-  "minimumCoreVersion": "0.8.6",
-  "compatibleCoreVersion": "0.8.6",
-  "templateVersion": 2,
-  "author": "Winks",
-  "esmodules": ["module/yzecoriolis.js", "module/hooks.js"],
-  "styles": ["css/yzecoriolis.css", "css/yzecoriolismce.css"],
-  "scripts": [],
-  "packs": [{
-    "name": "ship_sheet_instructions",
-    "label": "Ship Sheet Instructions",
-    "path": "packs/ship-sheet-instructions.db",
-    "entity": "JournalEntry",
-    "module": "Coriolis"
-  }],
-  "languages": [{
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    },
-    {
-      "lang": "de",
-      "name": "Deutsch",
-      "path": "lang/de.json"
-    },
-    {
-      "lang": "es",
-      "name": "Spanish",
-      "path": "lang/es.json"
-    },
-    {
-      "lang": "sv",
-      "name": "Swedish",
-      "path": "lang/sv.json"
-    },
-    {
-      "lang": "pt-BR",
-      "name": "Brazilian Portuguese",
-      "path": "lang/pt-br.json"
-    },
-    {
-      "lang": "fr",
-      "name": "French",
-      "path": "lang/fr.json"
-    }
-  ],
-  "gridDistance": 5,
-  "gridUnits": "ft",
-  "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "power",
-  "url": "",
-  "manifest": "https://raw.githubusercontent.com/winks-vtt/yze-coriolis/master/system.json",
-  "download": "https://github.com/winks-vtt/yze-coriolis/archive/v2.0.1.zip"
+    "name": "yzecoriolis",
+    "title": "Coriolis",
+    "description": "Coriolis System for Foundry VTT.",
+    "version": "2.0.2",
+    "minimumCoreVersion": "0.8.6",
+    "compatibleCoreVersion": "0.8.6",
+    "templateVersion": 2,
+    "author": "Winks",
+    "esmodules": [
+        "module/yzecoriolis.js",
+        "module/hooks.js"
+    ],
+    "styles": [
+        "css/yzecoriolis.css",
+        "css/yzecoriolismce.css"
+    ],
+    "scripts": [],
+    "packs": [
+        {
+            "name": "ship_sheet_instructions",
+            "label": "Ship Sheet Instructions",
+            "path": "packs/ship-sheet-instructions.db",
+            "entity": "JournalEntry",
+            "module": "Coriolis"
+        }
+    ],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        },
+        {
+            "lang": "de",
+            "name": "Deutsch",
+            "path": "lang/de.json"
+        },
+        {
+            "lang": "es",
+            "name": "Spanish",
+            "path": "lang/es.json"
+        },
+        {
+            "lang": "sv",
+            "name": "Swedish",
+            "path": "lang/sv.json"
+        },
+        {
+            "lang": "pt-BR",
+            "name": "Brazilian Portuguese",
+            "path": "lang/pt-br.json"
+        },
+        {
+            "lang": "fr",
+            "name": "French",
+            "path": "lang/fr.json"
+        }
+    ],
+    "gridDistance": 5,
+    "gridUnits": "ft",
+    "primaryTokenAttribute": "health",
+    "secondaryTokenAttribute": "power",
+    "url": "",
+    "manifest": "https://github.com/winks-vtt/yze-coriolis/releases/latest/download/system.json",
+    "download": "https://github.com/winks-vtt/yze-coriolis/releases/download/2.0.2/coriolis.zip"
 }
