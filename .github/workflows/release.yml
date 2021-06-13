@@ -110,7 +110,7 @@ jobs:
         id: manifest_data
         run: |
           JSON=$(cat ./system.json)
-          echo "::set-output name=manifest::${JSON//'%'/'%25'}"
+          echo "manifest_json=${JSON//'%'/'%25'}" >> $GITHUB_ENV
 
       - name: "Update FVTT Admin"
         if: ${{ steps.release_pr.outputs.release_created }}
@@ -121,7 +121,7 @@ jobs:
           manifest: https://raw.githubusercontent.com/winks-vtt/yze-coriolis/v${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}/system.json
           notes: https://raw.githubusercontent.com/winks-vtt/yze-coriolis/master/CHANGELOG.md
           version: ${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}
-          required_version: ${{fromJson(steps.manifest_data.outputs.manifest).minimumCoreVersion}}
-          compatible_version: ${{fromJson(steps.manifest_data.outputs.manifest).compatibleCoreVersion}}
+          required_version: ${{ fromJson(env.manifest_json).minimumCoreVersion }}
+          compatible_version: ${{ fromJson(env.manifest_json).compatibleCoreVersion }}
         run: |
           go run ./scripts/fadmin --version ${{ env.version }} --manifest ${{ env.manifest }} --notes ${{ env.notes }} --required ${{ env.required_version }} --compatible ${{ env.compatible_version }}
