@@ -105,8 +105,8 @@ jobs:
       - uses: actions/setup-go@v2
         if: ${{ steps.release_pr.outputs.release_created }}
 
+      # we load the manifest unconditionally, since env: props are evaluated regardless of conditionals.
       - name: "load manifest data"
-        if: ${{ steps.release_pr.outputs.release_created }}
         id: manifest_data
         run: |
           JSON=$(cat ./system.json)
