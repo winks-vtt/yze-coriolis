@@ -21,10 +21,15 @@ export class yzecoriolisActor extends Actor {
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
     //setup default images
-    if (data.type === "ship") {
+    if (!hasProperty(data, "img") && data.type === "ship") {
       this.data.update({ img: CONFIG.YZECORIOLIS.DEFAULT_SHIP_KEY_ART });
     }
-    if (data.type === "character" || data.type === "npc") {
+    // we check the incoming data to make sure we aren't overriding a 'cloning'
+    // operation.
+    if (
+      !hasProperty(data, "data.keyArt") &&
+      (data.type === "character" || data.type === "npc")
+    ) {
       this.data.update({
         "data.keyArt": CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART,
       });
@@ -34,9 +39,17 @@ export class yzecoriolisActor extends Actor {
   async _onCreate(data, ...args) {
     await super._onCreate(data, ...args);
     if (data.type === "ship") {
-      // we had to do this here instead of _preCreate because you can't set a
-      // flag on an object that hasn't been created yet.
-      await this.setFlag("yzecoriolis", "shipImageSet", false);
+      // we handle this flag here as well for cloning scenarios.
+      if (
+        hasProperty(data, "img") &&
+        data.img !== CONFIG.YZECORIOLIS.DEFAULT_SHIP_KEY_ART
+      ) {
+        await this.setFlag("yzecoriolis", "shipImageSet", true);
+      } else {
+        // we had to do this here instead of _preCreate because you can't set a
+        // flag on an object that hasn't been created yet.
+        await this.setFlag("yzecoriolis", "shipImageSet", false);
+      }
     }
   }
 
