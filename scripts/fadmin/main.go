@@ -6,6 +6,8 @@ import (
 	"log"
 	"net/http"
 	"net/http/cookiejar"
+	"os"
+	"strconv"
 )
 
 var packageId int
@@ -19,9 +21,9 @@ var requiredCoreVersion string
 var compatibleCoreVersion string
 
 func init() {
-	flag.IntVar(&packageId, "packageId", 0, "ID of foundry package in admin panel")
-	flag.StringVar(&username, "username", "", "username of admin")
-	flag.StringVar(&password, "password", "", "password for admin")
+	flag.IntVar(&packageId, "packageId", 0, "ID of foundry package in admin panel (env: FVTT_PACKAGE_ID)")
+	flag.StringVar(&username, "username", "", "username of admin (env: FVTT_ADMIN_USER)")
+	flag.StringVar(&password, "password", "", "password for admin  (env: FVTT_ADMIN_PW)")
 	flag.StringVar(&version, "version", "", "version of system or module (ie, 1.2.3)")
 	flag.StringVar(&manifestURL, "manifest", "", "full URL to system.json")
 	flag.StringVar(&notesURL, "notes", "", "full URL to changelog")
@@ -65,6 +67,16 @@ func main() {
 }
 
 func validateArgs() error {
+	username = os.Getenv("FVTT_ADMIN_USER")
+	password = os.Getenv("FVTT_ADMIN_PW")
+	packageIdStr := os.Getenv("FVTT_PACKAGE_ID")
+	if packageIdStr != "" {
+		id, err := strconv.Atoi(packageIdStr)
+		if err != nil {
+			return errors.New("invalid packageID env value")
+		}
+		packageId = id
+	}
 	if packageId == 0 {
 		return errors.New("missing packageId flag")
 	}
