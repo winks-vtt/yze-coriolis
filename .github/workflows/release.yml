@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - feature/auto-upload
 
 jobs:
   create-release:
@@ -16,6 +16,7 @@ jobs:
           release-type: simple
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
           pull-request-title-pattern: ${scope} Release${component} ${version}
+          default-branch: feature/auto-upload
 
       # grab our branch from the above PR
       - uses: actions/github-script@v3
@@ -64,7 +65,11 @@ jobs:
           git commit -m "ci: updated manifest data"
           git push
 
-      # In the event we've created an actual release, we need to zip up files and attach them to the release.
+      # In the event we've created an actual release:
+      # 1. zip up files
+      # 2. and attach zip and manifest to the release.
+      # 3. update FVTT admin panel with latest release metadata
+
       # checkout release branch
       - uses: actions/checkout@v2
         if: ${{ steps.release_pr.outputs.release_created }}
@@ -95,3 +100,28 @@ jobs:
           asset_name: system.json
           tag: v${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}
           overwrite: true
+
+      # initialize go environment
+      - uses: actions/setup-go@v2
+        if: ${{ steps.release_pr.outputs.release_created }}
+
+      - name: "load manifest data"
+        if: ${{ steps.release_pr.outputs.release_created }}
+        id: manifest_data
+        run: |
+          JSON=$(cat ./system.json)
+          echo "::set-output name=manifest::${JSON//'%'/'%25'}"
+
+      - name: "Update FVTT Admin"
+        if: ${{ steps.release_pr.outputs.release_created }}
+        env:
+          FVTT_ADMIN_USER: ${{ secrets.FVTT_ADMIN_USER }}
+          FVTT_ADMIN_PW: ${{ secrets.FVTT_ADMIN_PW }}
+          FVTT_PACKAGE_ID: ${{ secrets.FVTT_PACKAGE_ID }}
+          manifest: https://raw.githubusercontent.com/winks-vtt/yze-coriolis/v${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}/system.json
+          notes: https://raw.githubusercontent.com/winks-vtt/yze-coriolis/master/CHANGELOG.md
+          version: ${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}
+          required_version: ${{ fromJson(steps.manifest_data.outputs.manifest).minimumCoreVersion }}
+          compatible_version: ${{ fromJson(steps.manifest_data.outputs.manifest).compatibleCoreVersion }}
+        run: |
+          go run ./scripts/fadmin --version ${{ env.version }} --manifest ${{ env.manifest }} --notes ${{ env.notes }} --required ${{ env.required_version }} --compatible ${{ env.compatible_version }}
