@@ -108,8 +108,8 @@ jobs:
       - name: "load manifest data"
         id: manifest_data
         run: |
-          JSON=$(cat ./system.json)
-          echo "manifest_json=${JSON//'%'/'%25'}" >> $GITHUB_ENV
+          JSON="$(cat ./system.json)"
+          echo "manifest_json=${JSON}" >> $GITHUB_ENV
 
       - name: "Update FVTT Admin"
         if: ${{ steps.release_pr.outputs.release_created }}
