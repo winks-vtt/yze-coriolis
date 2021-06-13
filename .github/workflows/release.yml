@@ -104,6 +104,8 @@ jobs:
       # initialize go environment
       - uses: actions/setup-go@v2
         if: ${{ steps.release_pr.outputs.release_created }}
+        with:
+          go-version: "^1.16.5"
 
       # we load the manifest unconditionally, since env: props are evaluated regardless of conditionals.
       - name: "load manifest data"
