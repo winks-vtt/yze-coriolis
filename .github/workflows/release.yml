@@ -72,6 +72,7 @@ jobs:
 
       # checkout release branch
       - uses: actions/checkout@v2
+        if: ${{ steps.release_pr.outputs.release_created }}
 
       # zip our assets
       - name: "Create Zipped Artifact"
@@ -106,6 +107,7 @@ jobs:
 
       # we load the manifest unconditionally, since env: props are evaluated regardless of conditionals.
       - name: "load manifest data"
+        if: ${{ steps.release_pr.outputs.release_created }}
         id: manifest_data
         run: |
           JSON=`cat ./system.json`
