@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - feature/auto-upload
+      - master
 
 jobs:
   create-release:
@@ -16,7 +16,6 @@ jobs:
           release-type: simple
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
           pull-request-title-pattern: ${scope} Release${component} ${version}
-          default-branch: feature/auto-upload
 
       # grab our branch from the above PR
       - uses: actions/github-script@v3
