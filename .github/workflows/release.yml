@@ -118,16 +118,19 @@ jobs:
           # end of optional handling for multi line json
           echo "::set-output name=json::$JSON"
 
+      - name: "Setup Env vars for FVTT Admin"
+        if: ${{ steps.release_pr.outputs.release_created }}
+        run: |
+          echo "FVTT_ADMIN_USER=${{ secrets.FVTT_ADMIN_USER }}" >> GITHUB_ENV
+          echo "FVTT_ADMIN_PW=${{ secrets.FVTT_ADMIN_PW }}" >> GITHUB_ENV
+          echo "FVTT_PACKAGE_ID=${{ secrets.FVTT_PACKAGE_ID }}" >> GITHUB_ENV
+          echo "manifest=https://raw.githubusercontent.com/winks-vtt/yze-coriolis/v${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}/system.json" >> GITHUB_ENV
+          echo "notes=https://raw.githubusercontent.com/winks-vtt/yze-coriolis/master/CHANGELOG.md" >> GITHUB_ENV
+          echo "version=${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}" >> GITHUB_ENV
+          echo "required_version=${{ fromJson(steps.manifest_data.outputs.json).minimumCoreVersion }}" >> GITHUB_ENV
+          echo "compatible_version=${{ fromJson(steps.manifest_data.outputs.json).compatibleCoreVersion }}" >> GITHUB_ENV
+
       - name: "Update FVTT Admin"
         if: ${{ steps.release_pr.outputs.release_created }}
-        env:
-          FVTT_ADMIN_USER: ${{ secrets.FVTT_ADMIN_USER }}
-          FVTT_ADMIN_PW: ${{ secrets.FVTT_ADMIN_PW }}
-          FVTT_PACKAGE_ID: ${{ secrets.FVTT_PACKAGE_ID }}
-          manifest: https://raw.githubusercontent.com/winks-vtt/yze-coriolis/v${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}/system.json
-          notes: https://raw.githubusercontent.com/winks-vtt/yze-coriolis/master/CHANGELOG.md
-          version: ${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}
-          required_version: ${{ fromJson(steps.manifest_data.outputs.json).minimumCoreVersion }}
-          compatible_version: ${{ fromJson(steps.manifest_data.outputs.json).compatibleCoreVersion }}
         run: |
           go run ./scripts/fadmin --version ${{ env.version }} --manifest ${{ env.manifest }} --notes ${{ env.notes }} --required ${{ env.required_version }} --compatible ${{ env.compatible_version }}
