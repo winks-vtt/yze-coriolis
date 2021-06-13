@@ -1,5 +1,13 @@
 # Changelog
 
+### [2.1.5](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.4...v2.1.5) (2021-06-13)
+
+
+### Bug Fixes
+
+* duplicating items no longer lose their icons ([b7ab4aa](https://www.github.com/winks-vtt/yze-coriolis/commit/b7ab4aa4315ce28edd0181157db1ded80184f9ba)), closes [#87](https://www.github.com/winks-vtt/yze-coriolis/issues/87)
+* fixed issue with duplicated actors losing their portraits ([9e3fa65](https://www.github.com/winks-vtt/yze-coriolis/commit/9e3fa65ebb8d077c53c0d6cc2489e7d92403f8bd)), closes [#87](https://www.github.com/winks-vtt/yze-coriolis/issues/87)
+
 ### [2.1.4](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.3...v2.1.4) (2021-06-13)
 
 
