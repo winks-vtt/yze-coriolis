@@ -72,7 +72,6 @@ jobs:
 
       # checkout release branch
       - uses: actions/checkout@v2
-        if: ${{ steps.release_pr.outputs.release_created }}
 
       # zip our assets
       - name: "Create Zipped Artifact"
