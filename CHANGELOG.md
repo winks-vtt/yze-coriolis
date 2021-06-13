@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.3](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.2...v2.1.3) (2021-06-13)
+
+
+### Bug Fixes
+
+* pin go version ([d1fefc3](https://www.github.com/winks-vtt/yze-coriolis/commit/d1fefc3e09620e3f69004c20a84c2ca52c7a7d1e))
+
 ### [2.1.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.1...v2.1.2) (2021-06-13)
 
 
