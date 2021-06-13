@@ -132,7 +132,7 @@ func addNewVersion(client *http.Client, packageId int, initialFormValues url.Val
 	initialFormValues.Set(fmt.Sprintf("versions-%s-required_core_version", newVersion), versionData.requiredCoreVersion)
 	initialFormValues.Set(fmt.Sprintf("versions-%s-compatible_core_version", newVersion), versionData.compatibleCoreVersion)
 
-	// drop the _continue but keep the save
+	// drop the _save but keep the _continue
 	initialFormValues.Del("_save")
 	// initialFormValues.Set("_save", "Save")
 
