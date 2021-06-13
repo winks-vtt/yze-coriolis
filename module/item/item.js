@@ -24,6 +24,10 @@ export class yzecoriolisItem extends Item {
 
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
+    // for cloning operations just keep the image.
+    if (hasProperty(data, "img")) {
+      return;
+    }
     let itemType = data.type;
     let isExplosive = this.data.data.explosive;
     const tokenPath = getDefaultItemIcon(itemType, isExplosive);
