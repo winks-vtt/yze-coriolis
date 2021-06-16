@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.6](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.5...v2.1.6) (2021-06-16)
+
+
+### Bug Fixes
+
+* updated compatibility with FVTT 0.8.7 ([5bb719e](https://www.github.com/winks-vtt/yze-coriolis/commit/5bb719efd43c6bf1aa6705d10820beb9fdd5458d))
+
 ### [2.1.5](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.4...v2.1.5) (2021-06-13)
 
 
