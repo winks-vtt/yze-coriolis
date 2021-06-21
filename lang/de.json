@@ -4,6 +4,8 @@
   "YZECORIOLIS.SheetItems": "Besitz",
   "YZECORIOLIS.SheetBio": "Person",
   "YZECORIOLIS.SheetNotes": "Notizen",
+  "YZECORIOLIS.Enabled": "Aktiviert",
+  "YZECORIOLIS.Disabled": "Deaktiviert",
 
   "YZECORIOLIS.HitPoints": "Trefferpunkte",
   "YZECORIOLIS.MindPoints": "Willenskraftpunkte",
@@ -20,6 +22,7 @@
 
   "YZECORIOLIS.ErrorsInvalidSkillRoll": "Attributs- und Fertigkeitswerte müssen größer Null sein.",
   "YZECORIOLIS.ErrorsInvalidAdvancedSkillRoll": "Fortgeschrittene Fertigkeiten müssen mindestens einen Wert von 1 haben, um gewürfelt zu werden.",
+  "YZECORIOLIS.ErrorsNoActorSelectedForMacro": "Es wurde für dieses Makro kein Token ausgewählt.",
   "YZECORIOLIS.PrayToIcons": "Zu den Ikonen beten",
   "YZECORIOLIS.PushedRoll": "Wiederholter Wurf",
   "YZECORIOLIS.ModifierForRoll": "Modifikator",
@@ -67,6 +70,7 @@
   "YZECORIOLIS.RemoveMeeting": "Kontakt entfernen",
 
   "YZECORIOLIS.MoneyCost": "Kosten",
+  "YZECORIOLIS.MoneyCostIncrease": "Kosten erhöhen (%)",
   "YZECORIOLIS.Birr": "Birr",
   "YZECORIOLIS.GroupConcept": "Gruppenkonzept",
   "YZECORIOLIS.Category": "Kategorie",
@@ -308,11 +312,62 @@
   "YZECORIOLIS.CritTypeCustom": "Krit-Art",
 
   "YZECORIOLIS.CloseRange": "Nah",
+  "YZECORIOLIS.ContactRange": "Kontakt",
   "YZECORIOLIS.ShortRange": "Kurz",
+  "YZECORIOLIS.MediumRange": "Mittlere",
   "YZECORIOLIS.LongRange": "Weit",
   "YZECORIOLIS.ExtremeRange": "Extrem",
 
   "YZECORIOLIS.MigratedDP": "Finsternispunkte-System wurde übertragen.",
   "YZECORIOLIS.HPBonus": "TP Bonus",
-  "YZECORIOLIS.Melee": "Nahkampf"
+  "YZECORIOLIS.Melee": "Nahkampf",
+  
+  "YZECORIOLIS.SheetClassCharacter": "Coriolis Character Sheet",
+  "YZECORIOLIS.SheetClassNPC": "Coriolis NPC Sheet",
+  "YZECORIOLIS.SheetClassShip": "Coriolis Ship Sheet",
+  "YZECORIOLIS.SheetClassItem": "Coriolis Item Sheet",
+
+  "YZECORIOLIS.ShipType": "Shiffstyp",
+  "YZECORIOLIS.ShipClass": "Klasse",
+  "YZECORIOLIS.Shipyard": "Werft",
+  "YZECORIOLIS.Manueverability": "Manövrierfähigkeit",
+  "YZECORIOLIS.Signature": "Signatur",
+  "YZECORIOLIS.Problems": "Probleme",
+  "YZECORIOLIS.Cost": "Kosten",
+  "YZECORIOLIS.Speed": "Geschwindigkeit",
+  "YZECORIOLIS.Crew": "Mannschaft",
+  "YZECORIOLIS.Features": "Merkmale",
+  "YZECORIOLIS.Modules": "Module",
+  "YZECORIOLIS.CriticalDamage": "kritischer Schaden",
+  "YZECORIOLIS.Notes": "Notizen",
+
+  "YZECORIOLIS.SettingMaxEnergyPoints": "Maximal erlaubte Leistungspunkte",
+
+  "YZECORIOLIS.EnergyPointsReset": "Zuvor der Mannschaft zu geordnete Leistungspunkte stehen dem Schiffsreaktor wieder zur Verfügung.",
+  "YZECORIOLIS.InvalidEPPermissions": "Du hast keine Berechtigung die LP-Verteilung zu verändern.",
+  "YZECORIOLIS.InvalidCrewRollPermissions": "Du hast auf diesem Schiff keine Berechtigung für diese Position zu würfeln.",
+
+  "YZECORIOLIS.ShipModuleRequired": "Vorausgesetztes Modul",
+  "YZECORIOLIS.ShipModuleOptional": "Optionales Modul",
+  "YZECORIOLIS.ShipModuleWeapon": "Waffenmodul",
+  "YZECORIOLIS.EditModule": "Modul anpassen",
+  "YZECORIOLIS.DeleteModule": "Modul löschen",
+
+  "YZECORIOLIS.ShipFeature": "Merkmal",
+  "YZECORIOLIS.NewShipFeature": "Neues Merkmal",
+  "YZECORIOLIS.ShipEditFeature": "Merkmal anpassen",
+  "YZECORIOLIS.ShipCreateFeature": "Merkmal erstellen",
+  "YZECORIOLIS.ShipDeleteFeature": "Merkmal löschen",
+
+  "YZECORIOLIS.ShipCriticalDamage": "Kritischer Schaden",
+  "YZECORIOLIS.NewShipCriticalDamage": "Neuer Kritischer Schaden",
+  "YZECORIOLIS.ShipEditCriticalDamage": "Kritischen Schaden anpassen",
+  "YZECORIOLIS.ShipCreateCriticalDamage": "Kritischen Schaden erstellen",
+  "YZECORIOLIS.ShipDeleteCriticalDamage": "Kritischen Schaden löschen",
+
+  "YZECORIOLIS.ShipProblem": "Problem",
+  "YZECORIOLIS.NewShipProblem": "Neues Problem",
+  "YZECORIOLIS.ShipEditProblem": "Problem anpassen",
+  "YZECORIOLIS.ShipCreateProblem": "Problem erstellen",
+  "YZECORIOLIS.ShipDeleteProblem": "Problem löschen"
 }
