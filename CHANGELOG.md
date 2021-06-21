@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.7](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.6...v2.1.7) (2021-06-21)
+
+
+### Bug Fixes
+
+* added german translations. Thanks @SesuUisu! ([3bb25d7](https://www.github.com/winks-vtt/yze-coriolis/commit/3bb25d780ee901398d6c41f69bea40dffc1a0708))
+
 ### [2.1.6](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.5...v2.1.6) (2021-06-16)
 
 
