@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.8](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.7...v2.1.8) (2021-06-22)
+
+
+### Bug Fixes
+
+* To help avoid race conditions, batched EP token creation on ship creation to be a single operation. ([27119df](https://www.github.com/winks-vtt/yze-coriolis/commit/27119dfa6d651cedc093072d6eca3b0e9f51d703)), closes [#94](https://www.github.com/winks-vtt/yze-coriolis/issues/94)
+
 ### [2.1.7](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.6...v2.1.7) (2021-06-21)
 
 
