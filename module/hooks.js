@@ -1,5 +1,5 @@
 import { resetCrewForShip } from "./actor/crew.js";
-import { createBlankEPToken } from "./item/ep-token.js";
+import { createBlankEPTokens } from "./item/ep-token.js";
 import { displayDarknessPoints } from "./darkness-points.js";
 
 // eslint-disable-next-line no-unused-vars
@@ -80,7 +80,5 @@ function rerenderAllShips() {
 }
 
 async function createEPTokensForShip(entity) {
-  for (let i = 0; i < CONFIG.YZECORIOLIS.MaxEPTokensPerShip; i++) {
-    await createBlankEPToken(entity);
-  }
+  await createBlankEPTokens(entity, CONFIG.YZECORIOLIS.MaxEPTokensPerShip);
 }

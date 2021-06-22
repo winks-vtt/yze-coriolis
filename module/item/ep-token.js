@@ -3,18 +3,22 @@ import { getCrewForShip } from "../actor/crew.js";
 /**
  * @param  {Actor} shipEntity
  */
-export const createBlankEPToken = async (shipEntity) => {
+export const createBlankEPTokens = async (shipEntity, count) => {
   // oddly, foundry's data format maps to name and type being at the root object
   // and all other fields being shoveled into the data object.
-  const tokenData = {
-    name: "epk" + getID(),
-    type: "energyPointToken",
-    data: {
-      active: false,
-      holder: shipEntity.id,
-    },
-  };
-  return await shipEntity.createEmbeddedDocuments("Item", [tokenData]);
+  const tokenArray = [];
+  for (let i = 0; i < count; ++i) {
+    const tokenData = {
+      name: "epk" + getID(),
+      type: "energyPointToken",
+      data: {
+        active: false,
+        holder: shipEntity.id,
+      },
+    };
+    tokenArray.push(tokenData);
+  }
+  return await shipEntity.createEmbeddedDocuments("Item", tokenArray);
 };
 
 /**
@@ -42,7 +46,7 @@ const getActiveEPTokens = (shipEntity) => {
  */
 export const setActiveEPTokens = async (shipEntity, activeCount) => {
   const allTokens = getEPTokens(shipEntity);
-  // first turn of all tokens and set their holder to ship.
+  // first turn off all tokens and set their holder to ship.
   const newActiveTokens = allTokens.map((at) => ({
     _id: at.id,
     data: {
