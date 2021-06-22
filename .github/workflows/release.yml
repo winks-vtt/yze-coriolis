@@ -126,7 +126,7 @@ jobs:
           echo "FVTT_ADMIN_PW=${{ secrets.FVTT_ADMIN_PW }}" >> $GITHUB_ENV
           echo "FVTT_PACKAGE_ID=${{ secrets.FVTT_PACKAGE_ID }}" >> $GITHUB_ENV
           echo "manifest=https://raw.githubusercontent.com/winks-vtt/yze-coriolis/v${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}/system.json" >> $GITHUB_ENV
-          echo "notes=https://raw.githubusercontent.com/winks-vtt/yze-coriolis/master/CHANGELOG.md" >> $GITHUB_ENV
+          echo "notes=https://github.com/winks-vtt/yze-coriolis/blob/master/CHANGELOG.md" >> $GITHUB_ENV
           echo "version=${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}" >> $GITHUB_ENV
           echo "required_version=${{ fromJson(steps.manifest_data.outputs.json).minimumCoreVersion }}" >> $GITHUB_ENV
           echo "compatible_version=${{ fromJson(steps.manifest_data.outputs.json).compatibleCoreVersion }}" >> $GITHUB_ENV
