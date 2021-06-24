@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.9](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.8...v2.1.9) (2021-06-24)
+
+
+### Bug Fixes
+
+* enter key no longer incorrectly toggles module status when changing weapon module quantity ([385b925](https://www.github.com/winks-vtt/yze-coriolis/commit/385b92540aee924313e2eb3232dcacf3d8ebc76f))
+
 ### [2.1.8](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.7...v2.1.8) (2021-06-22)
 
 
