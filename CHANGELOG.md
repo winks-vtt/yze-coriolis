@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.2.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.2.0...v2.2.1) (2021-06-24)
+
+
+### Bug Fixes
+
+* hide effective range when editing an explosive ([358cf3b](https://www.github.com/winks-vtt/yze-coriolis/commit/358cf3b1ab3d886f16599fdffe725867e1b8dd93))
+
 ## [2.2.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.9...v2.2.0) (2021-06-24)
 
 
