@@ -35,7 +35,7 @@
                         data-dtype="String" />
                 </div>
 
-
+                 {{#unless data.explosive}}
                 <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.EffectiveRange"}}</label>
                     <select class="weight-category" name="data.range">
@@ -46,6 +46,7 @@
                         {{/select}}
                     </select>
                 </div>
+                {{/unless}}
 
                 <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.TechTier"}}</label>
