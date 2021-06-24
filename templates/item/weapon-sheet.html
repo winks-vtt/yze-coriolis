@@ -18,6 +18,12 @@
                 </div>
 
                 <div class="resource numeric-input flexrow">
+                    <label class="resource-label">{{localize "YZECORIOLIS.DamageTypeCustom"}}</label>
+                    <input type="text" name="data.cdamageText" value="{{data.damageText}}"
+                        data-dtype="String" />
+                </div>
+
+                <div class="resource numeric-input flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.CritTypeNumeric"}}</label>
                     <input type="number" min="0" name="data.crit.numericValue" value="{{data.crit.numericValue}}"
                         data-dtype="Number" />

@@ -310,6 +310,7 @@
 
   "YZECORIOLIS.CritTypeNumeric": "Numeric Crit",
   "YZECORIOLIS.CritTypeCustom": "Custom Crit",
+  "YZECORIOLIS.DamageTypeCustom": "Custom Damage",
 
   "YZECORIOLIS.CloseRange": "Close",
   "YZECORIOLIS.ContactRange": "Contact",
