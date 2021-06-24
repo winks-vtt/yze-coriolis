@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.9...v2.2.0) (2021-06-24)
+
+
+### Features
+
+* added support for alternative damage types for weapons ([b659316](https://www.github.com/winks-vtt/yze-coriolis/commit/b659316f2797de14e6833ad19ea74098752d29ba))
+* added support for setting alternative damage types for weapons ([a9bcf81](https://www.github.com/winks-vtt/yze-coriolis/commit/a9bcf817210d5a9b12abebe18fcc61bc09b5179a))
+
 ### [2.1.9](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.1.8...v2.1.9) (2021-06-24)
 
 
