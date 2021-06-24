@@ -310,6 +310,7 @@
       "blastPower": 0,
       "bonus": 0,
       "damage": 0,
+      "damageText":"",
       "initiative": 0,
       "range": "",
       "automatic": false,
