@@ -4,6 +4,8 @@
   "YZECORIOLIS.SheetItems": "Föremål",
   "YZECORIOLIS.SheetBio": "Biografi",
   "YZECORIOLIS.SheetNotes": "Anteckningar",
+  "YZECORIOLIS.Enabled": "Aktiv",
+  "YZECORIOLIS.Disabled": "Utslagen",
 
   "YZECORIOLIS.HitPoints": "Kroppspoäng",
   "YZECORIOLIS.MindPoints": "Stresspoäng",
@@ -20,6 +22,7 @@
 
   "YZECORIOLIS.ErrorsInvalidSkillRoll": "Du behöver ett värde högre än 0 i grundegenskapen eller färdigheten",
   "YZECORIOLIS.ErrorsInvalidAdvancedSkillRoll": "Du måste ha FV1 i den kvalificerade färdigheten för att slå för den",
+  "YZECORIOLIS.ErrorsNoActorSelectedForMacro": "Ingen token actor har valts för detta macrot.",
   "YZECORIOLIS.PrayToIcons": "Be till ikonerna",
   "YZECORIOLIS.PushedRoll": "Bad till ikonerna",
   "YZECORIOLIS.ModifierForRoll": "Modifikation",
@@ -48,10 +51,10 @@
 
   "YZECORIOLIS.Background": "Bakgrund",
   "YZECORIOLIS.CharNotes": "Anteckningar",
-  "YZECORIOLIS.Origin": "Bakgrund",
-  "YZECORIOLIS.Upbringing": "Koncept",
+  "YZECORIOLIS.Origin": "Härkomst",
+  "YZECORIOLIS.Upbringing": "Uppväxt",
   "YZECORIOLIS.Humanite": "Humanit",
-  "YZECORIOLIS.Concept": "Gruppkoncept",
+  "YZECORIOLIS.Concept": "Koncept",
   "YZECORIOLIS.PersonalProblem": "Personligt Problem",
   "YZECORIOLIS.Appearance": "Utseende",
   "YZECORIOLIS.Cabin": "Kabin",
@@ -67,6 +70,7 @@
   "YZECORIOLIS.RemoveMeeting": "Ta bort person",
 
   "YZECORIOLIS.MoneyCost": "Kostnad",
+  "YZECORIOLIS.MoneyCostIncrease": "Birr-ökning (%)",
   "YZECORIOLIS.Birr": "Birr",
   "YZECORIOLIS.GroupConcept": "Gruppkoncept",
   "YZECORIOLIS.Category": "Kategori",
@@ -308,11 +312,62 @@
   "YZECORIOLIS.CritTypeCustom": "Krit (Anpassad)",
 
   "YZECORIOLIS.CloseRange": "Nära",
+  "YZECORIOLIS.ContactRange": "Kontakt",
   "YZECORIOLIS.ShortRange": "Kort",
+  "YZECORIOLIS.MediumRange": "Medel",
   "YZECORIOLIS.LongRange": "Långt",
   "YZECORIOLIS.ExtremeRange": "Extremt",
 
   "YZECORIOLIS.MigratedDP": "Migrerade Mörkerpoängssystemet",
   "YZECORIOLIS.HPBonus": "KP Bonus",
-  "YZECORIOLIS.Melee": "Närstrid"
+  "YZECORIOLIS.Melee": "Närstrid",
+
+  "YZECORIOLIS.SheetClassCharacter": "Coriolis rollformulär",
+  "YZECORIOLIS.SheetClassNPC": "Coriolis SLP-formulär",
+  "YZECORIOLIS.SheetClassShip": "Coriolis skeppsformulär",
+  "YZECORIOLIS.SheetClassItem": "Coriolis föremålsformulär",
+
+  "YZECORIOLIS.ShipType": "Skeppstyp",
+  "YZECORIOLIS.ShipClass": "Klass",
+  "YZECORIOLIS.Shipyard": "Konstruktion",
+  "YZECORIOLIS.Manueverability": "Manöver",
+  "YZECORIOLIS.Signature": "Signatur",
+  "YZECORIOLIS.Problems": "Problem",
+  "YZECORIOLIS.Cost": "Kostnad",
+  "YZECORIOLIS.Speed": "Hastighet",
+  "YZECORIOLIS.Crew": "Besättning",
+  "YZECORIOLIS.Features": "Tillval",
+  "YZECORIOLIS.Modules": "Moduler",
+  "YZECORIOLIS.CriticalDamage": "Kritiska skador",
+  "YZECORIOLIS.Notes": "Anteckningar",
+
+  "YZECORIOLIS.SettingMaxEnergyPoints": "Maximalt antal energipoäng",
+
+  "YZECORIOLIS.EnergyPointsReset": "Energipoäng som tidigare fördelats till besättningen återvänder till reaktorn.",
+  "YZECORIOLIS.InvalidEPPermissions": "Du har inte tillåtelse att ändra skeppets EP.",
+  "YZECORIOLIS.InvalidCrewRollPermissions": "Du har inte tillåtelsa att slå för denna aktören på detta skeppet.",
+
+  "YZECORIOLIS.ShipModuleRequired": "Obligatoriska moduler",
+  "YZECORIOLIS.ShipModuleOptional": "Fria moduler",
+  "YZECORIOLIS.ShipModuleWeapon": "Vapensystem",
+  "YZECORIOLIS.EditModule": "Redigera modulen",
+  "YZECORIOLIS.DeleteModule": "Ta bort modulen",
+
+  "YZECORIOLIS.ShipFeature": "Tillval",
+  "YZECORIOLIS.NewShipFeature": "Nytt tillval",
+  "YZECORIOLIS.ShipEditFeature": "Redigera tillval",
+  "YZECORIOLIS.ShipCreateFeature": "Skapa tillval",
+  "YZECORIOLIS.ShipDeleteFeature": "Ta bort tillval",
+
+  "YZECORIOLIS.ShipCriticalDamage": "Kritiska skador på skepp",
+  "YZECORIOLIS.NewShipCriticalDamage": "Ny kritisk skada",
+  "YZECORIOLIS.ShipEditCriticalDamage": "Redigera kritisk skada",
+  "YZECORIOLIS.ShipCreateCriticalDamage": "Skapa kritisk skada",
+  "YZECORIOLIS.ShipDeleteCriticalDamage": "Ta bort kritisk skada",
+
+  "YZECORIOLIS.ShipProblem": "Problem",
+  "YZECORIOLIS.NewShipProblem": "Nytt problem",
+  "YZECORIOLIS.ShipEditProblem": "Redigera problem",
+  "YZECORIOLIS.ShipCreateProblem": "Skapa problem",
+  "YZECORIOLIS.ShipDeleteProblem": "Ta bort problem"
 }
