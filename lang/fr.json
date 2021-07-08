@@ -309,9 +309,12 @@
 
     "YZECORIOLIS.CritTypeNumeric": "Crit. Chiffré",
     "YZECORIOLIS.CritTypeCustom": "Crit. Personnalisé",
+    "YZECORIOLIS.DamageTypeCustom": "Dégât Personnalisé",
 
     "YZECORIOLIS.CloseRange": "Bout Portant",
+    "YZECORIOLIS.ContactRange": "Contact",
     "YZECORIOLIS.ShortRange": "Courte",
+    "YZECORIOLIS.MediumRange": "Moyenne",
     "YZECORIOLIS.LongRange": "Longue",
     "YZECORIOLIS.ExtremeRange": "Extrême",
 
@@ -344,17 +347,23 @@
     "YZECORIOLIS.InvalidEPPermissions": "Vous n'avez pas la permission de changer la distribution des PE du vaisseau.",
     "YZECORIOLIS.InvalidCrewRollPermissions": "Vous n'avez pas la permission de jeter les dés pour cet acteur sur ce vaisseau.",
 
+    "YZECORIOLIS.ShipModuleRequired": "Module Indispensable",
+    "YZECORIOLIS.ShipModuleOptional": "Module Optionnel",
+    "YZECORIOLIS.ShipModuleWeapon": "Module d'Armement",
+    "YZECORIOLIS.EditModule": "Éditer Module",
+    "YZECORIOLIS.DeleteModule": "Supprimer Module",
+
     "YZECORIOLIS.ShipFeature": "Option",
     "YZECORIOLIS.NewShipFeature": "Nouvelle Option",
     "YZECORIOLIS.ShipEditFeature": "Éditer Option",
     "YZECORIOLIS.ShipCreateFeature": "Créer Option",
     "YZECORIOLIS.ShipDeleteFeature": "Supprimer Option",
 
-    "YZECORIOLIS.ShipModuleRequired": "Module Indispensable",
-    "YZECORIOLIS.ShipModuleOptional": "Module Optionnel",
-    "YZECORIOLIS.ShipModuleWeapon": "Module d'Armement",
-    "YZECORIOLIS.EditModule": "Éditer Module",
-    "YZECORIOLIS.DeleteModule": "Supprimer Module",
+    "YZECORIOLIS.ShipCriticalDamage": "Dégât Critique",
+    "YZECORIOLIS.NewShipCriticalDamage": "Nouveau Dégât Critique",
+    "YZECORIOLIS.ShipEditCriticalDamage": "Éditer Dégât Critique",
+    "YZECORIOLIS.ShipCreateCriticalDamage": "Créer Dégât Critique",
+    "YZECORIOLIS.ShipDeleteCriticalDamage": "Supprimer Dégât Critique",
 
 	"YZECORIOLIS.ShipProblem": "Problème",
 	"YZECORIOLIS.NewShipProblem": "Nouveau Problème",
