@@ -111,18 +111,18 @@ export async function coriolisRoll(chatOptions, rollData) {
     totalDice = 2; // desparation roll where both will have to be successes to be considered a success.
   }
   let roll = new Roll(`${totalDice}d6`);
-  roll.roll();
+  await roll.evaluate({ async: false });
   await showDiceSoNice(roll, chatOptions.rollMode);
   const result = evaluateCoriolisRoll(rollData, roll);
   await showChatMessage(chatOptions, result);
 }
 /**
  * handle pushing a roll
- * @param  {} msgOptions
+ * @param  {} chatMessage
  * @param  {} origRollData
  * @param  {} origRoll
  */
-export async function coriolisPushRoll(msgOptions, origRollData, origRoll) {
+export async function coriolisPushRoll(chatMessage, origRollData, origRoll) {
   if (origRollData.pushed) {
     return;
   }
@@ -136,9 +136,9 @@ export async function coriolisPushRoll(msgOptions, origRollData, origRoll) {
       }
     });
   });
-  await showDiceSoNice(origRoll, msgOptions.rollMode);
+  await showDiceSoNice(origRoll, chatMessage.rollMode);
   const result = evaluateCoriolisRoll(origRollData, origRoll);
-  await updateChatMessage(msgOptions, result);
+  await updateChatMessage(chatMessage, result);
   await addDarknessPoints(1);
 }
 
@@ -156,18 +156,18 @@ function isValidRoll(rollData, errorObj) {
   const attribute = rollData.attribute;
   const bonus = rollData.bonus;
   switch (rollData.rollType) {
-    case "skill":
+    case "general": // general skills
       return attribute + skill > 0;
-    case "weapon":
-      return attribute + skill + bonus > 0;
-    case "armor":
-      return bonus >= 0; // should probably always be true?
-    case "advancedSkill":
+    case "advanced": // advanced skills
       if (skill <= 0) {
         errorObj.error = "YZECORIOLIS.ErrorsInvalidAdvancedSkillRoll";
         return false;
       }
       return attribute + skill > 0;
+    case "weapon":
+      return attribute + skill + bonus > 0;
+    case "armor":
+      return bonus >= 0; // should probably always be true?
     case "attribute":
       return attribute > 0;
   }
@@ -213,9 +213,9 @@ function getTotalDice(rollData) {
   let modifier = rollData.modifier;
   let bonus = rollData.bonus;
   switch (rollData.rollType) {
-    case "skill":
+    case "general":
       return attributeValue + skillValue + modifier;
-    case "advancedSkill":
+    case "advanced":
       return attributeValue + skillValue + modifier;
     case "attribute":
       return attributeValue + modifier;
@@ -245,18 +245,16 @@ async function showChatMessage(chatMsgOptions, resultData) {
   else if (chatMsgOptions.rollMode === "selfroll")
     chatMsgOptions["whisper"] = [game.user];
 
-  chatMsgOptions["flags.data"] = {
-    results: chatData.results,
-  };
-
   chatMsgOptions.roll = resultData.roll;
-  return renderTemplate(chatMsgOptions.template, chatData).then((html) => {
-    chatMsgOptions["content"] = html;
-    return ChatMessage.create(chatMsgOptions, false);
-  });
+  const html = await renderTemplate(chatMsgOptions.template, chatData);
+  chatMsgOptions["content"] = html;
+  const msg = await ChatMessage.create(chatMsgOptions, false);
+  // attach the results to the chat message so we can push later if needed.
+  await msg.setFlag("yzecoriolis", "results", chatData.results);
+  return msg;
 }
 
-async function updateChatMessage(msgOptions, resultData) {
+async function updateChatMessage(chatMessage, resultData) {
   let tooltip = await renderTemplate(
     "systems/yzecoriolis/templates/sidebar/dice-results.html",
     getTooltipData(resultData)
@@ -272,8 +270,8 @@ async function updateChatMessage(msgOptions, resultData) {
     "systems/yzecoriolis/templates/sidebar/roll.html",
     chatData
   ).then((html) => {
-    msgOptions["content"] = html;
-    return msgOptions
+    chatMessage["content"] = html;
+    return chatMessage
       .update({
         content: html,
         ["flags.data"]: { results: chatData.results },
@@ -327,7 +325,7 @@ export async function coriolisChatListeners(html) {
     let button = $(ev.currentTarget),
       messageId = button.parents(".message").attr("data-message-id"),
       message = game.messages.get(messageId);
-    let results = message.data.flags.data.results;
+    let results = message.getFlag("yzecoriolis", "results");
     coriolisPushRoll(message, results.rollData, message.roll);
   });
 }
@@ -346,24 +344,32 @@ async function showDiceSoNice(roll, rollMode) {
     switch (rollMode) {
       case "blindroll": //GM only
         blind = true;
-      case "gmroll": //GM + rolling player
+      // fall through
+      // eslint-disable-next-line no-fallthrough
+      case "gmroll": {
+        //GM + rolling player
         let gmList = game.users.filter((user) => user.isGM);
         let gmIDList = [];
         gmList.forEach((gm) => gmIDList.push(gm.data._id));
         whisper = gmIDList;
         break;
-      case "roll": //everybody
+      }
+      case "roll": {
+        //everybody
         let userList = game.users.filter((user) => user.active);
         let userIDList = [];
         userList.forEach((user) => userIDList.push(user.data._id));
         whisper = userIDList;
         break;
-      case "selfroll": // only roll to yourself
+      }
+      case "selfroll": {
+        // only roll to yourself
         let selfList = game.users.filter((user) => user._id === game.user._id);
         let selfIDList = [];
         selfList.forEach((user) => selfIDList.push(user.data._id));
         whisper = selfIDList;
         break;
+      }
     }
     await game.dice3d.showForRoll(roll, game.user, true, whisper, blind);
   }

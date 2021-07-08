@@ -15,6 +15,8 @@ module.exports = {
     // hack for tinyMCE
     TextEditor: "readonly",
     ROUTE_PREFIX: "readonly",
+    // foundry utils
+    foundry: "readonly",
   },
   rules: {},
 };

@@ -6,7 +6,7 @@ import { getID } from "../util.js";
 export class yzecoriolisItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["yzecoriolis", "sheet", "item"],
       width: 770,
       height: 770,
@@ -34,10 +34,16 @@ export class yzecoriolisItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
-    const data = super.getData();
-    data.config = CONFIG.YZECORIOLIS;
-    return data;
+  getData(options) {
+    const baseData = super.getData(options);
+    // baseData.config = CONFIG.YZECORIOLIS;
+    const sheetData = {
+      editable: baseData.editable,
+      owner: baseData.item.isOwner,
+      config: CONFIG.YZECORIOLIS,
+      ...baseData.item.data,
+    };
+    return sheetData;
   }
 
   /* -------------------------------------------- */
@@ -73,7 +79,7 @@ export class yzecoriolisItemSheet extends ItemSheet {
     const name = "";
     let features = {};
     if (this.object.data.data.special) {
-      features = duplicate(this.object.data.data.special);
+      features = foundry.utils.deepClone(this.object.data.data.special);
     }
     let key = getID();
     features["si" + key] = name;
@@ -82,17 +88,16 @@ export class yzecoriolisItemSheet extends ItemSheet {
 
   _onFeatureDelete(event) {
     const li = $(event.currentTarget).parents(".special-feature");
-    let features = duplicate(this.object.data.data.special);
+    let features = foundry.utils.deepClone(this.object.data.data.special);
     let targetKey = li.data("itemId");
     delete features[targetKey];
-    li.slideUp(200, () => {
-      this.render(false);
+    li.slideUp(200, async () => {
+      await this._setSpecialFeatures(features);
     });
-    this._setSpecialFeatures(features);
   }
 
   async _setSpecialFeatures(features) {
-    await this.object.update({ "data.special": null });
+    await this.object.update({ "data.special": null }, { render: false });
     await this.object.update({ "data.special": features });
   }
 }

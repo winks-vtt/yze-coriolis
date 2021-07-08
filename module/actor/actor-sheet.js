@@ -7,19 +7,25 @@ import {
   onHoverBarOut,
   prepDataBarBlocks,
 } from "./databar.js";
+import { buildCrewOptionsArray } from "./crew.js";
 /**
- * Extend the basic ActorSheet with some very simple modifications
+ * Extend the basic ActorSheet for a basic Coriolis character
  * @extends {ActorSheet}
  */
 export class yzecoriolisActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
-      classes: ["yzecoriolis", "sheet", "actor"],
+    return foundry.utils.mergeObject(super.defaultOptions, {
+      classes: ["yzecoriolis", "sheet", "actor", "character"],
       template: "systems/yzecoriolis/templates/actor/actor-sheet.html",
       width: 1000,
       height: 800,
       resizable: false,
+      scrollY: [
+        ".gear-wrapper .gear-list",
+        ".talent-list",
+        ".critical-injuries-list",
+      ],
       tabs: [
         {
           navSelector: ".navigation",
@@ -33,50 +39,49 @@ export class yzecoriolisActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
-    const data = super.getData();
-    data.dtypes = ["String", "Number", "Boolean"];
+  getData(options) {
+    const baseData = super.getData(options);
+    let itemData = {};
+    let actorStats = {};
     if (
       this.actor.data.type === "character" ||
       this.actor.data.type === "npc"
     ) {
       // prepare items
-      this._prepareCharacterItems(data);
-      this._prepCharacterStats(data);
+      itemData = this._prepareCharacterItems(baseData.actor);
+      actorStats = this._prepCharacterStats(baseData.actor.data.data);
     }
-    data.config = CONFIG.YZECORIOLIS;
-    return data;
+    const sheetData = {
+      editable: baseData.editable,
+      owner: baseData.actor.isOwner,
+      config: CONFIG.YZECORIOLIS,
+      ...baseData.actor.data,
+      ...itemData,
+      ...actorStats,
+    };
+    return sheetData;
   }
 
-  _prepCharacterStats(sheetData) {
-    const actorData = sheetData.actor;
-    const data = actorData.data;
+  _prepCharacterStats(data) {
+    const stats = {
+      radiationBlocks: prepDataBarBlocks(
+        data.radiation.value,
+        data.radiation.max
+      ),
+      xpBlocks: prepDataBarBlocks(data.experience.value, data.experience.max),
+      repBlocks: prepDataBarBlocks(data.reputation.value, data.reputation.max),
+      hpBlocks: prepDataBarBlocks(data.hitPoints.value, data.hitPoints.max),
+      mindBlocks: prepDataBarBlocks(data.mindPoints.value, data.mindPoints.max),
 
-    actorData.radiationBlocks = prepDataBarBlocks(
-      data.radiation.value,
-      data.radiation.max
-    );
-    actorData.xpBlocks = prepDataBarBlocks(
-      data.experience.value,
-      data.experience.max
-    );
-    actorData.repBlocks = prepDataBarBlocks(
-      data.reputation.value,
-      data.reputation.max
-    );
-    actorData.hpBlocks = prepDataBarBlocks(
-      data.hitPoints.value,
-      data.hitPoints.max
-    );
-    actorData.mindBlocks = prepDataBarBlocks(
-      data.mindPoints.value,
-      data.mindPoints.max
-    );
+      // we augment the sheet with our 'current' option so that the selection menu
+      // can be driven by it.
+      crewOptions: buildCrewOptionsArray(),
+      currentCrewOption: JSON.stringify(data.bio.crewPosition),
+    };
+    return stats;
   }
 
-  _prepareCharacterItems(sheetData) {
-    const actorData = sheetData.actor;
-
+  _prepareCharacterItems(actor) {
     // Initialize our containers
     const gear = [];
     const armor = [];
@@ -133,60 +138,62 @@ export class yzecoriolisActorSheet extends ActorSheet {
       defaultname: game.i18n.localize("YZECORIOLIS.NewCriticalInjury"),
     };
 
-    for (let i of sheetData.items) {
-      let item = i.data;
-      i.img = i.img || DEFAULT_TOKEN;
+    for (let i of actor.items) {
+      let item = i.data.data;
       // setup equipped status
-      const isActive = getProperty(i.data, "equipped");
+      const isActive = getProperty(item, "equipped");
       item.toggleClass = isActive ? "equipped" : "";
 
       // append to gear
       if (i.type === "gear") {
-        gear.push(i);
+        gear.push(i.data);
         totalWeightPoints +=
           CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
       }
       // append to talents
       if (i.type === "talent") {
-        talents[item.category].items.push(i);
+        talents[item.category].items.push(i.data);
       }
 
       // append to weapons and explosives
       if (i.type === "weapon") {
         if (item.explosive) {
-          explosives.push(i);
+          explosives.push(i.data);
         } else {
-          weapons.push(i);
+          weapons.push(i.data);
         }
         totalWeightPoints +=
           CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
       }
       if (i.type === "armor") {
-        armor.push(i);
+        armor.push(i.data);
         totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight]; // we assume 1 quantity.
       }
       if (i.type === "injury") {
-        injuries.push(i);
+        injuries.push(i.data);
       }
     }
     // assign and return
-    actorData.gear = gear;
-    actorData.gearDataSet = gearDataSet;
+    const itemData = {
+      gear: gear,
+      gearDataSet: gearDataSet,
 
-    actorData.weapons = weapons;
-    actorData.weaponDataSet = weaponDataSet;
+      weapons: weapons,
+      weaponDataSet: weaponDataSet,
 
-    actorData.explosives = explosives;
-    actorData.explosiveDataSet = explosiveDataSet;
+      explosives: explosives,
+      explosiveDataSet: explosiveDataSet,
 
-    actorData.armor = armor;
-    actorData.armorDataSet = armorDataSet;
+      armor: armor,
+      armorDataSet: armorDataSet,
 
-    actorData.talents = talents;
-    actorData.encumbrance = this._computeEncumbrance(totalWeightPoints);
+      talents: talents,
+      encumbrance: this._computeEncumbrance(totalWeightPoints),
 
-    actorData.injuries = injuries;
-    actorData.injuryDataSet = injuryDataSet;
+      injuries: injuries,
+      injuryDataSet: injuryDataSet,
+    };
+    return itemData;
   }
 
   /** @override */
@@ -213,17 +220,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
       .find(".relationship-delete")
       .click(this._onRelationshipDelete.bind(this));
 
-    // Add meeting
-    html.find(".meeting-create").click(this._onMeetingCreate.bind(this));
-
-    // delete meeting
-    html.find(".meeting-delete").click(this._onMeetingDelete.bind(this));
-
-    // Add Critical Injury
-    html.find(".injury-create").click(this._onCriticalInjuryCreate.bind(this));
-    // Delete a Critical Injury
-    html.find(".injury-delete").click(this._onCriticalInjuryDelete.bind(this));
-
     // databar editing
     html.find(".bar-segment").click(this._onClickBarSegment.bind(this));
     html.find(".bar-segment").mouseenter(onHoverBarSegmentIn);
@@ -232,7 +228,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Update Inventory Item
     html.find(".item-edit").click((ev) => {
       const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
+      const item = this.actor.data.items.get(li.data("itemId"));
       item.sheet.render(true);
     });
 
@@ -247,15 +243,16 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Delete Inventory Item
     html.find(".item-delete").click((ev) => {
       const li = $(ev.currentTarget).parents(".item");
-      this.actor.deleteOwnedItem(li.data("itemId"));
-      li.slideUp(200, () => this.render(false));
+      li.slideUp(200, async () => {
+        await this.actor.deleteEmbeddedDocuments("Item", [li.data("itemId")]);
+      });
     });
 
     // Rollable abilities.
     html.find(".rollable").click(this._onRoll.bind(this));
 
     // drag events for macros
-    if (this.actor.owner) {
+    if (this.actor.isOwner) {
       let handler = (ev) => this._onDragStart(ev);
       html.find("li.item").each((i, li) => {
         // ignore for the header row
@@ -265,6 +262,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
         li.addEventListener("dragstart", handler, false);
       });
     }
+
+    // handle crew position changes
+    html.find(".crew-position").change(this._onCrewPositionChanged.bind(this));
   }
 
   /* -------------------------------------------- */
@@ -301,11 +301,35 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const input = event.target;
     let value = input.value;
     const li = $(event.currentTarget).parents(".item");
-    const item = this.actor.getOwnedItem(li.data("itemId"));
+    const item = this.actor.items.get(li.data("itemId"));
     if (value < 0) {
       value = 0;
     }
     return item.update({ "data.quantity": value });
+  }
+
+  async _onCrewPositionChanged(event) {
+    event.preventDefault();
+    const crewSelection = JSON.parse(event.target.value);
+    let oldShipId = this.actor.data.data.bio.crewPosition.shipId;
+    return this.actor
+      .update({ "data.bio.crewPosition": crewSelection })
+      .then(() => {
+        // force a rerender of the new ship
+        if (crewSelection.shipId) {
+          let ship = game.actors.get(crewSelection.shipId);
+          if (ship) {
+            ship.render();
+          }
+        }
+        // force a rerender of the old ship, if any
+        if (oldShipId) {
+          let oldShip = game.actors.get(oldShipId);
+          if (oldShip) {
+            oldShip.render();
+          }
+        }
+      });
   }
 
   _onClickBarSegment(event) {
@@ -324,7 +348,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     return this.actor.update(update);
   }
 
-  _onRelationshipCreate(event) {
+  async _onRelationshipCreate(event) {
     event.preventDefault();
     const person = {
       buddy: false,
@@ -332,7 +356,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
     };
     let relationships = {};
     if (this.actor.data.data.relationships) {
-      relationships = duplicate(this.actor.data.data.relationships);
+      relationships = foundry.utils.deepClone(
+        this.actor.data.data.relationships
+      );
     }
     let key = getID();
     relationships["r" + key] = person;
@@ -341,50 +367,17 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
   async _onRelationshipDelete(event) {
     const li = $(event.currentTarget).parents(".relation");
-    let relations = duplicate(this.actor.data.data.relationships);
+    let relations = foundry.utils.deepClone(this.actor.data.data.relationships);
     let targetKey = li.data("itemId");
     delete relations[targetKey];
-    li.slideUp(200, () => {
-      this.render(false);
+    li.slideUp(200, async () => {
+      await this._setRelations(relations);
     });
-    this._setRelations(relations);
   }
 
   async _setRelations(relations) {
-    await this.actor.update({ "data.relationships": null });
+    await this.actor.update({ "data.relationships": null }, { render: false });
     await this.actor.update({ "data.relationships": relations });
-  }
-
-  _onMeetingCreate(event) {
-    event.preventDefault();
-    const meeting = {
-      name: "",
-      concept: "",
-      notes: "",
-    };
-    let meetings = {};
-    if (this.actor.data.data.meetings) {
-      meetings = duplicate(this.actor.data.data.meetings);
-    }
-    let key = getID();
-    meetings["m" + key] = meeting;
-    return this.actor.update({ "data.meetings": meetings });
-  }
-
-  async _onMeetingDelete(event) {
-    const li = $(event.currentTarget).parents(".meeting");
-    let meetings = duplicate(this.actor.data.data.meetings);
-    let targetKey = li.data("itemId");
-    delete meetings[targetKey];
-    li.slideUp(200, () => {
-      this.render(false);
-    });
-    this._setMeetings(meetings);
-  }
-
-  async _setMeetings(meetings) {
-    await this.actor.update({ "data.meetings": null });
-    await this.actor.update({ "data.meetings": meetings });
   }
 
   /**
@@ -398,9 +391,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Get the type of item to create.
     const type = header.dataset.type;
     // Grab any data associated with this control.
-    const data = duplicate(header.dataset);
+    const data = foundry.utils.deepClone(header.dataset);
     // Initialize a default name.
-    const name = data.defaultname; // `New ${type.capitalize()}`;
+    const name = data.defaultname;
     // Prepare the item object.
     const itemData = {
       name: name,
@@ -413,39 +406,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // no need to keep ahold of defaultname after creation.
     delete itemData.data["defaultname"];
 
-    // Finally, create the item!
-    return this.actor.createOwnedItem(itemData);
-  }
-
-  _onCriticalInjuryCreate(event) {
-    event.preventDefault();
-    const critData = {
-      name: "",
-      description: "",
-    };
-    let injuries = {};
-    if (this.actor.data.data.criticalInjuries) {
-      injuries = duplicate(this.actor.data.data.criticalInjuries);
-    }
-    let key = getID();
-    injuries["ci" + key] = critData;
-    return this.actor.update({ "data.criticalInjuries": injuries });
-  }
-
-  async _onCriticalInjuryDelete(event) {
-    const li = $(event.currentTarget).parents(".injury");
-    let injuries = duplicate(this.actor.data.data.criticalInjuries);
-    let targetKey = li.data("itemId");
-    delete injuries[targetKey];
-    li.slideUp(200, () => {
-      this.render(false);
-    });
-    this._setInjuries(injuries);
-  }
-
-  async _setInjuries(injuries) {
-    await this.actor.update({ "data.criticalInjuries": null });
-    await this.actor.update({ "data.criticalInjuries": injuries });
+    return this.actor.createEmbeddedDocuments("Item", [itemData]);
   }
 
   /**
@@ -456,7 +417,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
   _onToggleItem(event) {
     event.preventDefault();
     const itemId = event.currentTarget.closest(".item").dataset.itemId;
-    const item = this.actor.getOwnedItem(itemId);
+    const item = this.actor.items.get(itemId);
     const attr = "data.equipped";
     return item.update({ [attr]: !getProperty(item.data, attr) });
   }
@@ -483,7 +444,6 @@ export class yzecoriolisActorSheet extends ActorSheet {
       bonus: dataset.bonus ? Number(dataset.bonus) : 0,
       rollTitle: dataset.label,
       pushed: false,
-      actor: this.actor,
     };
     const chatOptions = this.actor._prepareChatRollOptions(
       "systems/yzecoriolis/templates/sidebar/roll.html",
@@ -502,8 +462,8 @@ export class yzecoriolisActorSheet extends ActorSheet {
   _onItemSummary(event) {
     event.preventDefault();
     let li = $(event.currentTarget).parents(".item");
-    let item = this.actor.getOwnedItem(li.data("item-id"));
-    let chatData = item.getChatData({ secrets: this.actor.owner });
+    let item = this.actor.items.get(li.data("item-id"));
+    let chatData = item.getChatData({ secrets: this.actor.isOwner });
     // Toggle summary
     if (li.hasClass("expanded")) {
       let summary = li.children(".item-summary");

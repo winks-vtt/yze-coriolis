@@ -10,14 +10,14 @@ export async function addDarknessPoints(points) {
   let dpObj = getDarknessPointsForUserID(game.user.id);
   dpObj.value += points;
   await setDarknessPointsForUser(game.user.id, dpObj);
-  showDarknessPoints(getDarknessPoints());
+  // purposefully not announcing DP here since there is no way to hide it locally.
+  // GM will be listening on an update hook to display DP.
 }
 
 export async function spendDarknessPoints(points) {
   for (let i = 0; i < points; i++) {
     await decrementDarknessPoint();
   }
-  showDarknessPoints(getDarknessPoints());
   //purposefully not announcing the spending of points publically.
 }
 
@@ -77,7 +77,7 @@ async function showDarknessPoints(totalPoints) {
   let gmUser = gmList[0];
 
   let messageData = {
-    user: gmUser._id,
+    user: gmUser.id,
     speaker: ChatMessage.getSpeaker({ user: gmUser }),
     whisper: gmList,
   };
@@ -91,5 +91,5 @@ async function showDarknessPoints(totalPoints) {
     "systems/yzecoriolis/templates/sidebar/darkness-points-chat.html",
     dpData
   );
-  return ChatMessage.create(messageData);
+  await ChatMessage.create(messageData);
 }

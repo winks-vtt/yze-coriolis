@@ -6,8 +6,8 @@ export const registerSystemSettings = function () {
     name: "System Migration Version",
     scope: "world",
     config: false,
-    type: Number,
-    default: 0,
+    type: String,
+    default: "0",
   });
 
   // register the darkness points for the world
@@ -17,5 +17,21 @@ export const registerSystemSettings = function () {
     config: false,
     type: Number,
     default: 0,
+  });
+
+  game.settings.register("yzecoriolis", "maxEPTokensAllowed", {
+    name: game.i18n.localize("YZECORIOLIS.SettingMaxEnergyPoints"),
+    scope: "world",
+    config: true,
+    type: Number,
+    default: 10,
+  });
+
+  game.settings.register("yzecoriolis", "firstLaunch", {
+    name: "Onboarding",
+    scope: "world",
+    config: false,
+    type: Boolean,
+    default: false,
   });
 };

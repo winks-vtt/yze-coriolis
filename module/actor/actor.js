@@ -10,8 +10,6 @@ export class yzecoriolisActor extends Actor {
     super.prepareData();
 
     const actorData = this.data;
-    const data = actorData.data;
-    const flags = actorData.flags;
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
@@ -20,38 +18,86 @@ export class yzecoriolisActor extends Actor {
     if (actorData.type === "npc") this._prepareCharacterData(actorData, false);
   }
 
+  async _preCreate(data, options, user) {
+    await super._preCreate(data, options, user);
+    //setup default images
+    if (!hasProperty(data, "img") && data.type === "ship") {
+      this.data.update({ img: CONFIG.YZECORIOLIS.DEFAULT_SHIP_KEY_ART });
+    }
+    // we check the incoming data to make sure we aren't overriding a 'cloning'
+    // operation.
+    if (
+      !hasProperty(data, "data.keyArt") &&
+      (data.type === "character" || data.type === "npc")
+    ) {
+      this.data.update({
+        "data.keyArt": CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART,
+      });
+    }
+  }
+
+  async _onCreate(data, ...args) {
+    await super._onCreate(data, ...args);
+    if (data.type === "ship") {
+      // we handle this flag here as well for cloning scenarios.
+      if (
+        hasProperty(data, "img") &&
+        data.img !== CONFIG.YZECORIOLIS.DEFAULT_SHIP_KEY_ART
+      ) {
+        await this.setFlag("yzecoriolis", "shipImageSet", true);
+      } else {
+        // we had to do this here instead of _preCreate because you can't set a
+        // flag on an object that hasn't been created yet.
+        await this.setFlag("yzecoriolis", "shipImageSet", false);
+      }
+    }
+  }
+
+  async _preUpdate(updateData, options, user) {
+    // for ships if we set a new image, just set a marker flag saying we've
+    // changed the image. this informs the sheet to use a different CSS class
+    // for sizing if it wishes.
+    if (
+      this.data.type === "ship" &&
+      hasProperty(updateData, "img") &&
+      updateData.img !== CONFIG.YZECORIOLIS.DEFAULT_SHIP_KEY_ART
+    ) {
+      await this.setFlag("yzecoriolis", "shipImageSet", true);
+    }
+
+    await super._preUpdate(updateData, options, user);
+  }
   /**
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData, capCharPoints) {
     const data = actorData.data;
-    if (!data.keyArt) {
-      data.keyArt = data.keyArt || CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART;
-    }
 
     if (capCharPoints) {
       // Cap attribute scores
-      for (let [key, attr] of Object.entries(data.attributes)) {
+      Object.keys(data.attributes).forEach((k) => {
+        let attr = data.attributes[k];
         if (attr.value > attr.max) {
           attr.value = attr.max;
         }
         if (attr.value < attr.min) {
           attr.value = attr.min;
         }
-      }
+      });
 
       //Cap Skill scores
-      for (let [key, skl] of Object.entries(data.skills)) {
+      Object.keys(data.skills).forEach((k) => {
+        let skl = data.skills[k];
         if (skl.value > skl.max) {
           skl.value = skl.max;
         }
         if (skl.value < skl.min) {
           skl.value = skl.min;
         }
-      }
+      });
     }
 
-    let hpBonuses = this._prepHPBonuses(data);
+    let hpBonuses = this._prepHPBonuses();
     data.hitPoints.max =
       data.attributes.strength.value +
       data.attributes.agility.value +
@@ -105,16 +151,14 @@ export class yzecoriolisActor extends Actor {
     return chatOptions;
   }
 
-  _prepareRollTitle(rollType) {}
-
-  _prepHPBonuses(data) {
+  _prepHPBonuses() {
     // look through talents for any HPBonuses
     let bonus = 0;
     for (let t of this.data.items) {
       if (t.type !== "talent") {
         continue;
       }
-      const tData = t.data;
+      const tData = t.data.data;
       bonus += Number(tData.hpBonus);
     }
     return bonus;
@@ -124,14 +168,10 @@ export class yzecoriolisActor extends Actor {
   static async create(data, options = {}) {
     data.token = data.token || {};
     if (data.type === "character" || data.type === "npc") {
-      mergeObject(
+      foundry.utils.mergeObject(
         data.token,
         {
-          vision: true,
-          dimSight: 30,
-          brightSight: 0,
           actorLink: true,
-          disposition: 1,
         },
         { overwrite: false }
       );

@@ -1,3 +1,23 @@
+import { resetCrewForShip } from "./actor/crew.js";
+import { createBlankEPTokens } from "./item/ep-token.js";
+import { displayDarknessPoints } from "./darkness-points.js";
+
+// eslint-disable-next-line no-unused-vars
+Hooks.on("updateUser", (entity, data, options, userId) => {
+  // we avoid any null sets because we are just doing a clearing of the flag
+  // before setting it to a valid value.
+  const isSettingDP =
+    hasProperty(data, "flags.yzecoriolis.darknessPoints") &&
+    data.flags.yzecoriolis.darknessPoints !== null;
+
+  if (options.diff && isSettingDP) {
+    if (game.user.isGM) {
+      displayDarknessPoints();
+    }
+  }
+});
+
+// eslint-disable-next-line no-unused-vars
 Hooks.on("updateActor", (entity, data, options, userId) => {
   // since the main character sheet edit only updates the key art field, and
   // this size isn't suitable for the actor browser, we hook into the actor
@@ -18,4 +38,47 @@ Hooks.on("updateActor", (entity, data, options, userId) => {
       }
     }
   }
+
+  rerenderAllShips();
 });
+
+// eslint-disable-next-line no-unused-vars
+Hooks.on("deleteActor", (entity, options, userId) => {
+  if (entity.data.type === "ship") {
+    resetCrewForShip(entity.id).then(() => {
+      rerenderAllCrew();
+    });
+  }
+});
+
+// eslint-disable-next-line no-unused-vars
+Hooks.on("createActor", async (entity, options, userId) => {
+  if (entity.data.type === "ship") {
+    rerenderAllCrew();
+    await createEPTokensForShip(entity);
+  }
+});
+
+function rerenderAllCrew() {
+  // re render all characters/npcs to update their crew position drop downs.
+  for (let e of game.actors.contents) {
+    let rootData = e.data;
+    if (rootData.type === "character" || rootData.type === "npc") {
+      e.render(false);
+    }
+  }
+}
+
+function rerenderAllShips() {
+  // re render all ships to update their crew tabs.
+  for (let e of game.actors.contents) {
+    let rootData = e.data;
+    if (rootData.type === "ship") {
+      e.render(false);
+    }
+  }
+}
+
+async function createEPTokensForShip(entity) {
+  await createBlankEPTokens(entity, CONFIG.YZECORIOLIS.MaxEPTokensPerShip);
+}

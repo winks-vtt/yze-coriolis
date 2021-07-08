@@ -1,0 +1,77 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img
+      class="profile-img"
+      src="{{img}}"
+      data-edit="img"
+      title="{{name}}"
+    />
+    <div class="header-fields">
+      <h1 class="charname">
+        <input
+          name="name"
+          type="text"
+          value="{{name}}"
+          placeholder="Name"
+        />
+      </h1>
+      <div class="flexcol flex1">
+        <div class="resource flexrow">
+          <label class="resource-label">
+            {{localize "YZECORIOLIS.TechTier"}}
+          </label>
+          <select class="gear-category" name="data.techTier">
+            {{#select data.techTier}}
+              {{#each config.techTiers as |label techTier|}}
+                <option value="{{techTier}}">
+                  {{label}}
+                </option>
+              {{/each}}
+            {{/select}}
+          </select>
+        </div>
+        <div class="resource">
+          <label class="resource-label">
+            {{localize "YZECORIOLIS.Restricted"}}
+          </label>
+          <input
+            type="checkbox"
+            name="data.restricted"
+            data-dtype="Boolean"
+            {{checked data.restricted}}
+          />
+        </div>
+        <div class="resource flexrow">
+          <label class="resource-label">
+            {{localize "YZECORIOLIS.MoneyCostIncrease"}}
+          </label>
+          <input
+            type="text"
+            name="data.cost"
+            value="{{data.cost}}"
+            data-dtype="Number"
+          />
+        </div>
+      </div>
+    </div>
+  </header>
+  {{! Sheet Tab Navigation }}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">
+      {{localize "YZECORIOLIS.Description"}}
+    </a>
+  </nav>
+  {{! Sheet Body }}
+  <section class="sheet-body">
+    {{! Description Tab }}
+    <div class="tab" data-group="primary" data-tab="description">
+      {{editor
+        content=data.description
+        target="data.description"
+        button=true
+        owner=owner
+        editable=editable
+      }}
+    </div>
+  </section>
+</form>

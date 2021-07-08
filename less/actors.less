@@ -1,6 +1,54 @@
 @import "./variables.less";
+@import "./utils/coriolis.less";
+@import "./utils/databar.less";
+
+.yzecoriolis.sheet.actor.character {
+
+  /*
+    Background & Container
+    */
+  .window-content {
+    background: linear-gradient(90deg, #000000 30.35%, rgba(0, 0, 0, 0) 100%),
+      url("images/char-sheet-bg.jpg");
+  }
+}
+
+.yzecoriolis.sheet.actor.ship {
+  .window-content {
+    background: url("images/ship-sheet-bg.jpg");
+    background-size: cover;
+  }
+}
+
+.journal-link {
+  a {
+    &.entity-link {
+      background-color: @colorBlueTransparent;
+      border: 0px;
+      border-radius: 3px;
+      padding: 1px 6px;
+      transition: color 275ms ease;
+
+
+      &:hover {
+        text-shadow: none;
+        color: @colorOrange;
+
+        i {
+          color: @colorOrange;
+        }
+      }
+    }
+
+    i {
+      color: @colorWhite;
+      transition: color 275ms ease;
+    }
+  }
+}
 
 .yzecoriolis.sheet.actor {
+
   /*
     mixins
     */
@@ -99,14 +147,6 @@
     margin: 0;
   }
 
-  /*
-    Background & Container
-    */
-  .window-content {
-    background: linear-gradient(90deg, #000000 30.35%, rgba(0, 0, 0, 0) 100%),
-      url("images/char-sheet-bg.jpg");
-  }
-
   .sheet-container {
     display: grid;
     grid-template-columns: 1fr 2.2fr;
@@ -119,13 +159,6 @@
     Key Art
     */
   .key-art-container {
-    grid-column-start: 1;
-    grid-column-end: 2;
-
-    grid-row-start: 1;
-    grid-row-end: 4;
-    z-index: 1;
-
     .vertical-img {
       border: 1px solid #ffffff;
       box-sizing: border-box;
@@ -134,12 +167,10 @@
   }
 
   .gradient-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.635714) 28.12%,
-      @colorBlack 72.92%
-    );
+    background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.635714) 28.12%,
+        @colorBlack 72.92%);
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 2;
@@ -148,12 +179,10 @@
   }
 
   .always-visible-stats {
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.635714) 28.12%,
-      @colorBlack 72.92%
-    );
+    background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.635714) 28.12%,
+        @colorBlack 72.92%);
 
     grid-column-start: 1;
     grid-column-end: 2;
@@ -201,78 +230,29 @@
         }
 
         //bar helpers
-        .bar-bg {
-          padding: 0px 5px 0px 5px;
-          border: 1px solid @colorBarOutline;
-          border-radius: 5px;
-          background-color: @colorStatBG;
-          height: 27px;
-        }
-
-        .bar-value {
-          width: 20px;
-          text-align: center;
-          font-size: 16px;
-        }
-
-        .bar-styling-helper(@fillCol, @decreaseCol) {
-          justify-content: space-between;
-          align-items: center;
-          .bar-bg();
-
-          .bar-segment {
-            border-radius: 2px;
-            box-sizing: border-box;
-            flex: 1 1 10px;
-            height: 17px;
-            margin: 3.5px 1px;
-            background-color: @colorBlack;
-            transition: background-color 275ms ease, border 275ms ease;
-          }
-
-          .hover-to-decrease {
-            // need important flag to override the current fill when decreasing.
-            background-color: @decreaseCol !important;
-          }
-
-          .hover-to-increase {
-            border: 1px solid @fillCol;
-          }
-
-          .bar-segment.on {
-            background-color: @fillCol;
-
-            &:hover {
-              transform: scale(1.05);
-            }
-          }
-
-          .bar-segment.off {
-            background-color: @colorBlack;
-
-            &:hover {
-              transform: scale(1.05);
-            }
-          }
-        }
 
         .radiation-bar {
+          .bar-bg();
           .bar-styling-helper(@colorRadiationFill, @colorRadiationDecreaseFill);
         }
 
         .xp-bar {
+          .bar-bg();
           .bar-styling-helper(@colorXPFill, @colorXPDecreaseFill);
         }
 
         .rep-bar {
+          .bar-bg();
           .bar-styling-helper(@colorRepFill, @colorRepDecreaseFill);
         }
 
         .hp-bar {
+          .bar-bg();
           .bar-styling-helper(@colorGreen, @colorBlood);
         }
 
         .mind-bar {
+          .bar-bg();
           .bar-styling-helper(@colorPaleBlue, @colorDarkerBlue);
         }
       }
@@ -294,6 +274,12 @@
     grid-template-rows: 98px 1fr;
     grid-column-gap: 10px;
     grid-row-gap: 15px;
+  }
+
+  // would be nice to auto-resize the height of the input box.
+  .char-name-input {
+    height: 50px;
+    text-transform: uppercase;
   }
 
   /*
@@ -330,12 +316,6 @@
       text-align: center;
       grid-column-start: 1;
       grid-column-end: 4;
-
-      // would be nice to auto-resize the height of the input box.
-      .char-name-input {
-        height: 50px;
-        text-transform: uppercase;
-      }
     }
 
     .char-class {
@@ -358,6 +338,113 @@
     }
   }
 
+  // ======
+  // Shared mixins
+  // ======
+  .category-header {
+    .data-text();
+    border-radius: 3px;
+    background-color: @colorBlueTransparent;
+    height: 24px;
+    margin-bottom: 5px;
+    align-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+    &:first-of-type {
+      margin-top: 0px;
+    }
+  }
+
+  .category-column-name {
+    font-size: 14px;
+    margin: 0px 0px 0px 5px;
+    text-transform: uppercase;
+  }
+
+  .item-list-controls {
+    text-transform: uppercase;
+    flex: 0 0 100px;
+    margin-top: 2px;
+    text-align: right;
+    margin-right: 7px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .item-status-icon {
+    color: @colorDarkBlue;
+    flex-basis: 20px;
+  }
+
+  .item-control-widget {
+    .item-status-icon();
+    .hover-header-buttons();
+  }
+
+  .item-control-add-widget {
+    .item-control-widget();
+    color: @colorBlue;
+    flex-basis: 100px;
+  }
+
+  .item-entry {
+    align-items: center;
+    .data-text();
+    color: @colorWhite;
+    margin-bottom: 2px;
+  }
+
+  .item-entry-name-rollover {
+    transition: transform 275ms ease;
+
+    &:hover {
+      transform: translateX(5px);
+    }
+  }
+
+  .item-entry-name {
+    .data-text-semibold();
+    color: @colorOrange;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .item-bg {
+    background-color: @colorStatItemEntryBG;
+
+    border-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    flex: 0 0 100%;
+
+    .flicker-anim(lighten(@colorStatItemEntryBG, 30%), @colorStatItemEntryBG);
+
+    &:hover {
+      animation: flicker 1.2s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .item-summary {
+    flex: 0 0 100%;
+    margin-top: 2px;
+    padding-bottom: 2px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .item-summary-wrapper {
+    background-color: @colorStatItemEntryBG;
+    border-radius: 3px;
+    flex: 0 0 570px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 25px;
+  }
+
+  // End shared mixins
+
   .sheet-body {
     grid-column-start: 1;
     grid-column-end: 2;
@@ -368,6 +455,11 @@
     background-color: @colorStatBG;
     display: flex;
     flex-direction: column;
+
+    .item-summary-wrapper,
+    .charnotes {
+      .journal-link();
+    }
 
     .navigation {
       padding: 2px;
@@ -705,108 +797,6 @@
       margin-right: 32px;
     }
 
-    .category-header {
-      .data-text();
-      border-radius: 3px;
-      background-color: @colorBlueTransparent;
-      height: 24px;
-      margin-bottom: 5px;
-      align-content: center;
-      align-items: center;
-      margin-top: 20px;
-
-      &:first-of-type {
-        margin-top: 0px;
-      }
-    }
-
-    .category-column-name {
-      font-size: 14px;
-      margin: 0px 0px 0px 5px;
-      text-transform: uppercase;
-    }
-
-    .item-list-controls {
-      text-transform: uppercase;
-      flex: 0 0 100px;
-      margin-top: 2px;
-      text-align: right;
-      margin-right: 7px;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .item-status-icon {
-      color: @colorDarkBlue;
-      flex-basis: 20px;
-    }
-
-    .item-control-widget {
-      .item-status-icon();
-      .hover-header-buttons();
-    }
-
-    .item-control-add-widget {
-      .item-control-widget();
-      color: @colorBlue;
-      flex-basis: 100px;
-    }
-
-    .item-entry {
-      align-items: center;
-      .data-text();
-      color: @colorWhite;
-      margin-bottom: 2px;
-    }
-
-    .item-entry-name-rollover {
-      transition: transform 275ms ease;
-
-      &:hover {
-        transform: translateX(5px);
-      }
-    }
-
-    .item-entry-name {
-      .data-text-semibold();
-      color: @colorOrange;
-      font-size: 15px;
-      cursor: pointer;
-    }
-
-    .item-bg {
-      background-color: @colorStatItemEntryBG;
-
-      border-radius: 3px;
-      padding-left: 5px;
-      padding-right: 5px;
-      flex: 0 0 100%;
-
-      .flicker-anim(lighten(@colorStatItemEntryBG, 30%), @colorStatItemEntryBG);
-
-      &:hover {
-        animation: flicker 1.2s;
-        animation-fill-mode: forwards;
-      }
-    }
-
-    .item-summary {
-      flex: 0 0 100%;
-      margin-top: 2px;
-      padding-bottom: 2px;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .item-summary-wrapper {
-      background-color: @colorStatItemEntryBG;
-      border-radius: 3px;
-      flex: 0 0 570px;
-      padding-left: 15px;
-      padding-right: 15px;
-      margin-left: 25px;
-    }
-
     .item-properties {
       flex: 1;
       margin-bottom: 5px;
@@ -1115,8 +1105,7 @@
           padding: 0px 35px 0px 10px;
 
           border: none;
-          background: url("icons/drop-down-arrow.svg") 96% / 15% no-repeat
-            @colorBlueTransparent;
+          background: url("icons/drop-down-arrow.svg") 96% / 15% no-repeat @colorBlueTransparent;
           background-position: right 0.7em top 50%;
 
           &:focus {
@@ -1168,8 +1157,263 @@
     .editor {
       max-height: 590px;
       height: 590px;
-      margin: 10px;
+      margin: @padding-md;
       .player-text();
+    }
+
+    .editor-edit {
+      display: block;
+      width: 40px;
+      text-align: center;
+      background-color: @colorStatItemEntryBG;
+      color: @colorDarkBlue;
+      border: 1px solid @colorDarkBlue;
+      transition: background-color 275ms ease;
+
+      &:hover {
+        text-shadow: none;
+        background-color: lighten(@colorStatItemEntryBG, 20%);
+      }
+    }
+  }
+
+  /*
+        ==========================Ship Sheet Stylings==========================
+    */
+  // for customizing ship, look at coriolis.less as it uses sty
+  .ship {
+    .sheet-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: @padding-md;
+      grid-row-gap: @padding-md;
+    }
+
+    .bottom-half-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(1, 1fr);
+      grid-column-gap: @padding-md;
+      grid-row-gap: @padding-md;
+      min-height: 340px; // TODO: remove this and use flex or grid layout;
+      padding-top: @padding-md;
+    }
+
+    .hull-bar {
+      .bar-styling-helper(@colorHullPointFill, @colorBlood);
+    }
+
+    .ep-bar {
+      .bar-styling-helper(@colorEPBarFill, @colorEPBarDecrease);
+    }
+
+    .crew-card {
+      max-width: 200px;
+      height: 290px;
+      flex-grow: 1;
+
+      .crew-portrait {
+        max-height: 269px;
+        // TODO: these need to be sourced from the actor's settings.
+        background-position: -77px -15px;
+        background-size: 180%;
+        background-blend-mode: multiply;
+        background-color: rgba(0, 0, 0, 0.35);
+        transition: background-color 275ms ease;
+      }
+
+      .crew-portrait-hovered {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+
+      .crew-roll-number {
+        transition: transform 275ms ease, color 275ms ease,
+          text-shadow 275ms ease;
+      }
+
+      .crew-roll-number-hover {
+        transform: translateY(-3px) scale(1.1);
+        color: @colorEPBarEmpty;
+        text-shadow: -1px -1px 0 @colorWhite, 1px -1px 0 @colorWhite,
+          -1px 1px 0 @colorWhite, 1px 1px 0 @colorWhite;
+      }
+
+      .roll-glow {
+        position: relative;
+        top: -20px;
+        background-repeat: no-repeat;
+        background-image: url("icons/roll-glow.svg");
+        background-position: center center;
+        background-size: contain;
+        transform: scale(2.5);
+        opacity: 0%;
+        pointer-events: none;
+      }
+
+      @keyframes rollGlowAnim {
+        0% {
+          opacity: 10%;
+          transform: scale(2.5, 2.5);
+        }
+
+        50% {
+          opacity: 100%;
+          transform: scale(2.5, 3);
+        }
+
+        100% {
+          opacity: 10%;
+          transform: scale(2.5, 2.5);
+        }
+      }
+
+      .roll-glow-animated {
+        animation-name: rollGlowAnim;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+    }
+
+    .crew-panel {
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 14px;
+    }
+
+    .modules-list {
+      list-style: none;
+      overflow-y: auto;
+      max-height: 310px;
+      flex-wrap: wrap;
+      padding-bottom: 10px;
+    }
+
+    .module-panel {
+      width: 170px;
+      height: 290px;
+      flex-basis: 170px;
+      flex-grow: 0;
+
+      .toggle-ship-module-button {
+        border: none;
+        border-radius: 3px;
+        background-color: @colorRadiationRollOverIncrease;
+        color: @colorWhite;
+        font-family: "Cairo";
+        font-size: 14px;
+        font-weight: 700;
+        transition: background-color 275ms ease;
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: none;
+          background-color: lighten(@colorRadiationRollOverIncrease, 10%);
+        }
+
+        &.enabled {
+          background-color: @colorRadiationFill;
+          color: @colorDarkerBlue;
+
+          &:hover {
+            background-color: lighten(@colorRadiationFill, 10%);
+          }
+        }
+      }
+
+      .quantity-input {
+        .player-text();
+        font-size: 16px;
+        font-weight: 700;
+        box-shadow: none;
+        border: none;
+        background-color: @colorTransparent;
+        text-align: right;
+        width: 50px;
+        padding: 0px;
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    .edit-widget {
+      color: @colorDarkBlue;
+      flex-basis: 20px;
+      .hover-header-buttons();
+    }
+  }
+
+  .feature-list {
+    list-style: none;
+    overflow-y: auto;
+    max-height: 275px;
+    padding: 0 5px 0 0;
+    margin-top: 24px;
+    margin-left: 32px;
+    margin-right: 32px;
+
+    .feature-category-header {
+      .category-header();
+    }
+
+    .feature-category-name {
+      .category-column-name();
+    }
+
+    .feature-controls {
+      .item-list-controls();
+    }
+
+    .feature-control-widget {
+      .item-control-widget();
+    }
+
+    .feature-control-add-widget {
+      .item-control-add-widget();
+    }
+
+    .feature {
+      .item-entry();
+    }
+
+    .feature-bg {
+      .item-bg();
+    }
+
+    .feature-name {
+      .item-entry-name();
+      .item-entry-name-rollover();
+    }
+
+    .feature-row-data {
+      .data-text();
+      font-size: 14px;
+      text-align: center;
+    }
+
+    // override the original wrapper with one that works for the ship feature
+    // list.
+    .item-summary-wrapper {
+      flex: 0 0 850px;
+    }
+
+    .expanded {
+      height: auto;
+    }
+  }
+
+  .shipnotes {
+
+    .editor {
+      max-height: 280px;
+      height: 280px;
+      margin: @padding-md;
+      .player-text();
+      .journal-link();
     }
 
     .editor-edit {

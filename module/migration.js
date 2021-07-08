@@ -1,19 +1,20 @@
 import { addDarknessPoints } from "./darkness-points.js";
+import { getDefaultItemIcon } from "./item/item.js";
 /**
  * Perform a system migration for the entire World, applying migrations for Actors, Items, and Compendium packs
  * @return {Promise}      A Promise which resolves once the migration is completed
  */
 export const migrateWorld = async function () {
   ui.notifications.info(
-    `Applying Year Zero Engine Coriolis System Migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`,
+    `Applying Coriolis System Migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`,
     { permanent: true }
   );
 
   // Migrate World Actors
-  for (let a of game.actors.entities) {
+  for (let a of game.actors.contents) {
     try {
       const updateData = migrateActorData(a.data);
-      if (!isObjectEmpty(updateData)) {
+      if (!foundry.utils.isObjectEmpty(updateData)) {
         console.log(`Migrating Actor entity ${a.name}`);
         await a.update(updateData, { enforceTypes: false });
       }
@@ -22,10 +23,10 @@ export const migrateWorld = async function () {
     }
   }
   // Migrate World Items
-  for (let i of game.items.entities) {
+  for (let i of game.items.contents) {
     try {
-      const updateData = migrateItemData(i.data);
-      if (!isObjectEmpty(updateData)) {
+      const updateData = migrateItemData(i.toObject());
+      if (!foundry.utils.isObjectEmpty(updateData)) {
         console.log(`Migrating Item entity ${i.name}`);
         await i.update(updateData, { enforceTypes: false });
       }
@@ -35,10 +36,10 @@ export const migrateWorld = async function () {
   }
 
   // Migrate Actor Override Tokens
-  for (let s of game.scenes.entities) {
+  for (let s of game.scenes.contents) {
     try {
       const updateData = migrateSceneData(s.data);
-      if (!isObjectEmpty(updateData)) {
+      if (!foundry.utils.isObjectEmpty(updateData)) {
         console.log(`Migrating Scene entity ${s.name}`);
         await s.update(updateData, { enforceTypes: false });
       }
@@ -59,16 +60,16 @@ export const migrateWorld = async function () {
   }
 
   // migrate Darkness Point System
-  migrateDarknessPoints();
+  await migrateDarknessPoints();
 
   // Set the migration as complete
-  game.settings.set(
+  await game.settings.set(
     "yzecoriolis",
     "systemMigrationVersion",
     game.system.data.version
   );
   ui.notifications.info(
-    `Year Zero Engine Coriolis System Migration to version ${game.system.data.version} completed!`,
+    `Coriolis System Migration to version ${game.system.data.version} completed!`,
     { permanent: true }
   );
 };
@@ -189,7 +190,7 @@ export const migrateCompendium = async function (pack) {
       if (entity === "Item") updateData = migrateItemData(ent.data);
       else if (entity === "Actor") updateData = migrateActorData(ent.data);
       else if (entity === "Scene") updateData = migrateSceneData(ent.data);
-      if (!isObjectEmpty(updateData)) {
+      if (!foundry.utils.isObjectEmpty(updateData)) {
         expandObject(updateData);
         updateData["_id"] = ent._id;
         await pack.updateEntity(updateData);
@@ -219,50 +220,34 @@ export const migrateCompendium = async function (pack) {
 export const migrateActorData = function (actor) {
   let updateData = {};
 
-  // Remove deprecated fields
-  _migrateRemoveDeprecated(actor, updateData);
-
-  // fix token art
-  if (actor.img === DEFAULT_TOKEN && hasProperty(actor, "token.img")) {
-    if (actor.img !== actor.token.img) {
-      updateData["img"] = actor.token.img;
-    }
+  // set image setting flag on ship images
+  if (
+    actor.type === "ship" &&
+    hasProperty(actor, "img") &&
+    actor.img !== CONFIG.YZECORIOLIS.DEFAULT_SHIP_KEY_ART &&
+    !hasProperty(actor.flags.yzecoriolis, "shipImageSet")
+  ) {
+    updateData = { "flags.yzecoriolis.shipImageSet": true };
   }
+
   // Migrate Owned Items
   if (!actor.items) return updateData;
-  let hasItemUpdates = false;
-  const items = actor.items.map((i) => {
+  const items = actor.items.reduce((arr, i) => {
     // Migrate the Owned Item
-    let itemUpdate = migrateItemData(i);
+    const itemData = i instanceof CONFIG.Item.documentClass ? i.toObject() : i;
+    let itemUpdate = migrateItemData(itemData);
 
     // Update the Owned Item
-    if (!isObjectEmpty(itemUpdate)) {
-      hasItemUpdates = true;
-      return mergeObject(i, itemUpdate, {
-        enforceTypes: false,
-        inplace: false,
-      });
-    } else return i;
-  });
-  if (hasItemUpdates) updateData.items = items;
+    if (!foundry.utils.isObjectEmpty(itemUpdate)) {
+      itemUpdate._id = itemData._id;
+      arr.push(expandObject(itemUpdate));
+    }
+
+    return arr;
+  }, []);
+  if (items.length > 0) updateData.items = items;
   return updateData;
 };
-
-/* -------------------------------------------- */
-
-/**
- * Scrub an Actor's system data, removing all keys which are not explicitly defined in the system template
- * @param {Object} actorData    The data object for an Actor
- * @return {Object}             The scrubbed Actor data
- */
-function cleanActorData(actorData) {
-  // Scrub system data
-  const model = game.system.model.Actor[actorData.type];
-  actorData.data = filterObject(actorData.data, model);
-
-  // Return the scrubbed data
-  return actorData;
-}
 
 /* -------------------------------------------- */
 
@@ -272,19 +257,22 @@ function cleanActorData(actorData) {
  */
 export const migrateItemData = function (item) {
   let updateData = {};
-  // add in HP bonus field to existing talents
-  if (item.type === "talent" && !hasProperty(item.data, "hpBonus")) {
-    updateData = { "data.hpBonus": 0 };
-  } else if (item.type === "weapon" && !hasProperty(item.data, "melee")) {
-    updateData = { "data.melee": false };
-  }
-  // fix string contamination of talents' hpBonus fields
-  if (item.type === "talent" && hasProperty(item.data, "hpBonus")) {
-    updateData = { "data.hpBonus": Number(item.data.hpBonus) };
-  }
-  // Remove deprecated fields
-  _migrateRemoveDeprecated(item, updateData);
 
+  const itemType = item.type;
+  const isUsingDefaultIcon = [
+    "icons/svg/item-bag.svg",
+    CONST.DEFAULT_TOKEN,
+  ].includes(item.img);
+
+  const isTypeWithCustomIcon =
+    itemType === "weapon" ||
+    itemType === "armor" ||
+    itemType === "gear" ||
+    itemType === "talent" ||
+    itemType === "injury";
+  if (isUsingDefaultIcon && isTypeWithCustomIcon) {
+    updateData = { img: getDefaultItemIcon(itemType, !!item.data.explosive) };
+  }
   // Return the migrated update data
   return updateData;
 };
@@ -298,7 +286,7 @@ export const migrateItemData = function (item) {
  * @return {Object}       The updateData to apply
  */
 export const migrateSceneData = function (scene) {
-  const tokens = duplicate(scene.tokens);
+  const tokens = foundry.utils.deepClone(scene.tokens);
   return {
     tokens: tokens.map((t) => {
       if (!t.actorId || t.actorLink || !t.actorData.data) {
@@ -311,14 +299,17 @@ export const migrateSceneData = function (scene) {
         t.actorData = {};
       } else if (!t.actorLink) {
         const updateData = migrateActorData(token.data.actorData);
-        t.actorData = mergeObject(token.data.actorData, updateData);
+        t.actorData = foundry.utils.mergeObject(
+          token.data.actorData,
+          updateData
+        );
       }
       return t;
     }),
   };
 };
 
-export const migrateDarknessPoints = async function () {
+const migrateDarknessPoints = async function () {
   if (!game.user.isGM) {
     return;
   }
@@ -327,39 +318,8 @@ export const migrateDarknessPoints = async function () {
   if (dpPoints !== MIGRATED_VALUE) {
     await addDarknessPoints(dpPoints);
     await game.settings.set("yzecoriolis", "darknessPoints", MIGRATED_VALUE);
-    console.log("wat");
     ui.notifications.info(game.i18n.localize("YZECORIOLIS.MigratedDP"), {
       permanent: true,
     });
-  }
-};
-
-/* -------------------------------------------- */
-/*  Low level migration utilities
-/* -------------------------------------------- */
-
-/* -------------------------------------------- */
-
-/**
- * A general migration to remove all fields from the data model which are flagged with a _deprecated tag
- * @private
- */
-const _migrateRemoveDeprecated = function (ent, updateData) {
-  const flat = flattenObject(ent.data);
-
-  // Identify objects to deprecate
-  const toDeprecate = Object.entries(flat)
-    .filter((e) => e[0].endsWith("_deprecated") && e[1] === true)
-    .map((e) => {
-      let parent = e[0].split(".");
-      parent.pop();
-      return parent.join(".");
-    });
-
-  // Remove them
-  for (let k of toDeprecate) {
-    let parts = k.split(".");
-    parts[parts.length - 1] = "-=" + parts[parts.length - 1];
-    updateData[`data.${parts.join(".")}`] = null;
   }
 };

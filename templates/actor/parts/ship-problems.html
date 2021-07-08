@@ -1,0 +1,34 @@
+<div class="tab panel problems-panel" data-group="primary" data-tab="problems">
+    <ol class="feature-list">
+        {{!-- setup header for Problems--}}
+        <li class="feature-category-header flexrow">
+            <span class="feature-category-name flexrow">{{localize "YZECORIOLIS.ShipProblem"}}</span>
+            {{#if owner}}
+            <div class="feature-controls">
+                <a class="feature-control-add-widget shipItem-create" title='{{localize "YZECORIOLIS.ShipCreateProblem"}}'
+                    {{#each problems.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                    <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+                </a>
+            </div>
+            {{/if}}
+        </li>
+
+
+        {{!-- show each problem --}}
+        {{#each problems.items as |problem|}}
+        <li class="feature item flexrow" data-item-id="{{problem._id}}">
+            <div class="feature-bg flickering flexrow">
+                <div class="feature-name expandable-info flexrow">
+                    <span class="flexrow">{{problem.name}}</span>
+                </div>
+                <div class="feature-controls">
+                    <a class="edit-widget faded shipItem-edit" title="{{localize "YZECORIOLIS.ShipEditProblem"}}" data-feature={{problem._id}}><i
+                            class="fas fa-edit"></i></a>
+                    <a class="edit-widget faded shipItem-delete"
+                        title="{{localize "YZECORIOLIS.ShipDeleteProblem"}}" data-feature={{problem._id}}><i class="fas fa-trash"></i></a>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </ol>
+</div>

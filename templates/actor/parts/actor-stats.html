@@ -1,6 +1,6 @@
 <div class="tab panel" data-group="primary" data-tab="stats">
     <ul class="attribute-list">
-        {{#each actor.data.attributes as |ability key|}}
+        {{#each data.attributes as |ability key|}}
         <li>
             <div class="flexcol attr-item">
                 <div class="attr-block bg-{{key}}">
@@ -21,10 +21,10 @@
     <div class="skills-list-group flexrow">
         <ol class="single-skill-list">
             <li class="skill-header">{{getSkillCategoryName 'general'}}</li>
-            {{#each actor.data.skills as |skill id|}}
+            {{#each data.skills as |skill id|}}
             {{#if_eq skill.category 'general'}}
             <li class="skill fr-basic">
-                <div class="fr-basic rollable flex1" data-rolltype="skill" data-attributekey={{skill.attribute}}
+                <div class="fr-basic rollable flex1" data-rolltype="general" data-attributekey={{skill.attribute}}
                     data-skillkey={{id}} data-label="{{getSkillRollName id}}">
                     <div class="skill-image"></div>
                     <h4>{{getSkillName id}}</h4>
@@ -41,10 +41,10 @@
         </ol>
         <ol class="single-skill-list">
             <li class=" skill-header">{{getSkillCategoryName 'advanced'}}</li>
-            {{#each actor.data.skills as |skill id|}}
+            {{#each data.skills as |skill id|}}
             {{#if_eq skill.category 'advanced'}}
             <li class="skill fr-basic">
-                <div class="fr-basic rollable flex1" data-rolltype="advancedSkill" data-attributekey={{skill.attribute}}
+                <div class="fr-basic rollable flex1" data-rolltype="advanced" data-attributekey={{skill.attribute}}
                     data-skillkey={{id}} data-label="{{getSkillRollName id}}">
                     <div class="skill-image"></div>
                     <h4>{{getSkillName id}}</h4>
@@ -67,13 +67,13 @@
             {{#if owner}}
             <div class="crit-add-controls">
                 <a class="crit-control-widget item-create" title='{{localize "YZECORIOLIS.CreateCriticalInjury"}}'
-                    {{#each actor.injuryDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                    {{#each injuryDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                     <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                 </a>
             </div>
             {{/if}}
         </li>
-        {{#each actor.injuries as |injury id|}}
+        {{#each injuries as |injury id|}}
         <li class="injury fr-basic item" data-item-id="{{injury._id}}">
             <div class="injury-display flex1">
                 <span>{{injury.name}}</span>

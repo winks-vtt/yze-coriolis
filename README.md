@@ -1,10 +1,6 @@
-# Coriolis The Third Horizon
+# Coriolis
 
-An UNOFFICIAL system for playing [Coriolis - The Third Horizon](https://frialigan.se/en/games/coriolis-2/) on Foundry VTT, and made available with permission from [Free League Publishing](http://freeleaguepublishing.com/).
-
-## System Status
-
-The system is now in a playable state, with mainly the character sheet being complete. Stylings for rolls, item sheets, are incomplete but functional. As more mileage is accumlated I'd like to add automations to various systems to help with running a game of Coriolis.
+An UNOFFICIAL system for playing [Coriolis](https://frialigan.se/en/games/coriolis-2/) on Foundry VTT, and made available with permission from [Free League Publishing](http://freeleaguepublishing.com/).
 
 ## Installation
 
@@ -16,7 +12,8 @@ The system is now in a playable state, with mainly the character sheet being com
 
 ![Character Sheet](https://github.com/winks-vtt/yze-coriolis/raw/master/images/char_sheet_preview.png)
 
-- Basic Character sheets for PCs
+- Character sheets for PCs
+- Ship sheets for crew ships
 - Ability to roll Skills and Attributes
 - Can create Talents, Weapons, Gear, Armor and drag-n-drop onto character sheets.
 - Can click on weapons to roll with bonus modifiers
@@ -64,7 +61,6 @@ The system comes with placeholder art-work. To change it, click on the upper 3rd
 
 ## Todos
 
-- Create a ship character sheet
 - Update styling of dice rolls in chat log
 - Update styling of supporting item/weapon sheets
 
@@ -79,8 +75,6 @@ For questions, feature requests, or bug reports, feel free to contact me on the 
 - Character Sheet background: NASA Hubble under [Public Domain](https://hubblesite.org/about_us/copyright.php).
 
 ## License
-
-![Year Zero Engine](https://github.com/winks-vtt/yze-coriolis/raw/master/images/YZ_engine_logo.png)
 
 This Foundry VTT system is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
 

@@ -10,22 +10,33 @@ export class yzecoriolisItem extends Item {
   prepareData() {
     // setup a token before calling prepare because the token is also setup
     // lazily inside.
-    if (!this.data.img) this.data.img = this._getDefaultToken();
     super.prepareData();
 
     // Get the Item's data
     const itemData = this.data;
-    const actorData = this.actor ? this.actor.data : {};
-    const data = itemData.data;
     if (itemData.type === "talent") this._prepareTalentData(itemData);
   }
 
-  _prepareTalentData(itemData) {}
+  // eslint-disable-next-line no-unused-vars
+  _prepareTalentData(itemData) {
+    // TODO: prep talent data
+  }
+
+  async _preCreate(data, options, user) {
+    await super._preCreate(data, options, user);
+    // for cloning operations just keep the image.
+    if (hasProperty(data, "img")) {
+      return;
+    }
+    let itemType = data.type;
+    let isExplosive = this.data.data.explosive;
+    const tokenPath = getDefaultItemIcon(itemType, isExplosive);
+    this.data.update({ img: tokenPath });
+  }
 
   async roll() {
     //TODO: Should refactor this a bit so both sheet and macros share the same
     //code path.
-    const token = this.actor.token;
     const item = this.data;
     const actorData = this.actor ? this.actor.data.data : {};
     const itemData = item.data;
@@ -46,7 +57,6 @@ export class yzecoriolisItem extends Item {
       bonus: bonus,
       rollTitle: item.name,
       pushed: false,
-      actor: this.actor,
     };
     const chatOptions = this.actor._prepareChatRollOptions(
       "systems/yzecoriolis/templates/sidebar/roll.html",
@@ -59,7 +69,7 @@ export class yzecoriolisItem extends Item {
   }
 
   getChatData(htmlOptions) {
-    const data = duplicate(this.data.data);
+    const data = foundry.utils.deepClone(this.data.data);
     const labels = this.labels;
     // Rich text description
     data.description = TextEditor.enrichHTML(data.description, htmlOptions);
@@ -88,25 +98,20 @@ export class yzecoriolisItem extends Item {
     }
   }
 
-  _getDefaultToken() {
-    let itemType = this.data.type;
-    let isExplosive = this.data.data.explosive;
-    let tokenPath = DEFAULT_TOKEN;
-    switch (itemType) {
-      case "weapon":
-        tokenPath = "systems/yzecoriolis/css/icons/weapons-icon.svg";
-        if (isExplosive) {
-          tokenPath = "systems/yzecoriolis/css/icons/explosion-icon.svg";
-        }
-        break;
-      case "armor":
-        tokenPath = "systems/yzecoriolis/css/icons/armor-icon.svg";
-        break;
-      case "gear":
-        tokenPath = "systems/yzecoriolis/css/icons/gear-icon.svg";
-        break;
-    }
-    return tokenPath;
+  /**
+   * Foundry doesn't have a built-in way to hide certain item types. This is a
+   * work around.
+   * @override
+   */
+  static async createDialog(data, options) {
+    const hiddenItems = ["energyPointToken", "item"];
+    const original = game.system.entityTypes.Item;
+    game.system.entityTypes.Item = original.filter(
+      (itemType) => !hiddenItems.includes(itemType)
+    );
+    const newItem = super.createDialog(data, options);
+    game.system.entityTypes.Item = original;
+    return newItem;
   }
 }
 
@@ -133,4 +138,29 @@ export const getRollType = (itemType) => {
     return "armor";
   }
   return "weapon";
+};
+
+export const getDefaultItemIcon = (itemType, isExplosive) => {
+  let tokenPath = CONST.DEFAULT_TOKEN;
+  switch (itemType) {
+    case "weapon":
+      tokenPath = "systems/yzecoriolis/css/icons/weapons-icon.svg";
+      if (isExplosive) {
+        tokenPath = "systems/yzecoriolis/css/icons/explosion-icon.svg";
+      }
+      break;
+    case "armor":
+      tokenPath = "systems/yzecoriolis/css/icons/armor-icon.svg";
+      break;
+    case "gear":
+      tokenPath = "systems/yzecoriolis/css/icons/gear-icon.svg";
+      break;
+    case "talent":
+      tokenPath = "systems/yzecoriolis/css/icons/talent-icon.svg";
+      break;
+    case "injury":
+      tokenPath = "systems/yzecoriolis/css/icons/injury-icon.svg";
+      break;
+  }
+  return tokenPath;
 };

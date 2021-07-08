@@ -1,0 +1,137 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      # Create an initial release PR that changes will be tracked to.
+      - uses: GoogleCloudPlatform/release-please-action@v2
+        id: release_pr
+        with:
+          release-type: simple
+          changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
+          pull-request-title-pattern: ${scope} Release${component} ${version}
+
+      # grab our branch from the above PR
+      - uses: actions/github-script@v3
+        id: checkout_branch
+        if: ${{ steps.release_pr.outputs.pr && !steps.release_pr.outputs.release_created }}
+        with:
+          script: |
+            const response = await github.pulls.get({
+              pull_number: ${{ steps.release_pr.outputs.pr }},
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+            core.info("🌿 branch 🌿:" +  response.data.head.ref);
+            core.setOutput("branch", response.data.head.ref);
+
+      # checkout PR branch
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.checkout_branch.outputs.branch }}
+        if: ${{ steps.release_pr.outputs.pr && !steps.release_pr.outputs.release_created }}
+
+      # inject version into environment
+      - if: ${{ steps.release_pr.outputs.pr && !steps.release_pr.outputs.release_created }}
+        run: |
+          echo "sys_version=$(cat ./version.txt)" >> $GITHUB_ENV
+          cat ./version.txt
+
+      # Updates the manifest and download URLS in system.json
+      - name: Update system.json
+        if: ${{ steps.release_pr.outputs.pr && !steps.release_pr.outputs.release_created }}
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: "system.json"
+        env:
+          version: ${{ env.sys_version }}
+          manifest: https://github.com/${{github.repository}}/releases/latest/download/system.json
+          download: https://github.com/${{github.repository}}/releases/download/v${{env.sys_version}}/coriolis.zip
+
+      # with the initially opened PR, update our system.json
+      - name: "Commit system.json"
+        if: ${{ steps.release_pr.outputs.pr && !steps.release_pr.outputs.release_created }}
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add system.json
+          git commit -m "ci: updated manifest data"
+          git push
+
+      # In the event we've created an actual release:
+      # 1. zip up files
+      # 2. and attach zip and manifest to the release.
+      # 3. update FVTT admin panel with latest release metadata
+
+      # checkout release branch
+      - uses: actions/checkout@v2
+        if: ${{ steps.release_pr.outputs.release_created }}
+
+      # zip our assets
+      - name: "Create Zipped Artifact"
+        if: ${{ steps.release_pr.outputs.release_created }}
+        run: zip -r ./coriolis.zip LICENSE README.md CHANGELOG.md system.json template.json css/ data/ images/ lang/ lib/ module/ packs/ templates/
+
+      # upload zip artifact
+      - name: "📦 Add coriolis.zip to Release 📦"
+        if: ${{ steps.release_pr.outputs.release_created }}
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: coriolis.zip
+          asset_name: coriolis.zip
+          tag: v${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}
+          overwrite: true
+
+      # upload system manifest
+      - name: "📦 Add system.json to Release 📦"
+        if: ${{ steps.release_pr.outputs.release_created }}
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: system.json
+          asset_name: system.json
+          tag: v${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}
+          overwrite: true
+
+      # initialize go environment
+      - uses: actions/setup-go@v2
+        if: ${{ steps.release_pr.outputs.release_created }}
+        with:
+          go-version: "^1.16.5"
+
+      # we load the manifest unconditionally, since env: props are evaluated regardless of conditionals.
+      - name: "load manifest data"
+        if: ${{ steps.release_pr.outputs.release_created }}
+        id: manifest_data
+        run: |
+          JSON=`cat ./system.json`
+          # the following lines are only required for multi line json
+          JSON="${JSON//'%'/'%25'}"
+          JSON="${JSON//$'\n'/'%0A'}"
+          JSON="${JSON//$'\r'/'%0D'}"
+          # end of optional handling for multi line json
+          echo "::set-output name=json::$JSON"
+
+      - name: "Setup Env vars for FVTT Admin"
+        if: ${{ steps.release_pr.outputs.release_created }}
+        run: |
+          echo "FVTT_ADMIN_USER=${{ secrets.FVTT_ADMIN_USER }}" >> $GITHUB_ENV
+          echo "FVTT_ADMIN_PW=${{ secrets.FVTT_ADMIN_PW }}" >> $GITHUB_ENV
+          echo "FVTT_PACKAGE_ID=${{ secrets.FVTT_PACKAGE_ID }}" >> $GITHUB_ENV
+          echo "manifest=https://raw.githubusercontent.com/winks-vtt/yze-coriolis/v${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}/system.json" >> $GITHUB_ENV
+          echo "notes=https://github.com/winks-vtt/yze-coriolis/blob/master/CHANGELOG.md" >> $GITHUB_ENV
+          echo "version=${{ steps.release_pr.outputs.major }}.${{ steps.release_pr.outputs.minor }}.${{ steps.release_pr.outputs.patch }}" >> $GITHUB_ENV
+          echo "required_version=${{ fromJson(steps.manifest_data.outputs.json).minimumCoreVersion }}" >> $GITHUB_ENV
+          echo "compatible_version=${{ fromJson(steps.manifest_data.outputs.json).compatibleCoreVersion }}" >> $GITHUB_ENV
+
+      - name: "Update FVTT Admin"
+        if: ${{ steps.release_pr.outputs.release_created }}
+        run: |
+          go run ./scripts/fadmin --version ${{ env.version }} --manifest ${{ env.manifest }} --notes ${{ env.notes }} --required ${{ env.required_version }} --compatible ${{ env.compatible_version }}

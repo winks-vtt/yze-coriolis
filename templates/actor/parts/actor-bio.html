@@ -31,10 +31,10 @@
             </div>
             <div class="bio-block">
                 <span class="bio-block-title">{{localize "YZECORIOLIS.CrewPosition"}}</span>
-                <select class="skill-category" name="data.bio.crewPosition">
-                    {{#select data.bio.crewPosition}}
-                    {{#each config.crewPositions as |label category|}}
-                    <option value="{{category}}">{{label}}</option>
+                <select class="skill-category crew-position">
+                    {{#select currentCrewOption}}
+                    {{#each crewOptions as |option|}}
+                    <option value="{{option.key}}">{{option.label}}</option>
                     {{/each}}
                     {{/select}}
                 </select>
@@ -62,13 +62,13 @@
                 <div class="gear-controls">
                     <a class="gear-control-add-widget relationship-create"
                         title='{{localize "YZECORIOLIS.AddRelationship"}}'
-                        {{#each actor.gearDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+                        {{#each gearDataSet as |v k|}}data-{{k}}="{{v}}" {{/each}}>
                         <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
                     </a>
                 </div>
                 {{/if}}
             </li>
-            {{#each actor.data.relationships as |relation relKey|}}
+            {{#each data.relationships as |relation relKey|}}
             <li class="gear flexrow relation" data-item-id="{{relKey}}">
                 <div class=" gear-bg flexrow">
                     <input class="bio-input relation-name" type="text" name="data.relationships.{{relKey}}.name"

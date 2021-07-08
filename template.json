@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "npc"],
+    "types": ["character", "npc", "ship"],
     "templates": {
       "base": {
         "hitPoints": {
@@ -193,7 +193,10 @@
             "face": "",
             "clothing": ""
           },
-          "crewPosition": ""
+          "crewPosition": {
+            "position": "",
+            "shipId": ""
+          }
         },
         "relationships": {},
         "meetings": {},
@@ -209,10 +212,58 @@
     },
     "npc": {
       "templates": ["base"]
+    },
+    "ship": {
+      "class": "I",
+      "shipyard": "",
+      "shipType": "",
+      "hullPoints": {
+        "value": 10,
+        "min": 0,
+        "max": 10
+      },
+      "manueverability": {
+        "value": 0,
+        "min": 0,
+        "max": 25
+      },
+      "speed": {
+        "value": 0,
+        "min": 0,
+        "max": 25
+      },
+      "signature": {
+        "value": 0,
+        "min": 0,
+        "max": 25
+      },
+      "armor": {
+        "value": 0,
+        "min": 0,
+        "max": 25
+      },
+      "cost": {
+        "value": 0,
+        "balance": 0,
+        "paidOff": 0
+      },
+      "keyArt": ""
     }
   },
   "Item": {
-    "types": ["item", "gear", "talent", "weapon", "armor", "injury"],
+    "types": [
+      "item",
+      "gear",
+      "talent",
+      "weapon",
+      "armor",
+      "injury",
+      "shipProblem",
+      "energyPointToken",
+      "shipModule",
+      "shipFeature",
+      "shipCriticalDamage"
+    ],
     "templates": {
       "base": {
         "description": ""
@@ -234,7 +285,6 @@
     },
     "gear": {
       "templates": ["gear"],
-      "gearType": "",
       "bonus": 0
     },
     "talent": {
@@ -260,6 +310,7 @@
       "blastPower": 0,
       "bonus": 0,
       "damage": 0,
+      "damageText":"",
       "initiative": 0,
       "range": "",
       "automatic": false,
@@ -274,6 +325,32 @@
     },
     "injury": {
       "templates": ["base"]
+    },
+    "shipProblem": {
+      "templates": ["base"]
+    },
+    "shipCriticalDamage": {
+      "templates": ["base"]
+    },
+    "shipModule": {
+      "templates": ["gear"],
+      "bonus": 0,
+      "enabled": false,
+      "damage": 0,
+      "range": "",
+      "crit": {
+        "numericValue": 0,
+        "customValue": ""
+      },
+      "category": "",
+      "special": {}
+    },
+    "shipFeature": {
+      "templates": ["gear"]
+    },
+    "energyPointToken": {
+      "active": false,
+      "holder": ""
     }
   }
 }

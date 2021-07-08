@@ -1,8 +1,8 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" />
         <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+            <h1 class="charname"><input name="name" type="text" value="{{name}}" placeholder="Name" /></h1>
             <div class="flexcol flex1">
                 <div class="resource numeric-input flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.Bonus"}}</label>
@@ -18,6 +18,12 @@
                 </div>
 
                 <div class="resource numeric-input flexrow">
+                    <label class="resource-label">{{localize "YZECORIOLIS.DamageTypeCustom"}}</label>
+                    <input type="text" name="data.cdamageText" value="{{data.damageText}}"
+                        data-dtype="String" />
+                </div>
+
+                <div class="resource numeric-input flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.CritTypeNumeric"}}</label>
                     <input type="number" min="0" name="data.crit.numericValue" value="{{data.crit.numericValue}}"
                         data-dtype="Number" />
@@ -29,7 +35,7 @@
                         data-dtype="String" />
                 </div>
 
-
+                 {{#unless data.explosive}}
                 <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.EffectiveRange"}}</label>
                     <select class="weight-category" name="data.range">
@@ -40,6 +46,7 @@
                         {{/select}}
                     </select>
                 </div>
+                {{/unless}}
 
                 <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.TechTier"}}</label>
