@@ -1,5 +1,13 @@
 # Changelog
 
+### [2.2.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.2.1...v2.2.2) (2021-07-15)
+
+
+### Bug Fixes
+
+* ensure default images are set when importing from compendiums ([62ddd81](https://www.github.com/winks-vtt/yze-coriolis/commit/62ddd81f6c01df409aa7e5c9c0cc278402ec1470))
+* update core version compatibility ([4778fe0](https://www.github.com/winks-vtt/yze-coriolis/commit/4778fe0adb77db68a656f7922190a850b5f47b0c))
+
 ### [2.2.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.2.0...v2.2.1) (2021-06-24)
 
 
