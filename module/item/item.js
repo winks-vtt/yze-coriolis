@@ -25,7 +25,7 @@ export class yzecoriolisItem extends Item {
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
     // for cloning operations just keep the image.
-    if (hasProperty(data, "img")) {
+    if (hasProperty(data, "img") && data.img !== null) {
       return;
     }
     let itemType = data.type;
