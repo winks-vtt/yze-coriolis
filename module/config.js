@@ -261,7 +261,8 @@ YZECORIOLIS.ranges = {
 };
 
 YZECORIOLIS.shipWeaponRanges = {
-  close: "YZECORIOLIS.ContactRange",
+  contact: "YZECORIOLIS.ContactRange",
+  close: "YZECORIOLIS.CloseRange",
   short: "YZECORIOLIS.ShortRange",
   medium: "YZECORIOLIS.MediumRange",
   long: "YZECORIOLIS.LongRange",
