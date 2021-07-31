@@ -1,5 +1,14 @@
 # Changelog
 
+### [2.2.3](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.2.2...v2.2.3) (2021-07-31)
+
+
+### Bug Fixes
+
+* add notes field to ship templates ([d81140f](https://www.github.com/winks-vtt/yze-coriolis/commit/d81140faaf88892fad9f0c6ff482ae6827548b19))
+* added contact range for ship weapon modules ([e501ccf](https://www.github.com/winks-vtt/yze-coriolis/commit/e501ccfeee77942698ea7169a623511f90d7cd1a))
+* added effect description field for ship features. ([5280991](https://www.github.com/winks-vtt/yze-coriolis/commit/5280991879eccfebce02d7c7a9076116e909c2b8))
+
 ### [2.2.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.2.1...v2.2.2) (2021-07-15)
 
 
