@@ -247,7 +247,8 @@
         "balance": 0,
         "paidOff": 0
       },
-      "keyArt": ""
+      "keyArt": "",
+      "notes": ""
     }
   },
   "Item": {
