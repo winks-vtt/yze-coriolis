@@ -71,6 +71,7 @@
 
   "YZECORIOLIS.MoneyCost": "Kosten",
   "YZECORIOLIS.MoneyCostIncrease": "Kosten erhöhen (%)",
+  "YZECORIOLIS.Effect": "Effekt",
   "YZECORIOLIS.Birr": "Birr",
   "YZECORIOLIS.GroupConcept": "Gruppenkonzept",
   "YZECORIOLIS.Category": "Kategorie",
@@ -310,6 +311,7 @@
 
   "YZECORIOLIS.CritTypeNumeric": "Krit-Wert",
   "YZECORIOLIS.CritTypeCustom": "Krit-Art",
+  "YZECORIOLIS.DamageTypeCustom": "Schadensart",
 
   "YZECORIOLIS.CloseRange": "Nah",
   "YZECORIOLIS.ContactRange": "Kontakt",
@@ -322,10 +324,10 @@
   "YZECORIOLIS.HPBonus": "TP Bonus",
   "YZECORIOLIS.Melee": "Nahkampf",
   
-  "YZECORIOLIS.SheetClassCharacter": "Coriolis Character Sheet",
-  "YZECORIOLIS.SheetClassNPC": "Coriolis NPC Sheet",
-  "YZECORIOLIS.SheetClassShip": "Coriolis Ship Sheet",
-  "YZECORIOLIS.SheetClassItem": "Coriolis Item Sheet",
+  "YZECORIOLIS.SheetClassCharacter": "Coriolis Charakterbogen",
+  "YZECORIOLIS.SheetClassNPC": "Coriolis NSC-Bogen",
+  "YZECORIOLIS.SheetClassShip": "Coriolis Schiffsbogen",
+  "YZECORIOLIS.SheetClassItem": "Coriolis Ausrüstungsbogen",
 
   "YZECORIOLIS.ShipType": "Shiffstyp",
   "YZECORIOLIS.ShipClass": "Klasse",
