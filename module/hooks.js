@@ -1,5 +1,5 @@
 import { resetCrewForShip } from "./actor/crew.js";
-import { createBlankEPTokens } from "./item/ep-token.js";
+import { createBlankEPTokens, setActiveEPTokens } from "./item/ep-token.js";
 import { displayDarknessPoints } from "./darkness-points.js";
 
 // eslint-disable-next-line no-unused-vars
@@ -56,6 +56,7 @@ Hooks.on("createActor", async (entity, options, userId) => {
   if (entity.data.type === "ship") {
     rerenderAllCrew();
     await createEPTokensForShip(entity);
+    await setMaxEPValue(entity);
   }
 });
 
@@ -81,4 +82,11 @@ function rerenderAllShips() {
 
 async function createEPTokensForShip(entity) {
   await createBlankEPTokens(entity, CONFIG.YZECORIOLIS.MaxEPTokensPerShip);
+}
+
+async function setMaxEPValue(entity) {
+  const epMax = entity.getFlag("yzecoriolis", "epMax");
+  if (epMax || epMax === 0) {
+    await setActiveEPTokens(entity, epMax);
+  }
 }

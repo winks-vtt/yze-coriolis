@@ -77,7 +77,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
   }
 
   _prepShipStats(actor) {
-    const maxTokens = getMaxAllowedEPTokens();
+    const maxTokens = getMaxAllowedEPTokens(actor);
     const shipTokenCount = shipEPCount(actor);
     const data = actor.data.data;
     // pull in any relevant crew.
