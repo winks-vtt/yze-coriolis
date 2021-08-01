@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.3.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.3.1...v2.3.2) (2021-08-01)
+
+
+### Bug Fixes
+
+* when creating a new ship, EP bar is automatically filled out instead of empty. ([c67e5f1](https://www.github.com/winks-vtt/yze-coriolis/commit/c67e5f13d682105de9ce28b8c5cbe111f8f20fdf))
+
 ### [2.3.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.3.0...v2.3.1) (2021-08-01)
 
 
