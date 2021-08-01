@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.3.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.2.3...v2.3.0) (2021-08-01)
+
+
+### Features
+
+* added early support for having custom maximum Energy Points for ships. ([60a3dc2](https://www.github.com/winks-vtt/yze-coriolis/commit/60a3dc21909358d27003931d528622d44cb10ec8))
+
+
+### Bug Fixes
+
+* clean up un-used fields in ship template ([7efd657](https://www.github.com/winks-vtt/yze-coriolis/commit/7efd657879b98badba1639d5721b908d0c4e3f79))
+
 ### [2.2.3](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.2.2...v2.2.3) (2021-07-31)
 
 
