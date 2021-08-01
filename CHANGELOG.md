@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.3.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.3.0...v2.3.1) (2021-08-01)
+
+
+### Bug Fixes
+
+* exposed ability to edit maximum Hp and Ep points for a ship ([7ecf8db](https://www.github.com/winks-vtt/yze-coriolis/commit/7ecf8dba653b6731e687aca45b8637ed37a02b29))
+
 ## [2.3.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.2.3...v2.3.0) (2021-08-01)
 
 
