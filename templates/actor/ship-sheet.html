@@ -124,7 +124,8 @@
                     min={{data.armor.min}} />
                 </li>
                 <li class="flexrow margin-small">
-                  <div class="flex-grow-2 font-cairo text-base capitalize white-1 self-center">
+                  {{!-- Not doing flex-grow-2 here to accommodate large costs in input field  --}}
+                  <div class="font-cairo text-base capitalize white-1 self-center">
                     {{localize "YZECORIOLIS.Cost"}}</div>
                   <input class="right-aligned-number-input" placeholder="0" type="number"
                     name="data.cost.value" value="{{data.cost.value}}" data-dtype="number"
