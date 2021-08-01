@@ -56,7 +56,7 @@ Hooks.on("createActor", async (entity, options, userId) => {
   if (entity.data.type === "ship") {
     rerenderAllCrew();
     await createEPTokensForShip(entity);
-    await setMaxEPValue(entity);
+    await setMaxEPTokensActive(entity);
   }
 });
 
@@ -84,9 +84,11 @@ async function createEPTokensForShip(entity) {
   await createBlankEPTokens(entity, CONFIG.YZECORIOLIS.MaxEPTokensPerShip);
 }
 
-async function setMaxEPValue(entity) {
-  const epMax = entity.getFlag("yzecoriolis", "epMax");
-  if (epMax || epMax === 0) {
+// setMaxEPTokensActive sets maxEnergyPoints worth of EP tokens active for the
+// ship on initial creation so the bar isn't empty when you creat a new ship.
+async function setMaxEPTokensActive(entity) {
+  const epMax = entity.data.data.maxEnergyPoints;
+  if (epMax) {
     await setActiveEPTokens(entity, epMax);
   }
 }
