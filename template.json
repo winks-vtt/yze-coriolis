@@ -247,7 +247,8 @@
         "balance": 0,
         "paidOff": 0
       },
-      "notes": ""
+      "notes": "",
+      "maxEnergyPoints": 10
     }
   },
   "Item": {

@@ -342,6 +342,8 @@
   "YZECORIOLIS.Modules": "Modules",
   "YZECORIOLIS.CriticalDamage": "Critical Damage",
   "YZECORIOLIS.Notes": "Notes",
+  "YZECORIOLIS.MaxEnergyPoints": "Max Energy Points",
+  "YZECORIOLIS.MaxHullPoints": "Max Hull Points",
 
   "YZECORIOLIS.SettingMaxEnergyPoints": "Maximum Allowed Energy Points",
 

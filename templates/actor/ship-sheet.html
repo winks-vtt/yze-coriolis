@@ -82,35 +82,49 @@
               {{!-- Stat lines --}}
               <ol class="base-list">
                 <li class="flexrow margin-small">
-                  <div class="font-cairo text-base capitalize white-1 self-center">
+                  <div class="flex-grow-2 font-cairo text-base capitalize white-1 self-center">
+                    {{localize "YZECORIOLIS.MaxHullPoints"}}</div>
+                  <input class="right-aligned-number-input" placeholder="0" type="number"
+                    name="data.hullPoints.max" value="{{data.hullPoints.max}}" data-dtype="number"
+                    min=0 />
+                </li>
+                <li class="flexrow margin-small">
+                  <div class="flex-grow-2 font-cairo text-base capitalize white-1 self-center">
+                    {{localize "YZECORIOLIS.MaxEnergyPoints"}}</div>
+                  <input class="right-aligned-number-input" placeholder="0" type="number"
+                    name="data.maxEnergyPoints" value="{{data.maxEnergyPoints}}" data-dtype="number"
+                    min=0 />
+                </li>
+                <li class="flexrow margin-small">
+                  <div class="flex-grow-2 font-cairo text-base capitalize white-1 self-center">
                     {{localize "YZECORIOLIS.Speed"}}</div>
                   <input class="right-aligned-number-input" placeholder="0" type="number"
                     name="data.speed.value" value="{{data.speed.value}}" data-dtype="number"
                     min={{data.speed.min}} />
                 </li>
                 <li class="flexrow margin-small">
-                  <div class="font-cairo text-base capitalize white-1 self-center">
+                  <div class="flex-grow-2 font-cairo text-base capitalize white-1 self-center">
                     {{localize "YZECORIOLIS.Manueverability"}}</div>
                   <input class="right-aligned-number-input" placeholder="0" type="number"
                     name="data.manueverability.value" value="{{data.manueverability.value}}"
                     data-dtype="number" min={{data.manueverability.min}} />
                 </li>
                 <li class="flexrow margin-small">
-                  <div class="font-cairo text-base capitalize white-1 self-center">
+                  <div class="flex-grow-2 font-cairo text-base capitalize white-1 self-center">
                     {{localize "YZECORIOLIS.Signature"}}</div>
                   <input class="right-aligned-number-input" placeholder="0" type="number"
                     name="data.signature.value" value="{{data.signature.value}}" data-dtype="number"
                     min={{data.signature.min}} />
                 </li>
                 <li class="flexrow margin-small">
-                  <div class="font-cairo text-base capitalize white-1 self-center">
+                  <div class="flex-grow-2 font-cairo text-base capitalize white-1 self-center">
                     {{localize "YZECORIOLIS.Armor"}}</div>
                   <input class="right-aligned-number-input" placeholder="0" type="number"
                     name="data.armor.value" value="{{data.armor.value}}" data-dtype="number"
                     min={{data.armor.min}} />
                 </li>
                 <li class="flexrow margin-small">
-                  <div class="font-cairo text-base capitalize white-1 self-center">
+                  <div class="flex-grow-2 font-cairo text-base capitalize white-1 self-center">
                     {{localize "YZECORIOLIS.Cost"}}</div>
                   <input class="right-aligned-number-input" placeholder="0" type="number"
                     name="data.cost.value" value="{{data.cost.value}}" data-dtype="number"

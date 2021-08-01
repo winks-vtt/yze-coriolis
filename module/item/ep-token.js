@@ -128,12 +128,13 @@ export const crewHasTokens = (shipEntity) => {
  * returns the maximum allowed EP Tokens a user or ship can hold.
  */
 export const getMaxAllowedEPTokens = (shipEntity) => {
-  const epMax = shipEntity.getFlag("yzecoriolis", "epMax");
+  const epMax = shipEntity.data.data.maxEnergyPoints;
   // if the ship has a specific value use that one instead
-  if (epMax || epMax === 0) {
+  if (epMax) {
     return epMax;
   }
   // use the globally set maximum
+  // TODO: deprecate this at a future date.
   return game.settings.get("yzecoriolis", "maxEPTokensAllowed");
 };
 
