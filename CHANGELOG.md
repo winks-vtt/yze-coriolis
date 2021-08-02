@@ -1,5 +1,13 @@
 # Changelog
 
+### [2.3.3](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.3.2...v2.3.3) (2021-08-02)
+
+
+### Bug Fixes
+
+* adjust ship facts box ([0b0beab](https://www.github.com/winks-vtt/yze-coriolis/commit/0b0beab10088e173818ca782a110370e2a0a0c52))
+* adjusted spacing for cost field in ship character sheet ([8df84fc](https://www.github.com/winks-vtt/yze-coriolis/commit/8df84fc355441d7a3a0204f5ebe646ad3d1cc844))
+
 ### [2.3.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.3.1...v2.3.2) (2021-08-01)
 
 
