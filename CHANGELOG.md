@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.3.4](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.3.3...v2.3.4) (2021-08-03)
+
+
+### Bug Fixes
+
+* fixed default image for ships when importing from compendiums ([30879d1](https://www.github.com/winks-vtt/yze-coriolis/commit/30879d1166a6e06703098a3291a47f5eb51efbcb))
+
 ### [2.3.3](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.3.2...v2.3.3) (2021-08-02)
 
 
