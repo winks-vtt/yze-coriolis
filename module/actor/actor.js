@@ -21,9 +21,15 @@ export class yzecoriolisActor extends Actor {
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
     //setup default images
-    if (!hasProperty(data, "img") && data.type === "ship") {
-      this.data.update({ img: CONFIG.YZECORIOLIS.DEFAULT_SHIP_KEY_ART });
+    if (data.type === "ship") {
+      const setDefaultShipImg =
+        !hasProperty(data, "img") ||
+        (hasProperty(data, "img") && data.img === null);
+      if (setDefaultShipImg) {
+        this.data.update({ img: CONFIG.YZECORIOLIS.DEFAULT_SHIP_KEY_ART });
+      }
     }
+
     // we check the incoming data to make sure we aren't overriding a 'cloning'
     // operation.
     if (
