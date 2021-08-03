@@ -139,6 +139,9 @@
   "YZECORIOLIS.EditCriticalInjury": "Edit Critical Injury",
   "YZECORIOLIS.DeleteCriticalInjury": "Delete Critical Injury",
   "YZECORIOLIS.NewCriticalInjury": "New Critical Injury",
+  "YZECORIOLIS.FatalInjury": "Fatal",
+  "YZECORIOLIS.InjuryTimeLimitRoll": "Time Limit",
+  "YZECORIOLIS.InjuryHealTimeRoll": "Heal Time",
   "YZECORIOLIS.ArmorRating": "Armor Rating",
   "YZECORIOLIS.ExtraFeatures": "Extra Features",
 

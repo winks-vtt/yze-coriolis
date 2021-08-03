@@ -325,7 +325,11 @@
       "extraFeatures": 0
     },
     "injury": {
-      "templates": ["base"]
+      "templates": ["base"],
+      "fatal": false,
+      "timeLimit": "",
+      "healTime": "",
+      "bonus": 0
     },
     "shipProblem": {
       "templates": ["base"]
