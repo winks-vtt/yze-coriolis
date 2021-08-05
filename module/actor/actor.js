@@ -44,33 +44,9 @@ export class yzecoriolisActor extends Actor {
 
   async _onCreate(data, ...args) {
     await super._onCreate(data, ...args);
-    if (data.type === "ship") {
-      // we handle this flag here as well for cloning scenarios.
-      if (
-        hasProperty(data, "img") &&
-        data.img !== CONFIG.YZECORIOLIS.DEFAULT_SHIP_KEY_ART
-      ) {
-        await this.setFlag("yzecoriolis", "shipImageSet", true);
-      } else {
-        // we had to do this here instead of _preCreate because you can't set a
-        // flag on an object that hasn't been created yet.
-        await this.setFlag("yzecoriolis", "shipImageSet", false);
-      }
-    }
   }
 
   async _preUpdate(updateData, options, user) {
-    // for ships if we set a new image, just set a marker flag saying we've
-    // changed the image. this informs the sheet to use a different CSS class
-    // for sizing if it wishes.
-    if (
-      this.data.type === "ship" &&
-      hasProperty(updateData, "img") &&
-      updateData.img !== CONFIG.YZECORIOLIS.DEFAULT_SHIP_KEY_ART
-    ) {
-      await this.setFlag("yzecoriolis", "shipImageSet", true);
-    }
-
     await super._preUpdate(updateData, options, user);
   }
   /**

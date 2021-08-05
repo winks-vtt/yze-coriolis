@@ -59,7 +59,13 @@ export class yzecoriolisShipSheet extends ActorSheet {
       stats = this._prepShipStats(baseData.actor);
     }
 
-    const shipImageSet = baseData.actor.getFlag("yzecoriolis", "shipImageSet");
+    // instead of using object flags (which had a race condition in mass
+    // imports) simply check for the default image. since the default image is
+    // the one we don't wish to have any sort of 'object sizing' and everything
+    // else we do, we can exclude it specifically.
+    const shipImageSet =
+      baseData.actor.img !== CONFIG.YZECORIOLIS.DEFAULT_SHIP_KEY_ART;
+
     let imageCSSClass = ""; // no css class
     if (shipImageSet) {
       imageCSSClass = "object-fit-cover";

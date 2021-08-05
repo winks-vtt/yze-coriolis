@@ -220,16 +220,6 @@ export const migrateCompendium = async function (pack) {
 export const migrateActorData = function (actor) {
   let updateData = {};
 
-  // set image setting flag on ship images
-  if (
-    actor.type === "ship" &&
-    hasProperty(actor, "img") &&
-    actor.img !== CONFIG.YZECORIOLIS.DEFAULT_SHIP_KEY_ART &&
-    !hasProperty(actor.flags.yzecoriolis, "shipImageSet")
-  ) {
-    updateData = { "flags.yzecoriolis.shipImageSet": true };
-  }
-
   // Migrate Owned Items
   if (!actor.items) return updateData;
   const items = actor.items.reduce((arr, i) => {
