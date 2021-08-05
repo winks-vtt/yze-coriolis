@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.4.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.3.4...v2.4.0) (2021-08-05)
+
+
+### Features
+
+* added more fields for critical injuries ([4326d61](https://www.github.com/winks-vtt/yze-coriolis/commit/4326d614e77d116b1cd2e75a6e46d19ac8ebf730))
+
+
+### Bug Fixes
+
+* fixed bug with ship images not being sized correctly in ship sheet during mass imports ([95ffc5e](https://www.github.com/winks-vtt/yze-coriolis/commit/95ffc5eb24bbbd4e2ec8f007d97f4f97a9c0ebec))
+* fixed damage text support for Weapons ([d4e0308](https://www.github.com/winks-vtt/yze-coriolis/commit/d4e0308d2bba7eec7f6c9fcc6e118138eb32eea1))
+
 ### [2.3.4](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.3.3...v2.3.4) (2021-08-03)
 
 
