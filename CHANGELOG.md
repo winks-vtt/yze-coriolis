@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.4.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.4.0...v2.4.1) (2021-09-05)
+
+
+### Bug Fixes
+
+* handle defaulting character keyArt when importing from compendiums ([7fb454c](https://www.github.com/winks-vtt/yze-coriolis/commit/7fb454c01328d3bd52b0f138b2abd193e4b358d0))
+
 ## [2.4.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.3.4...v2.4.0) (2021-08-05)
 
 
