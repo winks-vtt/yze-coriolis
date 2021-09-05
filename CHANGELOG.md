@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.4.1...v2.5.0) (2021-09-05)
+
+
+### Features
+
+* added movement rate stat to characters and NPCs ([79de6ff](https://www.github.com/winks-vtt/yze-coriolis/commit/79de6ff23dea28a374926445a0beb3d488ebed6e))
+
 ### [2.4.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.4.0...v2.4.1) (2021-09-05)
 
 
