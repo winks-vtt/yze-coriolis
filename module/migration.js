@@ -221,13 +221,13 @@ export const migrateActorData = function (actor) {
   let updateData = {};
 
   // introduce movement rate
+  const correctType = actor.type === "npc" || actor.type === "character";
   if (
-    ((actor.type === "npc" || actor.type === "character") &&
-      !hasProperty(actor, "data.data.movementRate")) ||
-    (hasProperty(actor, "data.data.movementRate") &&
-      actor.data.data.movementRate === null)
+    (correctType && !hasProperty(actor, "data.movementRate")) ||
+    (hasProperty(actor, "data.movementRate") &&
+      actor.data.movementRate === null)
   ) {
-    updateData = { "data.data.movementRate": 10 };
+    updateData = { "data.movementRate": 10 };
   }
 
   // Migrate Owned Items
