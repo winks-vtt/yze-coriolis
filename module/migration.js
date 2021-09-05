@@ -220,6 +220,16 @@ export const migrateCompendium = async function (pack) {
 export const migrateActorData = function (actor) {
   let updateData = {};
 
+  // introduce movement rate
+  if (
+    ((actor.type === "npc" || actor.type === "character") &&
+      !hasProperty(actor, "data.data.movementRate")) ||
+    (hasProperty(actor, "data.data.movementRate") &&
+      actor.data.data.movementRate === null)
+  ) {
+    updateData = { "data.data.movementRate": 10 };
+  }
+
   // Migrate Owned Items
   if (!actor.items) return updateData;
   const items = actor.items.reduce((arr, i) => {

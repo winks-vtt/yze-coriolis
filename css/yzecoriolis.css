@@ -1001,6 +1001,7 @@
   grid-row-start: 3;
   grid-row-end: 4;
   z-index: 3;
+  margin-top: -50px;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list {
   color: #e5e5e5;

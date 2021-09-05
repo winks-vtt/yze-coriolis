@@ -204,6 +204,7 @@
           "description": ""
         },
         "birr": 0,
+        "movementRate": 10,
         "keyArt": ""
       }
     },
