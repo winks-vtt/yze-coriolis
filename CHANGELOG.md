@@ -1,5 +1,13 @@
 # Changelog
 
+### [2.5.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.5.0...v2.5.1) (2021-09-05)
+
+
+### Bug Fixes
+
+* fixed migration to properly populate movement Rate for existing actors ([4421a62](https://www.github.com/winks-vtt/yze-coriolis/commit/4421a62f32ce6677197cfcc0a7578f614f3381e1))
+* updated version target for migration ([2c5e568](https://www.github.com/winks-vtt/yze-coriolis/commit/2c5e5680d55db300e2fd09c97c35be5939a8ec81))
+
 ## [2.5.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.4.1...v2.5.0) (2021-09-05)
 
 
