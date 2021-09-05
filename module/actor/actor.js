@@ -40,6 +40,16 @@ export class yzecoriolisActor extends Actor {
         "data.keyArt": CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART,
       });
     }
+    // if we have a blank string keyArt prop, just set it to the default.
+    if (
+      hasProperty(data, "data.keyArt") &&
+      (data.type === "character" || data.type === "npc") &&
+      data.data.keyArt === ""
+    ) {
+      this.data.update({
+        "data.keyArt": CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART,
+      });
+    }
   }
 
   async _onCreate(data, ...args) {
