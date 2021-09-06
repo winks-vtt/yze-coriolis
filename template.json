@@ -294,7 +294,8 @@
       "category": "",
       "cost": 0,
       "groupConcept": "",
-      "hpBonus": 0
+      "hpBonus": 0,
+      "mpBonus": 0
     },
     "weapon": {
       "templates": ["gear"],

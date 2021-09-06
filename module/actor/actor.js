@@ -90,12 +90,13 @@ export class yzecoriolisActor extends Actor {
     }
 
     let hpBonuses = this._prepHPBonuses();
+    let mpBonuses = this._prepMPBonuses();
     data.hitPoints.max =
       data.attributes.strength.value +
       data.attributes.agility.value +
       hpBonuses;
     data.mindPoints.max =
-      data.attributes.wits.value + data.attributes.empathy.value;
+      data.attributes.wits.value + data.attributes.empathy.value + mpBonuses;
 
     if (data.hitPoints.value > data.hitPoints.max) {
       data.hitPoints.value = data.hitPoints.max;
@@ -152,6 +153,19 @@ export class yzecoriolisActor extends Actor {
       }
       const tData = t.data.data;
       bonus += Number(tData.hpBonus);
+    }
+    return bonus;
+  }
+
+  _prepMPBonuses() {
+    // look through talents for any MPBonuses
+    let bonus = 0;
+    for (let t of this.data.items) {
+      if (t.type !== "talent") {
+        continue;
+      }
+      const tData = t.data.data;
+      bonus += Number(tData.mpBonus);
     }
     return bonus;
   }

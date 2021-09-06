@@ -32,6 +32,12 @@
                     <input class="cost-input flexrow" type="text" name="data.hpBonus" value="{{data.hpBonus}}"
                         data-dtype="Number" />
                 </div>
+                {{!-- Edit MP Bonus for this talent --}}
+                <div class="resource flexrow">
+                    <label class="cost-label flexrow">{{localize "YZECORIOLIS.MPBonus"}}</label>
+                    <input class="cost-input flexrow" type="text" name="data.mpBonus" value="{{data.mpBonus}}"
+                        data-dtype="Number" />
+                </div>
                 {{!-- Display the cost if it has any --}}
                 {{#talentHasCost data.category}}
                 <div class="flexrow">
