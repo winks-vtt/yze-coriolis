@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.5.1...v2.6.0) (2021-09-06)
+
+
+### Features
+
+* add ability to have talents add to mind points similarly to how HP buffs work ([ec5e087](https://www.github.com/winks-vtt/yze-coriolis/commit/ec5e087ab69c16ff5bf321e42a94d1e500878f44))
+
 ### [2.5.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.5.0...v2.5.1) (2021-09-05)
 
 
