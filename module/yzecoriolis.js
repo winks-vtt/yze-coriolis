@@ -23,6 +23,7 @@ import {
   importShipSheetTutorial,
   showOnboardingMessage,
 } from "./onboarding.js";
+import { coriolisJournalSheet } from "./coriolisJournal.js";
 
 Hooks.once("init", async function () {
   console.log(`Coriolis | Initializing Coriolis\n${YZECORIOLIS.ASCII}`);
@@ -45,7 +46,7 @@ Hooks.once("init", async function () {
 
   // Setup TinyMCE stylings
   CONFIG.TinyMCE.content_css = "systems/yzecoriolis/css/yzecoriolismce.css";
-
+  CONFIG.JournalEntry.sheetClass = coriolisJournalSheet;
   preloadHandlerbarsTemplates();
 
   // Define custom Entity classes
