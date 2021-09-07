@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.6.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.0...v2.6.1) (2021-09-07)
+
+
+### Bug Fixes
+
+* added internal support for custom journal styling ([b9d344a](https://www.github.com/winks-vtt/yze-coriolis/commit/b9d344ad0719f3ea7833ebfa802eec08be93969d))
+
 ## [2.6.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.5.1...v2.6.0) (2021-09-06)
 
 
