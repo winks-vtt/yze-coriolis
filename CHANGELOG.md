@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.6.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.1...v2.6.2) (2021-10-21)
+
+
+### Bug Fixes
+
+* handle taller portrait images in character sheet without breaking layouts ([e90068f](https://www.github.com/winks-vtt/yze-coriolis/commit/e90068fcba0b0d21734201afa37ae4b18b524ab5))
+
 ### [2.6.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.0...v2.6.1) (2021-09-07)
 
 
