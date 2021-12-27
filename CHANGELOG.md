@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.6.4](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.3...v2.6.4) (2021-12-27)
+
+
+### Bug Fixes
+
+* removed deprecated calls to journal sheet styling ([1d95533](https://www.github.com/winks-vtt/yze-coriolis/commit/1d9553329362276f0043155b4f38adea7085fe6c))
+
 ### [2.6.3](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.2...v2.6.3) (2021-10-21)
 
 
