@@ -46,7 +46,13 @@ Hooks.once("init", async function () {
 
   // Setup TinyMCE stylings
   CONFIG.TinyMCE.content_css = "systems/yzecoriolis/css/yzecoriolismce.css";
-  CONFIG.JournalEntry.sheetClass = coriolisJournalSheet;
+  DocumentSheetConfig.registerSheet(
+    JournalEntry,
+    "yzecoriolis",
+    coriolisJournalSheet,
+    { makeDefault: true }
+  );
+
   preloadHandlerbarsTemplates();
 
   // Define custom Entity classes
