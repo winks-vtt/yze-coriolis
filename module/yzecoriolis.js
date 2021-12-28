@@ -46,18 +46,16 @@ Hooks.once("init", async function () {
 
   // Setup TinyMCE stylings
   CONFIG.TinyMCE.content_css = "systems/yzecoriolis/css/yzecoriolismce.css";
-  // TODO: remove this if check whe min version is v9+. This is added to
-  // maintain compatibility with v8 and v9
-  if (DocumentSheetConfig) {
-    DocumentSheetConfig.registerSheet(
-      JournalEntry,
-      "yzecoriolis",
-      coriolisJournalSheet,
-      { makeDefault: true }
-    );
-  } else {
-    CONFIG.JournalEntry.sheetClass = coriolisJournalSheet;
-  }
+
+  // TODO: enabled this when min version is v9+.
+  // DocumentSheetConfig.registerSheet(
+  //   JournalEntry,
+  //   "yzecoriolis",
+  //   coriolisJournalSheet,
+  //   { makeDefault: true }
+  // );
+  // TODO: remove this when min version is v9+.
+  CONFIG.JournalEntry.sheetClass = coriolisJournalSheet;
 
   preloadHandlerbarsTemplates();
 
