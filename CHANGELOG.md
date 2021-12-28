@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.6.6](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.5...v2.6.6) (2021-12-28)
+
+
+### Bug Fixes
+
+* fixed incompatibility with v8 users. For the time being the deprecated statement will exist in v9 until the next version of Coriolis. ([a7a5fa3](https://www.github.com/winks-vtt/yze-coriolis/commit/a7a5fa31811b35ab0bc93a4af62af7f871227f75))
+
 ### [2.6.5](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.4...v2.6.5) (2021-12-28)
 
 
