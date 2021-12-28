@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.6.5](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.4...v2.6.5) (2021-12-28)
+
+
+### Bug Fixes
+
+* fixed incompatibility with v8 users ([eb4d418](https://www.github.com/winks-vtt/yze-coriolis/commit/eb4d41851c6b3ea2362db9a475989910824721b6))
+
 ### [2.6.4](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.3...v2.6.4) (2021-12-27)
 
 
