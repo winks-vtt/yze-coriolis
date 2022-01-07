@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.6.9](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.8...v2.6.9) (2022-01-07)
+
+
+### Bug Fixes
+
+* make update failure more verbose ([5e10c01](https://www.github.com/winks-vtt/yze-coriolis/commit/5e10c019a03e078c595a7510a89a45778dd52afb))
+
 ### [2.6.8](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.7...v2.6.8) (2022-01-07)
 
 
