@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.6.7](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.6...v2.6.7) (2022-01-07)
+
+
+### Bug Fixes
+
+* fix item creation issue ([75a8811](https://www.github.com/winks-vtt/yze-coriolis/commit/75a881122f2e31090feae28b85f262ab557283ff))
+
 ### [2.6.6](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.5...v2.6.6) (2021-12-28)
 
 
