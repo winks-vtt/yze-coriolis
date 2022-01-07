@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.6.10](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.9...v2.6.10) (2022-01-07)
+
+
+### Bug Fixes
+
+* adding more robust error handling in updater ([d27483d](https://www.github.com/winks-vtt/yze-coriolis/commit/d27483d03813ba22d3087d036274dc4f26997bb5))
+
 ### [2.6.9](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.8...v2.6.9) (2022-01-07)
 
 
