@@ -51,7 +51,7 @@ func main() {
 	}
 	values, err := getPackageForm(client, packageId)
 	if err != nil {
-		log.Fatalln("failed to fetch form submission")
+		log.Fatalln("failed to fetch form submission", err)
 	}
 
 	err = addNewVersion(client, packageId, values, VersionEntry{
