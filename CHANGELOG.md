@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.6.12](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.11...v2.6.12) (2022-01-12)
+
+
+### Bug Fixes
+
+* fix collapsing sidebar bug with coriolis stylesheets ([3ce8806](https://www.github.com/winks-vtt/yze-coriolis/commit/3ce8806573a15067ac2a2ccd5ddad6607db58034))
+
 ### [2.6.11](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.10...v2.6.11) (2022-01-07)
 
 
