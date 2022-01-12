@@ -132,19 +132,6 @@
   font-weight: bold;
   text-transform: uppercase;
 }
-.tabs {
-  height: 40px;
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
-}
-.tabs .item {
-  line-height: 40px;
-  font-weight: bold;
-}
-.tabs .item.active {
-  text-decoration: underline;
-  text-shadow: none;
-}
 .flex-center {
   align-items: center;
   justify-content: center;
