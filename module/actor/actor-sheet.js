@@ -232,6 +232,12 @@ export class yzecoriolisActorSheet extends ActorSheet {
       item.sheet.render(true);
     });
 
+    html.find(".item-post").click((ev) => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+      item.sendToChat();
+    });
+
     // Item State Toggling
     html.find(".item-toggle").click(this._onToggleItem.bind(this));
 

@@ -80,6 +80,7 @@
     "YZECORIOLIS.Delete": "Supprimer",
 
     "YZECORIOLIS.CreateTalent": "Ajouter Talent",
+    "YZECORIOLIS.PostTalent": "Publier Talent",
     "YZECORIOLIS.EditTalent": "Éditer Talent",
     "YZECORIOLIS.DeleteTalent": "Supprimer Talent",
     "YZECORIOLIS.NewTalent": "Nouveau Talent",
@@ -104,6 +105,11 @@
     "YZECORIOLIS.DeleteArmor": "Supprimer Armure",
     "YZECORIOLIS.DeleteExplosive": "Supprimer Explosif",
 
+    "YZECORIOLIS.PostGear": "Publier Équipement",
+    "YZECORIOLIS.PostWeapon": "Publier Arme",
+    "YZECORIOLIS.PostArmor": "Publier Armure",
+    "YZECORIOLIS.PostExplosive": "Publier Explosif",
+
     "YZECORIOLIS.EquipWeapon": "Équiper Arme",
     "YZECORIOLIS.EquipGear": "Équiper Équipement",
     "YZECORIOLIS.EquipArmor": "Équiper Armure",
@@ -119,6 +125,7 @@
     "YZECORIOLIS.Crit": "Crit.",
     "YZECORIOLIS.Damage": "Dégâts",
     "YZECORIOLIS.Weight": "Poids",
+    "YZECORIOLIS.Talent": "Talent",
     "YZECORIOLIS.Gear": "Équipement",
     "YZECORIOLIS.Weapons": "Armes",
     "YZECORIOLIS.Weapon": "Arme",
@@ -133,7 +140,8 @@
     "YZECORIOLIS.Range": "Portée",
     "YZECORIOLIS.CriticalInjuries": "Blessures Critiques",
     "YZECORIOLIS.CriticalInjury": "Blessure Critique",
-    "YZECORIOLIS.CreateCriticalInjury": "Ajouter Blessure Critique ",
+    "YZECORIOLIS.CreateCriticalInjury": "Ajouter Blessure Critique",
+    "YZECORIOLIS.PostCriticalInjury": "Publier Blessure Critique",
     "YZECORIOLIS.EditCriticalInjury": "Éditer Blessure Critique",
     "YZECORIOLIS.DeleteCriticalInjury": "Supprimer Blessure Critique",
     "YZECORIOLIS.NewCriticalInjury": "Nouvelle Blessure Critique",
