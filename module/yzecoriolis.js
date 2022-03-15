@@ -47,15 +47,12 @@ Hooks.once("init", async function () {
   // Setup TinyMCE stylings
   CONFIG.TinyMCE.content_css = "systems/yzecoriolis/css/yzecoriolismce.css";
 
-  // TODO: enabled this when min version is v9+.
-  // DocumentSheetConfig.registerSheet(
-  //   JournalEntry,
-  //   "yzecoriolis",
-  //   coriolisJournalSheet,
-  //   { makeDefault: true }
-  // );
-  // TODO: remove this when min version is v9+.
-  CONFIG.JournalEntry.sheetClass = coriolisJournalSheet;
+  DocumentSheetConfig.registerSheet(
+    JournalEntry,
+    "yzecoriolis",
+    coriolisJournalSheet,
+    { makeDefault: true }
+  );
 
   preloadHandlerbarsTemplates();
 
