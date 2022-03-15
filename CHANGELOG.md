@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.6.13](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.12...v2.6.13) (2022-03-15)
+
+
+### Bug Fixes
+
+* use v9 API for registering new journal sheets ([2d6e39e](https://www.github.com/winks-vtt/yze-coriolis/commit/2d6e39ecea181341d4c278d7b9768357cf9cba99)), closes [#139](https://www.github.com/winks-vtt/yze-coriolis/issues/139)
+
 ### [2.6.12](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.11...v2.6.12) (2022-01-12)
 
 
