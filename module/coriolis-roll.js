@@ -234,6 +234,7 @@ async function showChatMessage(chatMsgOptions, resultData) {
   );
   let chatData = {
     title: getRollTitle(resultData.rollData),
+    icon: getRollIconKey(resultData.rollData),
     results: resultData,
     tooltip: tooltip,
     canPush: !resultData.pushed,
@@ -284,6 +285,11 @@ async function updateChatMessage(chatMessage, resultData) {
 
 function getRollTitle(rollData) {
   return `${rollData.rollTitle}`;
+}
+
+function getRollIconKey(rollData) {
+  const icon = CONFIG.YZECORIOLIS.skillIcons[rollData.skillKey];
+  return icon ? CONFIG.YZECORIOLIS.icons[icon] : "";
 }
 
 function getTooltipData(results) {

@@ -281,6 +281,25 @@ YZECORIOLIS.icons = {
   faceless: "YZECORIOLIS.IconFaceless",
 };
 
+YZECORIOLIS.skillIcons = {
+  dexterity: "dancer",
+  force: "deckhand",
+  infiltration: "faceless",
+  manipulation: "merchant",
+  meleecombat: "dancer",
+  observation: "gambler",
+  rangedcombat: "judge",
+  survival: "traveler",
+  command: "judge",
+  culture: "traveler",
+  datadjinn: "messenger",
+  medicurgy: "ladyOfTears",
+  mysticpowers: "faceless",
+  pilot: "gambler",
+  science: "messenger",
+  technology: "messenger",
+};
+
 // General types are just either required or optional modules.
 // Weapon types are a sub-category of modules that actually house weaponry.
 YZECORIOLIS.shipModuleCategories = {
