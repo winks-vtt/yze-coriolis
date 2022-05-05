@@ -16,7 +16,7 @@ export class coriolisJournalSheet extends JournalSheet {
     } else {
       // if this is a normal journal entry (i.e. player or gm created), test if it is editable, then wrap into Coriolis
       // classes to make them look nice
-      const editableElements = html.find(".window-content .editable");
+      const editableElements = html.parent().find(".editable");
       // only if the class has not been included
       if (!editableElements.hasClass("coriolis-core")) {
         editableElements.addClass("coriolis-core");
