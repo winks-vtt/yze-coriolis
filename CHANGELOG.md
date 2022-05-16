@@ -1,5 +1,18 @@
 # Changelog
 
+### [2.8.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.8.1...v2.8.2) (2022-05-16)
+
+
+### Bug Fixes
+
+* made custom journal entries use default styling ([0cd357e](https://www.github.com/winks-vtt/yze-coriolis/commit/0cd357e0e412c0046cf37ba74f3f50a9cd883ae0)), closes [#130](https://www.github.com/winks-vtt/yze-coriolis/issues/130)
+
+
+### Miscellaneous
+
+* remove sass dep ([ebe4ac6](https://www.github.com/winks-vtt/yze-coriolis/commit/ebe4ac626fdbd820b1b6e0d27c2147712143a7e4))
+* update vscode settings ([60a8a0a](https://www.github.com/winks-vtt/yze-coriolis/commit/60a8a0a1a91661725f2caa5db19cc7e2d8878434))
+
 ### [2.8.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.8.0...v2.8.1) (2022-05-16)
 
 
