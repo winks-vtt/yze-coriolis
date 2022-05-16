@@ -86,14 +86,20 @@ export class yzecoriolisItem extends Item {
     return data;
   }
 
-  async sendToChat() { 
-    const templateData = { 
+  async sendToChat() {
+    const imgPath = this.data.img
+      ? this.data.img
+      : getDefaultItemIcon(this.type, this.data.data.explosive);
+    const templateData = {
       item: foundry.utils.deepClone(this.data),
-      icon: getDefaultItemIcon(this.type, this.data.data.explosive)
+      icon: imgPath,
     };
-    const html = await renderTemplate(`systems/yzecoriolis/templates/sidebar/item.html`, templateData);
+    const html = await renderTemplate(
+      `systems/yzecoriolis/templates/sidebar/item.html`,
+      templateData
+    );
     const msg = {
-      content: html
+      content: html,
     };
     ChatMessage.create(msg, false);
   }

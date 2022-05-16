@@ -2663,6 +2663,10 @@
 .yzecoriolis.chat-item strong {
   text-transform: uppercase;
 }
+.chat-item-img {
+  border: none;
+  width: 200px;
+}
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */
   /*  Sheet Tabs                             */
