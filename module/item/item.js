@@ -105,12 +105,12 @@ export class yzecoriolisItem extends Item {
    */
   static async createDialog(data, options) {
     const hiddenItems = ["energyPointToken", "item"];
-    const original = game.system.entityTypes.Item;
-    game.system.entityTypes.Item = original.filter(
+    const original = game.system.documentTypes.Item;
+    game.system.documentTypes.Item = original.filter(
       (itemType) => !hiddenItems.includes(itemType)
     );
     const newItem = super.createDialog(data, options);
-    game.system.entityTypes.Item = original;
+    game.system.documentTypes.Item = original;
     return newItem;
   }
 }

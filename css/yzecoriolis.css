@@ -112,38 +112,25 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5vAw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5vAw.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9vAw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9vAw.ttf) format('truetype');
 }
 .resource-label {
   font-weight: bold;
   text-transform: uppercase;
-}
-.tabs {
-  height: 40px;
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
-}
-.tabs .item {
-  line-height: 40px;
-  font-weight: bold;
-}
-.tabs .item.active {
-  text-decoration: underline;
-  text-shadow: none;
 }
 .flex-center {
   align-items: center;
@@ -725,6 +712,9 @@
 .yzecoriolis.sheet.actor .max-h-412 {
   max-height: 412px;
 }
+.yzecoriolis.sheet.actor .max-h-750 {
+  max-height: 750px;
+}
 .yzecoriolis.sheet.actor .h-header {
   height: 24px;
 }
@@ -1001,6 +991,7 @@
   grid-row-start: 3;
   grid-row-end: 4;
   z-index: 3;
+  margin-top: -50px;
 }
 .yzecoriolis.sheet.actor .always-visible-stats .perma-stats-list {
   color: #e5e5e5;

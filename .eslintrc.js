@@ -17,6 +17,7 @@ module.exports = {
     ROUTE_PREFIX: "readonly",
     // foundry utils
     foundry: "readonly",
+    DocumentSheetConfig: "readonly",
   },
   rules: {},
 };

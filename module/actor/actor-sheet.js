@@ -147,8 +147,10 @@ export class yzecoriolisActorSheet extends ActorSheet {
       // append to gear
       if (i.type === "gear") {
         gear.push(i.data);
-        totalWeightPoints +=
-          CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
+        if (isActive) {
+          totalWeightPoints +=
+            CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
+        }
       }
       // append to talents
       if (i.type === "talent") {
@@ -162,12 +164,16 @@ export class yzecoriolisActorSheet extends ActorSheet {
         } else {
           weapons.push(i.data);
         }
-        totalWeightPoints +=
-          CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
+        if (isActive) {
+          totalWeightPoints +=
+            CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
+        }
       }
       if (i.type === "armor") {
         armor.push(i.data);
-        totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight]; // we assume 1 quantity.
+        if (isActive) {
+          totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight]; // we assume 1 quantity.
+        }
       }
       if (i.type === "injury") {
         injuries.push(i.data);
@@ -444,6 +450,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       bonus: dataset.bonus ? Number(dataset.bonus) : 0,
       rollTitle: dataset.label,
       pushed: false,
+      actorType: this.actor.data.type,
     };
     const chatOptions = this.actor._prepareChatRollOptions(
       "systems/yzecoriolis/templates/sidebar/roll.html",

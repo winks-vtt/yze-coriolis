@@ -204,6 +204,7 @@
           "description": ""
         },
         "birr": 0,
+        "movementRate": 10,
         "keyArt": ""
       }
     },
@@ -293,7 +294,8 @@
       "category": "",
       "cost": 0,
       "groupConcept": "",
-      "hpBonus": 0
+      "hpBonus": 0,
+      "mpBonus": 0
     },
     "weapon": {
       "templates": ["gear"],

@@ -94,6 +94,11 @@ func getPackageForm(client *http.Client, packageId int) (url.Values, error) {
 		return nil, fmt.Errorf("failed to fetch submission form: %v", err)
 	}
 	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("non 200 status %d %s", resp.StatusCode, resp.Status)
+	}
+
 	submissionForm, err := html.Parse(resp.Body)
 	if err != nil {
 		return nil, fmt.Errorf("failed to parse edit form: %v", err)

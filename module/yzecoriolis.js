@@ -23,6 +23,7 @@ import {
   importShipSheetTutorial,
   showOnboardingMessage,
 } from "./onboarding.js";
+import { coriolisJournalSheet } from "./coriolisJournal.js";
 
 Hooks.once("init", async function () {
   console.log(`Coriolis | Initializing Coriolis\n${YZECORIOLIS.ASCII}`);
@@ -45,6 +46,13 @@ Hooks.once("init", async function () {
 
   // Setup TinyMCE stylings
   CONFIG.TinyMCE.content_css = "systems/yzecoriolis/css/yzecoriolismce.css";
+
+  DocumentSheetConfig.registerSheet(
+    JournalEntry,
+    "yzecoriolis",
+    coriolisJournalSheet,
+    { makeDefault: true }
+  );
 
   preloadHandlerbarsTemplates();
 
@@ -365,7 +373,7 @@ Hooks.once("ready", async function () {
     "yzecoriolis",
     "systemMigrationVersion"
   );
-  const NEEDS_MIGRATION_VERSION = "2.1.9";
+  const NEEDS_MIGRATION_VERSION = "2.5.0";
   const COMPATIBLE_MIGRATION_VERSION = "1.4.7";
   let needMigration =
     currentVersion &&
@@ -385,7 +393,6 @@ Hooks.once("ready", async function () {
     }
     await migrations.migrateWorld();
   }
-
   //bootstrapTalentCompendium();
   //bootstrapGearCompendium();
 

@@ -1,12 +1,21 @@
+![Banner](https://github.com/winks-vtt/yze-coriolis/raw/master/images/coriolis-banner.png)
+
 # Coriolis
 
-An UNOFFICIAL system for playing [Coriolis](https://frialigan.se/en/games/coriolis-2/) on Foundry VTT, and made available with permission from [Free League Publishing](http://freeleaguepublishing.com/).
+The **Official** system for playing [Coriolis](https://frialigan.se/en/games/coriolis-2/) on Foundry VTT.
 
 ## Installation
 
 1. Inside Foundry's Configuration and Setup screen, go to **Game Systems**
 2. Click "Install System"
 3. In the Manifest URL field paste: `https://raw.githubusercontent.com/winks-vtt/yze-coriolis/master/system.json`
+
+## Official Modules
+
+To save time recreating hundreds of items, journals, NPCs, and maps from the official print or PDF source material, there are a official modules available:
+
+- [Core Rulebook Module](https://foundryvtt.com/packages/coriolis-corerules)
+- [Last Voyage of the Ghazali](https://foundryvtt.com/packages/coriolis-ghazali)
 
 ## Features
 

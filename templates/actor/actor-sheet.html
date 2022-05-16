@@ -1,6 +1,6 @@
 <form class="{{cssClass}}" autocomplete="off">
   <div class="sheet-container">
-    <div class="key-art-container col-start-1 col-end-2 row-start-1 row-end-4 z-1">
+    <div class="key-art-container col-start-1 col-end-2 row-start-1 row-end-4 z-1 max-h-750 overflow-hidden">
       <img class="vertical-img" src="{{data.keyArt}}" data-edit="data.keyArt" title="{{name}}">
     </div>
     <div class="gradient-overlay"></div>
@@ -99,6 +99,12 @@
             {{/with}}
             {{/each}}
             <span class="bar-value">{{data.reputation.value}}</span>
+          </div>
+        </li>
+        <li class="entry flexrow">
+          <div class="capitalize stat-label">{{localize "YZECORIOLIS.MovementRate"}}</div>
+          <div class="number">
+            <input class="input-value" type="text" name="data.movementRate" value="{{data.movementRate}}" data-dtype="Number" placeholder="0" />
           </div>
         </li>
         <li class="entry flexrow">

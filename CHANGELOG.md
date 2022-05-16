@@ -1,5 +1,139 @@
 # Changelog
 
+### [2.7.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.7.0...v2.7.1) (2022-05-16)
+
+
+### Bug Fixes
+
+* updated french language files ([251ce95](https://www.github.com/winks-vtt/yze-coriolis/commit/251ce950236cfbf5bb1be57961821c3f31d8bc22))
+
+## [2.7.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.13...v2.7.0) (2022-05-16)
+
+
+### Features
+
+* made equipped status toggle encumbrance calculations ([53d5666](https://www.github.com/winks-vtt/yze-coriolis/commit/53d56662e99145a6fd4ea91823dd0c1cbaf94a22))
+
+### [2.6.13](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.12...v2.6.13) (2022-03-15)
+
+
+### Bug Fixes
+
+* use v9 API for registering new journal sheets ([2d6e39e](https://www.github.com/winks-vtt/yze-coriolis/commit/2d6e39ecea181341d4c278d7b9768357cf9cba99)), closes [#139](https://www.github.com/winks-vtt/yze-coriolis/issues/139)
+
+### [2.6.12](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.11...v2.6.12) (2022-01-12)
+
+
+### Bug Fixes
+
+* fix collapsing sidebar bug with coriolis stylesheets ([3ce8806](https://www.github.com/winks-vtt/yze-coriolis/commit/3ce8806573a15067ac2a2ccd5ddad6607db58034))
+
+### [2.6.11](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.10...v2.6.11) (2022-01-07)
+
+
+### Bug Fixes
+
+* version bump ([296eec5](https://www.github.com/winks-vtt/yze-coriolis/commit/296eec5e872d68f984a602819cd04d387b50618c))
+
+### [2.6.10](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.9...v2.6.10) (2022-01-07)
+
+
+### Bug Fixes
+
+* adding more robust error handling in updater ([d27483d](https://www.github.com/winks-vtt/yze-coriolis/commit/d27483d03813ba22d3087d036274dc4f26997bb5))
+
+### [2.6.9](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.8...v2.6.9) (2022-01-07)
+
+
+### Bug Fixes
+
+* make update failure more verbose ([5e10c01](https://www.github.com/winks-vtt/yze-coriolis/commit/5e10c019a03e078c595a7510a89a45778dd52afb))
+
+### [2.6.8](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.7...v2.6.8) (2022-01-07)
+
+
+### Bug Fixes
+
+* version bump ([73ea4e6](https://www.github.com/winks-vtt/yze-coriolis/commit/73ea4e6464cfd391f27f8bf4130a2f18a3a456d1))
+
+### [2.6.7](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.6...v2.6.7) (2022-01-07)
+
+
+### Bug Fixes
+
+* fix item creation issue ([75a8811](https://www.github.com/winks-vtt/yze-coriolis/commit/75a881122f2e31090feae28b85f262ab557283ff))
+
+### [2.6.6](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.5...v2.6.6) (2021-12-28)
+
+
+### Bug Fixes
+
+* fixed incompatibility with v8 users. For the time being the deprecated statement will exist in v9 until the next version of Coriolis. ([a7a5fa3](https://www.github.com/winks-vtt/yze-coriolis/commit/a7a5fa31811b35ab0bc93a4af62af7f871227f75))
+
+### [2.6.5](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.4...v2.6.5) (2021-12-28)
+
+
+### Bug Fixes
+
+* fixed incompatibility with v8 users ([eb4d418](https://www.github.com/winks-vtt/yze-coriolis/commit/eb4d41851c6b3ea2362db9a475989910824721b6))
+
+### [2.6.4](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.3...v2.6.4) (2021-12-27)
+
+
+### Bug Fixes
+
+* removed deprecated calls to journal sheet styling ([1d95533](https://www.github.com/winks-vtt/yze-coriolis/commit/1d9553329362276f0043155b4f38adea7085fe6c))
+
+### [2.6.3](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.2...v2.6.3) (2021-10-21)
+
+
+### Bug Fixes
+
+* updated fvtt compatibility settings ([e32450f](https://www.github.com/winks-vtt/yze-coriolis/commit/e32450f3560d453a3b5bc7657b703d267fb60f45))
+
+### [2.6.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.1...v2.6.2) (2021-10-21)
+
+
+### Bug Fixes
+
+* handle taller portrait images in character sheet without breaking layouts ([e90068f](https://www.github.com/winks-vtt/yze-coriolis/commit/e90068fcba0b0d21734201afa37ae4b18b524ab5))
+
+### [2.6.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.0...v2.6.1) (2021-09-07)
+
+
+### Bug Fixes
+
+* added internal support for custom journal styling ([b9d344a](https://www.github.com/winks-vtt/yze-coriolis/commit/b9d344ad0719f3ea7833ebfa802eec08be93969d))
+
+## [2.6.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.5.1...v2.6.0) (2021-09-06)
+
+
+### Features
+
+* add ability to have talents add to mind points similarly to how HP buffs work ([ec5e087](https://www.github.com/winks-vtt/yze-coriolis/commit/ec5e087ab69c16ff5bf321e42a94d1e500878f44))
+
+### [2.5.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.5.0...v2.5.1) (2021-09-05)
+
+
+### Bug Fixes
+
+* fixed migration to properly populate movement Rate for existing actors ([4421a62](https://www.github.com/winks-vtt/yze-coriolis/commit/4421a62f32ce6677197cfcc0a7578f614f3381e1))
+* updated version target for migration ([2c5e568](https://www.github.com/winks-vtt/yze-coriolis/commit/2c5e5680d55db300e2fd09c97c35be5939a8ec81))
+
+## [2.5.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.4.1...v2.5.0) (2021-09-05)
+
+
+### Features
+
+* added movement rate stat to characters and NPCs ([79de6ff](https://www.github.com/winks-vtt/yze-coriolis/commit/79de6ff23dea28a374926445a0beb3d488ebed6e))
+
+### [2.4.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.4.0...v2.4.1) (2021-09-05)
+
+
+### Bug Fixes
+
+* handle defaulting character keyArt when importing from compendiums ([7fb454c](https://www.github.com/winks-vtt/yze-coriolis/commit/7fb454c01328d3bd52b0f138b2abd193e4b358d0))
+
 ## [2.4.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.3.4...v2.4.0) (2021-08-05)
 
 
