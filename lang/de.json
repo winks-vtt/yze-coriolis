@@ -350,7 +350,9 @@
   "YZECORIOLIS.Modules": "Module",
   "YZECORIOLIS.CriticalDamage": "kritischer Schaden",
   "YZECORIOLIS.Notes": "Notizen",
+  "YZECORIOLIS.EnergyPoints": "Leistungspunkte",
   "YZECORIOLIS.MaxEnergyPoints": "Max. Leistungspunkte",
+  "YZECORIOLIS.HullPoints": "Rumpfpunkte",
   "YZECORIOLIS.MaxHullPoints": "Max. Rumpfpunkte",
 
   "YZECORIOLIS.SettingMaxEnergyPoints": "Maximal erlaubte Leistungspunkte",
