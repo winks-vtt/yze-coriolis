@@ -36,6 +36,16 @@ export class yzecoriolisActorSheet extends ActorSheet {
     });
   }
 
+  /**
+   * Activate a named TinyMCE text editor
+   * @param {string} name             The named data field which the editor modifies.
+   * @param {object} options          TinyMCE initialization options passed to TextEditor.create
+   * @param {string} initialContent   Initial text content for the editor area.
+   */
+  activateEditor(name, options = {}, initialContent = "") {
+    const customOptions = { ...options, body_class: "charnotes-edit-body" };
+    super.activateEditor(name, customOptions, initialContent);
+  }
   /* -------------------------------------------- */
 
   /** @override */
