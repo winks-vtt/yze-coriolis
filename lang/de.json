@@ -82,6 +82,7 @@
   "YZECORIOLIS.Delete": "Löschen",
 
   "YZECORIOLIS.CreateTalent": "Fertigkeit einfügen",
+  "YZECORIOLIS.PostTalent": "Fertigkeit posten",
   "YZECORIOLIS.EditTalent": "Fertigkeit anpassen",
   "YZECORIOLIS.DeleteTalent": "Fertigkeit löschen",
   "YZECORIOLIS.NewTalent": "Neue Fertigkeit",
@@ -106,6 +107,11 @@
   "YZECORIOLIS.DeleteArmor": "Panzerung löschen",
   "YZECORIOLIS.DeleteExplosive": "Sprengstoff löschen",
 
+  "YZECORIOLIS.PostGear": "Ausrüstung posten",
+  "YZECORIOLIS.PostWeapon": "Waffe posten",
+  "YZECORIOLIS.PostArmor": "Panzerung posten",
+  "YZECORIOLIS.PostExplosive": "Sprengstoff posten",
+
   "YZECORIOLIS.EquipWeapon": "Waffe anlegen",
   "YZECORIOLIS.EquipGear": "Ausrüstung anlegen",
   "YZECORIOLIS.EquipArmor": "Panzerung anlegen",
@@ -121,6 +127,7 @@
   "YZECORIOLIS.Crit": "Krit",
   "YZECORIOLIS.Damage": "Schaden",
   "YZECORIOLIS.Weight": "Gewicht",
+  "YZECORIOLIS.Talent": "Fertigkeit",
   "YZECORIOLIS.Gear": "Ausrüstung",
   "YZECORIOLIS.Weapons": "Waffen",
   "YZECORIOLIS.Weapon": "Waffe",
@@ -136,6 +143,7 @@
   "YZECORIOLIS.CriticalInjuries": "Kritische Wunden",
   "YZECORIOLIS.CriticalInjury": "Kritische Wunde",
   "YZECORIOLIS.CreateCriticalInjury": "Kritische Wunde hinzufügen",
+  "YZECORIOLIS.PostCriticalInjury": "Kritische Wunde posten",
   "YZECORIOLIS.EditCriticalInjury": "Kritische Wunde anpassen",
   "YZECORIOLIS.DeleteCriticalInjury": "Kritische Wunde löschen",
   "YZECORIOLIS.NewCriticalInjury": "Neue Kritische Wunde",
