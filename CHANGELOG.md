@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.8.3](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.8.2...v2.8.3) (2022-05-16)
+
+
+### Bug Fixes
+
+* use item images if they exist otherwise use default icons when sending to chat ([c2146ac](https://www.github.com/winks-vtt/yze-coriolis/commit/c2146ac3d914098143322c9d2dc684fb61411cc7))
+
 ### [2.8.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.8.1...v2.8.2) (2022-05-16)
 
 
