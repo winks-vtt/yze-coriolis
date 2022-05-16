@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.8.4](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.8.3...v2.8.4) (2022-05-16)
+
+
+### Miscellaneous
+
+* updating dep ([e24874e](https://www.github.com/winks-vtt/yze-coriolis/commit/e24874e69564b0698583716f4480f42556782511))
+
 ### [2.8.3](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.8.2...v2.8.3) (2022-05-16)
 
 
