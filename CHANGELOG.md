@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.7.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.7.1...v2.7.2) (2022-05-16)
+
+
+### Bug Fixes
+
+* for NPCs spend DP instead of increasing it ([2618f88](https://www.github.com/winks-vtt/yze-coriolis/commit/2618f88b68d8225bf87833efcbf5498869e3e77c))
+
 ### [2.7.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.7.0...v2.7.1) (2022-05-16)
 
 
