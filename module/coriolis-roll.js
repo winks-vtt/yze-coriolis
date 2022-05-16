@@ -139,7 +139,11 @@ export async function coriolisPushRoll(chatMessage, origRollData, origRoll) {
   await showDiceSoNice(origRoll, chatMessage.rollMode);
   const result = evaluateCoriolisRoll(origRollData, origRoll);
   await updateChatMessage(chatMessage, result);
-  await addDarknessPoints(1);
+  if(origRollData.actorType === "npc"){
+    await addDarknessPoints(-1);
+  }else {
+    await addDarknessPoints(1);
+  }
 }
 
 /**

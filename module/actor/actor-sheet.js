@@ -450,6 +450,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       bonus: dataset.bonus ? Number(dataset.bonus) : 0,
       rollTitle: dataset.label,
       pushed: false,
+      actorType: this.actor.data.type,
     };
     const chatOptions = this.actor._prepareChatRollOptions(
       "systems/yzecoriolis/templates/sidebar/roll.html",
