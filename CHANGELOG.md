@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.8.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.7.2...v2.8.0) (2022-05-16)
+
+
+### Features
+
+* add related skill icon on prayer button ([7db2806](https://www.github.com/winks-vtt/yze-coriolis/commit/7db28069380f181726ae5a44dec684b58d704cd2))
+* added ability to post items to chat ([f616576](https://www.github.com/winks-vtt/yze-coriolis/commit/f6165761bd1929f5d692366ab5d84ec19aef36ff))
+
+
+### Bug Fixes
+
+* added some missing translations ([3da55f6](https://www.github.com/winks-vtt/yze-coriolis/commit/3da55f6a2751c38d0b2f1d85ec1db51c9d5ea71c))
+
 ### [2.7.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.7.1...v2.7.2) (2022-05-16)
 
 
