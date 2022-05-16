@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.13...v2.7.0) (2022-05-16)
+
+
+### Features
+
+* made equipped status toggle encumbrance calculations ([53d5666](https://www.github.com/winks-vtt/yze-coriolis/commit/53d56662e99145a6fd4ea91823dd0c1cbaf94a22))
+
 ### [2.6.13](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.12...v2.6.13) (2022-03-15)
 
 
