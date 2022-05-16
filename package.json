@@ -24,7 +24,6 @@
     "gulp-sourcemaps": "^2.6.5"
   },
   "devDependencies": {
-    "@league-of-foundry-developers/foundry-vtt-types": "^0.7.9-6",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-foundry-vtt": "0.0.1",
