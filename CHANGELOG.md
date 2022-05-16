@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.8.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.8.0...v2.8.1) (2022-05-16)
+
+
+### Bug Fixes
+
+* made default ship key art compatible with firefox ([0e1f300](https://www.github.com/winks-vtt/yze-coriolis/commit/0e1f30004382835f6231fc797d01890322ddf2c0))
+
 ## [2.8.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.7.2...v2.8.0) (2022-05-16)
 
 
