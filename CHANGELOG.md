@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.7.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.7.0...v2.7.1) (2022-05-16)
+
+
+### Bug Fixes
+
+* updated french language files ([251ce95](https://www.github.com/winks-vtt/yze-coriolis/commit/251ce950236cfbf5bb1be57961821c3f31d8bc22))
+
 ## [2.7.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.13...v2.7.0) (2022-05-16)
 
 
