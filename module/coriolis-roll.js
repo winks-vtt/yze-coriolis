@@ -1,4 +1,4 @@
-import { addDarknessPoints } from "./darkness-points.js";
+import { addDarknessPoints, displayDarknessPoints, spendDarknessPoints } from "./darkness-points.js";
 
 export function coriolisModifierDialog(modifierCallback) {
   let d = new Dialog({
@@ -140,7 +140,7 @@ export async function coriolisPushRoll(chatMessage, origRollData, origRoll) {
   const result = evaluateCoriolisRoll(origRollData, origRoll);
   await updateChatMessage(chatMessage, result);
   if(origRollData.actorType === "npc"){
-    await addDarknessPoints(-1);
+    await spendDarknessPoints(1);
   }else {
     await addDarknessPoints(1);
   }
