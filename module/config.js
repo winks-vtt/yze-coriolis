@@ -94,6 +94,14 @@ YZECORIOLIS.skillRolls = {
   technology: "YZECORIOLIS.SkillTechnologyRoll",
 };
 
+YZECORIOLIS.itemTypes = {
+  weapon: "YZECORIOLIS.Weapon",
+  armor: "YZECORIOLIS.Armor",
+  gear: "YZECORIOLIS.Gear",
+  talent:"YZECORIOLIS.Talent",
+  injury: "YZECORIOLIS.CriticalInjury"
+}
+
 // Talents
 
 YZECORIOLIS.talentCategories = {

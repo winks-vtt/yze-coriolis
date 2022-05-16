@@ -86,6 +86,18 @@ export class yzecoriolisItem extends Item {
     return data;
   }
 
+  async sendToChat() { 
+    const templateData = { 
+      item: foundry.utils.deepClone(this.data),
+      icon: getDefaultItemIcon(this.type, this.data.data.explosive)
+    };
+    const html = await renderTemplate(`systems/yzecoriolis/templates/sidebar/item.html`, templateData);
+    const msg = {
+      content: html
+    };
+    ChatMessage.create(msg, false);
+  }
+
   _weaponChatData(data, labels, props) {
     for (let p of Object.values(this.data.data.special)) {
       props.push(p);
