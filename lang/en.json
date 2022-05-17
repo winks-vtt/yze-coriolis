@@ -28,6 +28,7 @@
   "YZECORIOLIS.PushedRoll": "Pushed Roll",
   "YZECORIOLIS.ModifierForRoll": "Modifier",
   "YZECORIOLIS.ModifierForRollQuestion": "Enter the modifier for your roll",
+  "YZECORIOLIS.PrayerModifierForRollQuestion": "Enter the prayer modifier for your roll",
 
   "YZECORIOLIS.DarknessPointsControls": "Darkness Points Controls",
   "YZECORIOLIS.DarknessPointsAdd": "Add a Darkness Point",

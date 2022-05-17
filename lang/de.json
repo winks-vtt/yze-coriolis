@@ -27,6 +27,7 @@
   "YZECORIOLIS.PushedRoll": "Wiederholter Wurf",
   "YZECORIOLIS.ModifierForRoll": "Modifikator",
   "YZECORIOLIS.ModifierForRollQuestion": "Wähle den Modifikator des Würfelwurfs:",
+  "YZECORIOLIS.PrayerModifierForRollQuestion": "Wähle den Gebetsmodifikator des Würfelwurfs:",
 
   "YZECORIOLIS.DarknessPointsControls": "Finsternispunkt-Management",
   "YZECORIOLIS.DarknessPointsAdd": "Finsternispunkt hinzufügen",
@@ -331,7 +332,7 @@
   "YZECORIOLIS.MigratedDP": "Finsternispunkte-System wurde übertragen.",
   "YZECORIOLIS.HPBonus": "TP Bonus",
   "YZECORIOLIS.Melee": "Nahkampf",
-  
+
   "YZECORIOLIS.SheetClassCharacter": "Coriolis Charakterbogen",
   "YZECORIOLIS.SheetClassNPC": "Coriolis NSC-Bogen",
   "YZECORIOLIS.SheetClassShip": "Coriolis Schiffsbogen",

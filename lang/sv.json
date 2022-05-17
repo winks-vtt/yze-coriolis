@@ -27,6 +27,7 @@
   "YZECORIOLIS.PushedRoll": "Bad till ikonerna",
   "YZECORIOLIS.ModifierForRoll": "Modifikation",
   "YZECORIOLIS.ModifierForRollQuestion": "Ange modifikation för slaget",
+  "YZECORIOLIS.PrayerModifierForRollQuestion": "Ange bönemodifieraren för slaget",
 
   "YZECORIOLIS.DarknessPointsControls": "Mörkerpoänghantering",
   "YZECORIOLIS.DarknessPointsAdd": "Lägg till ett mörkerpoäng",

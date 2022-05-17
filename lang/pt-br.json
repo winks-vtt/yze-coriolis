@@ -27,6 +27,7 @@
   "YZECORIOLIS.PushedRoll": "Rolagem Forçada",
   "YZECORIOLIS.ModifierForRoll": "Modificador",
   "YZECORIOLIS.ModifierForRollQuestion": "Insira o modificador para sua rolagem",
+  "YZECORIOLIS.PrayerModifierForRollQuestion": "Insira o modificador de oração para sua rolagem",
 
   "YZECORIOLIS.DarknessPointsControls": "Controle de Pontos Sombrios",
   "YZECORIOLIS.DarknessPointsAdd": "Adicionar um Ponto Sombrio",
@@ -110,7 +111,6 @@
   "YZECORIOLIS.PostWeapon": "Publicar Arma",
   "YZECORIOLIS.PostArmor": "Publicar Armadura",
   "YZECORIOLIS.PostExplosive": "Publicar Explosivo",
-
 
   "YZECORIOLIS.EquipWeapon": "Equipar Arma",
   "YZECORIOLIS.EquipGear": "Equipar Aparelho",
@@ -329,8 +329,8 @@
 
   "YZECORIOLIS.MigratedDP": "Sistema de Pontos Sombrios Migrado.",
   "YZECORIOLIS.HPBonus": "Bonus de PV",
-  "YZECORIOLIS.Melee": "Corpo a Corpo"
-  
+  "YZECORIOLIS.Melee": "Corpo a Corpo",
+
   "YZECORIOLIS.SheetClassCharacter": "Ficha de Personagem",
   "YZECORIOLIS.SheetClassNPC": "Ficha de PdM",
   "YZECORIOLIS.SheetClassShip": "Ficha de Nave",
@@ -378,5 +378,5 @@
   "YZECORIOLIS.NewShipProblem": "Novo Problema",
   "YZECORIOLIS.ShipEditProblem": "Editar Problema",
   "YZECORIOLIS.ShipCreateProblem": "Criar Problema",
-  "YZECORIOLIS.ShipDeleteProblem": "Remover Problema"}
+  "YZECORIOLIS.ShipDeleteProblem": "Remover Problema"
 }

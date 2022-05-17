@@ -24,6 +24,7 @@
   "YZECORIOLIS.PushedRoll": "Tirada Forzada",
   "YZECORIOLIS.ModifierForRoll": "Modificador",
   "YZECORIOLIS.ModifierForRollQuestion": "Introduzca el modificador para su tirada",
+  "YZECORIOLIS.PrayerModifierForRollQuestion": "Introduzca el modificador de oracion para su tirada",
 
   "YZECORIOLIS.DarknessPointsControls": "Control de Puntos de Oscuridad",
   "YZECORIOLIS.DarknessPointsAdd": "Añadir un Punto de Oscuridad",
