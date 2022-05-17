@@ -331,7 +331,7 @@
   "YZECORIOLIS.MigratedDP": "Finsternispunkte-System wurde übertragen.",
   "YZECORIOLIS.HPBonus": "TP Bonus",
   "YZECORIOLIS.Melee": "Nahkampf",
-  
+
   "YZECORIOLIS.SheetClassCharacter": "Coriolis Charakterbogen",
   "YZECORIOLIS.SheetClassNPC": "Coriolis NSC-Bogen",
   "YZECORIOLIS.SheetClassShip": "Coriolis Schiffsbogen",
@@ -356,6 +356,8 @@
   "YZECORIOLIS.MaxHullPoints": "Max. Rumpfpunkte",
 
   "YZECORIOLIS.SettingMaxEnergyPoints": "Maximal erlaubte Leistungspunkte",
+  "YZECORIOLIS.SettingAlwaysShowFeatures": "Merkmale immer einblenden",
+  "YZECORIOLIS.SettingAlwaysShowFeaturesHint": "Blendet die Merkmale von Waffen, Sprengstoffen und Panzerung immer direkt im Charackter-Sheet unter dem Namen ein, anstatt am Ende der ausgeklappten Beschreibung.",
 
   "YZECORIOLIS.EnergyPointsReset": "Zuvor der Mannschaft zu geordnete Leistungspunkte stehen dem Schiffsreaktor wieder zur Verfügung.",
   "YZECORIOLIS.InvalidEPPermissions": "Du hast keine Berechtigung die LP-Verteilung zu verändern.",

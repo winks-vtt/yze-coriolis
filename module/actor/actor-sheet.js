@@ -497,12 +497,14 @@ export class yzecoriolisActorSheet extends ActorSheet {
       let div = $(
         `<div class="item-summary"><div class="item-summary-wrapper"><div>${chatData.description}</div></div></div>`
       );
-      let props = $(`<div class="item-properties"></div>`);
-      chatData.properties.forEach((p) =>
-        props.append(`<span class="tag">${p}</span>`)
-      );
+      if (! game.settings.get("yzecoriolis", "AlwaysShowFeatures")) {
+        let props = $(`<div class="item-properties"></div>`);
+        chatData.properties.forEach((p) =>
+          props.append(`<span class="tag">${p}</span>`)
+        );
 
-      $(div).find(".item-summary-wrapper").append(props);
+        $(div).find(".item-summary-wrapper").append(props);
+      };
       // div.append(props);
       li.append(div.hide());
       div.slideDown(200);

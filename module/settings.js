@@ -34,4 +34,14 @@ export const registerSystemSettings = function () {
     type: Boolean,
     default: false,
   });
+
+  game.settings.register("yzecoriolis", "AlwaysShowFeatures", {
+    name: game.i18n.localize("YZECORIOLIS.SettingAlwaysShowFeatures"),
+    hint: game.i18n.localize("YZECORIOLIS.SettingAlwaysShowFeaturesHint"),
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+    onChange: debouncedReload,
+  });
 };
