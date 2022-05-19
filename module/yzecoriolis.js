@@ -148,13 +148,9 @@ Hooks.once("init", async function () {
     return CONFIG.YZECORIOLIS.attributeRolls[attributeKey];
   });
 
-    
-  Handlebars.registerHelper(
-    "getItemTypeName",
-    function (itemTypeKey) {
-      return CONFIG.YZECORIOLIS.itemTypes[itemTypeKey];
-    }
-  );
+  Handlebars.registerHelper("getItemTypeName", function (itemTypeKey) {
+    return CONFIG.YZECORIOLIS.itemTypes[itemTypeKey];
+  });
 
   Handlebars.registerHelper(
     "getTalentCategoryName",
