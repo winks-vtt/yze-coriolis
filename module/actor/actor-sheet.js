@@ -454,6 +454,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
     const actorData = this.actor.data.data;
+    const automaticWeapon = dataset.automaticweapon === "true";
     const rollData = {
       rollType: dataset.rolltype,
       skillKey: dataset.skillkey,
@@ -472,10 +473,11 @@ export class yzecoriolisActorSheet extends ActorSheet {
       "systems/yzecoriolis/templates/sidebar/roll.html",
       dataset.rolltype
     );
-    coriolisModifierDialog((modifier) => {
+    coriolisModifierDialog((modifier, additionalData) => {
       rollData.modifier = modifier;
+      rollData.additionalData = additionalData;
       coriolisRoll(chatOptions, rollData);
-    });
+    }, automaticWeapon);
   }
 
   /**

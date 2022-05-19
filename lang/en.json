@@ -389,5 +389,8 @@
   "YZECORIOLIS.NewShipProblem": "New Problem",
   "YZECORIOLIS.ShipEditProblem": "Edit Problem",
   "YZECORIOLIS.ShipCreateProblem": "Create Problem",
-  "YZECORIOLIS.ShipDeleteProblem": "Delete Problem"
+  "YZECORIOLIS.ShipDeleteProblem": "Delete Problem",
+
+  "YZECORIOLIS.AutomaticFire": "Automatic fire",
+  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Number of ignored 1s (max 2)"
 }

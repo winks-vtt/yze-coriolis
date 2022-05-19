@@ -378,5 +378,8 @@
   "YZECORIOLIS.NewShipProblem": "Nytt problem",
   "YZECORIOLIS.ShipEditProblem": "Redigera problem",
   "YZECORIOLIS.ShipCreateProblem": "Skapa problem",
-  "YZECORIOLIS.ShipDeleteProblem": "Ta bort problem"
+  "YZECORIOLIS.ShipDeleteProblem": "Ta bort problem",
+
+  "YZECORIOLIS.AutomaticFire": "Automatisk eld",
+  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Antal ignorerade 1:or (max 2)"
 }

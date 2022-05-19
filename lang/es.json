@@ -321,5 +321,8 @@
   "YZECORIOLIS.LongRange": "Largo",
   "YZECORIOLIS.ExtremeRange": "Extremo",
 
-  "YZECORIOLIS.MigratedDP": "Sistema de Puntos de Oscuridad Migrado."
+  "YZECORIOLIS.MigratedDP": "Sistema de Puntos de Oscuridad Migrado.",
+
+  "YZECORIOLIS.AutomaticFire": "Fuego automático",
+  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Número de 1 ignorados (máx. 2)"
 }
