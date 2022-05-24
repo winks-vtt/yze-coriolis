@@ -148,7 +148,7 @@ Hooks.once("init", async function () {
     return CONFIG.YZECORIOLIS.attributeRolls[attributeKey];
   });
 
-    
+
   Handlebars.registerHelper(
     "getItemTypeName",
     function (itemTypeKey) {
@@ -271,6 +271,14 @@ Hooks.once("init", async function () {
     const attribKey = crew.data.skills[skillKey].attribute;
     const attribValue = crew.data.attributes[attribKey].value;
     return attribValue + skillValue;
+  });
+
+  Handlebars.registerHelper("isNotEmpty", (obj) => {
+    return Object.keys(obj).length > 0;
+  });
+
+  Handlebars.registerHelper("ShowFeatures", function () {
+    return game.settings.get("yzecoriolis", "AlwaysShowFeatures")
   });
 });
 

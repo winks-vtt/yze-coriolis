@@ -1,4 +1,10 @@
 export const registerSystemSettings = function () {
+
+  /*
+   * reloads the sheet after a certain setting is applied
+  */
+  const debouncedReload = foundry.utils.debounce(() => window.location.reload(), 100);
+
   /**
    * Track the system version upon which point a migration was last applied
    */
@@ -33,5 +39,15 @@ export const registerSystemSettings = function () {
     config: false,
     type: Boolean,
     default: false,
+  });
+
+  game.settings.register("yzecoriolis", "AlwaysShowFeatures", {
+    name: game.i18n.localize("YZECORIOLIS.SettingAlwaysShowFeatures"),
+    hint: game.i18n.localize("YZECORIOLIS.SettingAlwaysShowFeaturesHint"),
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+    onChange: debouncedReload,
   });
 };

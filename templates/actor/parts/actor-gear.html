@@ -121,6 +121,19 @@
                                 class="fas fa-trash"></i></a>
                     </div>
                 </div>
+
+                {{!-- Weapons Features --}}
+                {{#if (ShowFeatures)}}
+                  {{#if (isNotEmpty weapon.data.special)}}
+                    <div class="gear-bg flickering flexrow" style="border-top-left-radius: 0; border-top-right-radius: 0;">
+                      <div class="item-properties">
+                          {{#each weapon.data.special as |feature id|}}
+                          <span class="tag">{{feature}}</span>
+                          {{/each}}
+                      </div>
+                    </div>
+                  {{/if}}
+                {{/if}}
             </li>
             {{/each}}
 
@@ -184,6 +197,19 @@
                                 class="fas fa-trash"></i></a>
                     </div>
                 </div>
+
+                {{!-- Explosive Features --}}
+                {{#if (ShowFeatures)}}
+                  {{#if (isNotEmpty explosive.data.special)}}
+                    <div class="gear-bg flickering flexrow" style="border-top-left-radius: 0; border-top-right-radius: 0;">
+                      <div class="item-properties">
+                          {{#each explosive.data.special as |feature id|}}
+                          <span class="tag">{{feature}}</span>
+                          {{/each}}
+                      </div>
+                    </div>
+                  {{/if}}
+                {{/if}}
             </li>
             {{/each}}
 
@@ -229,6 +255,19 @@
                             class="fas fa-trash"></i></a>
                     </div>
                 </div>
+
+                {{!-- Armor Features --}}
+                {{#if (ShowFeatures)}}
+                  {{#if (isNotEmpty armor.data.special)}}
+                    <div class="gear-bg flickering flexrow" style="border-top-left-radius: 0; border-top-right-radius: 0;">
+                      <div class="item-properties">
+                          {{#each armor.data.special as |feature id|}}
+                          <span class="tag">{{feature}}</span>
+                          {{/each}}
+                      </div>
+                    </div>
+                  {{/if}}
+                {{/if}}
             </li>
             {{/each}}
         </ol>
