@@ -24,6 +24,7 @@
   "YZECORIOLIS.PushedRoll": "Tirada Forzada",
   "YZECORIOLIS.ModifierForRoll": "Modificador",
   "YZECORIOLIS.ModifierForRollQuestion": "Introduzca el modificador para su tirada",
+  "YZECORIOLIS.PrayerModifierForRollQuestion": "Introduzca el modificador de oracion para su tirada",
 
   "YZECORIOLIS.DarknessPointsControls": "Control de Puntos de Oscuridad",
   "YZECORIOLIS.DarknessPointsAdd": "Añadir un Punto de Oscuridad",
@@ -77,6 +78,7 @@
   "YZECORIOLIS.Delete": "Eliminar",
 
   "YZECORIOLIS.CreateTalent": "Crear Talento",
+  "YZECORIOLIS.PostTalent": "Publicar Talento",
   "YZECORIOLIS.EditTalent": "Editar Talento",
   "YZECORIOLIS.DeleteTalent": "Eliminar Talento",
   "YZECORIOLIS.NewTalent": "Nuevo Talento",
@@ -101,6 +103,11 @@
   "YZECORIOLIS.DeleteArmor": "Eliminar Armadura",
   "YZECORIOLIS.DeleteExplosive": "Eliminar Explosivo",
 
+  "YZECORIOLIS.PostGear": "Publicar Equipo",
+  "YZECORIOLIS.PostWeapon": "Publicar Arma",
+  "YZECORIOLIS.PostArmor": "Publicar Armadura",
+  "YZECORIOLIS.PostExplosive": "Publicar Explosivo",
+
   "YZECORIOLIS.EquipWeapon": "Equipar Arma",
   "YZECORIOLIS.EquipGear": "Equipar Equipo",
   "YZECORIOLIS.EquipArmor": "Equipar Armadura",
@@ -116,6 +123,7 @@
   "YZECORIOLIS.Crit": "Critico",
   "YZECORIOLIS.Damage": "Daño",
   "YZECORIOLIS.Weight": "Peso",
+  "YZECORIOLIS.Talent": "Talento",
   "YZECORIOLIS.Gear": "Equipo",
   "YZECORIOLIS.Weapons": "Armas",
   "YZECORIOLIS.Weapon": "Arma",
@@ -131,6 +139,7 @@
   "YZECORIOLIS.CriticalInjuries": "Heridas Críticas",
   "YZECORIOLIS.CriticalInjury": "Herida Crítica",
   "YZECORIOLIS.CreateCriticalInjury": "Añadir Herida Crítica",
+  "YZECORIOLIS.PostCriticalInjury": "Publicar Herida Crítica",
   "YZECORIOLIS.EditCriticalInjury": "Editar Herida Crítica",
   "YZECORIOLIS.DeleteCriticalInjury": "Eliminar Herida Crítica",
   "YZECORIOLIS.NewCriticalInjury": "Nueva Herida Crítica",

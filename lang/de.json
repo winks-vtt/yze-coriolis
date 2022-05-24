@@ -27,6 +27,7 @@
   "YZECORIOLIS.PushedRoll": "Wiederholter Wurf",
   "YZECORIOLIS.ModifierForRoll": "Modifikator",
   "YZECORIOLIS.ModifierForRollQuestion": "Wähle den Modifikator des Würfelwurfs:",
+  "YZECORIOLIS.PrayerModifierForRollQuestion": "Wähle den Gebetsmodifikator des Würfelwurfs:",
 
   "YZECORIOLIS.DarknessPointsControls": "Finsternispunkt-Management",
   "YZECORIOLIS.DarknessPointsAdd": "Finsternispunkt hinzufügen",
@@ -82,6 +83,7 @@
   "YZECORIOLIS.Delete": "Löschen",
 
   "YZECORIOLIS.CreateTalent": "Fertigkeit einfügen",
+  "YZECORIOLIS.PostTalent": "Fertigkeit posten",
   "YZECORIOLIS.EditTalent": "Fertigkeit anpassen",
   "YZECORIOLIS.DeleteTalent": "Fertigkeit löschen",
   "YZECORIOLIS.NewTalent": "Neue Fertigkeit",
@@ -106,6 +108,11 @@
   "YZECORIOLIS.DeleteArmor": "Panzerung löschen",
   "YZECORIOLIS.DeleteExplosive": "Sprengstoff löschen",
 
+  "YZECORIOLIS.PostGear": "Ausrüstung posten",
+  "YZECORIOLIS.PostWeapon": "Waffe posten",
+  "YZECORIOLIS.PostArmor": "Panzerung posten",
+  "YZECORIOLIS.PostExplosive": "Sprengstoff posten",
+
   "YZECORIOLIS.EquipWeapon": "Waffe anlegen",
   "YZECORIOLIS.EquipGear": "Ausrüstung anlegen",
   "YZECORIOLIS.EquipArmor": "Panzerung anlegen",
@@ -121,6 +128,7 @@
   "YZECORIOLIS.Crit": "Krit",
   "YZECORIOLIS.Damage": "Schaden",
   "YZECORIOLIS.Weight": "Gewicht",
+  "YZECORIOLIS.Talent": "Fertigkeit",
   "YZECORIOLIS.Gear": "Ausrüstung",
   "YZECORIOLIS.Weapons": "Waffen",
   "YZECORIOLIS.Weapon": "Waffe",
@@ -136,6 +144,7 @@
   "YZECORIOLIS.CriticalInjuries": "Kritische Wunden",
   "YZECORIOLIS.CriticalInjury": "Kritische Wunde",
   "YZECORIOLIS.CreateCriticalInjury": "Kritische Wunde hinzufügen",
+  "YZECORIOLIS.PostCriticalInjury": "Kritische Wunde posten",
   "YZECORIOLIS.EditCriticalInjury": "Kritische Wunde anpassen",
   "YZECORIOLIS.DeleteCriticalInjury": "Kritische Wunde löschen",
   "YZECORIOLIS.NewCriticalInjury": "Neue Kritische Wunde",
@@ -323,7 +332,7 @@
   "YZECORIOLIS.MigratedDP": "Finsternispunkte-System wurde übertragen.",
   "YZECORIOLIS.HPBonus": "TP Bonus",
   "YZECORIOLIS.Melee": "Nahkampf",
-  
+
   "YZECORIOLIS.SheetClassCharacter": "Coriolis Charakterbogen",
   "YZECORIOLIS.SheetClassNPC": "Coriolis NSC-Bogen",
   "YZECORIOLIS.SheetClassShip": "Coriolis Schiffsbogen",
@@ -342,6 +351,10 @@
   "YZECORIOLIS.Modules": "Module",
   "YZECORIOLIS.CriticalDamage": "kritischer Schaden",
   "YZECORIOLIS.Notes": "Notizen",
+  "YZECORIOLIS.EnergyPoints": "Leistungspunkte",
+  "YZECORIOLIS.MaxEnergyPoints": "Max. Leistungspunkte",
+  "YZECORIOLIS.HullPoints": "Rumpfpunkte",
+  "YZECORIOLIS.MaxHullPoints": "Max. Rumpfpunkte",
 
   "YZECORIOLIS.SettingMaxEnergyPoints": "Maximal erlaubte Leistungspunkte",
 

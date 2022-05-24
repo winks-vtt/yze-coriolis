@@ -1,4 +1,4 @@
-import { addDarknessPoints } from "./darkness-points.js";
+import { addDarknessPoints, spendDarknessPoints } from "./darkness-points.js";
 
 export function coriolisModifierDialog(modifierCallback) {
   let d = new Dialog({
@@ -90,6 +90,33 @@ export function coriolisModifierDialog(modifierCallback) {
   });
   d.render(true);
 }
+
+export function coriolisPrayerModifierDialog(modifierCallback) {
+  let d = new Dialog({
+    title: game.i18n.localize("YZECORIOLIS.ModifierForRoll"),
+    content: `<p>${game.i18n.localize(
+      "YZECORIOLIS.PrayerModifierForRollQuestion"
+    )}</p>`,
+    buttons: {
+      zero: {
+        label: "0",
+        callback: () => modifierCallback(0),
+      },
+      onePlus: {
+        label: "+1",
+        callback: () => modifierCallback(1),
+      },
+      twoPlus: {
+        label: "+2",
+        callback: () => modifierCallback(2),
+      },
+    },
+    default: "zero",
+    close: () => {},
+  });
+  d.render(true);
+}
+
 /**
  * takes in rendering options, rollData and:
  * 1. does the roll
@@ -126,20 +153,34 @@ export async function coriolisPushRoll(chatMessage, origRollData, origRoll) {
   if (origRollData.pushed) {
     return;
   }
-  origRollData.pushed = true;
-  origRoll.dice.forEach((part) => {
-    part.results.forEach((r) => {
-      if (r.result !== CONFIG.YZECORIOLIS.maxRoll) {
+
+  coriolisPrayerModifierDialog(async (bonus) => {
+    origRollData.pushed = true;
+    origRoll.dice.forEach((part) => {
+      part.results.forEach((r) => {
+        if (r.result !== CONFIG.YZECORIOLIS.maxRoll) {
+          let newDie = new Die(6);
+          newDie.roll(1);
+          r.result = newDie.results[0].result;
+        }
+      });
+      part.number = part.number + bonus;
+      for (let i = 0; i < bonus; i++) {
         let newDie = new Die(6);
         newDie.roll(1);
-        r.result = newDie.results[0].result;
+        part.results.push(newDie.results[0]);
       }
     });
+
+    await showDiceSoNice(origRoll, chatMessage.rollMode);
+    const result = evaluateCoriolisRoll(origRollData, origRoll);
+    await updateChatMessage(chatMessage, result, bonus);
+    if (origRollData.actorType === "npc") {
+      await spendDarknessPoints(1);
+    } else {
+      await addDarknessPoints(1);
+    }
   });
-  await showDiceSoNice(origRoll, chatMessage.rollMode);
-  const result = evaluateCoriolisRoll(origRollData, origRoll);
-  await updateChatMessage(chatMessage, result);
-  await addDarknessPoints(1);
 }
 
 /**
@@ -234,6 +275,7 @@ async function showChatMessage(chatMsgOptions, resultData) {
   );
   let chatData = {
     title: getRollTitle(resultData.rollData),
+    icon: getRollIconKey(resultData.rollData),
     results: resultData,
     tooltip: tooltip,
     canPush: !resultData.pushed,
@@ -254,7 +296,7 @@ async function showChatMessage(chatMsgOptions, resultData) {
   return msg;
 }
 
-async function updateChatMessage(chatMessage, resultData) {
+async function updateChatMessage(chatMessage, resultData, prayerBonus) {
   let tooltip = await renderTemplate(
     "systems/yzecoriolis/templates/sidebar/dice-results.html",
     getTooltipData(resultData)
@@ -264,6 +306,7 @@ async function updateChatMessage(chatMessage, resultData) {
     results: resultData,
     tooltip: tooltip,
     canPush: false,
+    prayerBonus: prayerBonus,
   };
 
   return renderTemplate(
@@ -284,6 +327,11 @@ async function updateChatMessage(chatMessage, resultData) {
 
 function getRollTitle(rollData) {
   return `${rollData.rollTitle}`;
+}
+
+function getRollIconKey(rollData) {
+  const icon = CONFIG.YZECORIOLIS.skillIcons[rollData.skillKey];
+  return icon ? CONFIG.YZECORIOLIS.icons[icon] : "";
 }
 
 function getTooltipData(results) {

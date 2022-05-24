@@ -19,15 +19,13 @@
   "private": true,
   "dependencies": {
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-less": "^4.0.1",
-    "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5"
   },
   "devDependencies": {
-    "@league-of-foundry-developers/foundry-vtt-types": "^0.7.9-6",
-    "eslint": "^7.26.0",
-    "eslint-config-prettier": "^7.2.0",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-foundry-vtt": "0.0.1",
     "eslint-watch": "^7.0.0",
     "prettier": "2.2.1"

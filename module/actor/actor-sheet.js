@@ -36,6 +36,16 @@ export class yzecoriolisActorSheet extends ActorSheet {
     });
   }
 
+  /**
+   * Activate a named TinyMCE text editor
+   * @param {string} name             The named data field which the editor modifies.
+   * @param {object} options          TinyMCE initialization options passed to TextEditor.create
+   * @param {string} initialContent   Initial text content for the editor area.
+   */
+  activateEditor(name, options = {}, initialContent = "") {
+    const customOptions = { ...options, body_class: "charnotes-edit-body" };
+    super.activateEditor(name, customOptions, initialContent);
+  }
   /* -------------------------------------------- */
 
   /** @override */
@@ -147,8 +157,10 @@ export class yzecoriolisActorSheet extends ActorSheet {
       // append to gear
       if (i.type === "gear") {
         gear.push(i.data);
-        totalWeightPoints +=
-          CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
+        if (isActive) {
+          totalWeightPoints +=
+            CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
+        }
       }
       // append to talents
       if (i.type === "talent") {
@@ -162,12 +174,16 @@ export class yzecoriolisActorSheet extends ActorSheet {
         } else {
           weapons.push(i.data);
         }
-        totalWeightPoints +=
-          CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
+        if (isActive) {
+          totalWeightPoints +=
+            CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
+        }
       }
       if (i.type === "armor") {
         armor.push(i.data);
-        totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight]; // we assume 1 quantity.
+        if (isActive) {
+          totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight]; // we assume 1 quantity.
+        }
       }
       if (i.type === "injury") {
         injuries.push(i.data);
@@ -230,6 +246,12 @@ export class yzecoriolisActorSheet extends ActorSheet {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.data.items.get(li.data("itemId"));
       item.sheet.render(true);
+    });
+
+    html.find(".item-post").click((ev) => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+      item.sendToChat();
     });
 
     // Item State Toggling
@@ -444,6 +466,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       bonus: dataset.bonus ? Number(dataset.bonus) : 0,
       rollTitle: dataset.label,
       pushed: false,
+      actorType: this.actor.data.type,
     };
     const chatOptions = this.actor._prepareChatRollOptions(
       "systems/yzecoriolis/templates/sidebar/roll.html",

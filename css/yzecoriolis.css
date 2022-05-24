@@ -98,35 +98,35 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/martel/v5/PN_xRfK9oXHga0XtYQ.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/martel/v10/PN_xRfK9oXHga0XtYQ.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Martel';
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/martel/v5/PN_yRfK9oXHga0XVwe4ahQ.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/martel/v10/PN_yRfK9oXHga0XVwe4ahQ.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5vAw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5vAw.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9vAw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9vAw.ttf) format('truetype');
 }
 .resource-label {
   font-weight: bold;
@@ -1751,6 +1751,9 @@
   color: white;
   transform: scale(1.05);
 }
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-control-widget.item-delete {
+  padding-left: 15px;
+}
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury-display {
   font-family: "Cairo";
   color: #fdff9d;
@@ -1842,6 +1845,9 @@
   text-shadow: 0 0 5px #ff4500;
   color: white;
   transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-widget.item-delete {
+  padding-left: 15px;
 }
 .yzecoriolis.sheet.actor .sheet-body .talent-list .talent-control-add-widget {
   color: #7182be;
@@ -1961,6 +1967,9 @@
   text-shadow: 0 0 5px #ff4500;
   color: white;
   transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .sheet-body .gear-list .gear-control-widget.item-delete {
+  padding-left: 15px;
 }
 .yzecoriolis.sheet.actor .sheet-body .gear-list .gear-control-add-widget {
   color: #7182be;
@@ -2641,6 +2650,22 @@
 .yzecoriolis.sheet.actor .shipnotes .editor-edit:hover {
   text-shadow: none;
   background-color: rgba(46, 65, 128, 0.45);
+}
+.yzecoriolis.chat-item {
+  line-height: 16px;
+}
+.yzecoriolis.chat-item h3 {
+  text-transform: uppercase;
+}
+.yzecoriolis.chat-item .header {
+  text-align: center;
+}
+.yzecoriolis.chat-item strong {
+  text-transform: uppercase;
+}
+.chat-item-img {
+  border: none;
+  width: 200px;
 }
 .yzecoriolis.sheet.item {
   /* ----------------------------------------- */

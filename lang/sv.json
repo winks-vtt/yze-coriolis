@@ -27,6 +27,7 @@
   "YZECORIOLIS.PushedRoll": "Bad till ikonerna",
   "YZECORIOLIS.ModifierForRoll": "Modifikation",
   "YZECORIOLIS.ModifierForRollQuestion": "Ange modifikation för slaget",
+  "YZECORIOLIS.PrayerModifierForRollQuestion": "Ange bönemodifieraren för slaget",
 
   "YZECORIOLIS.DarknessPointsControls": "Mörkerpoänghantering",
   "YZECORIOLIS.DarknessPointsAdd": "Lägg till ett mörkerpoäng",
@@ -81,6 +82,7 @@
   "YZECORIOLIS.Delete": "Ta bort",
 
   "YZECORIOLIS.CreateTalent": "Skapa talang",
+  "YZECORIOLIS.PostTalent": "Visa talang",
   "YZECORIOLIS.EditTalent": "Redigera talang",
   "YZECORIOLIS.DeleteTalent": "Ta bort talang",
   "YZECORIOLIS.NewTalent": "Ny talang",
@@ -105,6 +107,11 @@
   "YZECORIOLIS.DeleteArmor": "Ta bort rustning",
   "YZECORIOLIS.DeleteExplosive": "Ta bort sprängmedel",
 
+  "YZECORIOLIS.PostGear": "Visa utrustning",
+  "YZECORIOLIS.PostWeapon": "Visa vapen",
+  "YZECORIOLIS.PostArmor": "Visa rustning",
+  "YZECORIOLIS.PostExplosive": "Visa sprängmedel",
+
   "YZECORIOLIS.EquipWeapon": "Bär vapen",
   "YZECORIOLIS.EquipGear": "Bär utrustning",
   "YZECORIOLIS.EquipArmor": "Bär rustning",
@@ -120,6 +127,7 @@
   "YZECORIOLIS.Crit": "Krit",
   "YZECORIOLIS.Damage": "Skada",
   "YZECORIOLIS.Weight": "Vikt",
+  "YZECORIOLIS.Talent": "Talang",
   "YZECORIOLIS.Gear": "Utrustning",
   "YZECORIOLIS.Weapons": "Vapen",
   "YZECORIOLIS.Weapon": "Vapen",
@@ -135,6 +143,7 @@
   "YZECORIOLIS.CriticalInjuries": "Kritiska skador",
   "YZECORIOLIS.CriticalInjury": "Kritisk skada",
   "YZECORIOLIS.CreateCriticalInjury": "Lägg till kritisk skada",
+  "YZECORIOLIS.PostCriticalInjury": "Visa kritisk skada",
   "YZECORIOLIS.EditCriticalInjury": "Redigera kritisk skada",
   "YZECORIOLIS.DeleteCriticalInjury": "Ta bort kritisk skada",
   "YZECORIOLIS.NewCriticalInjury": "Ny kritisk skada",

@@ -28,6 +28,7 @@
   "YZECORIOLIS.PushedRoll": "Pushed Roll",
   "YZECORIOLIS.ModifierForRoll": "Modifier",
   "YZECORIOLIS.ModifierForRollQuestion": "Enter the modifier for your roll",
+  "YZECORIOLIS.PrayerModifierForRollQuestion": "Enter the prayer modifier for your roll",
 
   "YZECORIOLIS.DarknessPointsControls": "Darkness Points Controls",
   "YZECORIOLIS.DarknessPointsAdd": "Add a Darkness Point",
@@ -83,6 +84,7 @@
   "YZECORIOLIS.Delete": "Delete",
 
   "YZECORIOLIS.CreateTalent": "Create Talent",
+  "YZECORIOLIS.PostTalent": "Post Talent",
   "YZECORIOLIS.EditTalent": "Edit Talent",
   "YZECORIOLIS.DeleteTalent": "Delete Talent",
   "YZECORIOLIS.NewTalent": "New Talent",
@@ -107,6 +109,11 @@
   "YZECORIOLIS.DeleteArmor": "Delete Armor",
   "YZECORIOLIS.DeleteExplosive": "Delete Explosive",
 
+  "YZECORIOLIS.PostGear": "Post Gear",
+  "YZECORIOLIS.PostWeapon": "Post Weapon",
+  "YZECORIOLIS.PostArmor": "Post Armor",
+  "YZECORIOLIS.PostExplosive": "Post Explosive",
+
   "YZECORIOLIS.EquipWeapon": "Equip Weapon",
   "YZECORIOLIS.EquipGear": "Equip Gear",
   "YZECORIOLIS.EquipArmor": "Equip Armor",
@@ -122,6 +129,7 @@
   "YZECORIOLIS.Crit": "Crit",
   "YZECORIOLIS.Damage": "Damage",
   "YZECORIOLIS.Weight": "Weight",
+  "YZECORIOLIS.Talent": "Talent",
   "YZECORIOLIS.Gear": "Gear",
   "YZECORIOLIS.Weapons": "Weapons",
   "YZECORIOLIS.Weapon": "Weapon",
@@ -137,6 +145,7 @@
   "YZECORIOLIS.CriticalInjuries": "Critical Injuries",
   "YZECORIOLIS.CriticalInjury": "Critical Injury",
   "YZECORIOLIS.CreateCriticalInjury": "Add Critical Injury",
+  "YZECORIOLIS.PostCriticalInjury": "Post Critical Injury",
   "YZECORIOLIS.EditCriticalInjury": "Edit Critical Injury",
   "YZECORIOLIS.DeleteCriticalInjury": "Delete Critical Injury",
   "YZECORIOLIS.NewCriticalInjury": "New Critical Injury",
@@ -347,7 +356,9 @@
   "YZECORIOLIS.Modules": "Modules",
   "YZECORIOLIS.CriticalDamage": "Critical Damage",
   "YZECORIOLIS.Notes": "Notes",
+  "YZECORIOLIS.EnergyPoints": "Energy Points",
   "YZECORIOLIS.MaxEnergyPoints": "Max Energy Points",
+  "YZECORIOLIS.HullPoints": "Hull Points",
   "YZECORIOLIS.MaxHullPoints": "Max Hull Points",
 
   "YZECORIOLIS.SettingMaxEnergyPoints": "Maximum Allowed Energy Points",

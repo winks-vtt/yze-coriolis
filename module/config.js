@@ -94,6 +94,14 @@ YZECORIOLIS.skillRolls = {
   technology: "YZECORIOLIS.SkillTechnologyRoll",
 };
 
+YZECORIOLIS.itemTypes = {
+  weapon: "YZECORIOLIS.Weapon",
+  armor: "YZECORIOLIS.Armor",
+  gear: "YZECORIOLIS.Gear",
+  talent:"YZECORIOLIS.Talent",
+  injury: "YZECORIOLIS.CriticalInjury"
+}
+
 // Talents
 
 YZECORIOLIS.talentCategories = {
@@ -279,6 +287,25 @@ YZECORIOLIS.icons = {
   messenger: "YZECORIOLIS.IconMessenger",
   judge: "YZECORIOLIS.IconJudge",
   faceless: "YZECORIOLIS.IconFaceless",
+};
+
+YZECORIOLIS.skillIcons = {
+  dexterity: "dancer",
+  force: "deckhand",
+  infiltration: "faceless",
+  manipulation: "merchant",
+  meleecombat: "dancer",
+  observation: "gambler",
+  rangedcombat: "judge",
+  survival: "traveler",
+  command: "judge",
+  culture: "traveler",
+  datadjinn: "messenger",
+  medicurgy: "ladyOfTears",
+  mysticpowers: "faceless",
+  pilot: "gambler",
+  science: "messenger",
+  technology: "messenger",
 };
 
 // General types are just either required or optional modules.

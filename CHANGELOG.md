@@ -1,5 +1,73 @@
 # Changelog
 
+### [2.8.4](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.8.3...v2.8.4) (2022-05-16)
+
+
+### Miscellaneous
+
+* updating dep ([e24874e](https://www.github.com/winks-vtt/yze-coriolis/commit/e24874e69564b0698583716f4480f42556782511))
+
+### [2.8.3](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.8.2...v2.8.3) (2022-05-16)
+
+
+### Bug Fixes
+
+* use item images if they exist otherwise use default icons when sending to chat ([c2146ac](https://www.github.com/winks-vtt/yze-coriolis/commit/c2146ac3d914098143322c9d2dc684fb61411cc7))
+
+### [2.8.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.8.1...v2.8.2) (2022-05-16)
+
+
+### Bug Fixes
+
+* made custom journal entries use default styling ([0cd357e](https://www.github.com/winks-vtt/yze-coriolis/commit/0cd357e0e412c0046cf37ba74f3f50a9cd883ae0)), closes [#130](https://www.github.com/winks-vtt/yze-coriolis/issues/130)
+
+
+### Miscellaneous
+
+* remove sass dep ([ebe4ac6](https://www.github.com/winks-vtt/yze-coriolis/commit/ebe4ac626fdbd820b1b6e0d27c2147712143a7e4))
+* update vscode settings ([60a8a0a](https://www.github.com/winks-vtt/yze-coriolis/commit/60a8a0a1a91661725f2caa5db19cc7e2d8878434))
+
+### [2.8.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.8.0...v2.8.1) (2022-05-16)
+
+
+### Bug Fixes
+
+* made default ship key art compatible with firefox ([0e1f300](https://www.github.com/winks-vtt/yze-coriolis/commit/0e1f30004382835f6231fc797d01890322ddf2c0))
+
+## [2.8.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.7.2...v2.8.0) (2022-05-16)
+
+
+### Features
+
+* add related skill icon on prayer button ([7db2806](https://www.github.com/winks-vtt/yze-coriolis/commit/7db28069380f181726ae5a44dec684b58d704cd2))
+* added ability to post items to chat ([f616576](https://www.github.com/winks-vtt/yze-coriolis/commit/f6165761bd1929f5d692366ab5d84ec19aef36ff))
+
+
+### Bug Fixes
+
+* added some missing translations ([3da55f6](https://www.github.com/winks-vtt/yze-coriolis/commit/3da55f6a2751c38d0b2f1d85ec1db51c9d5ea71c))
+
+### [2.7.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.7.1...v2.7.2) (2022-05-16)
+
+
+### Bug Fixes
+
+* for NPCs spend DP instead of increasing it ([2618f88](https://www.github.com/winks-vtt/yze-coriolis/commit/2618f88b68d8225bf87833efcbf5498869e3e77c))
+
+### [2.7.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.7.0...v2.7.1) (2022-05-16)
+
+
+### Bug Fixes
+
+* updated french language files ([251ce95](https://www.github.com/winks-vtt/yze-coriolis/commit/251ce950236cfbf5bb1be57961821c3f31d8bc22))
+
+## [2.7.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.13...v2.7.0) (2022-05-16)
+
+
+### Features
+
+* made equipped status toggle encumbrance calculations ([53d5666](https://www.github.com/winks-vtt/yze-coriolis/commit/53d56662e99145a6fd4ea91823dd0c1cbaf94a22))
+
 ### [2.6.13](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.6.12...v2.6.13) (2022-03-15)
 
 

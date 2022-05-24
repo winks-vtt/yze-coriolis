@@ -15,12 +15,12 @@
           <div
             class="background-blue-2 mg-r mg-b border-1 border-solid border-blue-1 rounded self-end min-h-75 flex-basis-380">
             <div class="flexrow mg-l mg-t pointer-events-all">
-              <span class="data-label-1 text-base blue-1">Class:</span>
+              <span class="data-label-1 text-base blue-1">{{localize "YZECORIOLIS.ShipClass"}}:</span>
               <input class="input-base text-shadow-1 text-upper text-lg" name="data.class" type="text"
                 value="{{data.class}}" placeholder="{{localize "YZECORIOLIS.ShipClass"}}" />
             </div>
             <div class="flexrow mg-l mg-b pointer-events-all">
-              <span class="data-label-1 text-base blue-1">Shipyard:</span>
+              <span class="data-label-1 text-base blue-1">{{localize "YZECORIOLIS.Shipyard"}}:</span>
               <input class="input-base text-shadow-1 text-upper text-lg" name="data.shipyard" type="text"
                 value="{{data.shipyard}}" placeholder="{{localize "YZECORIOLIS.Shipyard"}}" />
             </div>
@@ -33,7 +33,7 @@
           {{!-- HP Bar --}}
           <div
             class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm flexrow">
-            <div class="white-1">Hull Points</div>
+            <div class="white-1">{{localize "YZECORIOLIS.HullPoints"}}</div>
             <div class="bar hull-bar fr-basic flex7">
               {{#each hullBlocks as |hBlock index|}}
               {{#with ../data as | data |}}
@@ -56,7 +56,7 @@
           {{!-- EP Bar --}}
           <div
             class="flex1 border-base border-gray-2 rounded background-blue-3 gray-2 font-cairo text-md pl-sm mg-t-xsm flexrow">
-            <div class="white-1">Energy Points</div>
+            <div class="white-1">{{localize "YZECORIOLIS.EnergyPoints"}}</div>
             <div class="bar ep-bar fr-basic flex7">
               {{#each energyBlocks as |eBlock index|}}
               {{#if eBlock.on}}

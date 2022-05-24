@@ -101,7 +101,13 @@
 .charnotes .tox-editor-container {
   border-radius: 3px;
 }
-.mce-content-body {
+.charnotes-edit-body {
+  font-family: "Cairo";
+  color: #fdff9d;
+  background-color: rgba(19, 27, 53, 0.45);
+  padding: 5px;
+}
+.coriolis-official-body {
   font-family: "Cairo";
   color: #fdff9d;
   background-color: rgba(19, 27, 53, 0.45);
