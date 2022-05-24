@@ -1,9 +1,11 @@
 export const registerSystemSettings = function () {
-
   /*
    * reloads the sheet after a certain setting is applied
-  */
-  const debouncedReload = foundry.utils.debounce(() => window.location.reload(), 100);
+   */
+  const debouncedReload = foundry.utils.debounce(
+    () => window.location.reload(),
+    100
+  );
 
   /**
    * Track the system version upon which point a migration was last applied
@@ -47,7 +49,7 @@ export const registerSystemSettings = function () {
     scope: "world",
     config: true,
     type: Boolean,
-    default: true,
+    default: false,
     onChange: debouncedReload,
   });
 };
