@@ -357,6 +357,8 @@
   "YZECORIOLIS.MaxHullPoints": "Max. Rumpfpunkte",
 
   "YZECORIOLIS.SettingMaxEnergyPoints": "Maximal erlaubte Leistungspunkte",
+  "YZECORIOLIS.SettingInitiative": "Initiative",
+  "YZECORIOLIS.SettingInitiativeHint": "VerÃ¤ndert den Initiativ-Wurf. Standard: 1d6, Alternativ (mit einer Nachkommastelle): 1d6+(1d6*0.1)",
 
   "YZECORIOLIS.EnergyPointsReset": "Zuvor der Mannschaft zu geordnete Leistungspunkte stehen dem Schiffsreaktor wieder zur Verfügung.",
   "YZECORIOLIS.InvalidEPPermissions": "Du hast keine Berechtigung die LP-Verteilung zu verändern.",

@@ -35,15 +35,6 @@ Hooks.once("init", async function () {
     migrations: migrations,
   };
 
-  /**
-   * Set an initiative formula for the system
-   * @type {String}
-   */
-  CONFIG.Combat.initiative = {
-    formula: "1d6",
-    decimals: 0,
-  };
-
   // Setup TinyMCE stylings
   CONFIG.TinyMCE.content_css = "systems/yzecoriolis/css/yzecoriolismce.css";
 
@@ -87,6 +78,22 @@ Hooks.once("init", async function () {
     makeDefault: true,
     label: "SheetClassItem",
   });
+
+  /**
+   * Set an initiative formula for the system
+   * @type {String}
+   */
+  if (game.settings.get("yzecoriolis", "Initiative")) {
+    CONFIG.Combat.initiative = {
+      formula: "1d6",
+      decimals: 0,
+    };
+  } else {
+      CONFIG.Combat.initiative = {
+      formula: "1d6+(1d6*0.1)",
+      decimals: 1,
+    };
+  }
 
   // register turn order changes. Currently it's sorting from high->low so no need to edit atm.
   //Combat.prototype.setupTurns = setupCoriolisTurns;
@@ -148,7 +155,7 @@ Hooks.once("init", async function () {
     return CONFIG.YZECORIOLIS.attributeRolls[attributeKey];
   });
 
-    
+
   Handlebars.registerHelper(
     "getItemTypeName",
     function (itemTypeKey) {

@@ -362,6 +362,8 @@
   "YZECORIOLIS.MaxHullPoints": "Max Hull Points",
 
   "YZECORIOLIS.SettingMaxEnergyPoints": "Maximum Allowed Energy Points",
+  "YZECORIOLIS.SettingInitiative": "Initiative",
+  "YZECORIOLIS.SettingInitiativeHint": "Changes the initiative-roll. Default: 1d6, Alternative (with one decimal place): 1d6+(1d6*0.1)",
 
   "YZECORIOLIS.EnergyPointsReset": "Energy Points previously assigned to crew returned to ship reactor.",
   "YZECORIOLIS.InvalidEPPermissions": "You do not have permission to change ship EP distribution.",
