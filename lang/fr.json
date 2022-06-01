@@ -381,5 +381,7 @@
   "YZECORIOLIS.ShipDeleteProblem": "Supprimer Problème",
 
   "YZECORIOLIS.ItemDeleteConfirmationTitle": "Supprimer Item",
-  "YZECORIOLIS.ItemDeleteConfirmationContent": "Êtes-vous certain de vouloir supprimer cet item?"
+  "YZECORIOLIS.ItemDeleteConfirmationContent": "Êtes-vous certain de vouloir supprimer cet item?",
+  "YZECORIOLIS.AutomaticFire": "Tir automatique",
+  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Nombre de 1 ignorés (max 2)"
 }
