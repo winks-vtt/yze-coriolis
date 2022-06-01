@@ -62,10 +62,11 @@ export class yzecoriolisItem extends Item {
       "systems/yzecoriolis/templates/sidebar/roll.html",
       rollType
     );
-    coriolisModifierDialog((modifier) => {
+    coriolisModifierDialog((modifier, additionalData) => {
       rollData.modifier = modifier;
+      rollData.additionalData = additionalData;
       coriolisRoll(chatOptions, rollData);
-    });
+    }, itemData.automatic);
   }
 
   getChatData(htmlOptions) {

@@ -386,5 +386,10 @@
   "YZECORIOLIS.NewShipProblem": "Neues Problem",
   "YZECORIOLIS.ShipEditProblem": "Problem anpassen",
   "YZECORIOLIS.ShipCreateProblem": "Problem erstellen",
-  "YZECORIOLIS.ShipDeleteProblem": "Problem löschen"
+  "YZECORIOLIS.ShipDeleteProblem": "Problem löschen",
+
+  "YZECORIOLIS.ItemDeleteConfirmationTitle": "Element löschen",
+  "YZECORIOLIS.ItemDeleteConfirmationContent": "Möchten Sie dieses Element wirklich löschen?",
+  "YZECORIOLIS.AutomaticFire": "Automatisches Feuer",
+  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Anzahl ignorierter 1 (max 2)"
 }
