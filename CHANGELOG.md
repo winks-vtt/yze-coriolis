@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.10.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.9.0...v2.10.0) (2022-06-01)
+
+
+### Features
+
+* added option to display weapon, armor, and explosive features inline. ([7aa9606](https://www.github.com/winks-vtt/yze-coriolis/commit/7aa9606bc55ea4780ca1f7072c7fd5fc653488e5))
+* implement automatic fire ([9d08af4](https://www.github.com/winks-vtt/yze-coriolis/commit/9d08af42ac44134af2335d6dcbe8f70a893257e1))
+* implement automatic fire ([818cbc7](https://www.github.com/winks-vtt/yze-coriolis/commit/818cbc7c7d9cab5787e7180e4422186091401cba))
+
+
+### Bug Fixes
+
+* initiative rolls now support tie breaking by using "1d6+(1d6*0.1)" instead of just a d6. ([f6a1f47](https://www.github.com/winks-vtt/yze-coriolis/commit/f6a1f47d3b3b1e81fea9fab26727ef99e70ed545))
+* update wording for english setting ([606cbcf](https://www.github.com/winks-vtt/yze-coriolis/commit/606cbcf72d0ff63471c51eae147af8568ae51c4f))
+
 ## [2.9.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.8.4...v2.9.0) (2022-05-24)
 
 
