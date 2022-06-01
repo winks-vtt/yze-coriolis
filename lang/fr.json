@@ -351,8 +351,6 @@
   "YZECORIOLIS.Notes": "Notes",
 
   "YZECORIOLIS.SettingMaxEnergyPoints": "Points d'Énergie Maximum",
-  "YZECORIOLIS.SettingAlternativeInitiative": "Formule d'initiative alternative",
-  "YZECORIOLIS.SettingAlternativeInitiativeHint": "Utiliser 1d6+(1d6*0.1) pour calculer l'initiative au lieu de 1d6 afin de réduire les chances d'égalité entre combatants.",
 
   "YZECORIOLIS.EnergyPointsReset": "Les Points d'Énergie assignés sont redirigés vers le réacteur du vaisseau.",
   "YZECORIOLIS.InvalidEPPermissions": "Vous n'avez pas la permission de changer la distribution des PE du vaisseau.",

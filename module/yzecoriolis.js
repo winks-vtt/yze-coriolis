@@ -1,9 +1,6 @@
 // Import Modules
 import { YZECORIOLIS } from "./config.js";
-import {
-  registerSystemSettings,
-  applyAlternativeInitiativeSetting,
-} from "./settings.js";
+import { registerSystemSettings } from "./settings.js";
 import { yzecoriolisActor } from "./actor/actor.js";
 import { yzecoriolisActorSheet } from "./actor/actor-sheet.js";
 import { yzecoriolisShipSheet } from "./actor/ship-sheet.js";
@@ -82,8 +79,14 @@ Hooks.once("init", async function () {
     label: "SheetClassItem",
   });
 
-  // Apply an initiative formula for the system from the settings
-  applyAlternativeInitiativeSetting();
+  /**
+   * Set an initiative formula for the system
+   * @type {String}
+   */
+  CONFIG.Combat.initiative = {
+    formula: "1d6+(1d6*0.1)",
+    decimals: 1,
+  };
 
   // register turn order changes. Currently it's sorting from high->low so no need to edit atm.
   //Combat.prototype.setupTurns = setupCoriolisTurns;
@@ -146,12 +149,15 @@ Hooks.once("init", async function () {
   });
 
   Handlebars.registerHelper("getItemTypeName", function (itemTypeKey) {
-      return CONFIG.YZECORIOLIS.itemTypes[itemTypeKey];
+    return CONFIG.YZECORIOLIS.itemTypes[itemTypeKey];
   });
 
-  Handlebars.registerHelper("getTalentCategoryName", function (talentCategoryKey) {
+  Handlebars.registerHelper(
+    "getTalentCategoryName",
+    function (talentCategoryKey) {
       return CONFIG.YZECORIOLIS.talentCategories[talentCategoryKey];
-  });
+    }
+  );
 
   Handlebars.registerHelper("getGearWeightName", function (gearWeight) {
     return CONFIG.YZECORIOLIS.gearWeights[gearWeight];
