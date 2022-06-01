@@ -21,7 +21,12 @@
             </a>
         </div>
         {{else}}
-        <div class="dice-formula dice-push yzecoriolis"><em>{{localize "YZECORIOLIS.PushedRoll"}}</em></div>
+        <div class="dice-formula dice-push yzecoriolis">
+            <em>{{localize "YZECORIOLIS.PushedRoll"}}</em>
+            {{#if prayerBonus}}
+            <em> (+{{prayerBonus}})</em>
+            {{/if}}
+        </div>
         {{/if}}
     </div>
 </div>

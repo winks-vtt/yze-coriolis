@@ -28,6 +28,7 @@
   "YZECORIOLIS.PushedRoll": "Pushed Roll",
   "YZECORIOLIS.ModifierForRoll": "Modifier",
   "YZECORIOLIS.ModifierForRollQuestion": "Enter the modifier for your roll",
+  "YZECORIOLIS.PrayerModifierForRollQuestion": "Enter the prayer modifier for your roll",
 
   "YZECORIOLIS.DarknessPointsControls": "Darkness Points Controls",
   "YZECORIOLIS.DarknessPointsAdd": "Add a Darkness Point",
@@ -390,5 +391,10 @@
   "YZECORIOLIS.NewShipProblem": "New Problem",
   "YZECORIOLIS.ShipEditProblem": "Edit Problem",
   "YZECORIOLIS.ShipCreateProblem": "Create Problem",
-  "YZECORIOLIS.ShipDeleteProblem": "Delete Problem"
+  "YZECORIOLIS.ShipDeleteProblem": "Delete Problem",
+
+  "YZECORIOLIS.ItemDeleteConfirmationTitle": "Delete Item",
+  "YZECORIOLIS.ItemDeleteConfirmationContent": "Are you sure you want to delete this item?",
+  "YZECORIOLIS.AutomaticFire": "Automatic fire",
+  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Number of ignored 1s (max 2)"
 }

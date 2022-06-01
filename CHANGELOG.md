@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.9.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.8.4...v2.9.0) (2022-05-24)
+
+
+### Features
+
+* add prayer bonus ([7f7b733](https://www.github.com/winks-vtt/yze-coriolis/commit/7f7b733d9708463cca1af3a2faca0e32fd72d4f9))
+
 ### [2.8.4](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.8.3...v2.8.4) (2022-05-16)
 
 

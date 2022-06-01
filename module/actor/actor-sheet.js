@@ -264,10 +264,32 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
     // Delete Inventory Item
     html.find(".item-delete").click((ev) => {
-      const li = $(ev.currentTarget).parents(".item");
-      li.slideUp(200, async () => {
-        await this.actor.deleteEmbeddedDocuments("Item", [li.data("itemId")]);
+      const confirmationDialog = new Dialog({
+        title: game.i18n.localize("YZECORIOLIS.ItemDeleteConfirmationTitle"),
+        content: `<p>${game.i18n.localize(
+          "YZECORIOLIS.ItemDeleteConfirmationContent"
+        )}</p>`,
+        buttons: {
+          yes: {
+            icon: '<i class="fas fa-check"></i>',
+            label: game.i18n.localize("Yes"),
+            callback: () => {
+              const li = $(ev.currentTarget).parents(".item");
+              li.slideUp(200, async () => {
+                await this.actor.deleteEmbeddedDocuments("Item", [
+                  li.data("itemId"),
+                ]);
+              });
+            },
+          },
+          no: {
+            icon: '<i class="fas fa-times"></i>',
+            label: game.i18n.localize("No"),
+          },
+        },
+        default: "no",
       });
+      confirmationDialog.render(true);
     });
 
     // Rollable abilities.
@@ -454,6 +476,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
     const actorData = this.actor.data.data;
+    const automaticWeapon = dataset.automaticweapon === "true";
     const rollData = {
       rollType: dataset.rolltype,
       skillKey: dataset.skillkey,
@@ -472,10 +495,11 @@ export class yzecoriolisActorSheet extends ActorSheet {
       "systems/yzecoriolis/templates/sidebar/roll.html",
       dataset.rolltype
     );
-    coriolisModifierDialog((modifier) => {
+    coriolisModifierDialog((modifier, additionalData) => {
       rollData.modifier = modifier;
+      rollData.additionalData = additionalData;
       coriolisRoll(chatOptions, rollData);
-    });
+    }, automaticWeapon);
   }
 
   /**

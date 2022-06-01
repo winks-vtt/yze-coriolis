@@ -27,6 +27,7 @@
   "YZECORIOLIS.PushedRoll": "Wiederholter Wurf",
   "YZECORIOLIS.ModifierForRoll": "Modifikator",
   "YZECORIOLIS.ModifierForRollQuestion": "Wähle den Modifikator des Würfelwurfs:",
+  "YZECORIOLIS.PrayerModifierForRollQuestion": "Wähle den Gebetsmodifikator des Würfelwurfs:",
 
   "YZECORIOLIS.DarknessPointsControls": "Finsternispunkt-Management",
   "YZECORIOLIS.DarknessPointsAdd": "Finsternispunkt hinzufügen",
@@ -385,5 +386,10 @@
   "YZECORIOLIS.NewShipProblem": "Neues Problem",
   "YZECORIOLIS.ShipEditProblem": "Problem anpassen",
   "YZECORIOLIS.ShipCreateProblem": "Problem erstellen",
-  "YZECORIOLIS.ShipDeleteProblem": "Problem löschen"
+  "YZECORIOLIS.ShipDeleteProblem": "Problem löschen",
+
+  "YZECORIOLIS.ItemDeleteConfirmationTitle": "Element löschen",
+  "YZECORIOLIS.ItemDeleteConfirmationContent": "Möchten Sie dieses Element wirklich löschen?",
+  "YZECORIOLIS.AutomaticFire": "Automatisches Feuer",
+  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Anzahl ignorierter 1 (max 2)"
 }

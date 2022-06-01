@@ -1,49 +1,138 @@
-import { addDarknessPoints, displayDarknessPoints, spendDarknessPoints } from "./darkness-points.js";
+import { addDarknessPoints, spendDarknessPoints } from "./darkness-points.js";
 
-export function coriolisModifierDialog(modifierCallback) {
+export async function coriolisModifierDialog(
+  modifierCallback,
+  automaticWeapon = false
+) {
+  let automaticFire = false;
+  const callback = function (modifier) {
+    return function (html) {
+      modifierCallback(modifier, {
+        automaticFire: automaticFire,
+        numberOfIgnoredOnes:
+          html.find("input[name='numberOfIgnoredOnes']").val() || 0,
+      });
+    };
+  };
+
+  let content =
+    (automaticWeapon
+      ? await renderTemplate(
+          "systems/yzecoriolis/templates/dialog/automatic-fire.html"
+        )
+      : "") +
+    `<p>${game.i18n.localize("YZECORIOLIS.ModifierForRollQuestion")}</p>`;
   let d = new Dialog({
     title: game.i18n.localize("YZECORIOLIS.ModifierForRoll"),
-    content: `<p>${game.i18n.localize(
-      "YZECORIOLIS.ModifierForRollQuestion"
-    )}</p>`,
+    content: content,
     buttons: {
       nineMinus: {
         label: "-9",
-        callback: () => modifierCallback(-9),
+        callback: callback(-9),
       },
       eightMinus: {
         label: "-8",
-        callback: () => modifierCallback(-8),
+        callback: callback(-8),
       },
       sevenMinus: {
         label: "-7",
-        callback: () => modifierCallback(-7),
+        callback: callback(-7),
       },
       sixMinus: {
         label: "-6",
-        callback: () => modifierCallback(-6),
+        callback: callback(-6),
       },
       fiveMinus: {
         label: "-5",
-        callback: () => modifierCallback(-5),
+        callback: callback(-5),
       },
       fourMinus: {
         label: "-4",
-        callback: () => modifierCallback(-4),
+        callback: callback(-4),
       },
 
       threeMinus: {
         label: "-3",
-        callback: () => modifierCallback(-3),
+        callback: callback(-3),
       },
       twoMinus: {
         label: "-2",
-        callback: () => modifierCallback(-2),
+        callback: callback(-2),
       },
       oneMinus: {
         label: "-1",
-        callback: () => modifierCallback(-1),
+        callback: callback(-1),
       },
+      zero: {
+        label: "0",
+        callback: callback(0),
+      },
+      onePlus: {
+        label: "+1",
+        callback: callback(1),
+      },
+      twoPlus: {
+        label: "+2",
+        callback: callback(2),
+      },
+      threePlus: {
+        label: "+3",
+        callback: callback(3),
+      },
+      fourPlus: {
+        label: "+4",
+        callback: callback(4),
+      },
+      fivePlus: {
+        label: "+5",
+        callback: callback(5),
+      },
+      sixPlus: {
+        label: "+6",
+        callback: callback(6),
+      },
+      sevenPlus: {
+        label: "+7",
+        callback: callback(7),
+      },
+      eightPlus: {
+        label: "+8",
+        callback: callback(8),
+      },
+      ninePlus: {
+        label: "+9",
+        callback: callback(9),
+      },
+    },
+    default: "zero",
+    render: (html) => {
+      html.find("input[name='automaticFire']").click(() => {
+        automaticFire = !automaticFire;
+        if (automaticFire) {
+          html.find(".ignoredOnes").css({ display: "inline" });
+        } else {
+          html.find(".ignoredOnes").css({ display: "none" });
+        }
+      });
+
+      const ignoredOnesInput = html.find("input[name='numberOfIgnoredOnes']");
+      ignoredOnesInput.on("blur", () => {
+        const v = ignoredOnesInput.val();
+        ignoredOnesInput.val(Math.min(2, Math.max(0, v)));
+      });
+    },
+    close: () => {},
+  });
+  d.render(true);
+}
+
+export function coriolisPrayerModifierDialog(modifierCallback) {
+  let d = new Dialog({
+    title: game.i18n.localize("YZECORIOLIS.ModifierForRoll"),
+    content: `<p>${game.i18n.localize(
+      "YZECORIOLIS.PrayerModifierForRollQuestion"
+    )}</p>`,
+    buttons: {
       zero: {
         label: "0",
         callback: () => modifierCallback(0),
@@ -56,40 +145,13 @@ export function coriolisModifierDialog(modifierCallback) {
         label: "+2",
         callback: () => modifierCallback(2),
       },
-      threePlus: {
-        label: "+3",
-        callback: () => modifierCallback(3),
-      },
-      fourPlus: {
-        label: "+4",
-        callback: () => modifierCallback(4),
-      },
-      fivePlus: {
-        label: "+5",
-        callback: () => modifierCallback(5),
-      },
-      sixPlus: {
-        label: "+6",
-        callback: () => modifierCallback(6),
-      },
-      sevenPlus: {
-        label: "+7",
-        callback: () => modifierCallback(7),
-      },
-      eightPlus: {
-        label: "+8",
-        callback: () => modifierCallback(8),
-      },
-      ninePlus: {
-        label: "+9",
-        callback: () => modifierCallback(9),
-      },
     },
     default: "zero",
     close: () => {},
   });
   d.render(true);
 }
+
 /**
  * takes in rendering options, rollData and:
  * 1. does the roll
@@ -110,12 +172,17 @@ export async function coriolisRoll(chatOptions, rollData) {
   if (totalDice <= 0) {
     totalDice = 2; // desparation roll where both will have to be successes to be considered a success.
   }
-  let roll = new Roll(`${totalDice}d6`);
+  const automaticFire = rollData.additionalData?.automaticFire;
+  const formula = automaticFire
+    ? createAutomaticFireFormula(totalDice, rollData.additionalData)
+    : `${totalDice}d6`;
+  let roll = new Roll(formula);
   await roll.evaluate({ async: false });
   await showDiceSoNice(roll, chatOptions.rollMode);
   const result = evaluateCoriolisRoll(rollData, roll);
   await showChatMessage(chatOptions, result);
 }
+
 /**
  * handle pushing a roll
  * @param  {} chatMessage
@@ -126,24 +193,38 @@ export async function coriolisPushRoll(chatMessage, origRollData, origRoll) {
   if (origRollData.pushed) {
     return;
   }
-  origRollData.pushed = true;
-  origRoll.dice.forEach((part) => {
-    part.results.forEach((r) => {
-      if (r.result !== CONFIG.YZECORIOLIS.maxRoll) {
-        let newDie = new Die(6);
-        newDie.roll(1);
-        r.result = newDie.results[0].result;
+
+  coriolisPrayerModifierDialog(async (bonus) => {
+    origRollData.pushed = true;
+    origRoll.dice.forEach((part) => {
+      part.results.forEach((r) => {
+        if (r.result !== CONFIG.YZECORIOLIS.maxRoll) {
+          let newDie = new Die(6);
+          newDie.roll(1);
+          r.result = newDie.results[0].result;
+        }
+      });
+
+      // do not apply the prayer bonus on automatic fire rolls
+      if (!part.modifiers.includes("x>1")) {
+        part.number = part.number + bonus;
+        for (let i = 0; i < bonus; i++) {
+          let newDie = new Die(6);
+          newDie.roll(1);
+          part.results.push(newDie.results[0]);
+        }
       }
     });
+
+    await showDiceSoNice(origRoll, chatMessage.rollMode);
+    const result = evaluateCoriolisRoll(origRollData, origRoll);
+    await updateChatMessage(chatMessage, result, bonus);
+    if (origRollData.actorType === "npc") {
+      await spendDarknessPoints(1);
+    } else {
+      await addDarknessPoints(1);
+    }
   });
-  await showDiceSoNice(origRoll, chatMessage.rollMode);
-  const result = evaluateCoriolisRoll(origRollData, origRoll);
-  await updateChatMessage(chatMessage, result);
-  if(origRollData.actorType === "npc"){
-    await spendDarknessPoints(1);
-  }else {
-    await addDarknessPoints(1);
-  }
 }
 
 /**
@@ -178,6 +259,7 @@ function isValidRoll(rollData, errorObj) {
   errorObj.error = "YZECORIOLIS.ErrorsInvalidSkillRoll";
   return false;
 }
+
 /**
  * takes the result of the role and associated roll data and returns a result object.
  * @param  {rollType, skill, attribute, modifier} rollData
@@ -259,7 +341,7 @@ async function showChatMessage(chatMsgOptions, resultData) {
   return msg;
 }
 
-async function updateChatMessage(chatMessage, resultData) {
+async function updateChatMessage(chatMessage, resultData, prayerBonus) {
   let tooltip = await renderTemplate(
     "systems/yzecoriolis/templates/sidebar/dice-results.html",
     getTooltipData(resultData)
@@ -269,6 +351,7 @@ async function updateChatMessage(chatMessage, resultData) {
     results: resultData,
     tooltip: tooltip,
     canPush: false,
+    prayerBonus: prayerBonus,
   };
 
   return renderTemplate(
@@ -383,4 +466,23 @@ async function showDiceSoNice(roll, rollMode) {
     }
     await game.dice3d.showForRoll(roll, game.user, true, whisper, blind);
   }
+}
+
+/**
+ * Create the automatic fire formula.
+ *
+ * Normally, automatic fire you roll a d6 until the first 1.
+ * There is a talent (Machinegunner) and a weapon feature (High Capacity) that ignores the first 1
+ * so it is possible to ignore the first two 1s when combining both.
+ *
+ * This is implemented as a sequence of `1d6x>1` dice rolls, each representing rolling
+ * until the first 1 result.
+ */
+
+function createAutomaticFireFormula(totalDice, additionalData) {
+  let formula = `${totalDice}d6`;
+  for (let i = 0; i <= additionalData.numberOfIgnoredOnes; i++) {
+    formula = formula + ", 1d6x>1";
+  }
+  return `{${formula}}`;
 }
