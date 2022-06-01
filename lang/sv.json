@@ -378,5 +378,8 @@
   "YZECORIOLIS.NewShipProblem": "Nytt problem",
   "YZECORIOLIS.ShipEditProblem": "Redigera problem",
   "YZECORIOLIS.ShipCreateProblem": "Skapa problem",
-  "YZECORIOLIS.ShipDeleteProblem": "Ta bort problem"
+  "YZECORIOLIS.ShipDeleteProblem": "Ta bort problem",
+
+  "YZECORIOLIS.ItemDeleteConfirmationTitle": "Ta bort elementet",
+  "YZECORIOLIS.ItemDeleteConfirmationContent": "Är du säker på att du vill ta bort det här elementet?"
 }

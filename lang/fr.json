@@ -378,5 +378,8 @@
   "YZECORIOLIS.NewShipProblem": "Nouveau Problème",
   "YZECORIOLIS.ShipEditProblem": "Éditer Problème",
   "YZECORIOLIS.ShipCreateProblem": "Créer Problème",
-  "YZECORIOLIS.ShipDeleteProblem": "Supprimer Problème"
+  "YZECORIOLIS.ShipDeleteProblem": "Supprimer Problème",
+
+  "YZECORIOLIS.ItemDeleteConfirmationTitle": "Supprimer Item",
+  "YZECORIOLIS.ItemDeleteConfirmationContent": "Êtes-vous certain de vouloir supprimer cet item?"
 }

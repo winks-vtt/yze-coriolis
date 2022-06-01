@@ -321,5 +321,8 @@
   "YZECORIOLIS.LongRange": "Largo",
   "YZECORIOLIS.ExtremeRange": "Extremo",
 
-  "YZECORIOLIS.MigratedDP": "Sistema de Puntos de Oscuridad Migrado."
+  "YZECORIOLIS.MigratedDP": "Sistema de Puntos de Oscuridad Migrado.",
+
+  "YZECORIOLIS.ItemDeleteConfirmationTitle": "Eliminar elemento",
+  "YZECORIOLIS.ItemDeleteConfirmationContent": "¿Está seguro de que desea eliminar este elemento?"
 }
