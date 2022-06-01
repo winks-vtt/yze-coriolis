@@ -363,7 +363,7 @@
 
   "YZECORIOLIS.SettingMaxEnergyPoints": "Maximum Allowed Energy Points",
   "YZECORIOLIS.SettingAlwaysShowFeatures": "Always show features",
-  "YZECORIOLIS.SettingAlwaysShowFeaturesHint": "Blends in the features of weapons, explosives and armor instead at the end of the unfolded description within the character-sheet.",
+  "YZECORIOLIS.SettingAlwaysShowFeaturesHint": "Display item features inline for weapons, explosives, and armor in character sheets.",
 
   "YZECORIOLIS.EnergyPointsReset": "Energy Points previously assigned to crew returned to ship reactor.",
   "YZECORIOLIS.InvalidEPPermissions": "You do not have permission to change ship EP distribution.",
