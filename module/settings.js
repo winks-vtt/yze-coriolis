@@ -1,10 +1,5 @@
 export const registerSystemSettings = function () {
 
-  /*
-   * reloads the sheet after a certain setting is applied
-  */
-  const debouncedReload = foundry.utils.debounce(() => window.location.reload(), 100);
-
   /**
    * Track the system version upon which point a migration was last applied
    */
@@ -41,13 +36,27 @@ export const registerSystemSettings = function () {
     default: false,
   });
 
-  game.settings.register("yzecoriolis", "Initiative", {
-    name: game.i18n.localize("YZECORIOLIS.SettingInitiative"),
-    hint: game.i18n.localize("YZECORIOLIS.SettingInitiativeHint"),
+  game.settings.register("yzecoriolis", "AlternativeInitiative", {
+    name: game.i18n.localize("YZECORIOLIS.SettingAlternativeInitiative"),
+    hint: game.i18n.localize("YZECORIOLIS.SettingAlternativeInitiativeHint"),
     scope: "world",
     config: true,
     type: Boolean,
     default: false,
-    onChange: debouncedReload,
+    onChange: applyAlternativeInitiativeSetting,
   });
 };
+
+export function applyAlternativeInitiativeSetting() {
+  if (game.settings.get("yzecoriolis", "AlternativeInitiative")) {
+  CONFIG.Combat.initiative = {
+    formula: "1d6+(1d6*0.1)",
+    decimals: 1,
+  };
+} else {
+  CONFIG.Combat.initiative = {
+    formula: "1d6",
+    decimals: 0,
+  };
+}
+}
