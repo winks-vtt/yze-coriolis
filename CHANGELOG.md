@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.9.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.9.0...v2.9.1) (2022-06-01)
+
+
+### Bug Fixes
+
+* initiative rolls now support tie breaking by using "1d6+(1d6*0.1)" instead of just a d6. ([f6a1f47](https://www.github.com/winks-vtt/yze-coriolis/commit/f6a1f47d3b3b1e81fea9fab26727ef99e70ed545))
+
 ## [2.9.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.8.4...v2.9.0) (2022-05-24)
 
 
