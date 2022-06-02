@@ -324,6 +324,24 @@ async function showChatMessage(chatMsgOptions, resultData) {
     results: resultData,
     tooltip: tooltip,
     canPush: !resultData.pushed,
+    totalDice: getTotalDice(resultData.rollData),
+    actorType: getActorType(resultData.rollData),
+    rollType: getRollType(resultData.rollData),
+    attribute: getRollAttribute(resultData.rollData),
+    attributeName: getRollAttributeName(resultData.rollData),
+    skill: getRollSkill(resultData.rollData),
+    skillName: getRollSkillName(resultData.rollData),
+    modifier: getRollModifier(resultData.rollData),
+    isAutomatic: getRollIsAuto(resultData.rollData),
+    isExplosive: getRollIsExplosive(resultData.rollData),
+    bonus: getRollBonus(resultData.rollData),
+    blastPower: getRollBlastPower(resultData.rollData),
+    blastRadius: getRollBlastRadius(resultData.rollData),
+    crit: getRollCrit(resultData.rollData),
+    critText: getRollCritText(resultData.rollData),
+    damage: getRollDmg(resultData.rollData),
+    damageText: getRollDmgText(resultData.rollData),
+    range: getRollRange(resultData.rollData),
   };
 
   if (["gmroll", "blindroll"].includes(chatMsgOptions.rollMode))
@@ -352,6 +370,24 @@ async function updateChatMessage(chatMessage, resultData, prayerBonus) {
     tooltip: tooltip,
     canPush: false,
     prayerBonus: prayerBonus,
+    totalDice: getTotalDice(resultData.rollData),
+    actorType: getActorType(resultData.rollData),
+    rollType: getRollType(resultData.rollData),
+    attribute: getRollAttribute(resultData.rollData),
+    attributeName: getRollAttributeName(resultData.rollData),
+    skill: getRollSkill(resultData.rollData),
+    skillName: getRollSkillName(resultData.rollData),
+    modifier: getRollModifier(resultData.rollData),
+    isAutomatic: getRollIsAuto(resultData.rollData),
+    isExplosive: getRollIsExplosive(resultData.rollData),
+    bonus: getRollBonus(resultData.rollData),
+    blastPower: getRollBlastPower(resultData.rollData),
+    blastRadius: getRollBlastRadius(resultData.rollData),
+    crit: getRollCrit(resultData.rollData),
+    critText: getRollCritText(resultData.rollData),
+    damage: getRollDmg(resultData.rollData),
+    damageText: getRollDmgText(resultData.rollData),
+    range: getRollRange(resultData.rollData),
   };
 
   return renderTemplate(
@@ -389,7 +425,6 @@ function getTooltipData(results) {
     let maxRoll = CONFIG.YZECORIOLIS.maxRoll;
     // Generate tooltip data
     return {
-      formula: d.formula,
       total: results.successes,
       faces: d.faces,
       rolls: d.results.map((r) => {
@@ -411,6 +446,142 @@ function getTooltipData(results) {
     };
   });
   return data;
+}
+
+function getActorType(rollData) {
+  return `${rollData.actorType}`;
+}
+
+function getRollType(rollData) {
+  return `${rollData.rollType}`;
+}
+
+function getRollAttribute(rollData) {
+  return `${rollData.attribute}`;
+}
+
+function getRollAttributeName(rollData) {
+  let AttrKey = "";
+  switch (rollData.attributeKey) {
+    case "strength":
+      return AttrKey = game.i18n.localize("YZECORIOLIS.AttrStrength");
+    case "agility":
+      return AttrKey = game.i18n.localize("YZECORIOLIS.AttrAgility");
+    case "wits":
+      return AttrKey = game.i18n.localize("YZECORIOLIS.AttrWits");
+    case "empathy":
+      return AttrKey = game.i18n.localize("YZECORIOLIS.AttrEmpathy");
+  }
+  return AttrKey;
+}
+
+function getRollSkill(rollData) {
+  return `${rollData.skill}`;
+}
+
+function getRollSkillName(rollData) {
+  let SkillKey = "";
+  switch (rollData.skillKey) {
+    case "dexterity":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillDexterity");
+    case "force":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillForce");
+    case "infiltration":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillInfiltration");
+    case "manipulation":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillManipulation");
+    case "meleecombat":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillMeleeCombat");
+    case "observation":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillObservation");
+    case "rangedcombat":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillRangedCombat");
+    case "survival":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillSurvival");
+    case "command":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillCommand");
+    case "culture":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillCulture");
+    case "datadjinn":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillDataDjinn");
+    case "medicurgy":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillMedicurgy");
+    case "mysticpowers":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillMysticPowers");
+    case "pilot":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillPilot");
+    case "science":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillScience");
+    case "technology":
+      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillTechnology");
+  }
+  return SkillKey;
+}
+
+function getRollModifier(rollData) {
+  return `${rollData.modifier}`;
+}
+
+function getRollIsAuto(rollData) {
+  return `${rollData.weapon_isAutomatic}`;
+}
+
+function getRollIsExplosive(rollData) {
+  return `${rollData.weapon_isExplosive}`;
+}
+
+function getRollBonus(rollData) {
+  return `${rollData.bonus}`;
+}
+
+function getRollBlastPower(rollData) {
+  return `${rollData.weapon_blastPower}`;
+}
+
+function getRollBlastRadius(rollData) {
+  let radius = "";
+  switch (rollData.weapon_blastRadius) {
+    case "close":
+      return radius = game.i18n.localize("YZECORIOLIS.CloseRange");
+    case "short":
+      return radius = game.i18n.localize("YZECORIOLIS.ShortRange");
+    case "long":
+      return radius = game.i18n.localize("YZECORIOLIS.LongRange");
+    case "extreme":
+      return radius = game.i18n.localize("YZECORIOLIS.ExtremeRange");
+  }
+  return radius;
+}
+
+function getRollCrit(rollData) {
+  return `${rollData.weapon_crit}`;
+}
+
+function getRollCritText(rollData) {
+  return `${rollData.weapon_critText}`;
+}
+
+function getRollDmg(rollData) {
+  return `${rollData.weapon_damage}`;
+}
+
+function getRollDmgText(rollData) {
+  return `${rollData.weapon_damageText}`;
+}
+
+function getRollRange(rollData) {
+  let range = "";
+  switch (rollData.weapon_range) {
+    case "close":
+      return range = game.i18n.localize("YZECORIOLIS.CloseRange");
+    case "short":
+      return range = game.i18n.localize("YZECORIOLIS.ShortRange");
+    case "long":
+      return range = game.i18n.localize("YZECORIOLIS.LongRange");
+    case "extreme":
+      return range = game.i18n.localize("YZECORIOLIS.ExtremeRange");
+  }
+  return range;
 }
 
 export async function coriolisChatListeners(html) {

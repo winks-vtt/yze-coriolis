@@ -359,6 +359,20 @@
   "YZECORIOLIS.SettingMaxEnergyPoints": "Maximal erlaubte Leistungspunkte",
   "YZECORIOLIS.SettingAlwaysShowFeatures": "Merkmale immer einblenden",
   "YZECORIOLIS.SettingAlwaysShowFeaturesHint": "Blendet die Merkmale von Waffen, Sprengstoffen und Panzerung immer direkt im Charackter-Sheet unter dem Namen ein, anstatt am Ende der ausgeklappten Beschreibung.",
+  "YZECORIOLIS.SettingRollInfoAttribute": "Zusätzliche Daten bei Attributswürfen",
+  "YZECORIOLIS.SettingRollInfoAttributeHint": "Ergänzt das Wurfergebnis um weitere Daten (Modifikator).",
+  "YZECORIOLIS.SettingRollInfoSkill": "Zusätzliche Daten bei Skillwürfen",
+  "YZECORIOLIS.SettingRollInfoSkillHint": "Ergänzt das Wurfergebnis um weitere Daten (Attributspunkte, Skillpunkte, Modifikator).",
+  "YZECORIOLIS.SettingRollInfoWeapon": "Zusätzliche Daten bei Würfen auf Waffen",
+  "YZECORIOLIS.SettingRollInfoWeaponHint": "Ergänzt das Wurfergebnis um weitere Daten (Attributspunkte, Skillpunkte, Modifikator, Bonus, Schaden, Krit, Reichweite, Automatik).",
+  "YZECORIOLIS.SettingRollInfoExplosive": "Zusätzliche Daten bei Würfen auf Sprengstoffe",
+  "YZECORIOLIS.SettingRollInfoExplosiveHint": "Ergänzt das Wurfergebnis um weitere Daten (Attributspunkte, Skillpunkte, Modifikator, Bonus, Schaden, Krit, Sprengkraft, Radius).",
+  "YZECORIOLIS.SettingRollInfoArmor": "Zusätzliche Daten bei Würfen auf Panzerungen",
+  "YZECORIOLIS.SettingRollInfoArmorHint": "Ergänzt das Wurfergebnis um weitere Daten (Panzerungswert, Modifikator).",
+  "YZECORIOLIS.SettingRollInfoNo": "Keine zusätzlichen Informationen",
+  "YZECORIOLIS.SettingRollInfoPC": "Nur für Spielercharaktere",
+  "YZECORIOLIS.SettingRollInfoNPC": "Nur für Nicht-Spielercharaktere",
+  "YZECORIOLIS.SettingRollInfoAll": "Für alle Charaktere",
 
   "YZECORIOLIS.EnergyPointsReset": "Zuvor der Mannschaft zu geordnete Leistungspunkte stehen dem Schiffsreaktor wieder zur Verfügung.",
   "YZECORIOLIS.InvalidEPPermissions": "Du hast keine Berechtigung die LP-Verteilung zu verändern.",
@@ -391,5 +405,8 @@
   "YZECORIOLIS.ItemDeleteConfirmationTitle": "Element löschen",
   "YZECORIOLIS.ItemDeleteConfirmationContent": "Möchten Sie dieses Element wirklich löschen?",
   "YZECORIOLIS.AutomaticFire": "Automatisches Feuer",
-  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Anzahl ignorierter 1 (max 2)"
+  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Anzahl ignorierter 1 (max 2)",
+
+  "YZECORIOLIS.RollTotal": "Gesamtwurf",
+  "YZECORIOLIS.RollSubstitute": "2d6-Rettungswurf anstatt"
 }

@@ -1,6 +1,9 @@
 // Import Modules
 import { YZECORIOLIS } from "./config.js";
-import { registerSystemSettings } from "./settings.js";
+import {
+  registerSystemSettings,
+  applyRollInfoSetting,
+} from "./settings.js";
 import { yzecoriolisActor } from "./actor/actor.js";
 import { yzecoriolisActorSheet } from "./actor/actor-sheet.js";
 import { yzecoriolisShipSheet } from "./actor/ship-sheet.js";
@@ -152,12 +155,9 @@ Hooks.once("init", async function () {
     return CONFIG.YZECORIOLIS.itemTypes[itemTypeKey];
   });
 
-  Handlebars.registerHelper(
-    "getTalentCategoryName",
-    function (talentCategoryKey) {
+  Handlebars.registerHelper("getTalentCategoryName", function (talentCategoryKey) {
       return CONFIG.YZECORIOLIS.talentCategories[talentCategoryKey];
-    }
-  );
+  });
 
   Handlebars.registerHelper("getGearWeightName", function (gearWeight) {
     return CONFIG.YZECORIOLIS.gearWeights[gearWeight];
@@ -216,24 +216,21 @@ Hooks.once("init", async function () {
   });
 
   // returns just the position without the ship name.
-  Handlebars.registerHelper(
-    "getCrewPositionNameBasic",
-    function (crewPosition) {
-      let positionName =
-        CONFIG.YZECORIOLIS.crewPositions[crewPosition.position];
-      // for non associated crew, just return position name
-      if (!crewPosition.shipId) {
-        return positionName;
-      }
-      // search for ship and grab "ship - crewPosition"
-      let ship = game.actors.get(crewPosition.shipId);
-      if (!ship) {
-        console.warn("failed to find ship", crewPosition);
-        return positionName;
-      }
-      return `${positionName}`;
+  Handlebars.registerHelper("getCrewPositionNameBasic", function (crewPosition) {
+    let positionName =
+    CONFIG.YZECORIOLIS.crewPositions[crewPosition.position];
+    // for non associated crew, just return position name
+    if (!crewPosition.shipId) {
+      return positionName;
     }
-  );
+    // search for ship and grab "ship - crewPosition"
+    let ship = game.actors.get(crewPosition.shipId);
+    if (!ship) {
+      console.warn("failed to find ship", crewPosition);
+      return positionName;
+    }
+    return `${positionName}`;
+  });
 
   Handlebars.registerHelper("getCrewPositionName", function (crewPosition) {
     let positionName = CONFIG.YZECORIOLIS.crewPositions[crewPosition.position];
@@ -251,13 +248,10 @@ Hooks.once("init", async function () {
     return `${ship.data.name} - ${positionName}`;
   });
 
-  Handlebars.registerHelper(
-    "getShipRollNameForPosition",
-    function (crewPosition) {
-      const skill = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
-      return CONFIG.YZECORIOLIS.skills[skill];
-    }
-  );
+  Handlebars.registerHelper("getShipRollNameForPosition", function (crewPosition) {
+    const skill = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
+    return CONFIG.YZECORIOLIS.skills[skill];
+  });
 
   Handlebars.registerHelper("getShipRollValueForPosition", function (crewId) {
     const crew = getActorDataById(crewId);
@@ -276,6 +270,8 @@ Hooks.once("init", async function () {
   Handlebars.registerHelper("ShowFeatures", function () {
     return game.settings.get("yzecoriolis", "AlwaysShowFeatures")
   });
+
+  applyRollInfoSetting();
 });
 
 // called after game data is loaded from severs. entities exist

@@ -477,19 +477,38 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const dataset = element.dataset;
     const actorData = this.actor.data.data;
     const automaticWeapon = dataset.automaticweapon === "true";
+    const itemId = element.closest(".item")
+      ? element.closest(".item").dataset.itemId
+      : null;
+    const item = itemId
+      ? this.actor.items.get(itemId).data.data
+      : null;
     const rollData = {
+      actorType: this.actor.data.type,
       rollType: dataset.rolltype,
-      skillKey: dataset.skillkey,
-      skill: dataset.skillkey ? actorData.skills[dataset.skillkey].value : 0,
       attributeKey: dataset.attributekey,
       attribute: dataset.attributekey
         ? actorData.attributes[dataset.attributekey].value
         : 0,
+      skillKey: dataset.skillkey,
+      skill: dataset.skillkey
+        ? actorData.skills[dataset.skillkey].value
+        : 0,
       modifier: 0,
-      bonus: dataset.bonus ? Number(dataset.bonus) : 0,
+      bonus: dataset.bonus
+        ? Number(dataset.bonus)
+        : 0,
       rollTitle: dataset.label,
       pushed: false,
-      actorType: this.actor.data.type,
+      weapon_isAutomatic: item?.automatic,
+      weapon_isExplosive: item?.explosive,
+      weapon_blastPower: item?.blastPower,
+      weapon_blastRadius: item?.blastRadius,
+      weapon_damage: item?.damage,
+      weapon_damageText: item?.damageText,
+      weapon_range: item?.range,
+      weapon_crit: item?.crit?.numericValue,
+      weapon_critText: item?.crit?.customValue,
     };
     const chatOptions = this.actor._prepareChatRollOptions(
       "systems/yzecoriolis/templates/sidebar/roll.html",
