@@ -321,9 +321,9 @@
       <tr>
         <td colspan="2">
         {{#if_gt totalDice 0}}
-          <strong>{{localize "YZECORIOLIS.RollTotal"}}:</strong> {{totalDice}}d6
+          <strong>{{localize "YZECORIOLIS.RollTotal"}}:</strong> {{totalDice}}d6 {{#if_eq isAutomaticActive 'true'}}+ {{AutomaticRollAmount}} {{localize "YZECORIOLIS.AutomaticFire"}}{{/if_eq}}
         {{else}}
-          <strong>{{localize "YZECORIOLIS.RollTotal"}}:</strong> {{localize "YZECORIOLIS.RollSubstitute"}} {{totalDice}}d6
+          <strong>{{localize "YZECORIOLIS.RollTotal"}}:</strong> {{localize "YZECORIOLIS.RollSubstitute"}} {{totalDice}}d6 {{#if_eq isAutomaticActive 'true'}}<br>+ {{AutomaticRollAmount}} {{localize "YZECORIOLIS.AutomaticFire"}}{{/if_eq}}
         {{/if_gt}}
         </td>
       </tr>

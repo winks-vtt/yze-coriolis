@@ -306,7 +306,11 @@ function getTotalDice(rollData) {
     case "attribute":
       return attributeValue + modifier;
     case "weapon":
-      return attributeValue + skillValue + bonus + modifier;
+      if (rollData.additionalData.automaticFire) {
+        return attributeValue + skillValue + bonus + modifier - 2;
+      } else {
+        return attributeValue + skillValue + bonus + modifier;
+      }
     case "armor":
       return bonus + modifier;
   }
@@ -333,6 +337,8 @@ async function showChatMessage(chatMsgOptions, resultData) {
     skillName: getRollSkillName(resultData.rollData),
     modifier: getRollModifier(resultData.rollData),
     isAutomatic: getRollIsAuto(resultData.rollData),
+    isAutomaticActive: getRollIsAutoActive(resultData.rollData),
+    AutomaticRollAmount: parseInt(getRollAutoIgnoOnes(resultData.rollData)) + 1,
     isExplosive: getRollIsExplosive(resultData.rollData),
     bonus: getRollBonus(resultData.rollData),
     blastPower: getRollBlastPower(resultData.rollData),
@@ -379,6 +385,8 @@ async function updateChatMessage(chatMessage, resultData, prayerBonus) {
     skillName: getRollSkillName(resultData.rollData),
     modifier: getRollModifier(resultData.rollData),
     isAutomatic: getRollIsAuto(resultData.rollData),
+    isAutomaticActive: getRollIsAutoActive(resultData.rollData),
+    AutomaticRollAmount: parseInt(getRollAutoIgnoOnes(resultData.rollData)) + 1,
     isExplosive: getRollIsExplosive(resultData.rollData),
     bonus: getRollBonus(resultData.rollData),
     blastPower: getRollBlastPower(resultData.rollData),
@@ -524,6 +532,14 @@ function getRollModifier(rollData) {
 
 function getRollIsAuto(rollData) {
   return `${rollData.weapon_isAutomatic}`;
+}
+
+function getRollIsAutoActive(rollData) {
+  return `${rollData.additionalData.automaticFire}`;
+}
+
+function getRollAutoIgnoOnes(rollData) {
+  return `${rollData.additionalData.numberOfIgnoredOnes}`;
 }
 
 function getRollIsExplosive(rollData) {
