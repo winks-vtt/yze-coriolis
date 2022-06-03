@@ -535,11 +535,11 @@ function getRollIsAuto(rollData) {
 }
 
 function getRollIsAutoActive(rollData) {
-  return `${rollData.additionalData.automaticFire}`;
+  return `${rollData.additionalData?.automaticFire}`;
 }
 
 function getRollAutoIgnoOnes(rollData) {
-  return `${rollData.additionalData.numberOfIgnoredOnes}`;
+  return `${rollData.additionalData?.numberOfIgnoredOnes}`;
 }
 
 function getRollIsExplosive(rollData) {
