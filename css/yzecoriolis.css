@@ -2383,8 +2383,7 @@
 }
 .yzecoriolis.sheet.actor .ship .crew-card .crew-portrait {
   max-height: 269px;
-  background-position: -77px -15px;
-  background-size: 180%;
+  background-size: cover;
   background-blend-mode: multiply;
   background-color: rgba(0, 0, 0, 0.35);
   transition: background-color 275ms ease;
