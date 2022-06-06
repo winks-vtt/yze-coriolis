@@ -338,7 +338,7 @@ async function showChatMessage(chatMsgOptions, resultData) {
     modifier: getRollModifier(resultData.rollData),
     isAutomatic: getRollIsAuto(resultData.rollData),
     isAutomaticActive: getRollIsAutoActive(resultData.rollData),
-    AutomaticRollAmount: parseInt(getRollAutoIgnoOnes(resultData.rollData)) + 1,
+    automaticRollAmount: parseInt(getRollAutoIgnoOnes(resultData.rollData)) + 1,
     isExplosive: getRollIsExplosive(resultData.rollData),
     bonus: getRollBonus(resultData.rollData),
     blastPower: getRollBlastPower(resultData.rollData),
@@ -386,7 +386,7 @@ async function updateChatMessage(chatMessage, resultData, prayerBonus) {
     modifier: getRollModifier(resultData.rollData),
     isAutomatic: getRollIsAuto(resultData.rollData),
     isAutomaticActive: getRollIsAutoActive(resultData.rollData),
-    AutomaticRollAmount: parseInt(getRollAutoIgnoOnes(resultData.rollData)) + 1,
+    automaticRollAmount: parseInt(getRollAutoIgnoOnes(resultData.rollData)) + 1,
     isExplosive: getRollIsExplosive(resultData.rollData),
     bonus: getRollBonus(resultData.rollData),
     blastPower: getRollBlastPower(resultData.rollData),
@@ -469,18 +469,7 @@ function getRollAttribute(rollData) {
 }
 
 function getRollAttributeName(rollData) {
-  let AttrKey = "";
-  switch (rollData.attributeKey) {
-    case "strength":
-      return AttrKey = game.i18n.localize("YZECORIOLIS.AttrStrength");
-    case "agility":
-      return AttrKey = game.i18n.localize("YZECORIOLIS.AttrAgility");
-    case "wits":
-      return AttrKey = game.i18n.localize("YZECORIOLIS.AttrWits");
-    case "empathy":
-      return AttrKey = game.i18n.localize("YZECORIOLIS.AttrEmpathy");
-  }
-  return AttrKey;
+  return CONFIG.YZECORIOLIS.attributes[rollData.attributeKey];
 }
 
 function getRollSkill(rollData) {
@@ -488,42 +477,7 @@ function getRollSkill(rollData) {
 }
 
 function getRollSkillName(rollData) {
-  let SkillKey = "";
-  switch (rollData.skillKey) {
-    case "dexterity":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillDexterity");
-    case "force":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillForce");
-    case "infiltration":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillInfiltration");
-    case "manipulation":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillManipulation");
-    case "meleecombat":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillMeleeCombat");
-    case "observation":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillObservation");
-    case "rangedcombat":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillRangedCombat");
-    case "survival":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillSurvival");
-    case "command":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillCommand");
-    case "culture":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillCulture");
-    case "datadjinn":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillDataDjinn");
-    case "medicurgy":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillMedicurgy");
-    case "mysticpowers":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillMysticPowers");
-    case "pilot":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillPilot");
-    case "science":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillScience");
-    case "technology":
-      return SkillKey = game.i18n.localize("YZECORIOLIS.SkillTechnology");
-  }
-  return SkillKey;
+  return CONFIG.YZECORIOLIS.skills[rollData.skillKey];
 }
 
 function getRollModifier(rollData) {
@@ -531,7 +485,7 @@ function getRollModifier(rollData) {
 }
 
 function getRollIsAuto(rollData) {
-  return `${rollData.weapon_isAutomatic}`;
+  return `${rollData.isAutomatic}`;
 }
 
 function getRollIsAutoActive(rollData) {
@@ -543,7 +497,7 @@ function getRollAutoIgnoOnes(rollData) {
 }
 
 function getRollIsExplosive(rollData) {
-  return `${rollData.weapon_isExplosive}`;
+  return `${rollData.isExplosive}`;
 }
 
 function getRollBonus(rollData) {
@@ -551,53 +505,31 @@ function getRollBonus(rollData) {
 }
 
 function getRollBlastPower(rollData) {
-  return `${rollData.weapon_blastPower}`;
+  return `${rollData.blastPower}`;
 }
 
 function getRollBlastRadius(rollData) {
-  let radius = "";
-  switch (rollData.weapon_blastRadius) {
-    case "close":
-      return radius = game.i18n.localize("YZECORIOLIS.CloseRange");
-    case "short":
-      return radius = game.i18n.localize("YZECORIOLIS.ShortRange");
-    case "long":
-      return radius = game.i18n.localize("YZECORIOLIS.LongRange");
-    case "extreme":
-      return radius = game.i18n.localize("YZECORIOLIS.ExtremeRange");
-  }
-  return radius;
+  return CONFIG.YZECORIOLIS.ranges[rollData.blastRadius];
 }
 
 function getRollCrit(rollData) {
-  return `${rollData.weapon_crit}`;
+  return `${rollData.crit}`;
 }
 
 function getRollCritText(rollData) {
-  return `${rollData.weapon_critText}`;
+  return `${rollData.critText}`;
 }
 
 function getRollDmg(rollData) {
-  return `${rollData.weapon_damage}`;
+  return `${rollData.damage}`;
 }
 
 function getRollDmgText(rollData) {
-  return `${rollData.weapon_damageText}`;
+  return `${rollData.damageText}`;
 }
 
 function getRollRange(rollData) {
-  let range = "";
-  switch (rollData.weapon_range) {
-    case "close":
-      return range = game.i18n.localize("YZECORIOLIS.CloseRange");
-    case "short":
-      return range = game.i18n.localize("YZECORIOLIS.ShortRange");
-    case "long":
-      return range = game.i18n.localize("YZECORIOLIS.LongRange");
-    case "extreme":
-      return range = game.i18n.localize("YZECORIOLIS.ExtremeRange");
-  }
-  return range;
+  return CONFIG.YZECORIOLIS.ranges[rollData.range];
 }
 
 export async function coriolisChatListeners(html) {

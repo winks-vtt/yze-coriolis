@@ -1,9 +1,6 @@
 // Import Modules
 import { YZECORIOLIS } from "./config.js";
-import {
-  registerSystemSettings,
-  applyRollInfoSetting,
-} from "./settings.js";
+import { registerSystemSettings } from "./settings.js";
 import { yzecoriolisActor } from "./actor/actor.js";
 import { yzecoriolisActorSheet } from "./actor/actor-sheet.js";
 import { yzecoriolisShipSheet } from "./actor/ship-sheet.js";
@@ -271,7 +268,9 @@ Hooks.once("init", async function () {
     return game.settings.get("yzecoriolis", "AlwaysShowFeatures")
   });
 
-  applyRollInfoSetting();
+  Handlebars.registerHelper("AdditionalRollInfos", function () {
+    return game.settings.get("yzecoriolis", "AdditionalRollInfos");
+  });
 });
 
 // called after game data is loaded from severs. entities exist
@@ -494,7 +493,9 @@ function rollItemMacro(itemName) {
     );
   }
   // Get matching items
-  const items = actor ? actor.items.filter((i) => i.name === itemName) : [];
+  const items = actor
+    ? actor.items.filter((i) => i.name === itemName)
+    : [];
   if (items.length > 1) {
     ui.notifications.warn(
       `Your controlled Actor ${actor.name} has more than one Item with name ${itemName}. The first matched item will be chosen.`

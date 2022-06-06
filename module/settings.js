@@ -53,105 +53,18 @@ export const registerSystemSettings = function () {
     onChange: debouncedReload,
   });
 
-  game.settings.register("yzecoriolis", "RollInfoAttribute", {
-    name: game.i18n.localize("YZECORIOLIS.SettingRollInfoAttribute"),
-    hint: game.i18n.localize("YZECORIOLIS.SettingRollInfoAttributeHint"),
+  game.settings.register("yzecoriolis", "AdditionalRollInfos", {
+    name: game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfos"),
+    hint: game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosHint"),
     scope: "world",
     config: true,
     type: String,
     choices: {
-      "no": game.i18n.localize("YZECORIOLIS.SettingRollInfoNo"),
-      "pc": game.i18n.localize("YZECORIOLIS.SettingRollInfoPC"),
-      "npc": game.i18n.localize("YZECORIOLIS.SettingRollInfoNPC"),
-      "all": game.i18n.localize("YZECORIOLIS.SettingRollInfoAll")
+      "no": game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosNo"),
+      "pc": game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosPC"),
+      "npc": game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosNPC"),
+      "all": game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosAll")
       },
     default: "no",
-    onChange: applyRollInfoSetting,
-  });
-
-  game.settings.register("yzecoriolis", "RollInfoSkill", {
-    name: game.i18n.localize("YZECORIOLIS.SettingRollInfoSkill"),
-    hint: game.i18n.localize("YZECORIOLIS.SettingRollInfoSkillHint"),
-    scope: "world",
-    config: true,
-    type: String,
-    choices: {
-      "no": game.i18n.localize("YZECORIOLIS.SettingRollInfoNo"),
-      "pc": game.i18n.localize("YZECORIOLIS.SettingRollInfoPC"),
-      "npc": game.i18n.localize("YZECORIOLIS.SettingRollInfoNPC"),
-      "all": game.i18n.localize("YZECORIOLIS.SettingRollInfoAll")
-      },
-    default: "no",
-    onChange: applyRollInfoSetting,
-  });
-
-  game.settings.register("yzecoriolis", "RollInfoWeapon", {
-    name: game.i18n.localize("YZECORIOLIS.SettingRollInfoWeapon"),
-    hint: game.i18n.localize("YZECORIOLIS.SettingRollInfoWeaponHint"),
-    scope: "world",
-    config: true,
-    type: String,
-    choices: {
-      "no": game.i18n.localize("YZECORIOLIS.SettingRollInfoNo"),
-      "pc": game.i18n.localize("YZECORIOLIS.SettingRollInfoPC"),
-      "npc": game.i18n.localize("YZECORIOLIS.SettingRollInfoNPC"),
-      "all": game.i18n.localize("YZECORIOLIS.SettingRollInfoAll")
-      },
-    default: "no",
-    onChange: applyRollInfoSetting,
-  });
-
-  game.settings.register("yzecoriolis", "RollInfoExplosive", {
-    name: game.i18n.localize("YZECORIOLIS.SettingRollInfoExplosive"),
-    hint: game.i18n.localize("YZECORIOLIS.SettingRollInfoExplosiveHint"),
-    scope: "world",
-    config: true,
-    type: String,
-    choices: {
-      "no": game.i18n.localize("YZECORIOLIS.SettingRollInfoNo"),
-      "pc": game.i18n.localize("YZECORIOLIS.SettingRollInfoPC"),
-      "npc": game.i18n.localize("YZECORIOLIS.SettingRollInfoNPC"),
-      "all": game.i18n.localize("YZECORIOLIS.SettingRollInfoAll")
-      },
-    default: "no",
-    onChange: applyRollInfoSetting,
-  });
-
-  game.settings.register("yzecoriolis", "RollInfoArmor", {
-    name: game.i18n.localize("YZECORIOLIS.SettingRollInfoArmor"),
-    hint: game.i18n.localize("YZECORIOLIS.SettingRollInfoArmorHint"),
-    scope: "world",
-    config: true,
-    type: String,
-    choices: {
-      "no": game.i18n.localize("YZECORIOLIS.SettingRollInfoNo"),
-      "pc": game.i18n.localize("YZECORIOLIS.SettingRollInfoPC"),
-      "npc": game.i18n.localize("YZECORIOLIS.SettingRollInfoNPC"),
-      "all": game.i18n.localize("YZECORIOLIS.SettingRollInfoAll")
-      },
-    default: "no",
-    onChange: applyRollInfoSetting,
   });
 };
-
-export function applyRollInfoSetting() {
-  Handlebars.registerHelper("RollInfoAttr", function () {
-    return game.settings.get("yzecoriolis", "RollInfoAttribute");
-  });
-
-  Handlebars.registerHelper("RollInfoSkill", function () {
-    return game.settings.get("yzecoriolis", "RollInfoSkill");
-  });
-
-  Handlebars.registerHelper("RollInfoWeapon", function () {
-    return game.settings.get("yzecoriolis", "RollInfoWeapon");
-  });
-
-  Handlebars.registerHelper("RollInfoExplosive", function () {
-    return game.settings.get("yzecoriolis", "RollInfoExplosive");
-  });
-
-    Handlebars.registerHelper("RollInfoArmor", function () {
-    return game.settings.get("yzecoriolis", "RollInfoArmor");
-  });
-}

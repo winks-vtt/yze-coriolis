@@ -364,20 +364,12 @@
   "YZECORIOLIS.SettingMaxEnergyPoints": "Maximum Allowed Energy Points",
   "YZECORIOLIS.SettingAlwaysShowFeatures": "Always show features",
   "YZECORIOLIS.SettingAlwaysShowFeaturesHint": "Display item features inline for weapons, explosives, and armor in character sheets.",
-  "YZECORIOLIS.SettingRollInfoAttribute": "Additional roll-values for attributes",
-  "YZECORIOLIS.SettingRollInfoAttributeHint": "Expands the roll result with additional values (modifier).",
-  "YZECORIOLIS.SettingRollInfoSkill": "Additional roll-values for Skills",
-  "YZECORIOLIS.SettingRollInfoSkillHint": "Expands the roll result with additional values (attribute-points, skill-points, modifier).",
-  "YZECORIOLIS.SettingRollInfoWeapon": "Additional roll-values for weapons",
-  "YZECORIOLIS.SettingRollInfoWeaponHint": "Expands the roll result with additional values (attribute-points, skill-points, modifier, bonus, damage, crit, range, automatic).",
-  "YZECORIOLIS.SettingRollInfoExplosive": "Additional roll-values for explosives",
-  "YZECORIOLIS.SettingRollInfoExplosiveHint": "Expands the roll result with additional values (attribute-points, skill-points, modifier, bonus, damage, crit, power, radius).",
-  "YZECORIOLIS.SettingRollInfoArmor": "Additional roll-values for armor",
-  "YZECORIOLIS.SettingRollInfoArmorHint": "Expands the roll result with additional values (armor rating, modifier).",
-  "YZECORIOLIS.SettingRollInfoNo": "No additional Infos",
-  "YZECORIOLIS.SettingRollInfoPC": "Only for Player Characters",
-  "YZECORIOLIS.SettingRollInfoNPC": "Only for Non-Player Characters",
-  "YZECORIOLIS.SettingRollInfoAll": "For all Characters",
+  "YZECORIOLIS.SettingAdditionalRollInfos": "Show additional roll-values",
+  "YZECORIOLIS.SettingAdditionalRollInfosHint": "Expands the roll result with additional values (e.g. attribute-points, skill-points, modifier, bonus, damage, crit, range, automatic, power, radius).",
+  "YZECORIOLIS.SettingAdditionalRollInfosNo": "No additional Infos",
+  "YZECORIOLIS.SettingAdditionalRollInfosPC": "Only for Player Characters",
+  "YZECORIOLIS.SettingAdditionalRollInfosNPC": "Only for Non-Player Characters",
+  "YZECORIOLIS.SettingAdditionalRollInfosAll": "For all Characters",
 
   "YZECORIOLIS.EnergyPointsReset": "Energy Points previously assigned to crew returned to ship reactor.",
   "YZECORIOLIS.InvalidEPPermissions": "You do not have permission to change ship EP distribution.",
@@ -413,5 +405,5 @@
   "YZECORIOLIS.AutomaticFireIgnoredOnes": "Number of ignored 1s (max 2)",
 
   "YZECORIOLIS.RollTotal": "Total rolled",
-  "YZECORIOLIS.RollSubstitute": "2d6-saving throw instead of"
+  "YZECORIOLIS.RollDesperation": "Desperation roll (2d6) instead of"
 }
