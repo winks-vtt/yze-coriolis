@@ -195,6 +195,7 @@
   "YZECORIOLIS.SkillScienceRoll": "Wissenschaft",
   "YZECORIOLIS.SkillTechnologyRoll": "Technologie",
 
+  "YZECORIOLIS.Talent": "Talent",
   "YZECORIOLIS.TalentCatGroup": "Gruppentalent",
   "YZECORIOLIS.TalentCatIcon": "Ikonentalente",
   "YZECORIOLIS.TalentCatGeneral": "Allgemeine Talente",
@@ -306,6 +307,8 @@
   "YZECORIOLIS.TalentMysticalStop": "Anhalten",
   "YZECORIOLIS.TalentMysticalTelekinesis": "Telekinese",
 
+  "YZECORIOLIS.FeatureWeaponHighCapacity": "Hohe Kapazität",
+
   "YZECORIOLIS.TechTierPrimitive": "Primitiv",
   "YZECORIOLIS.TechTierOrdinary": "Gewöhnlich",
   "YZECORIOLIS.TechTierAdvanced": "Fortschrittlich",
@@ -347,6 +350,7 @@
   "YZECORIOLIS.Cost": "Kosten",
   "YZECORIOLIS.Speed": "Geschwindigkeit",
   "YZECORIOLIS.Crew": "Mannschaft",
+  "YZECORIOLIS.Feature": "Merkmal",
   "YZECORIOLIS.Features": "Merkmale",
   "YZECORIOLIS.Modules": "Module",
   "YZECORIOLIS.CriticalDamage": "kritischer Schaden",
@@ -391,5 +395,6 @@
   "YZECORIOLIS.ItemDeleteConfirmationTitle": "Element löschen",
   "YZECORIOLIS.ItemDeleteConfirmationContent": "Möchten Sie dieses Element wirklich löschen?",
   "YZECORIOLIS.AutomaticFire": "Automatisches Feuer",
-  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Anzahl ignorierter 1 (max 2)"
+  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Anzahl ignorierter 1 (max 2)",
+  "YZECORIOLIS.AutomaticFireModifier": "Modifikator von -2 auf deinen Angriffswurf"
 }

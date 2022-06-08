@@ -199,6 +199,7 @@
   "YZECORIOLIS.SkillScienceRoll": "Science Roll",
   "YZECORIOLIS.SkillTechnologyRoll": "Technology Roll",
 
+  "YZECORIOLIS.Talent": "Talent",
   "YZECORIOLIS.TalentCatGroup": "Group Talents",
   "YZECORIOLIS.TalentCatIcon": "Icon Talents",
   "YZECORIOLIS.TalentCatGeneral": "General Talents",
@@ -310,6 +311,8 @@
   "YZECORIOLIS.TalentMysticalStop": "Stop",
   "YZECORIOLIS.TalentMysticalTelekinesis": "Telekinesis",
 
+  "YZECORIOLIS.FeatureWeaponHighCapacity": "High Capacity",
+
   "YZECORIOLIS.TechTierPrimitive": "Primitive",
   "YZECORIOLIS.TechTierOrdinary": "Ordinary",
   "YZECORIOLIS.TechTierAdvanced": "Advanced",
@@ -352,6 +355,7 @@
   "YZECORIOLIS.Cost": "Cost",
   "YZECORIOLIS.Speed": "Speed",
   "YZECORIOLIS.Crew": "Crew",
+  "YZECORIOLIS.Feature": "Feature",
   "YZECORIOLIS.Features": "Features",
   "YZECORIOLIS.Modules": "Modules",
   "YZECORIOLIS.CriticalDamage": "Critical Damage",
@@ -396,5 +400,6 @@
   "YZECORIOLIS.ItemDeleteConfirmationTitle": "Delete Item",
   "YZECORIOLIS.ItemDeleteConfirmationContent": "Are you sure you want to delete this item?",
   "YZECORIOLIS.AutomaticFire": "Automatic fire",
-  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Number of ignored 1s (max 2)"
+  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Number of ignored 1s (max 2)",
+  "YZECORIOLIS.AutomaticFireModifier": "-2 modifier to your attack roll"
 }

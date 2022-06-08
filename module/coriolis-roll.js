@@ -5,12 +5,19 @@ export async function coriolisModifierDialog(
   automaticWeapon = false
 ) {
   let automaticFire = false;
+  let maschineGunner = false;
+  let highCapacity = false;
   const callback = function (modifier) {
     return function (html) {
       modifierCallback(modifier, {
         automaticFire: automaticFire,
-        numberOfIgnoredOnes:
-          html.find("input[name='numberOfIgnoredOnes']").val() || 0,
+        maschineGunner: maschineGunner
+          ? 1
+          : false,
+        highCapacity: highCapacity
+          ? 1
+          : false,
+        numberOfIgnoredOnes: maschineGunner + highCapacity,
       });
     };
   };
@@ -115,10 +122,12 @@ export async function coriolisModifierDialog(
         }
       });
 
-      const ignoredOnesInput = html.find("input[name='numberOfIgnoredOnes']");
-      ignoredOnesInput.on("blur", () => {
-        const v = ignoredOnesInput.val();
-        ignoredOnesInput.val(Math.min(2, Math.max(0, v)));
+      html.find("input[name='maschineGunner']").click(() => {
+        maschineGunner = !maschineGunner;
+      });
+      
+      html.find("input[name='highCapacity']").click(() => {
+        highCapacity = !highCapacity;
       });
     },
     close: () => {},
