@@ -60,6 +60,27 @@ Hooks.on("createActor", async (entity, options, userId) => {
   }
 });
 
+Hooks.on("renderCombatTracker", (app, html, data) => {
+  const currentCombat = data.combats[data.currentIndex - 1];
+  if (currentCombat) {
+    html.find(".combatant").each((i, el) => {
+      const id = el.dataset.combatantId;
+      const combatant = currentCombat.data.combatants.find((c) => c.id === id);
+      const initDiv = el.getElementsByClassName("token-initiative")[0];
+      const initiative = combatant.initiative || "";
+      const readOnly = game.user.isGM ? "" : "readonly";
+      initDiv.innerHTML = `<input style="color: white; "type="number" ${readOnly} value="${initiative}">`;
+
+      initDiv.addEventListener("change", async (e) => {
+        const inputElement = e.target;
+        const combatantId = inputElement.closest("[data-combatant-id]").dataset
+          .combatantId;
+        await currentCombat.setInitiative(combatantId, inputElement.value);
+      });
+    });
+  }
+});
+
 function rerenderAllCrew() {
   // re render all characters/npcs to update their crew position drop downs.
   for (let e of game.actors.contents) {
