@@ -208,7 +208,6 @@
 }
 .window-app {
   font-family: "Roboto", sans-serif;
-  height: max-content!important;
 }
 .rollable:hover,
 .rollable:focus {

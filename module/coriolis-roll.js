@@ -157,7 +157,7 @@ export function coriolisPrayerModifierDialog(modifierCallback) {
     },
     default: "zero",
     close: () => {},
-  });
+  },{ height: "max-content!important"});
   d.render(true);
 }
 
