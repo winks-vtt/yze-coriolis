@@ -59,9 +59,11 @@
                     </select>
                 </div>
 
-                <div class="resource">
+                <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.Restricted"}}</label>
-                    <input type="checkbox" name="data.restricted" data-dtype="Boolean" {{checked data.restricted}} />
+                    <div class="flex-checkbox">
+                      <input type="checkbox" name="data.restricted" data-dtype="Boolean" {{checked data.restricted}} />
+                    </div>
                 </div>
 
 
@@ -82,19 +84,25 @@
                     </select>
                 </div>
 
-                <div class="resource">
+                <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.Automatic"}}</label>
-                    <input type="checkbox" name="data.automatic" data-dtype="Boolean" {{checked data.automatic}} />
+                    <div class="flex-checkbox">
+                      <input type="checkbox" name="data.automatic" data-dtype="Boolean" {{checked data.automatic}} />
+                    </div>
                 </div>
 
-                <div class="resource">
+                <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.Explosive"}}</label>
-                    <input type="checkbox" name="data.explosive" data-dtype="Boolean" {{checked data.explosive}} />
+                    <div class="flex-checkbox">
+                      <input type="checkbox" name="data.explosive" data-dtype="Boolean" {{checked data.explosive}} />
+                    </div>
                 </div>
 
-                <div class="resource">
+                <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.Melee"}}</label>
-                    <input type="checkbox" name="data.melee" data-dtype="Boolean" {{checked data.melee}} />
+                    <div class="flex-checkbox">
+                      <input type="checkbox" name="data.melee" data-dtype="Boolean" {{checked data.melee}} />
+                    </div>
                 </div>
 
                 {{#if data.explosive}}

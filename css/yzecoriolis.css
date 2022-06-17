@@ -90,6 +90,9 @@
 .flexcol .flex4 {
   flex: 4;
 }
+.flex-checkbox {
+  margin-right: 15px;
+}
 .debug {
   border: 1px solid red;
 }

@@ -16,9 +16,11 @@
                     </select>
                 </div>
 
-                <div class="resource">
+                <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.Restricted"}}</label>
-                    <input type="checkbox" name="data.restricted" data-dtype="Boolean" {{checked data.restricted}} />
+                    <div class="flex-checkbox">
+                      <input type="checkbox" name="data.restricted" data-dtype="Boolean" {{checked data.restricted}} />
+                    </div>
                 </div>
 
 

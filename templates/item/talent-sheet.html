@@ -25,28 +25,33 @@
                         {{/select}}
                     </select>
                 </div>
+                {{else if_eq data.category 'cybernetic'}}
+                  <div class="resource flexrow">
+                    <label class="resource-label">{{localize "YZECORIOLIS.MoneyCost"}} ({{localize "YZECORIOLIS.Birr"}})</label>
+                    <input type="number" name="data.cost" value="{{data.cost}}"
+                        data-dtype="Number" />
+                  </div>
+                {{else if_eq data.category 'bionicsculpt'}}
+                  <div class="resource flexrow">
+                    <label class="resource-label">{{localize "YZECORIOLIS.MoneyCost"}} ({{localize "YZECORIOLIS.Birr"}})</label>
+                    <input type="number" name="data.cost" value="{{data.cost}}"
+                        data-dtype="Number" />
+                  </div>
+                {{else}}
+                  <div class="flexrow"></div>
                 {{/if_eq}}
                 {{!-- Edit HP Bonus for this talent --}}
                 <div class="resource flexrow">
-                    <label class="cost-label flexrow">{{localize "YZECORIOLIS.HPBonus"}}</label>
-                    <input class="cost-input flexrow" type="text" name="data.hpBonus" value="{{data.hpBonus}}"
+                    <label class="resource-label">{{localize "YZECORIOLIS.HPBonus"}}</label>
+                    <input type="number" name="data.hpBonus" value="{{data.hpBonus}}"
                         data-dtype="Number" />
                 </div>
                 {{!-- Edit MP Bonus for this talent --}}
                 <div class="resource flexrow">
-                    <label class="cost-label flexrow">{{localize "YZECORIOLIS.MPBonus"}}</label>
-                    <input class="cost-input flexrow" type="text" name="data.mpBonus" value="{{data.mpBonus}}"
+                    <label class="resource-label">{{localize "YZECORIOLIS.MPBonus"}}</label>
+                    <input type="number" name="data.mpBonus" value="{{data.mpBonus}}"
                         data-dtype="Number" />
                 </div>
-                {{!-- Display the cost if it has any --}}
-                {{#talentHasCost data.category}}
-                <div class="flexrow">
-                    <label class="cost-label flexrow">{{localize "YZECORIOLIS.MoneyCost"}}</label>
-                    <input class="cost-input flexrow" type="text" name="data.cost" value="{{data.cost}}"
-                        data-dtype="Number" />
-                    <label class="cost-currency-label flexrow">{{localize "YZECORIOLIS.Birr"}}</label>
-                </div>
-                {{/talentHasCost}}
             </div>
         </div>
     </header>

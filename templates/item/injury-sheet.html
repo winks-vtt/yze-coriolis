@@ -7,7 +7,9 @@
         <div class="flexcol flex1">
             <div class="resource">
                 <label class="resource-label">{{localize "YZECORIOLIS.FatalInjury"}}</label>
-                <input type="checkbox" name="data.fatal" data-dtype="Boolean" {{checked data.fatal}} />
+                <div class="flex-checkbox">
+                  <input type="checkbox" name="data.fatal" data-dtype="Boolean" {{checked data.fatal}} />
+                </div>
             </div>
             <div class="resource numeric-input flexrow">
                 <label class="resource-label">{{localize "YZECORIOLIS.InjuryTimeLimitRoll"}}</label>
