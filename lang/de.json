@@ -331,6 +331,8 @@
 
   "YZECORIOLIS.MigratedDP": "Finsternispunkte-System wurde übertragen.",
   "YZECORIOLIS.HPBonus": "TP Bonus",
+  "YZECORIOLIS.HPInjury": "perm. TP-Abzug",
+  "YZECORIOLIS.MPInjury": "perm. WP-Abzug",
   "YZECORIOLIS.Melee": "Nahkampf",
 
   "YZECORIOLIS.SheetClassCharacter": "Coriolis Charakterbogen",

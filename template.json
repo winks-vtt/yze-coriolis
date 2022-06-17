@@ -287,7 +287,7 @@
     },
     "gear": {
       "templates": ["gear"],
-      "bonus": 0
+      "bonus": ""
     },
     "talent": {
       "templates": ["base"],
@@ -331,7 +331,9 @@
       "fatal": false,
       "timeLimit": "",
       "healTime": "",
-      "bonus": 0
+      "bonus": "",
+      "hpInjury": 0,
+      "mpInjury": 0
     },
     "shipProblem": {
       "templates": ["base"]

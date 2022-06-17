@@ -91,12 +91,18 @@ export class yzecoriolisActor extends Actor {
 
     let hpBonuses = this._prepHPBonuses();
     let mpBonuses = this._prepMPBonuses();
+    let hpInjuries = this._prepHPInjuries();
+    let mpInjuries = this._prepMPInjuries();
     data.hitPoints.max =
       data.attributes.strength.value +
       data.attributes.agility.value +
-      hpBonuses;
+      hpBonuses -
+      hpInjuries;
     data.mindPoints.max =
-      data.attributes.wits.value + data.attributes.empathy.value + mpBonuses;
+      data.attributes.wits.value +
+      data.attributes.empathy.value +
+      mpBonuses -
+      mpInjuries;
 
     if (data.hitPoints.value > data.hitPoints.max) {
       data.hitPoints.value = data.hitPoints.max;
@@ -169,6 +175,32 @@ export class yzecoriolisActor extends Actor {
     }
     return bonus;
   }
+
+  _prepHPInjuries() {
+  // look through injuries for any HP penalties
+  let bonus = 0;
+  for (let t of this.data.items) {
+    if (t.type !== "injury") {
+      continue;
+    }
+    const tData = t.data.data;
+    bonus += Number(tData.hpInjury);
+  }
+  return bonus;
+}
+
+_prepMPInjuries() {
+  // look through injuries for any MP penalties
+  let bonus = 0;
+  for (let t of this.data.items) {
+    if (t.type !== "injury") {
+      continue;
+    }
+    const tData = t.data.data;
+    bonus += Number(tData.mpInjury);
+  }
+  return bonus;
+}
 
   /** @override */
   static async create(data, options = {}) {

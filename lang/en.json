@@ -336,6 +336,8 @@
   "YZECORIOLIS.MigratedDP": "Darkness Points System Migrated.",
   "YZECORIOLIS.HPBonus": "HP Bonus",
   "YZECORIOLIS.MPBonus": "MP Bonus",
+  "YZECORIOLIS.HPInjury": "Perm. HP Reduction",
+  "YZECORIOLIS.MPInjury": "Perm. MP Reduction",
   "YZECORIOLIS.Melee": "Melee",
 
   "YZECORIOLIS.SheetClassCharacter": "Coriolis Character Sheet",
