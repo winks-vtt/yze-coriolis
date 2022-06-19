@@ -40,6 +40,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
         ".features-panel .feature-list",
         ".critical-damage-panel .feature-list",
         ".problems-panel .feature-list",
+        ".logbooks-panel .feature-list",
       ],
       resizable: false,
       tabs: [
@@ -172,6 +173,13 @@ export class yzecoriolisShipSheet extends ActorSheet {
           defaultName: game.i18n.localize("YZECORIOLIS.NewShipProblem"),
         },
         items: getOwnedItemsByType(actor, "shipProblem").map((p) => p.data),
+      },
+      logbooks: {
+        dataset: {
+          type: "shipLogbook",
+          defaultName: game.i18n.localize("YZECORIOLIS.NewShipLogbook"),
+        },
+        items: getOwnedItemsByType(actor, "shipLogbook").map((p) => p.data),
       },
     };
     return stats;
