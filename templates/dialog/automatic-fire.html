@@ -1,8 +1,13 @@
-<div style="height: 30px">
-    <label>{{localize "YZECORIOLIS.AutomaticFire"}}</label>
+<div>
+    <label style="position:relative; bottom:6px;">{{localize "YZECORIOLIS.AutomaticFire"}}</label>
     <input type='checkbox' name='automaticFire' data-dtype='Boolean' />
-    <span class='ignoredOnes' hidden style="display: none">
-    <label>{{localize "YZECORIOLIS.AutomaticFireIgnoredOnes"}} :</label>
-    <input name='numberOfIgnoredOnes' style="width: 20px" type="number" min="0" max="2" data-dtype='Number' value="0"/>
+    <span class='ignoredOnes' hidden style="display: none; position:relative; bottom:6px;"> ({{localize "YZECORIOLIS.AutomaticFireModifier"}})
+      <br/><br/>
+      <label style="position:relative; bottom:6px;">{{localize "YZECORIOLIS.Talent"}}: {{localize "YZECORIOLIS.TalentMachinegunner"}}?</label>
+      <input type='checkbox' name='machineGunner' data-dtype='Boolean' />
+      <br/>
+      <label style="position:relative; bottom:6px;">{{localize "YZECORIOLIS.Weapon"}}: {{localize "YZECORIOLIS.FeatureWeaponHighCapacity"}}?</label>
+      <input type='checkbox' name='highCapacity' data-dtype='Boolean' />
     </span>
 </div>
+<br/>

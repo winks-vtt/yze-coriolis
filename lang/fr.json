@@ -193,6 +193,7 @@
   "YZECORIOLIS.SkillScienceRoll": "Jet de Science",
   "YZECORIOLIS.SkillTechnologyRoll": "Jet de Technologie",
 
+  "YZECORIOLIS.Talent": "Talent",
   "YZECORIOLIS.TalentCatGroup": "Dons de Groupe",
   "YZECORIOLIS.TalentCatIcon": "Dons des Icônes",
   "YZECORIOLIS.TalentCatGeneral": "Dons Générales",
@@ -304,6 +305,8 @@
   "YZECORIOLIS.TalentMysticalStop": "Stop",
   "YZECORIOLIS.TalentMysticalTelekinesis": "Télékinésie",
 
+  "YZECORIOLIS.FeatureWeaponHighCapacity": "Haute Capacité",
+
   "YZECORIOLIS.TechTierPrimitive": "Primitive",
   "YZECORIOLIS.TechTierOrdinary": "Ordinaire",
   "YZECORIOLIS.TechTierAdvanced": "Avancée",
@@ -345,6 +348,7 @@
   "YZECORIOLIS.Cost": "Coût",
   "YZECORIOLIS.Speed": "Vitesse",
   "YZECORIOLIS.Crew": "Équipage",
+  "YZECORIOLIS.Feature": "Option",
   "YZECORIOLIS.Features": "Options",
   "YZECORIOLIS.Modules": "Modules",
   "YZECORIOLIS.CriticalDamage": "Dégât Critique",
@@ -383,5 +387,5 @@
   "YZECORIOLIS.ItemDeleteConfirmationTitle": "Supprimer Item",
   "YZECORIOLIS.ItemDeleteConfirmationContent": "Êtes-vous certain de vouloir supprimer cet item?",
   "YZECORIOLIS.AutomaticFire": "Tir automatique",
-  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Nombre de 1 ignorés (max 2)"
+  "YZECORIOLIS.AutomaticFireModifier:" "-2 appliqué au jet de dé"
 }
