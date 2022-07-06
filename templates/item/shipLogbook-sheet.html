@@ -1,0 +1,97 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img
+      class="profile-img"
+      src="{{img}}"
+      data-edit="img"
+      title="{{name}}"
+    />
+    <div class="header-fields">
+      <h1 class="charname">
+        <input
+          name="name"
+          type="text"
+          value="{{name}}"
+          placeholder="Name"
+        />
+      </h1>
+      <div class="flexcol flex1">
+        <div class="resource flexrow">
+          <label class="resource-label">
+            {{localize "YZECORIOLIS.Segment"}}
+          </label>
+          <input
+            type="text"
+            name="data.segment"
+            value="{{data.segment}}"
+            data-dtype="String"
+          />
+        </div>
+        <div class="resource flexrow">
+          <label class="resource-label">
+            {{localize "YZECORIOLIS.Destination"}}
+          </label>
+          <input
+            type="text"
+            name="data.destination"
+            value="{{data.destination}}"
+            data-dtype="String"
+          />
+        </div>
+        <div class="resource flexrow">
+          <label class="resource-label">
+            {{localize "YZECORIOLIS.Route"}}
+          </label>
+          <input
+            type="text"
+            name="data.route"
+            value="{{data.route}}"
+            data-dtype="String"
+          />
+        </div>
+        <div class="resource flexrow">
+          <label class="resource-label">
+            {{localize "YZECORIOLIS.Danger"}}
+          </label>
+          <input
+            type="text"
+            name="data.danger"
+            value="{{data.danger}}"
+            data-dtype="String"
+          />
+        </div>
+        <div class="resource flexrow">
+          <label class="resource-label">
+            {{localize "YZECORIOLIS.Checkout"}} ({{localize "YZECORIOLIS.Birr"}})
+          </label>
+          <input
+            type="number"
+            name="data.checkout"
+            value="{{data.checkout}}"
+            placeholder="0"
+            data-dtype="Number"
+          />
+        </div>
+      </div>
+    </div>
+  </header>
+  {{! Sheet Tab Navigation }}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">
+      {{localize "YZECORIOLIS.Description"}}
+    </a>
+  </nav>
+  {{! Sheet Body }}
+  <section class="sheet-body">
+    {{! Description Tab }}
+    <div class="tab" data-group="primary" data-tab="description">
+      {{editor
+        content=data.description
+        target="data.description"
+        button=true
+        owner=owner
+        editable=editable
+      }}
+    </div>
+  </section>
+</form>
