@@ -373,6 +373,12 @@
   "YZECORIOLIS.SettingMaxEnergyPoints": "Maximum Allowed Energy Points",
   "YZECORIOLIS.SettingAlwaysShowFeatures": "Always show features",
   "YZECORIOLIS.SettingAlwaysShowFeaturesHint": "Display item features inline for weapons, explosives, and armor in character sheets.",
+  "YZECORIOLIS.SettingAdditionalRollInfos": "Show additional roll-values",
+  "YZECORIOLIS.SettingAdditionalRollInfosHint": "Expands the roll result with additional values (e.g. attribute-points, skill-points, modifier, bonus, damage, crit, range, automatic, power, radius).",
+  "YZECORIOLIS.SettingAdditionalRollInfosNo": "No additional Infos",
+  "YZECORIOLIS.SettingAdditionalRollInfosPC": "Only for Player Characters",
+  "YZECORIOLIS.SettingAdditionalRollInfosNPC": "Only for Non-Player Characters",
+  "YZECORIOLIS.SettingAdditionalRollInfosAll": "For all Characters",
 
   "YZECORIOLIS.EnergyPointsReset": "Energy Points previously assigned to crew returned to ship reactor.",
   "YZECORIOLIS.InvalidEPPermissions": "You do not have permission to change ship EP distribution.",
@@ -405,5 +411,7 @@
   "YZECORIOLIS.ItemDeleteConfirmationTitle": "Delete Item",
   "YZECORIOLIS.ItemDeleteConfirmationContent": "Are you sure you want to delete this item?",
   "YZECORIOLIS.AutomaticFire": "Automatic fire",
-  "YZECORIOLIS.AutomaticFireModifier": "-2 modifier to your attack roll"
+  "YZECORIOLIS.AutomaticFireModifier": "-2 modifier to your attack roll",
+  "YZECORIOLIS.RollTotal": "Total rolled",
+  "YZECORIOLIS.RollDesperation": "Desperation roll (2d6) instead of"
 }

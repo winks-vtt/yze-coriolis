@@ -360,6 +360,14 @@
   "YZECORIOLIS.Notes": "Notes",
 
   "YZECORIOLIS.SettingMaxEnergyPoints": "Points d'Énergie Maximum",
+  "YZECORIOLIS.SettingAlwaysShowFeatures": "Toujours afficher les traits",
+  "YZECORIOLIS.SettingAlwaysShowFeaturesHint": "Afficher, sur la feuille de personnage, les traits pour les armes, les explosifs et les armures.",
+  "YZECORIOLIS.SettingAdditionalRollInfos": "Afficher les informations supplémentaires lors des jets de dés",
+  "YZECORIOLIS.SettingAdditionalRollInfosHint": "Afficher les informations supplémentaires (par exemple: points d'attribut, points de compétence, modificateur, bonus, dégâts, critique, portée, automatique, puissance, rayon).",
+  "YZECORIOLIS.SettingAdditionalRollInfosNo": "Aucune information supplémentaire",
+  "YZECORIOLIS.SettingAdditionalRollInfosPC": "Uniquement pour les personnages joueurs",
+  "YZECORIOLIS.SettingAdditionalRollInfosNPC": "Uniquement pour les personnages non-joueurs",
+  "YZECORIOLIS.SettingAdditionalRollInfosAll": "Pour tous les personnages",
 
   "YZECORIOLIS.EnergyPointsReset": "Les Points d'Énergie assignés sont redirigés vers le réacteur du vaisseau.",
   "YZECORIOLIS.InvalidEPPermissions": "Vous n'avez pas la permission de changer la distribution des PE du vaisseau.",
@@ -392,5 +400,7 @@
   "YZECORIOLIS.ItemDeleteConfirmationTitle": "Supprimer Item",
   "YZECORIOLIS.ItemDeleteConfirmationContent": "Êtes-vous certain de vouloir supprimer cet item?",
   "YZECORIOLIS.AutomaticFire": "Tir automatique",
-  "YZECORIOLIS.AutomaticFireModifier": "-2 appliqué au jet de dé"
+  "YZECORIOLIS.AutomaticFireModifier": "-2 appliqué au jet de dé",
+  "YZECORIOLIS.RollTotal": "Description du jet",
+  "YZECORIOLIS.RollDesperation": "Jet de désespoir (2d6)"
 }

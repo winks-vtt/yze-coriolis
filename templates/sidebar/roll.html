@@ -1,5 +1,120 @@
 <div class="dice-roll yzecoriolis">
-    {{title}}
+  <div>
+    <h2>{{title}}</h2>
+    <table style="border: 0;">
+      <!-- additional roll-infos for pc -->
+      {{#if_eq (AdditionalRollInfos) 'pc'}}
+        {{#if_eq actorType 'character'}}
+          {{#if_eq rollType 'weapon'}}
+            <tr>
+              <td colspan="2">{{localize "YZECORIOLIS.Damage"}}: {{damage}} {{#if damageText}}({{damageText}}){{/if}}</td>
+            </tr>
+            <tr>
+              <td colspan="2">{{localize "YZECORIOLIS.Crit"}}: {{#if_gt crit 0}}{{crit}}{{else}}-{{/if_gt}} {{#if critText}}({{critText}}){{/if}}</td>
+            </tr>
+            {{#if_eq isExplosive 'true'}}
+              <tr>
+                <td>{{localize "YZECORIOLIS.BlastPower"}}: {{blastPower}}</td>
+                <td>{{localize "YZECORIOLIS.BlastRadius"}}: {{blastRadius}}</td>
+              </tr>
+            {{else}}
+              <tr>
+                <td>{{localize "YZECORIOLIS.Range"}}: {{range}}</td>
+                <td>{{#if_eq isAutomatic 'true'}}{{localize "YZECORIOLIS.Automatic"}}-{{localize "YZECORIOLIS.Weapon"}}{{/if_eq}}</td>
+              </tr>
+            {{/if_eq}}
+          <tr>
+            <td colspan="2"><hr></td>
+          </tr>
+          {{/if_eq}}
+          <tr>
+            <td>{{#if_eq rollType 'armor'}}{{localize "YZECORIOLIS.ArmorRating"}}: {{bonus}}{{else}}{{attributeName}}: {{attribute}}{{/if_eq}}</td>
+            <td>{{#if skillName}}{{skillName}}: {{skill}}{{/if}}</td>
+          </tr>
+          <tr>
+            <td>{{localize "YZECORIOLIS.ModifierForRoll"}}: {{modifier}}</td>
+            <td>{{#if_eq rollType 'armor'}}{{else if_eq rollType 'attribute'}}{{else if_eq rollType 'general'}}{{else if_eq rollType 'advanced'}}{{else}}{{localize "YZECORIOLIS.Bonus"}}: {{bonus}}{{/if_eq}}</td>
+          </tr>
+        {{/if_eq}}
+      <!-- additional roll-infos for npc -->
+      {{else if_eq (AdditionalRollInfos) 'npc'}}
+        {{#if_eq actorType 'npc'}}
+          {{#if_eq rollType 'weapon'}}
+            <tr>
+              <td colspan="2">{{localize "YZECORIOLIS.Damage"}}: {{damage}} {{#if damageText}}({{damageText}}){{/if}}</td>
+            </tr>
+            <tr>
+              <td colspan="2">{{localize "YZECORIOLIS.Crit"}}: {{#if_gt crit 0}}{{crit}}{{else}}-{{/if_gt}} {{#if critText}}({{critText}}){{/if}}</td>
+            </tr>
+            {{#if_eq isExplosive 'true'}}
+              <tr>
+                <td>{{localize "YZECORIOLIS.BlastPower"}}: {{blastPower}}</td>
+                <td>{{localize "YZECORIOLIS.BlastRadius"}}: {{blastRadius}}</td>
+              </tr>
+            {{else}}
+              <tr>
+                <td>{{localize "YZECORIOLIS.Range"}}: {{range}}</td>
+                <td>{{#if_eq isAutomatic 'true'}}{{localize "YZECORIOLIS.Automatic"}}-{{localize "YZECORIOLIS.Weapon"}}{{/if_eq}}</td>
+              </tr>
+            {{/if_eq}}
+          <tr>
+            <td colspan="2"><hr></td>
+          </tr>
+          {{/if_eq}}
+          <tr>
+            <td>{{#if_eq rollType 'armor'}}{{localize "YZECORIOLIS.ArmorRating"}}: {{bonus}}{{else}}{{attributeName}}: {{attribute}}{{/if_eq}}</td>
+            <td>{{#if skillName}}{{skillName}}: {{skill}}{{/if}}</td>
+          </tr>
+          <tr>
+            <td>{{localize "YZECORIOLIS.ModifierForRoll"}}: {{modifier}}</td>
+            <td>{{#if_eq rollType 'armor'}}{{else if_eq rollType 'attribute'}}{{else if_eq rollType 'general'}}{{else if_eq rollType 'advanced'}}{{else}}{{localize "YZECORIOLIS.Bonus"}}: {{bonus}}{{/if_eq}}</td>
+          </tr>
+        {{/if_eq}}
+      <!-- additional roll-infos for all -->
+      {{else if_eq (AdditionalRollInfos) 'all'}}
+          {{#if_eq rollType 'weapon'}}
+            <tr>
+              <td colspan="2">{{localize "YZECORIOLIS.Damage"}}: {{damage}} {{#if damageText}}({{damageText}}){{/if}}</td>
+            </tr>
+            <tr>
+              <td colspan="2">{{localize "YZECORIOLIS.Crit"}}: {{#if_gt crit 0}}{{crit}}{{else}}-{{/if_gt}} {{#if critText}}({{critText}}){{/if}}</td>
+            </tr>
+            {{#if_eq isExplosive 'true'}}
+              <tr>
+                <td>{{localize "YZECORIOLIS.BlastPower"}}: {{blastPower}}</td>
+                <td>{{localize "YZECORIOLIS.BlastRadius"}}: {{blastRadius}}</td>
+              </tr>
+            {{else}}
+              <tr>
+                <td>{{localize "YZECORIOLIS.Range"}}: {{range}}</td>
+                <td>{{#if_eq isAutomatic 'true'}}{{localize "YZECORIOLIS.Automatic"}}-{{localize "YZECORIOLIS.Weapon"}}{{/if_eq}}</td>
+              </tr>
+            {{/if_eq}}
+          <tr>
+            <td colspan="2"><hr></td>
+          </tr>
+          {{/if_eq}}
+          <tr>
+            <td>{{#if_eq rollType 'armor'}}{{localize "YZECORIOLIS.ArmorRating"}}: {{bonus}}{{else}}{{attributeName}}: {{attribute}}{{/if_eq}}</td>
+            <td>{{#if skillName}}{{skillName}}: {{skill}}{{/if}}</td>
+          </tr>
+          <tr>
+            <td>{{localize "YZECORIOLIS.ModifierForRoll"}}: {{modifier}}</td>
+            <td>{{#if_eq rollType 'armor'}}{{else if_eq rollType 'attribute'}}{{else if_eq rollType 'general'}}{{else if_eq rollType 'advanced'}}{{else}}{{localize "YZECORIOLIS.Bonus"}}: {{bonus}}{{/if_eq}}</td>
+          </tr>
+      {{/if_eq}}
+    <!-- total dice sum -->
+      <tr>
+        <td colspan="2">
+        {{#if_gt totalDice 0}}
+          <strong>{{localize "YZECORIOLIS.RollTotal"}}:</strong> {{totalDice}}d6 {{#if_eq isAutomaticActive 'true'}}+ {{automaticRollAmount}} {{localize "YZECORIOLIS.AutomaticFire"}}{{/if_eq}}
+        {{else}}
+          <strong>{{localize "YZECORIOLIS.RollTotal"}}:</strong> {{localize "YZECORIOLIS.RollSubstitute"}} {{totalDice}}d6 {{#if_eq isAutomaticActive 'true'}}<br>+ {{automaticRollAmount}} {{localize "YZECORIOLIS.AutomaticFire"}}{{/if_eq}}
+        {{/if_gt}}
+        </td>
+      </tr>
+    </table>
+    </div>
     <div class="dice-result">
         {{#if results.limitedSuccess}}
         <h4 class="dice-total limitedSuccess">{{localize "YZECORIOLIS.RollLimitedSucces"}}</h4>

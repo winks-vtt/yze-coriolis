@@ -315,7 +315,11 @@ function getTotalDice(rollData) {
     case "attribute":
       return attributeValue + modifier;
     case "weapon":
-      return attributeValue + skillValue + bonus + modifier;
+      if (rollData.additionalData.automaticFire) {
+        return attributeValue + skillValue + bonus + modifier - 2;
+      } else {
+        return attributeValue + skillValue + bonus + modifier;
+      }
     case "armor":
       return bonus + modifier;
   }
@@ -333,6 +337,26 @@ async function showChatMessage(chatMsgOptions, resultData) {
     results: resultData,
     tooltip: tooltip,
     canPush: !resultData.pushed,
+    totalDice: getTotalDice(resultData.rollData),
+    actorType: getActorType(resultData.rollData),
+    rollType: getRollType(resultData.rollData),
+    attribute: getRollAttribute(resultData.rollData),
+    attributeName: getRollAttributeName(resultData.rollData),
+    skill: getRollSkill(resultData.rollData),
+    skillName: getRollSkillName(resultData.rollData),
+    modifier: getRollModifier(resultData.rollData),
+    isAutomatic: getRollIsAuto(resultData.rollData),
+    isAutomaticActive: getRollIsAutoActive(resultData.rollData),
+    automaticRollAmount: parseInt(getRollAutoIgnoOnes(resultData.rollData)) + 1,
+    isExplosive: getRollIsExplosive(resultData.rollData),
+    bonus: getRollBonus(resultData.rollData),
+    blastPower: getRollBlastPower(resultData.rollData),
+    blastRadius: getRollBlastRadius(resultData.rollData),
+    crit: getRollCrit(resultData.rollData),
+    critText: getRollCritText(resultData.rollData),
+    damage: getRollDmg(resultData.rollData),
+    damageText: getRollDmgText(resultData.rollData),
+    range: getRollRange(resultData.rollData),
   };
 
   if (["gmroll", "blindroll"].includes(chatMsgOptions.rollMode))
@@ -361,6 +385,26 @@ async function updateChatMessage(chatMessage, resultData, prayerBonus) {
     tooltip: tooltip,
     canPush: false,
     prayerBonus: prayerBonus,
+    totalDice: getTotalDice(resultData.rollData),
+    actorType: getActorType(resultData.rollData),
+    rollType: getRollType(resultData.rollData),
+    attribute: getRollAttribute(resultData.rollData),
+    attributeName: getRollAttributeName(resultData.rollData),
+    skill: getRollSkill(resultData.rollData),
+    skillName: getRollSkillName(resultData.rollData),
+    modifier: getRollModifier(resultData.rollData),
+    isAutomatic: getRollIsAuto(resultData.rollData),
+    isAutomaticActive: getRollIsAutoActive(resultData.rollData),
+    automaticRollAmount: parseInt(getRollAutoIgnoOnes(resultData.rollData)) + 1,
+    isExplosive: getRollIsExplosive(resultData.rollData),
+    bonus: getRollBonus(resultData.rollData),
+    blastPower: getRollBlastPower(resultData.rollData),
+    blastRadius: getRollBlastRadius(resultData.rollData),
+    crit: getRollCrit(resultData.rollData),
+    critText: getRollCritText(resultData.rollData),
+    damage: getRollDmg(resultData.rollData),
+    damageText: getRollDmgText(resultData.rollData),
+    range: getRollRange(resultData.rollData),
   };
 
   return renderTemplate(
@@ -398,7 +442,6 @@ function getTooltipData(results) {
     let maxRoll = CONFIG.YZECORIOLIS.maxRoll;
     // Generate tooltip data
     return {
-      formula: d.formula,
       total: results.successes,
       faces: d.faces,
       rolls: d.results.map((r) => {
@@ -420,6 +463,82 @@ function getTooltipData(results) {
     };
   });
   return data;
+}
+
+function getActorType(rollData) {
+  return `${rollData.actorType}`;
+}
+
+function getRollType(rollData) {
+  return `${rollData.rollType}`;
+}
+
+function getRollAttribute(rollData) {
+  return `${rollData.attribute}`;
+}
+
+function getRollAttributeName(rollData) {
+  return CONFIG.YZECORIOLIS.attributes[rollData.attributeKey];
+}
+
+function getRollSkill(rollData) {
+  return `${rollData.skill}`;
+}
+
+function getRollSkillName(rollData) {
+  return CONFIG.YZECORIOLIS.skills[rollData.skillKey];
+}
+
+function getRollModifier(rollData) {
+  return `${rollData.modifier}`;
+}
+
+function getRollIsAuto(rollData) {
+  return `${rollData.isAutomatic}`;
+}
+
+function getRollIsAutoActive(rollData) {
+  return `${rollData.additionalData?.automaticFire}`;
+}
+
+function getRollAutoIgnoOnes(rollData) {
+  return `${rollData.additionalData?.numberOfIgnoredOnes}`;
+}
+
+function getRollIsExplosive(rollData) {
+  return `${rollData.isExplosive}`;
+}
+
+function getRollBonus(rollData) {
+  return `${rollData.bonus}`;
+}
+
+function getRollBlastPower(rollData) {
+  return `${rollData.blastPower}`;
+}
+
+function getRollBlastRadius(rollData) {
+  return CONFIG.YZECORIOLIS.ranges[rollData.blastRadius];
+}
+
+function getRollCrit(rollData) {
+  return `${rollData.crit}`;
+}
+
+function getRollCritText(rollData) {
+  return `${rollData.critText}`;
+}
+
+function getRollDmg(rollData) {
+  return `${rollData.damage}`;
+}
+
+function getRollDmgText(rollData) {
+  return `${rollData.damageText}`;
+}
+
+function getRollRange(rollData) {
+  return CONFIG.YZECORIOLIS.ranges[rollData.range];
 }
 
 export async function coriolisChatListeners(html) {
