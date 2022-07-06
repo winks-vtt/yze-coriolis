@@ -362,12 +362,12 @@
       "holder": ""
     },
     "shipLogbook": {
+      "templates": ["base"],
       "destination": "",
       "segment": "",
       "route": "",
       "danger": "",
-      "checkout": "",
-      "description": ""
+      "checkout": ""
     }
   }
 }
