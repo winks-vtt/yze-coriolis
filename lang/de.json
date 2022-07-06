@@ -12,6 +12,7 @@
   "YZECORIOLIS.Radiation": "Strahlung",
   "YZECORIOLIS.Experience": "Erfahrung",
   "YZECORIOLIS.Encumbrance": "Traglast",
+  "YZECORIOLIS.MovementRate": "Bewegungsrate",
 
   "YZECORIOLIS.CrewPosition": "Mannschaftsposition",
   "YZECORIOLIS.CrewSpotCaptain": "Kapitän",
@@ -148,6 +149,9 @@
   "YZECORIOLIS.EditCriticalInjury": "Kritische Wunde anpassen",
   "YZECORIOLIS.DeleteCriticalInjury": "Kritische Wunde löschen",
   "YZECORIOLIS.NewCriticalInjury": "Neue Kritische Wunde",
+  "YZECORIOLIS.FatalInjury": "Tödlich",
+  "YZECORIOLIS.InjuryTimeLimitRoll": "Zeitraum",
+  "YZECORIOLIS.InjuryHealTimeRoll": "Heilungszeit",
   "YZECORIOLIS.ArmorRating": "Panzerungswert",
   "YZECORIOLIS.ExtraFeatures": "zus. Merkmale",
 
@@ -331,6 +335,7 @@
 
   "YZECORIOLIS.MigratedDP": "Finsternispunkte-System wurde übertragen.",
   "YZECORIOLIS.HPBonus": "TP Bonus",
+  "YZECORIOLIS.MPBonus": "WP Bonus",
   "YZECORIOLIS.Melee": "Nahkampf",
 
   "YZECORIOLIS.SheetClassCharacter": "Coriolis Charakterbogen",
