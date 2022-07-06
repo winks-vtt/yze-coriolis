@@ -142,6 +142,7 @@
                   <a class="item nav-item-link" data-tab="features">{{localize "YZECORIOLIS.Features"}}</a>
                   <a class="item nav-item-link" data-tab="critDamage">{{localize "YZECORIOLIS.CriticalDamage"}}</a>
                   <a class="item nav-item-link" data-tab="problems">{{localize "YZECORIOLIS.Problems"}}</a>
+                  <a class="item nav-item-link" data-tab="logbook">{{localize "YZECORIOLIS.Logbook"}}</a>
                   <a class="item nav-item-link" data-tab="shipnotes">{{localize "YZECORIOLIS.Notes"}}</a>
                 </nav>
                <section class="sheet-panels pt-3">
@@ -155,6 +156,8 @@
                   {{> "systems/yzecoriolis/templates/actor/parts/ship-critical-damage.html"}}
                   {{!-- Problems --}}
                   {{> "systems/yzecoriolis/templates/actor/parts/ship-problems.html"}}
+                  {{!-- Logbook --}}
+                  {{> "systems/yzecoriolis/templates/actor/parts/ship-logbooks.html"}}
                   {{!-- Notes --}}
                   <div class="tab shipnotes" data-group="primary" data-tab="shipnotes">
                     {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}

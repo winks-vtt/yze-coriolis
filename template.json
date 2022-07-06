@@ -264,7 +264,8 @@
       "energyPointToken",
       "shipModule",
       "shipFeature",
-      "shipCriticalDamage"
+      "shipCriticalDamage",
+      "shipLogbook"
     ],
     "templates": {
       "base": {
@@ -359,6 +360,14 @@
     "energyPointToken": {
       "active": false,
       "holder": ""
+    },
+    "shipLogbook": {
+      "templates": ["base"],
+      "destination": "",
+      "segment": "",
+      "route": "",
+      "danger": "",
+      "checkout": ""
     }
   }
 }

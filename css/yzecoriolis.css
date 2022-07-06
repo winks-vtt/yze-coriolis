@@ -820,6 +820,7 @@
   transition: color 275ms ease;
   transition: text-shadow 275ms ease;
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
 }
 .yzecoriolis.sheet.actor .nav-item-link:hover {
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35);
