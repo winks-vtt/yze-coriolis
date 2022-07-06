@@ -1,5 +1,14 @@
 # Changelog
 
+### [2.10.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.10.0...v2.10.1) (2022-07-06)
+
+
+### Bug Fixes
+
+* added missing german translations ([e441915](https://www.github.com/winks-vtt/yze-coriolis/commit/e441915eb9b584948ae8bcc7b298927ae057539c))
+* clarified options in automatic fire dialog prompt ([9737bd6](https://www.github.com/winks-vtt/yze-coriolis/commit/9737bd6b3a17692d6436645fd03f5918849cb142))
+* made crew portraits better framed in ship sheets ([d3318cb](https://www.github.com/winks-vtt/yze-coriolis/commit/d3318cbbaf5e60f6aa967fb8f466f0162a0f1963))
+
 ## [2.10.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.9.0...v2.10.0) (2022-06-01)
 
 
