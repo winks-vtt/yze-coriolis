@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.11.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.10.0...v2.11.0) (2022-07-06)
+
+
+### Features
+
+* added additional data to rolls in chat ([2898881](https://www.github.com/winks-vtt/yze-coriolis/commit/2898881ed744cfcb7da2e3ef2687b3c537c9db0c))
+* added log books to ships ([919aebd](https://www.github.com/winks-vtt/yze-coriolis/commit/919aebddba9cc26d2aec366ae82eba99482a2980))
+* quick editing of initiative as it can often change during combat ([206882a](https://www.github.com/winks-vtt/yze-coriolis/commit/206882a6559fcb75ce0b945fcf80b03db395ea7c))
+
+
+### Bug Fixes
+
+* added missing german translations ([e441915](https://www.github.com/winks-vtt/yze-coriolis/commit/e441915eb9b584948ae8bcc7b298927ae057539c))
+* clarified options in automatic fire dialog prompt ([9737bd6](https://www.github.com/winks-vtt/yze-coriolis/commit/9737bd6b3a17692d6436645fd03f5918849cb142))
+* fixed wrapping in ship sheet when adding ship logs to nav ([21c553a](https://www.github.com/winks-vtt/yze-coriolis/commit/21c553a120d119a0d3dc0d0ce3f9a92bf15fef6c))
+* localized some migration errors ([b5abc9b](https://www.github.com/winks-vtt/yze-coriolis/commit/b5abc9b0717b5bfafe375812221cac330aedf1b6))
+* made crew portraits better framed in ship sheets ([d3318cb](https://www.github.com/winks-vtt/yze-coriolis/commit/d3318cbbaf5e60f6aa967fb8f466f0162a0f1963))
+
 ## [2.10.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.9.0...v2.10.0) (2022-06-01)
 
 
