@@ -60,11 +60,11 @@ export const registerSystemSettings = function () {
     config: true,
     type: String,
     choices: {
-      "no": game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosNo"),
-      "pc": game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosPC"),
-      "npc": game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosNPC"),
-      "all": game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosAll")
-      },
-    default: "no",
+      no: game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosNo"),
+      pc: game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosPC"),
+      npc: game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosNPC"),
+      all: game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosAll"),
+    },
+    default: "all",
   });
 };
