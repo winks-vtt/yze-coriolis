@@ -52,4 +52,19 @@ export const registerSystemSettings = function () {
     default: false,
     onChange: debouncedReload,
   });
+
+  game.settings.register("yzecoriolis", "AdditionalRollInfos", {
+    name: game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfos"),
+    hint: game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosHint"),
+    scope: "world",
+    config: true,
+    type: String,
+    choices: {
+      "no": game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosNo"),
+      "pc": game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosPC"),
+      "npc": game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosNPC"),
+      "all": game.i18n.localize("YZECORIOLIS.SettingAdditionalRollInfosAll")
+      },
+    default: "no",
+  });
 };

@@ -373,6 +373,12 @@
   "YZECORIOLIS.SettingMaxEnergyPoints": "Maximal erlaubte Leistungspunkte",
   "YZECORIOLIS.SettingAlwaysShowFeatures": "Merkmale immer einblenden",
   "YZECORIOLIS.SettingAlwaysShowFeaturesHint": "Blendet die Merkmale von Waffen, Sprengstoffen und Panzerung immer direkt im Charackter-Sheet unter dem Namen ein, anstatt am Ende der ausgeklappten Beschreibung.",
+  "YZECORIOLIS.SettingAdditionalRollInfos": "Zusätzliche Daten bei Würfen einblenden",
+  "YZECORIOLIS.SettingAdditionalRollInfosHint": "Ergänzt das Wurfergebnis um weitere Daten (z.B. Attributspunkte, Skillpunkte, Modifikator, Bonus, Schaden, Krit, Reichweite, Automatik, Sprengkraft, Radius).",
+  "YZECORIOLIS.SettingAdditionalRollInfosNo": "Keine zusätzlichen Informationen",
+  "YZECORIOLIS.SettingAdditionalRollInfosPC": "Nur für Spielercharaktere",
+  "YZECORIOLIS.SettingAdditionalRollInfosNPC": "Nur für Nicht-Spielercharaktere",
+  "YZECORIOLIS.SettingAdditionalRollInfosAll": "Für alle Charaktere",
 
   "YZECORIOLIS.EnergyPointsReset": "Zuvor der Mannschaft zu geordnete Leistungspunkte stehen dem Schiffsreaktor wieder zur Verfügung.",
   "YZECORIOLIS.InvalidEPPermissions": "Du hast keine Berechtigung die LP-Verteilung zu verändern.",
@@ -405,5 +411,7 @@
   "YZECORIOLIS.ItemDeleteConfirmationTitle": "Element löschen",
   "YZECORIOLIS.ItemDeleteConfirmationContent": "Möchten Sie dieses Element wirklich löschen?",
   "YZECORIOLIS.AutomaticFire": "Automatisches Feuer",
-  "YZECORIOLIS.AutomaticFireModifier": "Modifikator von -2 auf deinen Angriffswurf"
+  "YZECORIOLIS.AutomaticFireModifier": "Modifikator von -2 auf deinen Angriffswurf",
+  "YZECORIOLIS.RollTotal": "Gesamtwurf",
+  "YZECORIOLIS.RollDesperation": "Verzweiflungswurf (2d6) anstatt"
 }

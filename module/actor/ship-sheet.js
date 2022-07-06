@@ -383,8 +383,10 @@ export class yzecoriolisShipSheet extends ActorSheet {
       return;
     }
 
+    const shipName = this.object.name;
     const crewmate = getActorDataById(crewId);
     const crewPosition = crewmate.data.bio.crewPosition;
+    const crewPositionName = CONFIG.YZECORIOLIS.crewPositions[crewPosition.position]
     const skillKey = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
     const attributeKey = crewmate.data.skills[skillKey].attribute;
 
@@ -392,13 +394,15 @@ export class yzecoriolisShipSheet extends ActorSheet {
     const rollData = {
       rollType: crewmate.data.skills[skillKey].category,
       skillKey: skillKey,
-      skill: skillKey ? crewmate.data.skills[skillKey].value : 0,
+      skill: skillKey
+        ? crewmate.data.skills[skillKey].value
+        : 0,
       attributeKey: attributeKey,
       attribute: attributeKey
         ? crewmate.data.attributes[attributeKey].value
         : 0,
       modifier: 0,
-      rollTitle: CONFIG.YZECORIOLIS.skillRolls[skillKey],
+      rollTitle: crewPositionName + " (" + shipName + ")",
       pushed: false,
     };
 

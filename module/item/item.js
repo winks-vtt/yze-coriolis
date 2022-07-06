@@ -43,20 +43,36 @@ export class yzecoriolisItem extends Item {
     const skillKey = getSkillKeyForWeaponType(itemData.melee);
     const attributeKey = getAttributeKeyForWeaponType(itemData.melee);
     const rollType = getRollType(item.type);
-    let bonus = itemData.bonus ? Number(itemData.bonus) : 0;
+    let bonus = itemData.bonus
+      ? Number(itemData.bonus)
+      : 0;
     if (rollType === "armor") {
       bonus = itemData.armorRating;
     }
     const rollData = {
       rollType: rollType,
+      actorType: this.actor.data.type,
       skillKey: skillKey,
-      skill: skillKey ? actorData.skills[skillKey].value : 0,
       attributeKey: attributeKey,
-      attribute: attributeKey ? actorData.attributes[attributeKey].value : 0,
+      attribute: attributeKey
+        ? actorData.attributes[attributeKey].value
+        : 0,
+      skill: skillKey
+        ? actorData.skills[skillKey].value
+        : 0,
       modifier: 0,
       bonus: bonus,
       rollTitle: item.name,
       pushed: false,
+      isAutomatic: item.data.automatic,
+      isExplosive: item.data.explosive,
+      blastPower: item.data.blastPower,
+      blastRadius: item.data.blastRadius,
+      damage: item.data.damage,
+      damageText: item.data.damageText,
+      range: item.data.range,
+      crit: item.data.crit?.numericValue,
+      critText: item.data.crit?.customValue,
     };
     const chatOptions = this.actor._prepareChatRollOptions(
       "systems/yzecoriolis/templates/sidebar/roll.html",
