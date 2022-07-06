@@ -399,7 +399,7 @@ Hooks.once("ready", async function () {
       isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion)
     ) {
       ui.notifications.error(
-        `Your Coriolis system data is from too old a Foundry version and cannot be reliably migrated to the latest version. The process will be attempted, but errors may occur.`,
+        game.i18n.localize("ErrorsOldFoundryVersion"),
         { permanent: true }
       );
     }
@@ -460,7 +460,7 @@ async function createYzeCoriolisMacro(data, slot) {
   if (data.type !== "Item") return;
   if (!("data" in data))
     return ui.notifications.warn(
-      "You can only create macro buttons for owned items"
+      game.i18n.localize("YZECORIOLIS.ErrorsNotOwnedItemForMacro")
     );
   const item = data.data;
 
@@ -501,11 +501,11 @@ function rollItemMacro(itemName) {
   const items = actor ? actor.items.filter((i) => i.name === itemName) : [];
   if (items.length > 1) {
     ui.notifications.warn(
-      `Your controlled Actor ${actor.name} has more than one Item with name ${itemName}. The first matched item will be chosen.`
+      game.i18n.localize("YZECORIOLIS.ErrorsActorHasDuplicateItemsForMacro")
     );
   } else if (items.length === 0) {
     return ui.notifications.warn(
-      `Your controlled Actor does not have an item named ${itemName}`
+      game.i18n.localize("YZECORIOLIS.ErrorsActorNotHasItemForMacro")
     );
   }
   const item = items[0];

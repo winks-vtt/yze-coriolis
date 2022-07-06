@@ -20,9 +20,14 @@
   "YZECORIOLIS.CrewSpotSensorOperator": "Opérateur des Capteurs",
   "YZECORIOLIS.CrewSpotGunner": "Artilleur",
 
+  "YZECORIOLIS.ErrorsOldFoundryVersion": "Les données de votre système Coriolis proviennent d'une version trop ancienne de Foundry et ne peuvent pas être migrées de manière fiable vers la dernière version. Le processus sera tenté, mais des erreurs peuvent se produire.",
   "YZECORIOLIS.ErrorsInvalidSkillRoll": "Les valeurs des compétences ou des attributs ne sont pas supérieures à zéro.",
   "YZECORIOLIS.ErrorsInvalidAdvancedSkillRoll": "Les compétences avancées doivent avoir une valeur d'au moins 1 pour pouvoir être utilisées.",
   "YZECORIOLIS.ErrorsNoActorSelectedForMacro": "Aucun pion n'a été sélectionné lors de l'utilisation de cette macro.",
+  "YZECORIOLIS.ErrorsActorHasDuplicateItemsForMacro": "L'acteur contrôlé a plus d'un objet avec ce nom. Le premier article correspondant sera choisi.",
+  "YZECORIOLIS.ErrorsActorNotHasItemForMacro": "L'acteur contrôlé n'a pas d'objet avec ce nom.",
+  "YZECORIOLIS.ErrorsNotOwnedItemForMacro": "Vous ne pouvez créer que des boutons de macro pour les éléments possédés.",
+
   "YZECORIOLIS.PrayToIcons": "Prier les icônes",
   "YZECORIOLIS.PushedRoll": "Relance",
   "YZECORIOLIS.ModifierForRoll": "Modifier le Jet de Dés",
@@ -387,5 +392,5 @@
   "YZECORIOLIS.ItemDeleteConfirmationTitle": "Supprimer Item",
   "YZECORIOLIS.ItemDeleteConfirmationContent": "Êtes-vous certain de vouloir supprimer cet item?",
   "YZECORIOLIS.AutomaticFire": "Tir automatique",
-  "YZECORIOLIS.AutomaticFireModifier:" "-2 appliqué au jet de dé"
+  "YZECORIOLIS.AutomaticFireModifier": "-2 appliqué au jet de dé"
 }

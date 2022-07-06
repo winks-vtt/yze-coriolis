@@ -21,9 +21,14 @@
   "YZECORIOLIS.CrewSpotSensorOperator": "Sensorbediener",
   "YZECORIOLIS.CrewSpotGunner": "Bordschütze",
 
+  "YZECORIOLIS.ErrorsOldFoundryVersion": "Deine Systemdaten von Coriolis sind von einer veralteten Foundry-Version und können deshalb nicht zuverlässig in die aktuellste Version migriert werden. Es wird versucht, allerdings können Fehler dabei auftreten.",
   "YZECORIOLIS.ErrorsInvalidSkillRoll": "Attributs- und Fertigkeitswerte müssen größer Null sein.",
   "YZECORIOLIS.ErrorsInvalidAdvancedSkillRoll": "Fortgeschrittene Fertigkeiten müssen mindestens einen Wert von 1 haben, um gewürfelt zu werden.",
   "YZECORIOLIS.ErrorsNoActorSelectedForMacro": "Es wurde für dieses Makro kein Token ausgewählt.",
+  "YZECORIOLIS.ErrorsActorHasDuplicateItemsForMacro": "Der von dir ausgewählte Charakter besitzt diese Ausrüstung mehr als ein Mal. Der erste Treffer wird für das Makro verwendet.",
+  "YZECORIOLIS.ErrorsActorNotHasItemForMacro": "Der von dir ausgewählte Charakter besitzt keine Ausrüstung mit diesem Namen.",
+  "YZECORIOLIS.ErrorsNotOwnedItemForMacro": "Du kannst nur Makros für Ausrüstungen erstellen, die du besitzt.",
+
   "YZECORIOLIS.PrayToIcons": "Zu den Ikonen beten",
   "YZECORIOLIS.PushedRoll": "Wiederholter Wurf",
   "YZECORIOLIS.ModifierForRoll": "Modifikator",
