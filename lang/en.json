@@ -21,9 +21,14 @@
   "YZECORIOLIS.CrewSpotSensorOperator": "Sensor Operator",
   "YZECORIOLIS.CrewSpotGunner": "Gunner",
 
+  "YZECORIOLIS.ErrorsOldFoundryVersion": "Your Coriolis system data is from too old a Foundry version and cannot be reliably migrated to the latest version. The process will be attempted, but errors may occur.",
   "YZECORIOLIS.ErrorsInvalidSkillRoll": "skills or attributes values are not greater than zero",
   "YZECORIOLIS.ErrorsInvalidAdvancedSkillRoll": "advanced skills must have at least a value of 1 to be rolled",
   "YZECORIOLIS.ErrorsNoActorSelectedForMacro": "No token actor has been selected to use this macro.",
+  "YZECORIOLIS.ErrorsActorHasDuplicateItemsForMacro": "Your controlled Actor has more than one Item with that name. The first matched item will be chosen.",
+  "YZECORIOLIS.ErrorsActorNotHasItemForMacro": "Your controlled Actor does not have an item with that name.",
+  "YZECORIOLIS.ErrorsNotOwnedItemForMacro": "You can only create macro buttons for owned items.",
+
   "YZECORIOLIS.PrayToIcons": "Pray to the Icons",
   "YZECORIOLIS.PushedRoll": "Pushed Roll",
   "YZECORIOLIS.ModifierForRoll": "Modifier",
