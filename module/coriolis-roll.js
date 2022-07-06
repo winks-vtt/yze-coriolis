@@ -5,12 +5,19 @@ export async function coriolisModifierDialog(
   automaticWeapon = false
 ) {
   let automaticFire = false;
+  let machineGunner = false;
+  let highCapacity = false;
   const callback = function (modifier) {
     return function (html) {
       modifierCallback(modifier, {
         automaticFire: automaticFire,
-        numberOfIgnoredOnes:
-          html.find("input[name='numberOfIgnoredOnes']").val() || 0,
+        machineGunner: machineGunner
+          ? 1
+          : 0,
+        highCapacity: highCapacity
+          ? 1
+          : 0,
+        numberOfIgnoredOnes: machineGunner + highCapacity,
       });
     };
   };
@@ -115,10 +122,12 @@ export async function coriolisModifierDialog(
         }
       });
 
-      const ignoredOnesInput = html.find("input[name='numberOfIgnoredOnes']");
-      ignoredOnesInput.on("blur", () => {
-        const v = ignoredOnesInput.val();
-        ignoredOnesInput.val(Math.min(2, Math.max(0, v)));
+      html.find("input[name='machineGunner']").click(() => {
+        machineGunner = !machineGunner;
+      });
+
+      html.find("input[name='highCapacity']").click(() => {
+        highCapacity = !highCapacity;
       });
     },
     close: () => {},
@@ -148,7 +157,7 @@ export function coriolisPrayerModifierDialog(modifierCallback) {
     },
     default: "zero",
     close: () => {},
-  });
+  },{ height: "max-content!important"});
   d.render(true);
 }
 
