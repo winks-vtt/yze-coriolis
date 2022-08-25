@@ -73,6 +73,9 @@ export class yzecoriolisItem extends Item {
       range: item.data.range,
       crit: item.data.crit?.numericValue,
       critText: item.data.crit?.customValue,
+      features: item?.data.special
+        ? Object.values(item.data.special).join(', ')
+        : "",
     };
     const chatOptions = this.actor._prepareChatRollOptions(
       "systems/yzecoriolis/templates/sidebar/roll.html",
