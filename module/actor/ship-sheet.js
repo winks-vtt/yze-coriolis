@@ -400,6 +400,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
 
     // create a skill roll based off the crew's position.
     const rollData = {
+      actorType: crewmate.type,
       rollType: crewmate.data.skills[skillKey].category,
       skillKey: skillKey,
       skill: skillKey
