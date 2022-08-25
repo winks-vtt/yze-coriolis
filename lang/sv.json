@@ -383,5 +383,5 @@
   "YZECORIOLIS.ItemDeleteConfirmationTitle": "Ta bort elementet",
   "YZECORIOLIS.ItemDeleteConfirmationContent": "Är du säker på att du vill ta bort det här elementet?",
   "YZECORIOLIS.AutomaticFire": "Automatisk eld",
-  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Antal ignorerade 1:or (max 2)"
+  "YZECORIOLIS.AutomaticFireModifier": "Antal ignorerade 1:or (max 2)"
 }

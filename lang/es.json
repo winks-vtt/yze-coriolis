@@ -326,5 +326,5 @@
   "YZECORIOLIS.ItemDeleteConfirmationTitle": "Eliminar elemento",
   "YZECORIOLIS.ItemDeleteConfirmationContent": "¿Está seguro de que desea eliminar este elemento?",
   "YZECORIOLIS.AutomaticFire": "Fuego automático",
-  "YZECORIOLIS.AutomaticFireIgnoredOnes": "Número de 1 ignorados (máx. 2)"
+  "YZECORIOLIS.AutomaticFireModifier": "Número de 1 ignorados (máx. 2)"
 }

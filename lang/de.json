@@ -425,5 +425,5 @@
   "YZECORIOLIS.AutomaticFire": "Automatisches Feuer",
   "YZECORIOLIS.AutomaticFireModifier": "Modifikator von -2 auf deinen Angriffswurf",
   "YZECORIOLIS.RollTotal": "Gesamtwurf",
-  "YZECORIOLIS.RollDesperation": "Verzweiflungswurf (2d6) anstatt"
+  "YZECORIOLIS.RollSubstitute": "Verzweiflungswurf (2d6) anstatt"
 }
