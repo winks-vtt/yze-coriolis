@@ -23,9 +23,24 @@
                 <td>{{#if_eq isAutomatic 'true'}}{{localize "YZECORIOLIS.Automatic"}}-{{localize "YZECORIOLIS.Weapon"}}{{/if_eq}}</td>
               </tr>
             {{/if_eq}}
-          <tr>
-            <td colspan="2"><hr></td>
-          </tr>
+            {{#if features}}
+              <tr>
+                <td colspan="2">{{localize "YZECORIOLIS.Features"}}: {{features}}</td>
+              </tr>
+            {{/if}}
+            <tr>
+              <td colspan="2"><hr></td>
+            </tr>
+          {{/if_eq}}
+          {{#if_eq rollType 'armor'}}
+            {{#if features}}
+              <tr>
+                <td colspan="2">{{localize "YZECORIOLIS.Features"}}: {{features}}</td>
+              </tr>
+              <tr>
+                <td colspan="2"><hr></td>
+              </tr>
+            {{/if}}
           {{/if_eq}}
           <tr>
             <td>{{#if_eq rollType 'armor'}}{{localize "YZECORIOLIS.ArmorRating"}}: {{bonus}}{{else}}{{attributeName}}: {{attribute}}{{/if_eq}}</td>
@@ -57,9 +72,24 @@
                 <td>{{#if_eq isAutomatic 'true'}}{{localize "YZECORIOLIS.Automatic"}}-{{localize "YZECORIOLIS.Weapon"}}{{/if_eq}}</td>
               </tr>
             {{/if_eq}}
-          <tr>
-            <td colspan="2"><hr></td>
-          </tr>
+            {{#if features}}
+              <tr>
+                <td colspan="2">{{localize "YZECORIOLIS.Features"}}: {{features}}</td>
+              </tr>
+            {{/if}}
+            <tr>
+              <td colspan="2"><hr></td>
+            </tr>
+          {{/if_eq}}
+          {{#if_eq rollType 'armor'}}
+            {{#if features}}
+              <tr>
+                <td colspan="2">{{localize "YZECORIOLIS.Features"}}: {{features}}</td>
+              </tr>
+              <tr>
+                <td colspan="2"><hr></td>
+              </tr>
+            {{/if}}
           {{/if_eq}}
           <tr>
             <td>{{#if_eq rollType 'armor'}}{{localize "YZECORIOLIS.ArmorRating"}}: {{bonus}}{{else}}{{attributeName}}: {{attribute}}{{/if_eq}}</td>
@@ -90,9 +120,24 @@
                 <td>{{#if_eq isAutomatic 'true'}}{{localize "YZECORIOLIS.Automatic"}}-{{localize "YZECORIOLIS.Weapon"}}{{/if_eq}}</td>
               </tr>
             {{/if_eq}}
-          <tr>
-            <td colspan="2"><hr></td>
-          </tr>
+            {{#if features}}
+              <tr>
+                <td colspan="2">{{localize "YZECORIOLIS.Features"}}: {{features}}</td>
+              </tr>
+            {{/if}}
+            <tr>
+              <td colspan="2"><hr></td>
+            </tr>
+          {{/if_eq}}
+          {{#if_eq rollType 'armor'}}
+            {{#if features}}
+              <tr>
+                <td colspan="2">{{localize "YZECORIOLIS.Features"}}: {{features}}</td>
+              </tr>
+              <tr>
+                <td colspan="2"><hr></td>
+              </tr>
+            {{/if}}
           {{/if_eq}}
           <tr>
             <td>{{#if_eq rollType 'armor'}}{{localize "YZECORIOLIS.ArmorRating"}}: {{bonus}}{{else}}{{attributeName}}: {{attribute}}{{/if_eq}}</td>

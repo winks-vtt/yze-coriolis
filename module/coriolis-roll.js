@@ -357,6 +357,7 @@ async function showChatMessage(chatMsgOptions, resultData) {
     damage: getRollDmg(resultData.rollData),
     damageText: getRollDmgText(resultData.rollData),
     range: getRollRange(resultData.rollData),
+    features: getRollFeatures(resultData.rollData),
   };
 
   if (["gmroll", "blindroll"].includes(chatMsgOptions.rollMode))
@@ -405,6 +406,7 @@ async function updateChatMessage(chatMessage, resultData, prayerBonus) {
     damage: getRollDmg(resultData.rollData),
     damageText: getRollDmgText(resultData.rollData),
     range: getRollRange(resultData.rollData),
+    features: getRollFeatures(resultData.rollData),
   };
 
   return renderTemplate(
@@ -539,6 +541,10 @@ function getRollDmgText(rollData) {
 
 function getRollRange(rollData) {
   return CONFIG.YZECORIOLIS.ranges[rollData.range];
+}
+
+function getRollFeatures(rollData) {
+  return `${rollData.features}`;
 }
 
 export async function coriolisChatListeners(html) {
