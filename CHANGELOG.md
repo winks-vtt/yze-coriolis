@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.12.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.11.0...v2.12.0) (2022-09-01)
+
+
+### Features
+
+* Added weapon features to extended rolls. ([a26d02a](https://www.github.com/winks-vtt/yze-coriolis/commit/a26d02a34ae8fe214a020b0757b2eaeea8202c7a))
+* show the number of successes in roll details. ([affaff3](https://www.github.com/winks-vtt/yze-coriolis/commit/affaff3b4a9611512427bd812aacda45648bbb27))
+* updated dice images with small numbers. ([7d82000](https://www.github.com/winks-vtt/yze-coriolis/commit/7d8200008cbd2790bc540d7e9e0beb541e9c5f88))
+
+
+### Bug Fixes
+
+* allow players to roll their own initiative ([ca02a93](https://www.github.com/winks-vtt/yze-coriolis/commit/ca02a93d9b59ad6a1f1b5403b1f4984908aaebc5))
+* corrected translations for automatic firing dialog. ([73309a0](https://www.github.com/winks-vtt/yze-coriolis/commit/73309a0b3f18a98522a3724a59f4513552c899f5))
+* update swedish translation for 'reputation' ([a61095b](https://www.github.com/winks-vtt/yze-coriolis/commit/a61095bb4f1702fc758e65e8de72d1fabf0926e0))
+
 ## [2.11.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.10.0...v2.11.0) (2022-07-06)
 
 
