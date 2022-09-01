@@ -67,16 +67,18 @@ Hooks.on("renderCombatTracker", (app, html, data) => {
       const id = el.dataset.combatantId;
       const combatant = currentCombat.data.combatants.find((c) => c.id === id);
       const initDiv = el.getElementsByClassName("token-initiative")[0];
-      const initiative = combatant.initiative || "";
-      const readOnly = game.user.isGM ? "" : "readonly";
-      initDiv.innerHTML = `<input style="color: white; "type="number" ${readOnly} value="${initiative}">`;
 
-      initDiv.addEventListener("change", async (e) => {
-        const inputElement = e.target;
-        const combatantId = inputElement.closest("[data-combatant-id]").dataset
-          .combatantId;
-        await currentCombat.setInitiative(combatantId, inputElement.value);
-      });
+      if (combatant.initiative != null) {
+        const readOnly = game.user.isGM ? "" : "readonly";
+        initDiv.innerHTML = `<input style="color: white; "type="number" ${readOnly} value="${combatant.initiative}">`;
+
+        initDiv.addEventListener("change", async (e) => {
+          const inputElement = e.target;
+          const combatantId = inputElement.closest("[data-combatant-id]")
+            .dataset.combatantId;
+          await currentCombat.setInitiative(combatantId, inputElement.value);
+        });
+      }
     });
   }
 });
