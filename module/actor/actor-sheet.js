@@ -509,6 +509,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
       range: item?.range,
       crit: item?.crit?.numericValue,
       critText: item?.crit?.customValue,
+      features: item?.special
+        ? Object.values(item.special).join(', ')
+        : "",
     };
     const chatOptions = this.actor._prepareChatRollOptions(
       "systems/yzecoriolis/templates/sidebar/roll.html",
