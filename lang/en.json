@@ -134,7 +134,6 @@
   "YZECORIOLIS.Crit": "Crit",
   "YZECORIOLIS.Damage": "Damage",
   "YZECORIOLIS.Weight": "Weight",
-  "YZECORIOLIS.Talent": "Talent",
   "YZECORIOLIS.Gear": "Gear",
   "YZECORIOLIS.Weapons": "Weapons",
   "YZECORIOLIS.Weapon": "Weapon",
@@ -425,5 +424,5 @@
   "YZECORIOLIS.AutomaticFire": "Automatic fire",
   "YZECORIOLIS.AutomaticFireModifier": "-2 modifier to your attack roll",
   "YZECORIOLIS.RollTotal": "Total rolled",
-  "YZECORIOLIS.RollDesperation": "Desperation roll (2d6) instead of"
+  "YZECORIOLIS.RollSubstitute": "Desperation roll (2d6) instead of"
 }

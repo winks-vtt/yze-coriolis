@@ -402,5 +402,5 @@
   "YZECORIOLIS.AutomaticFire": "Tir automatique",
   "YZECORIOLIS.AutomaticFireModifier": "-2 appliqué au jet de dé",
   "YZECORIOLIS.RollTotal": "Description du jet",
-  "YZECORIOLIS.RollDesperation": "Jet de désespoir (2d6)"
+  "YZECORIOLIS.RollSubstitute": "Jet de désespoir (2d6)"
 }
