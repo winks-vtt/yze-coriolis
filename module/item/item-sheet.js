@@ -28,20 +28,26 @@ export class yzecoriolisItemSheet extends ItemSheet {
     // Alternatively, you could use the following return statement to do a
     // unique item sheet by type, like `weapon-sheet.html`.
 
-    return `${path}/${this.item.data.type}-sheet.html`;
+    return `${path}/${this.item.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
 
   /** @override */
-  getData(options) {
+  async getData(options) {
     const baseData = super.getData(options);
-    // baseData.config = CONFIG.YZECORIOLIS;
+    const itemDescript = await TextEditor.enrichHTML(
+      baseData.item.system.description,
+      {
+        async: true,
+      }
+    );
     const sheetData = {
       editable: baseData.editable,
       owner: baseData.item.isOwner,
       config: CONFIG.YZECORIOLIS,
-      ...baseData.item.data,
+      itemDescript,
+      ...baseData.item,
     };
     return sheetData;
   }
@@ -78,17 +84,17 @@ export class yzecoriolisItemSheet extends ItemSheet {
     event.preventDefault();
     const name = "";
     let features = {};
-    if (this.object.data.data.special) {
-      features = foundry.utils.deepClone(this.object.data.data.special);
+    if (this.object.system.special) {
+      features = foundry.utils.deepClone(this.object.system.special);
     }
     let key = getID();
     features["si" + key] = name;
-    return this.object.update({ "data.special": features });
+    return this.object.update({ "system.special": features });
   }
 
   _onFeatureDelete(event) {
     const li = $(event.currentTarget).parents(".special-feature");
-    let features = foundry.utils.deepClone(this.object.data.data.special);
+    let features = foundry.utils.deepClone(this.object.system.special);
     let targetKey = li.data("itemId");
     delete features[targetKey];
     li.slideUp(200, async () => {
@@ -97,7 +103,7 @@ export class yzecoriolisItemSheet extends ItemSheet {
   }
 
   async _setSpecialFeatures(features) {
-    await this.object.update({ "data.special": null }, { render: false });
-    await this.object.update({ "data.special": features });
+    await this.object.update({ "system.special": null }, { render: false });
+    await this.object.update({ "system.special": features });
   }
 }

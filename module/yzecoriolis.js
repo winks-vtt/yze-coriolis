@@ -152,9 +152,12 @@ Hooks.once("init", async function () {
     return CONFIG.YZECORIOLIS.itemTypes[itemTypeKey];
   });
 
-  Handlebars.registerHelper("getTalentCategoryName", function (talentCategoryKey) {
+  Handlebars.registerHelper(
+    "getTalentCategoryName",
+    function (talentCategoryKey) {
       return CONFIG.YZECORIOLIS.talentCategories[talentCategoryKey];
-  });
+    }
+  );
 
   Handlebars.registerHelper("getGearWeightName", function (gearWeight) {
     return CONFIG.YZECORIOLIS.gearWeights[gearWeight];
@@ -213,50 +216,40 @@ Hooks.once("init", async function () {
   });
 
   // returns just the position without the ship name.
-  Handlebars.registerHelper("getCrewPositionNameBasic", function (crewPosition) {
-    let positionName =
-    CONFIG.YZECORIOLIS.crewPositions[crewPosition.position];
-    // for non associated crew, just return position name
-    if (!crewPosition.shipId) {
-      return positionName;
+  Handlebars.registerHelper(
+    "getCrewPositionNameBasic",
+    function (crewPosition) {
+      let positionName =
+        CONFIG.YZECORIOLIS.crewPositions[crewPosition.position];
+      // for non associated crew, just return position name
+      if (!crewPosition.shipId) {
+        return positionName;
+      }
+      // search for ship and grab "ship - crewPosition"
+      let ship = game.actors.get(crewPosition.shipId);
+      if (!ship) {
+        console.warn("failed to find ship", crewPosition);
+        return positionName;
+      }
+      return `${positionName}`;
     }
-    // search for ship and grab "ship - crewPosition"
-    let ship = game.actors.get(crewPosition.shipId);
-    if (!ship) {
-      console.warn("failed to find ship", crewPosition);
-      return positionName;
-    }
-    return `${positionName}`;
-  });
+  );
 
-  Handlebars.registerHelper("getCrewPositionName", function (crewPosition) {
-    let positionName = CONFIG.YZECORIOLIS.crewPositions[crewPosition.position];
-    // for non associated crew, just return position name
-    if (!crewPosition.shipId) {
-      console.log("no ship", crewPosition);
-      return positionName;
+  Handlebars.registerHelper(
+    "getShipRollNameForPosition",
+    function (crewPosition) {
+      const skill = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
+      return CONFIG.YZECORIOLIS.skills[skill];
     }
-    // search for ship and grab "ship - crewPosition"
-    let ship = game.actors.get(crewPosition.shipId);
-    if (!ship) {
-      console.warn("failed to find ship", crewPosition);
-      return positionName;
-    }
-    return `${ship.data.name} - ${positionName}`;
-  });
-
-  Handlebars.registerHelper("getShipRollNameForPosition", function (crewPosition) {
-    const skill = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
-    return CONFIG.YZECORIOLIS.skills[skill];
-  });
+  );
 
   Handlebars.registerHelper("getShipRollValueForPosition", function (crewId) {
     const crew = getActorDataById(crewId);
-    const crewPosition = crew.data.bio.crewPosition;
+    const crewPosition = crew.system.bio.crewPosition;
     const skillKey = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
-    const skillValue = crew.data.skills[skillKey].value;
-    const attribKey = crew.data.skills[skillKey].attribute;
-    const attribValue = crew.data.attributes[attribKey].value;
+    const skillValue = crew.system.skills[skillKey].value;
+    const attribKey = crew.system.skills[skillKey].attribute;
+    const attribValue = crew.system.attributes[attribKey].value;
     return attribValue + skillValue;
   });
 
@@ -265,7 +258,7 @@ Hooks.once("init", async function () {
   });
 
   Handlebars.registerHelper("ShowFeatures", function () {
-    return game.settings.get("yzecoriolis", "AlwaysShowFeatures")
+    return game.settings.get("yzecoriolis", "AlwaysShowFeatures");
   });
 
   Handlebars.registerHelper("AdditionalRollInfos", function () {
@@ -393,10 +386,9 @@ Hooks.once("ready", async function () {
       currentVersion &&
       isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion)
     ) {
-      ui.notifications.error(
-        game.i18n.localize("ErrorsOldFoundryVersion"),
-        { permanent: true }
-      );
+      ui.notifications.error(game.i18n.localize("ErrorsOldFoundryVersion"), {
+        permanent: true,
+      });
     }
     await migrations.migrateWorld();
   }
@@ -404,9 +396,10 @@ Hooks.once("ready", async function () {
   //bootstrapGearCompendium();
 
   // wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-  Hooks.on("hotbarDrop", (bar, data, slot) =>
-    createYzeCoriolisMacro(data, slot)
-  );
+  Hooks.on("hotbarDrop", (bar, data, slot) => {
+    createYzeCoriolisMacro(data, slot);
+    return false;
+  });
 
   await importShipSheetTutorial();
   await showOnboardingMessage();
@@ -448,18 +441,21 @@ Hooks.once("diceSoNiceReady", (dice3d) => {
 
 /**
  * Create a macro from an Item drop
- * @param  {} data
+ * @param  {} documentData
  * @param  {} slot
  */
-async function createYzeCoriolisMacro(data, slot) {
-  if (data.type !== "Item") return;
-  if (!("data" in data))
+async function createYzeCoriolisMacro(documentData, slot) {
+  if (documentData.type !== "Item") return;
+  if (!("uuid" in documentData))
     return ui.notifications.warn(
       game.i18n.localize("YZECORIOLIS.ErrorsNotOwnedItemForMacro")
     );
-  const item = data.data;
-
-  // create the macro command
+  const item = await fromUuid(documentData.uuid, false);
+  if (!item) {
+    return;
+  }
+  // create the macro command.  Get an existing item macro if it exists.
+  // Otherwise create a new one.
   const command = `game.yzecoriolis.rollItemMacro("${item.name}");`;
   let macro = game.macros.contents.find(
     (m) => m.name === item.name && m.command === command
@@ -470,15 +466,16 @@ async function createYzeCoriolisMacro(data, slot) {
       type: "script",
       img: item.img,
       command: command,
+      scope: "actor",
       flags: { "yzecoriolis.itemMacro": true },
     });
   }
   game.user.assignHotbarMacro(macro, slot);
-  return false;
+  return;
 }
 
 /**
- * Create a macro from an item drop. Get an existing item macro if it exists. Otherwise create a new one.
+ * Roll a macro item.
  * @param  {} itemName
  */
 function rollItemMacro(itemName) {
@@ -493,9 +490,7 @@ function rollItemMacro(itemName) {
     );
   }
   // Get matching items
-  const items = actor
-    ? actor.items.filter((i) => i.name === itemName)
-    : [];
+  const items = actor ? actor.items.filter((i) => i.name === itemName) : [];
   if (items.length > 1) {
     ui.notifications.warn(
       game.i18n.localize("YZECORIOLIS.ErrorsActorHasDuplicateItemsForMacro")

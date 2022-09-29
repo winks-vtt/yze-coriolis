@@ -1,11 +1,11 @@
 <div class="tab panel" data-group="primary" data-tab="stats">
     <ul class="attribute-list">
-        {{#each data.attributes as |ability key|}}
+        {{#each system.attributes as |ability key|}}
         <li>
             <div class="flexcol attr-item">
                 <div class="attr-block bg-{{key}}">
                     <div class="attr-num-display">
-                        <input class="attr-input" type="text" name="data.attributes.{{key}}.value"
+                        <input class="attr-input" type="text" name="system.attributes.{{key}}.value"
                             value="{{ability.value}}" data-dtype="Number" placeholder="0" />
                     </div>
                 </div>
@@ -21,7 +21,7 @@
     <div class="skills-list-group flexrow">
         <ol class="single-skill-list">
             <li class="skill-header">{{getSkillCategoryName 'general'}}</li>
-            {{#each data.skills as |skill id|}}
+            {{#each system.skills as |skill id|}}
             {{#if_eq skill.category 'general'}}
             <li class="skill fr-basic">
                 <div class="fr-basic rollable flex1" data-rolltype="general" data-attributekey={{skill.attribute}}
@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="skill-value-display">
-                    <input class="skill-input" type="text" name="data.skills.{{id}}.value" value="{{skill.value}}"
+                    <input class="skill-input" type="text" name="system.skills.{{id}}.value" value="{{skill.value}}"
                         data-dtype="Number" />
                 </div>
             </li>
@@ -41,7 +41,7 @@
         </ol>
         <ol class="single-skill-list">
             <li class=" skill-header">{{getSkillCategoryName 'advanced'}}</li>
-            {{#each data.skills as |skill id|}}
+            {{#each system.skills as |skill id|}}
             {{#if_eq skill.category 'advanced'}}
             <li class="skill fr-basic">
                 <div class="fr-basic rollable flex1" data-rolltype="advanced" data-attributekey={{skill.attribute}}
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="skill-value-display">
-                    <input class="skill-input" type="text" name="data.skills.{{id}}.value" value="{{skill.value}}"
+                    <input class="skill-input" type="text" name="system.skills.{{id}}.value" value="{{skill.value}}"
                         data-dtype="Number" />
                 </div>
             </li>
@@ -80,7 +80,7 @@
             </div>
             <div class="injury-description">
                 {{!-- we're putting in the raw output here since description is already html markup from tinyMCE--}}
-                <span>{{{injury.data.description}}}</span>
+                <span>{{{injury.system.description}}}</span>
             </div>
             <div class="crit-controls">
                 <a class="crit-control-widget item-edit" title={{localize "YZECORIOLIS.EditCriticalInjury"}}>

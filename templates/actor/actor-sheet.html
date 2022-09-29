@@ -1,7 +1,7 @@
 <form class="{{cssClass}}" autocomplete="off">
   <div class="sheet-container">
     <div class="key-art-container col-start-1 col-end-2 row-start-1 row-end-4 z-1 max-h-750 overflow-hidden">
-      <img class="vertical-img" src="{{data.keyArt}}" data-edit="data.keyArt" title="{{name}}">
+      <img class="vertical-img" src="{{system.keyArt}}" data-edit="system.keyArt" title="{{name}}">
     </div>
     <div class="gradient-overlay"></div>
     <div class="always-visible-stats">
@@ -10,114 +10,114 @@
           <div class="stat-label">{{localize "YZECORIOLIS.HitPoints"}}</div>
           <div class="bar hp-bar fr-basic">
             {{#each hpBlocks as |hpBlock index|}}
-            {{#with ../data as | data |}}
+            {{#with ../system as | system |}}
             {{#if hpBlock.on}}
-            <div class="bar-segment bar-rounded on" data-name="data.hitPoints.value" data-index={{index}}
-              data-current={{data.hitPoints.value}} data-min={{data.hitPoints.min}} data-max={{data.hitPoints.max}}>
+            <div class="bar-segment bar-rounded on" data-name="system.hitPoints.value" data-index={{index}}
+              data-current={{system.hitPoints.value}} data-min={{system.hitPoints.min}} data-max={{system.hitPoints.max}}>
             </div>
             {{else}}
-            <div class="bar-segment bar-rounded off" data-name="data.hitPoints.value" data-index={{index}}
-              data-current={{data.hitPoints.value}} data-min={{data.hitPoints.min}} data-max={{data.hitPoints.max}}>
+            <div class="bar-segment bar-rounded off" data-name="system.hitPoints.value" data-index={{index}}
+              data-current={{system.hitPoints.value}} data-min={{system.hitPoints.min}} data-max={{system.hitPoints.max}}>
             </div>
             {{/if}}
             {{/with}}
             {{/each}}
-            <span class="bar-value">{{data.hitPoints.value}}</span>
+            <span class="bar-value">{{system.hitPoints.value}}</span>
           </div>
         </li>
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.MindPoints"}}</div>
           <div class="bar mind-bar fr-basic">
             {{#each mindBlocks as |mBlock index|}}
-            {{#with ../data as | data |}}
+            {{#with ../system as | system |}}
             {{#if mBlock.on}}
-            <div class="bar-segment bar-rounded on" data-name="data.mindPoints.value" data-index={{index}}
-              data-current={{data.mindPoints.value}} data-min={{data.mindPoints.min}} data-max={{data.mindPoints.max}}>
+            <div class="bar-segment bar-rounded on" data-name="system.mindPoints.value" data-index={{index}}
+              data-current={{system.mindPoints.value}} data-min={{system.mindPoints.min}} data-max={{system.mindPoints.max}}>
             </div>
             {{else}}
-            <div class="bar-segment bar-rounded off" data-name="data.mindPoints.value" data-index={{index}}
-              data-current={{data.mindPoints.value}} data-min={{data.mindPoints.min}} data-max={{data.mindPoints.max}}>
+            <div class="bar-segment bar-rounded off" data-name="system.mindPoints.value" data-index={{index}}
+              data-current={{system.mindPoints.value}} data-min={{system.mindPoints.min}} data-max={{system.mindPoints.max}}>
             </div>
             {{/if}}
             {{/with}}
             {{/each}}
-            <span class="bar-value">{{data.mindPoints.value}}</span>
+            <span class="bar-value">{{system.mindPoints.value}}</span>
           </div>
         </li>
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.Radiation"}}</div>
           <div class="bar radiation-bar fr-basic">
             {{#each radiationBlocks as |rBlock index|}}
-            {{#with ../data as | data |}}
+            {{#with ../system as | system |}}
             {{#if rBlock.on}}
-            <div class="bar-segment bar-rounded on" data-name="data.radiation.value" data-index={{index}}
-              data-current={{data.radiation.value}} data-min={{data.radiation.min}} data-max={{data.radiation.max}}>
+            <div class="bar-segment bar-rounded on" data-name="system.radiation.value" data-index={{index}}
+              data-current={{system.radiation.value}} data-min={{system.radiation.min}} data-max={{system.radiation.max}}>
             </div>
             {{else}}
-            <div class="bar-segment bar-rounded off" data-name="data.radiation.value" data-index={{index}}
-              data-current={{data.radiation.value}} data-min={{data.radiation.min}} data-max={{data.radiation.max}}>
+            <div class="bar-segment bar-rounded off" data-name="system.radiation.value" data-index={{index}}
+              data-current={{system.radiation.value}} data-min={{system.radiation.min}} data-max={{system.radiation.max}}>
             </div>
             {{/if}}
             {{/with}}
             {{/each}}
-            <span class="bar-value">{{data.radiation.value}}</span>
+            <span class="bar-value">{{system.radiation.value}}</span>
           </div>
         </li>
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.Experience"}}</div>
           <div class="bar xp-bar fr-basic">
             {{#each xpBlocks as |xBlock index|}}
-            {{#with ../data as | data |}}
+            {{#with ../system as | system |}}
             {{#if xBlock.on}}
-            <div class="bar-segment bar-rounded on" data-name="data.experience.value" data-index={{index}}
-              data-current={{data.experience.value}} data-min={{data.experience.min}} data-max={{data.experience.max}}>
+            <div class="bar-segment bar-rounded on" data-name="system.experience.value" data-index={{index}}
+              data-current={{system.experience.value}} data-min={{system.experience.min}} data-max={{system.experience.max}}>
             </div>
             {{else}}
-            <div class="bar-segment bar-rounded off" data-name="data.experience.value" data-index={{index}}
-              data-current={{data.experience.value}} data-min={{data.experience.min}} data-max={{data.experience.max}}>
+            <div class="bar-segment bar-rounded off" data-name="system.experience.value" data-index={{index}}
+              data-current={{system.experience.value}} data-min={{system.experience.min}} data-max={{system.experience.max}}>
             </div>
             {{/if}}
             {{/with}}
             {{/each}}
-            <span class="bar-value">{{data.experience.value}}</span>
+            <span class="bar-value">{{system.experience.value}}</span>
           </div>
         </li>
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.Reputation"}}</div>
           <div class="bar rep-bar fr-basic">
             {{#each repBlocks as |repBlock index|}}
-            {{#with ../data as | data |}}
+            {{#with ../system as | system |}}
             {{#if repBlock.on}}
-            <div class="bar-segment bar-rounded on" data-name="data.reputation.value" data-index={{index}}
-              data-current={{data.reputation.value}} data-min={{data.reputation.min}} data-max={{data.reputation.max}}>
+            <div class="bar-segment bar-rounded on" data-name="system.reputation.value" data-index={{index}}
+              data-current={{system.reputation.value}} data-min={{system.reputation.min}} data-max={{system.reputation.max}}>
             </div>
             {{else}}
-            <div class="bar-segment bar-rounded off" data-name="data.reputation.value" data-index={{index}}
-              data-current={{data.reputation.value}} data-min={{data.reputation.min}} data-max={{data.reputation.max}}>
+            <div class="bar-segment bar-rounded off" data-name="system.reputation.value" data-index={{index}}
+              data-current={{system.reputation.value}} data-min={{system.reputation.min}} data-max={{system.reputation.max}}>
             </div>
             {{/if}}
             {{/with}}
             {{/each}}
-            <span class="bar-value">{{data.reputation.value}}</span>
+            <span class="bar-value">{{system.reputation.value}}</span>
           </div>
         </li>
         <li class="entry flexrow">
           <div class="capitalize stat-label">{{localize "YZECORIOLIS.MovementRate"}}</div>
           <div class="number">
-            <input class="input-value" type="text" name="data.movementRate" value="{{data.movementRate}}" data-dtype="Number" placeholder="0" />
+            <input class="input-value" type="text" name="system.movementRate" value="{{system.movementRate}}" data-dtype="Number" placeholder="0" />
           </div>
         </li>
         <li class="entry flexrow">
           <div class="capitalize stat-label">{{localize "YZECORIOLIS.Birr"}}</div>
           <div class="number">
-            <input class="input-value" type="text" name="data.birr" value="{{data.birr}}" data-dtype="Number" />
+            <input class="input-value" type="text" name="system.birr" value="{{system.birr}}" data-dtype="Number" />
           </div>
         </li>
         <li class="entry flexrow">
           <div class="stat-label">{{localize "YZECORIOLIS.Icon"}}</div>
           <div class="number">
-            <input class="input-value" placeholder={{localize "YZECORIOLIS.Icon"}} type="text" name="data.bio.icon"
-              value="{{data.bio.icon}}" data-dtype="String" />
+            <input class="input-value" placeholder={{localize "YZECORIOLIS.Icon"}} type="text" name="system.bio.icon"
+              value="{{system.bio.icon}}" data-dtype="String" />
           </div>
         </li>
       </ol>
@@ -130,7 +130,7 @@
             placeholder="{{localize "YZECORIOLIS.Name"}}" />
         </header>
         <div class="char-class">
-          <input class="char-class-input" name="data.bio.concept" type="text" value="{{data.bio.concept}}"
+          <input class="char-class-input" name="system.bio.concept" type="text" value="{{system.bio.concept}}"
             placeholder="{{localize "YZECORIOLIS.Concept"}}" />
         </div>
       </header>
@@ -158,7 +158,7 @@
 
           {{!-- Notes Tab --}}
           <div class="tab charnotes" data-group="primary" data-tab="charnotes">
-            {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
+            {{editor bioNotes target="system.notes" button=true owner=owner editable=editable}}
           </div>
         </section>
       </div>

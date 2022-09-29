@@ -13,7 +13,7 @@ export class yzecoriolisItem extends Item {
     super.prepareData();
 
     // Get the Item's data
-    const itemData = this.data;
+    const itemData = this;
     if (itemData.type === "talent") this._prepareTalentData(itemData);
   }
 
@@ -22,59 +22,55 @@ export class yzecoriolisItem extends Item {
     // TODO: prep talent data
   }
 
-  async _preCreate(data, options, user) {
-    await super._preCreate(data, options, user);
-    // for cloning operations just keep the image.
-    if (hasProperty(data, "img") && data.img !== null) {
+  async _preCreate(initData, options, user) {
+    await super._preCreate(initData, options, user);
+    // for cloning operations just keep the image. this is a brittle hack. Would
+    // like to find a way to override item icons on create, but ignore it on
+    // cloning and imports from compendiums.
+    if (hasProperty(initData, "img") && initData.img !== Item.DEFAULT_ICON) {
       return;
     }
-    let itemType = data.type;
-    let isExplosive = this.data.data.explosive;
+    let itemType = initData.type;
+    let isExplosive = this.system.explosive;
     const tokenPath = getDefaultItemIcon(itemType, isExplosive);
-    this.data.update({ img: tokenPath });
+    this.updateSource({ img: tokenPath });
   }
 
   async roll() {
     //TODO: Should refactor this a bit so both sheet and macros share the same
     //code path.
-    const item = this.data;
-    const actorData = this.actor ? this.actor.data.data : {};
-    const itemData = item.data;
+    const item = this;
+    const actorData = this.actor ? this.actor.system : {};
+    const itemData = item.system;
     const skillKey = getSkillKeyForWeaponType(itemData.melee);
     const attributeKey = getAttributeKeyForWeaponType(itemData.melee);
     const rollType = getRollType(item.type);
-    let bonus = itemData.bonus
-      ? Number(itemData.bonus)
-      : 0;
+    let bonus = itemData.bonus ? Number(itemData.bonus) : 0;
     if (rollType === "armor") {
       bonus = itemData.armorRating;
     }
     const rollData = {
       rollType: rollType,
-      actorType: this.actor.data.type,
+      actorType: this.actor.type,
       skillKey: skillKey,
       attributeKey: attributeKey,
-      attribute: attributeKey
-        ? actorData.attributes[attributeKey].value
-        : 0,
-      skill: skillKey
-        ? actorData.skills[skillKey].value
-        : 0,
+      attribute: attributeKey ? actorData.attributes[attributeKey].value : 0,
+      skill: skillKey ? actorData.skills[skillKey].value : 0,
       modifier: 0,
       bonus: bonus,
       rollTitle: item.name,
       pushed: false,
-      isAutomatic: item.data.automatic,
-      isExplosive: item.data.explosive,
-      blastPower: item.data.blastPower,
-      blastRadius: item.data.blastRadius,
-      damage: item.data.damage,
-      damageText: item.data.damageText,
-      range: item.data.range,
-      crit: item.data.crit?.numericValue,
-      critText: item.data.crit?.customValue,
-      features: item?.data.special
-        ? Object.values(item.data.special).join(', ')
+      isAutomatic: itemData.automatic,
+      isExplosive: itemData.explosive,
+      blastPower: itemData.blastPower,
+      blastRadius: itemData.blastRadius,
+      damage: itemData.damage,
+      damageText: itemData.damageText,
+      range: itemData.range,
+      crit: itemData.crit?.numericValue,
+      critText: itemData.crit?.customValue,
+      features: itemData.special
+        ? Object.values(itemData.special).join(", ")
         : "",
     };
     const chatOptions = this.actor._prepareChatRollOptions(
@@ -88,30 +84,33 @@ export class yzecoriolisItem extends Item {
     }, itemData.automatic);
   }
 
-  getChatData(htmlOptions) {
-    const data = foundry.utils.deepClone(this.data.data);
+  async getChatData(htmlOptions) {
+    const sysData = foundry.utils.deepClone(this.system);
     const labels = this.labels;
     // Rich text description
-    data.description = TextEditor.enrichHTML(data.description, htmlOptions);
+    sysData.description = await TextEditor.enrichHTML(
+      sysData.description,
+      htmlOptions
+    );
 
     // Item type specific properties
     const props = [];
-    const fn = this[`_${this.data.type}ChatData`];
-    if (fn) fn.bind(this)(data, labels, props);
+    const fn = this[`_${this.type}ChatData`];
+    if (fn) fn.bind(this)(sysData, labels, props);
 
     //TODO: toggle equipped status for normal items.
 
     // Filter properties and return
-    data.properties = props.filter((p) => !!p);
-    return data;
+    sysData.properties = props.filter((p) => !!p);
+    return sysData;
   }
 
   async sendToChat() {
-    const imgPath = this.data.img
-      ? this.data.img
-      : getDefaultItemIcon(this.type, this.data.data.explosive);
+    const imgPath = this.img
+      ? this.img
+      : getDefaultItemIcon(this.type, this.system.explosive);
     const templateData = {
-      item: foundry.utils.deepClone(this.data),
+      item: foundry.utils.deepClone(this),
       icon: imgPath,
     };
     const html = await renderTemplate(
@@ -125,13 +124,13 @@ export class yzecoriolisItem extends Item {
   }
 
   _weaponChatData(data, labels, props) {
-    for (let p of Object.values(this.data.data.special)) {
+    for (let p of Object.values(this.system.special)) {
       props.push(p);
     }
   }
 
   _armorChatData(data, labels, props) {
-    for (let p of Object.values(this.data.data.special)) {
+    for (let p of Object.values(this.system.special)) {
       props.push(p);
     }
   }

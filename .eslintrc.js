@@ -18,6 +18,7 @@ module.exports = {
     // foundry utils
     foundry: "readonly",
     DocumentSheetConfig: "readonly",
+    fromUuid: "readonly",
   },
   rules: {},
 };
