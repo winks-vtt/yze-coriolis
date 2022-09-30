@@ -9,7 +9,6 @@ import {
 } from "../item/ep-token.js";
 import {
   getActorDataById,
-  getActorEntityById,
   getOwnedItemsByType,
   hasOwnerPermissionLevel,
 } from "../util.js";
@@ -378,7 +377,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     event.preventDefault();
     const targetPortrait = event.currentTarget;
     const crewId = targetPortrait.dataset.crew;
-    const crewEntity = getActorEntityById(crewId);
+    const crewEntity = getActorDataById(crewId);
 
     // For rolling on the ship sheet, the user who owns that actor can roll on
     // the ship sheet. The GM can also roll any actor.

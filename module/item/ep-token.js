@@ -1,5 +1,5 @@
 import {
-  getActorEntityById,
+  getActorDataById,
   getID,
   getOwnedItemsByType,
   hasOwnerPermissionLevel,
@@ -157,7 +157,7 @@ export const canChangeEPForShip = (shipEntity) => {
   );
 
   for (let e of engineers) {
-    const entity = getActorEntityById(e._id);
+    const entity = getActorDataById(e._id);
     if (hasOwnerPermissionLevel(entity?.permission)) {
       return true;
     }

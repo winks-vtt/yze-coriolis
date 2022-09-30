@@ -483,7 +483,6 @@ function rollItemMacro(itemName) {
   let actor;
   if (speaker.token) actor = game.actors.tokens[speaker.token];
   if (!actor) actor = game.actors.get(speaker.actor);
-
   if (!actor) {
     return ui.notifications.warn(
       game.i18n.localize("YZECORIOLIS.ErrorsNoActorSelectedForMacro")

@@ -27,7 +27,7 @@ export const getActorEntitiesByType = (actorType) => {
 
 /**
  * @param  {String} actorId
- * @returns the actor data object.
+ * @returns the actor document object.
  */
 export const getActorDataById = (actorId) => {
   if (!actorId) {
@@ -39,16 +39,6 @@ export const getActorDataById = (actorId) => {
     return null;
   }
   return actor;
-};
-
-/**
- * TODO: remove
- * @param  {String} actorId
- * @returns the Actor Entity object for actorId. Not meant for general use.
- * Prefer to use getActorById when possible.
- */
-export const getActorEntityById = (actorId) => {
-  return getActorDataById(actorId);
 };
 
 export const hasOwnerPermissionLevel = (perm) => {
