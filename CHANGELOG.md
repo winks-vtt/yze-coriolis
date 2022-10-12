@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.0.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.12.0...v3.0.0) (2022-10-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* v10 compatibility
+* v10 compatiblilty
+
+### Features
+
+* v10 compatibility ([5183f07](https://www.github.com/winks-vtt/yze-coriolis/commit/5183f07bcfb45224aeaa8e7ebda565ca270b54c1))
+* v10 compatiblilty ([52c94ef](https://www.github.com/winks-vtt/yze-coriolis/commit/52c94efcde2c1185eab4556115df93140f954b2c))
+
+
+### Bug Fixes
+
+* update data paths ([57a6b1a](https://www.github.com/winks-vtt/yze-coriolis/commit/57a6b1a3885d12ea26998d3ca5dba715df76fab9))
+
 ## [2.12.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.11.0...v2.12.0) (2022-09-01)
 
 
