@@ -16,6 +16,7 @@ To save time recreating hundreds of items, journals, NPCs, and maps from the off
 
 - [Core Rulebook Module](https://foundryvtt.com/packages/coriolis-corerules)
 - [Last Voyage of the Ghazali](https://foundryvtt.com/packages/coriolis-ghazali)
+- [Emissary Lost](https://foundryvtt.com/packages/coriolis-emissarylost)
 
 ## Features
 
