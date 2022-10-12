@@ -37,7 +37,7 @@
               {{module.enabledCSS}}"
             data-module={{module._id}}
           >
-            {{#if module.data.enabled}}
+            {{#if module.system.enabled}}
               {{localize "YZECORIOLIS.Enabled"}}
             {{else}}
               {{localize "YZECORIOLIS.Disabled"}}
@@ -52,7 +52,7 @@
                 {{localize "YZECORIOLIS.TechTier"}}
               </div>
               <div>
-                {{getTechTierName module.data.techTier}}
+                {{getTechTierName module.system.techTier}}
               </div>
             </div>
             {{! Bonus }}
@@ -63,10 +63,10 @@
                 {{localize "YZECORIOLIS.Bonus"}}
               </div>
               <div>
-                {{module.data.bonus}}
+                {{module.system.bonus}}
               </div>
             </div>
-            {{#if_eq module.data.category "weapon"}}
+            {{#if_eq module.system.category "weapon"}}
               {{! Range }}
               <div
                 class="hStack justify-space-between white-1 font-cairo text-md"
@@ -75,7 +75,7 @@
                   {{localize "YZECORIOLIS.Range"}}
                 </div>
                 <div>
-                  {{getRangeName module.data.range}}
+                  {{getRangeName module.system.range}}
                 </div>
               </div>
               {{! Damage }}
@@ -86,7 +86,7 @@
                   {{localize "YZECORIOLIS.Damage"}}
                 </div>
                 <div>
-                  {{module.data.damage}}
+                  {{module.system.damage}}
                 </div>
               </div>
               {{! Critical }}
@@ -98,7 +98,7 @@
                 </div>
                 {{! Need to check if we have numeric or string here for crit  }}
                 <div>
-                  {{getWeaponCritDisplay module.data.crit}}
+                  {{getWeaponCritDisplay module.system.crit}}
                 </div>
               </div>
               {{! Quantity }}
@@ -110,14 +110,14 @@
                 </div>
                 {{! Need to check if we have numeric or string here for crit  }}
                 <div>
-                  {{!-- {{module.data.quantity}} --}}
+                  {{!-- {{module.system.quantity}} --}}
                   <input
                     class="quantity-input"
                     type="number"
                     step="1"
                     min="0"
-                    name="module.data.quantity"
-                    value="{{module.data.quantity}}"
+                    name="module.system.quantity"
+                    value="{{module.system.quantity}}"
                     data-dtype="Number"
                     data-module={{module._id}}
                   />

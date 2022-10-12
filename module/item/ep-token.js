@@ -1,4 +1,9 @@
-import { getActorEntityById, getID, getOwnedItemsByType } from "../util.js";
+import {
+  getActorDataById,
+  getID,
+  getOwnedItemsByType,
+  hasOwnerPermissionLevel,
+} from "../util.js";
 import { getCrewForShip } from "../actor/crew.js";
 /**
  * @param  {Actor} shipEntity
@@ -11,7 +16,7 @@ export const createBlankEPTokens = async (shipEntity, count) => {
     const tokenData = {
       name: "epk" + getID(),
       type: "energyPointToken",
-      data: {
+      system: {
         active: false,
         holder: shipEntity.id,
       },
@@ -35,7 +40,7 @@ const getEPTokens = (shipEntity) => {
  */
 const getActiveEPTokens = (shipEntity) => {
   const tokens = getEPTokens(shipEntity);
-  return tokens.filter((t) => t.data.data.active === true) || [];
+  return tokens.filter((t) => t.system.active === true) || [];
 };
 
 /**
@@ -49,7 +54,7 @@ export const setActiveEPTokens = async (shipEntity, activeCount) => {
   // first turn off all tokens and set their holder to ship.
   const newActiveTokens = allTokens.map((at) => ({
     _id: at.id,
-    data: {
+    system: {
       active: false,
       holder: shipEntity.id,
     },
@@ -57,7 +62,7 @@ export const setActiveEPTokens = async (shipEntity, activeCount) => {
 
   // activate a select amount of tokens.
   for (let i = 0; i < activeCount; ++i) {
-    newActiveTokens[i].data.active = true;
+    newActiveTokens[i].system.active = true;
   }
   await shipEntity.updateEmbeddedDocuments("Item", newActiveTokens);
 };
@@ -68,8 +73,7 @@ export const setActiveEPTokens = async (shipEntity, activeCount) => {
  */
 export const shipEPCount = (shipEntity) => {
   const activeTokens = getActiveEPTokens(shipEntity);
-  return activeTokens.filter((a) => a.data.data.holder === shipEntity.id)
-    .length;
+  return activeTokens.filter((a) => a.system.holder === shipEntity.id).length;
 };
 
 /**
@@ -80,7 +84,7 @@ export const shipEPCount = (shipEntity) => {
  */
 export const crewEPCount = (shipEntity, crewId) => {
   const activeTokens = getActiveEPTokens(shipEntity);
-  return activeTokens.filter((a) => a.data.data.holder === crewId).length;
+  return activeTokens.filter((a) => a.system.holder === crewId).length;
 };
 
 /**
@@ -97,19 +101,18 @@ export const setCrewEPCount = async (shipEntity, crewId, count) => {
   const activeTokens = getActiveEPTokens(shipEntity);
   const updateData = activeTokens.map((at) => ({
     _id: at.id,
-    data: {
-      holder:
-        at.data.data.holder === crewId ? shipEntity.id : at.data.data.holder,
+    system: {
+      holder: at.system.holder === crewId ? shipEntity.id : at.system.holder,
     },
   }));
   // move count amount of tokens from ship to crewId but if it's higher than
   // available, just move what's available.
   const shipTokens = updateData.filter(
-    (ud) => ud.data.holder === shipEntity.id
+    (ud) => ud.system.holder === shipEntity.id
   );
   const allowedCount = Math.min(count, shipTokens.length);
   for (let i = 0; i < allowedCount; i++) {
-    shipTokens[i].data.holder = crewId;
+    shipTokens[i].system.holder = crewId;
   }
   await shipEntity.updateEmbeddedDocuments("Item", updateData);
 };
@@ -121,14 +124,14 @@ export const setCrewEPCount = async (shipEntity, crewId, count) => {
 export const crewHasTokens = (shipEntity) => {
   const activeTokens = getActiveEPTokens(shipEntity);
   return (
-    activeTokens.filter((a) => a.data.data.holder !== shipEntity.id).length > 0
+    activeTokens.filter((a) => a.system.holder !== shipEntity.id).length > 0
   );
 };
 /**
  * returns the maximum allowed EP Tokens a user or ship can hold.
  */
 export const getMaxAllowedEPTokens = (shipEntity) => {
-  const epMax = shipEntity.data.data.maxEnergyPoints;
+  const epMax = shipEntity.system.maxEnergyPoints;
   // if the ship has a specific value use that one instead
   if (epMax) {
     return epMax;
@@ -150,12 +153,12 @@ export const canChangeEPForShip = (shipEntity) => {
   }
   const crewArray = getCrewForShip(shipEntity.id);
   const engineers = crewArray.filter(
-    (c) => c.data.bio.crewPosition.position === "engineer"
+    (c) => c.system.bio.crewPosition.position === "engineer"
   );
 
   for (let e of engineers) {
-    const entity = getActorEntityById(e._id);
-    if (entity?.permission === CONST.ENTITY_PERMISSIONS.OWNER) {
+    const entity = getActorDataById(e._id);
+    if (hasOwnerPermissionLevel(entity?.permission)) {
       return true;
     }
   }

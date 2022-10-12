@@ -6,14 +6,14 @@ import { getDefaultItemIcon } from "./item/item.js";
  */
 export const migrateWorld = async function () {
   ui.notifications.info(
-    `Applying Coriolis System Migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`,
+    `Applying Coriolis System Migration for version ${game.system.version}. Please be patient and do not close your game or shut down your server.`,
     { permanent: true }
   );
 
   // Migrate World Actors
   for (let a of game.actors.contents) {
     try {
-      const updateData = migrateActorData(a.data);
+      const updateData = migrateActorData(a);
       if (!foundry.utils.isObjectEmpty(updateData)) {
         console.log(`Migrating Actor entity ${a.name}`);
         await a.update(updateData, { enforceTypes: false });
@@ -38,7 +38,7 @@ export const migrateWorld = async function () {
   // Migrate Actor Override Tokens
   for (let s of game.scenes.contents) {
     try {
-      const updateData = migrateSceneData(s.data);
+      const updateData = migrateSceneData(s);
       if (!foundry.utils.isObjectEmpty(updateData)) {
         console.log(`Migrating Scene entity ${s.name}`);
         await s.update(updateData, { enforceTypes: false });
@@ -66,10 +66,10 @@ export const migrateWorld = async function () {
   await game.settings.set(
     "yzecoriolis",
     "systemMigrationVersion",
-    game.system.data.version
+    game.system.version
   );
   ui.notifications.info(
-    `Coriolis System Migration to version ${game.system.data.version} completed!`,
+    `Coriolis System Migration to version ${game.system.version} completed!`,
     { permanent: true }
   );
 };
@@ -223,11 +223,11 @@ export const migrateActorData = function (actor) {
   // introduce movement rate
   const correctType = actor.type === "npc" || actor.type === "character";
   if (
-    (correctType && !hasProperty(actor, "data.movementRate")) ||
-    (hasProperty(actor, "data.movementRate") &&
-      actor.data.movementRate === null)
+    (correctType && !hasProperty(actor, "system.movementRate")) ||
+    (hasProperty(actor, "system.movementRate") &&
+      actor.system.movementRate === null)
   ) {
-    updateData = { "data.movementRate": 10 };
+    updateData = { "system.movementRate": 10 };
   }
 
   // Migrate Owned Items
@@ -271,7 +271,7 @@ export const migrateItemData = function (item) {
     itemType === "talent" ||
     itemType === "injury";
   if (isUsingDefaultIcon && isTypeWithCustomIcon) {
-    updateData = { img: getDefaultItemIcon(itemType, !!item.data.explosive) };
+    updateData = { img: getDefaultItemIcon(itemType, !!item.system.explosive) };
   }
   // Return the migrated update data
   return updateData;
@@ -289,7 +289,7 @@ export const migrateSceneData = function (scene) {
   const tokens = foundry.utils.deepClone(scene.tokens);
   return {
     tokens: tokens.map((t) => {
-      if (!t.actorId || t.actorLink || !t.actorData.data) {
+      if (!t.actorId || t.actorLink || !t.actorData) {
         t.actorData = {};
         return t;
       }
@@ -298,9 +298,9 @@ export const migrateSceneData = function (scene) {
         t.actorId = null;
         t.actorData = {};
       } else if (!t.actorLink) {
-        const updateData = migrateActorData(token.data.actorData);
+        const updateData = migrateActorData(token.actorData);
         t.actorData = foundry.utils.mergeObject(
-          token.data.actorData,
+          token.actorData,
           updateData
         );
       }

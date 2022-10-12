@@ -18,8 +18,8 @@
         <li class="feature item flexrow" data-item-id="{{logbook._id}}">
             <div class="feature-bg flickering flexrow">
                 <div class="feature-name expandable-info flexrow">
-                    <span class="flexrow">{{#if logbook.data.segment}}{{logbook.data.segment}} - {{/if}}{{logbook.name}}</span>
-                    <span class="feature-row-data flexrow justify-end">{{#if logbook.data.checkout}}{{logbook.data.checkout}} {{localize "YZECORIOLIS.Birr"}}{{/if}}</span>
+                    <span class="flexrow">{{#if logbook.system.segment}}{{logbook.system.segment}} - {{/if}}{{logbook.name}}</span>
+                    <span class="feature-row-data flexrow justify-end">{{#if logbook.system.checkout}}{{logbook.system.checkout}} {{localize "YZECORIOLIS.Birr"}}{{/if}}</span>
                 </div>
                 <div class="feature-controls">
                     <a class="edit-widget faded shipItem-edit" title="{{localize "YZECORIOLIS.ShipEditLogbook"}}" data-feature={{logbook._id}}><i

@@ -3,8 +3,8 @@
     "title": "Coriolis",
     "description": "Coriolis System for Foundry VTT.",
     "version": "2.12.0",
-    "minimumCoreVersion": "9",
-    "compatibleCoreVersion": "9",
+    "minimumCoreVersion": "10",
+    "compatibleCoreVersion": "10",
     "templateVersion": 2,
     "author": "Winks",
     "esmodules": [
@@ -16,17 +16,14 @@
         "css/yzecoriolismce.css"
     ],
     "scripts": [],
-    "packs": [
-        {
-            "name": "ship_sheet_instructions",
-            "label": "Ship Sheet Instructions",
-            "path": "packs/ship-sheet-instructions.db",
-            "entity": "JournalEntry",
-            "module": "Coriolis"
-        }
-    ],
-    "languages": [
-        {
+    "packs": [{
+        "name": "ship_sheet_instructions",
+        "label": "Ship Sheet Instructions",
+        "path": "packs/ship-sheet-instructions.db",
+        "entity": "JournalEntry",
+        "module": "Coriolis"
+    }],
+    "languages": [{
             "lang": "en",
             "name": "English",
             "path": "lang/en.json"

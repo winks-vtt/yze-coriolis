@@ -254,7 +254,6 @@
   },
   "Item": {
     "types": [
-      "item",
       "gear",
       "talent",
       "weapon",
@@ -280,11 +279,6 @@
         "restricted": false,
         "equipped": false
       }
-    },
-    "item": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0
     },
     "gear": {
       "templates": ["gear"],

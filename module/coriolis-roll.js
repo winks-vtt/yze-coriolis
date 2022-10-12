@@ -8,15 +8,12 @@ export async function coriolisModifierDialog(
   let machineGunner = false;
   let highCapacity = false;
   const callback = function (modifier) {
+    // eslint-disable-next-line no-unused-vars
     return function (html) {
       modifierCallback(modifier, {
         automaticFire: automaticFire,
-        machineGunner: machineGunner
-          ? 1
-          : 0,
-        highCapacity: highCapacity
-          ? 1
-          : 0,
+        machineGunner: machineGunner ? 1 : 0,
+        highCapacity: highCapacity ? 1 : 0,
         numberOfIgnoredOnes: machineGunner + highCapacity,
       });
     };
@@ -136,28 +133,31 @@ export async function coriolisModifierDialog(
 }
 
 export function coriolisPrayerModifierDialog(modifierCallback) {
-  let d = new Dialog({
-    title: game.i18n.localize("YZECORIOLIS.ModifierForRoll"),
-    content: `<p>${game.i18n.localize(
-      "YZECORIOLIS.PrayerModifierForRollQuestion"
-    )}</p>`,
-    buttons: {
-      zero: {
-        label: "0",
-        callback: () => modifierCallback(0),
+  let d = new Dialog(
+    {
+      title: game.i18n.localize("YZECORIOLIS.ModifierForRoll"),
+      content: `<p>${game.i18n.localize(
+        "YZECORIOLIS.PrayerModifierForRollQuestion"
+      )}</p>`,
+      buttons: {
+        zero: {
+          label: "0",
+          callback: () => modifierCallback(0),
+        },
+        onePlus: {
+          label: "+1",
+          callback: () => modifierCallback(1),
+        },
+        twoPlus: {
+          label: "+2",
+          callback: () => modifierCallback(2),
+        },
       },
-      onePlus: {
-        label: "+1",
-        callback: () => modifierCallback(1),
-      },
-      twoPlus: {
-        label: "+2",
-        callback: () => modifierCallback(2),
-      },
+      default: "zero",
+      close: () => {},
     },
-    default: "zero",
-    close: () => {},
-  },{ height: "max-content!important"});
+    { height: "max-content!important" }
+  );
   d.render(true);
 }
 
@@ -435,12 +435,12 @@ function getRollIconKey(rollData) {
 }
 
 function getTooltipData(results) {
-  const data = {
+  const rollData = {
     formula: results.roll.formula,
     total: results.successes,
   };
   // Prepare dice parts
-  data["parts"] = results.roll.dice.map((d) => {
+  rollData["parts"] = results.roll.dice.map((d) => {
     let maxRoll = CONFIG.YZECORIOLIS.maxRoll;
     // Generate tooltip data
     return {
@@ -464,7 +464,7 @@ function getTooltipData(results) {
       }),
     };
   });
-  return data;
+  return rollData;
 }
 
 function getActorType(rollData) {
@@ -577,7 +577,7 @@ async function showDiceSoNice(roll, rollMode) {
         //GM + rolling player
         let gmList = game.users.filter((user) => user.isGM);
         let gmIDList = [];
-        gmList.forEach((gm) => gmIDList.push(gm.data._id));
+        gmList.forEach((gm) => gmIDList.push(gm._id));
         whisper = gmIDList;
         break;
       }
@@ -585,7 +585,7 @@ async function showDiceSoNice(roll, rollMode) {
         //everybody
         let userList = game.users.filter((user) => user.active);
         let userIDList = [];
-        userList.forEach((user) => userIDList.push(user.data._id));
+        userList.forEach((user) => userIDList.push(user._id));
         whisper = userIDList;
         break;
       }
@@ -593,7 +593,7 @@ async function showDiceSoNice(roll, rollMode) {
         // only roll to yourself
         let selfList = game.users.filter((user) => user._id === game.user._id);
         let selfIDList = [];
-        selfList.forEach((user) => selfIDList.push(user.data._id));
+        selfList.forEach((user) => selfIDList.push(user._id));
         whisper = selfIDList;
         break;
       }

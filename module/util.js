@@ -7,27 +7,27 @@ export const getID = function () {
 
 export const getItemsByType = (itemType) => {
   return game.items.contents.filter((item) => {
-    return item.data.type === itemType;
+    return item.type === itemType;
   });
 };
 
 export const getOwnedItemsByType = (actor, itemType) => {
-  return actor.data.items.filter((item) => item.type === itemType);
+  return actor.items.filter((item) => item.type === itemType);
 };
 
 export const getOwnedItemById = (actor, itemId) => {
-  return actor.data.items.find((item) => item.id === itemId);
+  return actor.items.find((item) => item.id === itemId);
 };
 
 export const getActorEntitiesByType = (actorType) => {
   return game.actors.contents.filter((a) => {
-    return a.data.type === actorType;
+    return a.type === actorType;
   });
 };
 
 /**
  * @param  {String} actorId
- * @returns the actor data object.
+ * @returns the actor document object.
  */
 export const getActorDataById = (actorId) => {
   if (!actorId) {
@@ -38,19 +38,9 @@ export const getActorDataById = (actorId) => {
     console.warn("actor not found with ID: ", actorId);
     return null;
   }
-  return actor.data;
+  return actor;
 };
 
-/**
- * @param  {String} actorId
- * @returns the Actor Entity object for actorId. Not meant for general use.
- * Prefer to use getActorById when possible.
- */
-export const getActorEntityById = (actorId) => {
-  const actor = game.actors.get(actorId);
-  if (!actor) {
-    console.warn("actor not found with ID: ", actorId);
-    return null;
-  }
-  return actor;
+export const hasOwnerPermissionLevel = (perm) => {
+  return perm === CONST.DOCUMENT_PERMISSION_LEVELS.OWNER;
 };

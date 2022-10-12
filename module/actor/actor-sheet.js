@@ -49,44 +49,57 @@ export class yzecoriolisActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData(options) {
+  async getData(options) {
     const baseData = super.getData(options);
     let itemData = {};
     let actorStats = {};
-    if (
-      this.actor.data.type === "character" ||
-      this.actor.data.type === "npc"
-    ) {
+    if (this.actor.type === "character" || this.actor.type === "npc") {
       // prepare items
       itemData = this._prepareCharacterItems(baseData.actor);
-      actorStats = this._prepCharacterStats(baseData.actor.data.data);
+      actorStats = this._prepCharacterStats(baseData.actor.system);
     }
+    const bioNotes = await TextEditor.enrichHTML(baseData.actor.system.notes, {
+      async: true,
+    });
     const sheetData = {
       editable: baseData.editable,
       owner: baseData.actor.isOwner,
       config: CONFIG.YZECORIOLIS,
-      ...baseData.actor.data,
+      bioNotes: bioNotes,
+      ...baseData.actor,
       ...itemData,
       ...actorStats,
     };
     return sheetData;
   }
 
-  _prepCharacterStats(data) {
+  _prepCharacterStats(sysData) {
     const stats = {
       radiationBlocks: prepDataBarBlocks(
-        data.radiation.value,
-        data.radiation.max
+        sysData.radiation.value,
+        sysData.radiation.max
       ),
-      xpBlocks: prepDataBarBlocks(data.experience.value, data.experience.max),
-      repBlocks: prepDataBarBlocks(data.reputation.value, data.reputation.max),
-      hpBlocks: prepDataBarBlocks(data.hitPoints.value, data.hitPoints.max),
-      mindBlocks: prepDataBarBlocks(data.mindPoints.value, data.mindPoints.max),
+      xpBlocks: prepDataBarBlocks(
+        sysData.experience.value,
+        sysData.experience.max
+      ),
+      repBlocks: prepDataBarBlocks(
+        sysData.reputation.value,
+        sysData.reputation.max
+      ),
+      hpBlocks: prepDataBarBlocks(
+        sysData.hitPoints.value,
+        sysData.hitPoints.max
+      ),
+      mindBlocks: prepDataBarBlocks(
+        sysData.mindPoints.value,
+        sysData.mindPoints.max
+      ),
 
       // we augment the sheet with our 'current' option so that the selection menu
       // can be driven by it.
       crewOptions: buildCrewOptionsArray(),
-      currentCrewOption: JSON.stringify(data.bio.crewPosition),
+      currentCrewOption: JSON.stringify(sysData.bio.crewPosition),
     };
     return stats;
   }
@@ -149,14 +162,14 @@ export class yzecoriolisActorSheet extends ActorSheet {
     };
 
     for (let i of actor.items) {
-      let item = i.data.data;
+      let item = i.system;
       // setup equipped status
       const isActive = getProperty(item, "equipped");
       item.toggleClass = isActive ? "equipped" : "";
 
       // append to gear
       if (i.type === "gear") {
-        gear.push(i.data);
+        gear.push(i);
         if (isActive) {
           totalWeightPoints +=
             CONFIG.YZECORIOLIS.gearWeightPoints[item.weight] * item.quantity;
@@ -164,15 +177,15 @@ export class yzecoriolisActorSheet extends ActorSheet {
       }
       // append to talents
       if (i.type === "talent") {
-        talents[item.category].items.push(i.data);
+        talents[item.category].items.push(i);
       }
 
       // append to weapons and explosives
       if (i.type === "weapon") {
         if (item.explosive) {
-          explosives.push(i.data);
+          explosives.push(i);
         } else {
-          weapons.push(i.data);
+          weapons.push(i);
         }
         if (isActive) {
           totalWeightPoints +=
@@ -180,13 +193,13 @@ export class yzecoriolisActorSheet extends ActorSheet {
         }
       }
       if (i.type === "armor") {
-        armor.push(i.data);
+        armor.push(i);
         if (isActive) {
           totalWeightPoints += CONFIG.YZECORIOLIS.gearWeightPoints[item.weight]; // we assume 1 quantity.
         }
       }
       if (i.type === "injury") {
-        injuries.push(i.data);
+        injuries.push(i);
       }
     }
     // assign and return
@@ -244,7 +257,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Update Inventory Item
     html.find(".item-edit").click((ev) => {
       const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.data.items.get(li.data("itemId"));
+      const item = this.actor.items.get(li.data("itemId"));
       item.sheet.render(true);
     });
 
@@ -318,8 +331,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // We are doubling that value so we can avoid having to deal with fractions & floats
     // for smaller items.
     // totalWeight already has the doubling factored in.
-    const strengthValue =
-      this.actor.data.data.attributes.strength.value * 2 * 2;
+    const strengthValue = this.actor.system.attributes.strength.value * 2 * 2;
 
     // for display purposes we'll halve everything so that encumbrance makes
     // sense to users that are familiar with the rules.
@@ -349,15 +361,15 @@ export class yzecoriolisActorSheet extends ActorSheet {
     if (value < 0) {
       value = 0;
     }
-    return item.update({ "data.quantity": value });
+    return item.update({ "system.quantity": value });
   }
 
   async _onCrewPositionChanged(event) {
     event.preventDefault();
     const crewSelection = JSON.parse(event.target.value);
-    let oldShipId = this.actor.data.data.bio.crewPosition.shipId;
+    let oldShipId = this.actor.system.bio.crewPosition.shipId;
     return this.actor
-      .update({ "data.bio.crewPosition": crewSelection })
+      .update({ "system.bio.crewPosition": crewSelection })
       .then(() => {
         // force a rerender of the new ship
         if (crewSelection.shipId) {
@@ -399,19 +411,17 @@ export class yzecoriolisActorSheet extends ActorSheet {
       name: "",
     };
     let relationships = {};
-    if (this.actor.data.data.relationships) {
-      relationships = foundry.utils.deepClone(
-        this.actor.data.data.relationships
-      );
+    if (this.actor.system.relationships) {
+      relationships = foundry.utils.deepClone(this.actor.system.relationships);
     }
     let key = getID();
     relationships["r" + key] = person;
-    return this.actor.update({ "data.relationships": relationships });
+    return this.actor.update({ "system.relationships": relationships });
   }
 
   async _onRelationshipDelete(event) {
     const li = $(event.currentTarget).parents(".relation");
-    let relations = foundry.utils.deepClone(this.actor.data.data.relationships);
+    let relations = foundry.utils.deepClone(this.actor.system.relationships);
     let targetKey = li.data("itemId");
     delete relations[targetKey];
     li.slideUp(200, async () => {
@@ -420,8 +430,11 @@ export class yzecoriolisActorSheet extends ActorSheet {
   }
 
   async _setRelations(relations) {
-    await this.actor.update({ "data.relationships": null }, { render: false });
-    await this.actor.update({ "data.relationships": relations });
+    await this.actor.update(
+      { "system.relationships": null },
+      { render: false }
+    );
+    await this.actor.update({ "system.relationships": relations });
   }
 
   /**
@@ -435,20 +448,20 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Get the type of item to create.
     const type = header.dataset.type;
     // Grab any data associated with this control.
-    const data = foundry.utils.deepClone(header.dataset);
+    const dataset = foundry.utils.deepClone(header.dataset);
     // Initialize a default name.
-    const name = data.defaultname;
+    const name = dataset.defaultname;
     // Prepare the item object.
     const itemData = {
       name: name,
       type: type,
-      data: data,
+      system: dataset,
     };
 
     // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.data["type"];
+    delete itemData.system["type"];
     // no need to keep ahold of defaultname after creation.
-    delete itemData.data["defaultname"];
+    delete itemData.system["defaultname"];
 
     return this.actor.createEmbeddedDocuments("Item", [itemData]);
   }
@@ -462,8 +475,8 @@ export class yzecoriolisActorSheet extends ActorSheet {
     event.preventDefault();
     const itemId = event.currentTarget.closest(".item").dataset.itemId;
     const item = this.actor.items.get(itemId);
-    const attr = "data.equipped";
-    return item.update({ [attr]: !getProperty(item.data, attr) });
+    const attr = "system.equipped";
+    return item.update({ [attr]: !getProperty(item, attr) });
   }
 
   /**
@@ -475,29 +488,23 @@ export class yzecoriolisActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    const actorData = this.actor.data.data;
+    const actorData = this.actor.system;
     const automaticWeapon = dataset.automaticweapon === "true";
     const itemId = element.closest(".item")
       ? element.closest(".item").dataset.itemId
       : null;
-    const item = itemId
-      ? this.actor.items.get(itemId).data.data
-      : null;
+    const item = itemId ? this.actor.items.get(itemId).system : null;
     const rollData = {
-      actorType: this.actor.data.type,
+      actorType: this.actor.type,
       rollType: dataset.rolltype,
       attributeKey: dataset.attributekey,
       attribute: dataset.attributekey
         ? actorData.attributes[dataset.attributekey].value
         : 0,
       skillKey: dataset.skillkey,
-      skill: dataset.skillkey
-        ? actorData.skills[dataset.skillkey].value
-        : 0,
+      skill: dataset.skillkey ? actorData.skills[dataset.skillkey].value : 0,
       modifier: 0,
-      bonus: dataset.bonus
-        ? Number(dataset.bonus)
-        : 0,
+      bonus: dataset.bonus ? Number(dataset.bonus) : 0,
       rollTitle: dataset.label,
       pushed: false,
       isAutomatic: item?.automatic,
@@ -509,9 +516,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       range: item?.range,
       crit: item?.crit?.numericValue,
       critText: item?.crit?.customValue,
-      features: item?.special
-        ? Object.values(item.special).join(', ')
-        : "",
+      features: item?.special ? Object.values(item.special).join(", ") : "",
     };
     const chatOptions = this.actor._prepareChatRollOptions(
       "systems/yzecoriolis/templates/sidebar/roll.html",
@@ -528,11 +533,14 @@ export class yzecoriolisActorSheet extends ActorSheet {
    * Handle showing an item's description in the character sheet as an easy fold out.
    * @private
    */
-  _onItemSummary(event) {
+  async _onItemSummary(event) {
     event.preventDefault();
     let li = $(event.currentTarget).parents(".item");
     let item = this.actor.items.get(li.data("item-id"));
-    let chatData = item.getChatData({ secrets: this.actor.isOwner });
+    let chatData = await item.getChatData({
+      secrets: this.actor.isOwner,
+      async: true,
+    });
     // Toggle summary
     if (li.hasClass("expanded")) {
       let summary = li.children(".item-summary");
@@ -543,14 +551,14 @@ export class yzecoriolisActorSheet extends ActorSheet {
       let div = $(
         `<div class="item-summary"><div class="item-summary-wrapper"><div>${chatData.description}</div></div></div>`
       );
-      if (! game.settings.get("yzecoriolis", "AlwaysShowFeatures")) {
+      if (!game.settings.get("yzecoriolis", "AlwaysShowFeatures")) {
         let props = $(`<div class="item-properties"></div>`);
         chatData.properties.forEach((p) =>
           props.append(`<span class="tag">${p}</span>`)
         );
 
         $(div).find(".item-summary-wrapper").append(props);
-      };
+      }
       // div.append(props);
       li.append(div.hide());
       div.slideDown(200);

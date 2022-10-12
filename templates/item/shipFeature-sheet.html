@@ -20,8 +20,8 @@
           <label class="resource-label">
             {{localize "YZECORIOLIS.TechTier"}}
           </label>
-          <select class="gear-category" name="data.techTier">
-            {{#select data.techTier}}
+          <select class="gear-category" name="system.techTier">
+            {{#select system.techTier}}
               {{#each config.techTiers as |label techTier|}}
                 <option value="{{techTier}}">
                   {{label}}
@@ -36,9 +36,9 @@
           </label>
           <input
             type="checkbox"
-            name="data.restricted"
+            name="system.restricted"
             data-dtype="Boolean"
-            {{checked data.restricted}}
+            {{checked system.restricted}}
           />
         </div>
         <div class="resource flexrow">
@@ -47,8 +47,8 @@
           </label>
           <input
             type="text"
-            name="data.cost"
-            value="{{data.cost}}"
+            name="system.cost"
+            value="{{system.cost}}"
             data-dtype="Number"
           />
         </div>
@@ -59,8 +59,8 @@
           </label>
           <input
             type="text"
-            name="data.effect"
-            value="{{data.effect}}"
+            name="system.effect"
+            value="{{system.effect}}"
             data-dtype="String"
           />
         </div>
@@ -78,8 +78,8 @@
     {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
       {{editor
-        content=data.description
-        target="data.description"
+        itemDescript
+        target="system.description"
         button=true
         owner=owner
         editable=editable

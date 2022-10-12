@@ -19,31 +19,31 @@
             </li>
             {{#each gear as |gear index|}}
             <li class="gear item flexrow" data-item-id="{{gear._id}}">
-                <div class="gear-bg {{gear.data.toggleClass}} flickering flexrow">
+                <div class="gear-bg {{gear.system.toggleClass}} flickering flexrow">
                     <div class="gear-name flexrow">
                         <div class="gear-img-container" style="background-image: url({{gear.img}})">
                         </div>
                         <span class="expandable-info">{{gear.name}}</span>
                     </div>
                     <div class="gear-row-data">
-                        {{getGearWeightName gear.data.weight}}
+                        {{getGearWeightName gear.system.weight}}
                     </div>
 
                     <div class="gear-row-data">
-                        {{getTechTierName gear.data.techTier}}
+                        {{getTechTierName gear.system.techTier}}
                     </div>
 
                     <div class="gear-row-data">
-                        <input class="gear-quantity-input" type="number" step="1" min="0" name="gear.data.quantity"
-                            value="{{gear.data.quantity}}" data-dtype="Number" />
+                        <input class="gear-quantity-input" type="number" step="1" min="0" name="gear.system.quantity"
+                            value="{{gear.system.quantity}}" data-dtype="Number" />
                     </div>
                     <div class="gear-row-data">
-                        {{#if_eq gear.data.restricted true}}
+                        {{#if_eq gear.system.restricted true}}
                         <i class="fas fa-key gear-restricted"></i>
                         {{/if_eq}}
                     </div>
                     <div class="gear-controls">
-                        <a class="gear-control-widget item-toggle {{gear.data.toggleClass}}"
+                        <a class="gear-control-widget item-toggle {{gear.system.toggleClass}}"
                             title='{{localize "YZECORIOLIS.EquipGear"}}'><i class="fas fa-shield-alt"></i></a>
                         <a class="gear-control-widget item-edit" title="{{localize "YZECORIOLIS.EditGear"}}"><i class="fas fa-edit"></i></a>
                         <a class="gear-control-widget item-post" title="{{localize "YZECORIOLIS.PostGear"}}"><i
@@ -76,44 +76,44 @@
 
             {{#each weapons as |weapon index|}}
             <li class="gear item flexrow" data-item-id="{{weapon._id}}">
-                <div class="gear-bg {{weapon.data.toggleClass}} flickering flexrow">
+                <div class="gear-bg {{weapon.system.toggleClass}} flickering flexrow">
                     <div class="gear-name flexrow">
                         <div class="gear-img-container rollable" style="background-image: url({{weapon.img}})"
-                            data-rolltype="weapon" 
+                            data-rolltype="weapon"
                             data-label="{{weapon.name}}"
-                            data-skillkey="{{getSkillKeyForWeaponType weapon.data.melee}}"
-                            data-attributekey="{{getAttributeKeyForWeaponType weapon.data.melee}}"
-                            data-bonus="{{weapon.data.bonus}}"
-                            data-automaticWeapon="{{weapon.data.automatic}}">
+                            data-skillkey="{{getSkillKeyForWeaponType weapon.system.melee}}"
+                            data-attributekey="{{getAttributeKeyForWeaponType weapon.system.melee}}"
+                            data-bonus="{{weapon.system.bonus}}"
+                            data-automaticWeapon="{{weapon.system.automatic}}">
                         </div>
                         <span class="expandable-info">{{weapon.name}}</span>
                     </div>
                     <div class="gear-row-data">
-                        {{weapon.data.bonus}}
+                        {{weapon.system.bonus}}
                     </div>
 
                     <div class="gear-row-data">
-                        {{weapon.data.initiative}}
+                        {{weapon.system.initiative}}
                     </div>
 
                     <div class="gear-row-data">
-                        {{weapon.data.damage}}
+                        {{weapon.system.damage}}
                     </div>
                     <div class="gear-row-data">
-                        {{getWeaponCritDisplay weapon.data.crit}}
+                        {{getWeaponCritDisplay weapon.system.crit}}
                     </div>
                     <div class="gear-row-data">
-                        {{getRangeName weapon.data.range}}
+                        {{getRangeName weapon.system.range}}
                     </div>
 
                     <div class="gear-row-data">
-                        {{#if_eq weapon.data.automatic true}}
+                        {{#if_eq weapon.system.automatic true}}
                         <i class="fas fa-check"></i>
                         {{/if_eq}}
                     </div>
 
                     <div class="gear-controls">
-                        <a class="gear-control-widget item-toggle {{weapon.data.toggleClass}}"
+                        <a class="gear-control-widget item-toggle {{weapon.system.toggleClass}}"
                             title='{{localize "YZECORIOLIS.EquipWeapon"}}'><i class="fas fa-shield-alt"></i></a>
                         <a class="gear-control-widget item-edit" title="{{localize "YZECORIOLIS.EditWeapon"}}"><i
                                 class="fas fa-edit"></i></a>
@@ -126,10 +126,10 @@
 
                 {{!-- Weapons Features --}}
                 {{#if (ShowFeatures)}}
-                  {{#if (isNotEmpty weapon.data.special)}}
+                  {{#if (isNotEmpty weapon.system.special)}}
                     <div class="gear-bg flickering flexrow" style="border-top-left-radius: 0; border-top-right-radius: 0;">
                       <div class="item-properties">
-                          {{#each weapon.data.special as |feature id|}}
+                          {{#each weapon.system.special as |feature id|}}
                           <span class="tag">{{feature}}</span>
                           {{/each}}
                       </div>
@@ -159,37 +159,37 @@
             </li>
             {{#each explosives as |explosive index|}}
             <li class="gear item flexrow" data-item-id="{{explosive._id}}">
-                <div class="gear-bg {{explosive.data.toggleClass}} flickering flexrow">
+                <div class="gear-bg {{explosive.system.toggleClass}} flickering flexrow">
                     <div class="gear-name flexrow">
                         <div class="gear-img-container rollable" style="background-image: url({{explosive.img}})"
                             data-rolltype="weapon" data-label="{{explosive.name}}" data-skillkey="rangedcombat"
-                            data-attributekey="agility" data-bonus="{{explosive.data.bonus}}">
+                            data-attributekey="agility" data-bonus="{{explosive.system.bonus}}">
                         </div>
                         <span class="expandable-info">{{explosive.name}}</span>
                     </div>
                     <div class="gear-row-data">
-                        {{explosive.data.bonus}}
+                        {{explosive.system.bonus}}
                     </div>
 
                     <div class="gear-row-data">
-                        {{explosive.data.initiative}}
+                        {{explosive.system.initiative}}
                     </div>
                     <div class="gear-row-data">
-                        {{explosive.data.damage}}
+                        {{explosive.system.damage}}
                     </div>
 
                     <div class="gear-row-data">
-                        {{getWeaponCritDisplay explosive.data.crit}}
+                        {{getWeaponCritDisplay explosive.system.crit}}
                     </div>
                     <div class="gear-row-data">
-                        {{explosive.data.blastPower}}
+                        {{explosive.system.blastPower}}
                     </div>
                     <div class="gear-row-data">
-                        {{getRangeName explosive.data.blastRadius}}
+                        {{getRangeName explosive.system.blastRadius}}
                     </div>
 
                     <div class="gear-controls">
-                        <a class="gear-control-widget item-toggle {{explosive.data.toggleClass}}"
+                        <a class="gear-control-widget item-toggle {{explosive.system.toggleClass}}"
                             title='{{localize "YZECORIOLIS.EquipGear"}}'><i class="fas fa-shield-alt"></i></a>
                         <a class="gear-control-widget item-edit" title="{{localize "YZECORIOLIS.EditExplosive"}}"><i
                                 class="fas fa-edit"></i></a>
@@ -202,10 +202,10 @@
 
                 {{!-- Explosive Features --}}
                 {{#if (ShowFeatures)}}
-                  {{#if (isNotEmpty explosive.data.special)}}
+                  {{#if (isNotEmpty explosive.system.special)}}
                     <div class="gear-bg flickering flexrow" style="border-top-left-radius: 0; border-top-right-radius: 0;">
                       <div class="item-properties">
-                          {{#each explosive.data.special as |feature id|}}
+                          {{#each explosive.system.special as |feature id|}}
                           <span class="tag">{{feature}}</span>
                           {{/each}}
                       </div>
@@ -232,22 +232,22 @@
             </li>
             {{#each armor as |armor index|}}
             <li class="gear item flexrow" data-item-id="{{armor._id}}">
-                <div class="gear-bg {{armor.data.toggleClass}} flickering flexrow">
+                <div class="gear-bg {{armor.system.toggleClass}} flickering flexrow">
                     <div class="gear-name flexrow">
                         <div class="gear-img-container rollable" style="background-image: url({{armor.img}})"
-                            data-rolltype="armor" data-label="{{armor.name}}" data-bonus="{{armor.data.armorRating}}">
+                            data-rolltype="armor" data-label="{{armor.name}}" data-bonus="{{armor.system.armorRating}}">
                         </div>
                         <span class="expandable-info">{{armor.name}}</span>
                     </div>
                     <div class="gear-row-data">
-                        {{armor.data.armorRating}}
+                        {{armor.system.armorRating}}
                     </div>
                     <div class="gear-row-data">
-                        {{armor.data.extraFeatures}}
+                        {{armor.system.extraFeatures}}
                     </div>
 
                     <div class="gear-controls">
-                        <a class="gear-control-widget item-toggle {{armor.data.toggleClass}}"
+                        <a class="gear-control-widget item-toggle {{armor.system.toggleClass}}"
                             title='{{localize "YZECORIOLIS.EquipArmor"}}'><i class="fas fa-shield-alt"></i></a>
                         <a class="gear-control-widget item-edit" title="{{localize "YZECORIOLIS.EditArmor"}}"><i
                             class="fas fa-edit"></i></a>
@@ -260,10 +260,10 @@
 
                 {{!-- Armor Features --}}
                 {{#if (ShowFeatures)}}
-                  {{#if (isNotEmpty armor.data.special)}}
+                  {{#if (isNotEmpty armor.system.special)}}
                     <div class="gear-bg flickering flexrow" style="border-top-left-radius: 0; border-top-right-radius: 0;">
                       <div class="item-properties">
-                          {{#each armor.data.special as |feature id|}}
+                          {{#each armor.system.special as |feature id|}}
                           <span class="tag">{{feature}}</span>
                           {{/each}}
                       </div>

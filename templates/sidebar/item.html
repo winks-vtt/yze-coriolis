@@ -4,63 +4,63 @@
         <h3>{{item.name}}</h3>
 
         {{#if_eq item.type 'talent'}}
-        <h4>[ {{localize (getTalentCategoryName item.data.category)}} ]</h4>
+        <h4>[ {{localize (getTalentCategoryName item.system.category)}} ]</h4>
         {{else}}
-        {{#if item.data.explosive}}
+        {{#if item.system.explosive}}
         <h4>[ {{localize  "YZECORIOLIS.Explosive"}} ]</h4>
         {{else}}
         <h4>[ {{localize (getItemTypeName item.type)}} ]</h4>
         {{/if}}
         {{/if_eq}}
-    </div> 
-    
+    </div>
+
     <!-- ARMOR DATA -->
     {{#if_eq item.type 'armor'}}
     <div>
-        {{#if item.data.restricted}}
-        <p><strong>{{localize "YZECORIOLIS.Restricted"}}</strong></p> 
+        {{#if item.system.restricted}}
+        <p><strong>{{localize "YZECORIOLIS.Restricted"}}</strong></p>
         {{/if}}
-        <p><strong>{{localize "YZECORIOLIS.TechTier"}} : </strong>{{getTechTierName item.data.techTier}}</p>  
-        <p><strong>{{localize "YZECORIOLIS.ArmorRating"}}: </strong>{{item.data.armorRating}}</p>
-        <p><strong>{{localize "YZECORIOLIS.Weight"}} : </strong>{{ getWeightName item.data.weight}}</p>  
-        <p><strong>{{localize "YZECORIOLIS.Cost"}} : </strong>{{item.data.cost}} {{localize "YZECORIOLIS.Birr"}}</p>  
+        <p><strong>{{localize "YZECORIOLIS.TechTier"}} : </strong>{{getTechTierName item.system.techTier}}</p>
+        <p><strong>{{localize "YZECORIOLIS.ArmorRating"}}: </strong>{{item.system.armorRating}}</p>
+        <p><strong>{{localize "YZECORIOLIS.Weight"}} : </strong>{{ getWeightName item.system.weight}}</p>
+        <p><strong>{{localize "YZECORIOLIS.Cost"}} : </strong>{{item.system.cost}} {{localize "YZECORIOLIS.Birr"}}</p>
     </div>
     {{/if_eq}}
 
     <!-- GEAR DATA -->
     {{#if_eq item.type 'gear'}}
     <div>
-        {{#if item.data.restricted}}
-        <p><strong>{{localize "YZECORIOLIS.Restricted"}}</strong></p>  
+        {{#if item.system.restricted}}
+        <p><strong>{{localize "YZECORIOLIS.Restricted"}}</strong></p>
         {{/if}}
-        <p><strong>{{localize "YZECORIOLIS.TechTier"}} : </strong>{{getTechTierName item.data.techTier}}</p>  
-        <p><strong>{{localize "YZECORIOLIS.Weight"}} : </strong>{{ getWeightName item.data.weight}}</p>  
-        <p><strong>{{localize "YZECORIOLIS.Cost"}} : </strong>{{item.data.cost}} {{localize "YZECORIOLIS.Birr"}}</p>  
+        <p><strong>{{localize "YZECORIOLIS.TechTier"}} : </strong>{{getTechTierName item.system.techTier}}</p>
+        <p><strong>{{localize "YZECORIOLIS.Weight"}} : </strong>{{ getWeightName item.system.weight}}</p>
+        <p><strong>{{localize "YZECORIOLIS.Cost"}} : </strong>{{item.system.cost}} {{localize "YZECORIOLIS.Birr"}}</p>
     </div>
     {{/if_eq}}
 
     <!-- INJURY DATA -->
     {{#if_eq item.type 'injury'}}
     <div>
-        {{#if item.data.fatal}}
-        <p><strong>{{localize "YZECORIOLIS.FatalInjury"}}</strong></p>  
+        {{#if item.system.fatal}}
+        <p><strong>{{localize "YZECORIOLIS.FatalInjury"}}</strong></p>
         {{/if}}
-        <p><strong>{{localize "YZECORIOLIS.InjuryTimeLimitRoll"}} : </strong>{{item.data.timeLimit}}</p>  
-        <p><strong>{{localize "YZECORIOLIS.InjuryHealTimeRoll"}} : </strong>{{item.data.healTime}}</p>  
+        <p><strong>{{localize "YZECORIOLIS.InjuryTimeLimitRoll"}} : </strong>{{item.system.timeLimit}}</p>
+        <p><strong>{{localize "YZECORIOLIS.InjuryHealTimeRoll"}} : </strong>{{item.system.healTime}}</p>
     </div>
     {{/if_eq}}
 
     <!-- TALENT DATA -->
     {{#if_eq item.type 'talent'}}
     <div>
-        {{#if item.data.cost}}
-        <p><strong>{{localize "YZECORIOLIS.Cost"}} : </strong>{{item.data.cost}} {{localize "YZECORIOLIS.Birr"}}</p>  
+        {{#if item.system.cost}}
+        <p><strong>{{localize "YZECORIOLIS.Cost"}} : </strong>{{item.system.cost}} {{localize "YZECORIOLIS.Birr"}}</p>
         {{/if}}
-        {{#if item.data.hpBonus}}
-        <p><strong>{{localize "YZECORIOLIS.HPBonus"}}: </strong>{{item.data.hpBonus}}</p>
+        {{#if item.system.hpBonus}}
+        <p><strong>{{localize "YZECORIOLIS.HPBonus"}}: </strong>{{item.system.hpBonus}}</p>
         {{/if}}
-        {{#if item.data.mpBonus}}
-        <p><strong>{{localize "YZECORIOLIS.MPBonus"}}: </strong>{{item.data.mpBonus}}</p>
+        {{#if item.system.mpBonus}}
+        <p><strong>{{localize "YZECORIOLIS.MPBonus"}}: </strong>{{item.system.mpBonus}}</p>
         {{/if}}
     </div>
     {{/if_eq}}
@@ -68,28 +68,28 @@
     <!-- WEAPON DATA -->
     {{#if_eq item.type 'weapon'}}
     <div>
-        {{#if item.data.restricted}}
-        <p><strong>{{localize "YZECORIOLIS.Restricted"}}</strong></p>  
+        {{#if item.system.restricted}}
+        <p><strong>{{localize "YZECORIOLIS.Restricted"}}</strong></p>
         {{/if}}
-        <p><strong>{{localize "YZECORIOLIS.TechTier"}} : </strong>{{getTechTierName item.data.techTier}}</p>  
-        <p><strong>{{localize "YZECORIOLIS.Weight"}} : </strong>{{ getWeightName item.data.weight}}</p>  
-        <p><strong>{{localize "YZECORIOLIS.Cost"}} : </strong>{{item.data.cost}} {{localize "YZECORIOLIS.Birr"}}</p>  
-        <p><strong>{{localize "YZECORIOLIS.Bonus"}}: </strong>{{item.data.bonus}}</p>
-        <p><strong>{{localize "YZECORIOLIS.Initiative"}}: </strong>{{item.data.initiative}}</p>
-        <p><strong>{{localize "YZECORIOLIS.Damage"}} : </strong>{{item.data.damage}}</p> 
-        <p><strong>{{localize "YZECORIOLIS.Crit"}} : </strong>{{getWeaponCritDisplay item.data.crit}}</p> 
-        {{#if item.data.explosive}}
-            <p><strong>{{localize "YZECORIOLIS.BlastPower"}} : </strong>{{item.data.blastPower}}</p>
-            <p><strong>{{localize "YZECORIOLIS.BlastRadius"}} : </strong>{{item.data.blastRadius}}</p>
+        <p><strong>{{localize "YZECORIOLIS.TechTier"}} : </strong>{{getTechTierName item.system.techTier}}</p>
+        <p><strong>{{localize "YZECORIOLIS.Weight"}} : </strong>{{ getWeightName item.system.weight}}</p>
+        <p><strong>{{localize "YZECORIOLIS.Cost"}} : </strong>{{item.system.cost}} {{localize "YZECORIOLIS.Birr"}}</p>
+        <p><strong>{{localize "YZECORIOLIS.Bonus"}}: </strong>{{item.system.bonus}}</p>
+        <p><strong>{{localize "YZECORIOLIS.Initiative"}}: </strong>{{item.system.initiative}}</p>
+        <p><strong>{{localize "YZECORIOLIS.Damage"}} : </strong>{{item.system.damage}}</p>
+        <p><strong>{{localize "YZECORIOLIS.Crit"}} : </strong>{{getWeaponCritDisplay item.system.crit}}</p>
+        {{#if item.system.explosive}}
+            <p><strong>{{localize "YZECORIOLIS.BlastPower"}} : </strong>{{item.system.blastPower}}</p>
+            <p><strong>{{localize "YZECORIOLIS.BlastRadius"}} : </strong>{{item.system.blastRadius}}</p>
         {{else}}
-            <p><strong>{{localize "YZECORIOLIS.Range"}} : </strong>{{getRangeName item.data.range}}</p>
-            {{#if item.data.automatic}}
-            <p><strong>{{localize "YZECORIOLIS.Automatic"}}</strong></p> 
-            {{/if}}  
+            <p><strong>{{localize "YZECORIOLIS.Range"}} : </strong>{{getRangeName item.system.range}}</p>
+            {{#if item.system.automatic}}
+            <p><strong>{{localize "YZECORIOLIS.Automatic"}}</strong></p>
+            {{/if}}
         {{/if}}
     </div>
     {{/if_eq}}
 
     <!-- DESCRIPTION -->
-    {{{item.data.description}}}
+    {{{item.system.description}}}
 </div>

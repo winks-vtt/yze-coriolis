@@ -9,8 +9,8 @@ import {
 } from "../item/ep-token.js";
 import {
   getActorDataById,
-  getActorEntityById,
   getOwnedItemsByType,
+  hasOwnerPermissionLevel,
 } from "../util.js";
 import {
   computeNewBarValue,
@@ -63,10 +63,10 @@ export class yzecoriolisShipSheet extends ActorSheet {
     super.activateEditor(name, customOptions, initialContent);
   }
 
-  getData(options) {
+  async getData(options) {
     const baseData = super.getData(options);
     let stats = {};
-    if (baseData.actor.data.type === "ship") {
+    if (baseData.actor.type === "ship") {
       stats = this._prepShipStats(baseData.actor);
     }
 
@@ -81,12 +81,15 @@ export class yzecoriolisShipSheet extends ActorSheet {
     if (shipImageSet) {
       imageCSSClass = "object-fit-cover";
     }
-
+    const shipNotes = await TextEditor.enrichHTML(baseData.actor.system.notes, {
+      async: true,
+    });
     const sheetData = {
       editable: baseData.editable,
       owner: baseData.actor.isOwner,
       config: CONFIG.YZECORIOLIS,
-      ...baseData.actor.data,
+      shipNotes,
+      ...baseData.actor,
       ...stats,
       imageCSSClass,
     };
@@ -96,19 +99,19 @@ export class yzecoriolisShipSheet extends ActorSheet {
   _prepShipStats(actor) {
     const maxTokens = getMaxAllowedEPTokens(actor);
     const shipTokenCount = shipEPCount(actor);
-    const data = actor.data.data;
+    const sysData = actor.system;
     // pull in any relevant crew.
     let crew = [];
     const shipId = actor.id;
     for (let e of game.actors.contents) {
-      let rootData = e.data;
+      let rootData = e;
       if (rootData.type === "character" || rootData.type === "npc") {
-        const crewShipId = rootData.data.bio.crewPosition.shipId;
+        const crewShipId = rootData.system.bio.crewPosition.shipId;
         if (shipId !== crewShipId) {
           continue;
         }
         const charEPCount = crewEPCount(actor, rootData._id);
-        const crewCopy = { ...rootData };
+        const crewCopy = foundry.utils.deepClone(rootData);
         crewCopy.energyBlocks = prepDataBarBlocks(charEPCount, maxTokens);
         crewCopy.currentEP = charEPCount;
         crew.push(crewCopy);
@@ -127,24 +130,27 @@ export class yzecoriolisShipSheet extends ActorSheet {
 
     crew = crew.sort((a, b) => {
       return (
-        crewSortingOrder[a.data.bio.crewPosition.position] -
-        crewSortingOrder[b.data.bio.crewPosition.position]
+        crewSortingOrder[a.system.bio.crewPosition.position] -
+        crewSortingOrder[b.system.bio.crewPosition.position]
       );
     });
     // to simplify referencing the modules we just take the data layer instead
     // of the actual document.
-    const modules = getOwnedItemsByType(actor, "shipModule").map((m) => m.data);
+    const modules = getOwnedItemsByType(actor, "shipModule").map((m) => m);
     // for dynamic css just attach css classes to the module we'll inject in
     // various parts
     for (let m of modules) {
       // enabledCSS used for toggle button
       m.enabledCSS = "";
-      if (m.data.enabled) {
+      if (m.system.enabled) {
         m.enabledCSS = "enabled";
       }
     }
     const stats = {
-      hullBlocks: prepDataBarBlocks(data.hullPoints.value, data.hullPoints.max),
+      hullBlocks: prepDataBarBlocks(
+        sysData.hullPoints.value,
+        sysData.hullPoints.max
+      ),
       energyBlocks: prepDataBarBlocks(shipTokenCount, maxTokens),
       // since energy points are a derived value and not a stored value, we need to expose it as a field
       // for the template, unlike the more simple hull points.
@@ -156,30 +162,28 @@ export class yzecoriolisShipSheet extends ActorSheet {
           type: "shipFeature",
           defaultName: game.i18n.localize("YZECORIOLIS.NewShipFeature"),
         },
-        items: getOwnedItemsByType(actor, "shipFeature").map((f) => f.data),
+        items: getOwnedItemsByType(actor, "shipFeature").map((f) => f),
       },
       criticalDamages: {
         dataset: {
           type: "shipCriticalDamage",
           defaultName: game.i18n.localize("YZECORIOLIS.NewShipCriticalDamage"),
         },
-        items: getOwnedItemsByType(actor, "shipCriticalDamage").map(
-          (cd) => cd.data
-        ),
+        items: getOwnedItemsByType(actor, "shipCriticalDamage").map((cd) => cd),
       },
       problems: {
         dataset: {
           type: "shipProblem",
           defaultName: game.i18n.localize("YZECORIOLIS.NewShipProblem"),
         },
-        items: getOwnedItemsByType(actor, "shipProblem").map((p) => p.data),
+        items: getOwnedItemsByType(actor, "shipProblem").map((p) => p),
       },
       logbooks: {
         dataset: {
           type: "shipLogbook",
           defaultName: game.i18n.localize("YZECORIOLIS.NewShipLogbook"),
         },
-        items: getOwnedItemsByType(actor, "shipLogbook").map((p) => p.data),
+        items: getOwnedItemsByType(actor, "shipLogbook").map((p) => p),
       },
     };
     return stats;
@@ -244,7 +248,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     if (value < 0) {
       value = 0;
     }
-    return item.update({ "data.quantity": value });
+    return item.update({ "system.quantity": value });
   }
 
   _onClickEditModule(event) {
@@ -267,20 +271,20 @@ export class yzecoriolisShipSheet extends ActorSheet {
     const targetButton = event.currentTarget;
     const type = targetButton.dataset.type;
     // Grab any data associated with this control.
-    const data = foundry.utils.deepClone(targetButton.dataset);
+    const dataset = foundry.utils.deepClone(targetButton.dataset);
     // Initialize a default name.
-    const name = data.defaultname;
+    const name = dataset.defaultname;
     // Prepare the item object.
     const itemData = {
       name: name,
       type: type,
-      data: data,
+      system: dataset,
     };
 
     // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.data["type"];
+    delete itemData.system["type"];
     // no need to keep ahold of defaultname after creation.
-    delete itemData.data["defaultname"];
+    delete itemData.system["defaultname"];
 
     // Finally, create the item!
     return this.actor.createEmbeddedDocuments("Item", [itemData]);
@@ -373,7 +377,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     event.preventDefault();
     const targetPortrait = event.currentTarget;
     const crewId = targetPortrait.dataset.crew;
-    const crewEntity = getActorEntityById(crewId);
+    const crewEntity = getActorDataById(crewId);
 
     // For rolling on the ship sheet, the user who owns that actor can roll on
     // the ship sheet. The GM can also roll any actor.
@@ -381,8 +385,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
 
     //  you own a character (in the case you may
     // be running two different characters at the same time in a session)
-    const isRollingForOwnActor =
-      crewEntity.permission === CONST.ENTITY_PERMISSIONS.OWNER;
+    const isRollingForOwnActor = hasOwnerPermissionLevel(crewEntity.permission);
 
     if (!isGM && !isRollingForOwnActor) {
       ui.notifications.error(
@@ -393,22 +396,21 @@ export class yzecoriolisShipSheet extends ActorSheet {
 
     const shipName = this.object.name;
     const crewmate = getActorDataById(crewId);
-    const crewPosition = crewmate.data.bio.crewPosition;
-    const crewPositionName = CONFIG.YZECORIOLIS.crewPositions[crewPosition.position]
+    const crewPosition = crewmate.system.bio.crewPosition;
+    const crewPositionName =
+      CONFIG.YZECORIOLIS.crewPositions[crewPosition.position];
     const skillKey = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
-    const attributeKey = crewmate.data.skills[skillKey].attribute;
+    const attributeKey = crewmate.system.skills[skillKey].attribute;
 
     // create a skill roll based off the crew's position.
     const rollData = {
       actorType: crewmate.type,
-      rollType: crewmate.data.skills[skillKey].category,
+      rollType: crewmate.system.skills[skillKey].category,
       skillKey: skillKey,
-      skill: skillKey
-        ? crewmate.data.skills[skillKey].value
-        : 0,
+      skill: skillKey ? crewmate.system.skills[skillKey].value : 0,
       attributeKey: attributeKey,
       attribute: attributeKey
-        ? crewmate.data.attributes[attributeKey].value
+        ? crewmate.system.attributes[attributeKey].value
         : 0,
       modifier: 0,
       rollTitle: crewPositionName + " (" + shipName + ")",
@@ -457,11 +459,14 @@ export class yzecoriolisShipSheet extends ActorSheet {
    * Handle showing an item's description in the character sheet as an easy fold out.
    * @private
    */
-  _onShipItemSummary(event) {
+  async _onShipItemSummary(event) {
     event.preventDefault();
     const li = $(event.currentTarget).parents(".item");
     const item = this.actor.items.get(li.data("item-id"));
-    const chatData = item.getChatData({ secrets: this.actor.isOwner });
+    const chatData = await item.getChatData({
+      secrets: this.actor.isOwner,
+      async: true,
+    });
     // Toggle summary
     if (li.hasClass("expanded")) {
       let summary = li.children(".item-summary");

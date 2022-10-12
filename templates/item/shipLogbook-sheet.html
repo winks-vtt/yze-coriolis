@@ -22,8 +22,8 @@
           </label>
           <input
             type="text"
-            name="data.segment"
-            value="{{data.segment}}"
+            name="system.segment"
+            value="{{system.segment}}"
             data-dtype="String"
           />
         </div>
@@ -33,8 +33,8 @@
           </label>
           <input
             type="text"
-            name="data.destination"
-            value="{{data.destination}}"
+            name="system.destination"
+            value="{{system.destination}}"
             data-dtype="String"
           />
         </div>
@@ -44,8 +44,8 @@
           </label>
           <input
             type="text"
-            name="data.route"
-            value="{{data.route}}"
+            name="system.route"
+            value="{{system.route}}"
             data-dtype="String"
           />
         </div>
@@ -55,8 +55,8 @@
           </label>
           <input
             type="text"
-            name="data.danger"
-            value="{{data.danger}}"
+            name="system.danger"
+            value="{{system.danger}}"
             data-dtype="String"
           />
         </div>
@@ -66,8 +66,8 @@
           </label>
           <input
             type="number"
-            name="data.checkout"
-            value="{{data.checkout}}"
+            name="system.checkout"
+            value="{{system.checkout}}"
             placeholder="0"
             data-dtype="Number"
           />
@@ -86,8 +86,8 @@
     {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
       {{editor
-        content=data.description
-        target="data.description"
+        itemDescript
+        target="system.description"
         button=true
         owner=owner
         editable=editable

@@ -5,7 +5,7 @@ export const toggleShipModule = async (shipEntity, moduleId) => {
   const updateData = {
     _id: moduleData.id,
     data: {
-      enabled: !moduleData.data.data.enabled,
+      enabled: !moduleData.system.enabled,
     },
   };
   return shipEntity.updateEmbeddedDocuments("Item", [updateData]);

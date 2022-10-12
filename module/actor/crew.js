@@ -1,4 +1,8 @@
-import { getActorDataById, getActorEntitiesByType } from "../util.js";
+import {
+  getActorDataById,
+  getActorEntitiesByType,
+  hasOwnerPermissionLevel,
+} from "../util.js";
 
 // buildCrewOptionsArray returns an array of objects detailing possible crew
 // position data that the character sheet can select from. This does not show
@@ -30,8 +34,8 @@ export function buildCrewOptionsArray() {
   const allShips = getActorEntitiesByType("ship");
   // create options for all other ships in the world.
   for (let e of allShips) {
-    let shipData = e.data;
-    if (e.permission !== CONST.ENTITY_PERMISSIONS.OWNER) {
+    let shipData = e;
+    if (!hasOwnerPermissionLevel(e.permission)) {
       continue;
     }
     options.push(
@@ -56,10 +60,10 @@ export async function resetCrewForShip(shipId) {
     return;
   }
   for (let e of game.actors.contents) {
-    let charData = e.data;
+    let charData = e;
     if (charData.type === "character" || charData.type === "npc") {
-      if (charData.data.bio.crewPosition.shipId === shipId) {
-        await e.update({ "data.bio.crewPosition.shipId": "" });
+      if (charData.system.bio.crewPosition.shipId === shipId) {
+        await e.update({ "system.bio.crewPosition.shipId": "" });
       }
     }
   }
@@ -71,7 +75,7 @@ export function getCrewForShip(shipId) {
   for (let e of game.actors.contents) {
     const actorData = getActorDataById(e.id);
     if (actorData.type === "character" || actorData.type === "npc") {
-      if (actorData.data.bio.crewPosition.shipId === shipId) {
+      if (actorData.system.bio.crewPosition.shipId === shipId) {
         crewArray.push(actorData);
       }
     }

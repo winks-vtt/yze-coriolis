@@ -7,8 +7,8 @@
 
                 <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.TechTier"}}</label>
-                    <select class="gear-category" name="data.techTier">
-                        {{#select data.techTier}}
+                    <select class="gear-category" name="system.techTier">
+                        {{#select system.techTier}}
                         {{#each config.techTiers as |label techTier|}}
                         <option value="{{techTier}}">{{label}}</option>
                         {{/each}}
@@ -18,25 +18,25 @@
 
                 <div class="resource">
                     <label class="resource-label">{{localize "YZECORIOLIS.Restricted"}}</label>
-                    <input type="checkbox" name="data.restricted" data-dtype="Boolean" {{checked data.restricted}} />
+                    <input type="checkbox" name="system.restricted" data-dtype="Boolean" {{checked system.restricted}} />
                 </div>
 
 
                 <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.MoneyCost"}}</label>
-                    <input type="text" name="data.cost" value="{{data.cost}}" data-dtype="Number" />
+                    <input type="text" name="system.cost" value="{{system.cost}}" data-dtype="Number" />
                 </div>
                 <div class="resource flexrow numeric-input">
                     <label class="resource-label">{{localize "YZECORIOLIS.ArmorRating"}}</label>
-                    <input type="number" min="0" name="data.armorRating" value="{{data.armorRating}}"
+                    <input type="number" min="0" name="system.armorRating" value="{{system.armorRating}}"
                         data-dtype="Number" />
                 </div>
 
 
                 <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.Weight"}}</label>
-                    <select class="weight-category" name="data.weight">
-                        {{#select data.weight}}
+                    <select class="weight-category" name="system.weight">
+                        {{#select system.weight}}
                         {{#each config.gearWeights as |label weight|}}
                         <option value="{{weight}}">{{label}}</option>
                         {{/each}}
@@ -46,7 +46,7 @@
 
                 <div class="resource numeric-input flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.ExtraFeatures"}}</label>
-                    <input type="number" min="0" name="data.extraFeatures" value="{{data.extraFeatures}}"
+                    <input type="number" min="0" name="system.extraFeatures" value="{{system.extraFeatures}}"
                         data-dtype="Number" />
                 </div>
 
@@ -62,10 +62,10 @@
                         </a>
                     </div>
                 </li>
-                {{#each data.special as |feature id|}}
+                {{#each system.special as |feature id|}}
                 <li class="special-feature flexrow" data-item-id="{{id}}">
                     <div class="feature-name">
-                        <input type="text" name="data.special.{{id}}" value="{{feature}}"
+                        <input type="text" name="system.special.{{id}}" value="{{feature}}"
                             placeholder="{{localize "YZECORIOLIS.Special"}}" />
                     </div>
                     <div class="feature-controls">
@@ -90,7 +90,7 @@
 
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor itemDescript target="system.description" button=true owner=owner editable=editable}}
         </div>
     </section>
 </form>
