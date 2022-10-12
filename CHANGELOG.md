@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.12.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.12.0...v2.12.1) (2022-10-12)
+
+
+### Bug Fixes
+
+* update data paths ([57a6b1a](https://www.github.com/winks-vtt/yze-coriolis/commit/57a6b1a3885d12ea26998d3ca5dba715df76fab9))
+
 ## [2.12.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.11.0...v2.12.0) (2022-09-01)
 
 
