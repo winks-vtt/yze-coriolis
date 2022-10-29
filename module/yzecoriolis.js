@@ -453,8 +453,10 @@ async function createYzeCoriolisMacro(documentData, slot) {
       game.i18n.localize("YZECORIOLIS.ErrorsNotOwnedItemForMacro")
     );
   const item = await fromUuid(documentData.uuid, false);
-  if (!item) {
-    return;
+  if (!item || (item.type !== "weapon" && item.type !== "armor")) {
+    return ui.notifications.warn(
+      game.i18n.localize("YZECORIOLIS.ErrorsNoItemForMacro")
+    );
   }
   // create the macro command.  Get an existing item macro if it exists.
   // Otherwise create a new one.

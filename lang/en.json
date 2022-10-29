@@ -28,6 +28,7 @@
   "YZECORIOLIS.ErrorsActorHasDuplicateItemsForMacro": "Your controlled Actor has more than one Item with that name. The first matched item will be chosen.",
   "YZECORIOLIS.ErrorsActorNotHasItemForMacro": "Your controlled Actor does not have an item with that name.",
   "YZECORIOLIS.ErrorsNotOwnedItemForMacro": "You can only create macro buttons for owned items.",
+  "YZECORIOLIS.ErrorsNoItemForMacro": "You can't make an macro for this element. Only for weapons, explosives and armor.",
 
   "YZECORIOLIS.PrayToIcons": "Pray to the Icons",
   "YZECORIOLIS.PushedRoll": "Pushed Roll",
