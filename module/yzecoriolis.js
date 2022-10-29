@@ -398,7 +398,9 @@ Hooks.once("ready", async function () {
   // wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => {
     createYzeCoriolisMacro(data, slot);
+    if (data.type === "Item"){
     return false;
+    }
   });
 
   await importShipSheetTutorial();
