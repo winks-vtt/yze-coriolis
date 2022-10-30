@@ -737,8 +737,48 @@
 
       .injury {
         align-items: center;
-        .line-item-entry();
+        //.line-item-entry();
         height: 26px;
+        color: @colorWhite;
+      }
+
+      .critical-injuries-bg {
+        background-color: rgba(19, 27, 53, 0.45);
+        border-radius: 3px;
+        padding-left: 5px;
+        padding-right: 5px;
+        flex: 0 0 100%;
+      }
+
+      @keyframes flicker {
+        0% {
+          background-color: rgba(59, 84, 166, 0.45);
+        }
+        100% {
+          background-color: rgba(19, 27, 53, 0.45);
+        }
+      }
+
+      .critical-injuries-bg:hover {
+        animation: flicker 1.2s;
+        animation-fill-mode: forwards;
+      }
+
+      .critical-injuries-name {
+        font-family: "Cairo-SemiBold";
+        color: white;
+        color: #ffa903;
+        font-size: 15px;
+        cursor: pointer;
+        transition: transform 275ms ease;
+      }
+
+      .critical-injuries-name:hover {
+        transform: translateX(5px);
+      }
+
+      .critical-injuries-list.expanded {
+        height: auto;
       }
 
       .crit-add-controls {
@@ -756,6 +796,7 @@
         display: flex;
         justify-content: flex-end;
         margin-right: 5px;
+        margin-top: 5px;
       }
 
       .crit-control-widget {
