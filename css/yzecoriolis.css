@@ -2728,6 +2728,9 @@
 .yzecoriolis.sheet.item .feature-section .special-feature-header .feature-controls a.feature-create {
   flex: 0 0 100%;
 }
+.yzecoriolis.sheet.item .feature-section .special-feature-header .feature-controls a.itemModifier-create {
+  flex: 0 0 100%;
+}
 .yzecoriolis.sheet.item .feature-section .special-feature-header .feature-name {
   text-align: center;
 }
@@ -2758,6 +2761,7 @@
   flex: 0 0 22px;
   font-size: 12px;
   text-align: center;
+  align-self: center;
   color: #7a7971;
 }
 .yzecoriolis.sheet.item .sheet-tabs {

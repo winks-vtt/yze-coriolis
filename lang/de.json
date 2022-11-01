@@ -6,6 +6,7 @@
   "YZECORIOLIS.SheetNotes": "Notizen",
   "YZECORIOLIS.Enabled": "Aktiviert",
   "YZECORIOLIS.Disabled": "Deaktiviert",
+  "YZECORIOLIS.Other": "Sonstiges",
 
   "YZECORIOLIS.HitPoints": "Trefferpunkte",
   "YZECORIOLIS.MindPoints": "Willenskraftpunkte",
@@ -425,5 +426,11 @@
   "YZECORIOLIS.AutomaticFire": "Automatisches Feuer",
   "YZECORIOLIS.AutomaticFireModifier": "Modifikator von -2 auf deinen Angriffswurf",
   "YZECORIOLIS.RollTotal": "Gesamtwurf",
-  "YZECORIOLIS.RollSubstitute": "Verzweiflungswurf (2d6) anstatt"
+  "YZECORIOLIS.RollSubstitute": "Verzweiflungswurf (2d6) anstatt",
+
+  "YZECORIOLIS.ItemModifiers": "Modifikatoren",
+  "YZECORIOLIS.ItemModifierCreate": "Modifikator erstellen",
+  "YZECORIOLIS.ItemModifierDelete": "Modifikator löschen",
+  "YZECORIOLIS.ItemModifierSelect": "Bitte einen Modifikator auswählen.",
+  "YZECORIOLIS.ItemModifierValue": "Wert des Modifikators."
 }

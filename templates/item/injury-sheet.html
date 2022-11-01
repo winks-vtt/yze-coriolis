@@ -19,12 +19,8 @@
                 <input type="text" name="system.healTime" value="{{system.healTime}}"
                     data-dtype="String" />
             </div>
-            <div class="resource numeric-input flexrow">
-                <label class="resource-label">{{localize "YZECORIOLIS.ModifierForRoll"}}</label>
-                <input type="number" min="0" name="system.bonus" value="{{system.bonus}}"
-                    data-dtype="Number" />
-            </div>
         </div>
+        {{> systems/yzecoriolis/templates/item/modifiers.html }}
     </header>
 
     {{!-- Sheet Tab Navigation --}}

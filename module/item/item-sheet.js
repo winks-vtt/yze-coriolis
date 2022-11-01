@@ -73,11 +73,13 @@ export class yzecoriolisItemSheet extends ItemSheet {
     if (!this.options.editable) return;
 
     // Roll handlers, click handlers, etc. would go here.
-    // Add Inventory Item
+    // Add Inventory Item or Modifier
     html.find(".feature-create").click(this._onFeatureCreate.bind(this));
+    html.find(".itemModifier-create").click(this._onItemModifierCreate.bind(this));
 
-    // // Delete Inventory Item
+    // // Delete Inventory Item or Modifier
     html.find(".feature-delete").click(this._onFeatureDelete.bind(this));
+    html.find(".itemModifier-delete").click(this._onItemModifierDelete.bind(this));
   }
 
   _onFeatureCreate(event) {
@@ -105,5 +107,32 @@ export class yzecoriolisItemSheet extends ItemSheet {
   async _setSpecialFeatures(features) {
     await this.object.update({ "system.special": null }, { render: false });
     await this.object.update({ "system.special": features });
+  }
+
+  _onItemModifierCreate(event) {
+    event.preventDefault();
+    const name = "";
+    let itemModifiers = {};
+    if (this.object.system.itemModifiers) {
+      itemModifiers= foundry.utils.deepClone(this.object.system.itemModifiers);
+    }
+    let key = getID();
+    itemModifiers["si" + key] = name;
+    return this.object.update({ "system.itemModifiers": itemModifiers });
+  }
+
+  _onItemModifierDelete(event) {
+    const li = $(event.currentTarget).parents(".special-feature");
+    let itemModifiers = foundry.utils.deepClone(this.object.system.itemModifiers);
+    let targetKey = li.data("itemId");
+    delete itemModifiers[targetKey];
+    li.slideUp(200, async () => {
+      await this._setItemModifiers(itemModifiers);
+    });
+  }
+
+  async _setItemModifiers(itemModifiers) {
+    await this.object.update({ "system.itemModifiers": null }, { render: false });
+    await this.object.update({ "system.itemModifiers": itemModifiers });
   }
 }

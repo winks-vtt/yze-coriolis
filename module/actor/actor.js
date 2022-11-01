@@ -90,14 +90,25 @@ export class yzecoriolisActor extends Actor {
 
     let hpBonuses = this._prepHPBonuses();
     let mpBonuses = this._prepMPBonuses();
+    let hpModifcations = this._prepHPModifications();
+    let mpModifcations = this._prepMPModifications();
+    let radiationModifcations = this._prepRadiationModifications();
+    let encumbranceModifcations = this._prepEncumbranceModifications();
+    let movementRateModifcations = this._prepMovementRateModifications();
     sysData.hitPoints.max =
       sysData.attributes.strength.value +
       sysData.attributes.agility.value +
-      hpBonuses;
+      hpBonuses + hpModifcations;
     sysData.mindPoints.max =
       sysData.attributes.wits.value +
       sysData.attributes.empathy.value +
-      mpBonuses;
+      mpBonuses + mpModifcations;
+    sysData.radiation.max =
+      sysData.radiation.max +
+      radiationModifcations;
+    sysData.movementRate =
+      sysData.movementRate +
+      movementRateModifcations;
 
     if (sysData.hitPoints.value > sysData.hitPoints.max) {
       sysData.hitPoints.value = sysData.hitPoints.max;
@@ -167,6 +178,81 @@ export class yzecoriolisActor extends Actor {
       }
       const tData = t.system;
       bonus += Number(tData.mpBonus);
+    }
+    return bonus;
+  }
+
+  _prepHPModifications() {
+    // look through items for any HP-Modifications
+    let bonus = 0;
+    for (let t of this.items) {
+      const tData = t.system.itemModifiers;
+      bonus += Number(Object.keys(tData).reduce((counter,x) => {
+        counter += (tData[x].mod === "ItemModifier.HP")
+          ? tData[x].value
+          : 0; return counter;
+        }
+      , 0));
+    }
+    return bonus;
+  }
+
+  _prepMPModifications() {
+    // look through items for any MP-Modifications
+    let bonus = 0;
+    for (let t of this.items) {
+      const tData = t.system.itemModifiers;
+      bonus += Number(Object.keys(tData).reduce((counter,x) => {
+        counter += (tData[x].mod === "ItemModifier.MP")
+          ? tData[x].value
+          : 0; return counter;
+        }
+      , 0));
+    }
+    return bonus;
+  }
+
+  _prepRadiationModifications() {
+    // look through items for any Radiation-Modifications
+    let bonus = 0;
+    for (let t of this.items) {
+      const tData = t.system.itemModifiers;
+      bonus += Number(Object.keys(tData).reduce((counter,x) => {
+        counter += (tData[x].mod === "ItemModifier.Rad")
+          ? tData[x].value
+          : 0; return counter;
+        }
+      , 0));
+    }
+    return bonus;
+  }
+
+  _prepEncumbranceModifications() {
+    // look through items for any Encumbrance-Modifications
+    let bonus = 0;
+    for (let t of this.items) {
+      const tData = t.system.itemModifiers;
+      bonus += Number(Object.keys(tData).reduce((counter,x) => {
+        counter += (tData[x].mod === "ItemModifier.Enc")
+          ? tData[x].value
+          : 0; return counter;
+        }
+      , 0));
+    }
+    return bonus;
+  }
+
+  _prepMovementRateModifications() {
+    // look through items for any MovementRate-Modifications
+    let bonus = 0;
+    for (let t of this.items) {
+      const tData = t.system.itemModifiers;
+      bonus += Number(Object.keys(tData).reduce((counter,x) => {
+        counter += (tData[x].mod === "ItemModifier.MR")
+          ? tData[x].value
+          : 0; return counter;
+        }
+      , 0));
     }
     return bonus;
   }

@@ -44,14 +44,17 @@
                     </select>
                 </div>
 
+
                 <div class="resource numeric-input flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.ExtraFeatures"}}</label>
                     <input type="number" min="0" name="system.extraFeatures" value="{{system.extraFeatures}}"
                         data-dtype="Number" />
                 </div>
 
+
             </div>
         </div>
+        {{> systems/yzecoriolis/templates/item/modifiers.html }}
         <div class="feature-section flexrow">
             <ol>
                 <li class="special-feature-header flexrow">

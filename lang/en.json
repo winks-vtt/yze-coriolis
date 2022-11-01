@@ -6,6 +6,7 @@
   "YZECORIOLIS.SheetNotes": "Notes",
   "YZECORIOLIS.Enabled": "Enabled",
   "YZECORIOLIS.Disabled": "Disabled",
+  "YZECORIOLIS.Other": "Other",
 
   "YZECORIOLIS.HitPoints": "Hit Points",
   "YZECORIOLIS.MindPoints": "Mind Points",
@@ -424,5 +425,11 @@
   "YZECORIOLIS.AutomaticFire": "Automatic fire",
   "YZECORIOLIS.AutomaticFireModifier": "-2 modifier to your attack roll",
   "YZECORIOLIS.RollTotal": "Total rolled",
-  "YZECORIOLIS.RollSubstitute": "Desperation roll (2d6) instead of"
+  "YZECORIOLIS.RollSubstitute": "Desperation roll (2d6) instead of",
+
+  "YZECORIOLIS.ItemModifiers": "Modifiers",
+  "YZECORIOLIS.ItemModifierCreate": "Create Modifier",
+  "YZECORIOLIS.ItemModifierDelete": "Delete Modifier",
+  "YZECORIOLIS.ItemModifierSelect": "Please, choose an Modifier.",
+  "YZECORIOLIS.ItemModifierValue": "Value of the Modifier"
 }

@@ -268,7 +268,8 @@
     ],
     "templates": {
       "base": {
-        "description": ""
+        "description": "",
+        "itemModifiers": {}
       },
       "gear": {
         "description": "",
@@ -277,7 +278,8 @@
         "cost": 0,
         "quantity": 1,
         "restricted": false,
-        "equipped": false
+        "equipped": false,
+        "itemModifiers": {}
       }
     },
     "gear": {

@@ -1,0 +1,62 @@
+<div class="feature-section flexrow">
+            <ol>
+                <li class="special-feature-header flexrow">
+                    <h3 class="feature-name flexrow">{{localize "YZECORIOLIS.ItemModifiers"}}</h3>
+                    <div class="feature-controls">
+                        <a class="feature-control itemModifier-create" title='{{localize "YZECORIOLIS.ItemModifierCreate"}}'>
+                            <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+                        </a>
+                    </div>
+                </li>
+                {{#each system.itemModifiers as |itemmod id|}}
+                <li class="special-feature flexrow"  data-item-id="{{id}}">
+                    <div class="feature-name">
+                        <select name="system.itemModifiers.{{id}}.mod">
+                            {{#select itemmod.mod}}
+                            <option value="ItemModifier.None" disabled  selected>{{localize "YZECORIOLIS.ItemModifierSelect"}}</option>
+                            <optgroup label="{{localize "YZECORIOLIS.Attributes"}}">
+                              <option value="ItemModifier.AttrStrength">{{localize "YZECORIOLIS.AttrStrength"}}</option>
+                              <option value="ItemModifier.AttrAgility">{{localize "YZECORIOLIS.AttrAgility"}}</option>
+                              <option value="ItemModifier.AttrWits">{{localize "YZECORIOLIS.AttrWits"}}</option>
+                              <option value="ItemModifier.AttrEmpathy">{{localize "YZECORIOLIS.AttrEmpathy"}}</option>
+                            </optgroup>
+                            <optgroup label="{{localize "YZECORIOLIS.SkillCatGeneral"}}">
+                              <option value="ItemModifier.SkillDex">{{localize "YZECORIOLIS.SkillDexterity"}}</option>
+                              <option value="ItemModifier.SkillForce">{{localize "YZECORIOLIS.SkillForce"}}</option>
+                              <option value="ItemModifier.SkillInf">{{localize "YZECORIOLIS.SkillInfiltration"}}</option>
+                              <option value="ItemModifier.SkillMan">{{localize "YZECORIOLIS.SkillManipulation"}}</option>
+                              <option value="ItemModifier.SkillMelee">{{localize "YZECORIOLIS.SkillMeleeCombat"}}</option>
+                              <option value="ItemModifier.SkillObs">{{localize "YZECORIOLIS.SkillObservation"}}</option>
+                              <option value="ItemModifier.SkillRange">{{localize "YZECORIOLIS.SkillRangedCombat"}}</option>
+                              <option value="ItemModifier.SkillSurv">{{localize "YZECORIOLIS.SkillSurvival"}}</option>
+                            </optgroup>
+                            <optgroup label="{{localize "YZECORIOLIS.SkillCatAdvanced"}}">
+                              <option value="ItemModifier.SkillCom">{{localize "YZECORIOLIS.SkillCommand"}}</option>
+                              <option value="ItemModifier.SkillCult">{{localize "YZECORIOLIS.SkillCulture"}}</option>
+                              <option value="ItemModifier.SkillData">{{localize "YZECORIOLIS.SkillDataDjinn"}}</option>
+                              <option value="ItemModifier.SkillMedi">{{localize "YZECORIOLIS.SkillMedicurgy"}}</option>
+                              <option value="ItemModifier.SkillMys">{{localize "YZECORIOLIS.SkillMysticPowers"}}</option>
+                              <option value="ItemModifier.SkillPil">{{localize "YZECORIOLIS.SkillPilot"}}</option>
+                              <option value="ItemModifier.SkillSci">{{localize "YZECORIOLIS.SkillScience"}}</option>
+                              <option value="ItemModifier.SkillTech">{{localize "YZECORIOLIS.SkillTechnology"}}</option>
+                            </optgroup>
+                            <optgroup label="{{localize "YZECORIOLIS.Other"}}">
+                              <option value="ItemModifier.HP">{{localize "YZECORIOLIS.HitPoints"}}</option>
+                              <option value="ItemModifier.MP">{{localize "YZECORIOLIS.MindPoints"}}</option>
+                              <option value="ItemModifier.Rad">{{localize "YZECORIOLIS.Radiation"}}</option>
+                              <option value="ItemModifier.Enc">{{localize "YZECORIOLIS.Encumbrance"}}</option>
+                              <option value="ItemModifier.MR">{{localize "YZECORIOLIS.MovementRate"}}</option>
+                            </optgroup>
+                            {{/select}}
+                        </select>
+                    </div>
+                    <div style="flex: 1 1 10%;" title="{{localize "YZECORIOLIS.ItemModifierValue"}}">
+                        <input name="system.itemModifiers.{{id}}.value" type="number" value="{{#if itemmod.value}}{{itemmod.value}}{{else}}0{{/if}}" style="text-align: center;"/>
+                    </div>
+                    <div class="feature-controls">
+                      <a class="feature-control itemModifier-delete" title="{{localize 'YZECORIOLIS.ItemModifierDelete'}}" data-item-id="{{id}}"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+</div>
