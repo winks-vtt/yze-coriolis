@@ -74,21 +74,21 @@
             {{/if}}
         </li>
         {{#each injuries as |injury id|}}
-        <li class="injury fr-basic item" data-item-id="{{injury._id}}">
-            <div class="injury-display flex1">
-                <span>{{injury.name}}</span>
-            </div>
-            <div class="injury-description">
-                {{!-- we're putting in the raw output here since description is already html markup from tinyMCE--}}
-                <span>{{{injury.system.description}}}</span>
-            </div>
-            <div class="crit-controls">
-                <a class="crit-control-widget item-edit" title={{localize "YZECORIOLIS.EditCriticalInjury"}}>
-                    <i class="fas fa-edit"></i></a>
-                <a class="crit-control-widget item-post" title="{{localize "YZECORIOLIS.PostCriticalInjury"}}"><i
-                    class="fas fa-comment"></i></a>
-                <a class="crit-control-widget item-delete" title={{localize "YZECORIOLIS.DeleteCriticalInjury"}}><i
-                        class="fas fa-trash"></i></a>
+        <li class="injury item flexrow" data-item-id="{{injury._id}}">
+            <div class="critical-injuries-bg flickering flexrow">
+                <div class="critical-injuries-name expandable-info flexrow">
+                  <span>{{injury.name}}</span>
+                  <div class="injury-description">
+                    <span>{{#if_eq injury.system.fatal true}}{{localize "YZECORIOLIS.FatalInjury"}}{{#if injury.system.timeLimit}} ({{injury.system.timeLimit}}){{/if}}!{{/if_eq}}</span>
+                  </div>
+                </div>
+                <div class="crit-controls">
+                    <a class="crit-control-widget item-edit" title="{{localize "YZECORIOLIS.EditCriticalInjury"}}"><i
+                            class="fas fa-edit"></i></a>
+                    <a class="crit-control-widget item-post" title="{{localize "YZECORIOLIS.PostCriticalInjury"}}"><i
+                            class="fas fa-comment"></i></a>
+                    <a class="crit-control-widget item-delete" title="{{localize "YZECORIOLIS.DeleteCriticalInjury"}}"><i class="fas fa-trash"></i></a>
+                </div>
             </div>
         </li>
         {{/each}}

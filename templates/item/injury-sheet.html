@@ -9,11 +9,13 @@
                 <label class="resource-label">{{localize "YZECORIOLIS.FatalInjury"}}</label>
                 <input type="checkbox" name="system.fatal" data-dtype="Boolean" {{checked system.fatal}} />
             </div>
-            <div class="resource numeric-input flexrow">
-                <label class="resource-label">{{localize "YZECORIOLIS.InjuryTimeLimitRoll"}}</label>
-                <input type="text" name="system.timeLimit" value="{{system.timeLimit}}"
-                    data-dtype="String" />
-            </div>
+            {{#if system.fatal}}
+              <div class="resource numeric-input flexrow">
+                  <label class="resource-label">{{localize "YZECORIOLIS.InjuryTimeLimitRoll"}}</label>
+                  <input type="text" name="system.timeLimit" value="{{system.timeLimit}}"
+                      data-dtype="String" />
+              </div>
+            {{/if}}
             <div class="resource numeric-input flexrow">
                 <label class="resource-label">{{localize "YZECORIOLIS.InjuryHealTimeRoll"}}</label>
                 <input type="text" name="system.healTime" value="{{system.healTime}}"
