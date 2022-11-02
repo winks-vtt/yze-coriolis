@@ -1,5 +1,13 @@
 # Changelog
 
+### [3.0.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.0...v3.0.1) (2022-11-02)
+
+
+### Bug Fixes
+
+* listing of critical injuries now in line with how talents and gear are listed ([109fccb](https://www.github.com/winks-vtt/yze-coriolis/commit/109fccb141a0c65c8a87261e4e0a6ebb65d12bc6))
+* token IDs are sent correctly to chat options for unlinked tokens. ([b42792b](https://www.github.com/winks-vtt/yze-coriolis/commit/b42792b53b9ab0d3f4f321f3ba7ee67eca24d449))
+
 ## [3.0.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v2.12.0...v3.0.0) (2022-10-12)
 
 
