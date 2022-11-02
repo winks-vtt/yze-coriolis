@@ -1717,11 +1717,41 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury {
   align-items: center;
-  background: rgba(19, 27, 53, 0.45);
-  border-radius: 3px;
-  padding: 2px;
-  margin-bottom: 2px;
   height: 26px;
+  color: white;
+}
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .critical-injuries-bg {
+  background-color: rgba(19, 27, 53, 0.45);
+  border-radius: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  flex: 0 0 100%;
+}
+@keyframes flicker {
+  0% {
+    background-color: rgba(59, 84, 166, 0.45);
+  }
+  100% {
+    background-color: rgba(19, 27, 53, 0.45);
+  }
+}
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .critical-injuries-bg:hover {
+  animation: flicker 1.2s;
+  animation-fill-mode: forwards;
+}
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .critical-injuries-name {
+  font-family: "Cairo-SemiBold";
+  color: white;
+  color: #ffa903;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 275ms ease;
+}
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .critical-injuries-name:hover {
+  transform: translateX(5px);
+}
+.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .critical-injuries-list.expanded {
+  height: auto;
 }
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-add-controls {
   font-family: "Cairo";
@@ -1738,6 +1768,7 @@
   display: flex;
   justify-content: flex-end;
   margin-right: 5px;
+  margin-top: 5px;
 }
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-control-widget {
   flex-basis: 20px;
