@@ -118,17 +118,19 @@ export class yzecoriolisActor extends Actor {
       rollMode: game.settings.get("core", "rollMode"),
       sound: CONFIG.sounds.dice,
       flags: {
-        img: this.prototypeToken.randomImg ? this.img : this.prototypeToken.img,
+        img: this.prototypeToken.randomImg
+          ? this.img
+          : this.prototypeToken.texture.src,
       },
       // img to be displayed next to the name on the test card - if it's a wildcard img, use the actor image
     };
 
     // If the test is coming from a token sheet
     if (this.token) {
-      chatOptions.speaker.alias = this.prototypeToken.name; // Use the token name instead of the actor name
-      chatOptions.speaker.token = this.prototypeToken._id;
+      chatOptions.speaker.alias = this.token.name; // Use the token name instead of the actor name
+      chatOptions.speaker.token = this.token._id;
       chatOptions.speaker.scene = canvas.scene._id;
-      chatOptions.flags.img = this.prototypeToken.img; // Use the token image instead of the actor image
+      chatOptions.flags.img = this.token.texture.src; // Use the token image instead of the actor image
     } // If a linked actor - use the currently selected token's data if the actor id matches
     else {
       let speaker = ChatMessage.getSpeaker();
@@ -137,7 +139,7 @@ export class yzecoriolisActor extends Actor {
         chatOptions.speaker.token = speaker.token;
         chatOptions.speaker.scene = speaker.scene;
         chatOptions.flags.img = speaker.token
-          ? canvas.tokens.get(speaker.token).img
+          ? canvas.tokens.get(speaker.token).document.texture.src
           : chatOptions.flags.img;
       }
     }
