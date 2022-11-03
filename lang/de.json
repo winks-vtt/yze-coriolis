@@ -28,6 +28,7 @@
   "YZECORIOLIS.ErrorsActorHasDuplicateItemsForMacro": "Der von dir ausgewählte Charakter besitzt diese Ausrüstung mehr als ein Mal. Der erste Treffer wird für das Makro verwendet.",
   "YZECORIOLIS.ErrorsActorNotHasItemForMacro": "Der von dir ausgewählte Charakter besitzt keine Ausrüstung mit diesem Namen.",
   "YZECORIOLIS.ErrorsNotOwnedItemForMacro": "Du kannst nur Makros für Ausrüstungen erstellen, die du besitzt.",
+  "YZECORIOLIS.ErrorsNoItemForMacro": "Für dieses Element kannst du kein Makro erstellen. Nur für Waffen, Sprengstoffe und Panzerungen.",
 
   "YZECORIOLIS.PrayToIcons": "Zu den Ikonen beten",
   "YZECORIOLIS.PushedRoll": "Wiederholter Wurf",
