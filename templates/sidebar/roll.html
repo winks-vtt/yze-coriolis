@@ -43,8 +43,12 @@
             {{/if}}
           {{/if_eq}}
           <tr>
-            <td>{{#if_eq rollType 'armor'}}{{localize "YZECORIOLIS.ArmorRating"}}: {{bonus}}</td>{{else}}{{attributeName}}: {{attribute}}</td>
-            <td>{{#if skillName}}{{skillName}}: {{skill}}{{/if}}</td>{{/if_eq}}
+          {{#if_eq rollType 'armor'}}
+            <td>{{localize "YZECORIOLIS.ArmorRating"}}: {{bonus}}</td>
+          {{else}}
+            <td>{{attributeName}}: {{attribute}}</td>
+            <td>{{#if skillName}}{{skillName}}: {{skill}}{{/if}}</td>
+          {{/if_eq}}
           </tr>
           <tr>
             <td>{{localize "YZECORIOLIS.ModifierForRoll"}}: {{modifier}}</td>
@@ -92,8 +96,12 @@
             {{/if}}
           {{/if_eq}}
           <tr>
-            <td>{{#if_eq rollType 'armor'}}{{localize "YZECORIOLIS.ArmorRating"}}: {{bonus}}{{else}}{{attributeName}}: {{attribute}}{{/if_eq}}</td>
+          {{#if_eq rollType 'armor'}}
+            <td>{{localize "YZECORIOLIS.ArmorRating"}}: {{bonus}}</td>
+          {{else}}
+            <td>{{attributeName}}: {{attribute}}</td>
             <td>{{#if skillName}}{{skillName}}: {{skill}}{{/if}}</td>
+          {{/if_eq}}
           </tr>
           <tr>
             <td>{{localize "YZECORIOLIS.ModifierForRoll"}}: {{modifier}}</td>
@@ -140,8 +148,12 @@
             {{/if}}
           {{/if_eq}}
           <tr>
-            <td>{{#if_eq rollType 'armor'}}{{localize "YZECORIOLIS.ArmorRating"}}: {{bonus}}{{else}}{{attributeName}}: {{attribute}}{{/if_eq}}</td>
+          {{#if_eq rollType 'armor'}}
+            <td>{{localize "YZECORIOLIS.ArmorRating"}}: {{bonus}}</td>
+          {{else}}
+            <td>{{attributeName}}: {{attribute}}</td>
             <td>{{#if skillName}}{{skillName}}: {{skill}}{{/if}}</td>
+          {{/if_eq}}
           </tr>
           <tr>
             <td>{{localize "YZECORIOLIS.ModifierForRoll"}}: {{modifier}}</td>
