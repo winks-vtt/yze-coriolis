@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.0.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.1...v3.0.2) (2022-11-03)
+
+
+### Bug Fixes
+
+* display of armor rolls correctly ignoring attributes for each roll setting ([26c7111](https://www.github.com/winks-vtt/yze-coriolis/commit/26c7111be3aa5f9a362cb26d25c604a7a909bf39))
+
 ### [3.0.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.0...v3.0.1) (2022-11-02)
 
 
