@@ -82,3 +82,11 @@ export function getCrewForShip(shipId) {
   }
   return crewArray;
 }
+
+export function getGunnerForShip(shipId) {
+  const crew = getCrewForShip(shipId);
+  const gunner = crew.find(
+    (c) => c.system.bio.crewPosition.position === "gunner"
+  );
+  return gunner;
+}

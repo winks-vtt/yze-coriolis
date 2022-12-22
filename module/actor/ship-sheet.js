@@ -22,6 +22,7 @@ import {
 import { toggleShipModule } from "../item/ship-module.js";
 import { coriolisRoll } from "../coriolis-roll.js";
 import { coriolisModifierDialog } from "../coriolis-roll.js";
+import { getGunnerForShip } from "../actor/crew.js";
 
 /**
  * Extend the basic ActorSheet for a basic Coriolis ship sheet
@@ -251,6 +252,10 @@ export class yzecoriolisShipSheet extends ActorSheet {
       .find(".toggle-ship-module")
       .click(this._onClickToggleModule.bind(this));
 
+    html
+      .find(".fire-ship-weapon")
+      .click(this._onClickFireShipWeapon.bind(this));
+
     html.find(".module-edit").click(this._onClickEditModule.bind(this));
     html.find(".module-delete").click(this._onClickDeleteModule.bind(this));
 
@@ -400,6 +405,57 @@ export class yzecoriolisShipSheet extends ActorSheet {
     const targetButton = event.currentTarget;
     const moduleId = targetButton.dataset.module;
     return toggleShipModule(this.actor, moduleId);
+  }
+
+  async _onClickFireShipWeapon(event) {
+    event.preventDefault();
+
+    // Get the weapon
+    const targetButton = event.currentTarget;
+    const moduleId = targetButton.dataset.module;
+    const weapon = this.actor.items.get(moduleId);
+    const weaponData = weapon?.system;
+
+    // Get the Gunner
+    const gunner = getGunnerForShip(this.actor.id);
+    const gunnerData = gunner?.system;
+
+    // Make weapon roll
+    if (weapon && gunner && weaponData?.canFire) {
+      const rollData = {
+        actorType: gunner.type,
+        rollType: "weapon",
+        attributeKey: "agility",
+        attribute: gunnerData.attributes["agility"].value,
+        skillKey: "rangedcombat",
+        skill: gunnerData.skills["rangedcombat"].value,
+        modifier: 0,
+        bonus: weaponData.bonus ? Number(weaponData.bonus) : 0,
+        rollTitle: weapon.name,
+        pushed: false,
+        isAutomatic: weaponData.automatic,
+        isExplosive: weaponData.explosive,
+        blastPower: weaponData.blastPower,
+        blastRadius: weaponData.blastRadius,
+        damage: weaponData.damage,
+        damageText: weaponData.damageText,
+        range: weaponData.range,
+        crit: weaponData.crit?.numericValue,
+        critText: weaponData.crit?.customValue,
+        features: weaponData.special
+          ? Object.values(weaponData.special).join(", ")
+          : "",
+      };
+      const chatOptions = this.actor._prepareChatRollOptions(
+        "systems/yzecoriolis/templates/sidebar/roll.html",
+        "weapon"
+      );
+      coriolisModifierDialog((modifier, additionalData) => {
+        rollData.modifier = modifier;
+        rollData.additionalData = additionalData;
+        coriolisRoll(chatOptions, rollData);
+      }, weaponData.automatic);
+    }
   }
 
   async _onRollCrewPosition(event) {
