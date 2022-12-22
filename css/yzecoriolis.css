@@ -2516,11 +2516,11 @@
   box-shadow: none;
   background-color: #bebebe;
 }
-.yzecoriolis.sheet.actor .ship .module-panel .fire-ship-weapon-button.canfire {
+.yzecoriolis.sheet.actor .ship .module-panel .fire-ship-weapon-button.can-fire {
   background-color: #8e0707;
   color: #081f43;
 }
-.yzecoriolis.sheet.actor .ship .module-panel .fire-ship-weapon-button.canfire:hover {
+.yzecoriolis.sheet.actor .ship .module-panel .fire-ship-weapon-button.can-fire:hover {
   background-color: #bf0909;
 }
 .yzecoriolis.sheet.actor .ship .module-panel .quantity-input {
