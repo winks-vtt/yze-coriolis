@@ -1353,7 +1353,7 @@
       .toggle-ship-module-button {
         border: none;
         border-radius: 3px;
-        background-color: @colorRadiationRollOverIncrease;
+        background-color: @colorBarOutline;
         color: @colorWhite;
         font-family: "Cairo";
         font-size: 14px;
@@ -1363,7 +1363,7 @@
 
         &:hover {
           box-shadow: none;
-          background-color: lighten(@colorRadiationRollOverIncrease, 10%);
+          background-color: lighten(@colorBarOutline, 10%);
         }
 
         &.enabled {
@@ -1372,6 +1372,32 @@
 
           &:hover {
             background-color: lighten(@colorRadiationFill, 10%);
+          }
+        }
+      }
+
+      .fire-ship-weapon-button {
+        border: none;
+        border-radius: 3px;
+        background-color: @colorBarOutline;
+        color: @colorWhite;
+        font-family: "Cairo";
+        font-size: 14px;
+        font-weight: 700;
+        transition: background-color 275ms ease;
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: none;
+          background-color: lighten(@colorBarOutline, 10%);
+        }
+
+        &.canfire {
+          background-color: @colorRadiationRollOverIncrease;
+          color: @colorDarkerBlue;
+
+          &:hover {
+            background-color: lighten(@colorRadiationRollOverIncrease, 10%);
           }
         }
       }

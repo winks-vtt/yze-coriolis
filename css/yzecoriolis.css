@@ -2482,7 +2482,7 @@
 .yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button {
   border: none;
   border-radius: 3px;
-  background-color: #8e0707;
+  background-color: #a4a4a4;
   color: white;
   font-family: "Cairo";
   font-size: 14px;
@@ -2492,7 +2492,7 @@
 }
 .yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button:hover {
   box-shadow: none;
-  background-color: #bf0909;
+  background-color: #bebebe;
 }
 .yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button.enabled {
   background-color: #b1c343;
@@ -2500,6 +2500,28 @@
 }
 .yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button.enabled:hover {
   background-color: #c1cf6a;
+}
+.yzecoriolis.sheet.actor .ship .module-panel .fire-ship-weapon-button {
+  border: none;
+  border-radius: 3px;
+  background-color: #a4a4a4;
+  color: white;
+  font-family: "Cairo";
+  font-size: 14px;
+  font-weight: 700;
+  transition: background-color 275ms ease;
+  cursor: pointer;
+}
+.yzecoriolis.sheet.actor .ship .module-panel .fire-ship-weapon-button:hover {
+  box-shadow: none;
+  background-color: #bebebe;
+}
+.yzecoriolis.sheet.actor .ship .module-panel .fire-ship-weapon-button.canfire {
+  background-color: #8e0707;
+  color: #081f43;
+}
+.yzecoriolis.sheet.actor .ship .module-panel .fire-ship-weapon-button.canfire:hover {
+  background-color: #bf0909;
 }
 .yzecoriolis.sheet.actor .ship .module-panel .quantity-input {
   font-family: "Cairo";
