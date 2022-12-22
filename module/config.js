@@ -98,9 +98,9 @@ YZECORIOLIS.itemTypes = {
   weapon: "YZECORIOLIS.Weapon",
   armor: "YZECORIOLIS.Armor",
   gear: "YZECORIOLIS.Gear",
-  talent:"YZECORIOLIS.Talent",
-  injury: "YZECORIOLIS.CriticalInjury"
-}
+  talent: "YZECORIOLIS.Talent",
+  injury: "YZECORIOLIS.CriticalInjury",
+};
 
 // Talents
 
