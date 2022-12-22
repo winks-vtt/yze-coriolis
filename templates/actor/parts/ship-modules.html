@@ -43,6 +43,20 @@
               {{localize "YZECORIOLIS.Disabled"}}
             {{/if}}
           </button>
+          {{#if_eq module.system.category "weapon"}}
+          {{! Fire Ship Weapon Button}}
+              <button type="button"
+                class="fire-ship-weapon fire-ship-weapon-button
+                  {{module.canFireCSS}}"
+                data-module={{module._id}}
+              >
+                {{#if module.system.canFire}}
+                  {{localize "YZECORIOLIS.FireShipWeapon"}}
+                {{else}}
+                  {{localize "YZECORIOLIS.CantFireShipWeapon"}}
+                {{/if}}
+              </button>
+          {{/if_eq}}
           <div class="pt-10 flex1 vStack vStack-2 pb-10">
             {{! Tech Tier }}
             <div
@@ -123,18 +137,6 @@
                   />
                 </div>
               </div>
-              {{! Fire Ship Weapon Button}}
-              <button type="button"
-                class="fire-ship-weapon fire-ship-weapon-button
-                  {{module.canFireCSS}}"
-                data-module={{module._id}}
-              >
-                {{#if module.system.canFire}}
-                  {{localize "YZECORIOLIS.FireShipWeapon"}}
-                {{else}}
-                  {{localize "YZECORIOLIS.CantFireShipWeapon"}}
-                {{/if}}
-              </button>
             {{/if_eq}}
           </div>
         </div>
