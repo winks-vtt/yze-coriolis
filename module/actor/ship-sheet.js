@@ -145,6 +145,35 @@ export class yzecoriolisShipSheet extends ActorSheet {
       if (m.system.enabled) {
         m.enabledCSS = "enabled";
       }
+
+      // If the module is a weapon check if it can be fired (gunner or GM,
+      // enough EP assigned to gunner and system is enabled) and set according
+      // flags for system and CSS
+      if (m.system.category == "weapon") {
+        // Get gunner
+        const gunner = crew.filter(
+          (c) => c.system.bio.crewPosition.position === "gunner"
+        )[0];
+
+        // Check if caller is GM or Gunner
+        const isGM = game.user.isGM;
+        const isGunner = hasOwnerPermissionLevel(gunner?.permission);
+
+        // Check if we have enough EP
+        const enoughEP = gunner?.currentEP >= 3;
+
+        const canFire =
+          gunner && (isGM || isGunner) && enoughEP && m.system.enabled
+            ? true
+            : false;
+
+        m.system.canFire = canFire;
+
+        m.canFireCSS = "";
+        if (canFire) {
+          m.canFireCSS = "can-fire";
+        }
+      }
     }
     const stats = {
       hullBlocks: prepDataBarBlocks(

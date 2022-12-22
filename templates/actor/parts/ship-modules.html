@@ -123,6 +123,18 @@
                   />
                 </div>
               </div>
+              {{! Fire Ship Weapon Button}}
+              <button type="button"
+                class="fire-ship-weapon fire-ship-weapon-button
+                  {{module.canFireCSS}}"
+                data-module={{module._id}}
+              >
+                {{#if module.system.canFire}}
+                  {{localize "YZECORIOLIS.FireShipWeapon"}}
+                {{else}}
+                  {{localize "YZECORIOLIS.CantFireShipWeapon"}}
+                {{/if}}
+              </button>
             {{/if_eq}}
           </div>
         </div>
