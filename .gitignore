@@ -1,9 +1,13 @@
 # IDE
 .idea/
 .vs/
+.vscode/
 
 # Node Modules
 node_modules/
 module/foundry.js
 foundry.js
 foundry_07.js
+
+# OS
+.DS_Store
