@@ -98,9 +98,9 @@ YZECORIOLIS.itemTypes = {
   weapon: "YZECORIOLIS.Weapon",
   armor: "YZECORIOLIS.Armor",
   gear: "YZECORIOLIS.Gear",
-  talent:"YZECORIOLIS.Talent",
-  injury: "YZECORIOLIS.CriticalInjury"
-}
+  talent: "YZECORIOLIS.Talent",
+  injury: "YZECORIOLIS.CriticalInjury",
+};
 
 // Talents
 
@@ -270,7 +270,6 @@ YZECORIOLIS.ranges = {
 
 YZECORIOLIS.shipWeaponRanges = {
   contact: "YZECORIOLIS.ContactRange",
-  close: "YZECORIOLIS.CloseRange",
   short: "YZECORIOLIS.ShortRange",
   medium: "YZECORIOLIS.MediumRange",
   long: "YZECORIOLIS.LongRange",

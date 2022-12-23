@@ -89,11 +89,11 @@
   "YZECORIOLIS.Edit": "Ändern",
   "YZECORIOLIS.Delete": "Löschen",
 
-  "YZECORIOLIS.CreateTalent": "Fertigkeit einfügen",
-  "YZECORIOLIS.PostTalent": "Fertigkeit posten",
-  "YZECORIOLIS.EditTalent": "Fertigkeit anpassen",
-  "YZECORIOLIS.DeleteTalent": "Fertigkeit löschen",
-  "YZECORIOLIS.NewTalent": "Neue Fertigkeit",
+  "YZECORIOLIS.CreateTalent": "Talent einfügen",
+  "YZECORIOLIS.PostTalent": "Talent posten",
+  "YZECORIOLIS.EditTalent": "Talent anpassen",
+  "YZECORIOLIS.DeleteTalent": "Talent löschen",
+  "YZECORIOLIS.NewTalent": "Neues Talent",
 
   "YZECORIOLIS.CreateGear": "Ausrüstung einfügen",
   "YZECORIOLIS.CreateWeapon": "Waffe einfügen",
@@ -135,7 +135,6 @@
   "YZECORIOLIS.Crit": "Krit",
   "YZECORIOLIS.Damage": "Schaden",
   "YZECORIOLIS.Weight": "Gewicht",
-  "YZECORIOLIS.Talent": "Fertigkeit",
   "YZECORIOLIS.Gear": "Ausrüstung",
   "YZECORIOLIS.Weapons": "Waffen",
   "YZECORIOLIS.Weapon": "Waffe",
@@ -338,7 +337,7 @@
   "YZECORIOLIS.CloseRange": "Nah",
   "YZECORIOLIS.ContactRange": "Kontakt",
   "YZECORIOLIS.ShortRange": "Kurz",
-  "YZECORIOLIS.MediumRange": "Mittlere",
+  "YZECORIOLIS.MediumRange": "Mittel",
   "YZECORIOLIS.LongRange": "Weit",
   "YZECORIOLIS.ExtremeRange": "Extrem",
 
