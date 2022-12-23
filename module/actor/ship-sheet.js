@@ -448,6 +448,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
       );
       coriolisModifierDialog((modifier, additionalData) => {
         rollData.modifier = modifier;
+        additionalData.isShipWeapon = true;
         rollData.additionalData = additionalData;
         coriolisRoll(chatOptions, rollData);
       }, weaponData.automatic);

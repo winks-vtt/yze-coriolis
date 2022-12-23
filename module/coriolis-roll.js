@@ -540,7 +540,10 @@ function getRollDmgText(rollData) {
 }
 
 function getRollRange(rollData) {
-  return CONFIG.YZECORIOLIS.ranges[rollData.range];
+  const rollRange = rollData.additionalData.isShipWeapon
+    ? CONFIG.YZECORIOLIS.shipWeaponRanges[rollData.range]
+    : CONFIG.YZECORIOLIS.ranges[rollData.range];
+  return rollRange;
 }
 
 function getRollFeatures(rollData) {
