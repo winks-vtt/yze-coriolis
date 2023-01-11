@@ -83,6 +83,11 @@ export function getCrewForShip(shipId) {
   return crewArray;
 }
 
+/**
+ * Find and return the gunner of the ship identified by the given ship ID.
+ * @param {string} shipId The ID of the ship of which you want to find the gunner.
+ * @returns The gunner of the given ship (if any).
+ */
 export function getGunnerForShip(shipId) {
   const crew = getCrewForShip(shipId);
   const gunner = crew.find(

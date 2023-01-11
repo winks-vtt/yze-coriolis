@@ -147,14 +147,11 @@ export class yzecoriolisShipSheet extends ActorSheet {
         m.enabledCSS = "enabled";
       }
 
-      // If the module is a weapon check if it can be fired (gunner or GM,
-      // enough EP assigned to gunner and system is enabled) and set according
-      // flags for system and CSS
+      // If the module is a weapon check if it can be fired (user is gunner or GM
+      // and system is enabled) and set according flags for system and CSS
       if (m.system.category == "weapon") {
         // Get gunner
-        const gunner = crew.filter(
-          (c) => c.system.bio.crewPosition.position === "gunner"
-        )[0];
+        const gunner = getGunnerForShip(this.actor.id);
 
         // Check if caller is GM or Gunner
         const isGM = game.user.isGM;
