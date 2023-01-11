@@ -383,5 +383,8 @@
   "YZECORIOLIS.ItemDeleteConfirmationTitle": "Excluir item",
   "YZECORIOLIS.ItemDeleteConfirmationContent": "Tem certeza de que deseja excluir este item?",
   "YZECORIOLIS.AutomaticFire": "Fogo automático",
-  "YZECORIOLIS.AutomaticFireModifier": "-2 modificadores em sua jogada de ataque"
+  "YZECORIOLIS.AutomaticFireModifier": "-2 modificadores em sua jogada de ataque",
+  
+  "YZECORIOLIS.FireShipWeapon": "Disparando arma",
+  "YZECORIOLIS.CantFireShipWeapon": "Não pode atirar"
 }

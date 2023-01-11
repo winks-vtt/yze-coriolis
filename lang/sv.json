@@ -383,5 +383,8 @@
   "YZECORIOLIS.ItemDeleteConfirmationTitle": "Ta bort elementet",
   "YZECORIOLIS.ItemDeleteConfirmationContent": "Är du säker på att du vill ta bort det här elementet?",
   "YZECORIOLIS.AutomaticFire": "Automatisk eld",
-  "YZECORIOLIS.AutomaticFireModifier": "-2 modifierare till din attackrulle"
+  "YZECORIOLIS.AutomaticFireModifier": "-2 modifierare till din attackrulle",
+  
+  "YZECORIOLIS.FireShipWeapon": "Skjuta vapen",
+  "YZECORIOLIS.CantFireShipWeapon": "Kan inte skjuta"
 }
