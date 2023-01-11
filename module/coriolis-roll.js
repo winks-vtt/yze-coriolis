@@ -540,6 +540,8 @@ function getRollDmgText(rollData) {
 }
 
 function getRollRange(rollData) {
+  // Check if the roll is a ship weapon roll (which will set a flag in
+  // the roll data) or regular weapon and return according ranges
   const rollRange = rollData.additionalData.isShipWeapon
     ? CONFIG.YZECORIOLIS.shipWeaponRanges[rollData.range]
     : CONFIG.YZECORIOLIS.ranges[rollData.range];
