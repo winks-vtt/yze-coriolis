@@ -160,13 +160,8 @@ export class yzecoriolisShipSheet extends ActorSheet {
         const isGM = game.user.isGM;
         const isGunner = hasOwnerPermissionLevel(gunner?.permission);
 
-        // Check if we have enough EP
-        const enoughEP = gunner?.currentEP >= 3;
-
         const canFire =
-          gunner && (isGM || isGunner) && enoughEP && m.system.enabled
-            ? true
-            : false;
+          gunner && (isGM || isGunner) && m.system.enabled ? true : false;
 
         m.system.canFire = canFire;
 
