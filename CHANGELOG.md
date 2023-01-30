@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.0.5](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.4...v3.0.5) (2023-01-30)
+
+
+### Bug Fixes
+
+* updated CSS for v10 module journals ([da82c7a](https://www.github.com/winks-vtt/yze-coriolis/commit/da82c7a8a3513439e8c187f4fdf2a34762d196e9))
+
 ### [3.0.4](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.3...v3.0.4) (2023-01-11)
 
 
