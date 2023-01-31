@@ -20,13 +20,16 @@ export class coriolisJournalSheet extends JournalSheet {
     }
     super.activateEditor(name, customOptions, initialContent);
   }
-
-  activateListeners(html) {
-    super.activateListeners(html);
-    // we add a css class here to denote core journal entries so we can style
-    // specifically against them without altering the main journal style.
-    if (isCustomJournal(this.document)) {
-      html.find(".entryContent").parents(".editable").addClass("coriolis-core");
-    }
-  }
 }
+
+/// handles injecting coriolis classes into journal entries so that compendiums
+/// can use them for custom styling
+// eslint-disable-next-line no-unused-vars
+Hooks.on("renderJournalPageSheet", (app, html, options) => {
+  if (app.document.parent && isCustomJournal(app.document.parent)) {
+    html
+      .find(".entryContent")
+      .parents(".journal-entry-content")
+      .addClass("coriolis-core");
+  }
+});
