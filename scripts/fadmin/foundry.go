@@ -23,7 +23,6 @@ func login(client *http.Client, username, password string) error {
 	}
 	defer resp.Body.Close()
 	token, err := parseCSRFToken(resp.Body)
-
 	if err != nil {
 		return fmt.Errorf("failed to read token: %v", err)
 	}
@@ -105,7 +104,7 @@ func getPackageForm(client *http.Client, packageId int) (url.Values, error) {
 	}
 	forms := parseForms(submissionForm)
 	if len(forms) != 1 {
-		return nil, errors.New("got multiple forms")
+		return nil, fmt.Errorf("got multiple forms: %d", len(forms))
 	}
 
 	return forms[0].Values, nil
