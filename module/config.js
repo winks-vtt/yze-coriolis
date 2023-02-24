@@ -101,6 +101,19 @@ YZECORIOLIS.itemTypes = {
   talent: "YZECORIOLIS.Talent",
   injury: "YZECORIOLIS.CriticalInjury",
 };
+ // needed for some modules like Item Piles
+CONFIG.Item.typeLabels = {
+  weapon: "YZECORIOLIS.Weapon",
+  armor: "YZECORIOLIS.Armor",
+  gear: "YZECORIOLIS.Gear",
+  talent: "YZECORIOLIS.Talent",
+  injury: "YZECORIOLIS.CriticalInjury",
+  shipProblem: "YZECORIOLIS.ShipProblem",
+  shipModule: "YZECORIOLIS.Modules",
+  shipFeature: "YZECORIOLIS.ShipFeature",
+  shipCriticalDamage: "YZECORIOLIS.ShipCriticalDamage",
+  shipLogbook: "YZECORIOLIS.ShipLogbook",
+};
 
 // Talents
 
