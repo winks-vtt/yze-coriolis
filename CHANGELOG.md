@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.0.11](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.10...v3.0.11) (2023-02-24)
+
+
+### Bug Fixes
+
+* corrected typo in path ([9c5e1de](https://www.github.com/winks-vtt/yze-coriolis/commit/9c5e1ded3e7f510994a1020350423cdf7edc337d))
+
 ### [3.0.10](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.9...v3.0.10) (2023-02-24)
 
 
