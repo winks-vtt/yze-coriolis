@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.0.8](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.7...v3.0.8) (2023-02-24)
+
+
+### Bug Fixes
+
+* updating CI messaging ([a0d6913](https://www.github.com/winks-vtt/yze-coriolis/commit/a0d6913440d34ecd0f9b5ecf01621f5d36836c92))
+
 ### [3.0.7](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.6...v3.0.7) (2023-02-24)
 
 
