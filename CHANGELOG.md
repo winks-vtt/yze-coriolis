@@ -1,5 +1,13 @@
 # Changelog
 
+### [3.0.6](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.5...v3.0.6) (2023-02-24)
+
+
+### Bug Fixes
+
+* added translations for item piles ([89562cc](https://www.github.com/winks-vtt/yze-coriolis/commit/89562cc4183cd500157d121c86854bf645126cea))
+* updated deps for go ([98bd9c2](https://www.github.com/winks-vtt/yze-coriolis/commit/98bd9c26fccd3144f8a29d867a1d52141b6c8c5a))
+
 ### [3.0.5](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.4...v3.0.5) (2023-01-30)
 
 
