@@ -103,15 +103,17 @@ func getPackageForm(client *http.Client, packageId int) (url.Values, error) {
 		return nil, fmt.Errorf("failed to parse edit form: %v", err)
 	}
 	forms := parseForms(submissionForm)
-	if len(forms) != 1 {
-		for _, f := range forms {
-			fmt.Printf("%v\n", f.Action)
-			fmt.Println(f.Values)
-		}
-		return nil, fmt.Errorf("got multiple forms: %d", len(forms))
+	if len(forms) == 1 {
+		return forms[0].Values, nil
 	}
-
-	return forms[0].Values, nil
+	if len(forms) == 2 && forms[0].Action == "/admin/logout" {
+		return forms[1].Values, nil
+	}
+	for _, f := range forms {
+		fmt.Printf("%v\n", f.Action)
+		fmt.Println(f.Values)
+	}
+	return nil, fmt.Errorf("got %d forms and unknown data", len(forms))
 }
 
 type VersionEntry struct {
