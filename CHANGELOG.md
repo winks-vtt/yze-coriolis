@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.0.9](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.8...v3.0.9) (2023-02-24)
+
+
+### Bug Fixes
+
+* changing form handling ([7b45969](https://www.github.com/winks-vtt/yze-coriolis/commit/7b45969a6e29befda10f66d887ced0a4feaae614))
+
 ### [3.0.8](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.7...v3.0.8) (2023-02-24)
 
 
