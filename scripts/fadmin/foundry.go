@@ -104,6 +104,10 @@ func getPackageForm(client *http.Client, packageId int) (url.Values, error) {
 	}
 	forms := parseForms(submissionForm)
 	if len(forms) != 1 {
+		for _, f := range forms {
+			fmt.Printf("%v\n", f.Action)
+			fmt.Println(f.Values)
+		}
 		return nil, fmt.Errorf("got multiple forms: %d", len(forms))
 	}
 
