@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.0.12](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.11...v3.0.12) (2023-03-31)
+
+
+### Bug Fixes
+
+* updated brazilian portugeuse localizations ([9bf3a47](https://www.github.com/winks-vtt/yze-coriolis/commit/9bf3a47657de09c1d3e5d88dfdac5ec72ea5b5ec))
+
 ### [3.0.11](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.10...v3.0.11) (2023-02-24)
 
 
