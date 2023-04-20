@@ -19,26 +19,6 @@ Hooks.on("updateUser", (entity, delta, options, userId) => {
 
 // eslint-disable-next-line no-unused-vars
 Hooks.on("updateActor", (entity, delta, options, userId) => {
-  // since the main character sheet edit only updates the key art field, and
-  // this size isn't suitable for the actor browser, we hook into the actor
-  // update and propagate any token updates to the actor's img field.
-  if (options.diff && hasProperty(delta, "prototypeToken")) {
-    // there is two cases here:
-    // 1. A brand new image has been propagated up. that means the delta
-    //    here will have an image field
-    // 2. There is no 'img' field, and the token field was a non-img update.
-    //    in #1 we just copy the delta. in #2 we will attempt to source the
-    //    data (if available) from the already existing token object on the
-    //    actor entity.
-    if (hasProperty(delta, "prototypeToken.texture.src")) {
-      entity.update({ img: delta.prototypeToken.texture.src });
-    } else {
-      if (hasProperty(entity, "prototypeToken.texture.src")) {
-        entity.update({ img: entity.prototypeToken.texture.src });
-      }
-    }
-  }
-
   rerenderAllShips();
 });
 

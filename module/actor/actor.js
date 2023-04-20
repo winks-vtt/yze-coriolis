@@ -23,8 +23,8 @@ export class yzecoriolisActor extends Actor {
     //setup default images for ships
     if (
       initData.type === "ship" &&
-      hasProperty(initData, "img") &&
-      initData.img === Actor.DEFAULT_ICON
+      ((hasProperty(initData, "img") && initData.img === Actor.DEFAULT_ICON) ||
+        !hasProperty(initData, "img"))
     ) {
       this.updateSource({ img: CONFIG.YZECORIOLIS.DEFAULT_SHIP_KEY_ART });
     }
@@ -32,21 +32,16 @@ export class yzecoriolisActor extends Actor {
     // we check the incoming data to make sure we aren't overriding a 'cloning'
     // operation.
     if (
-      !hasProperty(initData, "system.keyArt") &&
+      !hasProperty(initData, "img") &&
       (initData.type === "character" || initData.type === "npc")
     ) {
       this.updateSource({
-        "system.keyArt": CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART,
-      });
-    }
-    // if we have a blank string keyArt prop, just set it to the default.
-    if (
-      hasProperty(initData, "system.keyArt") &&
-      (initData.type === "character" || initData.type === "npc") &&
-      initData.system.keyArt === ""
-    ) {
-      this.updateSource({
-        "system.keyArt": CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART,
+        img: CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART,
+        prototypeToken: {
+          texture: {
+            src: CONFIG.YZECORIOLIS.DEFAULT_PLAYER_KEY_ART_TOKEN,
+          },
+        },
       });
     }
   }
@@ -171,6 +166,15 @@ export class yzecoriolisActor extends Actor {
       bonus += Number(tData.mpBonus);
     }
     return bonus;
+  }
+
+  migrateKeyArt() {
+    if (
+      (this.type === "npc" || this.type === "character") &&
+      this.system.keyArt
+    ) {
+      this.update({ img: this.system.keyArt, system: { keyArt: "" } });
+    }
   }
 
   /** @override */

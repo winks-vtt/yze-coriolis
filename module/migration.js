@@ -299,10 +299,7 @@ export const migrateSceneData = function (scene) {
         t.actorData = {};
       } else if (!t.actorLink) {
         const updateData = migrateActorData(token.actorData);
-        t.actorData = foundry.utils.mergeObject(
-          token.actorData,
-          updateData
-        );
+        t.actorData = foundry.utils.mergeObject(token.actorData, updateData);
       }
       return t;
     }),
@@ -321,5 +318,15 @@ const migrateDarknessPoints = async function () {
     ui.notifications.info(game.i18n.localize("YZECORIOLIS.MigratedDP"), {
       permanent: true,
     });
+  }
+};
+
+export const migrateActorKeyArt = function () {
+  for (let a of game.actors.contents) {
+    try {
+      a.migrateKeyArt();
+    } catch (err) {
+      console.error(err);
+    }
   }
 };

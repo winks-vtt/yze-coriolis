@@ -50,6 +50,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
   /** @override */
   async getData(options) {
+    // Slowly migrate keyArt to img whenever an actor sheet is opened.
+    this.object.migrateKeyArt();
+
     const baseData = super.getData(options);
     let itemData = {};
     let actorStats = {};
