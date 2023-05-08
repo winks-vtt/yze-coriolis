@@ -31,6 +31,7 @@ Hooks.once("init", async function () {
     yzecoriolisActor,
     yzecoriolisItem,
     rollItemMacro,
+    rollActorMacro,
     config: YZECORIOLIS,
     migrations: migrations,
   };
@@ -512,3 +513,18 @@ function rollItemMacro(itemName) {
   // Trigger the item roll
   return item.roll();
 }
+
+function rollActorMacro(rollName, rollType) {
+  const speaker = ChatMessage.getSpeaker();
+  let actor;
+  if (speaker.token) actor = game.actors.tokens[speaker.token];
+  if (!actor) actor = game.actors.get(speaker.actor);
+  if (!actor) {
+    return ui.notifications.warn(
+      game.i18n.localize("YZECORIOLIS.ErrorsNoActorSelectedForMacro")
+    );
+  }
+  
+  return actor.roll(rollName, rollType, actor);
+}
+
