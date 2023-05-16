@@ -336,7 +336,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // for display purposes we'll halve everything so that encumbrance makes
     // sense to users that are familiar with the rules.
     let enc = {
-      max: strengthValue / 2,
+      max: (strengthValue / 2) + this.actor.system.encumbranceMods,
       value: totalWeight / 2,
     };
     let pct = (enc.value / enc.max) * 100;
@@ -344,7 +344,11 @@ export class yzecoriolisActorSheet extends ActorSheet {
       pct = 0;
     }
     enc.percentage = Math.min(pct, 100);
-    enc.encumbered = pct > 100;
+    if (pct > 100 || pct < 0) {
+      enc.encumbered = true;
+    } else {
+      enc.encumbered = false;
+    }
     return enc;
   }
 
@@ -516,7 +520,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
       range: item?.range,
       crit: item?.crit?.numericValue,
       critText: item?.crit?.customValue,
-      features: item?.special ? Object.values(item.special).join(", ") : "",
+      features: item?.special
+        ? Object.values(item.special).join(", ")
+        : "",
     };
     const chatOptions = this.actor._prepareChatRollOptions(
       "systems/yzecoriolis/templates/sidebar/roll.html",

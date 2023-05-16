@@ -17,6 +17,8 @@ export const preloadHandlerbarsTemplates = async function () {
     "systems/yzecoriolis/templates/actor/parts/ship-logbooks.html",
     // dialog templates
     "systems/yzecoriolis/templates/dialog/automatic-fire.html",
+    // partial item templates
+    "systems/yzecoriolis/templates/item/modifiers.html",
   ];
 
   return loadTemplates(templatePaths);
