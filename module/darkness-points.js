@@ -49,7 +49,6 @@ function getDarknessPointsForUserID(userID) {
 
 async function setDarknessPointsForUser(userID, dPoints) {
   let user = game.users.get(userID);
-  await user.setFlag("yzecoriolis", "darknessPoints", null);
   await user.setFlag("yzecoriolis", "darknessPoints", dPoints);
 }
 
@@ -92,4 +91,56 @@ async function showDarknessPoints(totalPoints) {
     dpData
   );
   await ChatMessage.create(messageData);
+}
+
+export class DarknessPointDisplay extends Application {
+  static initialize() {
+    this.dpDisplay = new DarknessPointDisplay();
+  }
+
+  static update() {
+    this.dpDisplay.update();
+  }
+
+  static render() {
+    this.dpDisplay.render(true);
+  }
+
+  static get defaultOptions() {
+    return mergeObject(super.defaultOptions, {
+      id: "coriolis-darness-points-display",
+      template:
+        "systems/yzecoriolis/templates/darkness-points/darkness-points-display.html",
+      top: 100,
+      left: 100,
+      height: 120,
+      resizable: false,
+      popout: false,
+      title: game.i18n.localize("YZECORIOLIS.DarknessPoints"),
+      background: "none",
+    });
+  }
+
+  constructor() {
+    super();
+  }
+
+  activateListeners(html) {
+    super.activateListeners(html);
+    html.find(".minus-button").click((event) => spendDarknessPoints(1));
+    html.find(".plus-button").click((event) => addDarknessPoints(1));
+  }
+
+  getData() {
+    return {
+      dp: getDarknessPoints(),
+      gm: game.user.isGM,
+    };
+  }
+
+  update() {
+    if (this.rendered) {
+      this.render(true);
+    }
+  }
 }

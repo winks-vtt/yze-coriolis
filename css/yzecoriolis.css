@@ -2908,3 +2908,31 @@
   width: 50px;
   height: 50px;
 }
+.yzecoriolis.darkness-point-display {
+  background: linear-gradient(90deg, #000000 30.35%, rgba(0, 0, 0, 0) 100%), url("images/char-sheet-bg.jpg");
+  margin: -8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.yzecoriolis.darkness-point-display .count {
+  color: #fdff9d;
+  font-family: "Play";
+  font-size: 70px;
+  text-align: center;
+}
+.yzecoriolis.darkness-point-display button {
+  width: 40px;
+  height: 40px;
+  color: #fdff9d;
+  font-family: "Play";
+  font-size: 40px;
+  font-weight: bolder;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 1px solid #9fb0ed;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+}

@@ -24,6 +24,7 @@ import {
   showOnboardingMessage,
 } from "./onboarding.js";
 import { coriolisJournalSheet } from "./coriolisJournal.js";
+import { DarknessPointDisplay } from "./darkness-points.js";
 
 Hooks.once("init", async function () {
   console.log(`Coriolis | Initializing Coriolis\n${YZECORIOLIS.ASCII}`);
@@ -90,6 +91,9 @@ Hooks.once("init", async function () {
 
   // register turn order changes. Currently it's sorting from high->low so no need to edit atm.
   //Combat.prototype.setupTurns = setupCoriolisTurns;
+
+  // Initialize Darkness Point Display
+  DarknessPointDisplay.initialize();
 
   Handlebars.registerHelper("concat", function () {
     var outStr = "";
@@ -367,6 +371,15 @@ Hooks.on("getSceneControlButtons", (controls) => {
       onClick: () => {
         displayDarknessPoints();
       },
+    },
+    {
+      name: "display",
+      title: "YZECORIOLIS.DarknessPointsControls",
+      icon: "fas fa-moon",
+      buttons: true,
+      onClick: () => {
+        DarknessPointDisplay.render();
+      },
     }
   );
 });
@@ -409,6 +422,10 @@ Hooks.once("ready", async function () {
 
   await importShipSheetTutorial();
   await showOnboardingMessage();
+});
+
+Hooks.on("updateUser", async () => {
+  DarknessPointDisplay.update();
 });
 
 Hooks.once("diceSoNiceReady", (dice3d) => {
