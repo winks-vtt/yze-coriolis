@@ -127,7 +127,9 @@ export class DarknessPointDisplay extends Application {
 
   activateListeners(html) {
     super.activateListeners(html);
+    // eslint-disable-next-line no-unused-vars
     html.find(".minus-button").click((event) => spendDarknessPoints(1));
+    // eslint-disable-next-line no-unused-vars
     html.find(".plus-button").click((event) => addDarknessPoints(1));
   }
 
