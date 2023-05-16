@@ -1,0 +1,33 @@
+@import "./variables.less";
+
+.yzecoriolis.darkness-point-display {
+  background: linear-gradient(90deg, #000000 30.35%, rgba(0, 0, 0, 0) 100%),
+    url("images/char-sheet-bg.jpg");
+  margin: -8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  .count {
+    color: @colorPlayerText;
+    font-family: "Play";
+    font-size: 70px;
+    text-align: center;
+  }
+
+  button {
+    width: 40px;
+    height: 40px;
+    color: @colorPlayerText;
+    font-family: "Play";
+    font-size: 40px;
+    font-weight: bolder;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 1px solid @colorBlue;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+  }
+}
