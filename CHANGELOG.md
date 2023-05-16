@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.1.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.12...v3.1.0) (2023-05-16)
+
+
+### Features
+
+* added a display HUD for darkness points for the GM ([1b75e81](https://www.github.com/winks-vtt/yze-coriolis/commit/1b75e818a1aeb07a7d3b1311613f864c47f9e6c0))
+
+
+### Bug Fixes
+
+* eslint warnings ([d20e28d](https://www.github.com/winks-vtt/yze-coriolis/commit/d20e28de72436bb1e16639f2b97db257e4871a23))
+* make the display only visible to GMs ([301b884](https://www.github.com/winks-vtt/yze-coriolis/commit/301b884a80dcca257133c6441957e8daf0ad7f23))
+
 ### [3.0.12](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.11...v3.0.12) (2023-03-31)
 
 
