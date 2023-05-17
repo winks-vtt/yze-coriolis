@@ -95,23 +95,18 @@ export class yzecoriolisActor extends Actor {
     let radiationModifcations = this._prepRadiationModifications();
     let encumbranceModifcations = this._prepEncumbranceModifications();
     let movementRateModifcations = this._prepMovementRateModifications();
-    sysData.hitPoints.max =
-      sysData.attributes.strength.value
+    sysData.hitPoints.max = sysData.attributes.strength.value
       + sysData.attributes.agility.value
       + hpBonuses
       + hpModifcations;
-    sysData.mindPoints.max =
-      sysData.attributes.wits.value
+    sysData.mindPoints.max = sysData.attributes.wits.value
       + sysData.attributes.empathy.value
       + mpBonuses
       + mpModifcations;
-    sysData.radiation.max =
-      sysData.radiation.max
+    sysData.radiation.max = sysData.radiation.max
       + radiationModifcations;
-    sysData.movementRateMods =
-      movementRateModifcations;
-    sysData.encumbranceMods =
-      encumbranceModifcations;
+    sysData.movementRateMods = movementRateModifcations;
+    sysData.encumbranceMods = encumbranceModifcations;
 
     if (sysData.hitPoints.value > sysData.hitPoints.max) {
       sysData.hitPoints.value = sysData.hitPoints.max;
