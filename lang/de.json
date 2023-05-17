@@ -385,6 +385,8 @@
   "YZECORIOLIS.SettingAdditionalRollInfosPC": "Nur für Spielercharaktere",
   "YZECORIOLIS.SettingAdditionalRollInfosNPC": "Nur für Nicht-Spielercharaktere",
   "YZECORIOLIS.SettingAdditionalRollInfosAll": "Für alle Charaktere",
+  "YZECORIOLIS.SettingDarknessPointsVisibility": "Zeige Spielern FP",
+  "YZECORIOLIS.SettingDarknessPointsVisibilityHint": "Wenn aktviviert, wird den Spielern die Menge der Finsternispunkte in der Spielflächen-Steuerung angezeigt.",
 
   "YZECORIOLIS.EnergyPointsReset": "Zuvor der Mannschaft zu geordnete Leistungspunkte stehen dem Schiffsreaktor wieder zur Verfügung.",
   "YZECORIOLIS.InvalidEPPermissions": "Du hast keine Berechtigung die LP-Verteilung zu verändern.",

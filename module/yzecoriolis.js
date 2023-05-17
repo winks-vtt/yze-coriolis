@@ -377,7 +377,9 @@ Hooks.on("getSceneControlButtons", (controls) => {
       title: "YZECORIOLIS.DarknessPointsControls",
       icon: "fas fa-moon",
       buttons: true,
-      visible: game.user.isGM,
+      visible: game.settings.get("yzecoriolis", "DarknessPointsVisibility")
+        ? true
+        : game.user.isGM,
       onClick: () => {
         DarknessPointDisplay.render();
       },
