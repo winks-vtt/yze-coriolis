@@ -387,16 +387,18 @@ Hooks.on("getSceneControlButtons", (controls) => {
 
 Hooks.once("ready", async function () {
   // Determine whether a system migration is required and feasible
-  const currentVersion = game.settings.get(
+  const currentVersion = game.system.version;
+  const lastMigratedToVersion = game.settings.get(
     "yzecoriolis",
     "systemMigrationVersion"
   );
-  const NEEDS_MIGRATION_VERSION = "2.5.0";
+
+  const NEEDS_MIGRATION_AFTER_VERSION = "3.1.0";
   const COMPATIBLE_MIGRATION_VERSION = "1.4.7";
+
   let needMigration =
-    currentVersion &&
-    isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion) &&
-    currentVersion !== "0"; // zero means we just created a new world.
+    isNewerVersion(currentVersion, NEEDS_MIGRATION_AFTER_VERSION) &&
+    isNewerVersion(NEEDS_MIGRATION_AFTER_VERSION, lastMigratedToVersion);
 
   // Perform the migration
   if (needMigration && game.user.isGM) {
@@ -410,6 +412,7 @@ Hooks.once("ready", async function () {
     }
     await migrations.migrateWorld();
   }
+
   //bootstrapTalentCompendium();
   //bootstrapGearCompendium();
 

@@ -14,7 +14,7 @@ export const migrateWorld = async function () {
   for (let a of game.actors.contents) {
     try {
       const updateData = migrateActorData(a);
-      if (!foundry.utils.isObjectEmpty(updateData)) {
+      if (!foundry.utils.isEmpty(updateData)) {
         console.log(`Migrating Actor entity ${a.name}`);
         await a.update(updateData, { enforceTypes: false });
       }
@@ -26,7 +26,7 @@ export const migrateWorld = async function () {
   for (let i of game.items.contents) {
     try {
       const updateData = migrateItemData(i.toObject());
-      if (!foundry.utils.isObjectEmpty(updateData)) {
+      if (!foundry.utils.isEmpty(updateData)) {
         console.log(`Migrating Item entity ${i.name}`);
         await i.update(updateData, { enforceTypes: false });
       }
@@ -39,7 +39,7 @@ export const migrateWorld = async function () {
   for (let s of game.scenes.contents) {
     try {
       const updateData = migrateSceneData(s);
-      if (!foundry.utils.isObjectEmpty(updateData)) {
+      if (!foundry.utils.isEmpty(updateData)) {
         console.log(`Migrating Scene entity ${s.name}`);
         await s.update(updateData, { enforceTypes: false });
       }
@@ -190,7 +190,7 @@ export const migrateCompendium = async function (pack) {
       if (entity === "Item") updateData = migrateItemData(ent.data);
       else if (entity === "Actor") updateData = migrateActorData(ent.data);
       else if (entity === "Scene") updateData = migrateSceneData(ent.data);
-      if (!foundry.utils.isObjectEmpty(updateData)) {
+      if (!foundry.utils.isEmpty(updateData)) {
         expandObject(updateData);
         updateData["_id"] = ent._id;
         await pack.updateEntity(updateData);
@@ -230,6 +230,14 @@ export const migrateActorData = function (actor) {
     updateData = { "system.movementRate": 10 };
   }
 
+  // transition keyArt to img
+  if (
+    (actor.type === "npc" || actor.type === "character") &&
+    actor.system?.keyArt
+  ) {
+    foundry.utils.mergeObject(updateData, createActorKeyArtUpdate(actor));
+  }
+
   // Migrate Owned Items
   if (!actor.items) return updateData;
   const items = actor.items.reduce((arr, i) => {
@@ -238,7 +246,7 @@ export const migrateActorData = function (actor) {
     let itemUpdate = migrateItemData(itemData);
 
     // Update the Owned Item
-    if (!foundry.utils.isObjectEmpty(itemUpdate)) {
+    if (!foundry.utils.isEmpty(itemUpdate)) {
       itemUpdate._id = itemData._id;
       arr.push(expandObject(itemUpdate));
     }
@@ -286,22 +294,18 @@ export const migrateItemData = function (item) {
  * @return {Object}       The updateData to apply
  */
 export const migrateSceneData = function (scene) {
-  const tokens = foundry.utils.deepClone(scene.tokens);
   return {
-    tokens: tokens.map((t) => {
-      if (!t.actorId || t.actorLink || !t.actorData) {
-        t.actorData = {};
-        return t;
+    tokens: scene.tokens.map((t) => {
+      const token = t.toJSON();
+      if (!t.actorLink) {
+        const updateData = migrateActorData({
+          ...t.actorData,
+          type: t.actor.type,
+        });
+        token.actorData = foundry.utils.mergeObject(t.actorData, updateData);
       }
-      const token = new Token(t);
-      if (!token.actor) {
-        t.actorId = null;
-        t.actorData = {};
-      } else if (!t.actorLink) {
-        const updateData = migrateActorData(token.actorData);
-        t.actorData = foundry.utils.mergeObject(token.actorData, updateData);
-      }
-      return t;
+
+      return token;
     }),
   };
 };
@@ -315,18 +319,18 @@ const migrateDarknessPoints = async function () {
   if (dpPoints !== MIGRATED_VALUE) {
     await addDarknessPoints(dpPoints);
     await game.settings.set("yzecoriolis", "darknessPoints", MIGRATED_VALUE);
-    ui.notifications.info(game.i18n.localize("YZECORIOLIS.MigratedDP"), {
-      permanent: true,
-    });
   }
 };
 
-export const migrateActorKeyArt = function () {
-  for (let a of game.actors.contents) {
-    try {
-      a.migrateKeyArt();
-    } catch (err) {
-      console.error(err);
-    }
+export const createActorKeyArtUpdate = function (actor) {
+  return { img: actor.system.keyArt, system: { keyArt: "" } };
+};
+
+export const migrateActorKeyArtIfNeeded = function (actor) {
+  if (
+    (actor.type === "npc" || actor.type === "character") &&
+    actor.system?.keyArt
+  ) {
+    actor.update(createActorKeyArtUpdate(actor));
   }
 };

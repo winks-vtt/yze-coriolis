@@ -8,6 +8,8 @@ import {
   prepDataBarBlocks,
 } from "./databar.js";
 import { buildCrewOptionsArray } from "./crew.js";
+import { migrateActorKeyArtIfNeeded } from "../migration.js";
+
 /**
  * Extend the basic ActorSheet for a basic Coriolis character
  * @extends {ActorSheet}
@@ -50,8 +52,10 @@ export class yzecoriolisActorSheet extends ActorSheet {
 
   /** @override */
   async getData(options) {
-    // Slowly migrate keyArt to img whenever an actor sheet is opened.
-    this.object.migrateKeyArt();
+    // Migrate keyArt to img whenever an actor sheet is opened if needed.
+    // Even though we ran a proper migration on upgrade, this is to make sure modules or compendiums
+    // installed after the migration ran will still be migrated.
+    migrateActorKeyArtIfNeeded(this.actor);
 
     const baseData = super.getData(options);
     let itemData = {};

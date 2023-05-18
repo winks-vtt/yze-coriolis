@@ -168,15 +168,6 @@ export class yzecoriolisActor extends Actor {
     return bonus;
   }
 
-  migrateKeyArt() {
-    if (
-      (this.type === "npc" || this.type === "character") &&
-      this.system.keyArt
-    ) {
-      this.update({ img: this.system.keyArt, system: { keyArt: "" } });
-    }
-  }
-
   /** @override */
   static async create(initData, options = {}) {
     initData.prototypeToken = initData.prototypeToken || {};
