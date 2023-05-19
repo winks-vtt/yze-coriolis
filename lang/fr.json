@@ -366,6 +366,8 @@
   "YZECORIOLIS.SettingAdditionalRollInfosPC": "Uniquement pour les personnages joueurs",
   "YZECORIOLIS.SettingAdditionalRollInfosNPC": "Uniquement pour les personnages non-joueurs",
   "YZECORIOLIS.SettingAdditionalRollInfosAll": "Pour tous les personnages",
+  "YZECORIOLIS.SettingDarknessPointsVisibility": "Permettre aux joueurs de voir les PNs",
+  "YZECORIOLIS.SettingDarknessPointsVisibilityHint": "Si activé, les joueurs pourront voir le nombre de PNs à partir du bouton présent dans la barre de contrôle."
 
   "YZECORIOLIS.EnergyPointsReset": "Les Points d'Énergie assignés sont redirigés vers le réacteur du vaisseau.",
   "YZECORIOLIS.InvalidEPPermissions": "Vous n'avez pas la permission de changer la distribution des PE du vaisseau.",

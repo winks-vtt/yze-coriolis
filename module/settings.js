@@ -67,4 +67,14 @@ export const registerSystemSettings = function () {
     },
     default: "all",
   });
+
+  game.settings.register("yzecoriolis", "DarknessPointsVisibility", {
+    name: game.i18n.localize("YZECORIOLIS.SettingDarknessPointsVisibility"),
+    hint: game.i18n.localize("YZECORIOLIS.SettingDarknessPointsVisibilityHint"),
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false,
+    onChange: debouncedReload,
+  });
 };
