@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.2.0...v3.3.0) (2023-05-19)
+
+
+### Features
+
+* add settings for DP-Display ([4bdb7a0](https://www.github.com/winks-vtt/yze-coriolis/commit/4bdb7a0294bce5eb32950fe7d1e838a557d3578b))
+
 ## [3.2.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.1.0...v3.2.0) (2023-05-19)
 
 
