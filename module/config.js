@@ -14,6 +14,8 @@ YZECORIOLIS.MaxEPTokensPerShip = 50; // internal use only for allocating EP toke
 
 YZECORIOLIS.DEFAULT_PLAYER_KEY_ART =
   "systems/yzecoriolis/css/images/unknown_player.png";
+YZECORIOLIS.DEFAULT_PLAYER_KEY_ART_TOKEN =
+  "systems/yzecoriolis/css/images/unknown_player_token.png";
 
 YZECORIOLIS.DEFAULT_SHIP_KEY_ART =
   "systems/yzecoriolis/css/icons/spaceship-keyart.svg";
@@ -101,7 +103,7 @@ YZECORIOLIS.itemTypes = {
   talent: "YZECORIOLIS.Talent",
   injury: "YZECORIOLIS.CriticalInjury",
 };
- // needed for some modules like Item Piles
+// needed for some modules like Item Piles
 CONFIG.Item.typeLabels = {
   weapon: "YZECORIOLIS.Weapon",
   armor: "YZECORIOLIS.Armor",

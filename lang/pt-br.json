@@ -207,7 +207,7 @@
 
   "YZECORIOLIS.TalentCatGroup": "Talentos de Grupo",
   "YZECORIOLIS.TalentCatIcon": "Talentos do Ícone",
-  "YZECORIOLIS.TalentCatGeneral": "Talentos Gerais", 
+  "YZECORIOLIS.TalentCatGeneral": "Talentos Gerais",
   "YZECORIOLIS.TalentCatHumanite": "Talentos Humanitas",
   "YZECORIOLIS.TalentCatCybernetic": "Implantes Cybernéticos",
   "YZECORIOLIS.TalentCatBionicSculpt": "Moldes Biônicos",
@@ -341,7 +341,6 @@
   "YZECORIOLIS.LongRange": "Longa",
   "YZECORIOLIS.ExtremeRange": "Extrema",
 
-  "YZECORIOLIS.MigratedDP": "Sistema de Pontos de Escuridão Migrado.",
   "YZECORIOLIS.HPBonus": "Bonus de PV",
   "YZECORIOLIS.MPBonus": "Bônus de PM",
   "YZECORIOLIS.Melee": "Corporal",
