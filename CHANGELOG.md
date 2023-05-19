@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.1.0...v3.2.0) (2023-05-19)
+
+
+### Features
+
+* migrated actor keyArt into standard image field. Allowing more compatibility with other modules in the FVTT ecosystem! ([9b8c63c](https://www.github.com/winks-vtt/yze-coriolis/commit/9b8c63c3a7122921e15ffb708c025333128ccd40))
+
 ## [3.1.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.0.12...v3.1.0) (2023-05-16)
 
 
