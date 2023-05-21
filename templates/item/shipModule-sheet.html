@@ -60,14 +60,18 @@
                     </select>
                 </div>
 
-                <div class="resource">
+                <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.Restricted"}}</label>
-                    <input type="checkbox" name="system.restricted" data-dtype="Boolean" {{checked system.restricted}} />
+                    <div style="margin-left: -1em;">
+                      <input type="checkbox" name="system.restricted" data-dtype="Boolean" {{checked system.restricted}} />
+                    </div>
                 </div>
 
-                <div class="resource">
+                <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.Enabled"}}</label>
-                    <input type="checkbox" name="system.enabled" data-dtype="Boolean" {{checked system.enabled}} />
+                    <div style="margin-left: -1em;">
+                      <input type="checkbox" name="system.enabled" data-dtype="Boolean" {{checked system.enabled}} />
+                    </div>
                 </div>
 
 

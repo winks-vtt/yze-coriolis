@@ -21,11 +21,10 @@ export async function coriolisModifierDialog(
 
   let content =
     (automaticWeapon
-      ? await renderTemplate(
-          "systems/yzecoriolis/templates/dialog/automatic-fire.html"
-        )
-      : "") +
-    `<p>${game.i18n.localize("YZECORIOLIS.ModifierForRollQuestion")}</p>`;
+      ? await renderTemplate("systems/yzecoriolis/templates/dialog/automatic-fire.html")
+      : ""
+    )
+    + `<h3>${game.i18n.localize("YZECORIOLIS.ModifierForRollQuestion")}</h3>`;
   let d = new Dialog({
     title: game.i18n.localize("YZECORIOLIS.ModifierForRoll"),
     content: content,
@@ -128,7 +127,9 @@ export async function coriolisModifierDialog(
       });
     },
     close: () => {},
-  });
+  },
+  { height: "max-content!important" }
+  );
   d.render(true);
 }
 
