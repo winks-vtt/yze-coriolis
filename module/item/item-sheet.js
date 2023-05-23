@@ -114,7 +114,7 @@ export class yzecoriolisItemSheet extends ItemSheet {
     const name = "";
     let itemModifiers = {};
     if (this.object.system.itemModifiers) {
-      itemModifiers= foundry.utils.deepClone(this.object.system.itemModifiers);
+      itemModifiers = foundry.utils.deepClone(this.object.system.itemModifiers);
     }
     let key = getID();
     itemModifiers["si" + key] = name;

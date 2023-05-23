@@ -1,5 +1,6 @@
 import { addDarknessPoints } from "./darkness-points.js";
 import { getDefaultItemIcon } from "./item/item.js";
+import { getID } from "./util.js";
 /**
  * Perform a system migration for the entire World, applying migrations for Actors, Items, and Compendium packs
  * @return {Promise}      A Promise which resolves once the migration is completed
@@ -321,5 +322,20 @@ const migrateDarknessPoints = async function () {
     ui.notifications.info(game.i18n.localize("YZECORIOLIS.MigratedDP"), {
       permanent: true,
     });
+  }
+};
+
+export const migrateTalentBonus = function(itemData) {
+  if (itemData.system.hpBonus) {
+    let keyHpMod = getID();
+    let nameHpMod = ["si" + keyHpMod];
+    itemData.update({"system.itemModifiers": {nameHpMod: {"mod": "ItemModifier.HP", "value": itemData.system.hpBonus}}});
+    itemData.update({"system.hpBonus": null});
+  }
+  if (itemData.system.mpBonus) {
+    let keyMpMod = getID();
+    let nameMpMod = ["si" + keyMpMod];
+    itemData.update({"system.itemModifiers": {nameMpMod: {"mod": "ItemModifier.MP", "value": itemData.system.mpBonus}}});
+    itemData.update({"system.mpBonus": null});
   }
 };

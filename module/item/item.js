@@ -1,4 +1,5 @@
 import { coriolisRoll, coriolisModifierDialog } from "../coriolis-roll.js";
+import { migrateTalentBonus } from "../migration.js";
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -20,6 +21,9 @@ export class yzecoriolisItem extends Item {
   // eslint-disable-next-line no-unused-vars
   _prepareTalentData(itemData) {
     // TODO: prep talent data
+
+    // Migrate HP & MP-Bonus to Modifiers
+    migrateTalentBonus(itemData);
   }
 
   async _preCreate(initData, options, user) {

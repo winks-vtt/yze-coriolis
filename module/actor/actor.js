@@ -88,8 +88,6 @@ export class yzecoriolisActor extends Actor {
       });
     }
 
-    let hpBonuses = this._prepHPBonuses();
-    let mpBonuses = this._prepMPBonuses();
     let hpModifcations = this._prepHPModifications();
     let mpModifcations = this._prepMPModifications();
     let radiationModifcations = this._prepRadiationModifications();
@@ -97,11 +95,9 @@ export class yzecoriolisActor extends Actor {
     let movementRateModifcations = this._prepMovementRateModifications();
     sysData.hitPoints.max = sysData.attributes.strength.value
       + sysData.attributes.agility.value
-      + hpBonuses
       + hpModifcations;
     sysData.mindPoints.max = sysData.attributes.wits.value
       + sysData.attributes.empathy.value
-      + mpBonuses
       + mpModifcations;
     sysData.radiation.max = sysData.radiation.max
       + radiationModifcations;
@@ -154,32 +150,6 @@ export class yzecoriolisActor extends Actor {
     }
 
     return chatOptions;
-  }
-
-  _prepHPBonuses() {
-    // look through talents for any HPBonuses
-    let bonus = 0;
-    for (let t of this.items) {
-      if (t.type !== "talent") {
-        continue;
-      }
-      const tData = t.system;
-      bonus += Number(tData.hpBonus);
-    }
-    return bonus;
-  }
-
-  _prepMPBonuses() {
-    // look through talents for any MPBonuses
-    let bonus = 0;
-    for (let t of this.items) {
-      if (t.type !== "talent") {
-        continue;
-      }
-      const tData = t.system;
-      bonus += Number(tData.mpBonus);
-    }
-    return bonus;
   }
 
   _prepHPModifications() {
