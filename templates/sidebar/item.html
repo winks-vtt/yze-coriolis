@@ -1,7 +1,7 @@
 <div class="yzecoriolis chat-item">
     <div class="header">
         <img src="{{icon}}" class="chat-item-img" title="{{localize (getItemTypeName item.type)}}">
-        <h3>{{item.name}}</h3>
+        <h3><strong>{{item.name}}</strong></h3>
 
         {{#if_eq item.type 'talent'}}
         <h4>[ {{localize (getTalentCategoryName item.system.category)}} ]</h4>
@@ -56,12 +56,6 @@
         {{#if item.system.cost}}
         <p><strong>{{localize "YZECORIOLIS.Cost"}} : </strong>{{item.system.cost}} {{localize "YZECORIOLIS.Birr"}}</p>
         {{/if}}
-        {{#if item.system.hpBonus}}
-        <p><strong>{{localize "YZECORIOLIS.HPBonus"}}: </strong>{{item.system.hpBonus}}</p>
-        {{/if}}
-        {{#if item.system.mpBonus}}
-        <p><strong>{{localize "YZECORIOLIS.MPBonus"}}: </strong>{{item.system.mpBonus}}</p>
-        {{/if}}
     </div>
     {{/if_eq}}
 
@@ -90,6 +84,29 @@
     </div>
     {{/if_eq}}
 
+    <!-- FEATURES -->
+    {{#if item.system.special}}
+      <strong style="border-bottom: 1px solid var(--color-underline-header);">{{localize "YZECORIOLIS.Special"}}</strong>
+      <ul>
+        {{#each item.system.special as |feature id|}}
+          <li data-item-id="{{id}}">{{feature}}</li>
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    <!-- ITEM-MODIFIERS -->
+    {{#if itemModifiers}}
+      <strong style="border-bottom: 1px solid var(--color-underline-header);">{{localize "YZECORIOLIS.ItemModifiers"}}</strong>
+      <ul>
+        {{#each itemModifiers as |itemModifier id|}}
+          <li data-item-id="{{id}}">{{localize (getItemModifierName mod)}}: {{value}}</li>
+        {{/each}}
+      </ul>
+    {{/if}}
+
     <!-- DESCRIPTION -->
-    {{{item.system.description}}}
+    {{#if item.system.description}}
+      <strong style="border-bottom: 1px solid var(--color-underline-header);">{{localize "YZECORIOLIS.Description"}}</strong>
+      {{{item.system.description}}}
+    {{/if}}
 </div>

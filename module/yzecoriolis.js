@@ -268,6 +268,10 @@ Hooks.once("init", async function () {
   Handlebars.registerHelper("AdditionalRollInfos", function () {
     return game.settings.get("yzecoriolis", "AdditionalRollInfos");
   });
+
+  Handlebars.registerHelper("getItemModifierName", function (mod) {
+    return CONFIG.YZECORIOLIS.itemModifierNames[mod];
+  });
 });
 
 // called after game data is loaded from severs. entities exist

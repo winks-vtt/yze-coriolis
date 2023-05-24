@@ -329,13 +329,13 @@ export const migrateTalentBonus = function(itemData) {
   if (itemData.system.hpBonus) {
     let keyHpMod = getID();
     let nameHpMod = ["si" + keyHpMod];
-    itemData.update({"system.itemModifiers": {nameHpMod: {"mod": "ItemModifier.HP", "value": itemData.system.hpBonus}}});
+    itemData.update({"system.itemModifiers": {nameHpMod: {"mod": "itemModifierHP", "value": itemData.system.hpBonus}}});
     itemData.update({"system.hpBonus": null});
   }
   if (itemData.system.mpBonus) {
     let keyMpMod = getID();
     let nameMpMod = ["si" + keyMpMod];
-    itemData.update({"system.itemModifiers": {nameMpMod: {"mod": "ItemModifier.MP", "value": itemData.system.mpBonus}}});
+    itemData.update({"system.itemModifiers": {nameMpMod: {"mod": "itemModifierMP", "value": itemData.system.mpBonus}}});
     itemData.update({"system.mpBonus": null});
   }
 };

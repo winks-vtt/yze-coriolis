@@ -101,7 +101,34 @@ YZECORIOLIS.itemTypes = {
   talent: "YZECORIOLIS.Talent",
   injury: "YZECORIOLIS.CriticalInjury",
 };
- // needed for some modules like Item Piles
+YZECORIOLIS.itemModifierNames = {
+  itemModifierAttrStrength: "YZECORIOLIS.AttrStrength",
+  itemModifierAttrAgility: "YZECORIOLIS.AttrAgility",
+  itemModifierAttrWits: "YZECORIOLIS.AttrWits",
+  itemModifierAttrEmpathy: "YZECORIOLIS.AttrEmpathy",
+  itemModifierSkillDex: "YZECORIOLIS.SkillDexterity",
+  itemModifierSkillForce: "YZECORIOLIS.SkillForce",
+  itemModifierSkillInf: "YZECORIOLIS.SkillInfiltration",
+  itemModifierSkillMan: "YZECORIOLIS.SkillManipulation",
+  itemModifierSkillMelee: "YZECORIOLIS.SkillMeleeCombat",
+  itemModifierSkillObs: "YZECORIOLIS.SkillObservation",
+  itemModifierSkillRange: "YZECORIOLIS.SkillRangedCombat",
+  itemModifierSkillSurv: "YZECORIOLIS.SkillSurvival",
+  itemModifierSkillCom: "YZECORIOLIS.SkillCommand",
+  itemModifierSkillCult: "YZECORIOLIS.SkillCulture",
+  itemModifierSkillData: "YZECORIOLIS.SkillDataDjinn",
+  itemModifierSkillMedi: "YZECORIOLIS.SkillMedicurgy",
+  itemModifierSkillMys: "YZECORIOLIS.SkillMysticPowers",
+  itemModifierSkillPil: "YZECORIOLIS.SkillPilot",
+  itemModifierSkillSci: "YZECORIOLIS.SkillScience",
+  itemModifierSkillTech: "YZECORIOLIS.SkillTechnology",
+  itemModifierHP: "YZECORIOLIS.HitPoints",
+  itemModifierMP: "YZECORIOLIS.MindPoints",
+  itemModifierRad: "YZECORIOLIS.Radiation",
+  itemModifierEnc: "YZECORIOLIS.Encumbrance",
+  itemModifierMR: "YZECORIOLIS.MovementRate",
+};
+// needed for some modules like Item Piles
 CONFIG.Item.typeLabels = {
   weapon: "YZECORIOLIS.Weapon",
   armor: "YZECORIOLIS.Armor",

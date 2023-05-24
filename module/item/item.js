@@ -116,6 +116,9 @@ export class yzecoriolisItem extends Item {
     const templateData = {
       item: foundry.utils.deepClone(this),
       icon: imgPath,
+      itemModifiers: this.system.itemModifiers
+        ? Object.values(this.system.itemModifiers)
+        : "",
     };
     const html = await renderTemplate(
       `systems/yzecoriolis/templates/sidebar/item.html`,

@@ -158,7 +158,7 @@ export class yzecoriolisActor extends Actor {
     for (let t of this.items) {
       const tData = t.system.itemModifiers;
       bonus += Number(Object.keys(tData).reduce((counter,x) => {
-        counter += (tData[x].mod === "ItemModifier.HP")
+        counter += (tData[x].mod === "itemModifierHP")
           ? tData[x].value
           : 0;
           return counter;
@@ -174,7 +174,7 @@ export class yzecoriolisActor extends Actor {
     for (let t of this.items) {
       const tData = t.system.itemModifiers;
       bonus += Number(Object.keys(tData).reduce((counter,x) => {
-        counter += (tData[x].mod === "ItemModifier.MP")
+        counter += (tData[x].mod === "itemModifierMP")
           ? tData[x].value
           : 0;
           return counter;
@@ -190,7 +190,7 @@ export class yzecoriolisActor extends Actor {
     for (let t of this.items) {
       const tData = t.system.itemModifiers;
       bonus += Number(Object.keys(tData).reduce((counter,x) => {
-        counter += (tData[x].mod === "ItemModifier.Rad")
+        counter += (tData[x].mod === "itemModifierRad")
           ? tData[x].value
           : 0;
           return counter;
@@ -206,7 +206,7 @@ export class yzecoriolisActor extends Actor {
     for (let t of this.items) {
       const tData = t.system.itemModifiers;
       bonus += Number(Object.keys(tData).reduce((counter,x) => {
-        counter += (tData[x].mod === "ItemModifier.Enc")
+        counter += (tData[x].mod === "itemModifierEnc")
           ? tData[x].value
           : 0;
           return counter;
@@ -222,7 +222,7 @@ export class yzecoriolisActor extends Actor {
     for (let t of this.items) {
       const tData = t.system.itemModifiers;
       bonus += Number(Object.keys(tData).reduce((counter,x) => {
-        counter += (tData[x].mod === "ItemModifier.MR")
+        counter += (tData[x].mod === "itemModifierMR")
           ? tData[x].value
           : 0;
           return counter;
