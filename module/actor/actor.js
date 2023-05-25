@@ -158,7 +158,7 @@ export class yzecoriolisActor extends Actor {
     for (let t of this.items) {
       const tData = t.system.itemModifiers;
       bonus += Number(Object.keys(tData).reduce((counter,x) => {
-        counter += (tData[x].mod === "itemModifierHP")
+        counter += (tData[x].mod === "itemModifierHP" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
           ? tData[x].value
           : 0;
           return counter;
@@ -174,7 +174,7 @@ export class yzecoriolisActor extends Actor {
     for (let t of this.items) {
       const tData = t.system.itemModifiers;
       bonus += Number(Object.keys(tData).reduce((counter,x) => {
-        counter += (tData[x].mod === "itemModifierMP")
+        counter += (tData[x].mod === "itemModifierMP" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
           ? tData[x].value
           : 0;
           return counter;
@@ -190,7 +190,7 @@ export class yzecoriolisActor extends Actor {
     for (let t of this.items) {
       const tData = t.system.itemModifiers;
       bonus += Number(Object.keys(tData).reduce((counter,x) => {
-        counter += (tData[x].mod === "itemModifierRad")
+        counter += (tData[x].mod === "itemModifierRad" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
           ? tData[x].value
           : 0;
           return counter;
@@ -206,7 +206,7 @@ export class yzecoriolisActor extends Actor {
     for (let t of this.items) {
       const tData = t.system.itemModifiers;
       bonus += Number(Object.keys(tData).reduce((counter,x) => {
-        counter += (tData[x].mod === "itemModifierEnc")
+        counter += (tData[x].mod === "itemModifierEnc" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
           ? tData[x].value
           : 0;
           return counter;
@@ -222,7 +222,7 @@ export class yzecoriolisActor extends Actor {
     for (let t of this.items) {
       const tData = t.system.itemModifiers;
       bonus += Number(Object.keys(tData).reduce((counter,x) => {
-        counter += (tData[x].mod === "itemModifierMR")
+        counter += (tData[x].mod === "itemModifierMR" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
           ? tData[x].value
           : 0;
           return counter;
