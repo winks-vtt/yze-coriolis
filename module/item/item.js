@@ -1,4 +1,5 @@
 import { coriolisRoll, coriolisModifierDialog } from "../coriolis-roll.js";
+import { migrateBlastPower } from "../migration.js";
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -15,6 +16,9 @@ export class yzecoriolisItem extends Item {
     // Get the Item's data
     const itemData = this;
     if (itemData.type === "talent") this._prepareTalentData(itemData);
+
+    // Migrate wrong blastPower-values
+    if (itemData.type === "weapon" && itemData.system.explosive) migrateBlastPower(itemData);
   }
 
   // eslint-disable-next-line no-unused-vars
