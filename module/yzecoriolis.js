@@ -24,6 +24,7 @@ import {
   showOnboardingMessage,
 } from "./onboarding.js";
 import { coriolisJournalSheet } from "./coriolisJournal.js";
+import { DarknessPointDisplay } from "./darkness-points.js";
 
 Hooks.once("init", async function () {
   console.log(`Coriolis | Initializing Coriolis\n${YZECORIOLIS.ASCII}`);
@@ -31,7 +32,7 @@ Hooks.once("init", async function () {
     yzecoriolisActor,
     yzecoriolisItem,
     rollItemMacro,
-    rollActorMacro,
+    rollActorMacro,				   
     config: YZECORIOLIS,
     migrations: migrations,
   };
@@ -91,6 +92,9 @@ Hooks.once("init", async function () {
 
   // register turn order changes. Currently it's sorting from high->low so no need to edit atm.
   //Combat.prototype.setupTurns = setupCoriolisTurns;
+
+  // Initialize Darkness Point Display
+  DarknessPointDisplay.initialize();
 
   Handlebars.registerHelper("concat", function () {
     var outStr = "";
@@ -368,22 +372,36 @@ Hooks.on("getSceneControlButtons", (controls) => {
       onClick: () => {
         displayDarknessPoints();
       },
+    },
+    {
+      name: "display",
+      title: "YZECORIOLIS.DarknessPointsControls",
+      icon: "fas fa-moon",
+      buttons: true,
+      visible: game.settings.get("yzecoriolis", "DarknessPointsVisibility")
+        ? true
+        : game.user.isGM,
+      onClick: () => {
+        DarknessPointDisplay.render();
+      },
     }
   );
 });
 
 Hooks.once("ready", async function () {
   // Determine whether a system migration is required and feasible
-  const currentVersion = game.settings.get(
+  const currentVersion = game.system.version;
+  const lastMigratedToVersion = game.settings.get(
     "yzecoriolis",
     "systemMigrationVersion"
   );
-  const NEEDS_MIGRATION_VERSION = "2.5.0";
+
+  const NEEDS_MIGRATION_AFTER_VERSION = "3.1.0";
   const COMPATIBLE_MIGRATION_VERSION = "1.4.7";
+
   let needMigration =
-    currentVersion &&
-    isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion) &&
-    currentVersion !== "0"; // zero means we just created a new world.
+    isNewerVersion(currentVersion, NEEDS_MIGRATION_AFTER_VERSION) &&
+    isNewerVersion(NEEDS_MIGRATION_AFTER_VERSION, lastMigratedToVersion);
 
   // Perform the migration
   if (needMigration && game.user.isGM) {
@@ -397,6 +415,7 @@ Hooks.once("ready", async function () {
     }
     await migrations.migrateWorld();
   }
+
   //bootstrapTalentCompendium();
   //bootstrapGearCompendium();
 
@@ -410,6 +429,10 @@ Hooks.once("ready", async function () {
 
   await importShipSheetTutorial();
   await showOnboardingMessage();
+});
+
+Hooks.on("updateUser", async () => {
+  DarknessPointDisplay.update();
 });
 
 Hooks.once("diceSoNiceReady", (dice3d) => {
@@ -527,4 +550,3 @@ function rollActorMacro(rollName, rollType) {
   
   return actor.roll(rollName, rollType, actor);
 }
-
