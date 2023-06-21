@@ -1,4 +1,11 @@
+//token_action_hud addition
+import { coriolisRoll, coriolisModifierDialog } from "../coriolis-roll.js";
 /**
+ * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
+ * @extends {Actor}
+ */
+ 
+ /**
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
@@ -182,4 +189,90 @@ export class yzecoriolisActor extends Actor {
     }
     return super.create(initData, options);
   }
+
+  //token_action_hud addition
+    async roll(skillName,inputRollType, actorData) {
+    //const item = this.actor.system.attributes.wits: null;
+	console.log('debug');
+	console.log(skillName);
+	console.log(inputRollType);
+    console.log(actorData.system);
+	const actor = actorData;
+	let attributeForSkill= 'wits';
+	switch (skillName){
+					  case 'technology' :
+					  case 'dataDjinn' :
+					  case 'science' :
+					  case 'medicurgy' :
+					  case 'observation' :
+					  case 'survival' :
+					  attributeForSkill= 'wits';
+					  break;
+					  case 'manipulation' :
+					  case 'command' : 
+					  case 'mysticPowers' :
+					  case 'culture' :
+					  attributeForSkill= 'empathy';
+					  break;
+					  case 'dexterity' :
+					  case 'infiltration' :
+					  case 'rangedCombat' :
+					  case 'pilot' :
+					  attributeForSkill= 'agility';
+					  break;
+					  case 'meleeCombat' :
+					  case 'force' :
+					  attributeForSkill= 'strength';
+					  break;
+					}
+	let rollData;
+	
+	switch (inputRollType) {
+			case 'attribute':
+                rollData = {
+				  actorType: actorData.type,
+				  rollType: inputRollType,
+				  attributeKey: skillName,
+				  attribute: actorData.system.attributes[skillName].value, 
+				  modifier: 0,
+				  bonus: 0,
+				  rollTitle: game.i18n.localize(`YZECORIOLIS.Attr${skillName.capitalize()}`)+' Roll', 
+				  pushed: false
+				};
+				break;
+			case 'general' :
+			case 'advanced' :
+                rollData = {
+					//{rollType, skill, attribute, modifier} rollData
+					//attributes[rollData.attributeKey]
+				  actorType: actorData.type,
+				  rollType: inputRollType,
+				  attributeKey: attributeForSkill,
+				  attribute: actorData.system.attributes[attributeForSkill].value, 
+			      skillKey: skillName.toLowerCase(),
+			      skill: actorData.system.skills[skillName.toLowerCase()].value,//dataset.skillkey ? actorData.skills[dataset.skillkey].value : 0,
+				  modifier: 0,
+				  bonus: 0,
+				  rollTitle: game.i18n.localize(`YZECORIOLIS.Skill${skillName.capitalize()}`)+' Roll', //import nice name
+				  pushed: false
+				  //features: item?.special ? Object.values(item.special).join(", ") : "",
+				};
+			break;
+			
+	}
+	
+    const chatOptions = actor._prepareChatRollOptions(
+      "systems/yzecoriolis/templates/sidebar/roll.html",
+     inputRollType
+    );
+
+    coriolisModifierDialog((modifier, additionalData) => {
+      rollData.modifier = modifier;
+      rollData.additionalData = additionalData;
+      coriolisRoll(chatOptions, rollData);
+    }, false);
+    
+  }
+  
+  
 }
