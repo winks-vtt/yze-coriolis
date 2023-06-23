@@ -334,3 +334,10 @@ export const migrateActorKeyArtIfNeeded = function (actor) {
     actor.update(createActorKeyArtUpdate(actor));
   }
 };
+
+export const migrateBlastPower = function(itemData) {
+  if (itemData.system.crit.blastPower) {
+    itemData.update({"system.blastPower": itemData.system.crit.blastPower});
+    itemData.update({"system.crit.blastPower": null});
+  }
+};

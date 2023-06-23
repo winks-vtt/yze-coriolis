@@ -92,15 +92,10 @@
                     <input type="checkbox" name="system.explosive" data-dtype="Boolean" {{checked system.explosive}} />
                 </div>
 
-                <div class="resource">
-                    <label class="resource-label">{{localize "YZECORIOLIS.Melee"}}</label>
-                    <input type="checkbox" name="system.melee" data-dtype="Boolean" {{checked system.melee}} />
-                </div>
-
                 {{#if system.explosive}}
                 <div class="resource numeric-input flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.BlastPower"}}</label>
-                    <input type="number" min="0" name="system.crit.blastPower" value="{{system.crit.blastPower}}"
+                    <input type="number" min="0" name="system.blastPower" value="{{system.blastPower}}"
                         data-dtype="Number" />
                 </div>
 
@@ -116,6 +111,10 @@
                 </div>
                 {{/if}}
 
+                <div class="resource">
+                    <label class="resource-label">{{localize "YZECORIOLIS.Melee"}}</label>
+                    <input type="checkbox" name="system.melee" data-dtype="Boolean" {{checked system.melee}} />
+                </div>
 
             </div>
         </div>
