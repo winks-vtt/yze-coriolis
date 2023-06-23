@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.3.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.3.0...v3.3.1) (2023-06-23)
+
+
+### Bug Fixes
+
+* group explosive properties together ([05b34b6](https://www.github.com/winks-vtt/yze-coriolis/commit/05b34b6f12fb4d3b53f63683dd162143363c8171))
+
 ## [3.3.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.2.0...v3.3.0) (2023-05-19)
 
 
