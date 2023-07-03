@@ -227,7 +227,7 @@ export async function coriolisPushRoll(chatMessage, origRollData, origRoll) {
 
     await showDiceSoNice(origRoll, chatMessage.rollMode);
     const result = evaluateCoriolisRoll(origRollData, origRoll);
-    await updateChatMessage(chatMessage, result, bonus);
+    await updateChatMessage(chatMessage, result, bonus, origRoll);
     if (origRollData.actorType === "npc") {
       await spendDarknessPoints(1);
     } else {
@@ -295,7 +295,6 @@ export function evaluateCoriolisRoll(rollData, roll) {
     criticalSuccess: successes >= 3,
     failure: isDesparation ? successes < 2 : successes === 0,
     rollData: rollData,
-    // roll: roll,
     pushed: rollData.pushed,
   };
 
@@ -375,10 +374,15 @@ async function showChatMessage(chatMsgOptions, resultData, roll) {
   return msg;
 }
 
-async function updateChatMessage(chatMessage, resultData, prayerBonus) {
+async function updateChatMessage(
+  chatMessage,
+  resultData,
+  prayerBonus,
+  origRoll
+) {
   let tooltip = await renderTemplate(
     "systems/yzecoriolis/templates/sidebar/dice-results.html",
-    getTooltipData(resultData)
+    getTooltipData(resultData, origRoll)
   );
   let chatData = {
     title: getRollTitle(resultData.rollData),
@@ -553,7 +557,8 @@ export async function coriolisChatListeners(html) {
       messageId = button.parents(".message").attr("data-message-id"),
       message = game.messages.get(messageId);
     let results = message.getFlag("yzecoriolis", "results");
-    coriolisPushRoll(message, results.rollData, message.roll);
+    let originalRoll = message.rolls[0]; // TODO: handle this in a safer manner.
+    coriolisPushRoll(message, results.rollData, originalRoll);
   });
 }
 /**
