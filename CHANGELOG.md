@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.4.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.3.1...v3.4.0) (2023-07-03)
+
+
+### Features
+
+* updated compatibility for Foundry v11 ([2eb57a6](https://www.github.com/winks-vtt/yze-coriolis/commit/2eb57a672145412b92b0a53272faac6694232d3e))
+
+
+### Bug Fixes
+
+* errors when doing standard rolls in v11 ([c302c50](https://www.github.com/winks-vtt/yze-coriolis/commit/c302c503899128baeba10195f6229499ec96d09e))
+* pushing rolls as GM or a player ([8576f7e](https://www.github.com/winks-vtt/yze-coriolis/commit/8576f7e3f152ffb0179340265fc3a770ff66f63e))
+* update gitignore ([aca5378](https://www.github.com/winks-vtt/yze-coriolis/commit/aca53785bbd82ca079caa3ccf441e6bebade267e))
+
 ### [3.3.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.3.0...v3.3.1) (2023-06-23)
 
 
