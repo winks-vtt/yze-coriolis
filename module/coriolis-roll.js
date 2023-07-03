@@ -189,7 +189,7 @@ export async function coriolisRoll(chatOptions, rollData) {
   await roll.evaluate({ async: false });
   await showDiceSoNice(roll, chatOptions.rollMode);
   const result = evaluateCoriolisRoll(rollData, roll);
-  await showChatMessage(chatOptions, result);
+  await showChatMessage(chatOptions, result, roll);
 }
 
 /**
@@ -295,7 +295,7 @@ export function evaluateCoriolisRoll(rollData, roll) {
     criticalSuccess: successes >= 3,
     failure: isDesparation ? successes < 2 : successes === 0,
     rollData: rollData,
-    roll: roll,
+    // roll: roll,
     pushed: rollData.pushed,
   };
 
@@ -326,10 +326,10 @@ function getTotalDice(rollData) {
   return 0;
 }
 
-async function showChatMessage(chatMsgOptions, resultData) {
+async function showChatMessage(chatMsgOptions, resultData, roll) {
   let tooltip = await renderTemplate(
     "systems/yzecoriolis/templates/sidebar/dice-results.html",
-    getTooltipData(resultData)
+    getTooltipData(resultData, roll)
   );
   let chatData = {
     title: getRollTitle(resultData.rollData),
@@ -366,7 +366,7 @@ async function showChatMessage(chatMsgOptions, resultData) {
   else if (chatMsgOptions.rollMode === "selfroll")
     chatMsgOptions["whisper"] = [game.user];
 
-  chatMsgOptions.roll = resultData.roll;
+  chatMsgOptions.roll = roll;
   const html = await renderTemplate(chatMsgOptions.template, chatData);
   chatMsgOptions["content"] = html;
   const msg = await ChatMessage.create(chatMsgOptions, false);
@@ -434,13 +434,13 @@ function getRollIconKey(rollData) {
   return icon ? CONFIG.YZECORIOLIS.icons[icon] : "";
 }
 
-function getTooltipData(results) {
+function getTooltipData(results, roll) {
   const rollData = {
-    formula: results.roll.formula,
+    formula: roll.formula,
     total: results.successes,
   };
   // Prepare dice parts
-  rollData["parts"] = results.roll.dice.map((d) => {
+  rollData["parts"] = roll.dice.map((d) => {
     let maxRoll = CONFIG.YZECORIOLIS.maxRoll;
     // Generate tooltip data
     return {
