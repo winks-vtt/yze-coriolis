@@ -9,5 +9,10 @@ module/foundry.js
 foundry.js
 foundry_07.js
 
+# foundry
+packs/ship-sheet-instructions/
+
 # OS
 .DS_Store
+.gitignore
+
