@@ -11,3 +11,9 @@ foundry_07.js
 
 # OS
 .DS_Store
+packs/ship-sheet-instructions/CURRENT
+.gitignore
+packs/ship-sheet-instructions/LOG
+packs/ship-sheet-instructions/LOCK
+packs/ship-sheet-instructions/000003.log
+packs/ship-sheet-instructions/MANIFEST-000002
