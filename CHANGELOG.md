@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.4.0...v3.5.0) (2024-01-23)
+
+
+### Features
+
+* added roll visibility to modifier dialog ([48d0494](https://www.github.com/winks-vtt/yze-coriolis/commit/48d04940ec7f7e1e9a5ab1496c3b9763be3f7ef0))
+
 ## [3.4.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.3.1...v3.4.0) (2023-07-03)
 
 
