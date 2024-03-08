@@ -386,6 +386,8 @@
   "YZECORIOLIS.SettingAdditionalRollInfosAll": "For all Characters",
   "YZECORIOLIS.SettingDarknessPointsVisibility": "Show Players DP",
   "YZECORIOLIS.SettingDarknessPointsVisibilityHint": "If this is enabled the Darkness Points will be displayed for the players in the Layer Controls.",
+  "YZECORIOLIS.SettingRollVisibility": "Change roll visibility via roll-dialog",
+  "YZECORIOLIS.SettingRollVisibilityHint": "If this is enabled, the kind of roll (public, private, blind or self) can be choosen from the roll-dialog. This may overwrite modules with the same functionality.",
 
   "YZECORIOLIS.EnergyPointsReset": "Energy Points previously assigned to crew returned to ship reactor.",
   "YZECORIOLIS.InvalidEPPermissions": "You do not have permission to change ship EP distribution.",

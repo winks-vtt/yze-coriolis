@@ -7,8 +7,9 @@ export async function coriolisModifierDialog(
   let automaticFire = false;
   let machineGunner = false;
   let highCapacity = false;
-  let rollMode = game.settings.get("core", "rollMode");
-  const callback = function (modifier) {
+  let rollVisibility = game.settings.get("yzecoriolis", "RollVisibility");
+  let rollMode = rollVisibility ? game.settings.get("core", "rollMode") : false;
+    const callback = function (modifier) {
     // eslint-disable-next-line no-unused-vars
     return function (html) {
       modifierCallback(modifier, {
@@ -22,9 +23,11 @@ export async function coriolisModifierDialog(
   };
 
   let content =
-    await renderTemplate(
-      "systems/yzecoriolis/templates/dialog/roll-visibility.html"
-    ) +
+    (rollVisibility
+      ? await renderTemplate(
+        "systems/yzecoriolis/templates/dialog/roll-visibility.html"
+        )
+      : "") +
     (automaticWeapon
       ? await renderTemplate(
           "systems/yzecoriolis/templates/dialog/automatic-fire.html"
@@ -115,11 +118,13 @@ export async function coriolisModifierDialog(
     },
     default: "zero",
     render: (html) => {
-      const rollModeSelect = document.getElementById("dialogRollModeId");
-      rollModeSelect.value = rollMode;
-      html.find("select[name='dialogRollMode']").change((ev) => {
-        rollMode = ev.target.value;
-      });
+      if (rollVisibility) {
+        const rollModeSelect = document.getElementById("dialogRollModeId");
+        rollModeSelect.value = rollMode;
+        html.find("select[name='dialogRollMode']").change((ev) => {
+          rollMode = ev.target.value;
+        });
+      }
       html.find("input[name='automaticFire']").click(() => {
         automaticFire = !automaticFire;
         if (automaticFire) {
@@ -180,7 +185,9 @@ export function coriolisPrayerModifierDialog(modifierCallback) {
  * @param  {} rollData contains all data necessary to make a roll in Coriolis.
  */
 export async function coriolisRoll(chatOptions, rollData) {
-  chatOptions.rollMode = rollData.additionalData?.rollMode || chatOptions.rollMode;
+  if (game.settings.get("yzecoriolis", "RollVisibility")) {
+    chatOptions.rollMode = rollData.additionalData?.rollMode || chatOptions.rollMode;
+  }
   let errorObj = { error: "YZECORIOLIS.ErrorsInvalidSkillRoll" };
   const isValid = isValidRoll(rollData, errorObj);
   if (!isValid) {
