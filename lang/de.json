@@ -48,7 +48,7 @@
   "YZECORIOLIS.Reputation": "Reputation",
   "YZECORIOLIS.Icon": "Ikone",
   "YZECORIOLIS.IconLadyOfTears": "Die Herrin der Tränen",
-  "YZECORIOLIS.IconDancer": "Die Tänzerin",
+  "YZECORIOLIS.IconDancer": "Der Tänzer",
   "YZECORIOLIS.IconGambler": "Der Spieler",
   "YZECORIOLIS.IconMerchant": "Der Händler",
   "YZECORIOLIS.IconDeckhand": "Der Deckarbeiter",
@@ -209,7 +209,7 @@
   "YZECORIOLIS.TalentCatIcon": "Ikonentalente",
   "YZECORIOLIS.TalentCatGeneral": "Allgemeine Talente",
   "YZECORIOLIS.TalentCatHumanite": "Humanitentalente",
-  "YZECORIOLIS.TalentCatCybernetic": "Kybernitische Implantate",
+  "YZECORIOLIS.TalentCatCybernetic": "Kybernetische Implantate",
   "YZECORIOLIS.TalentCatBionicSculpt": "Bionische Umformungen",
   "YZECORIOLIS.TalentCatMysticalPowers": "Mystische Kräfte",
 
@@ -246,7 +246,7 @@
   "YZECORIOLIS.TalentIconDeckhand": "Das Talent des Deckarbeiters",
   "YZECORIOLIS.TalentIconTraveler": "Das Talent des Reisenden",
   "YZECORIOLIS.TalentIconMessenger": "Das Talent des Boten",
-  "YZECORIOLIS.TalentIconJudge": "Das Talent des Richters",
+  "YZECORIOLIS.TalentIconJudge": "Das Talent der Richterin",
   "YZECORIOLIS.TalentIconFacelessOne": "Das Talent des Gesichtslosen",
 
   "YZECORIOLIS.TalentBlessing": "Segen",
