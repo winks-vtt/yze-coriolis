@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.6.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.5.0...v3.6.0) (2024-03-27)
+
+
+### Features
+
+* made roll visibility a system option ([e40df58](https://www.github.com/winks-vtt/yze-coriolis/commit/e40df58c4f05b060b146274c0c3f1797b1c1935b))
+
+
+### Bug Fixes
+
+* updated de localization ([bda14a9](https://www.github.com/winks-vtt/yze-coriolis/commit/bda14a91f7f6c08c56c3bd3d25dc44ac3ac5c5fb))
+
 ## [3.5.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.4.0...v3.5.0) (2024-01-23)
 
 
