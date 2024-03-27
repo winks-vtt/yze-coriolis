@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.5.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.5.0...v3.5.1) (2024-03-27)
+
+
+### Bug Fixes
+
+* updated de localization ([bda14a9](https://www.github.com/winks-vtt/yze-coriolis/commit/bda14a91f7f6c08c56c3bd3d25dc44ac3ac5c5fb))
+
 ## [3.5.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.4.0...v3.5.0) (2024-01-23)
 
 
