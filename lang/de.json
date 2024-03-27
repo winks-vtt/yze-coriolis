@@ -54,7 +54,7 @@
   "YZECORIOLIS.IconDeckhand": "Der Deckarbeiter",
   "YZECORIOLIS.IconTraveler": "Der Reisende",
   "YZECORIOLIS.IconMessenger": "Der Bote",
-  "YZECORIOLIS.IconJudge": "Der Richter",
+  "YZECORIOLIS.IconJudge": "Die Richterin",
   "YZECORIOLIS.IconFaceless": "Der Gesichtslose",
 
   "YZECORIOLIS.Background": "Hintergrund",
@@ -209,7 +209,7 @@
   "YZECORIOLIS.TalentCatIcon": "Ikonentalente",
   "YZECORIOLIS.TalentCatGeneral": "Allgemeine Talente",
   "YZECORIOLIS.TalentCatHumanite": "Humanitentalente",
-  "YZECORIOLIS.TalentCatCybernetic": "Kybernitische Implantate",
+  "YZECORIOLIS.TalentCatCybernetic": "Kybernetische Implantate",
   "YZECORIOLIS.TalentCatBionicSculpt": "Bionische Umformungen",
   "YZECORIOLIS.TalentCatMysticalPowers": "Mystische Kräfte",
 
@@ -246,7 +246,7 @@
   "YZECORIOLIS.TalentIconDeckhand": "Das Talent des Deckarbeiters",
   "YZECORIOLIS.TalentIconTraveler": "Das Talent des Reisenden",
   "YZECORIOLIS.TalentIconMessenger": "Das Talent des Boten",
-  "YZECORIOLIS.TalentIconJudge": "Das Talent des Richters",
+  "YZECORIOLIS.TalentIconJudge": "Das Talent der Richterin",
   "YZECORIOLIS.TalentIconFacelessOne": "Das Talent des Gesichtslosen",
 
   "YZECORIOLIS.TalentBlessing": "Segen",
