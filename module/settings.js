@@ -77,4 +77,14 @@ export const registerSystemSettings = function () {
     default: false,
     onChange: debouncedReload,
   });
+
+  game.settings.register("yzecoriolis", "RollVisibility", {
+    name: game.i18n.localize("YZECORIOLIS.SettingRollVisibility"),
+    hint: game.i18n.localize("YZECORIOLIS.SettingRollVisibilityHint"),
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+    onChange: debouncedReload,
+  });
 };
