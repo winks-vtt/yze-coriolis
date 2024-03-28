@@ -59,17 +59,17 @@
                     </select>
                 </div>
 
-                <div class="resource">
+                <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.Restricted"}}</label>
-                    <input type="checkbox" name="system.restricted" data-dtype="Boolean" {{checked system.restricted}} />
+                    <div style="margin-left: -1em;">
+                      <input type="checkbox" name="system.restricted" data-dtype="Boolean" {{checked system.restricted}} />
+                    </div>
                 </div>
-
 
                 <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.MoneyCost"}}</label>
                     <input type="text" name="system.cost" value="{{system.cost}}" data-dtype="Number" />
                 </div>
-
 
                 <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.Weight"}}</label>
@@ -82,14 +82,18 @@
                     </select>
                 </div>
 
-                <div class="resource">
+                <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.Automatic"}}</label>
-                    <input type="checkbox" name="system.automatic" data-dtype="Boolean" {{checked system.automatic}} />
+                    <div style="margin-left: -1em;">
+                      <input type="checkbox" name="system.automatic" data-dtype="Boolean" {{checked system.automatic}} />
+                    </div>
                 </div>
 
-                <div class="resource">
+                <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.Explosive"}}</label>
-                    <input type="checkbox" name="system.explosive" data-dtype="Boolean" {{checked system.explosive}} />
+                    <div style="margin-left: -1em;">
+                      <input type="checkbox" name="system.explosive" data-dtype="Boolean" {{checked system.explosive}} />
+                    </div>
                 </div>
 
                 {{#if system.explosive}}
@@ -111,13 +115,16 @@
                 </div>
                 {{/if}}
 
-                <div class="resource">
+                <div class="resource flexrow">
                     <label class="resource-label">{{localize "YZECORIOLIS.Melee"}}</label>
-                    <input type="checkbox" name="system.melee" data-dtype="Boolean" {{checked system.melee}} />
+                    <div style="margin-left: -1em;">
+                      <input type="checkbox" name="system.melee" data-dtype="Boolean" {{checked system.melee}} />
+                    </div>
                 </div>
 
             </div>
         </div>
+        {{> systems/yzecoriolis/templates/item/modifiers.html }}
         <div class="feature-section flexrow">
             <ol>
                 <li class="special-feature-header flexrow">

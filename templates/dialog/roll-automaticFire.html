@@ -1,0 +1,14 @@
+<div style="padding: 1em 1em;">
+  <h3>{{localize "YZECORIOLIS.AutomaticFire"}}</h3>
+  <input type='checkbox' name='automaticFire' {{#if automaticFire}}checked{{/if}} data-dtype='Boolean' />
+  <label style="position:relative; bottom:6px;">{{localize "YZECORIOLIS.AutomaticFire"}}</label>
+  {{#if automaticFire}}
+    <span style="position:relative; bottom:6px;">({{localize "YZECORIOLIS.AutomaticFireModifier"}})</span>
+    <br>
+    <input type='checkbox' name='machineGunner' {{#if machineGunner}}checked{{/if}} data-dtype='Boolean' />
+    <label style="position:relative; bottom:6px;">{{localize "YZECORIOLIS.Talent"}}: {{localize "YZECORIOLIS.TalentMachinegunner"}}?</label>
+    <br>
+    <input type='checkbox' name='highCapacity' {{#if highCapacity}}checked{{/if}} data-dtype='Boolean' />
+    <label style="position:relative; bottom:6px;">{{localize "YZECORIOLIS.Weapon"}}: {{localize "YZECORIOLIS.FeatureWeaponHighCapacity"}}?</label>
+  {{/if}}
+</div>

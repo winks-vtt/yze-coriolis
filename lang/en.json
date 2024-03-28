@@ -6,6 +6,7 @@
   "YZECORIOLIS.SheetNotes": "Notes",
   "YZECORIOLIS.Enabled": "Enabled",
   "YZECORIOLIS.Disabled": "Disabled",
+  "YZECORIOLIS.Other": "Other",
 
   "YZECORIOLIS.HitPoints": "Hit Points",
   "YZECORIOLIS.MindPoints": "Mind Points",
@@ -33,7 +34,7 @@
   "YZECORIOLIS.PrayToIcons": "Pray to the Icons",
   "YZECORIOLIS.PushedRoll": "Pushed Roll",
   "YZECORIOLIS.ModifierForRoll": "Modifier",
-  "YZECORIOLIS.ModifierForRollQuestion": "Enter the modifier for your roll",
+  "YZECORIOLIS.ModifierForRollQuestion": "Choose an additional modifier for your roll",
   "YZECORIOLIS.PrayerModifierForRollQuestion": "Enter the prayer modifier for your roll",
 
   "YZECORIOLIS.DarknessPointsControls": "Darkness Points Controls",
@@ -357,6 +358,10 @@
   "YZECORIOLIS.Signature": "Signature",
   "YZECORIOLIS.Problems": "Problems",
   "YZECORIOLIS.Cost": "Cost",
+  "YZECORIOLIS.Value": "Value",
+  "YZECORIOLIS.InitialDebt": "Initial Debt",
+  "YZECORIOLIS.PaidOff": "Paid Off",
+  "YZECORIOLIS.Balance": "Balance",
   "YZECORIOLIS.Speed": "Speed",
   "YZECORIOLIS.Crew": "Crew",
   "YZECORIOLIS.Feature": "Feature",
@@ -386,16 +391,23 @@
   "YZECORIOLIS.SettingAdditionalRollInfosAll": "For all Characters",
   "YZECORIOLIS.SettingDarknessPointsVisibility": "Show Players DP",
   "YZECORIOLIS.SettingDarknessPointsVisibilityHint": "If this is enabled the Darkness Points will be displayed for the players in the Layer Controls.",
+  "YZECORIOLIS.SettingRollVisibility": "Change roll visibility via roll-dialog",
+  "YZECORIOLIS.SettingRollVisibilityHint": "If this is enabled, the kind of roll (public, private, blind or self) can be choosen from the roll-dialog. This may overwrite modules with the same functionality.",
 
   "YZECORIOLIS.EnergyPointsReset": "Energy Points previously assigned to crew returned to ship reactor.",
   "YZECORIOLIS.InvalidEPPermissions": "You do not have permission to change ship EP distribution.",
   "YZECORIOLIS.InvalidCrewRollPermissions": "You do not have permissions to roll for this actor on this ship.",
+  "YZECORIOLIS.InvalidCrewRollPermissionsAny": "You do not have permissions to roll for any actor on this ship.",
+  "YZECORIOLIS.InvalidNoCrewMembers": "This ship has no Crew. You can't release a weapon without a Crew.",
+  "YZECORIOLIS.InvalidWeaponDisabled": "You can't use this weapon. It is disabled.",
 
   "YZECORIOLIS.ShipModuleRequired": "Required Module",
   "YZECORIOLIS.ShipModuleOptional": "Optional Module",
   "YZECORIOLIS.ShipModuleWeapon": "Weapon Module",
-  "YZECORIOLIS.EditModule": "Edit Module",
-  "YZECORIOLIS.DeleteModule": "Delete Module",
+  "YZECORIOLIS.ShipModuleState": "State",
+  "YZECORIOLIS.ShipEditModule": "Edit Module",
+  "YZECORIOLIS.ShipCreateModule": "Create Module",
+  "YZECORIOLIS.ShipDeleteModule": "Delete Module",
 
   "YZECORIOLIS.ShipFeature": "Feature",
   "YZECORIOLIS.NewShipFeature": "New Feature",
@@ -425,11 +437,22 @@
   "YZECORIOLIS.ItemDeleteConfirmationContent": "Are you sure you want to delete this item?",
   "YZECORIOLIS.AutomaticFire": "Automatic fire",
   "YZECORIOLIS.AutomaticFireModifier": "-2 modifier to your attack roll",
+  
   "YZECORIOLIS.RollTotal": "Total rolled",
   "YZECORIOLIS.RollSubstitute": "Desperation roll (2d6) instead of",
   "YZECORIOLIS.RollVisibility": "Roll Visibility",
   "YZECORIOLIS.PublicRoll": "Public Roll",
   "YZECORIOLIS.PrivateGMRoll": "Private GM Roll",
   "YZECORIOLIS.BlindGMRoll": "Blind GM Roll",
-  "YZECORIOLIS.SelfRoll": "Self Roll"
+  "YZECORIOLIS.SelfRoll": "Self Roll",
+
+  "YZECORIOLIS.ItemModifiers": "Modifiers",
+  "YZECORIOLIS.ItemModifiersOther": "Other Modifiers",
+  "YZECORIOLIS.ItemModifierCreate": "Create Modifier",
+  "YZECORIOLIS.ItemModifierDelete": "Delete Modifier",
+  "YZECORIOLIS.ItemModifierSelect": "Please, choose an Modifier.",
+  "YZECORIOLIS.ItemModifierValue": "Value of the Modifier",
+  "YZECORIOLIS.ItemModifierRollQuestion": "Other Modifiers",
+
+  "YZECORIOLIS.GunnerRollQuestion": "Who is releasing the weapon?"
 }

@@ -83,16 +83,21 @@ export class yzecoriolisActor extends Actor {
       });
     }
 
-    let hpBonuses = this._prepHPBonuses();
-    let mpBonuses = this._prepMPBonuses();
-    sysData.hitPoints.max =
-      sysData.attributes.strength.value +
-      sysData.attributes.agility.value +
-      hpBonuses;
-    sysData.mindPoints.max =
-      sysData.attributes.wits.value +
-      sysData.attributes.empathy.value +
-      mpBonuses;
+    let hpModifcations = this._prepHPModifications();
+    let mpModifcations = this._prepMPModifications();
+    let radiationModifcations = this._prepRadiationModifications();
+    let encumbranceModifcations = this._prepEncumbranceModifications();
+    let movementRateModifcations = this._prepMovementRateModifications();
+    sysData.hitPoints.max = sysData.attributes.strength.value
+      + sysData.attributes.agility.value
+      + hpModifcations;
+    sysData.mindPoints.max = sysData.attributes.wits.value
+      + sysData.attributes.empathy.value
+      + mpModifcations;
+    sysData.radiation.max = sysData.radiation.max
+      + radiationModifcations;
+    sysData.movementRateMods = movementRateModifcations;
+    sysData.encumbranceMods = encumbranceModifcations;
 
     if (sysData.hitPoints.value > sysData.hitPoints.max) {
       sysData.hitPoints.value = sysData.hitPoints.max;
@@ -100,6 +105,416 @@ export class yzecoriolisActor extends Actor {
     if (sysData.mindPoints.value > sysData.mindPoints.max) {
       sysData.mindPoints.value = sysData.mindPoints.max;
     }
+
+    // get the different modifiers and sort them into their attributes/skills
+    sysData.itemModifiers = {
+      strength: {},
+      agility: {},
+      wits: {},
+      empathy: {},
+      dexterity: {},
+      force: {},
+      infiltration: {},
+      manipulation: {},
+      meleeCombat: {},
+      observation: {},
+      rangedCombat: {},
+      survival: {},
+      command: {},
+      culture: {},
+      dataDjinn: {},
+      medicurgy: {},
+      mysticPowers: {},
+      pilot: {},
+      science: {},
+      technology: {},
+      armor: {},
+    };
+    for (let item of this.items) {
+      for (let key in item.system.itemModifiers) {
+        // everything with the strength-attribute
+        if (item.system.itemModifiers[key].mod === "itemModifierAttrStrength") {
+          sysData.itemModifiers.strength[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrStrength"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.force[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrStrength"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.meleeCombat[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrStrength"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillForce") {
+          sysData.itemModifiers.force[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrStrength"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillForce"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillMelee") {
+          sysData.itemModifiers.meleeCombat[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrStrength"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillMeleeCombat"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        // everything with the agility-attribute
+        if (item.system.itemModifiers[key].mod === "itemModifierAttrAgility") {
+          sysData.itemModifiers.agility[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.dexterity[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.infiltration[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.rangedCombat[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.pilot[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillDex") {
+          sysData.itemModifiers.dexterity[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillDexterity"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillInf") {
+          sysData.itemModifiers.infiltration[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillInfiltration"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillRange") {
+          sysData.itemModifiers.rangedCombat[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillRangedCombat"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillPil") {
+          sysData.itemModifiers.pilot[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillPilot"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        // everything with the wits-attribute
+        if (item.system.itemModifiers[key].mod === "itemModifierAttrWits") {
+          sysData.itemModifiers.wits[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.observation[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.survival[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.dataDjinn[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.medicurgy[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.science[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.technology[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillObs") {
+          sysData.itemModifiers.observation[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillObservation"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillSurv") {
+          sysData.itemModifiers.survival[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillSurvival"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillData") {
+          sysData.itemModifiers.dataDjinn[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillDataDjinn"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillMedi") {
+          sysData.itemModifiers.medicurgy[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillMedicurgy"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillSci") {
+          sysData.itemModifiers.science[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillScience"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillTech") {
+          sysData.itemModifiers.technology[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillTechnology"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        // everything with the empathy-attribute
+        if (item.system.itemModifiers[key].mod === "itemModifierAttrEmpathy") {
+          sysData.itemModifiers.empathy[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.manipulation[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.command[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.culture[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+          sysData.itemModifiers.mysticPowers[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillMan") {
+          sysData.itemModifiers.manipulation[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillManipulation"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillCom") {
+          sysData.itemModifiers.command[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillCommand"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillCult") {
+          sysData.itemModifiers.culture[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillCulture"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        if (item.system.itemModifiers[key].mod === "itemModifierSkillMys") {
+          sysData.itemModifiers.mysticPowers[key] = {
+            id: key,
+            name: item.name,
+            attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
+            skill: game.i18n.localize("YZECORIOLIS.SkillMysticPowers"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+        // other roll related modifiers
+        if (item.system.itemModifiers[key].mod === "itemModifierArmor") {
+          sysData.itemModifiers.armor[key] = {
+            id: key,
+            name: item.name,
+            attribute: null,
+            skill: null,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false
+          };
+        }
+      }
+    }
+
   }
 
   _prepareChatRollOptions(template, title) {
@@ -142,28 +557,82 @@ export class yzecoriolisActor extends Actor {
     return chatOptions;
   }
 
-  _prepHPBonuses() {
-    // look through talents for any HPBonuses
+  _prepHPModifications() {
+    // look through items for any HP-Modifications
     let bonus = 0;
     for (let t of this.items) {
-      if (t.type !== "talent") {
-        continue;
-      }
-      const tData = t.system;
-      bonus += Number(tData.hpBonus);
+      const tData = t.system.itemModifiers;
+      bonus += Number(Object.keys(tData).reduce((counter,x) => {
+        counter += (tData[x].mod === "itemModifierHP" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
+          ? tData[x].value
+          : 0;
+          return counter;
+        }
+      , 0));
     }
     return bonus;
   }
 
-  _prepMPBonuses() {
-    // look through talents for any MPBonuses
+  _prepMPModifications() {
+    // look through items for any MP-Modifications
     let bonus = 0;
     for (let t of this.items) {
-      if (t.type !== "talent") {
-        continue;
-      }
-      const tData = t.system;
-      bonus += Number(tData.mpBonus);
+      const tData = t.system.itemModifiers;
+      bonus += Number(Object.keys(tData).reduce((counter,x) => {
+        counter += (tData[x].mod === "itemModifierMP" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
+          ? tData[x].value
+          : 0;
+          return counter;
+        }
+      , 0));
+    }
+    return bonus;
+  }
+
+  _prepRadiationModifications() {
+    // look through items for any Radiation-Modifications
+    let bonus = 0;
+    for (let t of this.items) {
+      const tData = t.system.itemModifiers;
+      bonus += Number(Object.keys(tData).reduce((counter,x) => {
+        counter += (tData[x].mod === "itemModifierRad" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
+          ? tData[x].value
+          : 0;
+          return counter;
+        }
+      , 0));
+    }
+    return bonus;
+  }
+
+  _prepEncumbranceModifications() {
+    // look through items for any Encumbrance-Modifications
+    let bonus = 0;
+    for (let t of this.items) {
+      const tData = t.system.itemModifiers;
+      bonus += Number(Object.keys(tData).reduce((counter,x) => {
+        counter += (tData[x].mod === "itemModifierEnc" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
+          ? tData[x].value
+          : 0;
+          return counter;
+        }
+      , 0));
+    }
+    return bonus;
+  }
+
+  _prepMovementRateModifications() {
+    // look through items for any MovementRate-Modifications
+    let bonus = 0;
+    for (let t of this.items) {
+      const tData = t.system.itemModifiers;
+      bonus += Number(Object.keys(tData).reduce((counter,x) => {
+        counter += (tData[x].mod === "itemModifierMR" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
+          ? tData[x].value
+          : 0;
+          return counter;
+        }
+      , 0));
     }
     return bonus;
   }

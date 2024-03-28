@@ -1,5 +1,5 @@
-import { coriolisRoll, coriolisModifierDialog } from "../coriolis-roll.js";
-import { migrateBlastPower } from "../migration.js";
+import { CoriolisModifierDialog } from "../coriolisRollModifier.js";
+import { migrateBlastPower, migrateTalentBonus } from "../migration.js";
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -24,6 +24,9 @@ export class yzecoriolisItem extends Item {
   // eslint-disable-next-line no-unused-vars
   _prepareTalentData(itemData) {
     // TODO: prep talent data
+
+    // Migrate HP & MP-Bonus to Modifiers
+    migrateTalentBonus(itemData);
   }
 
   async _preCreate(initData, options, user) {
@@ -49,10 +52,23 @@ export class yzecoriolisItem extends Item {
     const skillKey = getSkillKeyForWeaponType(itemData.melee);
     const attributeKey = getAttributeKeyForWeaponType(itemData.melee);
     const rollType = getRollType(item.type);
+    
     let bonus = itemData.bonus ? Number(itemData.bonus) : 0;
     if (rollType === "armor") {
       bonus = itemData.armorRating;
     }
+    
+    let itemModifiers = {};
+    if (rollType === 'armor') {
+      itemModifiers = actorData.itemModifiers.armor;
+    } else {
+      if (actorData.itemModifiers[skillKey]) {
+        itemModifiers = actorData.itemModifiers[skillKey];
+      } else {
+        itemModifiers = actorData.itemModifiers[attributeKey];
+      }
+    }
+
     const rollData = {
       rollType: rollType,
       actorType: this.actor.type,
@@ -76,16 +92,13 @@ export class yzecoriolisItem extends Item {
       features: itemData.special
         ? Object.values(itemData.special).join(", ")
         : "",
+      itemModifiers: itemModifiers,
     };
     const chatOptions = this.actor._prepareChatRollOptions(
       "systems/yzecoriolis/templates/sidebar/roll.html",
       rollType
     );
-    coriolisModifierDialog((modifier, additionalData) => {
-      rollData.modifier = modifier;
-      rollData.additionalData = additionalData;
-      coriolisRoll(chatOptions, rollData);
-    }, itemData.automatic);
+    new CoriolisModifierDialog(rollData, chatOptions).render(true);
   }
 
   async getChatData(htmlOptions) {
@@ -116,6 +129,9 @@ export class yzecoriolisItem extends Item {
     const templateData = {
       item: foundry.utils.deepClone(this),
       icon: imgPath,
+      itemModifiers: this.system.itemModifiers
+        ? Object.values(this.system.itemModifiers)
+        : "",
     };
     const html = await renderTemplate(
       `systems/yzecoriolis/templates/sidebar/item.html`,

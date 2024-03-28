@@ -1,0 +1,19 @@
+<form class="flexcol">
+    {{#if rollVisibility}}
+        {{> systems/yzecoriolis/templates/dialog/roll-visibility.html }}
+    {{/if}}
+
+    {{#if gunnerToChoose}}
+        {{> systems/yzecoriolis/templates/dialog/roll-shipGunner.html }}
+    {{/if}}
+    
+    {{#if isAutomatic}}
+        {{> systems/yzecoriolis/templates/dialog/roll-automaticFire.html }}
+    {{/if}}
+
+    {{#if_objectNotEmpty itemModifiers}}
+        {{> systems/yzecoriolis/templates/dialog/roll-itemModifiers.html }}
+    {{/if_objectNotEmpty}}
+
+    {{> systems/yzecoriolis/templates/dialog/roll-modifiers.html }}
+</form>

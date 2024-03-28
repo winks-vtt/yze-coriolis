@@ -1,0 +1,16 @@
+<div class="yzecoriolis rollModifierDialog shipGunner" style="padding: 1em 1em;">
+  <h3>{{localize "YZECORIOLIS.GunnerRollQuestion"}}</h3>
+  <table style="border: 0; background: none; table-layout: fixed; width: fit-content;">
+    <tr>
+      {{#each gunnerList as |gunner|}}
+        <td style="vertical-align: top; display: inline-block; width: 7em;">
+          <label>
+            <input type="radio" name="gunnerChoosen" value={{gunner.id}} {{#if_eq ../gunnerChoosen gunner._id}}checked{{/if_eq}}>
+            <img src={{gunner.img}} alt={{gunner.name}}><br>
+            {{gunner.name}}
+          </label>
+        </td>
+      {{/each}}
+    </tr>
+  </table>
+</div>

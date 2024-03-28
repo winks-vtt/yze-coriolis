@@ -1,147 +1,5 @@
 import { addDarknessPoints, spendDarknessPoints } from "./darkness-points.js";
 
-export async function coriolisModifierDialog(
-  modifierCallback,
-  automaticWeapon = false
-) {
-  let automaticFire = false;
-  let machineGunner = false;
-  let highCapacity = false;
-  let rollMode = game.settings.get("core", "rollMode");
-  const callback = function (modifier) {
-    // eslint-disable-next-line no-unused-vars
-    return function (html) {
-      modifierCallback(modifier, {
-        automaticFire: automaticFire,
-        rollMode: rollMode,
-        machineGunner: machineGunner ? 1 : 0,
-        highCapacity: highCapacity ? 1 : 0,
-        numberOfIgnoredOnes: machineGunner + highCapacity,
-      });
-    };
-  };
-
-  let content =
-    await renderTemplate(
-      "systems/yzecoriolis/templates/dialog/roll-visibility.html"
-    ) +
-    (automaticWeapon
-      ? await renderTemplate(
-          "systems/yzecoriolis/templates/dialog/automatic-fire.html"
-        )
-      : "") +
-    `<p>${game.i18n.localize("YZECORIOLIS.ModifierForRollQuestion")}</p>`;
-  let d = new Dialog({
-    title: game.i18n.localize("YZECORIOLIS.ModifierForRoll"),
-    content: content,
-    buttons: {
-      nineMinus: {
-        label: "-9",
-        callback: callback(-9),
-      },
-      eightMinus: {
-        label: "-8",
-        callback: callback(-8),
-      },
-      sevenMinus: {
-        label: "-7",
-        callback: callback(-7),
-      },
-      sixMinus: {
-        label: "-6",
-        callback: callback(-6),
-      },
-      fiveMinus: {
-        label: "-5",
-        callback: callback(-5),
-      },
-      fourMinus: {
-        label: "-4",
-        callback: callback(-4),
-      },
-
-      threeMinus: {
-        label: "-3",
-        callback: callback(-3),
-      },
-      twoMinus: {
-        label: "-2",
-        callback: callback(-2),
-      },
-      oneMinus: {
-        label: "-1",
-        callback: callback(-1),
-      },
-      zero: {
-        label: "0",
-        callback: callback(0),
-      },
-      onePlus: {
-        label: "+1",
-        callback: callback(1),
-      },
-      twoPlus: {
-        label: "+2",
-        callback: callback(2),
-      },
-      threePlus: {
-        label: "+3",
-        callback: callback(3),
-      },
-      fourPlus: {
-        label: "+4",
-        callback: callback(4),
-      },
-      fivePlus: {
-        label: "+5",
-        callback: callback(5),
-      },
-      sixPlus: {
-        label: "+6",
-        callback: callback(6),
-      },
-      sevenPlus: {
-        label: "+7",
-        callback: callback(7),
-      },
-      eightPlus: {
-        label: "+8",
-        callback: callback(8),
-      },
-      ninePlus: {
-        label: "+9",
-        callback: callback(9),
-      },
-    },
-    default: "zero",
-    render: (html) => {
-      const rollModeSelect = document.getElementById("dialogRollModeId");
-      rollModeSelect.value = rollMode;
-      html.find("select[name='dialogRollMode']").change((ev) => {
-        rollMode = ev.target.value;
-      });
-      html.find("input[name='automaticFire']").click(() => {
-        automaticFire = !automaticFire;
-        if (automaticFire) {
-          html.find(".ignoredOnes").css({ display: "inline" });
-        } else {
-          html.find(".ignoredOnes").css({ display: "none" });
-        }
-      });
-
-      html.find("input[name='machineGunner']").click(() => {
-        machineGunner = !machineGunner;
-      });
-
-      html.find("input[name='highCapacity']").click(() => {
-        highCapacity = !highCapacity;
-      });
-    },
-    close: () => {},
-  });
-  d.render(true);
-}
-
 export function coriolisPrayerModifierDialog(modifierCallback) {
   let d = new Dialog(
     {
@@ -180,7 +38,6 @@ export function coriolisPrayerModifierDialog(modifierCallback) {
  * @param  {} rollData contains all data necessary to make a roll in Coriolis.
  */
 export async function coriolisRoll(chatOptions, rollData) {
-  chatOptions.rollMode = rollData.additionalData?.rollMode || chatOptions.rollMode;
   let errorObj = { error: "YZECORIOLIS.ErrorsInvalidSkillRoll" };
   const isValid = isValidRoll(rollData, errorObj);
   if (!isValid) {
@@ -192,9 +49,9 @@ export async function coriolisRoll(chatOptions, rollData) {
   if (totalDice <= 0) {
     totalDice = 2; // desparation roll where both will have to be successes to be considered a success.
   }
-  const automaticFire = rollData.additionalData?.automaticFire;
+  const automaticFire = rollData.automaticFire;
   const formula = automaticFire
-    ? createAutomaticFireFormula(totalDice, rollData.additionalData)
+    ? createAutomaticFireFormula(totalDice, rollData.numberOfIgnoredOnes)
     : `${totalDice}d6`;
   let roll = new Roll(formula);
   await roll.evaluate({ async: false });
@@ -316,22 +173,23 @@ function getTotalDice(rollData) {
   let attributeValue = rollData.attribute;
   let skillValue = rollData.skill;
   let modifier = rollData.modifier;
+  let itemModifierBonus = parseInt(getRollModifiersBonus(rollData));
   let bonus = rollData.bonus;
   switch (rollData.rollType) {
     case "general":
-      return attributeValue + skillValue + modifier;
+      return attributeValue + skillValue + modifier + itemModifierBonus;
     case "advanced":
-      return attributeValue + skillValue + modifier;
+      return attributeValue + skillValue + modifier + itemModifierBonus;
     case "attribute":
-      return attributeValue + modifier;
+      return attributeValue + modifier + itemModifierBonus;
     case "weapon":
-      if (rollData.additionalData.automaticFire) {
-        return attributeValue + skillValue + bonus + modifier - 2;
+      if (rollData.automaticFire) {
+        return attributeValue + skillValue + bonus + modifier + itemModifierBonus - 2;
       } else {
-        return attributeValue + skillValue + bonus + modifier;
+        return attributeValue + skillValue + bonus + modifier + itemModifierBonus;
       }
     case "armor":
-      return bonus + modifier;
+      return bonus + modifier + itemModifierBonus;
   }
   return 0;
 }
@@ -368,6 +226,8 @@ async function showChatMessage(chatMsgOptions, resultData, roll) {
     damageText: getRollDmgText(resultData.rollData),
     range: getRollRange(resultData.rollData),
     features: getRollFeatures(resultData.rollData),
+    itemModifiersBonus: getRollModifiersBonus(resultData.rollData),
+    itemModifiersChecked: getRollModifiersChecked(resultData.rollData),
   };
 
   if (["gmroll", "blindroll"].includes(chatMsgOptions.rollMode))
@@ -422,6 +282,8 @@ async function updateChatMessage(
     damageText: getRollDmgText(resultData.rollData),
     range: getRollRange(resultData.rollData),
     features: getRollFeatures(resultData.rollData),
+    itemModifiersBonus: getRollModifiersBonus(resultData.rollData),
+    itemModifiersChecked: getRollModifiersChecked(resultData.rollData),
   };
 
   return renderTemplate(
@@ -515,11 +377,11 @@ function getRollIsAuto(rollData) {
 }
 
 function getRollIsAutoActive(rollData) {
-  return `${rollData.additionalData?.automaticFire}`;
+  return `${rollData.automaticFire}`;
 }
 
 function getRollAutoIgnoOnes(rollData) {
-  return `${rollData.additionalData?.numberOfIgnoredOnes}`;
+  return `${rollData.numberOfIgnoredOnes}`;
 }
 
 function getRollIsExplosive(rollData) {
@@ -560,6 +422,30 @@ function getRollRange(rollData) {
 
 function getRollFeatures(rollData) {
   return `${rollData.features}`;
+}
+
+function getRollModifiersBonus(rollData) {
+  let bonus = 0;
+  for (const modifier in rollData.itemModifiers) {
+    if (rollData.itemModifiers[modifier].checked) {
+      bonus += rollData.itemModifiers[modifier].value;
+    }
+  }
+  return `${bonus}`;
+}
+
+function getRollModifiersChecked(rollData) {
+  let modifiersCheckedList = [];
+  for (const modifier in rollData.itemModifiers) {
+    if (rollData.itemModifiers[modifier].checked) {
+      let value = rollData.itemModifiers[modifier].value > 0
+        ? '+' + rollData.itemModifiers[modifier].value
+        : rollData.itemModifiers[modifier].value;
+      modifiersCheckedList.push(rollData.itemModifiers[modifier].name + ' (' + value + ')');
+    }
+  }
+  const modifiersChecked = modifiersCheckedList.join("\n")
+  return modifiersChecked;
 }
 
 export async function coriolisChatListeners(html) {
@@ -629,9 +515,9 @@ async function showDiceSoNice(roll, rollMode) {
  * until the first 1 result.
  */
 
-function createAutomaticFireFormula(totalDice, additionalData) {
+function createAutomaticFireFormula(totalDice, numberOfIgnoredOnes) {
   let formula = `${totalDice}d6`;
-  for (let i = 0; i <= additionalData.numberOfIgnoredOnes; i++) {
+  for (let i = 0; i <= numberOfIgnoredOnes; i++) {
     formula = formula + ", 1d6x>1";
   }
   return `{${formula}}`;

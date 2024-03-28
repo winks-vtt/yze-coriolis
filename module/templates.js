@@ -15,8 +15,15 @@ export const preloadHandlerbarsTemplates = async function () {
     "systems/yzecoriolis/templates/actor/parts/ship-critical-damage.html",
     "systems/yzecoriolis/templates/actor/parts/ship-problems.html",
     "systems/yzecoriolis/templates/actor/parts/ship-logbooks.html",
+    // partial item templates
+    "systems/yzecoriolis/templates/item/modifiers.html",
     // dialog templates
-    "systems/yzecoriolis/templates/dialog/automatic-fire.html",
+    "systems/yzecoriolis/templates/dialog/coriolis-roll.html",
+    "systems/yzecoriolis/templates/dialog/roll-visibility.html",
+    "systems/yzecoriolis/templates/dialog/roll-automaticFire.html",
+    "systems/yzecoriolis/templates/dialog/roll-itemModifiers.html",
+    "systems/yzecoriolis/templates/dialog/roll-shipGunner.html",
+    "systems/yzecoriolis/templates/dialog/roll-modifiers.html",
   ];
 
   return loadTemplates(templatePaths);
