@@ -2249,7 +2249,7 @@
   height: 25px;
   padding: 0px 35px 0px 10px;
   border: none;
-  background: url("icons/drop-down-arrow.svg") 6.4% no-repeat rgba(113, 130, 190, 0.44);
+  background: url("icons/drop-down-arrow.svg") 96% / 15% no-repeat rgba(113, 130, 190, 0.44);
   background-position: right 0.7em top 50%;
 }
 .yzecoriolis.sheet.actor .sheet-body .bio-stats .bio-block select:focus {
@@ -2475,7 +2475,7 @@
   margin-left: 32px;
   margin-right: 32px;
 }
-.yzecoriolis.sheet.actor .module-list .module-category-header {
+.yzecoriolis.sheet.actor .ship .module-list .module-category-header {
   font-family: "Cairo";
   color: white;
   border-radius: 3px;
@@ -2486,18 +2486,18 @@
   align-items: center;
   margin-top: 20px;
 }
-.yzecoriolis.sheet.actor .module-list .module-category-header:first-of-type {
+.yzecoriolis.sheet.actor .ship .module-list .module-category-header:first-of-type {
   margin-top: 0px;
 }
-.yzecoriolis.sheet.actor .module-list .module-category-name {
+.yzecoriolis.sheet.actor .ship .module-list .module-category-name {
   font-size: 14px;
   margin: 0px 0px 0px 5px;
   text-transform: uppercase;
 }
-.yzecoriolis.sheet.actor .module-list .module-category-name:first-of-type {
+.yzecoriolis.sheet.actor .ship .module-list .module-category-name:first-of-type {
   flex: 2.5 0 0;
 }
-.yzecoriolis.sheet.actor .module-list .module-controls {
+.yzecoriolis.sheet.actor .ship .module-list .module-controls {
   text-transform: uppercase;
   flex: 0 0 100px;
   margin-top: 2px;
@@ -2506,48 +2506,48 @@
   display: flex;
   justify-content: flex-end;
 }
-.yzecoriolis.sheet.actor .module-list .module-control-widget {
+.yzecoriolis.sheet.actor .ship .module-list .module-control-widget {
   color: #7182be;
   flex-basis: 20px;
   transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
 }
-.yzecoriolis.sheet.actor .module-list .module-control-widget a:hover {
+.yzecoriolis.sheet.actor .ship .module-list .module-control-widget a:hover {
   text-shadow: none;
 }
-.yzecoriolis.sheet.actor .module-list .module-control-widget:hover {
+.yzecoriolis.sheet.actor .ship .module-list .module-control-widget:hover {
   text-shadow: 0 0 5px #ff4500;
   color: white;
   transform: scale(1.05);
 }
-.yzecoriolis.sheet.actor .module-list .module-control-add-widget {
+.yzecoriolis.sheet.actor .ship .module-list .module-control-add-widget {
   color: #7182be;
   flex-basis: 20px;
   transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
   color: #9fb0ed;
   flex-basis: 100px;
 }
-.yzecoriolis.sheet.actor .module-list .module-control-add-widget a:hover {
+.yzecoriolis.sheet.actor .ship .module-list .module-control-add-widget a:hover {
   text-shadow: none;
 }
-.yzecoriolis.sheet.actor .module-list .module-control-add-widget:hover {
+.yzecoriolis.sheet.actor .ship .module-list .module-control-add-widget:hover {
   text-shadow: 0 0 5px #ff4500;
   color: white;
   transform: scale(1.05);
 }
-.yzecoriolis.sheet.actor .module-list .module {
+.yzecoriolis.sheet.actor .ship .module-list .module {
   align-items: center;
   font-family: "Cairo";
   color: white;
   margin-bottom: 2px;
 }
-.yzecoriolis.sheet.actor .module-list .module-bg {
+.yzecoriolis.sheet.actor .ship .module-list .module-bg {
   background-color: rgba(19, 27, 53, 0.45);
   border-radius: 3px;
   padding-left: 5px;
   padding-right: 5px;
   flex: 0 0 100%;
 }
-.yzecoriolis.sheet.actor .module-list .module-bg-weapon {
+.yzecoriolis.sheet.actor .ship .module-list .module-bg-weapon {
   background-color: rgba(19, 27, 53, 0.45);
   border-radius: 3px;
   padding-left: 5px;
@@ -2563,15 +2563,15 @@
     background-color: rgba(19, 27, 53, 0.45);
   }
 }
-.yzecoriolis.sheet.actor .module-list .module-bg:hover {
+.yzecoriolis.sheet.actor .ship .module-list .module-bg:hover {
   animation: flicker 1.2s;
   animation-fill-mode: forwards;
 }
-.yzecoriolis.sheet.actor .module-list .module-bg-weapon:hover {
+.yzecoriolis.sheet.actor .ship .module-list .module-bg-weapon:hover {
   animation: flicker 1.2s;
   animation-fill-mode: forwards;
 }
-.yzecoriolis.sheet.actor .module-list .module-name {
+.yzecoriolis.sheet.actor .ship .module-list .module-name {
   font-family: "Cairo-SemiBold";
   color: white;
   color: #ffa903;
@@ -2579,74 +2579,25 @@
   cursor: pointer;
   transition: transform 275ms ease;
 }
-.yzecoriolis.sheet.actor .module-list .module-name:first-of-type {
+.yzecoriolis.sheet.actor .ship .module-list .module-name:first-of-type {
   flex: 2.5 0 0;
 }
-.yzecoriolis.sheet.actor .module-list .module-name:hover {
+.yzecoriolis.sheet.actor .ship .module-list .module-name:hover {
   transform: translateX(5px);
 }
-.yzecoriolis.sheet.actor .module-list .module-row-data {
+.yzecoriolis.sheet.actor .ship .module-list .module-row-data {
   font-family: "Cairo";
   color: white;
   font-size: 14px;
   text-align: center;
 }
-.yzecoriolis.sheet.actor .module-list .item-summary-wrapper {
+.yzecoriolis.sheet.actor .ship .module-list .item-summary-wrapper {
   flex: 0 0 850px;
 }
-.yzecoriolis.sheet.actor .module-list .expanded {
+.yzecoriolis.sheet.actor .ship .module-list .expanded {
   height: auto;
 }
-.yzecoriolis.sheet.actor .ship .modules-panel .toggle-ship-module-button {
-  border: none;
-  border-radius: 3px;
-  background-color: #8e0707;
-  color: white;
-  font-family: "Cairo";
-  font-size: 14px;
-  font-weight: 700;
-  transition: background-color 275ms ease;
-  cursor: pointer;
-  width: 150px;
-}
-.yzecoriolis.sheet.actor .ship .modules-panel .toggle-ship-module-button:hover {
-  box-shadow: none;
-  background-color: #bf0909;
-}
-.yzecoriolis.sheet.actor .ship .modules-panel .toggle-ship-module-button.enabled {
-  background-color: #b1c343;
-  color: #081f43;
-}
-.yzecoriolis.sheet.actor .ship .modules-panel .toggle-ship-module-button.enabled:hover {
-  background-color: #c1cf6a;
-}
-.yzecoriolis.sheet.actor .ship .edit-widget {
-  color: #7182be;
-  flex-basis: 20px;
-  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
-}
-.yzecoriolis.sheet.actor .ship .edit-widget a:hover {
-  text-shadow: none;
-}
-.yzecoriolis.sheet.actor .ship .edit-widget:hover {
-  text-shadow: 0 0 5px #ff4500;
-  color: white;
-  transform: scale(1.05);
-}
-.yzecoriolis.sheet.actor .ship .modules-panel .item-properties {
-  flex: 1;
-  height: 35px;
-}
-.yzecoriolis.sheet.actor .ship .modules-panel .item-properties .tag {
-  font-family: "Cairo";
-  color: white;
-  font-size: 12px;
-  border-radius: 3px;
-  border: 1px solid #9fb0ed;
-  padding: 0 5px 0 5px;
-  margin: 0 0 0 5px;
-}
-.yzecoriolis.sheet.actor .module-list .weapon-img-container {
+.yzecoriolis.sheet.actor .ship .module-list .weapon-img-container {
   height: 42px;
   flex: 0 0 42px;
   border-radius: 22px;
@@ -2658,15 +2609,62 @@
   align-items: center;
   margin-right: 5px;
 }
-.yzecoriolis.sheet.actor .module-list .weapon-img-container.rollable {
+.yzecoriolis.sheet.actor .ship .module-list .weapon-img-container.rollable {
   transition: background-image 275ms ease, transform 275ms ease;
 }
-.yzecoriolis.sheet.actor .module-list .weapon-img-container.rollable:hover {
+.yzecoriolis.sheet.actor .ship .module-list .weapon-img-container.rollable:hover {
   background-image: url("icons/rolling-dices-orange.svg") !important;
   transform: scale(1.05);
 }
-
-
+.yzecoriolis.sheet.actor .modules-panel .toggle-ship-module-button {
+  border: none;
+  border-radius: 3px;
+  background-color: #8e0707;
+  color: white;
+  font-family: "Cairo";
+  font-size: 14px;
+  font-weight: 700;
+  transition: background-color 275ms ease;
+  cursor: pointer;
+  width: 150px;
+}
+.yzecoriolis.sheet.actor .modules-panel .toggle-ship-module-button:hover {
+  box-shadow: none;
+  background-color: #bf0909;
+}
+.yzecoriolis.sheet.actor .modules-panel .toggle-ship-module-button.enabled {
+  background-color: #b1c343;
+  color: #081f43;
+}
+.yzecoriolis.sheet.actor .modules-panel .toggle-ship-module-button.enabled:hover {
+  background-color: #c1cf6a;
+}
+.yzecoriolis.sheet.actor .modules-panel .item-properties {
+  flex: 1;
+  height: 35px;
+}
+.yzecoriolis.sheet.actor .modules-panel .item-properties .tag {
+  font-family: "Cairo";
+  color: white;
+  font-size: 12px;
+  border-radius: 3px;
+  border: 1px solid #9fb0ed;
+  padding: 0 5px 0 5px;
+  margin: 0 0 0 5px;
+}
+.yzecoriolis.sheet.actor .edit-widget {
+  color: #7182be;
+  flex-basis: 20px;
+  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+}
+.yzecoriolis.sheet.actor .edit-widget a:hover {
+  text-shadow: none;
+}
+.yzecoriolis.sheet.actor .edit-widget:hover {
+  text-shadow: 0 0 5px #ff4500;
+  color: white;
+  transform: scale(1.05);
+}
 .yzecoriolis.sheet.actor .feature-list {
   list-style: none;
   overflow-y: auto;
@@ -2895,9 +2893,6 @@
 .yzecoriolis.sheet.item .feature-section .special-feature-header .feature-controls a.feature-create {
   flex: 0 0 100%;
 }
-.yzecoriolis.sheet.item .feature-section .special-feature-header .feature-controls a.itemModifier-create {
-  flex: 0 0 100%;
-}
 .yzecoriolis.sheet.item .feature-section .special-feature-header .feature-name {
   text-align: center;
 }
@@ -2929,6 +2924,9 @@
   font-size: 12px;
   text-align: center;
   color: #7a7971;
+}
+.yzecoriolis.sheet.item .feature-section .feature-controls a .itemModifier-create {
+  flex: 0 0 100%;
 }
 .yzecoriolis.sheet.item .sheet-tabs {
   flex: 0;
@@ -3075,9 +3073,8 @@
   cursor: pointer;
   overflow: hidden;
 }
-
 /* Changes Radiobuttons to pictures für ship-gunner rolldialog */
-.yzecoriolis.rollModifierDialog.shipGunner [type=radio] { 
+.yzecoriolis.rollModifierDialog.shipGunner [type=radio] {
   position: absolute;
   opacity: 0;
   width: 0;

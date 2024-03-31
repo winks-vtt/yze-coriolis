@@ -608,9 +608,11 @@ export class yzecoriolisShipSheet extends ActorSheet {
       // toogle when features should (not) always be shown
       if (!game.settings.get("yzecoriolis", "AlwaysShowFeatures")) {
         let props = $(`<div class="item-properties"></div>`);
-        Object.keys(chatData.special).forEach(key=>{
-          props.append(`<span class="tag">${chatData.special[key]}</span>`)
-        });
+        if (chatData.special) {
+          Object.keys(chatData.special).forEach(key=>{
+            props.append(`<span class="tag">${chatData.special[key]}</span>`)
+          });
+        }
         $(div).find(".item-summary-wrapper").append(props);
       }
 
