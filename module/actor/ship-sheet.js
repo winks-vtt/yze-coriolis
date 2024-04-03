@@ -428,6 +428,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
       CONFIG.YZECORIOLIS.crewPositions[crewPosition.position];
     const skillKey = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
     const attributeKey = crewmate.system.skills[skillKey].attribute;
+    const itemModifiers = crewmate.system.itemModifiers[skillKey];
 
     // create a skill roll based off the crew's position.
     const rollData = {
@@ -440,7 +441,8 @@ export class yzecoriolisShipSheet extends ActorSheet {
         ? crewmate.system.attributes[attributeKey].value
         : 0,
       modifier: 0,
-      rollTitle: crewPositionName + " (" + shipName + ")",
+      itemModifiers: itemModifiers,
+      rollTitle: crewPositionName + " " + crewmate.name + "\n- " + shipName,
       pushed: false,
     };
     const chatOptions = crewEntity._prepareChatRollOptions(
@@ -454,10 +456,8 @@ export class yzecoriolisShipSheet extends ActorSheet {
     event.preventDefault();
 
     const element = event.currentTarget;
-    const dataset = element.dataset;
     const ship = this.actor;
     const shipId = ship._id;
-    const shipData = ship.system;
     const itemId = element.closest(".item")
       ? element.closest(".item").dataset.itemId
       : null;
@@ -507,6 +507,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
     let gunnerName = '';
     let gunnerAttribute = 0;
     let gunnerSkill = 0;
+    let gunnerItemModifiers = {};
     let gunnerToChoose = false;
     if (Object.keys(crewMembersControlled).length === 1) {
       const gunnerId = Object.keys(crewMembersControlled)[0];
@@ -514,6 +515,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
       gunnerName = crewMembersControlled[gunnerId].name;
       gunnerAttribute = crewMembersControlled[gunnerId].system.attributes.agility.value;
       gunnerSkill = crewMembersControlled[gunnerId].system.skills.rangedcombat.value;
+      gunnerItemModifiers = crewMembersControlled[gunnerId].system.itemModifiers.rangedcombat;
     } else if (Object.keys(crewMembersControlled).length > 1) {
       gunnerToChoose = true;
     }
@@ -547,6 +549,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
       ship: ship.name,
       crewMembersControlled: crewMembersControlled,
       gunnerToChoose: gunnerToChoose,
+      itemModifiers: gunnerItemModifiers,
     };
     const chatOptions = ship._prepareChatRollOptions(
       "systems/yzecoriolis/templates/sidebar/roll.html",

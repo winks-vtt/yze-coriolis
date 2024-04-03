@@ -2899,9 +2899,8 @@
 .yzecoriolis.sheet.item .feature-section .feature-controls {
   flex: 0 0 44px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: flex-end;
 }
 .yzecoriolis.sheet.item .feature-section .feature-controls > * {

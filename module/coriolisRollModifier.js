@@ -12,10 +12,14 @@ export class CoriolisModifierDialog extends FormApplication {
       this.machineGunner = rollData.machineGunner;
       this.highCapacity = rollData.highCapacity;
       this.shipGunner = rollData.shipGunner;
-      this.itemModifiers = rollData.itemModifiers;
       this.crewMembersControlled = rollData.crewMembersControlled;
-      this.gunnerChoosen = rollData.gunnerToChoose ? Object.keys(rollData.crewMembersControlled)[0] : null;
       this.gunnerToChoose = rollData.gunnerToChoose;
+      this.gunnerChoosen = rollData.gunnerToChoose
+        ? Object.keys(rollData.crewMembersControlled)[0]
+        : null;
+      this.itemModifiers = rollData.gunnerToChoose
+        ? this.crewMembersControlled[this.gunnerChoosen].system.itemModifiers.rangedcombat
+        : rollData.itemModifiers;
     }
   
     static get defaultOptions() {
@@ -73,6 +77,7 @@ export class CoriolisModifierDialog extends FormApplication {
       }
       if (event.currentTarget.name === "gunnerChoosen") {
         this.gunnerChoosen = event.currentTarget.value;
+        this.itemModifiers = this.crewMembersControlled[this.gunnerChoosen].system.itemModifiers.rangedcombat;
       }
       this.render();
     }
