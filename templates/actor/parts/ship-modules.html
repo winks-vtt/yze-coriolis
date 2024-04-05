@@ -1,132 +1,210 @@
 <div class="tab panel modules-panel" data-group="primary" data-tab="modules">
-  <div class="hStack modules-list">
-    {{#each modules as |module|}}
-      <div class="pt-10 pl-sm">
-        <div
-          class="module-panel vStack vStack-4 background-blue-7 rounded drop-shadow-2 pt-10 pr-10 pl-10"
-        >
-          {{! Module Name }}
-          <div class="hStack hStack-10 justify-space-between">
-            <label
-              title="{{module.name}}"
-              class="font-play text-md orange-1 text-center upper-case min-h-20 white-space-nowrap overflow-ellipsis"
-            >
-              {{module.name}}
-            </label>
-            {{! Controls }}
-            <div class="hStack justify-end hStack-10">
-              <a
-                class="edit-widget module-edit"
-                title="{{localize "YZECORIOLIS.EditModule"}}"
-                data-module={{module._id}}
-              >
-                <i class="fas fa-edit"></i>
+  <ol class="module-list">
+      {{!-- setup header for required modules --}}
+      <li class="module-category-header flexrow">
+          <span class="module-category-name flexrow">{{localize "YZECORIOLIS.ShipModuleRequired"}}</span>
+          <span class="module-category-name flexrow">{{localize "YZECORIOLIS.TechTier"}}</span>
+          <span class="module-category-name flexrow">{{localize "YZECORIOLIS.Bonus"}}</span>
+          <span class="module-category-name flexrow">{{localize "YZECORIOLIS.ShipModuleState"}}</span>
+          {{#if owner}}
+          <div class="module-controls">
+              <a class="module-control-add-widget module-create" title='{{localize "YZECORIOLIS.ShipCreateModule"}}'
+                  {{#each modulesList.required.dataset as |v k|}}
+                    data-{{k}}="{{v}}"
+                  {{/each}}>
+                  <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
               </a>
-              <a
-                class="edit-widget module-delete"
-                title="{{localize "YZECORIOLIS.DeleteModule"}}"
-                data-module={{module._id}}
-              >
-                <i class="fas fa-trash"></i>
+          </div>
+          {{/if}}
+      </li>
+      {{!-- show required modules --}}
+      {{#each modulesList.required.items as |module|}}
+          <li class="module item flexrow" data-item-id="{{module._id}}">
+              <div class="module-bg flickering flexrow">
+                  <div class="module-name expandable-info flexrow">
+                      <span class="module-name flexrow">{{module.name}}</span>
+                      <span class="module-name flexrow">{{getTechTierName module.system.techTier}}</span>
+                      <span class="module-name flexrow">{{module.system.bonus}}</span>
+                      <span>
+                        {{! Active Toggle }}
+                        <button type="button"
+                          class="toggle-ship-module toggle-ship-module-button {{module.enabledCSS}}"
+                          data-module={{module._id}}
+                          >
+                          {{#if module.system.enabled}}
+                            {{localize "YZECORIOLIS.Enabled"}}
+                          {{else}}
+                            {{localize "YZECORIOLIS.Disabled"}}
+                          {{/if}}
+                        </button>
+                      </span>
+                  </div>
+                  <div class="module-controls">
+                      <a class="edit-widget faded module-edit"
+                          title="{{localize "YZECORIOLIS.ShipEditModule"}}"
+                          data-module={{module._id}}>
+                          <i class="fas fa-edit"></i>
+                        </a>
+                      <a class="edit-widget faded module-delete"
+                          title="{{localize "YZECORIOLIS.ShipDeleteModule"}}"
+                          data-module={{module._id}}>
+                          <i class="fas fa-trash"></i>
+                        </a>
+                  </div>
+              </div>
+              {{!-- Show Fetaures --}}
+              {{#if (ShowFeatures)}}
+                {{#if (isNotEmpty module.system.special)}}
+                  <div class="module-bg flickering flexrow" style="border-top-left-radius: 0; border-top-right-radius: 0;">
+                    <div class="item-properties">
+                        {{#each module.system.special as |feature id|}}
+                        <span class="tag">{{feature}}</span>
+                        {{/each}}
+                    </div>
+                  </div>
+                {{/if}}
+              {{/if}}
+          </li>
+      {{/each}}
+
+      {{!-- setup header for optional modules --}}
+      <li class="module-category-header flexrow">
+          <span class="module-category-name flexrow">{{localize "YZECORIOLIS.ShipModuleOptional"}}</span>
+          <span class="module-category-name flexrow">{{localize "YZECORIOLIS.TechTier"}}</span>
+          <span class="module-category-name flexrow">{{localize "YZECORIOLIS.Bonus"}}</span>
+          <span class="module-category-name flexrow">{{localize "YZECORIOLIS.ShipModuleState"}}</span>
+          {{#if owner}}
+          <div class="module-controls">
+              <a class="module-control-add-widget module-create" title='{{localize "YZECORIOLIS.ShipCreateModule"}}'
+                  {{#each modulesList.optional.dataset as |v k|}}
+                    data-{{k}}="{{v}}"
+                  {{/each}}>
+                  <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
               </a>
-            </div>
           </div>
-          {{! Active Toggle }}
-          <button type="button"
-            class="toggle-ship-module toggle-ship-module-button
-              {{module.enabledCSS}}"
-            data-module={{module._id}}
-          >
-            {{#if module.system.enabled}}
-              {{localize "YZECORIOLIS.Enabled"}}
-            {{else}}
-              {{localize "YZECORIOLIS.Disabled"}}
-            {{/if}}
-          </button>
-          <div class="pt-10 flex1 vStack vStack-2 pb-10">
-            {{! Tech Tier }}
-            <div
-              class="hStack justify-space-between white-1 font-cairo text-md"
-            >
-              <div>
-                {{localize "YZECORIOLIS.TechTier"}}
+          {{/if}}
+      </li>
+      {{!-- show optional modules --}}
+      {{#each modulesList.optional.items as |module|}}
+          <li class="module item flexrow" data-item-id="{{module._id}}">
+              <div class="module-bg flickering flexrow">
+                  <div class="module-name expandable-info flexrow">
+                      <span class="module-name flexrow">{{module.name}}</span>
+                      <span class="module-name flexrow">{{getTechTierName module.system.techTier}}</span>
+                      <span class="module-name flexrow">{{module.system.bonus}}</span>
+                      <span>
+                        {{! Active Toggle }}
+                        <button type="button"
+                          class="toggle-ship-module toggle-ship-module-button {{module.enabledCSS}}"
+                          data-module={{module._id}}
+                          >
+                          {{#if module.system.enabled}}
+                            {{localize "YZECORIOLIS.Enabled"}}
+                          {{else}}
+                            {{localize "YZECORIOLIS.Disabled"}}
+                          {{/if}}
+                        </button>
+                      </span>
+                  </div>
+                  <div class="module-controls">
+                      <a class="edit-widget faded module-edit"
+                          title="{{localize "YZECORIOLIS.ShipEditModule"}}"
+                          data-module={{module._id}}>
+                          <i class="fas fa-edit"></i>
+                        </a>
+                      <a class="edit-widget faded module-delete"
+                          title="{{localize "YZECORIOLIS.ShipDeleteModule"}}"
+                          data-module={{module._id}}>
+                          <i class="fas fa-trash"></i>
+                        </a>
+                  </div>
               </div>
-              <div>
-                {{getTechTierName module.system.techTier}}
-              </div>
-            </div>
-            {{! Bonus }}
-            <div
-              class="hStack justify-space-between white-1 font-cairo text-md"
-            >
-              <div>
-                {{localize "YZECORIOLIS.Bonus"}}
-              </div>
-              <div>
-                {{module.system.bonus}}
-              </div>
-            </div>
-            {{#if_eq module.system.category "weapon"}}
-              {{! Range }}
-              <div
-                class="hStack justify-space-between white-1 font-cairo text-md"
-              >
-                <div>
-                  {{localize "YZECORIOLIS.Range"}}
-                </div>
-                <div>
-                  {{getShipRangeName module.system.range}}
-                </div>
-              </div>
-              {{! Damage }}
-              <div
-                class="hStack justify-space-between white-1 font-cairo text-md"
-              >
-                <div>
-                  {{localize "YZECORIOLIS.Damage"}}
-                </div>
-                <div>
-                  {{module.system.damage}}
-                </div>
-              </div>
-              {{! Critical }}
-              <div
-                class="hStack justify-space-between white-1 font-cairo text-md"
-              >
-                <div>
-                  {{localize "YZECORIOLIS.Crit"}}
-                </div>
-                {{! Need to check if we have numeric or string here for crit  }}
-                <div>
-                  {{getWeaponCritDisplay module.system.crit}}
-                </div>
-              </div>
-              {{! Quantity }}
-              <div
-                class="hStack justify-space-between white-1 font-cairo text-md"
-              >
-                <div>
-                  {{localize "YZECORIOLIS.Quantity"}}
-                </div>
-                {{! Need to check if we have numeric or string here for crit  }}
-                <div>
-                  {{!-- {{module.system.quantity}} --}}
-                  <input
-                    class="quantity-input"
-                    type="number"
-                    step="1"
-                    min="0"
-                    name="module.system.quantity"
-                    value="{{module.system.quantity}}"
-                    data-dtype="Number"
-                    data-module={{module._id}}
-                  />
-                </div>
-              </div>
-            {{/if_eq}}
+              {{!-- Show Fetaures --}}
+              {{#if (ShowFeatures)}}
+                {{#if (isNotEmpty module.system.special)}}
+                  <div class="module-bg flickering flexrow" style="border-top-left-radius: 0; border-top-right-radius: 0;">
+                    <div class="item-properties">
+                        {{#each module.system.special as |feature id|}}
+                        <span class="tag">{{feature}}</span>
+                        {{/each}}
+                    </div>
+                  </div>
+                {{/if}}
+              {{/if}}
+          </li>
+      {{/each}}
+
+      {{!-- setup header for weapon modules --}}
+      <li class="module-category-header flexrow">
+          <span class="module-category-name flexrow">{{localize "YZECORIOLIS.ShipModuleWeapon"}}</span>
+          <!-- <span class="module-category-name flexrow">{{localize "YZECORIOLIS.TechTier"}}</span> -->
+          <span class="module-category-name flexrow">{{localize "YZECORIOLIS.Bonus"}}</span>
+          <span class="module-category-name flexrow">{{localize "YZECORIOLIS.Damage"}}</span>
+          <span class="module-category-name flexrow">{{localize "YZECORIOLIS.Crit"}}</span>
+          <span class="module-category-name flexrow">{{localize "YZECORIOLIS.Range"}}</span>
+          <span class="module-category-name flexrow">{{localize "YZECORIOLIS.ShipModuleState"}}</span>
+          {{#if owner}}
+          <div class="module-controls">
+              <a class="module-control-add-widget module-create" title='{{localize "YZECORIOLIS.ShipCreateModule"}}'
+                  {{#each modulesList.weapon.dataset as |v k|}}
+                    data-{{k}}="{{v}}"
+                  {{/each}}>
+                  <i class="fas fa-plus"></i> {{localize "YZECORIOLIS.Add"}}
+              </a>
           </div>
-        </div>
-      </div>
-    {{/each}}
-  </div>
+          {{/if}}
+      </li>
+      {{!-- show weapon modules --}}
+      {{#each modulesList.weapon.items as |module|}}
+          <li class="module item flexrow" data-item-id="{{module._id}}">
+              <div class="module-bg-weapon flickering flexrow">
+                <div class="module-name expandable-info flexrow">
+                    <span class="module-name flexrow"><div class="weapon-img-container rollable module-roll" style="background-image: url({{module.img}})"></div> {{module.name}}</span>
+                    <!-- <span class="module-name flexrow">{{getTechTierName module.system.techTier}}</span> -->
+                    <span class="module-name flexrow">{{module.system.bonus}}</span>
+                    <span class="module-name flexrow">{{module.system.damage}}</span>
+                    <span class="module-name flexrow">{{getWeaponCritDisplay module.system.crit}}</span>
+                    <span class="module-name flexrow">{{getShipRangeName module.system.range}}</span>
+                </div>
+                <div class="module-controls">
+                  <span style="padding-right: 2em;">
+                    {{! Active Toggle }}
+                    <button type="button"
+                      class="toggle-ship-module toggle-ship-module-button {{module.enabledCSS}}"
+                      data-module={{module._id}}
+                      >
+                      {{#if module.system.enabled}}
+                        {{localize "YZECORIOLIS.Enabled"}}
+                      {{else}}
+                        {{localize "YZECORIOLIS.Disabled"}}
+                      {{/if}}
+                    </button>
+                  </span>
+                    <a class="edit-widget faded module-edit"
+                        title="{{localize "YZECORIOLIS.ShipEditModule"}}"
+                        data-module={{module._id}}>
+                        <i class="fas fa-edit"></i>
+                      </a>
+                    <a class="edit-widget faded module-delete"
+                        title="{{localize "YZECORIOLIS.ShipDeleteModule"}}"
+                        data-module={{module._id}}>
+                        <i class="fas fa-trash"></i>
+                      </a>
+                </div>
+              </div>
+              {{!-- Show Fetaures --}}
+              {{#if (ShowFeatures)}}
+                {{#if (isNotEmpty module.system.special)}}
+                  <div class="module-bg flickering flexrow" style="border-top-left-radius: 0; border-top-right-radius: 0;">
+                    <div class="item-properties">
+                        {{#each module.system.special as |feature id|}}
+                        <span class="tag">{{feature}}</span>
+                        {{/each}}
+                    </div>
+                  </div>
+                {{/if}}
+              {{/if}}
+          </li>
+      {{/each}}
+  </ol>
 </div>

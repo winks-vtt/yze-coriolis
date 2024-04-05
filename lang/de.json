@@ -6,6 +6,7 @@
   "YZECORIOLIS.SheetNotes": "Notizen",
   "YZECORIOLIS.Enabled": "Aktiviert",
   "YZECORIOLIS.Disabled": "Deaktiviert",
+  "YZECORIOLIS.Other": "Andere",
 
   "YZECORIOLIS.HitPoints": "Trefferpunkte",
   "YZECORIOLIS.MindPoints": "Willenskraftpunkte",
@@ -33,7 +34,7 @@
   "YZECORIOLIS.PrayToIcons": "Zu den Ikonen beten",
   "YZECORIOLIS.PushedRoll": "Wiederholter Wurf",
   "YZECORIOLIS.ModifierForRoll": "Modifikator",
-  "YZECORIOLIS.ModifierForRollQuestion": "Wähle den Modifikator des Würfelwurfs:",
+  "YZECORIOLIS.ModifierForRollQuestion": "Wähle weitere Modifikatoren des Würfelwurfs:",
   "YZECORIOLIS.PrayerModifierForRollQuestion": "Wähle den Gebetsmodifikator des Würfelwurfs:",
 
   "YZECORIOLIS.DarknessPointsControls": "Finsternispunkt-Management",
@@ -357,6 +358,10 @@
   "YZECORIOLIS.Signature": "Signatur",
   "YZECORIOLIS.Problems": "Probleme",
   "YZECORIOLIS.Cost": "Kosten",
+  "YZECORIOLIS.Value": "Wert",
+  "YZECORIOLIS.InitialDebt": "Urspr. Schulden",
+  "YZECORIOLIS.PaidOff": "Abgezahlt",
+  "YZECORIOLIS.Balance": "Saldo",
   "YZECORIOLIS.Speed": "Geschwindigkeit",
   "YZECORIOLIS.Crew": "Mannschaft",
   "YZECORIOLIS.Feature": "Merkmal",
@@ -385,19 +390,26 @@
   "YZECORIOLIS.SettingAdditionalRollInfosNPC": "Nur für Nicht-Spielercharaktere",
   "YZECORIOLIS.SettingAdditionalRollInfosAll": "Für alle Charaktere",
   "YZECORIOLIS.SettingDarknessPointsVisibility": "Zeige Spielern FP",
+
   "YZECORIOLIS.SettingDarknessPointsVisibilityHint": "Wenn aktiviert, wird den Spielern die Menge der Finsternispunkte in der Spielflächen-Steuerung angezeigt.",
+
   "YZECORIOLIS.SettingRollVisibility": "Sichtbarkeit des Wurfes im Dialog abfragen",
   "YZECORIOLIS.SettingRollVisibilityHint": "Wenn aktiviert kann man die Sichtbarkeit des Wurfes (öffentlich, privat-SL, verdeckt-SL oder privat) durch den Wurfdialog anpassen. Dies überschreibt Module mit ähnlichen Funktionen.",
 
   "YZECORIOLIS.EnergyPointsReset": "Zuvor der Mannschaft zu geordnete Leistungspunkte stehen dem Schiffsreaktor wieder zur Verfügung.",
   "YZECORIOLIS.InvalidEPPermissions": "Du hast keine Berechtigung die LP-Verteilung zu verändern.",
   "YZECORIOLIS.InvalidCrewRollPermissions": "Du hast auf diesem Schiff keine Berechtigung für diese Position zu würfeln.",
+  "YZECORIOLIS.InvalidCrewRollPermissionsAny": "Du hast keine Würfel-Berechtigungen zu auch nur einem der Crewmitglieder.",
+  "YZECORIOLIS.InvalidNoCrewMembers": "Das Schiff hat keine Besatzung. Ohne kannst du keine Waffen abfeuern.",
+  "YZECORIOLIS.InvalidWeaponDisabled": "Du kannst diese Waffe nicht verwenden. Sie ist deaktiviert.",
 
   "YZECORIOLIS.ShipModuleRequired": "Vorausgesetztes Modul",
   "YZECORIOLIS.ShipModuleOptional": "Optionales Modul",
   "YZECORIOLIS.ShipModuleWeapon": "Waffenmodul",
-  "YZECORIOLIS.EditModule": "Modul anpassen",
-  "YZECORIOLIS.DeleteModule": "Modul löschen",
+  "YZECORIOLIS.ShipModuleState": "Status",
+  "YZECORIOLIS.ShipEditModule": "Modul anpassen",
+  "YZECORIOLIS.ShipCreateModule": "Create Module",
+  "YZECORIOLIS.ShipDeleteModule": "Modul löschen",
 
   "YZECORIOLIS.ShipFeature": "Merkmal",
   "YZECORIOLIS.NewShipFeature": "Neues Merkmal",
@@ -427,11 +439,24 @@
   "YZECORIOLIS.ItemDeleteConfirmationContent": "Möchten Sie dieses Element wirklich löschen?",
   "YZECORIOLIS.AutomaticFire": "Automatisches Feuer",
   "YZECORIOLIS.AutomaticFireModifier": "Modifikator von -2 auf deinen Angriffswurf",
+
   "YZECORIOLIS.RollTotal": "Gesamtwurf",
   "YZECORIOLIS.RollSubstitute": "Verzweiflungswurf (2d6) anstatt",
   "YZECORIOLIS.RollVisibility": "Wurf Sichtbarkeit",
   "YZECORIOLIS.PublicRoll": "Öffentlicher Wurf",
   "YZECORIOLIS.PrivateGMRoll": "Privater SL-Wurf",
   "YZECORIOLIS.BlindGMRoll": "Verdeckter SL-Wurf",
-  "YZECORIOLIS.SelfRoll": "Privater Wurf"
+
+  "YZECORIOLIS.SelfRoll": "Privater Wurf",
+
+  "YZECORIOLIS.ItemModifiers": "Modifikatoren",
+  "YZECORIOLIS.ItemModifiersOther": "Andere Modifikatoren",
+  "YZECORIOLIS.ItemModifierCreate": "Modifikator einfügen",
+  "YZECORIOLIS.ItemModifierDelete": "Modifikator löschen",
+  "YZECORIOLIS.ItemModifierSelect": "Wähle bitte einen Modifikator.",
+  "YZECORIOLIS.ItemModifierValue": "Wert des Modifikators",
+  "YZECORIOLIS.ItemModifierRollQuestion": "Andere Andere Modifikatoren",
+
+  "YZECORIOLIS.GunnerRollQuestion": "Wer feuert die Waffe ab?"
+
 }

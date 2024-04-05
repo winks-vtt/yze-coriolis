@@ -18,10 +18,8 @@ import {
   onHoverBarOut,
   prepDataBarBlocks,
 } from "./databar.js";
-
 import { toggleShipModule } from "../item/ship-module.js";
-import { coriolisRoll } from "../coriolis-roll.js";
-import { coriolisModifierDialog } from "../coriolis-roll.js";
+import { CoriolisModifierDialog } from "../coriolisRollModifier.js";
 
 /**
  * Extend the basic ActorSheet for a basic Coriolis ship sheet
@@ -36,7 +34,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
       width: 1200,
       height: 880,
       scrollY: [
-        ".modules-panel .modules-list",
+        ".modules-panel .module-list",
         ".features-panel .feature-list",
         ".critical-damage-panel .feature-list",
         ".problems-panel .feature-list",
@@ -134,18 +132,32 @@ export class yzecoriolisShipSheet extends ActorSheet {
         crewSortingOrder[b.system.bio.crewPosition.position]
       );
     });
-    // to simplify referencing the modules we just take the data layer instead
-    // of the actual document.
+
+    // make a list of module catgeories
+    // sets the dataset for new modules
+    const modulesList = {};
+    for (let k of Object.keys(CONFIG.YZECORIOLIS.shipModuleCategories)) {
+      modulesList[k] = {
+        dataset: {
+          type: "shipModule",
+          defaultname: game.i18n.localize("NewShipModule"),
+          category: k,
+          enabled: true,
+        },
+        items: [],
+      };
+    }
+    // get modules
     const modules = getOwnedItemsByType(actor, "shipModule").map((m) => m);
-    // for dynamic css just attach css classes to the module we'll inject in
-    // various parts
+    // add modules to the category-list
     for (let m of modules) {
-      // enabledCSS used for toggle button
       m.enabledCSS = "";
       if (m.system.enabled) {
         m.enabledCSS = "enabled";
       }
+      modulesList[m.system.category].items.push(m);
     }
+
     const stats = {
       hullBlocks: prepDataBarBlocks(
         sysData.hullPoints.value,
@@ -156,7 +168,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
       // for the template, unlike the more simple hull points.
       currentShipEP: shipTokenCount,
       crew,
-      modules,
+      modulesList: modulesList,
       features: {
         dataset: {
           type: "shipFeature",
@@ -207,8 +219,9 @@ export class yzecoriolisShipSheet extends ActorSheet {
     html.find(".bar-segment").mouseenter(onHoverBarSegmentIn);
     html.find(".bar").mouseleave(onHoverBarOut);
 
-    // crew portrait rolling
+    // rolling
     html.find(".crew-portrait").click(this._onRollCrewPosition.bind(this));
+    html.find(".module-roll").click(this._onRollModuleWeapon.bind(this));
 
     // crew portrait hovering flourishes
     html
@@ -222,6 +235,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
       .find(".toggle-ship-module")
       .click(this._onClickToggleModule.bind(this));
 
+    html.find(".module-create").click(this._onClickCreateModule.bind(this));
     html.find(".module-edit").click(this._onClickEditModule.bind(this));
     html.find(".module-delete").click(this._onClickDeleteModule.bind(this));
 
@@ -233,24 +247,37 @@ export class yzecoriolisShipSheet extends ActorSheet {
     html
       .find(".expandable-info")
       .click((event) => this._onShipItemSummary(event));
-    // update gear quantity directly from sheet.
-    html
-      .find(".quantity-input")
-      .change(this._onModuleQuantityChanged.bind(this));
   }
 
-  async _onModuleQuantityChanged(event) {
+  _onClickCreateModule(event) {
     event.preventDefault();
-    const input = event.target;
-    const moduleId = input.dataset.module;
-    const item = this.actor.items.get(moduleId);
-    let value = input.value;
-    if (value < 0) {
-      value = 0;
+    const targetButton = event.currentTarget;
+    const type = targetButton.dataset.type;
+    const dataset = foundry.utils.deepClone(targetButton.dataset);
+    const name = dataset.defaultname;
+    let imgPath = "";
+    if (dataset.category === "weapon") {
+      imgPath = "systems/yzecoriolis/css/icons/weapons-icon.svg";
+    } else {
+      imgPath = "systems/yzecoriolis/css/icons/gear-icon.svg";
     }
-    return item.update({ "system.quantity": value });
-  }
+    // Prepare the item object.
+    const itemData = {
+      name: name,
+      type: type,
+      system: dataset,
+      img: imgPath,
+    };
 
+    // Remove the type from the dataset since it's in the itemData.type prop.
+    delete itemData.system["type"];
+    // no need to keep ahold of defaultname after creation.
+    delete itemData.system["defaultname"];
+
+    // Finally, create the item!
+    return this.actor.createEmbeddedDocuments("Item", [itemData]);
+  }
+  
   _onClickEditModule(event) {
     event.preventDefault();
     const targetButton = event.currentTarget;
@@ -401,6 +428,7 @@ export class yzecoriolisShipSheet extends ActorSheet {
       CONFIG.YZECORIOLIS.crewPositions[crewPosition.position];
     const skillKey = CONFIG.YZECORIOLIS.crewRolls[crewPosition.position];
     const attributeKey = crewmate.system.skills[skillKey].attribute;
+    const itemModifiers = crewmate.system.itemModifiers[skillKey];
 
     // create a skill roll based off the crew's position.
     const rollData = {
@@ -413,18 +441,121 @@ export class yzecoriolisShipSheet extends ActorSheet {
         ? crewmate.system.attributes[attributeKey].value
         : 0,
       modifier: 0,
-      rollTitle: crewPositionName + " (" + shipName + ")",
+      itemModifiers: itemModifiers,
+      rollTitle: crewPositionName + " " + crewmate.name + "\n- " + shipName,
       pushed: false,
     };
-
     const chatOptions = crewEntity._prepareChatRollOptions(
       "systems/yzecoriolis/templates/sidebar/roll.html",
       "skill"
     );
-    coriolisModifierDialog((modifier) => {
-      rollData.modifier = modifier;
-      coriolisRoll(chatOptions, rollData);
-    });
+    new CoriolisModifierDialog(rollData, chatOptions).render(true);
+  }
+
+  async _onRollModuleWeapon(event) {
+    event.preventDefault();
+
+    const element = event.currentTarget;
+    const ship = this.actor;
+    const shipId = ship._id;
+    const itemId = element.closest(".item")
+      ? element.closest(".item").dataset.itemId
+      : null;
+    const item = itemId ? ship.items.get(itemId).system : null;
+
+    // Check for crew members and permissions.
+    // Won't check for gunner-position as probably anyone from the crew will/can fight if problems arise.
+    let crewMembers = {};
+    let crewMembersControlled = {};
+    const isGM = game.user.isGM;
+    for (let actor of game.actors.contents) {
+      if ((actor.type === "character" || actor.type === "npc")
+        && shipId === actor.system.bio.crewPosition.shipId)
+        {
+          crewMembers[actor._id] = actor;
+          if (hasOwnerPermissionLevel(actor.permission)) {
+            crewMembersControlled[actor._id] = actor;
+          }
+      }
+    }
+    
+    // Nothing can be fired without a crew.
+    if (Object.keys(crewMembers).length < 1) {
+      ui.notifications.error(
+        game.i18n.localize("YZECORIOLIS.InvalidNoCrewMembers")
+      );
+      return;
+    }
+    // Check if the user has permission to at least one of the crewmembers.
+    // The GM can roll on any actor.
+    if (!isGM && (crewMembersControlled.length < 1)) {
+      ui.notifications.error(
+        game.i18n.localize("YZECORIOLIS.InvalidCrewRollPermissionsAny")
+      );
+      return;
+    }
+    // Check if a weapon is disabled.
+    if (!item.enabled) {
+      ui.notifications.error(
+        game.i18n.localize("YZECORIOLIS.InvalidWeaponDisabled")
+      );
+      return;
+    }
+
+    // Who is rolling?
+    let gunnerType = '';
+    let gunnerName = '';
+    let gunnerAttribute = 0;
+    let gunnerSkill = 0;
+    let gunnerItemModifiers = {};
+    let gunnerToChoose = false;
+    if (Object.keys(crewMembersControlled).length === 1) {
+      const gunnerId = Object.keys(crewMembersControlled)[0];
+      gunnerType = crewMembersControlled[gunnerId].type;
+      gunnerName = crewMembersControlled[gunnerId].name;
+      gunnerAttribute = crewMembersControlled[gunnerId].system.attributes.agility.value;
+      gunnerSkill = crewMembersControlled[gunnerId].system.skills.rangedcombat.value;
+      gunnerItemModifiers = crewMembersControlled[gunnerId].system.itemModifiers.rangedcombat;
+    } else if (Object.keys(crewMembersControlled).length > 1) {
+      gunnerToChoose = true;
+    }
+    
+    // create a skill roll based off the previous input.
+    const rollData = {
+      rollType: 'weapon',
+      actorType: gunnerType,
+      skillKey: 'rangedcombat',
+      skill: gunnerSkill,
+      attributeKey: 'agility',
+      attribute: gunnerAttribute,
+      modifier: 0,
+      bonus: item.bonus
+        ? item.bonus
+        : 0,
+      rollTitle: game.i18n.localize("YZECORIOLIS.CrewSpotGunner") + " " + gunnerName + "\n- " + ship.name,
+      pushed: false,
+      isAutomatic: false,
+      isExplosive: false,
+      blastPower: 0,
+      blastRadius: '',
+      damage: item.damage,
+      damageText: '',
+      range: item.range,
+      crit: item.crit?.numericValue,
+      critText: item.crit?.customValue,
+      features: item.special
+        ? Object.values(item.special).join(", ")
+        : "",
+      ship: ship.name,
+      crewMembersControlled: crewMembersControlled,
+      gunnerToChoose: gunnerToChoose,
+      itemModifiers: gunnerItemModifiers,
+    };
+    const chatOptions = ship._prepareChatRollOptions(
+      "systems/yzecoriolis/templates/sidebar/roll.html",
+      "weapon"
+    );
+    new CoriolisModifierDialog(rollData, chatOptions).render(true);
   }
 
   _onHoverInCrewPortrait(event) {
@@ -477,9 +608,17 @@ export class yzecoriolisShipSheet extends ActorSheet {
       let div = $(
         `<div class="item-summary"><div class="item-summary-wrapper"><div>${chatData.description}</div></div></div>`
       );
-      let props = $(`<div class="item-properties"></div>`);
+      // toogle when features should (not) always be shown
+      if (!game.settings.get("yzecoriolis", "AlwaysShowFeatures")) {
+        let props = $(`<div class="item-properties"></div>`);
+        if (chatData.special) {
+          Object.keys(chatData.special).forEach(key=>{
+            props.append(`<span class="tag">${chatData.special[key]}</span>`)
+          });
+        }
+        $(div).find(".item-summary-wrapper").append(props);
+      }
 
-      $(div).find(".item-summary-wrapper").append(props);
       li.append(div.hide());
       div.slideDown(200);
     }

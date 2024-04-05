@@ -26,29 +26,18 @@
                     </select>
                 </div>
                 {{/if_eq}}
-                {{!-- Edit HP Bonus for this talent --}}
-                <div class="resource flexrow">
-                    <label class="cost-label flexrow">{{localize "YZECORIOLIS.HPBonus"}}</label>
-                    <input class="cost-input flexrow" type="text" name="system.hpBonus" value="{{system.hpBonus}}"
-                        data-dtype="Number" />
-                </div>
-                {{!-- Edit MP Bonus for this talent --}}
-                <div class="resource flexrow">
-                    <label class="cost-label flexrow">{{localize "YZECORIOLIS.MPBonus"}}</label>
-                    <input class="cost-input flexrow" type="text" name="system.mpBonus" value="{{system.mpBonus}}"
-                        data-dtype="Number" />
-                </div>
                 {{!-- Display the cost if it has any --}}
                 {{#talentHasCost system.category}}
                 <div class="flexrow">
                     <label class="cost-label flexrow">{{localize "YZECORIOLIS.MoneyCost"}}</label>
                     <input class="cost-input flexrow" type="text" name="system.cost" value="{{system.cost}}"
                         data-dtype="Number" />
-                    <label class="cost-currency-label flexrow">{{localize "YZECORIOLIS.Birr"}}</label>
+                        <label class="cost-currency-label flexrow" style="padding-left: 0.5em;">{{localize "YZECORIOLIS.Birr"}}</label>
                 </div>
                 {{/talentHasCost}}
             </div>
         </div>
+        {{> systems/yzecoriolis/templates/item/modifiers.html }}
     </header>
 
     {{!-- Sheet Tab Navigation --}}

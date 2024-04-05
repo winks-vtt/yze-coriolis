@@ -1331,70 +1331,233 @@
       padding-top: 14px;
     }
 
-    .modules-list {
+    .module-list {
       list-style: none;
       overflow-y: auto;
-      max-height: 310px;
-      flex-wrap: wrap;
-      padding-bottom: 10px;
-    }
+      max-height: 275px;
+      padding: 0 5px 0 0;
+      margin-top: 24px;
+      margin-left: 32px;
+      margin-right: 32px;
 
-    .module-panel {
-      width: 170px;
-      height: 290px;
-      flex-basis: 170px;
-      flex-grow: 0;
-
-      .toggle-ship-module-button {
-        border: none;
-        border-radius: 3px;
-        background-color: @colorRadiationRollOverIncrease;
-        color: @colorWhite;
+      .module-category-header {
         font-family: "Cairo";
+        color: white;
+        border-radius: 3px;
+        background-color: rgba(113, 130, 190, 0.44);
+        height: 24px;
+        margin-bottom: 5px;
+        align-content: center;
+        align-items: center;
+        margin-top: 20px;
+      }
+      
+      .module-category-header:first-of-type {
+        margin-top: 0px;
+      }
+      
+      .module-category-name {
         font-size: 14px;
-        font-weight: 700;
-        transition: background-color 275ms ease;
-        cursor: pointer;
-
-        &:hover {
-          box-shadow: none;
-          background-color: lighten(@colorRadiationRollOverIncrease, 10%);
-        }
-
-        &.enabled {
-          background-color: @colorRadiationFill;
-          color: @colorDarkerBlue;
-
-          &:hover {
-            background-color: lighten(@colorRadiationFill, 10%);
-          }
-        }
+        margin: 0px 0px 0px 5px;
+        text-transform: uppercase;
       }
-
-      .quantity-input {
-        .player-text();
-        font-size: 16px;
-        font-weight: 700;
-        box-shadow: none;
-        border: none;
-        background-color: @colorTransparent;
+      
+      .module-category-name:first-of-type {
+        flex: 2.5 0 0;
+      }
+      
+      .module-controls {
+        text-transform: uppercase;
+        flex: 0 0 100px;
+        margin-top: 2px;
         text-align: right;
-        width: 50px;
-        padding: 0px;
+        margin-right: 7px;
+        display: flex;
+        justify-content: flex-end;
+      }
+      
+      .module-control-widget {
+        color: #7182be;
+        flex-basis: 20px;
+        transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+      }
+      
+      .module-control-widget a:hover {
+        text-shadow: none;
+      }
+      
+      .module-control-widget:hover {
+        text-shadow: 0 0 5px #ff4500;
+        color: white;
+        transform: scale(1.05);
+      }
+      
+      .module-control-add-widget {
+        color: #7182be;
+        flex-basis: 20px;
+        transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+        color: #9fb0ed;
+        flex-basis: 100px;
+      }
+      
+      .module-control-add-widget a:hover {
+        text-shadow: none;
+      }
+      
+      .module-control-add-widget:hover {
+        text-shadow: 0 0 5px #ff4500;
+        color: white;
+        transform: scale(1.05);
+      }
+      
+      .module {
+        align-items: center;
+        font-family: "Cairo";
+        color: white;
+        margin-bottom: 2px;
+      }
+      
+      .module-bg {
+        background-color: rgba(19, 27, 53, 0.45);
+        border-radius: 3px;
+        padding-left: 5px;
+        padding-right: 5px;
+        flex: 0 0 100%;
+      }
+      
+      .module-bg-weapon {
+        background-color: rgba(19, 27, 53, 0.45);
+        border-radius: 3px;
+        padding-left: 5px;
+        padding-right: 5px;
+        flex: 0 0 100%;
+        padding: 5px;
+      }
+      @keyframes flicker {
+        0% {
+          background-color: rgba(59, 84, 166, 0.45);
+        }
+        100% {
+          background-color: rgba(19, 27, 53, 0.45);
+        }
+      }
+      
+      .module-bg:hover {
+        animation: flicker 1.2s;
+        animation-fill-mode: forwards;
+      }
+      
+      .module-bg-weapon:hover {
+        animation: flicker 1.2s;
+        animation-fill-mode: forwards;
+      }
+      
+      .module-name {
+        font-family: "Cairo-SemiBold";
+        color: white;
+        color: #ffa903;
+        font-size: 15px;
+        cursor: pointer;
+        transition: transform 275ms ease;
+      }
+      
+      .module-name:first-of-type {
+        flex: 2.5 0 0;
+      }
+      
+      .module-name:hover {
+        transform: translateX(5px);
+      }
+      
+      .module-row-data {
+        font-family: "Cairo";
+        color: white;
+        font-size: 14px;
+        text-align: center;
+      }
+      
+      .item-summary-wrapper {
+        flex: 0 0 850px;
+      }
+      
+      .expanded {
+        height: auto;
+      }
+    
+      .weapon-img-container {
+        height: 42px;
+        flex: 0 0 42px;
+        border-radius: 22px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 5px;
       }
 
-      input[type="number"]::-webkit-inner-spin-button,
-      input[type="number"]::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
+      .weapon-img-container.rollable {
+        transition: background-image 275ms ease, transform 275ms ease;
       }
+      
+      .weapon-img-container.rollable:hover {
+        background-image: url("icons/rolling-dices-orange.svg") !important;
+        transform: scale(1.05);
+      }
+    
+    }
+  }
+
+  .modules-panel {
+
+    .toggle-ship-module-button {
+      border: none;
+      border-radius: 3px;
+      background-color: #8e0707;
+      color: white;
+      font-family: "Cairo";
+      font-size: 14px;
+      font-weight: 700;
+      transition: background-color 275ms ease;
+      cursor: pointer;
+      width: 150px;
     }
 
-    .edit-widget {
-      color: @colorDarkBlue;
-      flex-basis: 20px;
-      .hover-header-buttons();
+    .toggle-ship-module-button:hover {
+      box-shadow: none;
+      background-color: #bf0909;
     }
+
+    .toggle-ship-module-button.enabled {
+      background-color: #b1c343;
+      color: #081f43;
+    }
+
+    .toggle-ship-module-button.enabled:hover {
+      background-color: #c1cf6a;
+    }
+
+    .item-properties {
+      flex: 1;
+      height: 35px;
+    }
+    
+    .item-properties .tag {
+      font-family: "Cairo";
+      color: white;
+      font-size: 12px;
+      border-radius: 3px;
+      border: 1px solid #9fb0ed;
+      padding: 0 5px 0 5px;
+      margin: 0 0 0 5px;
+    }
+  }
+
+  .edit-widget {
+    color: @colorDarkBlue;
+    flex-basis: 20px;
+    .hover-header-buttons();
   }
 
   .feature-list {

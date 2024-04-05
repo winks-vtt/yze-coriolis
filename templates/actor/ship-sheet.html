@@ -126,10 +126,10 @@
                 <li class="flexrow margin-small">
                   {{!-- Not doing flex-grow-2 here to accommodate large costs in input field  --}}
                   <div class="font-cairo text-base capitalize white-1 self-center">
-                    {{localize "YZECORIOLIS.Cost"}}</div>
+                    {{localize "YZECORIOLIS.Value"}} ({{localize "YZECORIOLIS.Birr"}})</div>
                   <input class="right-aligned-number-input" placeholder="0" type="number"
                     name="system.cost.value" value="{{system.cost.value}}" data-dtype="number"
-                    min={{system.cost.min}} />
+                    min=0 />
                 </li>
               </ol>
             </div>

@@ -2463,20 +2463,157 @@
   padding-right: 10px;
   padding-top: 14px;
 }
-.yzecoriolis.sheet.actor .ship .modules-list {
+.yzecoriolis.sheet.actor .ship .module-list {
   list-style: none;
   overflow-y: auto;
-  max-height: 310px;
-  flex-wrap: wrap;
-  padding-bottom: 10px;
+  max-height: 275px;
+  padding: 0 5px 0 0;
+  margin-top: 24px;
+  margin-left: 32px;
+  margin-right: 32px;
 }
-.yzecoriolis.sheet.actor .ship .module-panel {
-  width: 170px;
-  height: 290px;
-  flex-basis: 170px;
-  flex-grow: 0;
+.yzecoriolis.sheet.actor .ship .module-list .module-category-header {
+  font-family: "Cairo";
+  color: white;
+  border-radius: 3px;
+  background-color: rgba(113, 130, 190, 0.44);
+  height: 24px;
+  margin-bottom: 5px;
+  align-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
-.yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button {
+.yzecoriolis.sheet.actor .ship .module-list .module-category-header:first-of-type {
+  margin-top: 0px;
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-category-name {
+  font-size: 14px;
+  margin: 0px 0px 0px 5px;
+  text-transform: uppercase;
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-category-name:first-of-type {
+  flex: 2.5 0 0;
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-controls {
+  text-transform: uppercase;
+  flex: 0 0 100px;
+  margin-top: 2px;
+  text-align: right;
+  margin-right: 7px;
+  display: flex;
+  justify-content: flex-end;
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-control-widget {
+  color: #7182be;
+  flex-basis: 20px;
+  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-control-widget a:hover {
+  text-shadow: none;
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-control-widget:hover {
+  text-shadow: 0 0 5px #ff4500;
+  color: white;
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-control-add-widget {
+  color: #7182be;
+  flex-basis: 20px;
+  transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
+  color: #9fb0ed;
+  flex-basis: 100px;
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-control-add-widget a:hover {
+  text-shadow: none;
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-control-add-widget:hover {
+  text-shadow: 0 0 5px #ff4500;
+  color: white;
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .ship .module-list .module {
+  align-items: center;
+  font-family: "Cairo";
+  color: white;
+  margin-bottom: 2px;
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-bg {
+  background-color: rgba(19, 27, 53, 0.45);
+  border-radius: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  flex: 0 0 100%;
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-bg-weapon {
+  background-color: rgba(19, 27, 53, 0.45);
+  border-radius: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  flex: 0 0 100%;
+  padding: 5px;
+}
+@keyframes flicker {
+  0% {
+    background-color: rgba(59, 84, 166, 0.45);
+  }
+  100% {
+    background-color: rgba(19, 27, 53, 0.45);
+  }
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-bg:hover {
+  animation: flicker 1.2s;
+  animation-fill-mode: forwards;
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-bg-weapon:hover {
+  animation: flicker 1.2s;
+  animation-fill-mode: forwards;
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-name {
+  font-family: "Cairo-SemiBold";
+  color: white;
+  color: #ffa903;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 275ms ease;
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-name:first-of-type {
+  flex: 2.5 0 0;
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-name:hover {
+  transform: translateX(5px);
+}
+.yzecoriolis.sheet.actor .ship .module-list .module-row-data {
+  font-family: "Cairo";
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+.yzecoriolis.sheet.actor .ship .module-list .item-summary-wrapper {
+  flex: 0 0 850px;
+}
+.yzecoriolis.sheet.actor .ship .module-list .expanded {
+  height: auto;
+}
+.yzecoriolis.sheet.actor .ship .module-list .weapon-img-container {
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 22px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+}
+.yzecoriolis.sheet.actor .ship .module-list .weapon-img-container.rollable {
+  transition: background-image 275ms ease, transform 275ms ease;
+}
+.yzecoriolis.sheet.actor .ship .module-list .weapon-img-container.rollable:hover {
+  background-image: url("icons/rolling-dices-orange.svg") !important;
+  transform: scale(1.05);
+}
+.yzecoriolis.sheet.actor .modules-panel .toggle-ship-module-button {
   border: none;
   border-radius: 3px;
   background-color: #8e0707;
@@ -2486,44 +2623,41 @@
   font-weight: 700;
   transition: background-color 275ms ease;
   cursor: pointer;
+  width: 150px;
 }
-.yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button:hover {
+.yzecoriolis.sheet.actor .modules-panel .toggle-ship-module-button:hover {
   box-shadow: none;
   background-color: #bf0909;
 }
-.yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button.enabled {
+.yzecoriolis.sheet.actor .modules-panel .toggle-ship-module-button.enabled {
   background-color: #b1c343;
   color: #081f43;
 }
-.yzecoriolis.sheet.actor .ship .module-panel .toggle-ship-module-button.enabled:hover {
+.yzecoriolis.sheet.actor .modules-panel .toggle-ship-module-button.enabled:hover {
   background-color: #c1cf6a;
 }
-.yzecoriolis.sheet.actor .ship .module-panel .quantity-input {
+.yzecoriolis.sheet.actor .modules-panel .item-properties {
+  flex: 1;
+  height: 35px;
+}
+.yzecoriolis.sheet.actor .modules-panel .item-properties .tag {
   font-family: "Cairo";
-  color: #fdff9d;
-  font-size: 16px;
-  font-weight: 700;
-  box-shadow: none;
-  border: none;
-  background-color: rgba(0, 0, 0, 0);
-  text-align: right;
-  width: 50px;
-  padding: 0px;
+  color: white;
+  font-size: 12px;
+  border-radius: 3px;
+  border: 1px solid #9fb0ed;
+  padding: 0 5px 0 5px;
+  margin: 0 0 0 5px;
 }
-.yzecoriolis.sheet.actor .ship .module-panel input[type="number"]::-webkit-inner-spin-button,
-.yzecoriolis.sheet.actor .ship .module-panel input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.yzecoriolis.sheet.actor .ship .edit-widget {
+.yzecoriolis.sheet.actor .edit-widget {
   color: #7182be;
   flex-basis: 20px;
   transition: color 275ms ease, transform 275ms ease, text-shadow 275ms ease;
 }
-.yzecoriolis.sheet.actor .ship .edit-widget a:hover {
+.yzecoriolis.sheet.actor .edit-widget a:hover {
   text-shadow: none;
 }
-.yzecoriolis.sheet.actor .ship .edit-widget:hover {
+.yzecoriolis.sheet.actor .edit-widget:hover {
   text-shadow: 0 0 5px #ff4500;
   color: white;
   transform: scale(1.05);
@@ -2762,9 +2896,8 @@
 .yzecoriolis.sheet.item .feature-section .feature-controls {
   flex: 0 0 44px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: flex-end;
 }
 .yzecoriolis.sheet.item .feature-section .feature-controls > * {
@@ -2787,6 +2920,9 @@
   font-size: 12px;
   text-align: center;
   color: #7a7971;
+}
+.yzecoriolis.sheet.item .feature-section .feature-controls a .itemModifier-create {
+  flex: 0 0 100%;
 }
 .yzecoriolis.sheet.item .sheet-tabs {
   flex: 0;
@@ -2932,4 +3068,30 @@
   border-radius: 50%;
   cursor: pointer;
   overflow: hidden;
+}
+/* Changes Radiobuttons to pictures für ship-gunner rolldialog */
+.yzecoriolis.rollModifierDialog.shipGunner [type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.yzecoriolis.rollModifierDialog.shipGunner [type=radio] + img {
+  cursor: pointer;
+  width: 6em;
+  height: 10em;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 1em;
+  border: 0;
+  opacity: 0.5;
+}
+.yzecoriolis.rollModifierDialog.shipGunner [type=radio]:hover + img {
+  opacity: 1;
+  box-shadow: 0 0 1em red;
+  transition: 0.5s;
+}
+.yzecoriolis.rollModifierDialog.shipGunner [type=radio]:checked + img {
+  opacity: 1;
+  box-shadow: 0 0 1em red;
 }

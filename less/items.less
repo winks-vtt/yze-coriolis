@@ -79,7 +79,7 @@
     // feature Control Buttons
     .feature-controls {
       flex: 0 0 44px;
-      .flexrow();
+      .flexcol();
       justify-content: flex-end;
 
       a {
@@ -87,6 +87,10 @@
         font-size: 12px;
         text-align: center;
         color: @colorTan;
+
+        .itemModifier-create {
+          flex: 0 0 100%;
+        }
       }
     }
   }

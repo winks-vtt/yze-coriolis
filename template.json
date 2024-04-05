@@ -246,7 +246,8 @@
       "cost": {
         "value": 0,
         "balance": 0,
-        "paidOff": 0
+        "paidOff": 0,
+        "initialDebt": 0
       },
       "notes": "",
       "maxEnergyPoints": 10
@@ -268,7 +269,8 @@
     ],
     "templates": {
       "base": {
-        "description": ""
+        "description": "",
+        "itemModifiers": {}
       },
       "gear": {
         "description": "",
@@ -277,7 +279,8 @@
         "cost": 0,
         "quantity": 1,
         "restricted": false,
-        "equipped": false
+        "equipped": false,
+        "itemModifiers": {}
       }
     },
     "gear": {
@@ -288,9 +291,7 @@
       "templates": ["base"],
       "category": "",
       "cost": 0,
-      "groupConcept": "",
-      "hpBonus": 0,
-      "mpBonus": 0
+      "groupConcept": ""
     },
     "weapon": {
       "templates": ["gear"],

@@ -133,6 +133,19 @@ Hooks.once("init", async function () {
     }
   });
 
+  Handlebars.registerHelper("if_objectNotEmpty", function (obj, opts) {
+    if (typeof obj === 'object' && obj !== null) {
+      if (Object.keys(obj).length > 0) {
+        return opts.fn(this);
+      } else {
+        return opts.inverse(this);
+      }
+    } else {
+      return opts.inverse(this);
+    }
+    
+  });
+
   Handlebars.registerHelper("getSkillName", function (skillkey) {
     return CONFIG.YZECORIOLIS.skills[skillkey];
   });
@@ -271,6 +284,14 @@ Hooks.once("init", async function () {
 
   Handlebars.registerHelper("AdditionalRollInfos", function () {
     return game.settings.get("yzecoriolis", "AdditionalRollInfos");
+  });
+
+  Handlebars.registerHelper("getItemModifierName", function (mod) {
+    return CONFIG.YZECORIOLIS.itemModifierNames[mod];
+  });
+
+  Handlebars.registerHelper("subtract", function (a, b) {
+    return parseInt(a)-parseInt(b);
   });
 });
 

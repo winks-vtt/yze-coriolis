@@ -1,6 +1,6 @@
 <div class="dice-roll yzecoriolis">
   <div>
-    <h2>{{title}}</h2>
+    <h2 style="white-space: pre-wrap;">{{title}}</h2>
     <table style="border: 0;">
       <!-- additional roll-infos for pc -->
       {{#if_eq (AdditionalRollInfos) 'pc'}}
@@ -54,6 +54,12 @@
             <td>{{localize "YZECORIOLIS.ModifierForRoll"}}: {{modifier}}</td>
             <td>{{#if_eq rollType 'armor'}}{{else if_eq rollType 'attribute'}}{{else if_eq rollType 'general'}}{{else if_eq rollType 'advanced'}}{{else}}{{localize "YZECORIOLIS.Bonus"}}: {{bonus}}{{/if_eq}}</td>
           </tr>
+          {{#if itemModifiersChecked}}
+            <tr>
+              <td style="vertical-align: top;">{{localize "YZECORIOLIS.ItemModifiersOther"}}:</td>
+              <td style="white-space: pre-wrap;">{{itemModifiersChecked}}</td>
+            </tr>
+          {{/if}}
         {{/if_eq}}
       <!-- additional roll-infos for npc -->
       {{else if_eq (AdditionalRollInfos) 'npc'}}
@@ -107,6 +113,12 @@
             <td>{{localize "YZECORIOLIS.ModifierForRoll"}}: {{modifier}}</td>
             <td>{{#if_eq rollType 'armor'}}{{else if_eq rollType 'attribute'}}{{else if_eq rollType 'general'}}{{else if_eq rollType 'advanced'}}{{else}}{{localize "YZECORIOLIS.Bonus"}}: {{bonus}}{{/if_eq}}</td>
           </tr>
+          {{#if itemModifiersChecked}}
+            <tr>
+              <td style="vertical-align: top;">{{localize "YZECORIOLIS.ItemModifiersOther"}}:</td>
+              <td style="white-space: pre-wrap;">{{itemModifiersChecked}}</td>
+            </tr>
+          {{/if}}
         {{/if_eq}}
       <!-- additional roll-infos for all -->
       {{else if_eq (AdditionalRollInfos) 'all'}}
@@ -159,14 +171,26 @@
             <td>{{localize "YZECORIOLIS.ModifierForRoll"}}: {{modifier}}</td>
             <td>{{#if_eq rollType 'armor'}}{{else if_eq rollType 'attribute'}}{{else if_eq rollType 'general'}}{{else if_eq rollType 'advanced'}}{{else}}{{localize "YZECORIOLIS.Bonus"}}: {{bonus}}{{/if_eq}}</td>
           </tr>
+          {{#if itemModifiersChecked}}
+            <tr>
+              <td style="vertical-align: top;">{{localize "YZECORIOLIS.ItemModifiersOther"}}:</td>
+              <td style="white-space: pre-wrap;">{{itemModifiersChecked}}</td>
+            </tr>
+          {{/if}}
       {{/if_eq}}
     <!-- total dice sum -->
       <tr>
         <td colspan="2">
         {{#if_gt totalDice 0}}
-          <strong>{{localize "YZECORIOLIS.RollTotal"}}:</strong> {{totalDice}}d6 {{#if_eq isAutomaticActive 'true'}}+ {{automaticRollAmount}} {{localize "YZECORIOLIS.AutomaticFire"}}{{/if_eq}}
+          <strong>{{localize "YZECORIOLIS.RollTotal"}}:</strong> {{totalDice}}d6
+          {{#if_eq isAutomaticActive 'true'}}<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;+ {{localize "YZECORIOLIS.AutomaticFire"}}
+          {{#if_gt results.rollData.machineGunner 0}}<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;& {{localize "YZECORIOLIS.Talent"}} {{localize "YZECORIOLIS.TalentMachinegunner"}}{{/if_gt}}
+          {{#if_gt results.rollData.highCapacity 0}}<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;& {{localize "YZECORIOLIS.Weapon"}} {{localize "YZECORIOLIS.FeatureWeaponHighCapacity"}}{{/if_gt}}{{/if_eq}}
         {{else}}
-          <strong>{{localize "YZECORIOLIS.RollTotal"}}:</strong> {{localize "YZECORIOLIS.RollSubstitute"}} {{totalDice}}d6 {{#if_eq isAutomaticActive 'true'}}<br>+ {{automaticRollAmount}} {{localize "YZECORIOLIS.AutomaticFire"}}{{/if_eq}}
+          <strong>{{localize "YZECORIOLIS.RollTotal"}}:</strong> {{localize "YZECORIOLIS.RollSubstitute"}} {{totalDice}}d6
+          {{#if_eq isAutomaticActive 'true'}}<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;+ {{localize "YZECORIOLIS.AutomaticFire"}}
+          {{#if_gt results.rollData.machineGunner 0}}<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;& {{localize "YZECORIOLIS.Talent"}} {{localize "YZECORIOLIS.TalentMachinegunner"}}{{/if_gt}}
+          {{#if_gt results.rollData.highCapacity 0}}<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;& {{localize "YZECORIOLIS.Weapon"}} {{localize "YZECORIOLIS.FeatureWeaponHighCapacity"}}{{/if_gt}}{{/if_eq}}
         {{/if_gt}}
         </td>
       </tr>
