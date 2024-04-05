@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.6.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.6.0...v3.6.1) (2024-04-05)
+
+
+### Bug Fixes
+
+* overlay issue with crit injury descriptions ([f9e4a48](https://www.github.com/winks-vtt/yze-coriolis/commit/f9e4a48c832189f1918ab04a81dc9d8c9de19f65))
+
 ## [3.6.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.5.0...v3.6.0) (2024-03-27)
 
 
