@@ -390,7 +390,9 @@
   "YZECORIOLIS.SettingAdditionalRollInfosNPC": "Nur für Nicht-Spielercharaktere",
   "YZECORIOLIS.SettingAdditionalRollInfosAll": "Für alle Charaktere",
   "YZECORIOLIS.SettingDarknessPointsVisibility": "Zeige Spielern FP",
-  "YZECORIOLIS.SettingDarknessPointsVisibilityHint": "Wenn aktviviert, wird den Spielern die Menge der Finsternispunkte in der Spielflächen-Steuerung angezeigt.",
+
+  "YZECORIOLIS.SettingDarknessPointsVisibilityHint": "Wenn aktiviert, wird den Spielern die Menge der Finsternispunkte in der Spielflächen-Steuerung angezeigt.",
+
   "YZECORIOLIS.SettingRollVisibility": "Sichtbarkeit des Wurfes im Dialog abfragen",
   "YZECORIOLIS.SettingRollVisibilityHint": "Wenn aktiviert kann man die Sichtbarkeit des Wurfes (öffentlich, privat-SL, verdeckt-SL oder privat) durch den Wurfdialog anpassen. Dies überschreibt Module mit ähnlichen Funktionen.",
 
@@ -444,6 +446,7 @@
   "YZECORIOLIS.PublicRoll": "Öffentlicher Wurf",
   "YZECORIOLIS.PrivateGMRoll": "Privater SL-Wurf",
   "YZECORIOLIS.BlindGMRoll": "Verdeckter SL-Wurf",
+
   "YZECORIOLIS.SelfRoll": "Privater Wurf",
 
   "YZECORIOLIS.ItemModifiers": "Modifikatoren",
@@ -455,4 +458,5 @@
   "YZECORIOLIS.ItemModifierRollQuestion": "Andere Andere Modifikatoren",
 
   "YZECORIOLIS.GunnerRollQuestion": "Wer feuert die Waffe ab?"
+
 }

@@ -1717,7 +1717,7 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .injury {
   align-items: center;
-  height: 26px;
+  height: auto;
   color: white;
 }
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .critical-injuries-bg {
@@ -1749,9 +1749,6 @@
 }
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .critical-injuries-name:hover {
   transform: translateX(5px);
-}
-.yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .critical-injuries-list.expanded {
-  height: auto;
 }
 .yzecoriolis.sheet.actor .sheet-body .critical-injuries-list .crit-add-controls {
   font-family: "Cairo";
