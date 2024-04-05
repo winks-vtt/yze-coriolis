@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.7.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.6.0...v3.7.0) (2024-04-05)
+
+
+### Features
+
+* introduced item modifiers ([debc278](https://www.github.com/winks-vtt/yze-coriolis/commit/debc27843c2822421d96b969f7be9209fb3435be))
+* reworked ship modules ([64a2c11](https://www.github.com/winks-vtt/yze-coriolis/commit/64a2c111751eae18fb7c539f48799de2f3c6075b))
+* roll modifier dialog reworked ([57ac103](https://www.github.com/winks-vtt/yze-coriolis/commit/57ac103ad255728a9ba412e998666ea09ff2b4ca))
+* updated item stylings ([cba552a](https://www.github.com/winks-vtt/yze-coriolis/commit/cba552a75c51b599b5dd5d7d72a4c47ecd5077da))
+
+
+### Bug Fixes
+
+* overlay issue with crit injury descriptions ([f9e4a48](https://www.github.com/winks-vtt/yze-coriolis/commit/f9e4a48c832189f1918ab04a81dc9d8c9de19f65))
+
 ## [3.6.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.5.0...v3.6.0) (2024-03-27)
 
 
