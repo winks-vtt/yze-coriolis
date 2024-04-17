@@ -457,6 +457,16 @@
   "YZECORIOLIS.ItemModifierValue": "Wert des Modifikators",
   "YZECORIOLIS.ItemModifierRollQuestion": "Andere Andere Modifikatoren",
 
-  "YZECORIOLIS.GunnerRollQuestion": "Wer feuert die Waffe ab?"
+  "YZECORIOLIS.GunnerRollQuestion": "Wer feuert die Waffe ab?",
+
+  "YZECORIOLIS.Blessing": "Segnung",
+  "YZECORIOLIS.Blessings": "Segnungen",
+  "YZECORIOLIS.BlessingsAll": "Alle Segnungen",
+  "YZECORIOLIS.Prayer": "Gebet",
+  "YZECORIOLIS.Prayers": "Gebete",
+  "YZECORIOLIS.PrayersAll": "Alle Gebete",
+  "YZECORIOLIS.AttrAll": "Alle Attribute",
+  "YZECORIOLIS.SkillCatGeneralAll": "Alle allgemeinen Fertigkeiten",
+  "YZECORIOLIS.SkillCatAdvancedAll": "Alle fortgeschrittenen Fähigkeiten"
 
 }

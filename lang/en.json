@@ -454,5 +454,16 @@
   "YZECORIOLIS.ItemModifierValue": "Value of the Modifier",
   "YZECORIOLIS.ItemModifierRollQuestion": "Other Modifiers",
 
-  "YZECORIOLIS.GunnerRollQuestion": "Who is releasing the weapon?"
+  "YZECORIOLIS.GunnerRollQuestion": "Who is releasing the weapon?",
+
+  "YZECORIOLIS.Blessing": "Blessing",
+  "YZECORIOLIS.Blessings": "Blessings",
+  "YZECORIOLIS.BlessingsAll": "All Blessings",
+  "YZECORIOLIS.Prayer": "Prayer",
+  "YZECORIOLIS.Prayers": "Prayers",
+  "YZECORIOLIS.PrayersAll": "All Prayers",
+  "YZECORIOLIS.AttrAll": "All Attributes",
+  "YZECORIOLIS.SkillCatGeneralAll": "All General Skills",
+  "YZECORIOLIS.SkillCatAdvancedAll": "All Advanced Skills"
+
 }
