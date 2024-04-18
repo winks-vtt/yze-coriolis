@@ -30,6 +30,7 @@
   "YZECORIOLIS.ErrorsActorNotHasItemForMacro": "Your controlled Actor does not have an item with that name.",
   "YZECORIOLIS.ErrorsNotOwnedItemForMacro": "You can only create macro buttons for owned items.",
   "YZECORIOLIS.ErrorsNoItemForMacro": "You can't make an macro for this element. Only for weapons, explosives and armor.",
+  "YZECORIOLIS.ErrorsAlreadyPushed": "You've already prayed for this roll. You can't pray (reroll) twice for the same roll.",
 
   "YZECORIOLIS.PrayToIcons": "Pray to the Icons",
   "YZECORIOLIS.PushedRoll": "Pushed Roll",

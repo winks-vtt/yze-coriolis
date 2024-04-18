@@ -1,33 +1,5 @@
 import { addDarknessPoints, spendDarknessPoints } from "./darkness-points.js";
-
-export function coriolisPrayerModifierDialog(modifierCallback) {
-  let d = new Dialog(
-    {
-      title: game.i18n.localize("YZECORIOLIS.ModifierForRoll"),
-      content: `<p>${game.i18n.localize(
-        "YZECORIOLIS.PrayerModifierForRollQuestion"
-      )}</p>`,
-      buttons: {
-        zero: {
-          label: "0",
-          callback: () => modifierCallback(0),
-        },
-        onePlus: {
-          label: "+1",
-          callback: () => modifierCallback(1),
-        },
-        twoPlus: {
-          label: "+2",
-          callback: () => modifierCallback(2),
-        },
-      },
-      default: "zero",
-      close: () => {},
-    },
-    { height: "max-content!important" }
-  );
-  d.render(true);
-}
+import { CoriolisModifierDialog } from "./coriolisPrayerModifier.js";
 
 /**
  * takes in rendering options, rollData and:
@@ -67,11 +39,6 @@ export async function coriolisRoll(chatOptions, rollData) {
  * @param  {} origRoll
  */
 export async function coriolisPushRoll(chatMessage, origRollData, origRoll) {
-  if (origRollData.pushed) {
-    return;
-  }
-
-  coriolisPrayerModifierDialog(async (bonus) => {
     origRollData.pushed = true;
     origRoll.dice.forEach((part) => {
       part.results.forEach((r) => {
@@ -83,6 +50,7 @@ export async function coriolisPushRoll(chatMessage, origRollData, origRoll) {
       });
 
       // do not apply the prayer bonus on automatic fire rolls
+      let bonus = origRollData.prayerBonus + origRollData.prayerModifiersBonus;
       if (!part.modifiers.includes("x>1")) {
         part.number = part.number + bonus;
         for (let i = 0; i < bonus; i++) {
@@ -95,13 +63,12 @@ export async function coriolisPushRoll(chatMessage, origRollData, origRoll) {
 
     await showDiceSoNice(origRoll, chatMessage.rollMode);
     const result = evaluateCoriolisRoll(origRollData, origRoll);
-    await updateChatMessage(chatMessage, result, bonus, origRoll);
+    await updateChatMessage(chatMessage, result, origRoll);
     if (origRollData.actorType === "npc") {
       await spendDarknessPoints(1);
     } else {
       await addDarknessPoints(1);
     }
-  });
 }
 
 /**
@@ -248,7 +215,6 @@ async function showChatMessage(chatMsgOptions, resultData, roll) {
 async function updateChatMessage(
   chatMessage,
   resultData,
-  prayerBonus,
   origRoll
 ) {
   let tooltip = await renderTemplate(
@@ -260,7 +226,7 @@ async function updateChatMessage(
     results: resultData,
     tooltip: tooltip,
     canPush: false,
-    prayerBonus: prayerBonus,
+    prayerBonus: resultData.rollData.prayerBonus,
     totalDice: getTotalDice(resultData.rollData),
     actorType: getActorType(resultData.rollData),
     rollType: getRollType(resultData.rollData),
@@ -284,6 +250,7 @@ async function updateChatMessage(
     features: getRollFeatures(resultData.rollData),
     itemModifiersBonus: getRollModifiersBonus(resultData.rollData),
     itemModifiersChecked: getRollModifiersChecked(resultData.rollData),
+    prayerModifiersChecked: getPrayerModifiersChecked(resultData.rollData),
   };
 
   return renderTemplate(
@@ -448,6 +415,18 @@ function getRollModifiersChecked(rollData) {
   return modifiersChecked;
 }
 
+function getPrayerModifiersChecked(rollData) {
+  let modifiersCheckedList = [];
+  for (const modifier in rollData.prayerModifiers) {
+    let value = rollData.prayerModifiers[modifier].value > 0
+      ? '+' + rollData.prayerModifiers[modifier].value
+      : rollData.prayerModifiers[modifier].value;
+    modifiersCheckedList.push(`+ ${rollData.prayerModifiers[modifier].name} (${value})`);
+  }
+  const modifiersChecked = modifiersCheckedList.join(", ")
+  return modifiersChecked;
+}
+
 export async function coriolisChatListeners(html) {
   html.on("click", ".dice-push", (ev) => {
     let button = $(ev.currentTarget),
@@ -455,7 +434,13 @@ export async function coriolisChatListeners(html) {
       message = game.messages.get(messageId);
     let results = message.getFlag("yzecoriolis", "results");
     let originalRoll = message.rolls[0]; // TODO: handle this in a safer manner.
-    coriolisPushRoll(message, results.rollData, originalRoll);
+    if (message.flags.data?.results.pushed) {
+      let errorObj = { error: "YZECORIOLIS.ErrorsAlreadyPushed" };
+      ui.notifications.error(new Error(game.i18n.localize(errorObj.error)));
+      return;
+    } else {
+      new CoriolisModifierDialog(message, results.rollData, originalRoll).render(true);
+    }
   });
 }
 /**

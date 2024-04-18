@@ -220,7 +220,11 @@
         <div class="dice-formula dice-push yzecoriolis">
             <em>{{localize "YZECORIOLIS.PushedRoll"}}</em>
             {{#if prayerBonus}}
-            <em> (+{{prayerBonus}})</em>
+              <em> (+{{prayerBonus}})</em>
+            {{/if}}
+            {{#if prayerModifiersChecked}}
+              <br>
+              <em>{{prayerModifiersChecked}}</em>
             {{/if}}
         </div>
         {{/if}}

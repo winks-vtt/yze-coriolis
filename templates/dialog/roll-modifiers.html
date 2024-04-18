@@ -1,24 +1,33 @@
-<div style="padding: 1em 1em;">
-    <h3>{{localize "YZECORIOLIS.ModifierForRollQuestion"}}</h3>
-    <button type="submit" value="-9" style="width: 3em;">-9</button>
-    <button type="submit" value="-8" style="width: 3em;">-8</button>
-    <button type="submit" value="-7" style="width: 3em;">-7</button>
-    <button type="submit" value="-6" style="width: 3em;">-6</button>
-    <button type="submit" value="-5" style="width: 3em;">-5</button>
-    <button type="submit" value="-4" style="width: 3em;">-4</button>
-    <button type="submit" value="-3" style="width: 3em;">-3</button>
-    <button type="submit" value="-2" style="width: 3em;">-2</button>
-    <button type="submit" value="-1" style="width: 3em;">-1</button>
-    <br>
-    <button type="submit" value="0" style="width: 30.25em; margin: 0.5em 0;">±0</button>
-    <br>
-    <button type="submit" value="1" style="width: 3em;">+1</button>
-    <button type="submit" value="2" style="width: 3em;">+2</button>
-    <button type="submit" value="3" style="width: 3em;">+3</button>
-    <button type="submit" value="4" style="width: 3em;">+4</button>
-    <button type="submit" value="5" style="width: 3em;">+5</button>
-    <button type="submit" value="6" style="width: 3em;">+6</button>
-    <button type="submit" value="7" style="width: 3em;">+7</button>
-    <button type="submit" value="8" style="width: 3em;">+8</button>
-    <button type="submit" value="9" style="width: 3em;">+9</button>
-</div>
+{{#if prayerRoll}}
+    <div style="padding: 1em 1em;">
+        <h3>{{localize "YZECORIOLIS.PrayerModifierForRollQuestion"}}</h3>
+        <button type="submit" value="0" style="width: 5em;">0</button>
+        <button type="submit" value="1" style="width: 5em;">+1</button>
+        <button type="submit" value="2" style="width: 5em;">+2</button>
+    </div>
+{{else}}
+    <div style="padding: 1em 1em;">
+        <h3>{{localize "YZECORIOLIS.ModifierForRollQuestion"}}</h3>
+        <button type="submit" value="-9" style="width: 3em;">-9</button>
+        <button type="submit" value="-8" style="width: 3em;">-8</button>
+        <button type="submit" value="-7" style="width: 3em;">-7</button>
+        <button type="submit" value="-6" style="width: 3em;">-6</button>
+        <button type="submit" value="-5" style="width: 3em;">-5</button>
+        <button type="submit" value="-4" style="width: 3em;">-4</button>
+        <button type="submit" value="-3" style="width: 3em;">-3</button>
+        <button type="submit" value="-2" style="width: 3em;">-2</button>
+        <button type="submit" value="-1" style="width: 3em;">-1</button>
+        <br>
+        <button type="submit" value="0" style="width: 30.25em; margin: 0.5em 0;">±0</button>
+        <br>
+        <button type="submit" value="1" style="width: 3em;">+1</button>
+        <button type="submit" value="2" style="width: 3em;">+2</button>
+        <button type="submit" value="3" style="width: 3em;">+3</button>
+        <button type="submit" value="4" style="width: 3em;">+4</button>
+        <button type="submit" value="5" style="width: 3em;">+5</button>
+        <button type="submit" value="6" style="width: 3em;">+6</button>
+        <button type="submit" value="7" style="width: 3em;">+7</button>
+        <button type="submit" value="8" style="width: 3em;">+8</button>
+        <button type="submit" value="9" style="width: 3em;">+9</button>
+    </div>
+{{/if}}
