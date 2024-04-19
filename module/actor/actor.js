@@ -1285,6 +1285,344 @@ export class yzecoriolisActor extends Actor {
             checked: false,
             prayer: true
           };
+          sysData.itemModifiers.force[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: game.i18n.localize("YZECORIOLIS.PrayersAll"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.infiltration[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: game.i18n.localize("YZECORIOLIS.PrayersAll"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.manipulation[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: game.i18n.localize("YZECORIOLIS.PrayersAll"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.meleecombat[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: game.i18n.localize("YZECORIOLIS.PrayersAll"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.observation[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: game.i18n.localize("YZECORIOLIS.PrayersAll"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.rangedcombat[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: game.i18n.localize("YZECORIOLIS.PrayersAll"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.survival[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: game.i18n.localize("YZECORIOLIS.PrayersAll"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          // all prayers - advanced skills
+          sysData.itemModifiers.command[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: game.i18n.localize("YZECORIOLIS.PrayersAll"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.culture[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: game.i18n.localize("YZECORIOLIS.PrayersAll"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.datadjinn[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: game.i18n.localize("YZECORIOLIS.PrayersAll"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.medicurgy[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: game.i18n.localize("YZECORIOLIS.PrayersAll"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.mysticpowers[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: game.i18n.localize("YZECORIOLIS.PrayersAll"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.pilot[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: game.i18n.localize("YZECORIOLIS.PrayersAll"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.science[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: game.i18n.localize("YZECORIOLIS.PrayersAll"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.technology[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: game.i18n.localize("YZECORIOLIS.PrayersAll"),
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+        }
+        // prayer - messenger
+        if (item.system.itemModifiers[key].mod === "itemModifierPrayersMessenger") {
+          sysData.itemModifiers.datadjinn[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconMessenger")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.science[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconMessenger")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.technology[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconMessenger")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+        }
+        // prayer - dancer
+        if (item.system.itemModifiers[key].mod === "itemModifierPrayersDancer") {
+          sysData.itemModifiers.dexterity[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconDancer")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.meleecombat[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconDancer")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+        }
+        // prayer - gambler
+        if (item.system.itemModifiers[key].mod === "itemModifierPrayersGambler") {
+          sysData.itemModifiers.observation[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconGambler")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.pilot[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconGambler")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+        }
+        // prayer - deckhand
+        if (item.system.itemModifiers[key].mod === "itemModifierPrayersDeckhand") {
+          sysData.itemModifiers.force[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconDeckhand")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+        }
+        // prayer - merchant
+        if (item.system.itemModifiers[key].mod === "itemModifierPrayersMerchant") {
+          sysData.itemModifiers.manipulation[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconMerchant")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+        }
+        // prayer - judge
+        if (item.system.itemModifiers[key].mod === "itemModifierPrayersJudge") {
+          sysData.itemModifiers.rangedcombat[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconJudge")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.command[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconJudge")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+        }
+        // prayer - traveler
+        if (item.system.itemModifiers[key].mod === "itemModifierPrayersTraveler") {
+          sysData.itemModifiers.survival[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconTraveler")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.culture[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconTraveler")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+        }
+        // prayer - lady of tears
+        if (item.system.itemModifiers[key].mod === "itemModifierPrayersLadyOfTears") {
+          sysData.itemModifiers.medicurgy[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconLadyOfTears")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+        }
+        // prayer - faceless one
+        if (item.system.itemModifiers[key].mod === "itemModifierPrayersFacelessOne") {
+          sysData.itemModifiers.infiltration[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconFaceless")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
+          sysData.itemModifiers.mysticpowers[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
+            name: item.name,
+            attribute: null,
+            skill: `${game.i18n.localize("YZECORIOLIS.Prayer")}: ${game.i18n.localize("YZECORIOLIS.IconFaceless")}`,
+            type: game.i18n.localize(CONFIG.YZECORIOLIS.itemTypes[item.type]),
+            value: item.system.itemModifiers[key].value,
+            checked: false,
+            prayer: true
+          };
         }
       }
     }
@@ -1336,13 +1674,15 @@ export class yzecoriolisActor extends Actor {
     let bonus = 0;
     for (let t of this.items) {
       const tData = t.system.itemModifiers;
-      bonus += Number(Object.keys(tData).reduce((counter,x) => {
-        counter += (tData[x].mod === "itemModifierHP" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
-          ? tData[x].value
-          : 0;
-          return counter;
-        }
-      , 0));
+      if (tData) {
+        bonus += Number(Object.keys(tData).reduce((counter,x) => {
+          counter += (tData[x].mod === "itemModifierHP" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
+            ? tData[x].value
+            : 0;
+            return counter;
+          }
+        , 0));
+      }
     }
     return bonus;
   }
@@ -1352,13 +1692,15 @@ export class yzecoriolisActor extends Actor {
     let bonus = 0;
     for (let t of this.items) {
       const tData = t.system.itemModifiers;
-      bonus += Number(Object.keys(tData).reduce((counter,x) => {
-        counter += (tData[x].mod === "itemModifierMP" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
-          ? tData[x].value
-          : 0;
-          return counter;
-        }
-      , 0));
+      if (tData) {
+        bonus += Number(Object.keys(tData).reduce((counter,x) => {
+          counter += (tData[x].mod === "itemModifierMP" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
+            ? tData[x].value
+            : 0;
+            return counter;
+          }
+        , 0));
+      }
     }
     return bonus;
   }
@@ -1368,13 +1710,15 @@ export class yzecoriolisActor extends Actor {
     let bonus = 0;
     for (let t of this.items) {
       const tData = t.system.itemModifiers;
-      bonus += Number(Object.keys(tData).reduce((counter,x) => {
-        counter += (tData[x].mod === "itemModifierRad" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
-          ? tData[x].value
-          : 0;
-          return counter;
-        }
-      , 0));
+      if (tData) {
+        bonus += Number(Object.keys(tData).reduce((counter,x) => {
+          counter += (tData[x].mod === "itemModifierRad" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
+            ? tData[x].value
+            : 0;
+            return counter;
+          }
+        , 0));
+      }
     }
     return bonus;
   }
@@ -1384,13 +1728,15 @@ export class yzecoriolisActor extends Actor {
     let bonus = 0;
     for (let t of this.items) {
       const tData = t.system.itemModifiers;
-      bonus += Number(Object.keys(tData).reduce((counter,x) => {
-        counter += (tData[x].mod === "itemModifierEnc" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
-          ? tData[x].value
-          : 0;
-          return counter;
-        }
-      , 0));
+      if (tData) {
+        bonus += Number(Object.keys(tData).reduce((counter,x) => {
+          counter += (tData[x].mod === "itemModifierEnc" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
+            ? tData[x].value
+            : 0;
+            return counter;
+          }
+        , 0));
+      }
     }
     return bonus;
   }
@@ -1400,13 +1746,15 @@ export class yzecoriolisActor extends Actor {
     let bonus = 0;
     for (let t of this.items) {
       const tData = t.system.itemModifiers;
-      bonus += Number(Object.keys(tData).reduce((counter,x) => {
-        counter += (tData[x].mod === "itemModifierMR" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
-          ? tData[x].value
-          : 0;
-          return counter;
-        }
-      , 0));
+      if (tData) {
+        bonus += Number(Object.keys(tData).reduce((counter,x) => {
+          counter += (tData[x].mod === "itemModifierMR" && (t.type === 'injury' || t.type === 'talent' || t.system.equipped === true))
+            ? tData[x].value
+            : 0;
+            return counter;
+          }
+        , 0));
+      }
     }
     return bonus;
   }

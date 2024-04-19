@@ -11,9 +11,6 @@ export class CoriolisModifierDialog extends FormApplication {
         for (let mod in origRollData.itemModifiers) {
           if (origRollData.itemModifiers[mod].prayer) {
             this.itemModifiers[mod] = origRollData.itemModifiers[mod];
-            // set prayer to false
-            // otherwise it won't parse through roll-itemModifiers.html
-            this.itemModifiers[mod].prayer = false;
           }
         }
       }
@@ -38,10 +35,10 @@ export class CoriolisModifierDialog extends FormApplication {
     
     getData() {
       // Send data to the template
-        return {
-          prayerRoll: true,
-          itemModifiers: this.itemModifiers,
-        };
+      return {
+        prayerRoll: true,
+        itemModifiers: this.itemModifiers,
+      };
     }
   
     activateListeners(html) {

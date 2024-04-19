@@ -1,10 +1,20 @@
 <div style="padding: 1em 1em;">
   <h3>{{localize "YZECORIOLIS.ItemModifierRollQuestion"}}</h3>
-  {{#each itemModifiers as |mod|}}
-    {{#unless mod.prayer}}
-      <input type='checkbox' name={{mod.id}} {{#if mod.checked}}checked{{/if}} data-dtype='Boolean' />
-      <label style="position:relative; bottom:6px;">{{mod.type}}: {{mod.name}} ({{#if_gt mod.value 0}}+{{mod.value}}{{else}}{{mod.value}}{{/if_gt}} {{#if mod.skill}}{{mod.skill}}{{else}}{{mod.attribute}}{{/if}})</label>
-      <br>
-    {{/unless}}
-  {{/each}}
+  {{#if prayerRoll}}
+    {{#each itemModifiers as |mod|}}
+      {{#if mod.prayer}}
+        <input type='checkbox' name={{mod.id}} {{#if mod.checked}}checked{{/if}} data-dtype='Boolean' />
+        <label style="position:relative; bottom:6px;">{{mod.type}}: {{mod.name}} ({{#if_gt mod.value 0}}+{{mod.value}}{{else}}{{mod.value}}{{/if_gt}} {{#if mod.skill}}{{mod.skill}}{{else}}{{mod.attribute}}{{/if}})</label>
+        <br>
+      {{/if}}
+    {{/each}}
+  {{else}}
+    {{#each itemModifiers as |mod|}}
+      {{#unless mod.prayer}}
+        <input type='checkbox' name={{mod.id}} {{#if mod.checked}}checked{{/if}} data-dtype='Boolean' />
+        <label style="position:relative; bottom:6px;">{{mod.type}}: {{mod.name}} ({{#if_gt mod.value 0}}+{{mod.value}}{{else}}{{mod.value}}{{/if_gt}} {{#if mod.skill}}{{mod.skill}}{{else}}{{mod.attribute}}{{/if}})</label>
+        <br>
+      {{/unless}}
+    {{/each}}
+  {{/if}}
 </div>
