@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.8.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.7.0...v3.8.0) (2024-04-22)
+
+
+### Features
+
+* added more modifier options such as "all", blessing and prayers. ([2ba2a6e](https://www.github.com/winks-vtt/yze-coriolis/commit/2ba2a6eec570797c940fa605281337dcbd1608ca))
+
+
+### Bug Fixes
+
+* bug with compendium items conflicting with hp bonus modifiers ([a34a0ab](https://www.github.com/winks-vtt/yze-coriolis/commit/a34a0ab250c8771f202afa6ddcf4b8e842efee86))
+* fix some german localization ([9b11175](https://www.github.com/winks-vtt/yze-coriolis/commit/9b11175c9709c783a4ed2a9fe61fc0c0f9abff5a))
+* modifiers not showing up correctly in roll dialog ([0cc43fe](https://www.github.com/winks-vtt/yze-coriolis/commit/0cc43fe7145de953053f08ca61f6f1354d5ed0dc))
+
 ## [3.7.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.6.0...v3.7.0) (2024-04-05)
 
 
