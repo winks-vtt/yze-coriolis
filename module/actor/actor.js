@@ -134,8 +134,8 @@ export class yzecoriolisActor extends Actor {
       for (let key in item.system.itemModifiers) {
         // everything with the strength-attribute
         if (item.system.itemModifiers[key].mod === "itemModifierAttrStrength") {
-          sysData.itemModifiers.strength[key] = {
-            id: key,
+          sysData.itemModifiers.strength[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrStrength"),
             skill: null,
@@ -143,8 +143,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.force[key] = {
-            id: key,
+          sysData.itemModifiers.force[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrStrength"),
             skill: null,
@@ -152,8 +152,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.meleecombat[key] = {
-            id: key,
+          sysData.itemModifiers.meleecombat[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrStrength"),
             skill: null,
@@ -163,8 +163,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillForce") {
-          sysData.itemModifiers.force[key] = {
-            id: key,
+          sysData.itemModifiers.force[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrStrength"),
             skill: game.i18n.localize("YZECORIOLIS.SkillForce"),
@@ -174,8 +174,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillMelee") {
-          sysData.itemModifiers.meleecombat[key] = {
-            id: key,
+          sysData.itemModifiers.meleecombat[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrStrength"),
             skill: game.i18n.localize("YZECORIOLIS.SkillMeleeCombat"),
@@ -186,8 +186,8 @@ export class yzecoriolisActor extends Actor {
         }
         // everything with the agility-attribute
         if (item.system.itemModifiers[key].mod === "itemModifierAttrAgility") {
-          sysData.itemModifiers.agility[key] = {
-            id: key,
+          sysData.itemModifiers.agility[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
             skill: null,
@@ -195,8 +195,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.dexterity[key] = {
-            id: key,
+          sysData.itemModifiers.dexterity[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
             skill: null,
@@ -204,8 +204,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.infiltration[key] = {
-            id: key,
+          sysData.itemModifiers.infiltration[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
             skill: null,
@@ -213,8 +213,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.rangedcombat[key] = {
-            id: key,
+          sysData.itemModifiers.rangedcombat[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
             skill: null,
@@ -222,8 +222,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.pilot[key] = {
-            id: key,
+          sysData.itemModifiers.pilot[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
             skill: null,
@@ -233,8 +233,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillDex") {
-          sysData.itemModifiers.dexterity[key] = {
-            id: key,
+          sysData.itemModifiers.dexterity[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
             skill: game.i18n.localize("YZECORIOLIS.SkillDexterity"),
@@ -244,8 +244,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillInf") {
-          sysData.itemModifiers.infiltration[key] = {
-            id: key,
+          sysData.itemModifiers.infiltration[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
             skill: game.i18n.localize("YZECORIOLIS.SkillInfiltration"),
@@ -255,8 +255,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillRange") {
-          sysData.itemModifiers.rangedcombat[key] = {
-            id: key,
+          sysData.itemModifiers.rangedcombat[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
             skill: game.i18n.localize("YZECORIOLIS.SkillRangedCombat"),
@@ -266,8 +266,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillPil") {
-          sysData.itemModifiers.pilot[key] = {
-            id: key,
+          sysData.itemModifiers.pilot[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrAgility"),
             skill: game.i18n.localize("YZECORIOLIS.SkillPilot"),
@@ -278,8 +278,8 @@ export class yzecoriolisActor extends Actor {
         }
         // everything with the wits-attribute
         if (item.system.itemModifiers[key].mod === "itemModifierAttrWits") {
-          sysData.itemModifiers.wits[key] = {
-            id: key,
+          sysData.itemModifiers.wits[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
             skill: null,
@@ -287,8 +287,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.observation[key] = {
-            id: key,
+          sysData.itemModifiers.observation[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
             skill: null,
@@ -296,8 +296,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.survival[key] = {
-            id: key,
+          sysData.itemModifiers.survival[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
             skill: null,
@@ -305,8 +305,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.datadjinn[key] = {
-            id: key,
+          sysData.itemModifiers.datadjinn[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
             skill: null,
@@ -314,8 +314,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.medicurgy[key] = {
-            id: key,
+          sysData.itemModifiers.medicurgy[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
             skill: null,
@@ -323,8 +323,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.science[key] = {
-            id: key,
+          sysData.itemModifiers.science[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
             skill: null,
@@ -332,8 +332,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.technology[key] = {
-            id: key,
+          sysData.itemModifiers.technology[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
             skill: null,
@@ -343,8 +343,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillObs") {
-          sysData.itemModifiers.observation[key] = {
-            id: key,
+          sysData.itemModifiers.observation[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
             skill: game.i18n.localize("YZECORIOLIS.SkillObservation"),
@@ -354,8 +354,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillSurv") {
-          sysData.itemModifiers.survival[key] = {
-            id: key,
+          sysData.itemModifiers.survival[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
             skill: game.i18n.localize("YZECORIOLIS.SkillSurvival"),
@@ -365,8 +365,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillData") {
-          sysData.itemModifiers.datadjinn[key] = {
-            id: key,
+          sysData.itemModifiers.datadjinn[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
             skill: game.i18n.localize("YZECORIOLIS.SkillDataDjinn"),
@@ -376,8 +376,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillMedi") {
-          sysData.itemModifiers.medicurgy[key] = {
-            id: key,
+          sysData.itemModifiers.medicurgy[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
             skill: game.i18n.localize("YZECORIOLIS.SkillMedicurgy"),
@@ -387,8 +387,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillSci") {
-          sysData.itemModifiers.science[key] = {
-            id: key,
+          sysData.itemModifiers.science[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
             skill: game.i18n.localize("YZECORIOLIS.SkillScience"),
@@ -398,8 +398,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillTech") {
-          sysData.itemModifiers.technology[key] = {
-            id: key,
+          sysData.itemModifiers.technology[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrWits"),
             skill: game.i18n.localize("YZECORIOLIS.SkillTechnology"),
@@ -410,8 +410,8 @@ export class yzecoriolisActor extends Actor {
         }
         // everything with the empathy-attribute
         if (item.system.itemModifiers[key].mod === "itemModifierAttrEmpathy") {
-          sysData.itemModifiers.empathy[key] = {
-            id: key,
+          sysData.itemModifiers.empathy[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
             skill: null,
@@ -419,8 +419,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.manipulation[key] = {
-            id: key,
+          sysData.itemModifiers.manipulation[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
             skill: null,
@@ -428,8 +428,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.command[key] = {
-            id: key,
+          sysData.itemModifiers.command[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
             skill: null,
@@ -437,8 +437,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.culture[key] = {
-            id: key,
+          sysData.itemModifiers.culture[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
             skill: null,
@@ -446,8 +446,8 @@ export class yzecoriolisActor extends Actor {
             value: item.system.itemModifiers[key].value,
             checked: false
           };
-          sysData.itemModifiers.mysticpowers[key] = {
-            id: key,
+          sysData.itemModifiers.mysticpowers[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
             skill: null,
@@ -457,8 +457,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillMan") {
-          sysData.itemModifiers.manipulation[key] = {
-            id: key,
+          sysData.itemModifiers.manipulation[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
             skill: game.i18n.localize("YZECORIOLIS.SkillManipulation"),
@@ -468,8 +468,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillCom") {
-          sysData.itemModifiers.command[key] = {
-            id: key,
+          sysData.itemModifiers.command[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
             skill: game.i18n.localize("YZECORIOLIS.SkillCommand"),
@@ -479,8 +479,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillCult") {
-          sysData.itemModifiers.culture[key] = {
-            id: key,
+          sysData.itemModifiers.culture[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
             skill: game.i18n.localize("YZECORIOLIS.SkillCulture"),
@@ -490,8 +490,8 @@ export class yzecoriolisActor extends Actor {
           };
         }
         if (item.system.itemModifiers[key].mod === "itemModifierSkillMys") {
-          sysData.itemModifiers.mysticpowers[key] = {
-            id: key,
+          sysData.itemModifiers.mysticpowers[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: game.i18n.localize("YZECORIOLIS.AttrEmpathy"),
             skill: game.i18n.localize("YZECORIOLIS.SkillMysticPowers"),
@@ -502,8 +502,8 @@ export class yzecoriolisActor extends Actor {
         }
         // other roll related modifiers
         if (item.system.itemModifiers[key].mod === "itemModifierArmor") {
-          sysData.itemModifiers.armor[key] = {
-            id: key,
+          sysData.itemModifiers.armor[`${key}|${item._id}`] = {
+            id: `${key}|${item._id}`,
             name: item.name,
             attribute: null,
             skill: null,
