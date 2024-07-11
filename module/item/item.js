@@ -52,12 +52,12 @@ export class yzecoriolisItem extends Item {
     const skillKey = getSkillKeyForWeaponType(itemData.melee);
     const attributeKey = getAttributeKeyForWeaponType(itemData.melee);
     const rollType = getRollType(item.type);
-    
+
     let bonus = itemData.bonus ? Number(itemData.bonus) : 0;
     if (rollType === "armor") {
       bonus = itemData.armorRating;
     }
-    
+
     let itemModifiers = {};
     if (rollType === 'armor') {
       itemModifiers = actorData.itemModifiers.armor;
@@ -140,7 +140,7 @@ export class yzecoriolisItem extends Item {
     const msg = {
       content: html,
     };
-    ChatMessage.create(msg, false);
+    await ChatMessage.create(msg);
   }
 
   _weaponChatData(data, labels, props) {

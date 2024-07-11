@@ -42,5 +42,6 @@ export const getActorDataById = (actorId) => {
 };
 
 export const hasOwnerPermissionLevel = (perm) => {
-  return perm === CONST.DOCUMENT_PERMISSION_LEVELS.OWNER;
+  const levels = CONST.DOCUMENT_PERMISSION_LEVELS || CONST.DOCUMENT_OWNERSHIP_LEVELS;
+  return perm === levels?.OWNER;
 };

@@ -170,7 +170,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     for (let i of actor.items) {
       let item = i.system;
       // setup equipped status
-      const isActive = getProperty(item, "equipped");
+      const isActive = foundry.utils.getProperty(item, "equipped");
       item.toggleClass = isActive ? "equipped" : "";
 
       // append to gear
@@ -486,7 +486,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const itemId = event.currentTarget.closest(".item").dataset.itemId;
     const item = this.actor.items.get(itemId);
     const attr = "system.equipped";
-    return item.update({ [attr]: !getProperty(item, attr) });
+    return item.update({ [attr]: !foundry.utils.getProperty(item, attr) });
   }
 
   /**
@@ -499,7 +499,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
     const actorData = this.actor.system;
-    
+
     const itemId = element.closest(".item")
       ? element.closest(".item").dataset.itemId
       : null;
@@ -553,7 +553,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       "systems/yzecoriolis/templates/sidebar/roll.html",
       dataset.rolltype
     );
-    new CoriolisModifierDialog(rollData, chatOptions).render(true);    
+    new CoriolisModifierDialog(rollData, chatOptions).render(true);
   }
 
   /**
