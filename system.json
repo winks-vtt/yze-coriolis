@@ -4,7 +4,7 @@
     "description": "Coriolis System for Foundry VTT.",
     "version": "3.8.0",
     "compatibility": {
-        "minimum": "10",
+        "minimum": "11",
         "verified": "12"
     },
     "templateVersion": 2,
