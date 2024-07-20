@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.9.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.8.0...v3.9.0) (2024-07-20)
+
+
+### Features
+
+* updated support to v12 ([65ecc00](https://www.github.com/winks-vtt/yze-coriolis/commit/65ecc00f2e037fa763aaaa5996f3ae86419d8912))
+
+
+### Miscellaneous
+
+* vsode settings ([44361df](https://www.github.com/winks-vtt/yze-coriolis/commit/44361dfef58d7e3603387a3e72cdc2f9a5a0f3e7))
+
 ## [3.8.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.7.0...v3.8.0) (2024-04-22)
 
 
