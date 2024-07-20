@@ -40,14 +40,14 @@ export async function coriolisRoll(chatOptions, rollData) {
  */
 export async function coriolisPushRoll(chatMessage, origRollData, origRoll) {
     origRollData.pushed = true;
-    origRoll.dice.forEach((part) => {
-      part.results.forEach((r) => {
+    for (let part of origRoll.dice) {
+      for (let r of part.results) {
         if (r.result !== CONFIG.YZECORIOLIS.maxRoll) {
           let newDie = new Die(6);
-          newDie.roll(1);
+          await newDie.roll(1);
           r.result = newDie.results[0].result;
         }
-      });
+      }
 
       // do not apply the prayer bonus on automatic fire rolls
       let bonus = origRollData.prayerBonus + origRollData.prayerModifiersBonus;
@@ -55,11 +55,11 @@ export async function coriolisPushRoll(chatMessage, origRollData, origRoll) {
         part.number = part.number + bonus;
         for (let i = 0; i < bonus; i++) {
           let newDie = new Die(6);
-          newDie.roll(1);
+          await newDie.roll(1);
           part.results.push(newDie.results[0]);
         }
       }
-    });
+    }
 
     await showDiceSoNice(origRoll, chatMessage.rollMode);
     const result = evaluateCoriolisRoll(origRollData, origRoll);
@@ -206,7 +206,8 @@ async function showChatMessage(chatMsgOptions, resultData, roll) {
   chatMsgOptions.roll = roll;
   const html = await renderTemplate(chatMsgOptions.template, chatData);
   chatMsgOptions["content"] = html;
-  const msg = await ChatMessage.create(chatMsgOptions, false);
+  chatMsgOptions["rolls"] = [roll];
+  const msg = await ChatMessage.create(chatMsgOptions);
   // attach the results to the chat message so we can push later if needed.
   await msg.setFlag("yzecoriolis", "results", chatData.results);
   return msg;
@@ -433,6 +434,7 @@ export async function coriolisChatListeners(html) {
       messageId = button.parents(".message").attr("data-message-id"),
       message = game.messages.get(messageId);
     let results = message.getFlag("yzecoriolis", "results");
+    console.log(message);
     let originalRoll = message.rolls[0]; // TODO: handle this in a safer manner.
     if (message.flags.data?.results.pushed) {
       let errorObj = { error: "YZECORIOLIS.ErrorsAlreadyPushed" };
