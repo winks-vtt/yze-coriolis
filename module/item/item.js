@@ -18,7 +18,8 @@ export class yzecoriolisItem extends Item {
     if (itemData.type === "talent") this._prepareTalentData(itemData);
 
     // Migrate wrong blastPower-values
-    if (itemData.type === "weapon" && itemData.system.explosive) migrateBlastPower(itemData);
+    if (itemData.type === "weapon" && itemData.system.explosive)
+      migrateBlastPower(itemData);
   }
 
   // eslint-disable-next-line no-unused-vars
@@ -59,7 +60,7 @@ export class yzecoriolisItem extends Item {
     }
 
     let itemModifiers = {};
-    if (rollType === 'armor') {
+    if (rollType === "armor") {
       itemModifiers = actorData.itemModifiers.armor;
     } else {
       if (actorData.itemModifiers[skillKey]) {
@@ -153,22 +154,6 @@ export class yzecoriolisItem extends Item {
     for (let p of Object.values(this.system.special)) {
       props.push(p);
     }
-  }
-
-  /**
-   * Foundry doesn't have a built-in way to hide certain item types. This is a
-   * work around.
-   * @override
-   */
-  static async createDialog(data, options) {
-    const hiddenItems = ["energyPointToken", "item"];
-    const original = game.system.documentTypes.Item;
-    game.system.documentTypes.Item = original.filter(
-      (itemType) => !hiddenItems.includes(itemType)
-    );
-    const newItem = super.createDialog(data, options);
-    game.system.documentTypes.Item = original;
-    return newItem;
   }
 }
 
