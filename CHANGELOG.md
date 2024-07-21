@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.9.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.9.0...v3.9.1) (2024-07-21)
+
+
+### Bug Fixes
+
+* can create items in v12 ([300aed9](https://www.github.com/winks-vtt/yze-coriolis/commit/300aed936acde1001a23c97c6635594204812a5b))
+
 ## [3.9.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.8.0...v3.9.0) (2024-07-20)
 
 
