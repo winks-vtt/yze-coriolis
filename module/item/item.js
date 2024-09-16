@@ -25,9 +25,11 @@ export class yzecoriolisItem extends Item {
   // eslint-disable-next-line no-unused-vars
   _prepareTalentData(itemData) {
     // TODO: prep talent data
+  }
 
-    // Migrate HP & MP-Bonus to Modifiers
-    migrateTalentBonus(itemData);
+  static migrateData(source) {
+    migrateTalentBonus(source);
+    return super.migrateData(source);
   }
 
   async _preCreate(initData, options, user) {
