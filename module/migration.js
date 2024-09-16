@@ -1,6 +1,5 @@
 import { addDarknessPoints } from "./darkness-points.js";
 import { getDefaultItemIcon } from "./item/item.js";
-import { getID } from "./util.js";
 /**
  * Perform a system migration for the entire World, applying migrations for Actors, Items, and Compendium packs
  * @return {Promise}      A Promise which resolves once the migration is completed
@@ -336,24 +335,30 @@ export const migrateActorKeyArtIfNeeded = function (actor) {
   }
 };
 
-export const migrateBlastPower = function(itemData) {
+export const migrateBlastPower = function (itemData) {
+  if (itemData._id === null) {
+    return;
+  }
   if (itemData.system.crit.blastPower) {
-    itemData.update({"system.blastPower": itemData.system.crit.blastPower});
-    itemData.update({"system.crit.blastPower": null});
+    itemData.update({ "system.blastPower": itemData.system.crit.blastPower });
+    itemData.update({ "system.crit.blastPower": null });
   }
 };
 
-export const migrateTalentBonus = function(itemData) {
-  if (!itemData.compendium?.locked && itemData.system.hpBonus) {
-    let keyHpMod = getID();
-    let nameHpMod = ["si" + keyHpMod];
-    itemData.update({"system.itemModifiers": {nameHpMod: {"mod": "itemModifierHP", "value": itemData.system.hpBonus}}});
-    itemData.update({"system.hpBonus": null});
+export const migrateTalentBonus = function (source) {
+  if (source.type !== "talent") {
+    return;
   }
-  if (!itemData.compendium?.locked && itemData.system.mpBonus) {
-    let keyMpMod = getID();
-    let nameMpMod = ["si" + keyMpMod];
-    itemData.update({"system.itemModifiers": {nameMpMod: {"mod": "itemModifierMP", "value": itemData.system.mpBonus}}});
-    itemData.update({"system.mpBonus": null});
+  if (!source.compendium?.locked && source.system?.hpBonus) {
+    source.system.itemModifiers = {
+      nameHpMod: { mod: "itemModifierHP", value: source.system?.hpBonus },
+    };
+    source.system.hpBonus = null;
+  }
+  if (!source.compendium?.locked && source.system?.mpBonus) {
+    source.system.itemModifiers = {
+      nameMpMod: { mod: "itemModifierMP", value: source.system?.mpBonus },
+    };
+    source.system.mpBonus = null;
   }
 };

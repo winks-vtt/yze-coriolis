@@ -18,16 +18,20 @@ export class yzecoriolisItem extends Item {
     if (itemData.type === "talent") this._prepareTalentData(itemData);
 
     // Migrate wrong blastPower-values
-    if (itemData.type === "weapon" && itemData.system.explosive)
+    if (itemData.type === "weapon" && itemData.system.explosive) {
+      // TODO: move this to migrateData
       migrateBlastPower(itemData);
+    }
   }
 
   // eslint-disable-next-line no-unused-vars
   _prepareTalentData(itemData) {
     // TODO: prep talent data
+  }
 
-    // Migrate HP & MP-Bonus to Modifiers
-    migrateTalentBonus(itemData);
+  static migrateData(source) {
+    migrateTalentBonus(source);
+    return super.migrateData(source);
   }
 
   async _preCreate(initData, options, user) {
