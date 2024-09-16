@@ -1,5 +1,13 @@
 # Changelog
 
+### [3.9.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.9.1...v3.9.2) (2024-09-16)
+
+
+### Bug Fixes
+
+* added TODO for future migration work ([26937f4](https://www.github.com/winks-vtt/yze-coriolis/commit/26937f4caa50e22b368cf93a0582e5c5b6c1fec4))
+* migrate talent bonus using standard foundry way of migration ([691f3fc](https://www.github.com/winks-vtt/yze-coriolis/commit/691f3fc3ef9daf588e637386b20d2e4e074f87ba))
+
 ### [3.9.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.9.0...v3.9.1) (2024-07-21)
 
 
