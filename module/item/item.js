@@ -18,8 +18,10 @@ export class yzecoriolisItem extends Item {
     if (itemData.type === "talent") this._prepareTalentData(itemData);
 
     // Migrate wrong blastPower-values
-    if (itemData.type === "weapon" && itemData.system.explosive)
+    if (itemData.type === "weapon" && itemData.system.explosive) {
+      // TODO: move this to migrateData
       migrateBlastPower(itemData);
+    }
   }
 
   // eslint-disable-next-line no-unused-vars
