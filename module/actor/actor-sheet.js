@@ -336,7 +336,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // for display purposes we'll halve everything so that encumbrance makes
     // sense to users that are familiar with the rules.
     let enc = {
-      max: (strengthValue / 2) + this.actor.system.encumbranceMods,
+      max: strengthValue / 2 + this.actor.system.encumbranceMods,
       value: totalWeight / 2,
     };
     let pct = (enc.value / enc.max) * 100;
@@ -497,12 +497,10 @@ export class yzecoriolisActorSheet extends ActorSheet {
     const itemId = element.closest(".item")
       ? element.closest(".item").dataset.itemId
       : null;
-    const item = itemId
-      ? this.actor.items.get(itemId).system
-      : null;
+    const item = itemId ? this.actor.items.get(itemId).system : null;
 
     let itemModifiers = {};
-    if (dataset.rolltype === 'armor') {
+    if (dataset.rolltype === "armor") {
       itemModifiers = actorData.itemModifiers.armor;
     } else {
       if (actorData.itemModifiers[dataset.skillkey]) {
@@ -520,13 +518,9 @@ export class yzecoriolisActorSheet extends ActorSheet {
         ? actorData.attributes[dataset.attributekey].value
         : 0,
       skillKey: dataset.skillkey,
-      skill: dataset.skillkey
-        ? actorData.skills[dataset.skillkey].value
-        : 0,
+      skill: dataset.skillkey ? actorData.skills[dataset.skillkey].value : 0,
       modifier: 0,
-      bonus: dataset.bonus
-        ? Number(dataset.bonus)
-        : 0,
+      bonus: dataset.bonus ? Number(dataset.bonus) : 0,
       rollTitle: dataset.label,
       pushed: false,
       isAutomatic: item?.automatic,
@@ -538,9 +532,7 @@ export class yzecoriolisActorSheet extends ActorSheet {
       range: item?.range,
       crit: item?.crit?.numericValue,
       critText: item?.crit?.customValue,
-      features: item?.special
-        ? Object.values(item.special).join(", ")
-        : "",
+      features: item?.special ? Object.values(item.special).join(", ") : "",
       itemModifiers: itemModifiers,
     };
     const chatOptions = this.actor._prepareChatRollOptions(
