@@ -331,7 +331,8 @@ export const migrateActorKeyArtIfNeeded = function (actor) {
     (actor.type === "npc" || actor.type === "character") &&
     actor.system?.keyArt
   ) {
-    actor.update(createActorKeyArtUpdate(actor));
+    actor.img = actor.system.keyArt;
+    actor.system.keyArt = "";
   }
 };
 

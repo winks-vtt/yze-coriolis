@@ -1,4 +1,7 @@
-import { migrateTalentBonus } from "../migration.js";
+import {
+  migrateActorKeyArtIfNeeded,
+  migrateTalentBonus,
+} from "../migration.js";
 /**
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -56,11 +59,14 @@ export class yzecoriolisActor extends Actor {
   }
 
   static migrateData(source) {
-    for (let item of source.items) {
-      if (item.type !== "talent") {
-        continue;
+    migrateActorKeyArtIfNeeded(source);
+    if (source.items) {
+      for (let item of source.items) {
+        if (item.type !== "talent") {
+          continue;
+        }
+        migrateTalentBonus(item);
       }
-      migrateTalentBonus(item);
     }
     return super.migrateData(source);
   }
