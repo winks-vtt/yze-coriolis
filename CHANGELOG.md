@@ -1,5 +1,13 @@
 # Changelog
 
+### [3.9.3](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.9.2...v3.9.3) (2024-09-17)
+
+
+### Bug Fixes
+
+* formatting ([60e9be7](https://www.github.com/winks-vtt/yze-coriolis/commit/60e9be79e0d1c0ffbbd29c3ded29aede3d2a4d61))
+* migrate keyart via fvtt official api ([b9bd89e](https://www.github.com/winks-vtt/yze-coriolis/commit/b9bd89e5f13994e390a385f8638335090ae70b45))
+
 ### [3.9.2](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.9.1...v3.9.2) (2024-09-16)
 
 
