@@ -27,7 +27,7 @@ export async function coriolisRoll(chatOptions, rollData) {
     : `${totalDice}d6`;
   let roll = new Roll(formula);
   await roll.evaluate({ async: false });
-  await showDiceSoNice(roll, chatOptions.rollMode);
+  /* await showDiceSoNice(roll, chatOptions.rollMode); */
   const result = evaluateCoriolisRoll(rollData, roll);
   await showChatMessage(chatOptions, result, roll);
 }
