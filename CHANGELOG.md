@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.9.4](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.9.3...v3.9.4) (2024-12-30)
+
+
+### Bug Fixes
+
+* dice so nice from rolling twice ([7a413d8](https://www.github.com/winks-vtt/yze-coriolis/commit/7a413d875df487135fd89ce4594f87c9e4411dcf))
+
 ### [3.9.3](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.9.2...v3.9.3) (2024-09-17)
 
 
