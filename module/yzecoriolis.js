@@ -13,11 +13,7 @@ import {
 } from "./item/item.js";
 import * as migrations from "./migration.js";
 import { preloadHandlerbarsTemplates } from "./templates.js";
-import {
-  addDarknessPoints,
-  spendDarknessPoints,
-  displayDarknessPoints,
-} from "./darkness-points.js";
+import { displayDarknessPoints } from "./darkness-points.js";
 import { getActorDataById } from "./util.js";
 import {
   importShipSheetTutorial,
@@ -363,33 +359,13 @@ Hooks.on("getSceneControlButtons", (controls) => {
   console.log("controls->");
   console.log(controls);
   let dpControls = {
-    add: {
-      name: "add",
-      title: "YZECORIOLIS.DarknessPointsAdd",
-      icon: "fas fa-plus",
-      buttons: true,
-      visible: game.user.isGM,
-      onClick: () => {
-        addDarknessPoints(1);
-      },
-    },
-    subtract: {
-      name: "substract",
-      title: "YZECORIOLIS.DarknessPointsRemove",
-      icon: "fas fa-minus",
-      buttons: true,
-      visible: game.user.isGM,
-      onClick: () => {
-        spendDarknessPoints(1);
-      },
-    },
     inspect: {
       name: "inspect",
       title: "YZECORIOLIS.DarknessPoints",
       icon: "fas fa-question",
-      buttons: true,
+      button: true,
       visible: game.user.isGM,
-      onClick: () => {
+      onChange: () => {
         displayDarknessPoints();
       },
     },
@@ -397,11 +373,11 @@ Hooks.on("getSceneControlButtons", (controls) => {
       name: "display",
       title: "YZECORIOLIS.DarknessPointsControls",
       icon: "fas fa-moon",
-      buttons: true,
+      button: true,
       visible: game.settings.get("yzecoriolis", "DarknessPointsVisibility")
         ? true
         : game.user.isGM,
-      onClick: () => {
+      onChange: () => {
         DarknessPointDisplay.render();
       },
     },
@@ -410,50 +386,6 @@ Hooks.on("getSceneControlButtons", (controls) => {
     controls.tokens.tools,
     dpControls
   );
-  // group.tools.push(
-  //   {
-  //     name: "add",
-  //     title: "YZECORIOLIS.DarknessPointsAdd",
-  //     icon: "fas fa-plus",
-  //     buttons: true,
-  //     visible: game.user.isGM,
-  //     onClick: () => {
-  //       addDarknessPoints(1);
-  //     },
-  //   },
-  //   {
-  //     name: "substract",
-  //     title: "YZECORIOLIS.DarknessPointsRemove",
-  //     icon: "fas fa-minus",
-  //     buttons: true,
-  //     visible: game.user.isGM,
-  //     onClick: () => {
-  //       spendDarknessPoints(1);
-  //     },
-  //   },
-  //   {
-  //     name: "inspect",
-  //     title: "YZECORIOLIS.DarknessPoints",
-  //     icon: "fas fa-question",
-  //     buttons: true,
-  //     visible: game.user.isGM,
-  //     onClick: () => {
-  //       displayDarknessPoints();
-  //     },
-  //   },
-  //   {
-  //     name: "display",
-  //     title: "YZECORIOLIS.DarknessPointsControls",
-  //     icon: "fas fa-moon",
-  //     buttons: true,
-  //     visible: game.settings.get("yzecoriolis", "DarknessPointsVisibility")
-  //       ? true
-  //       : game.user.isGM,
-  //     onClick: () => {
-  //       DarknessPointDisplay.render();
-  //     },
-  //   }
-  // );
 });
 
 Hooks.once("ready", async function () {
