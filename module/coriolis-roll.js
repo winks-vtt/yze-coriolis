@@ -429,7 +429,9 @@ function getPrayerModifiersChecked(rollData) {
 }
 
 export async function coriolisChatListeners(html) {
-  html.on("click", ".dice-push", (ev) => {
+  console.log("html");
+  console.log(html);
+  $(html).on("click", ".dice-push", (ev) => {
     let button = $(ev.currentTarget),
       messageId = button.parents(".message").attr("data-message-id"),
       message = game.messages.get(messageId);
@@ -441,7 +443,11 @@ export async function coriolisChatListeners(html) {
       ui.notifications.error(new Error(game.i18n.localize(errorObj.error)));
       return;
     } else {
-      new CoriolisModifierDialog(message, results.rollData, originalRoll).render(true);
+      new CoriolisModifierDialog(
+        message,
+        results.rollData,
+        originalRoll
+      ).render(true);
     }
   });
 }
