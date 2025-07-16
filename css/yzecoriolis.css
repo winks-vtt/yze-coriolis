@@ -2787,45 +2787,45 @@
 .yzecoriolis.chat-item strong {
   text-transform: uppercase;
 }
-.yzecoriolis.sheet .flexcol {
+.yzecoriolis.sheet .window-content .flexcol {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
 }
-.yzecoriolis.sheet .flexcol > * {
+.yzecoriolis.sheet .window-content .flexcol > * {
   flex: 1;
 }
-.yzecoriolis.sheet .flexcol .flex1 {
+.yzecoriolis.sheet .window-content .flexcol .flex1 {
   flex: 1;
 }
-.yzecoriolis.sheet .flexcol .flex2 {
+.yzecoriolis.sheet .window-content .flexcol .flex2 {
   flex: 2;
 }
-.yzecoriolis.sheet .flexcol .flex3 {
+.yzecoriolis.sheet .window-content .flexcol .flex3 {
   flex: 3;
 }
-.yzecoriolis.sheet .flexcol .flex4 {
+.yzecoriolis.sheet .window-content .flexcol .flex4 {
   flex: 4;
 }
-.yzecoriolis.sheet .flexrow {
+.yzecoriolis.sheet .window-content .flexrow {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
-.yzecoriolis.sheet .flexrow > * {
+.yzecoriolis.sheet .window-content .flexrow > * {
   flex: 1;
 }
-.yzecoriolis.sheet .flexrow .flex1 {
+.yzecoriolis.sheet .window-content .flexrow .flex1 {
   flex: 1;
 }
-.yzecoriolis.sheet .flexrow .flex2 {
+.yzecoriolis.sheet .window-content .flexrow .flex2 {
   flex: 2;
 }
-.yzecoriolis.sheet .flexrow .flex3 {
+.yzecoriolis.sheet .window-content .flexrow .flex3 {
   flex: 3;
 }
-.yzecoriolis.sheet .flexrow .flex4 {
+.yzecoriolis.sheet .window-content .flexrow .flex4 {
   flex: 4;
 }
 .chat-item-img {
