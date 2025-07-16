@@ -134,7 +134,7 @@ Hooks.once("init", async function () {
   });
 
   Handlebars.registerHelper("if_objectNotEmpty", function (obj, opts) {
-    if (typeof obj === 'object' && obj !== null) {
+    if (typeof obj === "object" && obj !== null) {
       if (Object.keys(obj).length > 0) {
         return opts.fn(this);
       } else {
@@ -143,7 +143,6 @@ Hooks.once("init", async function () {
     } else {
       return opts.inverse(this);
     }
-    
   });
 
   Handlebars.registerHelper("getSkillName", function (skillkey) {
@@ -291,7 +290,7 @@ Hooks.once("init", async function () {
   });
 
   Handlebars.registerHelper("subtract", function (a, b) {
-    return parseInt(a)-parseInt(b);
+    return parseInt(a) - parseInt(b);
   });
 });
 
@@ -361,9 +360,10 @@ Hooks.on("renderChatMessage", (app, html, msg) => {
 });
 
 Hooks.on("getSceneControlButtons", (controls) => {
-  let group = controls.find((b) => b.name == "token");
-  group.tools.push(
-    {
+  console.log("controls->");
+  console.log(controls);
+  let dpControls = {
+    add: {
       name: "add",
       title: "YZECORIOLIS.DarknessPointsAdd",
       icon: "fas fa-plus",
@@ -373,7 +373,7 @@ Hooks.on("getSceneControlButtons", (controls) => {
         addDarknessPoints(1);
       },
     },
-    {
+    subtract: {
       name: "substract",
       title: "YZECORIOLIS.DarknessPointsRemove",
       icon: "fas fa-minus",
@@ -383,7 +383,7 @@ Hooks.on("getSceneControlButtons", (controls) => {
         spendDarknessPoints(1);
       },
     },
-    {
+    inspect: {
       name: "inspect",
       title: "YZECORIOLIS.DarknessPoints",
       icon: "fas fa-question",
@@ -393,7 +393,7 @@ Hooks.on("getSceneControlButtons", (controls) => {
         displayDarknessPoints();
       },
     },
-    {
+    display: {
       name: "display",
       title: "YZECORIOLIS.DarknessPointsControls",
       icon: "fas fa-moon",
@@ -404,8 +404,56 @@ Hooks.on("getSceneControlButtons", (controls) => {
       onClick: () => {
         DarknessPointDisplay.render();
       },
-    }
+    },
+  };
+  controls.tokens.tools = foundry.utils.mergeObject(
+    controls.tokens.tools,
+    dpControls
   );
+  // group.tools.push(
+  //   {
+  //     name: "add",
+  //     title: "YZECORIOLIS.DarknessPointsAdd",
+  //     icon: "fas fa-plus",
+  //     buttons: true,
+  //     visible: game.user.isGM,
+  //     onClick: () => {
+  //       addDarknessPoints(1);
+  //     },
+  //   },
+  //   {
+  //     name: "substract",
+  //     title: "YZECORIOLIS.DarknessPointsRemove",
+  //     icon: "fas fa-minus",
+  //     buttons: true,
+  //     visible: game.user.isGM,
+  //     onClick: () => {
+  //       spendDarknessPoints(1);
+  //     },
+  //   },
+  //   {
+  //     name: "inspect",
+  //     title: "YZECORIOLIS.DarknessPoints",
+  //     icon: "fas fa-question",
+  //     buttons: true,
+  //     visible: game.user.isGM,
+  //     onClick: () => {
+  //       displayDarknessPoints();
+  //     },
+  //   },
+  //   {
+  //     name: "display",
+  //     title: "YZECORIOLIS.DarknessPointsControls",
+  //     icon: "fas fa-moon",
+  //     buttons: true,
+  //     visible: game.settings.get("yzecoriolis", "DarknessPointsVisibility")
+  //       ? true
+  //       : game.user.isGM,
+  //     onClick: () => {
+  //       DarknessPointDisplay.render();
+  //     },
+  //   }
+  // );
 });
 
 Hooks.once("ready", async function () {
