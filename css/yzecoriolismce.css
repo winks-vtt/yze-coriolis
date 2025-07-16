@@ -49,27 +49,6 @@
 .fr-basic .flex1 {
   flex: 1;
 }
-.flexrow {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-.flexrow > * {
-  flex: 1;
-}
-.flexrow .flex1 {
-  flex: 1;
-}
-.flexrow .flex2 {
-  flex: 2;
-}
-.flexrow .flex3 {
-  flex: 3;
-}
-.flexrow .flex4 {
-  flex: 4;
-}
 .debug {
   border: 1px solid red;
 }
