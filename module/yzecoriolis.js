@@ -336,28 +336,22 @@ Hooks.once("setup", function () {
   }
 });
 
-// Activate chat listeners for coriolis
 // eslint-disable-next-line no-unused-vars
-Hooks.on("renderChatLog", (log, html, data) => {
-  coriolisChatListeners(html);
-});
-
-Hooks.on("renderChatMessage", (app, html, msg) => {
+Hooks.on("renderChatMessageHTML", (msg, html, context) => {
+  coriolisChatListeners($(html));
   // Do not display "Blind" chat cards to non-gm
-  if (html.hasClass("blind") && !game.user.isGM) {
+  if ($(html).hasClass("blind") && !game.user.isGM) {
     // since the header has timestamp content we'll remove the content instead.
     // this avoids an NPE when foundry tries to update the timestamps.
-    html.find(".message-content").remove();
+    $(html).find(".message-content").remove();
   }
   // remove push option from non-authors
   if (!game.user.isGM && msg.message.user !== game.user.id) {
-    html.find(".dice-push").remove();
+    $(html).find(".dice-push").remove();
   }
 });
 
 Hooks.on("getSceneControlButtons", (controls) => {
-  console.log("controls->");
-  console.log(controls);
   let dpControls = {
     inspect: {
       name: "inspect",
