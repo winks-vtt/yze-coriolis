@@ -429,8 +429,6 @@ function getPrayerModifiersChecked(rollData) {
 }
 
 export async function coriolisChatListeners(html) {
-  console.log("html");
-  console.log(html);
   $(html).on("click", ".dice-push", (ev) => {
     let button = $(ev.currentTarget),
       messageId = button.parents(".message").attr("data-message-id"),
