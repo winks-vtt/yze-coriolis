@@ -2,9 +2,9 @@
     "id": "yzecoriolis",
     "title": "Coriolis",
     "description": "Coriolis System for Foundry VTT.",
-    "version": "3.9.4",
+    "version": "4.0.0",
     "compatibility": {
-        "minimum": "12",
+        "minimum": "13",
         "verified": "13",
         "maximum": "13"
     },
