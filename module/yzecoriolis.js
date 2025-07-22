@@ -35,8 +35,10 @@ Hooks.once("init", async function () {
   // Setup TinyMCE stylings
   CONFIG.TinyMCE.content_css = "systems/yzecoriolis/css/yzecoriolismce.css";
 
+  // foundry.appv1.sheets.JournalSheet;
+  // JournalEntry
   DocumentSheetConfig.registerSheet(
-    JournalEntry,
+    foundry.appv1.sheets.JournalSheet,
     "yzecoriolis",
     coriolisJournalSheet,
     { makeDefault: true }
