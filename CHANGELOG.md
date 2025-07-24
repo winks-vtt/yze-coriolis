@@ -1,5 +1,32 @@
 # Changelog
 
+### [3.9.5](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.9.4...v3.9.5) (2025-07-24)
+
+
+### Bug Fixes
+
+* bump version to 4.0 for v13 support ([0bab325](https://www.github.com/winks-vtt/yze-coriolis/commit/0bab325d2909c8b29dd7e0867a797c2cb06982a2))
+* chat listener registration ([7f7e2dd](https://www.github.com/winks-vtt/yze-coriolis/commit/7f7e2ddce9b021ef7dd163b7855ac8e827df0ab7))
+* chat listener registration ([f8bf04f](https://www.github.com/winks-vtt/yze-coriolis/commit/f8bf04fd3ae83a0c2398176dabb0001fb613304d))
+* chat listener registration for pop up messages ([14eb678](https://www.github.com/winks-vtt/yze-coriolis/commit/14eb678f8eb153afe0c8d94cc33014054c2a5a90))
+* css styling issues with official content ([6f73fa3](https://www.github.com/winks-vtt/yze-coriolis/commit/6f73fa3b7aa3b1463034ce16c85f5624eacb0ed0))
+* darkness point controls ([a60061a](https://www.github.com/winks-vtt/yze-coriolis/commit/a60061aebd92e215f9ed82d786a0ca69faff34c8))
+* make flexcol/row scope more specific to sheets to exclude window headers ([924a874](https://www.github.com/winks-vtt/yze-coriolis/commit/924a8741dd5e1a9e25aacdd2514b848ff93ef754))
+* remove add/substract of darkness points and just use the darkness points control HUD. Inspection button is still there. ([ed0759b](https://www.github.com/winks-vtt/yze-coriolis/commit/ed0759b20deb16df5fe390a09104da362742b6ae))
+* scope  flexcol to only apply to sheets ([4e1494a](https://www.github.com/winks-vtt/yze-coriolis/commit/4e1494ae8f757eea2498617d8adb065cb03089e6))
+* scope  flexcol to only apply to sheets ([e023205](https://www.github.com/winks-vtt/yze-coriolis/commit/e02320531a12d73afb1505606d7f7d975655d283))
+* scope  flexcol to only apply to sheets ([148f330](https://www.github.com/winks-vtt/yze-coriolis/commit/148f33090fe51708765184d1e654ba682aff60a4))
+* scope  flexrow to only apply to sheets ([5f3be4b](https://www.github.com/winks-vtt/yze-coriolis/commit/5f3be4b0100bd9cd455c47df8e548813c2db2a26))
+* styling that got broken in v13 update ([9a76020](https://www.github.com/winks-vtt/yze-coriolis/commit/9a7602004dedcda7d755750b3d2db7ae6d7c5b9a))
+* update hook callback ([e986ed7](https://www.github.com/winks-vtt/yze-coriolis/commit/e986ed7347fea4d50fd1fce38c6ebbc1cfdead7c))
+* version bump ([f511e1c](https://www.github.com/winks-vtt/yze-coriolis/commit/f511e1c50e636186344adef6e88f868571e62d52))
+* version bump to v4 ([8a2628c](https://www.github.com/winks-vtt/yze-coriolis/commit/8a2628ce94d8db5b657806e95f760e705fb7cbfd))
+
+
+### Miscellaneous
+
+* stubbing out v13 compliant system definition ([88c1223](https://www.github.com/winks-vtt/yze-coriolis/commit/88c1223b67edbf9faa331bfdae964aa8bea5c73e))
+
 ### [3.9.4](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.9.3...v3.9.4) (2024-12-30)
 
 
