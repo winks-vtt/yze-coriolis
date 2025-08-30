@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.0.1](https://www.github.com/winks-vtt/yze-coriolis/compare/v4.0.0...v4.0.1) (2025-08-30)
+
+
+### Bug Fixes
+
+* talent creation no longer breaks actor sheets ([c46d4b3](https://www.github.com/winks-vtt/yze-coriolis/commit/c46d4b38fd107334e12b276febc7bcd8513d13d5))
+
 ## [4.0.0](https://www.github.com/winks-vtt/yze-coriolis/compare/v3.9.4...v4.0.0) (2025-07-24)
 
 
