@@ -452,7 +452,8 @@ export class yzecoriolisActorSheet extends ActorSheet {
     // Get the type of item to create.
     const type = header.dataset.type;
     // Grab any data associated with this control.
-    const dataset = foundry.utils.deepClone(header.dataset);
+    // This is a DOMstringmap now in v13, need to convert to normal object.
+    const dataset = Object.assign({}, foundry.utils.deepClone(header.dataset));
     // Initialize a default name.
     const name = dataset.defaultname;
     // Prepare the item object.
